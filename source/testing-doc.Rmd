@@ -1,0 +1,40 @@
+---
+title: "COVID State Web Scraping"
+author: "Christian Pascual"
+date: "5/3/2020"
+output: html_document
+---
+
+Main URL is [here](https://nvhealthresponse.nv.gov/)
+
+Nevada Site Notes:
+
+- They have a dashboard powered by Microsoft Power BI
+- They also have [another dashboard](https://app.powerbigov.us/view?r=eyJrIjoiNDMwMDI0YmQtNmUyYS00ZmFjLWI0MGItZDM0OTY1Y2Y0YzNhIiwidCI6ImU0YTM0MGU2LWI4OWUtNGU2OC04ZWFhLTE1NDRkMjcwMzk4MCJ9) with slightly different sets of information
+
+There are also [daily situation reports](https://nvhealthresponse.nv.gov/news-resources/daily-situation-reports/)
+
+- total tested	
+- total case	
+
+- total tested today	
+- total positive today	
+- total death today	
+
+- positive_race	
+- positive_age	
+- positive_gender	
+- positivity rate	
+
+- county details	
+
+- total death	
+- death_race	
+- death_age	
+- death_gender	
+
+- comorbidities	
+- total_hosp	
+- hosp_race	
+- hosp_age	
+- hosp_gender	
