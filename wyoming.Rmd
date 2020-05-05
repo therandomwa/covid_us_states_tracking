@@ -10,9 +10,60 @@ knitr::opts_chunk$set(echo = TRUE)
 library(tidyverse)
 library(httr)
 library(rvest)
+library(pdftools)
+library(glue)
 ```
 
+
+### Wyoming
+
 ```{r, scrape}
-url = 
+url = "https://health.wyo.gov/publichealth/infectious-disease-epidemiology-unit/disease/novel-coronavirus/covid-19-map-and-statistics/"
+
+wy_xml = read_html(url)
+```
+
+
+### New Hampshire
+
+```{r, nh_scrape}
+date = "04272020"
+
+# put the date into url and create a way to automatically run things with different dates
+url = "https://www.dhhs.nh.gov/dphs/cdcs/covid19/covid-weekly-report-{date}.pdf"
+url = glue(url)
+
+nh_text = pdf_text(url) %>%
+  readr::read_lines()
+
+nh_text
+
+# save text for first table
+outcome_table = nh_text[4:7] %>%
+  str_replace(",", "") %>%
+  str_replace("Intensive Care Unit", "ICU")
+
+# save text for first demographic table
+demo1 = nh_text[9:25] %>%
+  str_replace_all("% of Total", "Total_Perc") %>%
+  str_replace("SUMMARY OF PERSONS WITH COVID-19", "Characteristic") %>%
+  str_replace("Healthcare Workers", "Healthcare_workers") %>%
+  str_replace("Age Group \\(in years\\)", "Age_grp") %>%
+  str_replace_all(" - ", "_") %>%
+  str_replace("-", "_") %>%
+  str_replace(",", "") %>%
+  str_replace(" \\+", "_")
+ 
+# save text for second demographic table (race/eth)
+demo2 = nh_text[36:45] %>%
+  str_replace_all("% of Total", "Total_Perc") %>%
+  str_replace("Race/Ethnicity", "Race_Eth") %>%
+  str_replace("White2", "White") %>%
+  str_replace("Hispanic/Latino1", "Hisp_Lat") %>%
+  str_replace("Black or African American2", "Black") %>%
+  str_replace("Other3", "Other") %>%
+  str_replace("Asian2", "Asian") %>%
+  str_replace("Total Persons with", "Tot_info") %>%
+  str_replace(",", "") 
 ```
 
