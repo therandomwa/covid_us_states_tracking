@@ -41,7 +41,9 @@ nh_text
 # save text for first table
 outcome_table = nh_text[4:7] %>%
   str_replace(",", "") %>%
-  str_replace("Intensive Care Unit", "ICU")
+  str_replace("Intensive Care Unit", "ICU") %>%
+  str_squish() %>%
+  strsplit(split = " ")
 
 # save text for first demographic table
 demo1 = nh_text[9:25] %>%
@@ -52,7 +54,9 @@ demo1 = nh_text[9:25] %>%
   str_replace_all(" - ", "_") %>%
   str_replace("-", "_") %>%
   str_replace(",", "") %>%
-  str_replace(" \\+", "_")
+  str_replace(" \\+", "_") %>%
+  str_squish() %>%
+  strsplit(split = " ")
  
 # save text for second demographic table (race/eth)
 demo2 = nh_text[36:45] %>%
@@ -64,6 +68,9 @@ demo2 = nh_text[36:45] %>%
   str_replace("Other3", "Other") %>%
   str_replace("Asian2", "Asian") %>%
   str_replace("Total Persons with", "Tot_info") %>%
-  str_replace(",", "") 
+  str_replace("Percent of NH", "Perc_NH") %>%
+  str_replace(",", "") %>%
+  str_squish() %>%
+  strsplit(split = " ")
 ```
 
