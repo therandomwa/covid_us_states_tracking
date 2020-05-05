@@ -1,0 +1,84 @@
+---
+title: "COVID State Web Scraping"
+output: html_document
+---
+
+```{r, message = FALSE, warning = FALSE }
+library(tidyverse)
+library(pdftools)
+library(rvest)
+library(lubridate)
+```
+
+# Nevada
+
+- Doesn't work out because data is hidden under the Microsoft BI dashboard and the pdfs that hold the data show images, not text
+
+```{r}
+nevada = read_html("https://nvhealthresponse.nv.gov/") %>% 
+    html_nodes(".js-side-cta") %>% 
+    html_nodes(".split-content-section") %>% 
+    html_nodes(".split-content-section__container") %>% 
+    html_nodes(".content-intro") %>% 
+    html_nodes("iframe") %>% 
+    xml_attrs() %>% 
+    .[[1]] %>% 
+    .[1] %>% # This returns another html that comes from the iframe
+    read_html() %>% 
+    html_nodes("#pbiAppPlaceHolder")
+  
+  return(nevada)
+```
+
+# Iowa
+
+```{r}
+# The access dashboard doesnt seem to allow us to look at the data
+# Need to access the data through daily pdfs
+
+# Pain point: must redownload pdf from Tableau table every day, 
+# then put it in pdfs folder
+# Download the "Current Status" and "Demographics" sheets as pdf 
+
+now = Sys.time() %>% as_date() %>% as.character()
+date_for_url = paste0(str_sub(now, 6,7), 
+                      str_sub(now, 9, 10), 
+                      str_sub(now, 1,4))
+
+iowa = pdf_text(paste0("../pdfs/IowaCOVID19_", date_for_url, ".pdf"))
+
+extract_iowa_data = function(pdf_data) {
+  total_page = pdf_data[1] %>% str_split(., "\n") %>% .[[1]]
+  demographics_page = pdf_data[2] %>% str_split(., "\n") %>% .[[1]]
+  
+  total_confirmed_cases = total_page[35] %>% 
+    str_split(" ") %>% .[[1]] %>% head(1) %>% 
+    str_replace(., ",", "") %>% as.numeric()
+  
+  total_deaths = total_page[35] %>% 
+    str_split(" ") %>% .[[1]] %>% tail(1) %>% 
+    str_replace(., ",", "") %>% as.numeric()
+  
+  total_people_tested = total_page[37] %>% 
+    str_split(" ") %>% .[[1]] %>% head(1) %>% 
+    str_replace(., ",", "") %>% as.numeric()
+  
+  total_cases_recovered = total_page[37] %>% 
+    str_split(" ") %>% .[[1]] %>% tail(1) %>% 
+    str_replace(., ",", "") %>% as.numeric()
+  
+  
+  return(list(
+    total_confirmed_cases = total_confirmed_cases,
+    total_deaths = total_deaths,
+    total_people_tested = total_people_tested,
+    total_cases_recovered = total_cases_recovered
+    demographic_string = demographic_page
+  ))
+}
+
+
+extract_iowa_data(iowa)
+```
+
+
