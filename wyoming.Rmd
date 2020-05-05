@@ -12,3 +12,7 @@ library(httr)
 library(rvest)
 ```
 
+```{r, scrape}
+url = 
+```
+
