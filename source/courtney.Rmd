@@ -84,7 +84,8 @@ sex_demo = demo1[6:7] %>%
   plyr::ldply() %>%
   rename(sex = V1, num_infections = V2, percent_of_total_inf = V3,
          num_hosp = V4, percent_of_total_hosp = V5, num_deaths = V6, 
-         percent_of_total_deaths = V7)
+         percent_of_total_deaths = V7) %>%
+  mutate(sex = if_else(sex == "Male", "male", "female"))
 
 # age group
 age_demo = demo1[9:17] %>%
@@ -105,11 +106,11 @@ healthcare_demo = demo1[4] %>%
 demo2 = nh_text[36:45] %>%
   str_replace_all("% of Total", "Total_Perc") %>%
   str_replace("Race/Ethnicity", "Race_Eth") %>%
-  str_replace("White2", "White") %>%
-  str_replace("Hispanic/Latino1", "Hisp_Lat") %>%
-  str_replace("Black or African American2", "Black") %>%
-  str_replace("Other3", "Other") %>%
-  str_replace("Asian2", "Asian") %>%
+  str_replace("White2", "white") %>%
+  str_replace("Hispanic/Latino1", "hispanic") %>%
+  str_replace("Black or African American2", "black") %>%
+  str_replace("Other3", "other") %>%
+  str_replace("Asian2", "asian") %>%
   str_replace("Total Persons with", "Tot_info") %>%
   str_replace("Percent of NH", "Perc_NH") %>%
   str_replace(",", "") %>%
@@ -141,5 +142,125 @@ knitr::kable(age_demo)
 knitr::kable(healthcare_demo)
 
 knitr::kable(race_eth_demo)
+```
+
+
+### Kansas
+
+```{r, kansas}
+# must redownload pdf and change date 
+ks_date = "05062020"
+
+# to run without knitting, use single ., to run with knitting, use double ..
+# issue with how i originally made the file?
+location = "../pdfs/Kansas_Demo_{ks_date}.pdf"
+location = glue(location)
+
+ks_text = pdf_text(location) %>%
+  readr::read_lines()
+
+# ks_text
+
+# replace necessary strings
+ks_race = ks_text[21:27] %>%
+  str_replace_all(",", "") %>%
+  str_replace("Number of Cases", "num_cases") %>%
+  str_replace("Rate per 100000", "rate_per_100000") %>%
+  str_replace("Black or African American", "black") %>%
+  str_replace("American Indian or Alaska Nat..", "american_indian_alaskan_native") %>%
+  str_replace("White", "white") %>%
+  str_replace("Asian", "asian") %>%
+  str_replace("Other Race", "other") %>%
+  str_replace("Not Reported/Missing", "not_reported") %>%
+  str_squish() %>%
+  strsplit(split = " ")
+
+# add missing value to third column of last line
+ks_race[[7]][3] = "na"
+
+# make into data frame
+ks_race_demo = ks_race[2:7] %>%
+  plyr::ldply() %>%
+  rename(race = V1, num_cases = V2, rate_per_100000 = V3)
+
+
+
+# ethnicity demo
+ks_eth = ks_text[30:33] %>%
+  str_replace_all(",", "") %>%
+  str_replace("Cases", "num_cases") %>%
+  str_replace("100000", "rate_per_100000") %>%
+  str_replace("Ethnicity", "eth") %>%
+  str_replace("Not Hispanic/Latino", "non_hispanic") %>%
+  str_replace("Hispanic/Latino", "hispanic") %>%
+  str_replace("Unknown or Missing", "not_reported") %>%
+  str_squish() %>%
+  strsplit(split = " ")
+
+# add missing to third column of non reported
+ks_eth[[4]][3] = "na"
+
+# make into data frame
+ks_eth_demo = ks_eth[2:4] %>%
+  plyr::ldply() %>%
+  rename(ethnicity = V1, num_cases = V2, rate_per_100000 = V3)
+
+
+# sex demo
+ks_sex = ks_text[7:11] %>%
+  str_replace_all(",", "") %>%
+  str_replace("% of Cases", "percent_of_cases") %>%
+  str_replace("Not Reported/Unknown", "not_reported") %>%
+  str_replace("Male", "male") %>%
+  str_replace("Female", "female") %>%
+  str_squish() %>%
+  strsplit(split = " ")
+
+# cut out age group data
+ks_sex[[1]] = ks_sex[[1]][1:3]
+ks_sex[[2]] = ks_sex[[2]][1:3]
+ks_sex[[3]] = ks_sex[[3]][1:3]
+ks_sex[[4]] = ks_sex[[4]][1:3]
+ks_sex[[5]] = ks_sex[[5]][1:3]
+
+# make into data frame
+ks_sex_demo = ks_sex[2:5] %>%
+  plyr::ldply() %>%
+  rename(sex = V1, num_cases = V2, percent_of_cases = V3)
+
+# age group demo
+ks_age = ks_text[7:19] %>%
+  str_replace_all(",", "") %>%
+  str_replace_all("years", "") %>%
+  str_replace_all("Not Reported", "not_reported") %>%
+  str_replace_all("Total", "total") %>%
+  str_replace("Age Group", "age_grp") %>%
+  str_replace_all("Cases", "num_cases") %>%
+  str_replace("% of total", "percent_of_tot") %>%
+  str_squish() %>%
+  strsplit(split = " ")
+
+# cut sex data out 
+ks_age[[1]] = ks_age[[1]][6:8]
+ks_age[[2]] = ks_age[[2]][4:6]
+ks_age[[3]] = ks_age[[3]][4:6]
+ks_age[[4]] = ks_age[[4]][4:6]
+ks_age[[5]] = ks_age[[5]][4:6]
+
+# make into data frame
+ks_age_demo = ks_age[2:13] %>%
+  plyr::ldply() %>%
+  rename(age_grp = V1, num_cases = V2, percent_of_total = V3)
+```
+
+### Kansas Tables
+```{r, ks_tables}
+knitr::kable(ks_age_demo)
+
+knitr::kable(ks_sex_demo)
+
+knitr::kable(ks_race_demo)
+
+knitr::kable(ks_eth_demo)
 ```
 
