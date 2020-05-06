@@ -1,5 +1,5 @@
 ---
-title: "Wyoming"
+title: "Scraping"
 author: "Courtney Johnson"
 date: "May 4, 2020"
 output: html_document
@@ -33,17 +33,34 @@ date = "04272020"
 url = "https://www.dhhs.nh.gov/dphs/cdcs/covid19/covid-weekly-report-{date}.pdf"
 url = glue(url)
 
+# read in text
 nh_text = pdf_text(url) %>%
   readr::read_lines()
 
-nh_text
+# preview text
+# nh_text
 
 # save text for first table
 outcome_table = nh_text[4:7] %>%
-  str_replace(",", "") %>%
+  str_replace_all(",", "") %>%
   str_replace("Intensive Care Unit", "ICU") %>%
   str_squish() %>%
-  strsplit(split = " ")
+  strsplit(split = " ") 
+
+# add recovered and deaths labels to the existing row with labels
+outcome_table[[3]][8:9] = outcome_table[[2]][1:2]
+
+# save values and column names
+outcome_table = outcome_table[3:4]
+
+
+# make dataframe and add variable names
+outcomes = outcome_table[2] %>%
+  plyr::ldply() %>%
+  rename(outcome = V1, current_inf = V2, cumulative_inf = V3, current_hosp = V4,
+         cumulative_hosp = V5, current_icu = V6, cumulative_icu = V7, 
+         recovered = V8, deaths = V9)
+  
 
 # save text for first demographic table
 demo1 = nh_text[9:25] %>%
@@ -57,6 +74,32 @@ demo1 = nh_text[9:25] %>%
   str_replace(" \\+", "_") %>%
   str_squish() %>%
   strsplit(split = " ")
+
+# combine variable names
+demo1[[2]][2:7] = demo1[[3]][1:6]
+
+# save values and create data frames
+# sex
+sex_demo = demo1[6:7] %>%
+  plyr::ldply() %>%
+  rename(sex = V1, num_infections = V2, percent_of_total_inf = V3,
+         num_hosp = V4, percent_of_total_hosp = V5, num_deaths = V6, 
+         percent_of_total_deaths = V7)
+
+# age group
+age_demo = demo1[9:17] %>%
+  plyr::ldply() %>%
+  rename(age_grp = V1, num_infections = V2, percent_of_total_inf = V3,
+         num_hosp = V4, percent_of_total_hosp = V5, num_deaths = V6, 
+         percent_of_total_deaths = V7)
+
+# healthcare workers
+healthcare_demo = demo1[4] %>%
+  plyr::ldply() %>%
+  rename(characteristic = V1, num_infections = V2, percent_of_total_inf = V3,
+         num_hosp = V4, percent_of_total_hosp = V5, num_deaths = V6, 
+         percent_of_total_deaths = V7) 
+
  
 # save text for second demographic table (race/eth)
 demo2 = nh_text[36:45] %>%
@@ -72,5 +115,31 @@ demo2 = nh_text[36:45] %>%
   str_replace(",", "") %>%
   str_squish() %>%
   strsplit(split = " ")
+
+# keep values
+race_eth_demo = demo2[4:8] %>%
+  plyr::ldply() %>%
+  rename(race_eth = V1, num_inf = V2, percent_of_total_inf = V3, num_hosp = V4,
+         percent_of_total_hosp = V5, num_deaths = V6, 
+         percent_of_total_deaths = V7, percent_of_NH_pop = V8) 
+
+# modify race/eth to show total with collected info
+race_eth_demo = race_eth_demo %>%
+  mutate(percent_of_total_inf = paste(percent_of_total_inf, "/1525"),
+         percent_of_total_hosp = paste(percent_of_total_hosp, "/211"),
+         percent_of_total_deaths = paste(percent_of_total_deaths, "/40"))
+```
+
+### Show New Hampshire tables
+```{r}
+knitr::kable(outcomes)
+
+knitr::kable(sex_demo)
+
+knitr::kable(age_demo)
+
+knitr::kable(healthcare_demo)
+
+knitr::kable(race_eth_demo)
 ```
 
