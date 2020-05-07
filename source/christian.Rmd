@@ -33,8 +33,8 @@ nevada = read_html("https://nvhealthresponse.nv.gov/") %>%
 # Iowa
 
 ```{r}
-# The access dashboard doesnt seem to allow us to look at the data
 # Need to access the data through daily pdfs
+# Get pdfs from Tableau download: https://coronavirus.iowa.gov/#CurrentStatus
 
 # Pain point: must redownload pdf from Tableau table every day, 
 # then put it in pdfs folder
@@ -79,6 +79,113 @@ extract_iowa_data = function(pdf_data) {
 
 
 extract_iowa_data(iowa)
+```
+
+# Delaware
+
+```{r}
+delaware = read_html("https://myhealthycommunity.dhss.delaware.gov/locations/state")
+```
+
+# Oklahoma
+
+```{r}
+extract_oklahoma_data = function() {
+  data_url = "https://storage.googleapis.com/ok-covid-gcs-public-download/covid19_cases_summary.pdf"
+  
+  oklahoma = pdf_text(data_url) %>% 
+    str_split(., "\n") %>% .[[1]] %>% 
+    map(., str_squish)
+  
+  cases = oklahoma %>% .[[3]] %>% 
+    str_split(., " ", simplify = TRUE) %>% 
+    .[1, 5] %>% 
+    str_replace(., ",", "") %>% as.numeric()
+    
+  deaths = oklahoma %>% .[[3]] %>% 
+    str_split(., " ", simplify = TRUE) %>% 
+    .[1, 6] %>% 
+    str_replace(., ",", "") %>% as.numeric()
+  
+  recovered = oklahoma %>% .[[3]] %>% 
+    str_split(., " ", simplify = TRUE) %>% 
+    .[1, 7] %>% 
+    str_replace(., ",", "") %>% as.numeric()
+  
+  # WARNING: super fragile coding follows
+  # Makes some big assumptions on where numbers are placed
+  # based on position, assumes these indices wont change much
+  
+  white_pct = oklahoma %>% .[[22]] %>% 
+    str_split(., " ", simplify = TRUE) %>% .[1, 2] %>% 
+    str_replace(., "%", "") %>% as.numeric() / 100
+  
+  unknown_race_pct = oklahoma %>% .[[25]] %>% 
+    str_replace(., "%", "") %>% as.numeric()
+  
+  native_american_pct = oklahoma %>% .[[31]] %>% 
+    str_split(., " ", simplify = TRUE) %>% .[1, 1] %>% 
+    str_replace(., "%", "") %>% as.numeric() / 100
+
+  multiple_race_pct = oklahoma %>% .[[42]] %>% 
+    str_replace(., "%", "") %>% as.numeric() / 100
+  
+  asian_pct = oklahoma %>% .[[47]] %>% 
+    str_replace(., "%", "") %>% as.numeric() / 100  
+  
+  african_american_pct = oklahoma %>% .[[38]] %>% 
+    str_replace(., "%", "") %>% as.numeric() / 100
+  
+  between_0_and_4_pct = oklahoma %>% .[[39]] %>% 
+    str_split(., " ", simplify = TRUE) %>% .[1, 2] %>% 
+    str_replace(., "%", "") %>% as.numeric() / 100
+  
+  between_5_and_17_pct = oklahoma %>% .[[37]] %>% 
+    str_split(., " ", simplify = TRUE) %>% .[1, 2] %>% 
+    str_replace(., "%", "") %>% as.numeric() / 100  
+
+  between_18_and_35_pct = oklahoma %>% .[[33]] %>% 
+    str_split(., " ", simplify = TRUE) %>% .[1, 4] %>% 
+    str_replace(., "%", "") %>% as.numeric() / 100
+  
+  between_36_and_49_pct = oklahoma %>% .[[35]] %>% 
+    str_split(., " ", simplify = TRUE) %>% .[1, 2] %>% 
+    str_replace(., "%", "") %>% as.numeric() / 100  
+
+  between_50_and_64_pct = oklahoma %>% .[[32]] %>% 
+    str_split(., " ", simplify = TRUE) %>% .[1, 2] %>% 
+    str_replace(., "%", "") %>% as.numeric() / 100
+  
+  older_than_65_pct = oklahoma %>% .[[30]] %>% 
+    str_split(., " ", simplify = TRUE) %>% .[1, 2] %>% 
+    str_replace(., "%", "") %>% as.numeric() / 100   
+   
+  unknown_age_pct = oklahoma %>% .[[41]] %>% 
+    str_split(., " ", simplify = TRUE) %>% .[1, 3] %>% 
+    str_replace(., "%", "") %>% as.numeric() / 100
+    
+  return(list(
+    cases = cases,
+    deaths = deaths,
+    recovered = recovered,
+    white_cases = floor(cases * white_pct),
+    unknown_race_cases = floor(cases * unknown_race_pct),
+    native_american_cases = floor(cases * native_american_pct),
+    multiple_race_cases = floor(cases * multiple_race_pct),
+    asian_cases = floor(cases * asian_pct),
+    african_american_cases = floor(cases * african_american_pct),
+    between_0_and_4_cases = floor(cases * between_0_and_4_pct),
+    between_5_and_17_cases = floor(cases * between_5_and_17_pct),
+    between_18_and_35_cases = floor(cases * between_18_and_35_pct),
+    between_36_and_49_cases = floor(cases * between_36_and_49_pct),
+    between_50_and_64_cases = floor(cases * between_50_and_64_pct),
+    older_than_65_cases = floor(cases * older_than_65_pct),
+    unknown_age_cases = floor(cases * unknown_age_pct)
+  ))
+}
+
+oklahoma = extract_oklahoma_data()
+oklahoma
 ```
 
 
