@@ -264,3 +264,20 @@ knitr::kable(ks_race_demo)
 knitr::kable(ks_eth_demo)
 ```
 
+
+### Idaho
+```{r, idaho}
+# so far, it looks like the most difficult but accurate way is to download the crosstab data from the dashboard (sex, age, race, ethnicity, total) for both cases and deaths separately
+# this would mean downloading 10 csv files each day manually-there isn't a file location link that I can find that would enable me to loop through automatically downloading each file
+
+```
+
+### South Dakota
+```{r, sd}
+url = "https://doh.sd.gov/news/coronavirus.aspx#SD"
+
+sd_xml = read_html(url)
+
+
+```
+
