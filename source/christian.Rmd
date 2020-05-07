@@ -170,6 +170,7 @@ extract_oklahoma_data = function() {
     recovered = recovered,
     white_cases = floor(cases * white_pct),
     unknown_race_cases = floor(cases * unknown_race_pct),
+    african_american_cases = floor(cases * african_american_pct),
     native_american_cases = floor(cases * native_american_pct),
     multiple_race_cases = floor(cases * multiple_race_pct),
     asian_cases = floor(cases * asian_pct),
@@ -188,4 +189,81 @@ oklahoma = extract_oklahoma_data()
 oklahoma
 ```
 
+# Arizona
+
+```{r}
+extract_arizona_data = function() {
+  url = "https://www.azdhs.gov/preparedness/epidemiology-disease-control/infectious-disease-epidemiology/covid-19/dashboards/index.php"
+  # arizona = read_html()
+  arizona = htmlParse(GET(url, user_agent("Mozilla")))
+  return(arizona)
+}
+
+arizona = extract_arizona_data()
+```
+
+# Mississippi
+
+```{r}
+extract_mississippi_data = function() {
+  
+  # Extract pdf locations from the site to account for updates
+  site_url = "https://msdh.ms.gov/msdhsite/_static/14,0,420.html"
+  html = read_html(site_url) %>% 
+    html_nodes("body") %>% 
+    html_nodes("#pageContainer") %>% 
+    html_nodes("#pageContent") %>% 
+    html_nodes("#article") %>% 
+    html_nodes(".msdh") %>% 
+    html_nodes("ul") %>% .[[7]]
+  
+  cases_path = html %>% 
+    xml_child(., 1) %>% 
+    html_nodes("a") %>% 
+    xml_attrs() %>% .[[1]]
+  
+  death_path = html %>% 
+    xml_child(., 2) %>% 
+    html_nodes("a") %>% 
+    xml_attrs() %>% .[[1]]
+  
+  url = paste0("https://msdh.ms.gov/msdhsite/_static/", cases_path)
+  deaths_url = paste0("https://msdh.ms.gov/msdhsite/_static/", death_path)
+  
+  
+  
+  # Table is by county, just need to look at the last row
+  mississippi = pdf_text(url) %>% .[2] %>% 
+    str_split(., "\n") %>% .[[1]] %>% .[17] %>% # Last row
+    str_squish() %>%
+    str_split(., " ") %>%  .[[1]] %>% .[-1] %>% # Removing "Total" string
+    as.numeric()
+
+  deaths = pdf_text(deaths_url) %>% .[2] %>% 
+    str_split(., "\n") %>% .[[1]] %>% .[17] %>% # Last row
+    str_squish() %>%
+    str_split(., " ") %>%  .[[1]] %>% .[-1] %>% # Removing "Total" string
+    as.numeric()
+  
+  return(list(
+    cases = mississippi[1],
+    deaths = deaths[1],
+    white_cases = mississippi[3] + mississippi[9] + mississippi[15],
+    unknown_race_cases = mississippi[7] + mississippi[13] + mississippi[19],
+    native_american_cases = mississippi[4] + mississippi[10] + mississippi[16],
+    african_american_cases = mississippi[2] + mississippi[8] + mississippi[14],
+    asian_cases = mississippi[5] + mississippi[11] + mississippi[17],
+    other_race_cases = mississippi[6] + mississippi[12] + mississippi[18],
+    white_deaths = deaths[3] + deaths[9] + deaths[15],
+    unknown_race_deaths = deaths[7] + deaths[13] + deaths[19],
+    native_american_deaths = deaths[4] + deaths[10] + deaths[16],
+    african_american_deaths = deaths[2] + deaths[8] + deaths[14],
+    asian_deaths = deaths[5] + deaths[11] + deaths[17],
+    other_race_deaths = deaths[6] + deaths[12] + deaths[18]
+  ))
+}
+
+mississippi = extract_mississippi_data()
+mississippi
+```
 
