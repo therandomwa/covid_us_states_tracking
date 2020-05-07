@@ -8,6 +8,43 @@ library(tidyverse)
 library(pdftools)
 library(rvest)
 library(lubridate)
+
+# Helper functions for data cleaning
+skeleton_col = function() {
+  # Need to make a named vector to make it easier to insert data
+  # in a cel-wise fashion
+  desired_cols = c(
+    "Total",
+    "Age: 0-19", "Age: 20-29", "Age: 30-39", "Age: 40-49",
+    "Age: 50-59", "Age: 60-69", "Age: 70-79", "Age: 80+", 
+    "Age: Unk.",
+    "Sex: M", "Sex: F", "Sex: Unk",
+    "Race: Hispanic", "Race: Non-Hispanic",
+    "Ethnicity: White", 
+    "Ethnicity: AfrA",
+    "Ethnicity: NatA",
+    "Ethnicity: Asian", 
+    "Ethnicity: Other",
+    "Ethnicity: Multi-race", 
+    "Ethnicity: Unknown")
+  skeleton = vector(mode = "list", length = length(desired_cols))
+  names(skeleton) = desired_cols
+  return(skeleton)
+}
+
+skeleton_table = function() {
+  # Create a table of blanks using named vectors
+  # Easy insert of data
+  skeleton = list(
+    "data" = names(skeleton_col()),
+    "tested" = skeleton_col(),
+    "positive" = skeleton_col(),
+    "negative" = skeleton_col(),
+    "recovered" = skeleton_col(),
+    "death" = skeleton_col(),
+    "hospitalized" = skeleton_col())
+  return(skeleton)
+}
 ```
 
 # Nevada
@@ -265,5 +302,145 @@ extract_mississippi_data = function() {
 
 mississippi = extract_mississippi_data()
 mississippi
+```
+
+# Florida
+
+```{r}
+extract_florida_data = function(pdf_url) {
+  # Get pdf from: https://www.floridadisaster.org/covid19/covid-19-data-reports/
+  
+  data = pdf_text(pdf_url)
+  
+  demographic_data = data %>% .[3] %>% 
+    str_split(., "\n") %>% .[[1]] %>% 
+    str_squish()
+  
+  
+  
+  cases = demographic_data %>% .[16] %>% 
+    str_split(., " ", simplify = TRUE) %>% .[1, 2] %>% 
+    str_replace(., ",", "") %>% as.numeric()
+  
+  deaths = demographic_data %>% .[16] %>% 
+    str_split(., " ", simplify = TRUE) %>% .[1, 4] %>% 
+    str_replace(., ",", "") %>% as.numeric()
+  
+  males = demographic_data %>% .[5] %>% 
+    str_split(., " ", simplify = TRUE) %>%  .[1, 10] %>% 
+    str_replace(., ",", "") %>% as.numeric()
+  
+  between_0_and_4 = demographic_data %>% .[5] %>% 
+    str_split(., " ", simplify = TRUE) %>%  .[1, 3] %>% 
+    str_replace(., ",", "") %>% as.numeric()
+  
+  between_5_and_14 = demographic_data %>% .[6] %>% 
+    str_split(., " ", simplify = TRUE) %>%  .[1, 3] %>% 
+    str_replace(., ",", "") %>% as.numeric()
+  
+  between_15_and_24 = demographic_data %>% .[7] %>% 
+    str_split(., " ", simplify = TRUE) %>%  .[1, 3] %>% 
+    str_replace(., ",", "") %>% as.numeric()
+  
+  between_25_and_34 = demographic_data %>% .[8] %>% 
+    str_split(., " ", simplify = TRUE) %>%  .[1, 3] %>% 
+    str_replace(., ",", "") %>% as.numeric()
+  
+  between_35_and_44 = demographic_data %>% .[9] %>% 
+    str_split(., " ", simplify = TRUE) %>%  .[1, 3] %>% 
+    str_replace(., ",", "") %>% as.numeric()
+  
+  between_45_and_54 = demographic_data %>% .[10] %>% 
+    str_split(., " ", simplify = TRUE) %>%  .[1, 3] %>% 
+    str_replace(., ",", "") %>% as.numeric()
+  
+  between_55_and_64 = demographic_data %>% .[11] %>% 
+    str_split(., " ", simplify = TRUE) %>%  .[1, 3] %>% 
+    str_replace(., ",", "") %>% as.numeric()
+  
+  between_65_and_74 = demographic_data %>% .[12] %>% 
+    str_split(., " ", simplify = TRUE) %>%  .[1, 3] %>% 
+    str_replace(., ",", "") %>% as.numeric()
+  
+  between_75_and_84 = demographic_data %>% .[13] %>% 
+    str_split(., " ", simplify = TRUE) %>%  .[1, 3] %>% 
+    str_replace(., ",", "") %>% as.numeric()
+  
+  older_than_85 = demographic_data %>% .[14] %>% 
+    str_split(., " ", simplify = TRUE) %>%  .[1, 3] %>% 
+    str_replace(., ",", "") %>% as.numeric()
+  
+  unknown_age = demographic_data %>% .[15] %>% 
+    str_split(., " ", simplify = TRUE) %>%  .[1, 2] %>% 
+    str_replace(., ",", "") %>% as.numeric()
+  
+  white = demographic_data %>% .[23] %>% 
+    str_split(., " ", simplify = TRUE) %>%  .[1, 2] %>% 
+    str_replace(., ",", "") %>% as.numeric()
+  
+  black = demographic_data %>% .[27] %>% 
+    str_split(., " ", simplify = TRUE) %>%  .[1, 2] %>% 
+    str_replace(., ",", "") %>% as.numeric()
+  
+  other_race = demographic_data %>% .[31] %>% 
+    str_split(., " ", simplify = TRUE) %>%  .[1, 2] %>% 
+    str_replace(., ",", "") %>% as.numeric()
+  
+  unknown_race = demographic_data %>% .[35] %>% 
+    str_split(., " ", simplify = TRUE) %>%  .[1, 3] %>% 
+    str_replace(., ",", "") %>% as.numeric()
+  
+  return(list(
+    cases = cases,
+    deaths = deaths,
+    males = males,
+    between_0_and_4 = between_0_and_4,
+    between_5_and_14 = between_5_and_14,
+    between_15_and_24 = between_15_and_24,
+    between_25_and_34 = between_25_and_34,
+    between_35_and_44 = between_35_and_44,
+    between_45_and_54 = between_45_and_54,
+    between_55_and_64 = between_55_and_64,
+    between_65_and_74 = between_65_and_74,
+    between_75_and_84 = between_75_and_84,
+    older_than_85 = older_than_85,
+    unknown_age = unknown_age,
+    white = white,
+    black = black,
+    other_race = other_race,
+    unknown_race = unknown_race
+  ))
+  
+}
+
+florida = extract_florida_data("https://www.floridadisaster.org/globalassets/covid19/dailies/covid-19-data---daily-report-2020-05-07-0956.pdf")
+  
+```
+
+```{r}
+florida %>%  str_squish
+```
+
+```{r}
+a = list(
+  x = c(one = 1, two = 2, three = 3),
+  y = c(one = 4, two = 5, three = 6),
+  z = c(one = 7, two = 8, three = 9)
+)
+
+as_tibble(a)
+```
+
+```{r}
+b = c(one = 1, two = 2, three = 3)
+b["one"]
+```
+
+
+
+```{r}
+d = c(1,2,3)
+names(d) = c("yes", "no", "what")
+d
 ```
 
