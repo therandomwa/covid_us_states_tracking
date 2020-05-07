@@ -36,7 +36,7 @@
 | Nevada                 |        |
 | Iowa                   |        |
 | Utah                   | x      |
-| Kentucky               |        |
+| Kentucky               | x       |
 | District of Columbia   |        |
 | Delaware               |        |
 | Oklahoma               |        |
@@ -52,12 +52,12 @@
 | Puerto Rico            |        |
 | West Virginia          |        |
 | Maine                  | x      |
-| Vermont                |        |
-| North Dakota           |        |
+| Vermont                | x        |
+| North Dakota           | x       |
 | Hawaii                 |        |
 | Wyoming                |        |
 | Montana                | x      |
-| Alaska                 |        |
+| Alaska                 | x     |
 | Guam                   |        |
 | Virgin Islands         |        |
 
