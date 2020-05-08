@@ -186,26 +186,26 @@ summary {
 
 <div id="wyoming" class="section level3">
 <h3>Wyoming</h3>
-<pre class="r"><code>url = &quot;https://health.wyo.gov/publichealth/infectious-disease-epidemiology-unit/disease/novel-coronavirus/covid-19-map-and-statistics/&quot;
+<pre class="r"><code># url = &quot;https://health.wyo.gov/publichealth/infectious-disease-epidemiology-unit/disease/novel-coronavirus/covid-19-map-and-statistics/&quot;
 
-wy_xml = read_html(url) %&gt;%
-  html_nodes('center') %&gt;%
-  html_table(fill = TRUE, header = TRUE)</code></pre>
+# wy_xml = read_html(url) %&gt;%
+#   html_nodes('center') %&gt;%
+#   html_table(fill = TRUE, header = TRUE)</code></pre>
 </div>
 <div id="new-hampshire" class="section level3">
 <h3>New Hampshire</h3>
-<pre class="r"><code>date = &quot;04272020&quot;
+<pre class="r"><code>#  &quot;05042020&quot;
 
-# put the date into url and create a way to automatically run things with different dates
+# scraping function which only needs to take in the date of the report
+nh_scrape_fun = function(date){
+  
+  # put the date into url and create a way to automatically run things with different dates
 url = &quot;https://www.dhhs.nh.gov/dphs/cdcs/covid19/covid-weekly-report-{date}.pdf&quot;
 url = glue(url)
 
 # read in text
 nh_text = pdf_text(url) %&gt;%
   readr::read_lines()
-
-# preview text
-# nh_text
 
 # save text for first table
 outcome_table = nh_text[4:7] %&gt;%
@@ -221,12 +221,14 @@ outcome_table[[3]][8:9] = outcome_table[[2]][1:2]
 outcome_table = outcome_table[3:4]
 
 
-# make dataframe and add variable names
+# make dataframe and add variable names; only keep necessary information
 outcomes = outcome_table[2] %&gt;%
   plyr::ldply() %&gt;%
-  rename(outcome = V1, current_inf = V2, cumulative_inf = V3, current_hosp = V4,
-         cumulative_hosp = V5, current_icu = V6, cumulative_icu = V7, 
-         recovered = V8, deaths = V9)
+  rename(level = V1, current_inf = V2, total_case = V3, current_hosp = V4,
+         total_hosp = V5, current_icu = V6, total_icu = V7, 
+         recovered = V8, total_death = V9) %&gt;%
+  mutate(level = &quot;total&quot;) %&gt;%
+  select(level, total_case, total_hosp, total_icu, recovered, total_death)
   
 
 # save text for first demographic table
@@ -249,36 +251,39 @@ demo1[[2]][2:7] = demo1[[3]][1:6]
 # sex
 sex_demo = demo1[6:7] %&gt;%
   plyr::ldply() %&gt;%
-  rename(sex = V1, num_infections = V2, percent_of_total_inf = V3,
-         num_hosp = V4, percent_of_total_hosp = V5, num_deaths = V6, 
+  rename(level = V1, positive_gender = V2, percent_of_total_inf = V3,
+         hosp_gender = V4, percent_of_total_hosp = V5, death_gender = V6, 
          percent_of_total_deaths = V7) %&gt;%
-  mutate(sex = if_else(sex == &quot;Male&quot;, &quot;male&quot;, &quot;female&quot;))
+  mutate(level = if_else(level == &quot;Male&quot;, &quot;sex_male&quot;, &quot;sex_female&quot;)) %&gt;%
+  select(level, positive_gender, hosp_gender, death_gender)
 
 # age group
 age_demo = demo1[9:17] %&gt;%
   plyr::ldply() %&gt;%
-  rename(age_grp = V1, num_infections = V2, percent_of_total_inf = V3,
-         num_hosp = V4, percent_of_total_hosp = V5, num_deaths = V6, 
-         percent_of_total_deaths = V7)
+  rename(level = V1, positive_age = V2, percent_of_total_inf = V3,
+         hosp_age = V4, percent_of_total_hosp = V5, death_age = V6, 
+         percent_of_total_deaths = V7) %&gt;%
+  mutate(level = str_c(&quot;age_&quot;, level)) %&gt;%
+  select(level, positive_age, hosp_age, death_age)
 
 # healthcare workers
 healthcare_demo = demo1[4] %&gt;%
   plyr::ldply() %&gt;%
-  rename(characteristic = V1, num_infections = V2, percent_of_total_inf = V3,
-         num_hosp = V4, percent_of_total_hosp = V5, num_deaths = V6, 
-         percent_of_total_deaths = V7) 
+  rename(level = V1, comment_case = V2, percent_of_total_inf = V3,
+         comment_hosp = V4, percent_of_total_hosp = V5, comment_death = V6, 
+         percent_of_total_deaths = V7) %&gt;%
+  select(level, comment_case, comment_hosp, comment_death)
 
  
 # save text for second demographic table (race/eth)
-demo2 = nh_text[36:45] %&gt;%
+demo2 = nh_text[36:43] %&gt;%
   str_replace_all(&quot;% of Total&quot;, &quot;Total_Perc&quot;) %&gt;%
   str_replace(&quot;Race/Ethnicity&quot;, &quot;Race_Eth&quot;) %&gt;%
-  str_replace(&quot;White2&quot;, &quot;white&quot;) %&gt;%
-  str_replace(&quot;Hispanic/Latino1&quot;, &quot;hispanic&quot;) %&gt;%
-  str_replace(&quot;Black or African American2&quot;, &quot;black&quot;) %&gt;%
-  str_replace(&quot;Other3&quot;, &quot;other&quot;) %&gt;%
-  str_replace(&quot;Asian2&quot;, &quot;asian&quot;) %&gt;%
-  str_replace(&quot;Total Persons with&quot;, &quot;Tot_info&quot;) %&gt;%
+  str_replace(&quot;White2&quot;, &quot;race_eth_white&quot;) %&gt;%
+  str_replace(&quot;Hispanic/Latino1&quot;, &quot;race_eth_hispanic&quot;) %&gt;%
+  str_replace(&quot;Black or African American2&quot;, &quot;race_eth_black&quot;) %&gt;%
+  str_replace(&quot;Other3&quot;, &quot;race_eth_other&quot;) %&gt;%
+  str_replace(&quot;Asian2&quot;, &quot;race_eth_asian&quot;) %&gt;%
   str_replace(&quot;Percent of NH&quot;, &quot;Perc_NH&quot;) %&gt;%
   str_replace(&quot;,&quot;, &quot;&quot;) %&gt;%
   str_squish() %&gt;%
@@ -287,270 +292,30 @@ demo2 = nh_text[36:45] %&gt;%
 # keep values
 race_eth_demo = demo2[4:8] %&gt;%
   plyr::ldply() %&gt;%
-  rename(race_eth = V1, num_inf = V2, percent_of_total_inf = V3, num_hosp = V4,
-         percent_of_total_hosp = V5, num_deaths = V6, 
-         percent_of_total_deaths = V7, percent_of_NH_pop = V8) 
+  rename(level = V1, positive_race = V2, percent_of_total_inf = V3, 
+         hosp_race = V4, percent_of_total_hosp = V5, death_race = V6, 
+         percent_of_total_deaths = V7, percent_of_NH_pop = V8) %&gt;%
+  select(level, positive_race, hosp_race, death_race)
 
 # modify race/eth to show total with collected info
-race_eth_demo = race_eth_demo %&gt;%
-  mutate(percent_of_total_inf = paste(percent_of_total_inf, &quot;/1525&quot;),
-         percent_of_total_hosp = paste(percent_of_total_hosp, &quot;/211&quot;),
-         percent_of_total_deaths = paste(percent_of_total_deaths, &quot;/40&quot;))</code></pre>
+# race_eth_demo = race_eth_demo %&gt;%
+#   mutate(percent_of_total_inf = paste(percent_of_total_inf, &quot;/1525&quot;),
+#          percent_of_total_hosp = paste(percent_of_total_hosp, &quot;/211&quot;),
+#          percent_of_total_deaths = paste(percent_of_total_deaths, &quot;/40&quot;))
+
+# combine into one table
+plyr::rbind.fill(outcomes, sex_demo, age_demo, race_eth_demo, healthcare_demo) %&gt;%
+  select(level, total_case, positive_race, positive_age, positive_gender,
+         total_death, death_race, death_age, death_gender, total_hosp,
+         hosp_race, hosp_age, hosp_gender, total_icu, recovered, comment_case,
+         comment_hosp, comment_death)
+  
+}</code></pre>
 </div>
-<div id="show-new-hampshire-tables" class="section level3">
-<h3>Show New Hampshire tables</h3>
-<pre class="r"><code>knitr::kable(outcomes)</code></pre>
-<table>
-<thead>
-<tr class="header">
-<th align="left">outcome</th>
-<th align="left">current_inf</th>
-<th align="left">cumulative_inf</th>
-<th align="left">current_hosp</th>
-<th align="left">cumulative_hosp</th>
-<th align="left">current_icu</th>
-<th align="left">cumulative_icu</th>
-<th align="left">recovered</th>
-<th align="left">deaths</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">Persons</td>
-<td align="left">868</td>
-<td align="left">1938</td>
-<td align="left">99</td>
-<td align="left">246</td>
-<td align="left">n/a</td>
-<td align="left">82</td>
-<td align="left">1070</td>
-<td align="left">60</td>
-</tr>
-</tbody>
-</table>
-<pre class="r"><code>knitr::kable(sex_demo)</code></pre>
-<table>
-<thead>
-<tr class="header">
-<th align="left">sex</th>
-<th align="left">num_infections</th>
-<th align="left">percent_of_total_inf</th>
-<th align="left">num_hosp</th>
-<th align="left">percent_of_total_hosp</th>
-<th align="left">num_deaths</th>
-<th align="left">percent_of_total_deaths</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">female</td>
-<td align="left">1049</td>
-<td align="left">54.1</td>
-<td align="left">94</td>
-<td align="left">38.2</td>
-<td align="left">20</td>
-<td align="left">33.3</td>
-</tr>
-<tr class="even">
-<td align="left">male</td>
-<td align="left">882</td>
-<td align="left">45.5</td>
-<td align="left">152</td>
-<td align="left">61.8</td>
-<td align="left">40</td>
-<td align="left">66.7</td>
-</tr>
-</tbody>
-</table>
-<pre class="r"><code>knitr::kable(age_demo)</code></pre>
-<table>
-<thead>
-<tr class="header">
-<th align="left">age_grp</th>
-<th align="left">num_infections</th>
-<th align="left">percent_of_total_inf</th>
-<th align="left">num_hosp</th>
-<th align="left">percent_of_total_hosp</th>
-<th align="left">num_deaths</th>
-<th align="left">percent_of_total_deaths</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">0_9</td>
-<td align="left">12</td>
-<td align="left">0.6</td>
-<td align="left">1</td>
-<td align="left">0.4</td>
-<td align="left">0</td>
-<td align="left">0</td>
-</tr>
-<tr class="even">
-<td align="left">10_19</td>
-<td align="left">85</td>
-<td align="left">4.4</td>
-<td align="left">3</td>
-<td align="left">1.2</td>
-<td align="left">0</td>
-<td align="left">0</td>
-</tr>
-<tr class="odd">
-<td align="left">20_29</td>
-<td align="left">281</td>
-<td align="left">14.5</td>
-<td align="left">7</td>
-<td align="left">2.8</td>
-<td align="left">1</td>
-<td align="left">1.7</td>
-</tr>
-<tr class="even">
-<td align="left">30_39</td>
-<td align="left">278</td>
-<td align="left">14.3</td>
-<td align="left">8</td>
-<td align="left">3.3</td>
-<td align="left">0</td>
-<td align="left">0</td>
-</tr>
-<tr class="odd">
-<td align="left">40_49</td>
-<td align="left">269</td>
-<td align="left">13.9</td>
-<td align="left">20</td>
-<td align="left">8.1</td>
-<td align="left">3</td>
-<td align="left">5.0</td>
-</tr>
-<tr class="even">
-<td align="left">50_59</td>
-<td align="left">391</td>
-<td align="left">20.2</td>
-<td align="left">40</td>
-<td align="left">16.3</td>
-<td align="left">0</td>
-<td align="left">0</td>
-</tr>
-<tr class="odd">
-<td align="left">60_69</td>
-<td align="left">280</td>
-<td align="left">14.4</td>
-<td align="left">75</td>
-<td align="left">30.5</td>
-<td align="left">9</td>
-<td align="left">15.0</td>
-</tr>
-<tr class="even">
-<td align="left">70_79</td>
-<td align="left">152</td>
-<td align="left">7.8</td>
-<td align="left">55</td>
-<td align="left">22.4</td>
-<td align="left">12</td>
-<td align="left">20.0</td>
-</tr>
-<tr class="odd">
-<td align="left">80_</td>
-<td align="left">187</td>
-<td align="left">9.6</td>
-<td align="left">37</td>
-<td align="left">15.0</td>
-<td align="left">35</td>
-<td align="left">58.3</td>
-</tr>
-</tbody>
-</table>
-<pre class="r"><code>knitr::kable(healthcare_demo)</code></pre>
-<table>
-<thead>
-<tr class="header">
-<th align="left">characteristic</th>
-<th align="left">num_infections</th>
-<th align="left">percent_of_total_inf</th>
-<th align="left">num_hosp</th>
-<th align="left">percent_of_total_hosp</th>
-<th align="left">num_deaths</th>
-<th align="left">percent_of_total_deaths</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">Healthcare_workers</td>
-<td align="left">570</td>
-<td align="left">29.4</td>
-<td align="left">19</td>
-<td align="left">7.7</td>
-<td align="left">2</td>
-<td align="left">3.3</td>
-</tr>
-</tbody>
-</table>
-<pre class="r"><code>knitr::kable(race_eth_demo)</code></pre>
-<table>
-<thead>
-<tr class="header">
-<th align="left">race_eth</th>
-<th align="left">num_inf</th>
-<th align="left">percent_of_total_inf</th>
-<th align="left">num_hosp</th>
-<th align="left">percent_of_total_hosp</th>
-<th align="left">num_deaths</th>
-<th align="left">percent_of_total_deaths</th>
-<th align="left">percent_of_NH_pop</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">white</td>
-<td align="left">1205</td>
-<td align="left">79.0% /1525</td>
-<td align="left">172</td>
-<td align="left">81.5% /211</td>
-<td align="left">36</td>
-<td align="left">90.0% /40</td>
-<td align="left">90.0%</td>
-</tr>
-<tr class="even">
-<td align="left">hispanic</td>
-<td align="left">103</td>
-<td align="left">6.8% /1525</td>
-<td align="left">17</td>
-<td align="left">8.1% /211</td>
-<td align="left">3</td>
-<td align="left">7.5% /40</td>
-<td align="left">3.9%</td>
-</tr>
-<tr class="odd">
-<td align="left">black</td>
-<td align="left">86</td>
-<td align="left">5.6% /1525</td>
-<td align="left">8</td>
-<td align="left">3.8% /211</td>
-<td align="left">0</td>
-<td align="left">0% /40</td>
-<td align="left">1.4%</td>
-</tr>
-<tr class="even">
-<td align="left">other</td>
-<td align="left">82</td>
-<td align="left">5.4% /1525</td>
-<td align="left">4</td>
-<td align="left">1.9% /211</td>
-<td align="left">1</td>
-<td align="left">2.5% /40</td>
-<td align="left">1.8%</td>
-</tr>
-<tr class="odd">
-<td align="left">asian</td>
-<td align="left">49</td>
-<td align="left">3.2% /1525</td>
-<td align="left">10</td>
-<td align="left">4.7% /211</td>
-<td align="left">0</td>
-<td align="left">0% /40</td>
-<td align="left">3.0%</td>
-</tr>
-</tbody>
-</table>
+<div id="run-function-for-different-dates" class="section level3">
+<h3>Run function for different dates</h3>
+<pre class="r"><code>nh_04272020 = nh_scrape_fun(date = &quot;04272020&quot;)
+nh_05042020 = nh_scrape_fun(date = &quot;05042020&quot;)</code></pre>
 </div>
 <div id="kansas" class="section level3">
 <h3>Kansas</h3>
@@ -838,6 +603,7 @@ ks_age_demo = ks_age[2:13] %&gt;%
 <h3>Idaho</h3>
 <pre class="r"><code># so far, it looks like the most difficult but accurate way is to download the crosstab data from the dashboard (sex, age, race, ethnicity, total) for both cases and deaths separately
 # this would mean downloading 10 csv files each day manually-there isn't a file location link that I can find that would enable me to loop through automatically downloading each file
+# I also manually changed the filenames to the format below so that they would make more sense when being read in
 
 
 date = &quot;05082020&quot;
