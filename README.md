@@ -19,7 +19,7 @@
 | Texas                  | x      |
 | Georgia                | x      |
 | Maryland               | x      |
-| Ohio                   |        |
+| Ohio                   | x      |
 | Washington             | x      |
 | Indiana                | x      |
 | Colorado               | x      |
@@ -28,7 +28,7 @@
 | North Carolina         |        |
 | Missouri               | x      |
 | Rhode Island           | x      |
-| Alabama                |        |
+| Alabama                | x      |
 | Arizona                |        |
 | Mississippi            |        |
 | Wisconsin              | x      |
@@ -36,12 +36,12 @@
 | Nevada                 |        |
 | Iowa                   |        |
 | Utah                   | x      |
-| Kentucky               | x       |
+| Kentucky               | x      |
 | District of Columbia   |        |
 | Delaware               |        |
 | Oklahoma               |        |
-| Minnesota              |        |
-| Arkansas               |        |
+| Minnesota              | x      |
+| Arkansas               | x      |
 | Kansas                 |        |
 | New Mexico             | x      |
 | Oregon                 | x      |
@@ -52,12 +52,12 @@
 | Puerto Rico            |        |
 | West Virginia          |        |
 | Maine                  | x      |
-| Vermont                | x        |
-| North Dakota           | x       |
+| Vermont                | x      |
+| North Dakota           | x      |
 | Hawaii                 |        |
 | Wyoming                |        |
 | Montana                | x      |
-| Alaska                 | x     |
+| Alaska                 | x      |
 | Guam                   |        |
 | Virgin Islands         |        |
 
