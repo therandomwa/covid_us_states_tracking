@@ -188,7 +188,9 @@ summary {
 <h3>Wyoming</h3>
 <pre class="r"><code>url = &quot;https://health.wyo.gov/publichealth/infectious-disease-epidemiology-unit/disease/novel-coronavirus/covid-19-map-and-statistics/&quot;
 
-wy_xml = read_html(url)</code></pre>
+wy_xml = read_html(url) %&gt;%
+  html_nodes('center') %&gt;%
+  html_table(fill = TRUE, header = TRUE)</code></pre>
 </div>
 <div id="new-hampshire" class="section level3">
 <h3>New Hampshire</h3>
@@ -831,6 +833,48 @@ ks_age_demo = ks_age[2:13] %&gt;%
 </tr>
 </tbody>
 </table>
+</div>
+<div id="idaho" class="section level3">
+<h3>Idaho</h3>
+<pre class="r"><code># so far, it looks like the most difficult but accurate way is to download the crosstab data from the dashboard (sex, age, race, ethnicity, total) for both cases and deaths separately
+# this would mean downloading 10 csv files each day manually-there isn't a file location link that I can find that would enable me to loop through automatically downloading each file
+
+
+date = &quot;05082020&quot;
+
+# age file is formatted differently
+type = c(&quot;Eth&quot;, &quot;Race&quot;, &quot;Sex&quot;, &quot;Total&quot;)
+
+file_name = &quot;../Data/ID_Case{type}_{date}.csv&quot;
+
+file_loc = glue(file_name)
+
+df = map(.x = file_loc, ~read.csv(.x, header = TRUE, sep = &quot;\t&quot;, 
+                             fileEncoding = &quot;UTF-16LE&quot;)) 
+
+
+read.csv(&quot;../Data/ID_CaseAge_05082020.csv&quot;, header = FALSE, sep = &quot;&quot;,
+         fileEncoding = &quot;UTF-16LE&quot;)</code></pre>
+<pre><code>##      V1  V2
+## 1   &lt;18  83
+## 2 18-29 449
+## 3 30-39 346
+## 4 40-49 355
+## 5 50-59 361
+## 6 60-69 275
+## 7 70-79 159
+## 8   80+ 143</code></pre>
+</div>
+<div id="south-dakota" class="section level3">
+<h3>South Dakota</h3>
+<pre class="r"><code>url = &quot;https://doh.sd.gov/news/coronavirus.aspx#SD&quot;
+
+sd_xml = read_html(url)
+
+# this doesn't work, because it doesn't pick up the table on the dashboard
+# tabs = sd_xml %&gt;%
+#   html_nodes('table') %&gt;%
+#   html_table(fill = TRUE, header = TRUE)</code></pre>
 </div>
 
 

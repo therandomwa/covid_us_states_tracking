@@ -20,7 +20,9 @@ library(glue)
 ```{r, scrape}
 url = "https://health.wyo.gov/publichealth/infectious-disease-epidemiology-unit/disease/novel-coronavirus/covid-19-map-and-statistics/"
 
-wy_xml = read_html(url)
+wy_xml = read_html(url) %>%
+  html_nodes('center') %>%
+  html_table(fill = TRUE, header = TRUE)
 ```
 
 
@@ -270,6 +272,22 @@ knitr::kable(ks_eth_demo)
 # so far, it looks like the most difficult but accurate way is to download the crosstab data from the dashboard (sex, age, race, ethnicity, total) for both cases and deaths separately
 # this would mean downloading 10 csv files each day manually-there isn't a file location link that I can find that would enable me to loop through automatically downloading each file
 
+
+date = "05082020"
+
+# age file is formatted differently
+type = c("Eth", "Race", "Sex", "Total")
+
+file_name = "../Data/ID_Case{type}_{date}.csv"
+
+file_loc = glue(file_name)
+
+df = map(.x = file_loc, ~read.csv(.x, header = TRUE, sep = "\t", 
+                             fileEncoding = "UTF-16LE")) 
+
+
+read.csv("../Data/ID_CaseAge_05082020.csv", header = FALSE, sep = "",
+         fileEncoding = "UTF-16LE")
 ```
 
 ### South Dakota
@@ -278,6 +296,9 @@ url = "https://doh.sd.gov/news/coronavirus.aspx#SD"
 
 sd_xml = read_html(url)
 
-
+# this doesn't work, because it doesn't pick up the table on the dashboard
+# tabs = sd_xml %>%
+#   html_nodes('table') %>%
+#   html_table(fill = TRUE, header = TRUE)
 ```
 
