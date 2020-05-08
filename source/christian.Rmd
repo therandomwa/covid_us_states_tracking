@@ -8,6 +8,55 @@ library(tidyverse)
 library(pdftools)
 library(rvest)
 library(lubridate)
+
+# Helper functions for data cleaning
+skeleton_col = function() {
+  # Need to make a named vector to make it easier to insert data
+  # in a cel-wise fashion
+  subdivs = c(
+    "total",
+    "age_0_19", 
+    "age_20_29", 
+    "age_30_39", 
+    "age_40_49",
+    "age_50_59", 
+    "age_60_69", 
+    "age_70_79", 
+    "age_80+", 
+    "age_unk",
+    "sex_male", 
+    "sex_female", 
+    "sex_unk",
+    "race_hispanic", 
+    "race_non_hispanic",
+    "race_unk",
+    "ethnicity_white", 
+    "ethnicity_AfrA",
+    "ethnicity_NatA",
+    "ethnicity_asian", 
+    "ethnicity_other",
+    "ethnicity_multi_race", 
+    "ethnicity_unk")
+  skeleton = vector(mode = "list", length = length(subdivs))
+  names(skeleton) = subdivs
+  return(skeleton)
+}
+
+skeleton_table = function() {
+  # Create a table of blanks using named vectors
+  # Easy insert of data
+  skeleton = list(
+    "data" = names(skeleton_col()),
+    "tested" = skeleton_col(),
+    "cases" = skeleton_col(),
+    "negatives" = skeleton_col(),
+    "recovered" = skeleton_col(),
+    "deaths" = skeleton_col())
+  return(skeleton)
+}
+
+example = skeleton_table()
+example_tibble = as_tibble(example)
 ```
 
 # Nevada
@@ -72,7 +121,7 @@ extract_iowa_data = function(pdf_data) {
     total_confirmed_cases = total_confirmed_cases,
     total_deaths = total_deaths,
     total_people_tested = total_people_tested,
-    total_cases_recovered = total_cases_recovered
+    total_cases_recovered = total_cases_recovered,
     demographic_string = demographic_page
   ))
 }
@@ -265,5 +314,204 @@ extract_mississippi_data = function() {
 
 mississippi = extract_mississippi_data()
 mississippi
+```
+
+# Florida
+
+```{r}
+extract_florida_data = function(pdf_url) {
+  # Get pdf from: https://www.floridadisaster.org/covid19/covid-19-data-reports/
+  
+  data = pdf_text(pdf_url)
+  
+  demographic_data = data %>% .[3] %>% 
+    str_split(., "\n") %>% .[[1]] %>% 
+    str_squish()
+  
+  # Initialize skeleton
+  skeleton = skeleton_table()
+  
+  tested = data %>% .[1] %>% 
+    str_split(., "\n") %>% .[[1]] %>% 
+    str_squish() %>% .[[22]] %>% 
+    str_split(., " ", simplify = TRUE) %>% .[1, 3] %>% 
+    str_replace(., ",", "") %>% as.numeric()
+  
+  negatives = data %>% .[1] %>% 
+    str_split(., "\n") %>% .[[1]] %>% 
+    str_squish() %>% .[[25]] %>% 
+    str_split(., " ", simplify = TRUE) %>% .[1, 2] %>% 
+    str_replace(., ",", "") %>% as.numeric()
+  
+  cases = demographic_data %>% .[16] %>% 
+    str_split(., " ", simplify = TRUE) %>% .[1, 2] %>% 
+    str_replace(., ",", "") %>% as.numeric()
+  
+  deaths = demographic_data %>% .[16] %>% 
+    str_split(., " ", simplify = TRUE) %>% .[1, 4] %>% 
+    str_replace(., ",", "") %>% as.numeric()
+  
+  # All of the following information applies to cases only
+  males = demographic_data %>% .[5] %>% 
+    str_split(., " ", simplify = TRUE) %>%  .[1, 10] %>% 
+    str_replace(., ",", "") %>% as.numeric()
+  
+  # Age divisions don't match up against what I currently have
+  between_0_and_4 = demographic_data %>% .[5] %>% 
+    str_split(., " ", simplify = TRUE) %>%  .[1, 3] %>% 
+    str_replace(., ",", "") %>% as.numeric()
+  
+  between_5_and_14 = demographic_data %>% .[6] %>% 
+    str_split(., " ", simplify = TRUE) %>%  .[1, 3] %>% 
+    str_replace(., ",", "") %>% as.numeric()
+  
+  between_15_and_24 = demographic_data %>% .[7] %>% 
+    str_split(., " ", simplify = TRUE) %>%  .[1, 3] %>% 
+    str_replace(., ",", "") %>% as.numeric()
+  
+  between_25_and_34 = demographic_data %>% .[8] %>% 
+    str_split(., " ", simplify = TRUE) %>%  .[1, 3] %>% 
+    str_replace(., ",", "") %>% as.numeric()
+  
+  between_35_and_44 = demographic_data %>% .[9] %>% 
+    str_split(., " ", simplify = TRUE) %>%  .[1, 3] %>% 
+    str_replace(., ",", "") %>% as.numeric()
+  
+  between_45_and_54 = demographic_data %>% .[10] %>% 
+    str_split(., " ", simplify = TRUE) %>%  .[1, 3] %>% 
+    str_replace(., ",", "") %>% as.numeric()
+  
+  between_55_and_64 = demographic_data %>% .[11] %>% 
+    str_split(., " ", simplify = TRUE) %>%  .[1, 3] %>% 
+    str_replace(., ",", "") %>% as.numeric()
+  
+  between_65_and_74 = demographic_data %>% .[12] %>% 
+    str_split(., " ", simplify = TRUE) %>%  .[1, 3] %>% 
+    str_replace(., ",", "") %>% as.numeric()
+  
+  between_75_and_84 = demographic_data %>% .[13] %>% 
+    str_split(., " ", simplify = TRUE) %>%  .[1, 3] %>% 
+    str_replace(., ",", "") %>% as.numeric()
+  
+  older_than_85 = demographic_data %>% .[14] %>% 
+    str_split(., " ", simplify = TRUE) %>%  .[1, 3] %>% 
+    str_replace(., ",", "") %>% as.numeric()
+  
+  unknown_age = demographic_data %>% .[15] %>% 
+    str_split(., " ", simplify = TRUE) %>%  .[1, 2] %>% 
+    str_replace(., ",", "") %>% as.numeric()
+  
+  hispanic = demographic_data %>% .[18] %>% 
+    str_split(., " ", simplify = TRUE) %>%  .[1, 2] %>% 
+    str_replace(., ",", "") %>% as.numeric()
+  
+  non_hispanic = demographic_data %>% .[19] %>% 
+    str_split(., " ", simplify = TRUE) %>%  .[1, 2] %>% 
+    str_replace(., ",", "") %>% as.numeric()
+  
+  unknown_race = demographic_data %>% .[20] %>% 
+    str_split(., " ", simplify = TRUE) %>%  .[1, 2] %>% 
+    str_replace(., ",", "") %>% as.numeric()
+  
+  hispanic_death = demographic_data %>% .[18] %>% 
+    str_split(., " ", simplify = TRUE) %>%  .[1, 6] %>% 
+    str_replace(., ",", "") %>% as.numeric()
+  
+  non_hispanic_death = demographic_data %>% .[19] %>% 
+    str_split(., " ", simplify = TRUE) %>%  .[1, 6] %>% 
+    str_replace(., ",", "") %>% as.numeric()
+  
+  unknown_race_death = demographic_data %>% .[20] %>% 
+    str_split(., " ", simplify = TRUE) %>%  .[1, 6] %>% 
+    str_replace(., ",", "") %>% as.numeric()
+  
+  white = demographic_data %>% .[23] %>% 
+    str_split(., " ", simplify = TRUE) %>%  .[1, 2] %>% 
+    str_replace(., ",", "") %>% as.numeric()
+  
+  black = demographic_data %>% .[27] %>% 
+    str_split(., " ", simplify = TRUE) %>%  .[1, 2] %>% 
+    str_replace(., ",", "") %>% as.numeric()
+  
+  other_ethnicity = demographic_data %>% .[31] %>% 
+    str_split(., " ", simplify = TRUE) %>%  .[1, 2] %>% 
+    str_replace(., ",", "") %>% as.numeric()
+  
+  unknown_ethnicity = demographic_data %>% .[35] %>% 
+    str_split(., " ", simplify = TRUE) %>%  .[1, 3] %>% 
+    str_replace(., ",", "") %>% as.numeric()
+  
+  white_death = demographic_data %>% .[23] %>% 
+    str_split(., " ", simplify = TRUE) %>%  .[1, 6] %>% 
+    str_replace(., ",", "") %>% as.numeric()
+  
+  black_death = demographic_data %>% .[27] %>% 
+    str_split(., " ", simplify = TRUE) %>%  .[1, 6] %>% 
+    str_replace(., ",", "") %>% as.numeric()
+  
+  other_ethnicity_death = demographic_data %>% .[31] %>% 
+    str_split(., " ", simplify = TRUE) %>%  .[1, 6] %>% 
+    str_replace(., ",", "") %>% as.numeric()
+  
+  unknown_ethnicity_death = demographic_data %>% .[35] %>% 
+    str_split(., " ", simplify = TRUE) %>%  .[1, 6] %>% 
+    str_replace(., ",", "") %>% as.numeric()
+
+  # Log all of the information
+  skeleton[["tested"]][["total"]] = tested
+  skeleton[["negatives"]][["total"]] = negatives
+  
+  skeleton[["cases"]][["total"]] = cases
+  skeleton[["cases"]][["sex_male"]] = males
+  skeleton[["cases"]][["sex_female"]] = cases - males
+  skeleton[["cases"]][["age_0_19"]] = between_0_and_4 + 
+    between_5_and_14 + between_15_and_24 / 2
+  skeleton[["cases"]][["age_20_29"]] = (between_15_and_24 / 2) + 
+    (between_25_and_34 / 2)
+  skeleton[["cases"]][["age_30_39"]] = (between_25_and_34 / 2) +
+    (between_35_and_44 / 2)
+  skeleton[["cases"]][["age_40_49"]] = (between_35_and_44 / 2) + 
+    (between_45_and_54 / 2) 
+  skeleton[["cases"]][["age_70_79"]] = (between_75_and_84 / 2) + 
+    (between_65_and_74 / 2)
+  skeleton[["cases"]][["age_50_59"]] = (between_55_and_64 / 2) + 
+    (between_45_and_54 / 2)
+  skeleton[["cases"]][["age_60_69"]] = (between_55_and_64 / 2) + 
+    (between_65_and_74 / 2)
+  skeleton[["cases"]][["age_80+"]] = (between_75_and_84 / 2) +
+    older_than_85
+  skeleton[["cases"]][["age_unk"]] = unknown_age
+  skeleton[["cases"]][["race_hispanic"]] = hispanic
+  skeleton[["cases"]][["race_non_hispanic"]] = non_hispanic
+  skeleton[["cases"]][["race_unk"]] = unknown_race
+  skeleton[["cases"]][["ethnicity_white"]] = white
+  skeleton[["cases"]][["ethnicity_AfrA"]] = black
+  skeleton[["cases"]][["ethnicity_other"]] = other_ethnicity
+  skeleton[["cases"]][["ethnicity_unk"]] = unknown_ethnicity
+  
+  skeleton[["deaths"]][["total"]] = deaths
+  skeleton[["deaths"]][["race_hispanic"]] = hispanic_death
+  skeleton[["deaths"]][["race_non_hispanic"]] = non_hispanic_death
+  skeleton[["deaths"]][["race_unk"]] = unknown_race_death
+  skeleton[["deaths"]][["ethnicity_white"]] = white_death
+  skeleton[["deaths"]][["ethnicity_AfrA"]] = black_death
+  skeleton[["deaths"]][["ethnicity_other"]] = other_ethnicity_death
+  skeleton[["deaths"]][["ethnicity_unk"]] = unknown_ethnicity_death
+  
+  return(list(
+    data = as_tibble(skeleton),
+    comments = list(
+      "Age divisions don't match up to standard",
+      "Halved split divisions here"
+    )
+  ))
+  
+}
+
+florida = extract_florida_data("https://www.floridadisaster.org/globalassets/covid19/dailies/covid-19-data---daily-report-2020-05-07-0956.pdf")
+```
+
+```{r}
+florida
 ```
 
