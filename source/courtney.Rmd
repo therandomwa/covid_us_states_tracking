@@ -29,7 +29,7 @@ wy_xml = read_html(url) %>%
 ### New Hampshire
 
 ```{r, nh_scrape}
-date = "04272020"
+date = "05042020"
 
 # put the date into url and create a way to automatically run things with different dates
 url = "https://www.dhhs.nh.gov/dphs/cdcs/covid19/covid-weekly-report-{date}.pdf"
@@ -271,6 +271,7 @@ knitr::kable(ks_eth_demo)
 ```{r, idaho}
 # so far, it looks like the most difficult but accurate way is to download the crosstab data from the dashboard (sex, age, race, ethnicity, total) for both cases and deaths separately
 # this would mean downloading 10 csv files each day manually-there isn't a file location link that I can find that would enable me to loop through automatically downloading each file
+# I also manually changed the filenames to the format below so that they would make more sense when being read in
 
 
 date = "05082020"
