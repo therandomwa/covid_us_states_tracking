@@ -7,7 +7,7 @@
 | State (desc by # case) | Status |
 |------------------------|--------|
 | New York               | -      |
-| New Jersey             |        |
+| New Jersey             | x      |
 | Massachusetts          | x      |
 | California             | x      |
 | Pennsylvania           | x      |
@@ -25,14 +25,14 @@
 | Colorado               | x      |
 | Virginia               | x      |
 | Tennessee              | -      |
-| North Carolina         |        |
+| North Carolina         | x      |
 | Missouri               | x      |
 | Rhode Island           | x      |
 | Alabama                | x      |
 | Arizona                |        |
-| Mississippi            |        |
+| Mississippi            | x      |
 | Wisconsin              | x      |
-| South Carolina         |        |
+| South Carolina         | x      |
 | Nevada                 |        |
 | Iowa                   |        |
 | Utah                   | x      |
@@ -45,10 +45,10 @@
 | Kansas                 |        |
 | New Mexico             | x      |
 | Oregon                 | x      |
-| South Dakota           |        |
-| Nebraska               | x     |
+| South Dakota           | x      |
+| Nebraska               | x      |
 | Idaho                  |        |
-| New Hampshire          |        |
+| New Hampshire          | x      |
 | Puerto Rico            |        |
 | West Virginia          |        |
 | Maine                  | x      |
