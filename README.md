@@ -46,7 +46,7 @@
 | New Mexico             | x      |
 | Oregon                 | x      |
 | South Dakota           |        |
-| Nebraska               |        |
+| Nebraska               | x     |
 | Idaho                  |        |
 | New Hampshire          |        |
 | Puerto Rico            |        |
