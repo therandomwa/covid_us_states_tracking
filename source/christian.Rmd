@@ -10,11 +10,7 @@ library(rvest)
 library(lubridate)
 library(readxl)
 
-# Helper functions for data cleaning
-skeleton_col = function() {
-  # Need to make a named vector to make it easier to insert data
-  # in a cel-wise fashion
-  subdivs = c(
+old_cols = c(
     "total",
     "age_0_19", 
     "age_20_29", 
@@ -38,25 +34,35 @@ skeleton_col = function() {
     "race_other",
     "race_multi", 
     "race_unk")
+
+# Helper functions for data cleaning
+skeleton_col = function(subdivs) {
+  # Need to make a named vector to make it easier to insert data
+  # in a cel-wise fashion
+  
+  # subdivs should contain all of the relevant information that
+  # a state provides on their websitE
+  
   skeleton = vector(mode = "list", length = length(subdivs))
   names(skeleton) = subdivs
   return(skeleton)
 }
 
-skeleton_table = function() {
+skeleton_table = function(subdivs) {
   # Create a table of blanks using named vectors
   # Easy insert of data
   skeleton = list(
-    "data" = names(skeleton_col()),
-    "tested" = skeleton_col(),
-    "cases" = skeleton_col(),
-    "negatives" = skeleton_col(),
-    "recovered" = skeleton_col(),
-    "deaths" = skeleton_col())
+    "data" = names(skeleton_col(subdivs)),
+    "tested" = skeleton_col(subdivs),
+    "cases" = skeleton_col(subdivs),
+    "negatives" = skeleton_col(subdivs),
+    "recovered" = skeleton_col(subdivs),
+    "deaths" = skeleton_col(subdivs),
+    "hospitalized" = skeleton_col(subdivs))
   return(skeleton)
 }
 
-example = skeleton_table()
+example = skeleton_table(old_cols)
 example_tibble = as_tibble(example)
 ```
 
@@ -890,5 +896,159 @@ get_south_carolina = function() {
 
 south_carolina = get_south_carolina()
 south_carolina
+```
+
+# New Jersey
+
+```{r}
+# Changing columns to account for provided data
+nj_cols = c(
+    "total",
+    "age_0_4", 
+    "age_5_17", 
+    "age_18_29", 
+    "age_30_49",
+    "age_50_64", 
+    "age_65_79", 
+    "age_80+", 
+    "age_unk",
+    "sex_male", 
+    "sex_female", 
+    "sex_unk",
+    "ethnicity_hispanic", 
+    "ethnicity_non_hispanic",
+    "ethnicity_unk",
+    "race_white", 
+    "race_AfrA",
+    "race_NatA",
+    "race_asian", 
+    "race_other",
+    "race_multi", 
+    "race_unk")
+
+get_new_jersey = function() {
+  
+  url = "https://www.nj.gov/health/cd/documents/topics/NCOV/COVID_Confirmed_Case_Summary.pdf"
+  data = pdf_text(url) %>% .[1] %>% 
+    str_split("\n") %>% .[[1]] %>% 
+    str_squish()
+  skeleton = skeleton_table(nj_cols)
+  
+  cases = data %>% .[9] %>% 
+    str_split(" ", simplify = TRUE) %>% .[1, 5] %>% 
+    as.numeric()
+  
+  deaths = data %>% .[12] %>% 
+    str_split(" ", simplify = TRUE) %>% .[1, 6] %>% 
+    as.numeric()
+  
+  hospitalizations = data %>% .[14] %>% 
+    str_split(" ", simplify = TRUE) %>% .[1, 5] %>% 
+    as.numeric()
+  
+  between_0_and_4 = data %>% .[17] %>% 
+    str_split(" ", simplify = TRUE) %>% .[1, 4] %>% 
+    as.numeric()
+  
+  between_5_and_17 = data %>% .[18] %>% 
+    str_split(" ", simplify = TRUE) %>% .[1, 4] %>% 
+    as.numeric()
+  
+  between_18_and_29 = data %>% .[19] %>% 
+    str_split(" ", simplify = TRUE) %>% .[1, 4] %>% 
+    as.numeric()
+  
+  between_30_and_49 = data %>% .[20] %>% 
+    str_split(" ", simplify = TRUE) %>% .[1, 4] %>% 
+    as.numeric()
+  
+  between_50_and_64 = data %>% .[21] %>% 
+    str_split(" ", simplify = TRUE) %>% .[1, 4] %>% 
+    as.numeric()
+  
+  between_65_and_79 = data %>% .[22] %>% 
+    str_split(" ", simplify = TRUE) %>% .[1, 4] %>% 
+    as.numeric()
+  
+  older_than_80 = data %>% .[23] %>% 
+    str_split(" ", simplify = TRUE) %>% .[1, 2] %>% 
+    as.numeric()
+  
+  male = data %>% .[29] %>% 
+    str_split(" ", simplify = TRUE) %>% .[1, 2] %>% 
+    as.numeric()
+  
+  female = data %>% .[28] %>% 
+    str_split(" ", simplify = TRUE) %>% .[1, 2] %>% 
+    as.numeric()
+  
+  unknown_sex = data %>% .[30] %>% 
+    str_split(" ", simplify = TRUE) %>% .[1, 2] %>% 
+    as.numeric()
+  
+  available_race = data %>% .[31] %>% 
+    str_split(" ", simplify = TRUE) %>% .[1, 3] %>% 
+    as.numeric()
+  
+  white = data %>% .[32] %>% 
+    str_split(" ", simplify = TRUE) %>% .[1, 3] %>% 
+    as.numeric()
+  
+  black = data %>% .[36] %>% 
+    str_split(" ", simplify = TRUE) %>% .[1, 3] %>% 
+    as.numeric()
+  
+  asian = data %>% .[37] %>% 
+    str_split(" ", simplify = TRUE) %>% .[1, 3] %>% 
+    as.numeric()
+  
+  other_race = data %>% .[38] %>% 
+    str_split(" ", simplify = TRUE) %>% .[1, 3] %>% 
+    as.numeric()
+  
+  hispanic = data %>% .[34] %>% 
+    str_split(" ", simplify = TRUE) %>% .[1, 1] %>% 
+    as.numeric()
+  
+  non_hispanic = (white + black + asian + other_race)
+  
+  unknown_ethnicity = cases - (hispanic + non_hispanic)
+  
+  unknown_race = cases - (non_hispanic)
+  
+  skeleton[["cases"]][["total"]] = cases
+  skeleton[["cases"]][["sex_male"]] = male
+  skeleton[["cases"]][["sex_female"]] = female
+  skeleton[["cases"]][["sex_unk"]] = unknown_sex
+  skeleton[["deaths"]][["total"]] = deaths
+  
+  skeleton[["cases"]][["age_0_4"]] = between_0_and_4
+  skeleton[["cases"]][["age_5_17"]] = between_5_and_17
+  skeleton[["cases"]][["age_18_29"]] = between_18_and_29
+  skeleton[["cases"]][["age_30_49"]] = between_30_and_49
+  skeleton[["cases"]][["age_50_64"]] = between_50_and_64
+  skeleton[["cases"]][["age_65_79"]] = between_65_and_79
+  skeleton[["cases"]][["age_80+"]] = older_than_80
+  
+  skeleton[["cases"]][["ethnicity_hispanic"]] = hispanic
+  skeleton[["cases"]][["ethnicity_non_hispanic"]] = non_hispanic
+  skeleton[["cases"]][["ethnicity_unk"]] = unknown_ethnicity
+  
+  skeleton[["cases"]][["race_white"]] = white
+  skeleton[["cases"]][["race_AfrA"]] = black
+  skeleton[["cases"]][["race_asian"]] = asian
+  skeleton[["cases"]][["race_other"]] = other_race
+  skeleton[["cases"]][["race_unk"]] = unknown_race
+  
+  return(list(
+    data = as_tibble(skeleton),
+    comments = list(
+      "Site combined race and ethnicity, so calculation needed"
+    )
+  ))
+}
+
+new_jersey = get_new_jersey()
+new_jersey
 ```
 
