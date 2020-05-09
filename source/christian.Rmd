@@ -1055,6 +1055,8 @@ new_jersey
 # New Hampshire
 
 ```{r}
+# Note to self: if we try to  scrape for before or at April 20
+# the format of the pdf changed
 current_week = "https://www.dhhs.nh.gov/dphs/cdcs/covid19/covid-weekly-report-05042020.pdf"
 
 nh_cols = c(
@@ -1376,7 +1378,7 @@ get_new_hampshire = function(url) {
   skeleton[["deaths"]][["age_70_79"]] = between_70_and_79_death
   skeleton[["deaths"]][["age_80+"]] = older_than_80_death
   
-  skeleton[["deaths"]][["race_unk"]] = cases - has_race_ethn
+  skeleton[["deaths"]][["race_unk"]] = deaths - has_race_ethn_death
   skeleton[["deaths"]][["race_white"]] = white_death
   skeleton[["deaths"]][["race_AfrA"]] = black_death
   skeleton[["deaths"]][["race_other"]] = other_death
@@ -1399,3 +1401,53 @@ new_hampshire = get_new_hampshire(current_week)
 new_hampshire 
 ```
 
+# West Virginia
+
+- Microsoft BI
+
+# Hawaii
+
+- Tableau
+
+# Guam
+
+```{r}
+url1 = "https://ghs.guam.gov/jic-release-no-118-end-day-results-zero-test-positive-covid-19-dphss"
+url2 = "https://ghs.guam.gov/jic-release-no-116-end-day-results-zero-test-positive-covid-19-dphss"
+
+get_guam = function(url) {
+  data = read_html(url) %>% 
+    html_nodes("body #nakainer #primary-content .container") %>% .[[2]] %>% 
+    html_nodes(".main_content .row .col-md-12 .left-side-content-area") %>% 
+    html_nodes(".region .view .view-content .views-row .post-outer") %>% 
+    html_nodes("article .text-left .post-body") %>% 
+    html_nodes("table") %>% html_table() %>% .[[1]] %>% 
+    tail(1) %>% 
+    c()
+  
+  negatives = data$X3 %>% str_split("\t") %>% .[[1]] %>% 
+    .[4] %>% str_replace(",", "") %>% 
+    as.numeric()
+  
+  cases = data$X4 %>% str_split("\t") %>% .[[1]] %>% 
+    .[4] %>% str_trim() %>% str_replace(",", "") %>% as.numeric
+  
+  skeleton = skeleton_table(old_cols)
+  
+  skeleton[["negatives"]][["total"]] = negatives
+  skeleton[["cases"]][["total"]] = cases
+  
+  return(list(
+    data = as_tibble(skeleton),
+    comment = list(
+      "Not too much data present"
+    )
+  ))
+}
+
+guam = get_guam(url1)
+guam
+```
+
+
+https://www.ghs.guam.gov/sites/default/files/jic_release_no._118_-_end_of_day_results_zero_test_positive_for_covid-19_by_dphss.docx.pdf
