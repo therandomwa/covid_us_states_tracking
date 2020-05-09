@@ -28,16 +28,16 @@ skeleton_col = function() {
     "sex_male", 
     "sex_female", 
     "sex_unk",
-    "race_hispanic", 
-    "race_non_hispanic",
-    "race_unk",
-    "ethnicity_white", 
-    "ethnicity_AfrA",
-    "ethnicity_NatA",
-    "ethnicity_asian", 
-    "ethnicity_other",
-    "ethnicity_multi_race", 
-    "ethnicity_unk")
+    "ethnicity_hispanic", 
+    "ethnicity_non_hispanic",
+    "ethnicity_unk",
+    "race_white", 
+    "race_AfrA",
+    "race_NatA",
+    "race_asian", 
+    "race_other",
+    "race_multi", 
+    "race_unk")
   skeleton = vector(mode = "list", length = length(subdivs))
   names(skeleton) = subdivs
   return(skeleton)
@@ -482,22 +482,22 @@ extract_florida_data = function(pdf_url) {
   skeleton[["cases"]][["age_80+"]] = (between_75_and_84 / 2) +
     older_than_85
   skeleton[["cases"]][["age_unk"]] = unknown_age
-  skeleton[["cases"]][["race_hispanic"]] = hispanic
-  skeleton[["cases"]][["race_non_hispanic"]] = non_hispanic
-  skeleton[["cases"]][["race_unk"]] = unknown_race
-  skeleton[["cases"]][["ethnicity_white"]] = white
-  skeleton[["cases"]][["ethnicity_AfrA"]] = black
-  skeleton[["cases"]][["ethnicity_other"]] = other_ethnicity
-  skeleton[["cases"]][["ethnicity_unk"]] = unknown_ethnicity
+  skeleton[["cases"]][["ethnicity_hispanic"]] = hispanic
+  skeleton[["cases"]][["ethnicity_non_hispanic"]] = non_hispanic
+  skeleton[["cases"]][["ethnicity_unk"]] = unknown_race
+  skeleton[["cases"]][["race_white"]] = white
+  skeleton[["cases"]][["race_AfrA"]] = black
+  skeleton[["cases"]][["race_other"]] = other_ethnicity
+  skeleton[["cases"]][["race_unk"]] = unknown_ethnicity
   
   skeleton[["deaths"]][["total"]] = deaths
-  skeleton[["deaths"]][["race_hispanic"]] = hispanic_death
-  skeleton[["deaths"]][["race_non_hispanic"]] = non_hispanic_death
-  skeleton[["deaths"]][["race_unk"]] = unknown_race_death
-  skeleton[["deaths"]][["ethnicity_white"]] = white_death
-  skeleton[["deaths"]][["ethnicity_AfrA"]] = black_death
-  skeleton[["deaths"]][["ethnicity_other"]] = other_ethnicity_death
-  skeleton[["deaths"]][["ethnicity_unk"]] = unknown_ethnicity_death
+  skeleton[["deaths"]][["ethnicity_hispanic"]] = hispanic_death
+  skeleton[["deaths"]][["ethnicity_non_hispanic"]] = non_hispanic_death
+  skeleton[["deaths"]][["ethnicity_unk"]] = unknown_race_death
+  skeleton[["deaths"]][["race_white"]] = white_death
+  skeleton[["deaths"]][["race_AfrA"]] = black_death
+  skeleton[["deaths"]][["race_other"]] = other_ethnicity_death
+  skeleton[["deaths"]][["race_unk"]] = unknown_ethnicity_death
   
   return(list(
     data = as_tibble(skeleton),
@@ -575,21 +575,21 @@ get_tennessee = function(date) {
     filter(Cat_Detail == "Female") %>% pull(Cat_CaseCount) 
   skeleton[["cases"]][["sex_unk"]] = sex_cases %>% 
     filter(Cat_Detail == "Pending") %>% pull(Cat_CaseCount) 
-  skeleton[["cases"]][["ethnicity_white"]] = race_cases %>% 
+  skeleton[["cases"]][["race_white"]] = race_cases %>% 
     filter(Cat_Detail == "White") %>% pull(Cat_CaseCount) 
-  skeleton[["cases"]][["ethnicity_AfrA"]] = race_cases %>% 
+  skeleton[["cases"]][["race_AfrA"]] = race_cases %>% 
     filter(Cat_Detail == "Black or African American") %>% pull(Cat_CaseCount) 
-  skeleton[["cases"]][["ethnicity_other"]] = race_cases %>% 
+  skeleton[["cases"]][["race_other"]] = race_cases %>% 
     filter(Cat_Detail == "Other/Multiracial") %>% pull(Cat_CaseCount)
-  skeleton[["cases"]][["ethnicity_asian"]] = race_cases %>% 
+  skeleton[["cases"]][["race_asian"]] = race_cases %>% 
     filter(Cat_Detail == "Asian") %>% pull(Cat_CaseCount) 
-  skeleton[["cases"]][["ethnicity_unk"]] = race_cases %>% 
+  skeleton[["cases"]][["race_unk"]] = race_cases %>% 
     filter(Cat_Detail == "Pending") %>% pull(Cat_CaseCount) 
-  skeleton[["cases"]][["race_hispanic"]] = ethnicity_cases %>% 
+  skeleton[["cases"]][["ethnicity_hispanic"]] = ethnicity_cases %>% 
     filter(Cat_Detail == "Hispanic") %>% pull(Cat_CaseCount)
-  skeleton[["cases"]][["race_non_hispanic"]] = ethnicity_cases %>% 
+  skeleton[["cases"]][["ethnicity_non_hispanic"]] = ethnicity_cases %>% 
     filter(Cat_Detail == "Not Hispanic or Latino") %>% pull(Cat_CaseCount)
-  skeleton[["cases"]][["race_unk"]] = ethnicity_cases %>% 
+  skeleton[["cases"]][["ethnicity_unk"]] = ethnicity_cases %>% 
     filter(Cat_Detail == "Pending") %>% pull(Cat_CaseCount)
   
   skeleton[["negatives"]][["total"]] = negatives
@@ -603,21 +603,21 @@ get_tennessee = function(date) {
   skeleton[["deaths"]][["age_70_79"]] = ar_deaths[8]
   skeleton[["deaths"]][["age_80+"]] = ar_deaths[9]
   skeleton[["deaths"]][["age_unk"]] = ar_deaths[10]
-  skeleton[["deaths"]][["ethnicity_white"]] = race_deaths %>% 
+  skeleton[["deaths"]][["race_white"]] = race_deaths %>% 
     filter(Cat_Detail == "White") %>% pull(CAT_DEATHCOUNT) 
-  skeleton[["deaths"]][["ethnicity_AfrA"]] = race_deaths %>% 
+  skeleton[["deaths"]][["race_AfrA"]] = race_deaths %>% 
     filter(Cat_Detail == "Black or African American") %>% pull(CAT_DEATHCOUNT) 
-  skeleton[["deaths"]][["ethnicity_other"]] = race_deaths %>% 
+  skeleton[["deaths"]][["race_other"]] = race_deaths %>% 
     filter(Cat_Detail == "Other/Multiracial") %>% pull(CAT_DEATHCOUNT)
-  skeleton[["deaths"]][["ethnicity_asian"]] = race_deaths %>% 
+  skeleton[["deaths"]][["race_asian"]] = race_deaths %>% 
     filter(Cat_Detail == "Asian") %>% pull(CAT_DEATHCOUNT) 
-  skeleton[["deaths"]][["ethnicity_unk"]] = race_deaths %>% 
+  skeleton[["deaths"]][["race_unk"]] = race_deaths %>% 
     filter(Cat_Detail == "Pending") %>% pull(CAT_DEATHCOUNT) 
-  skeleton[["deaths"]][["race_hispanic"]] = ethnicity_deaths %>% 
+  skeleton[["deaths"]][["ethnicity_hispanic"]] = ethnicity_deaths %>% 
     filter(Cat_Detail == "Hispanic") %>% pull(CAT_DEATHCOUNT)
-  skeleton[["deaths"]][["race_non_hispanic"]] = ethnicity_deaths %>% 
+  skeleton[["deaths"]][["ethnicity_non_hispanic"]] = ethnicity_deaths %>% 
     filter(Cat_Detail == "Not Hispanic or Latino") %>% pull(CAT_DEATHCOUNT)
-  skeleton[["deaths"]][["race_unk"]] = ethnicity_deaths %>% 
+  skeleton[["deaths"]][["ethnicity_unk"]] = ethnicity_deaths %>% 
     filter(Cat_Detail == "Pending") %>% pull(CAT_DEATHCOUNT)
   
   skeleton[["recovered"]][["total"]] = recovered
@@ -759,26 +759,26 @@ get_north_carolina = function() {
   
   skeleton[["tested"]][["total"]] = heading_table[3]
   skeleton[["deaths"]][["total"]] = deaths
-  skeleton[["deaths"]][["ethnicity_NatA"]] = nata[4]
-  skeleton[["deaths"]][["ethnicity_asian"]] = asian[4]
-  skeleton[["deaths"]][["ethnicity_AfrA"]] = afra[4]
-  skeleton[["deaths"]][["ethnicity_white"]] = white[4]
-  skeleton[["deaths"]][["ethnicity_other"]] = other[4]
-  skeleton[["deaths"]][["ethnicity_unk"]] = deaths - not_unk[4]
-  skeleton[["deaths"]][["race_hispanic"]] = hispanic[4]
-  skeleton[["deaths"]][["race_non_hispanic"]] = non_hispanic[4]
-  skeleton[["deaths"]][["race_unk"]] = deaths = eth_unk[4]
+  skeleton[["deaths"]][["race_NatA"]] = nata[4]
+  skeleton[["deaths"]][["race_asian"]] = asian[4]
+  skeleton[["deaths"]][["race_AfrA"]] = afra[4]
+  skeleton[["deaths"]][["race_white"]] = white[4]
+  skeleton[["deaths"]][["race_other"]] = other[4]
+  skeleton[["deaths"]][["race_unk"]] = deaths - not_unk[4]
+  skeleton[["deaths"]][["ethnicity_hispanic"]] = hispanic[4]
+  skeleton[["deaths"]][["ethnicity_non_hispanic"]] = non_hispanic[4]
+  skeleton[["deaths"]][["ethnicity_unk"]] = deaths = eth_unk[4]
   
   skeleton[["cases"]][["total"]] = cases
-  skeleton[["cases"]][["ethnicity_NatA"]] = nata[2]
-  skeleton[["cases"]][["ethnicity_asian"]] = asian[2]
-  skeleton[["cases"]][["ethnicity_AfrA"]] = afra[2]
-  skeleton[["cases"]][["ethnicity_white"]] = white[2]
-  skeleton[["cases"]][["ethnicity_other"]] = other[2]
-  skeleton[["cases"]][["ethnicity_unk"]] = cases - not_unk[2]
-  skeleton[["cases"]][["race_hispanic"]] = hispanic[2]
-  skeleton[["cases"]][["race_non_hispanic"]] = non_hispanic[2]
-  skeleton[["cases"]][["race_unk"]] = cases - eth_unk[2]
+  skeleton[["cases"]][["race_NatA"]] = nata[2]
+  skeleton[["cases"]][["race_asian"]] = asian[2]
+  skeleton[["cases"]][["race_AfrA"]] = afra[2]
+  skeleton[["cases"]][["race_white"]] = white[2]
+  skeleton[["cases"]][["race_other"]] = other[2]
+  skeleton[["cases"]][["race_unk"]] = cases - not_unk[2]
+  skeleton[["cases"]][["ethnicity_hispanic"]] = hispanic[2]
+  skeleton[["cases"]][["ethnicity_non_hispanic"]] = non_hispanic[2]
+  skeleton[["cases"]][["ethnicity_unk"]] = cases - eth_unk[2]
   
   return(list(
     data = as_tibble(skeleton),
@@ -789,5 +789,106 @@ get_north_carolina = function() {
   
 }
 north_carolina = get_north_carolina()
+```
+
+# District of Columbia
+
+```{r}
+get_dc = function(date) {
+  # Supply date in the form MonthName-Day-Year
+  
+  skeleton = skeleton_table()
+  url = paste0(
+    "https://coronavirus.dc.gov/sites/default/files/dc/sites/thrivebyfive/page_content/attachments/DC-COVID-19-Data-for-",
+    date,
+    ".xlsx")
+  
+  temp = tempfile(fileext = ".xlsx")
+  download.file(url, destfile = temp, mode = 'wb')
+  overall_stats = read_excel(temp, sheet = 1)
+  case_by_race_ethnicity = read_excel(temp, sheet = 3)
+  deaths_by_race = read_excel(temp, sheet = 4)
+  
+  # Log all the totals from this file
+  today_stats = overall_stats[, ncol(overall_stats)] %>% unlist()
+  
+  skeleton[["tested"]][["total"]] = today_stats[2]
+  skeleton[["cases"]][["total"]] = today_stats[3]
+  skeleton[["deaths"]][["total"]] = today_stats[4]
+  skeleton[["recovered"]][["total"]] = today_stats[5]
+  
+  # Log cases by race and ethnicity
+  today_race_ethn = case_by_race_ethnicity[, ncol(case_by_race_ethnicity)] %>% 
+    unlist
+  skeleton[["cases"]][["race_unk"]] = today_race_ethn[3] + 
+    today_race_ethn[10]
+  skeleton[["cases"]][["race_white"]] = today_race_ethn[4]
+  skeleton[["cases"]][["race_AfrA"]] = today_race_ethn[5]
+  skeleton[["cases"]][["race_asian"]] = today_race_ethn[6]
+  skeleton[["cases"]][["race_NatA"]] = today_race_ethn[7]
+  skeleton[["cases"]][["race_other"]] = today_race_ethn[8] +
+    today_race_ethn[9]
+  skeleton[["cases"]][["ethnicity_unk"]] = today_race_ethn[12] +
+    today_race_ethn[15]
+  skeleton[["cases"]][["ethnicity_hispanic"]] = today_race_ethn[13]
+  skeleton[["cases"]][["ethnicity_non_hispanic"]] = today_race_ethn[14]
+    
+  # Logging deaths
+  today_deaths = deaths_by_race[, ncol(deaths_by_race)] %>% unlist()
+  skeleton[["deaths"]][["race_asian"]] = today_deaths[3]
+  skeleton[["deaths"]][["race_AfrA"]] = today_deaths[4]
+  skeleton[["deaths"]][["ethnicity_hispanic"]] = today_deaths[5]
+  skeleton[["deaths"]][["ethnicity_non_hispanic"]] = today_deaths[6]
+  skeleton[["deaths"]][["race_unk"]] = today_deaths[7]
+  
+  return(list(
+    data = as_tibble(skeleton),
+    comments = list(
+      "Deaths are combined between race and ethnicity"
+    )
+  ))
+}
+
+dc = get_dc("May-7-2020")
+dc
+```
+
+
+# South Carolina
+
+```{r}
+get_south_carolina = function() {
+  url = "https://scdhec.gov/infectious-diseases/viruses/coronavirus-disease-2019-covid-19/sc-testing-data-projections-covid-19"
+  html = read_html(url) %>% 
+    html_nodes("body") %>% 
+    html_nodes("div") %>% .[[2]] %>% 
+    html_nodes(".l-container--page") %>% 
+    html_nodes("main") %>% 
+    html_nodes("article .l-constrain") %>% .[[1]] %>% 
+    html_nodes("div section") %>% .[[1]] %>% 
+    html_nodes(".l-constrain .resize") %>% .[[1]] %>% 
+    html_nodes("table") %>% 
+    html_table() %>% .[[1]] %>% 
+    pull(X2) %>% 
+    str_replace(",", "") %>% 
+    as.numeric()
+  
+  skeleton = skeleton_table()
+  
+  skeleton[["tested"]][["total"]] = html[7]
+  skeleton[["negatives"]][["total"]] = html[3]
+  skeleton[["cases"]][["total"]] = html[6]
+    
+  
+  return(list(
+    data = as_tibble(skeleton),
+    comments = list(
+      "Demographic and age data stored in complicated Tableau viz"
+    )
+  ))
+}
+
+south_carolina = get_south_carolina()
+south_carolina
 ```
 
