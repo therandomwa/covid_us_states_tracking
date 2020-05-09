@@ -58,6 +58,6 @@
 | Wyoming                |        |
 | Montana                | x      |
 | Alaska                 | x      |
-| Guam                   |        |
+| Guam                   | x      |
 | Virgin Islands         |        |
 
