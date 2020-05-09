@@ -31,17 +31,17 @@
 | Missouri               | x      | 21    |
 | Rhode Island           | x      | 22    |
 | Alabama                | x      | 23    |
-| Arizona                |        | 24    |
+| Arizona                | cp     | 24    |
 | Mississippi            | x      | 25    |
 | Wisconsin              | x      | 26    |
 | South Carolina         | x      | 27    |
-| Nevada                 |        | 28    |
+| Nevada                 | cp     | 28    |
 | Iowa                   | x      | 29    |
 | Utah                   | x      | 30    |
 | Kentucky               | x      | 31    |
 | District of Columbia   | x      | 32    |
 | Delaware               | x      | 33    |
-| Oklahoma               |        | 34    |
+| Oklahoma               | cp     | 34    |
 | Minnesota              | x      | 35    |
 | Arkansas               | x      | 36    |
 | Kansas                 | x      | 37    |
@@ -49,17 +49,17 @@
 | Oregon                 | x      | 39    |
 | South Dakota           | x      | 40    |
 | Nebraska               | x      | 41    |
-| Idaho                  |        | 42    |
+| Idaho                  | cj     | 42    |
 | New Hampshire          | x      | 43    |
-| Puerto Rico            |        | 44    |
-| West Virginia          |        | 45    |
+| Puerto Rico            | cp     | 44    |
+| West Virginia          | cp     | 45    |
 | Maine                  | x      | 46    |
 | Vermont                | x      | 47    |
 | North Dakota           | x      | 48    |
-| Hawaii                 |        | 49    |
-| Wyoming                |        | 50    |
+| Hawaii                 | cp     | 49    |
+| Wyoming                | cj     | 50    |
 | Montana                | x      | 51    |
 | Alaska                 | x      | 52    |
 | Guam                   | x      | 53    |
-| Virgin Islands         |        | 54    |
+| Virgin Islands         | cp     | 54    |
 
