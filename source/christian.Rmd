@@ -3,6 +3,8 @@ title: "COVID State Web Scraping"
 output: html_document
 ---
 
+# Set Up
+
 ```{r, message = FALSE, warning = FALSE }
 library(tidyverse)
 library(pdftools)
@@ -10,7 +12,7 @@ library(rvest)
 library(lubridate)
 library(readxl)
 
-old_cols = c(
+default_cols = c(
     "total",
     "age_0_19", 
     "age_20_29", 
@@ -62,187 +64,39 @@ skeleton_table = function(subdivs) {
   return(skeleton)
 }
 
-example = skeleton_table(old_cols)
-example_tibble = as_tibble(example)
+example = skeleton_table(default_cols)
 ```
 
-# Nevada
-
-- Doesn't work out because data is hidden under the Microsoft BI dashboard and the pdfs that hold the data show images, not text
-
-```{r}
-nevada = read_html("https://nvhealthresponse.nv.gov/") %>% 
-    html_nodes(".js-side-cta") %>% 
-    html_nodes(".split-content-section") %>% 
-    html_nodes(".split-content-section__container") %>% 
-    html_nodes(".content-intro") %>% 
-    html_nodes("iframe") %>% 
-    xml_attrs() %>% 
-    .[[1]] %>% 
-    .[1] %>% # This returns another html that comes from the iframe
-    read_html() %>% 
-    html_nodes("#pbiAppPlaceHolder")
-  
-  return(nevada)
-```
-
-# Iowa
-
-```{r}
-# Need to access the data through daily pdfs
-# Get pdfs from Tableau download: https://coronavirus.iowa.gov/#CurrentStatus
-
-# Pain point: must redownload pdf from Tableau table every day, 
-# then put it in pdfs folder
-# Download the "Current Status" and "Demographics" sheets as pdf 
-
-now = Sys.time() %>% as_date() %>% as.character()
-date_for_url = paste0(str_sub(now, 6,7), 
-                      str_sub(now, 9, 10), 
-                      str_sub(now, 1,4))
-
-iowa = pdf_text(paste0("../pdfs/IowaCOVID19_", date_for_url, ".pdf"))
-
-extract_iowa_data = function(pdf_data) {
-  total_page = pdf_data[1] %>% str_split(., "\n") %>% .[[1]]
-  demographics_page = pdf_data[2] %>% str_split(., "\n") %>% .[[1]]
-  
-  total_confirmed_cases = total_page[35] %>% 
-    str_split(" ") %>% .[[1]] %>% head(1) %>% 
-    str_replace(., ",", "") %>% as.numeric()
-  
-  total_deaths = total_page[35] %>% 
-    str_split(" ") %>% .[[1]] %>% tail(1) %>% 
-    str_replace(., ",", "") %>% as.numeric()
-  
-  total_people_tested = total_page[37] %>% 
-    str_split(" ") %>% .[[1]] %>% head(1) %>% 
-    str_replace(., ",", "") %>% as.numeric()
-  
-  total_cases_recovered = total_page[37] %>% 
-    str_split(" ") %>% .[[1]] %>% tail(1) %>% 
-    str_replace(., ",", "") %>% as.numeric()
-  
-  
-  return(list(
-    total_confirmed_cases = total_confirmed_cases,
-    total_deaths = total_deaths,
-    total_people_tested = total_people_tested,
-    total_cases_recovered = total_cases_recovered,
-    demographic_string = demographic_page
-  ))
-}
-
-
-extract_iowa_data(iowa)
-```
-
-# Delaware
-
-```{r}
-delaware = read_html("https://myhealthycommunity.dhss.delaware.gov/locations/state")
-```
+# PDF/CSV States
 
 # Oklahoma
 
 ```{r}
 extract_oklahoma_data = function() {
-  data_url = "https://storage.googleapis.com/ok-covid-gcs-public-download/covid19_cases_summary.pdf"
+  case_url = "https://storage.googleapis.com/ok-covid-gcs-public-download/oklahoma_cases_county.csv"
   
-  oklahoma = pdf_text(data_url) %>% 
-    str_split(., "\n") %>% .[[1]] %>% 
-    map(., str_squish)
+  case_by_county = read_csv(case_url)
+  skeleton = skeleton_table(default_cols)
   
-  cases = oklahoma %>% .[[3]] %>% 
-    str_split(., " ", simplify = TRUE) %>% 
-    .[1, 5] %>% 
-    str_replace(., ",", "") %>% as.numeric()
-    
-  deaths = oklahoma %>% .[[3]] %>% 
-    str_split(., " ", simplify = TRUE) %>% 
-    .[1, 6] %>% 
-    str_replace(., ",", "") %>% as.numeric()
+  skeleton[["cases"]][["total"]] = case_by_county %>% 
+    pull(Cases) %>% sum
+  skeleton[["recovered"]][["total"]] = case_by_county %>% 
+    pull(Recovered) %>% sum
+  skeleton[["deaths"]][["total"]] = case_by_county %>% 
+    pull(Deaths) %>% sum
   
-  recovered = oklahoma %>% .[[3]] %>% 
-    str_split(., " ", simplify = TRUE) %>% 
-    .[1, 7] %>% 
-    str_replace(., ",", "") %>% as.numeric()
   
-  # WARNING: super fragile coding follows
-  # Makes some big assumptions on where numbers are placed
-  # based on position, assumes these indices wont change much
-  
-  white_pct = oklahoma %>% .[[22]] %>% 
-    str_split(., " ", simplify = TRUE) %>% .[1, 2] %>% 
-    str_replace(., "%", "") %>% as.numeric() / 100
-  
-  unknown_race_pct = oklahoma %>% .[[25]] %>% 
-    str_replace(., "%", "") %>% as.numeric()
-  
-  native_american_pct = oklahoma %>% .[[31]] %>% 
-    str_split(., " ", simplify = TRUE) %>% .[1, 1] %>% 
-    str_replace(., "%", "") %>% as.numeric() / 100
-
-  multiple_race_pct = oklahoma %>% .[[42]] %>% 
-    str_replace(., "%", "") %>% as.numeric() / 100
-  
-  asian_pct = oklahoma %>% .[[47]] %>% 
-    str_replace(., "%", "") %>% as.numeric() / 100  
-  
-  african_american_pct = oklahoma %>% .[[38]] %>% 
-    str_replace(., "%", "") %>% as.numeric() / 100
-  
-  between_0_and_4_pct = oklahoma %>% .[[39]] %>% 
-    str_split(., " ", simplify = TRUE) %>% .[1, 2] %>% 
-    str_replace(., "%", "") %>% as.numeric() / 100
-  
-  between_5_and_17_pct = oklahoma %>% .[[37]] %>% 
-    str_split(., " ", simplify = TRUE) %>% .[1, 2] %>% 
-    str_replace(., "%", "") %>% as.numeric() / 100  
-
-  between_18_and_35_pct = oklahoma %>% .[[33]] %>% 
-    str_split(., " ", simplify = TRUE) %>% .[1, 4] %>% 
-    str_replace(., "%", "") %>% as.numeric() / 100
-  
-  between_36_and_49_pct = oklahoma %>% .[[35]] %>% 
-    str_split(., " ", simplify = TRUE) %>% .[1, 2] %>% 
-    str_replace(., "%", "") %>% as.numeric() / 100  
-
-  between_50_and_64_pct = oklahoma %>% .[[32]] %>% 
-    str_split(., " ", simplify = TRUE) %>% .[1, 2] %>% 
-    str_replace(., "%", "") %>% as.numeric() / 100
-  
-  older_than_65_pct = oklahoma %>% .[[30]] %>% 
-    str_split(., " ", simplify = TRUE) %>% .[1, 2] %>% 
-    str_replace(., "%", "") %>% as.numeric() / 100   
-   
-  unknown_age_pct = oklahoma %>% .[[41]] %>% 
-    str_split(., " ", simplify = TRUE) %>% .[1, 3] %>% 
-    str_replace(., "%", "") %>% as.numeric() / 100
-    
   return(list(
-    cases = cases,
-    deaths = deaths,
-    recovered = recovered,
-    white_cases = floor(cases * white_pct),
-    unknown_race_cases = floor(cases * unknown_race_pct),
-    african_american_cases = floor(cases * african_american_pct),
-    native_american_cases = floor(cases * native_american_pct),
-    multiple_race_cases = floor(cases * multiple_race_pct),
-    asian_cases = floor(cases * asian_pct),
-    african_american_cases = floor(cases * african_american_pct),
-    between_0_and_4_cases = floor(cases * between_0_and_4_pct),
-    between_5_and_17_cases = floor(cases * between_5_and_17_pct),
-    between_18_and_35_cases = floor(cases * between_18_and_35_pct),
-    between_36_and_49_cases = floor(cases * between_36_and_49_pct),
-    between_50_and_64_cases = floor(cases * between_50_and_64_pct),
-    older_than_65_cases = floor(cases * older_than_65_pct),
-    unknown_age_cases = floor(cases * unknown_age_pct)
+    data = as_tibble(skeleton),
+    comments = list(
+      "Demographic and age data available, but is displayed in undesirable
+      format for pdf scraping. Too fragile."
+    )
   ))
 }
 
 oklahoma = extract_oklahoma_data()
-oklahoma
+oklahoma %>% colnames
 ```
 
 # Arizona
@@ -1445,9 +1299,90 @@ get_guam = function(url) {
   ))
 }
 
-guam = get_guam(url1)
+guam = get_guam(url2)
 guam
 ```
 
+# Tableau States
 
-https://www.ghs.guam.gov/sites/default/files/jic_release_no._118_-_end_of_day_results_zero_test_positive_for_covid-19_by_dphss.docx.pdf
+## Iowa
+
+```{r}
+# Need to access the data through daily pdfs
+# Get pdfs from Tableau download: https://coronavirus.iowa.gov/#CurrentStatus
+
+# Pain point: must redownload pdf from Tableau table every day, 
+# then put it in pdfs folder
+# Download the "Current Status" and "Demographics" sheets as pdf 
+
+now = Sys.time() %>% as_date() %>% as.character()
+date_for_url = paste0(str_sub(now, 6,7), 
+                      str_sub(now, 9, 10), 
+                      str_sub(now, 1,4))
+
+iowa = pdf_text(paste0("../pdfs/IowaCOVID19_", date_for_url, ".pdf"))
+
+extract_iowa_data = function(pdf_data) {
+  total_page = pdf_data[1] %>% str_split(., "\n") %>% .[[1]]
+  demographics_page = pdf_data[2] %>% str_split(., "\n") %>% .[[1]]
+  
+  total_confirmed_cases = total_page[35] %>% 
+    str_split(" ") %>% .[[1]] %>% head(1) %>% 
+    str_replace(., ",", "") %>% as.numeric()
+  
+  total_deaths = total_page[35] %>% 
+    str_split(" ") %>% .[[1]] %>% tail(1) %>% 
+    str_replace(., ",", "") %>% as.numeric()
+  
+  total_people_tested = total_page[37] %>% 
+    str_split(" ") %>% .[[1]] %>% head(1) %>% 
+    str_replace(., ",", "") %>% as.numeric()
+  
+  total_cases_recovered = total_page[37] %>% 
+    str_split(" ") %>% .[[1]] %>% tail(1) %>% 
+    str_replace(., ",", "") %>% as.numeric()
+  
+  
+  return(list(
+    total_confirmed_cases = total_confirmed_cases,
+    total_deaths = total_deaths,
+    total_people_tested = total_people_tested,
+    total_cases_recovered = total_cases_recovered,
+    demographic_string = demographic_page
+  ))
+}
+
+
+extract_iowa_data(iowa)
+```
+
+
+# Microsoft BI States
+
+## Nevada
+
+- Doesn't work out because data is hidden under the Microsoft BI dashboard and the pdfs that hold the data show images, not text
+
+```{r}
+nevada = read_html("https://nvhealthresponse.nv.gov/") %>% 
+    html_nodes(".js-side-cta") %>% 
+    html_nodes(".split-content-section") %>% 
+    html_nodes(".split-content-section__container") %>% 
+    html_nodes(".content-intro") %>% 
+    html_nodes("iframe") %>% 
+    xml_attrs() %>% 
+    .[[1]] %>% 
+    .[1] %>% # This returns another html that comes from the iframe
+    read_html() %>% 
+    html_nodes("#pbiAppPlaceHolder")
+  
+  return(nevada)
+```
+
+# ARCGIS?
+
+## Delaware
+
+```{r}
+delaware = read_html("https://myhealthycommunity.dhss.delaware.gov/locations/state")
+```
