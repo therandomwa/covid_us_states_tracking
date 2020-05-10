@@ -16,7 +16,7 @@
 | Illinois               | x      | 6     |
 | Michigan               | x      | 7     |
 | Florida                | x      | 8     |
-| Louisiana              | aw     | 9     |
+| Louisiana              | x      | 9     |
 | Connecticut            | x      | 10    |
 | Texas                  | x      | 11    |
 | Georgia                | x      | 12    |
