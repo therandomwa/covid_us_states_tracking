@@ -74,6 +74,10 @@ Notes To Self:
 - Oklahoma: Demographic and age data too messy to parse cleanly
 - Mississippi: Age and sex figures shown, but are contained in an image, not text
 - Florida: function downloads the first pdf that it sees off of the page. It can take a while to work since Florida's pdfs are 600+ pages long
+- Tennessee: Everything in xlsx, easier to scrape, need to input *date*
+- North Carolina: missing age data since its in messy graphic
+- District of Columbia: no information on age
+- South Carolina: age and sex stored in messy Tableau visualization
 
 ## Oklahoma
 
@@ -523,10 +527,9 @@ florida = get_florida()
 florida$data %>% View
 ```
 
-# Tennessee
+## Tennessee
 
 ```{r}
-# FIX TENNESSEES AGE BRACKETS
 tn_cols = c(
     "total",
     "age_0_10", 
@@ -687,11 +690,12 @@ tennessee = get_tennessee("2020-05-09")
 tennessee
 ```
 
-# North Carolina
+## North Carolina
 
 ```{r}
 get_north_carolina = function() {
-  skeleton = skeleton_table()
+  
+  skeleton = skeleton_table(default_cols)
   url = "https://www.ncdhhs.gov/divisions/public-health/covid19/covid-19-nc-case-count#by-race-ethnicity"
   
   data = read_html(url)
@@ -843,10 +847,12 @@ get_north_carolina = function() {
     ))
   
 }
+
 north_carolina = get_north_carolina()
+north_carolina
 ```
 
-# District of Columbia
+## District of Columbia
 
 ```{r}
 get_dc = function(date) {
@@ -909,7 +915,7 @@ dc
 ```
 
 
-# South Carolina
+## South Carolina
 
 ```{r}
 get_south_carolina = function() {
@@ -947,7 +953,7 @@ south_carolina = get_south_carolina()
 south_carolina
 ```
 
-# New Jersey
+## New Jersey
 
 ```{r}
 # Changing columns to account for provided data
@@ -1101,7 +1107,7 @@ new_jersey = get_new_jersey()
 new_jersey
 ```
 
-# New Hampshire
+## New Hampshire
 
 ```{r}
 # Note to self: if we try to  scrape for before or at April 20
@@ -1134,7 +1140,17 @@ nh_cols = c(
     "race_multi", 
     "race_unk")
 
-get_new_hampshire = function(url) {
+get_new_hampshire = function() {
+  
+  # URL for getting to weekly reports
+  report_url = "https://www.nh.gov/covid19/news/weekly-summary.htm"
+  url = read_html(report_url) %>% 
+    html_nodes("body #pagecontainer div #bodycontainer main .wide-width") %>% 
+    html_nodes("ul li a") %>% 
+    html_attr("href") %>% 
+    .[str_starts(., "https://www.dhhs.nh.gov/dphs/cdcs/covid19")] %>% 
+    .[1] # The first one is the most recent report
+
   first_page = pdf_text(url) %>% .[1] %>% 
     str_split("\n") %>% .[[1]] %>% 
     str_squish()
@@ -1446,7 +1462,7 @@ get_new_hampshire = function(url) {
   ))
 }
 
-new_hampshire = get_new_hampshire(current_week)
+new_hampshire = get_new_hampshire()
 new_hampshire 
 ```
 
