@@ -1110,10 +1110,6 @@ new_jersey
 ## New Hampshire
 
 ```{r}
-# Note to self: if we try to  scrape for before or at April 20
-# the format of the pdf changed
-current_week = "https://www.dhhs.nh.gov/dphs/cdcs/covid19/covid-weekly-report-05042020.pdf"
-
 nh_cols = c(
     "total",
     "age_0_9", 
@@ -1466,15 +1462,7 @@ new_hampshire = get_new_hampshire()
 new_hampshire 
 ```
 
-# West Virginia
-
-- Microsoft BI
-
-# Hawaii
-
-- Tableau
-
-# Guam
+## Guam
 
 ```{r}
 url1 = "https://ghs.guam.gov/jic-release-no-118-end-day-results-zero-test-positive-covid-19-dphss"
@@ -1513,6 +1501,30 @@ get_guam = function(url) {
 guam = get_guam(url2)
 guam
 ```
+
+## Virgin Island
+
+- Data contained in a pdf, but the numbers are all over the place
+
+## Puerto Rico
+
+```{r}
+# Must download data directly from site
+# Site doesn't give a way to scrape for the csv itself
+# Just going to use the default age cols from Aijin's first tab
+get_puerto_rico = function(date) {
+  
+  
+  # Actually wait this data is not updated with what I see in their graphs
+  data = read_csv(paste0("../pdfs/puerto_rico_", date, ".csv"))
+  
+  return(data)
+}
+
+puerto_rico = get_puerto_rico("20200509")
+puerto_rico
+```
+
 
 # Tableau States
 
@@ -1658,6 +1670,10 @@ nevada = read_html("https://nvhealthresponse.nv.gov/") %>%
   return(nevada)
 ```
 
+## West Virginia
+
+:(
+
 # ARCGIS?
 
 ## Delaware
@@ -1665,3 +1681,5 @@ nevada = read_html("https://nvhealthresponse.nv.gov/") %>%
 ```{r}
 delaware = read_html("https://myhealthycommunity.dhss.delaware.gov/locations/state")
 ```
+
+## Hawaii
