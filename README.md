@@ -51,15 +51,15 @@
 | Nebraska               | x      | 41    |
 | Idaho                  | cj     | 42    |
 | New Hampshire          | x      | 43    |
-| Puerto Rico            | cp     | 44    |
-| West Virginia          | cp     | 45    |
+| Puerto Rico            | -      | 44    |
+| West Virginia          | -      | 45    |
 | Maine                  | x      | 46    |
 | Vermont                | x      | 47    |
 | North Dakota           | x      | 48    |
-| Hawaii                 | cp     | 49    |
+| Hawaii                 | -      | 49    |
 | Wyoming                | cj     | 50    |
 | Montana                | x      | 51    |
 | Alaska                 | x      | 52    |
 | Guam                   | x      | 53    |
-| Virgin Islands         | cp     | 54    |
+| Virgin Islands         | -      | 54    |
 

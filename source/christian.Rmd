@@ -1672,7 +1672,7 @@ nevada = read_html("https://nvhealthresponse.nv.gov/") %>%
 
 ## West Virginia
 
-:(
+:( Microsoft BI
 
 # ARCGIS?
 
@@ -1683,3 +1683,5 @@ delaware = read_html("https://myhealthycommunity.dhss.delaware.gov/locations/sta
 ```
 
 ## Hawaii
+
+Saw an ARCGIS link
