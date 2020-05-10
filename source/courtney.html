@@ -319,285 +319,220 @@ nh_05042020 = nh_scrape_fun(date = &quot;05042020&quot;)</code></pre>
 </div>
 <div id="kansas" class="section level3">
 <h3>Kansas</h3>
-<pre class="r"><code># must redownload pdf and change date 
-ks_date = &quot;05062020&quot;
+<pre class="r"><code># must redownload pdf and add date to end of pdf name 
 
-# to run without knitting, use single ., to run with knitting, use double ..
+ks_scrape_fun = function(ks_date){
+  
+  # to run without knitting, use single ., to run with knitting, use double ..
 # issue with how i originally made the file?
-location = &quot;../pdfs/Kansas_Demo_{ks_date}.pdf&quot;
+location = &quot;../pdfs/KS COVID-19 Outbreak Summary{ks_date}.pdf&quot;
 location = glue(location)
 
 ks_text = pdf_text(location) %&gt;%
   readr::read_lines()
 
-# ks_text
 
-# replace necessary strings
-ks_race = ks_text[21:27] %&gt;%
+# get total cases, total hosp, total deaths from first few rows
+ks_total = ks_text[1:16] %&gt;%
   str_replace_all(&quot;,&quot;, &quot;&quot;) %&gt;%
-  str_replace(&quot;Number of Cases&quot;, &quot;num_cases&quot;) %&gt;%
-  str_replace(&quot;Rate per 100000&quot;, &quot;rate_per_100000&quot;) %&gt;%
-  str_replace(&quot;Black or African American&quot;, &quot;black&quot;) %&gt;%
-  str_replace(&quot;American Indian or Alaska Nat..&quot;, &quot;american_indian_alaskan_native&quot;) %&gt;%
-  str_replace(&quot;White&quot;, &quot;white&quot;) %&gt;%
-  str_replace(&quot;Asian&quot;, &quot;asian&quot;) %&gt;%
-  str_replace(&quot;Other Race&quot;, &quot;other&quot;) %&gt;%
-  str_replace(&quot;Not Reported/Missing&quot;, &quot;not_reported&quot;) %&gt;%
+  str_replace_all(&quot;\\*&quot;, &quot;&quot;) %&gt;%
   str_squish() %&gt;%
-  strsplit(split = &quot; &quot;)
+  strsplit(split = &quot; &quot;) 
 
-# add missing value to third column of last line
-ks_race[[7]][3] = &quot;na&quot;
+# make data frame of total level stats
+ks_tot = tibble(level = &quot;total&quot;,
+       total_case = ks_total[[3]],
+       total_hosp = ks_total[[9]],
+       total_death = ks_total[[16]],
+       positivity_rate = str_c(ks_text[226], &quot; per 1000&quot;),
+       positivity_percent = ks_text[741],
+       total_tested = str_replace_all(ks_text[731], &quot;,&quot;, &quot;&quot;)) 
 
-# make into data frame
-ks_race_demo = ks_race[2:7] %&gt;%
-  plyr::ldply() %&gt;%
-  rename(race = V1, num_cases = V2, rate_per_100000 = V3)
-
-
-
-# ethnicity demo
-ks_eth = ks_text[30:33] %&gt;%
-  str_replace_all(&quot;,&quot;, &quot;&quot;) %&gt;%
-  str_replace(&quot;Cases&quot;, &quot;num_cases&quot;) %&gt;%
-  str_replace(&quot;100000&quot;, &quot;rate_per_100000&quot;) %&gt;%
-  str_replace(&quot;Ethnicity&quot;, &quot;eth&quot;) %&gt;%
-  str_replace(&quot;Not Hispanic/Latino&quot;, &quot;non_hispanic&quot;) %&gt;%
-  str_replace(&quot;Hispanic/Latino&quot;, &quot;hispanic&quot;) %&gt;%
-  str_replace(&quot;Unknown or Missing&quot;, &quot;not_reported&quot;) %&gt;%
-  str_squish() %&gt;%
-  strsplit(split = &quot; &quot;)
-
-# add missing to third column of non reported
-ks_eth[[4]][3] = &quot;na&quot;
-
-# make into data frame
-ks_eth_demo = ks_eth[2:4] %&gt;%
-  plyr::ldply() %&gt;%
-  rename(ethnicity = V1, num_cases = V2, rate_per_100000 = V3)
-
-
-# sex demo
-ks_sex = ks_text[7:11] %&gt;%
-  str_replace_all(&quot;,&quot;, &quot;&quot;) %&gt;%
-  str_replace(&quot;% of Cases&quot;, &quot;percent_of_cases&quot;) %&gt;%
-  str_replace(&quot;Not Reported/Unknown&quot;, &quot;not_reported&quot;) %&gt;%
-  str_replace(&quot;Male&quot;, &quot;male&quot;) %&gt;%
-  str_replace(&quot;Female&quot;, &quot;female&quot;) %&gt;%
-  str_squish() %&gt;%
-  strsplit(split = &quot; &quot;)
-
-# cut out age group data
-ks_sex[[1]] = ks_sex[[1]][1:3]
-ks_sex[[2]] = ks_sex[[2]][1:3]
-ks_sex[[3]] = ks_sex[[3]][1:3]
-ks_sex[[4]] = ks_sex[[4]][1:3]
-ks_sex[[5]] = ks_sex[[5]][1:3]
-
-# make into data frame
-ks_sex_demo = ks_sex[2:5] %&gt;%
-  plyr::ldply() %&gt;%
-  rename(sex = V1, num_cases = V2, percent_of_cases = V3)
-
-# age group demo
-ks_age = ks_text[7:19] %&gt;%
+# data for age case demographics
+ks_case_age = ks_text[393:404] %&gt;%
   str_replace_all(&quot;,&quot;, &quot;&quot;) %&gt;%
   str_replace_all(&quot;years&quot;, &quot;&quot;) %&gt;%
-  str_replace_all(&quot;Not Reported&quot;, &quot;not_reported&quot;) %&gt;%
-  str_replace_all(&quot;Total&quot;, &quot;total&quot;) %&gt;%
-  str_replace(&quot;Age Group&quot;, &quot;age_grp&quot;) %&gt;%
-  str_replace_all(&quot;Cases&quot;, &quot;num_cases&quot;) %&gt;%
-  str_replace(&quot;% of total&quot;, &quot;percent_of_tot&quot;) %&gt;%
+  str_replace(&quot;Not Reported&quot;, &quot;not_reported&quot;) %&gt;%
+  str_replace(&quot;Total&quot;, &quot;total&quot;) %&gt;%
+  str_squish() %&gt;%
+  strsplit(split = &quot; &quot;) %&gt;%
+  plyr::ldply() %&gt;%
+  rename(level = V1, positive_age = V2) %&gt;%
+  select(level, positive_age) %&gt;%
+  mutate(level = str_c(&quot;age_&quot;, level))
+
+# data for sex case demographics
+ks_case_sex = ks_text[408:411] %&gt;%
+  str_replace_all(&quot;,&quot;, &quot;&quot;) %&gt;%
+  str_to_lower() %&gt;%
+  str_replace(&quot;not reported/unknown&quot;, &quot;not_reported&quot;) %&gt;%
+  str_squish() %&gt;%
+  strsplit(split = &quot; &quot;) %&gt;%
+  plyr::ldply() %&gt;%
+  rename(level = V1, positive_gender = V2) %&gt;%
+  mutate(level = str_c(&quot;sex_&quot;, level)) %&gt;%
+  select(level, positive_gender)
+
+# case race demographics
+ks_race = ks_text[415:420] %&gt;%
+  str_replace_all(&quot;,&quot;, &quot;&quot;) %&gt;%
+  str_to_lower() %&gt;%
+  str_replace(&quot;or african american&quot;, &quot;&quot;) %&gt;%
+  str_replace(&quot;american indian or alaska nat..&quot;, &quot;american_indian_alaskan_native&quot;) %&gt;%
+  str_replace(&quot;other race&quot;, &quot;other&quot;) %&gt;%
+  str_replace(&quot;not reported/missing&quot;, &quot;not_reported&quot;) %&gt;%
+  str_squish() %&gt;%
+  strsplit(split = &quot; &quot;) 
+
+# add na to last row in order to allow table format
+ks_race[[6]][3] = &quot;na&quot;
+
+# create table
+ks_case_race = ks_race %&gt;%
+  plyr::ldply() %&gt;%
+  rename(level = V1, positive_race = V2) %&gt;%
+  mutate(level = str_c(&quot;race_&quot;, level)) %&gt;%
+  select(level, positive_race)
+
+# case ethnicity demographics
+ks_eth = ks_text[425:427] %&gt;%
+  str_to_lower() %&gt;%
+  str_replace_all(&quot;,&quot;, &quot;&quot;) %&gt;%
+  str_replace_all(&quot;/latino&quot;, &quot;&quot;) %&gt;%
+  str_replace(&quot;not &quot;, &quot;non_&quot;) %&gt;%
+  str_replace(&quot; or missing&quot;, &quot;&quot;) %&gt;%
   str_squish() %&gt;%
   strsplit(split = &quot; &quot;)
 
-# cut sex data out 
-ks_age[[1]] = ks_age[[1]][6:8]
-ks_age[[2]] = ks_age[[2]][4:6]
-ks_age[[3]] = ks_age[[3]][4:6]
-ks_age[[4]] = ks_age[[4]][4:6]
-ks_age[[5]] = ks_age[[5]][4:6]
+# add na so can make table
+ks_eth[[3]][3] = &quot;na&quot;
 
-# make into data frame
-ks_age_demo = ks_age[2:13] %&gt;%
+ks_case_eth = ks_eth %&gt;%
   plyr::ldply() %&gt;%
-  rename(age_grp = V1, num_cases = V2, percent_of_total = V3)</code></pre>
+  rename(level = V1, positive_race = V2) %&gt;%
+  mutate(level = str_c(&quot;eth_&quot;, level)) %&gt;%
+  select(level, positive_race)
+
+# hosp age demo
+ks_hosp_age = ks_text[545:554] %&gt;%
+  str_replace_all(&quot; years&quot;, &quot;&quot;) %&gt;%
+  str_replace_all(&quot;,&quot;, &quot;&quot;) %&gt;%
+  str_to_lower() %&gt;%
+  str_squish() %&gt;%
+  strsplit(split = &quot; &quot;) %&gt;%
+  plyr::ldply() %&gt;%
+  rename(level = V1, hosp_age = V2) %&gt;%
+  mutate(level = str_c(&quot;age_&quot;, level)) %&gt;%
+  select(level, hosp_age)
+
+
+# hosp race demo
+ks_hosp_race = ks_text[558:564] %&gt;%
+  str_to_lower() %&gt;%
+  str_replace_all(&quot;,&quot;, &quot;&quot;) %&gt;%
+  str_replace(&quot;or african american&quot;, &quot;&quot;) %&gt;%
+  str_replace(&quot;american indian or alaska na..&quot;, &quot;american_indian_alaskan_native&quot;) %&gt;%
+  str_replace(&quot;other race&quot;, &quot;other&quot;) %&gt;%
+  str_replace(&quot;not reported/missing&quot;, &quot;not_reported&quot;) %&gt;%
+  str_squish() %&gt;%
+  strsplit(split = &quot; &quot;) %&gt;%
+  plyr::ldply() %&gt;%
+  rename(level = V1, hosp_race = V2) %&gt;%
+  mutate(level = str_c(&quot;race_&quot;, level)) %&gt;%
+  select(level, hosp_race)
+
+# hosp eth demo
+ks_hosp_eth = ks_text[568:571] %&gt;%
+  str_to_lower() %&gt;%
+  str_replace_all(&quot;,&quot;, &quot;&quot;) %&gt;%
+  str_replace_all(&quot; or latino&quot;, &quot;&quot;) %&gt;%
+  str_replace(&quot; or missing&quot;, &quot;&quot;) %&gt;%
+  str_replace(&quot;not hispanic&quot;, &quot;non_hispanic&quot;) %&gt;%
+  str_squish() %&gt;%
+  strsplit(split = &quot; &quot;) %&gt;%
+  plyr::ldply() %&gt;%
+  rename(level = V1, hosp_race = V2) %&gt;%
+  mutate(level = str_c(&quot;eth_&quot;, level)) %&gt;%
+  select(level, hosp_race) 
+
+# death race demo
+ks_d_race = ks_text[657:661] %&gt;%
+  str_to_lower() %&gt;%
+  str_replace_all(&quot;,&quot;, &quot;&quot;) %&gt;%
+  str_replace(&quot; or african american&quot;, &quot;&quot;) %&gt;%
+  str_replace(&quot; indian or alaska na..&quot;, &quot;_indian_alaskan_native&quot;) %&gt;%
+  str_replace(&quot; reported/missing&quot;, &quot;_reported&quot;) %&gt;%
+  str_replace(&quot;other race&quot;, &quot;other&quot;) %&gt;%
+  str_squish() %&gt;% 
+  strsplit(split = &quot; &quot;) 
+
+# add na to not reported to allow for table
+ks_d_race[[4]][3] = &quot;na&quot;
+
+# make into table
+ks_death_race = ks_d_race %&gt;%
+  plyr::ldply() %&gt;%
+  rename(level = V1, death_race = V2) %&gt;%
+  mutate(level = str_c(&quot;race_&quot;, level)) %&gt;%
+  select(level, death_race)
+
+# death eth demo
+ks_d_eth = ks_text[665:667] %&gt;%
+  str_to_lower() %&gt;%
+  str_replace_all(&quot;,&quot;, &quot;&quot;) %&gt;%
+  str_replace_all(&quot; or latino&quot;, &quot;&quot;) %&gt;%
+  str_replace(&quot;not hispanic&quot;, &quot;non_hispanic&quot;) %&gt;%
+  str_replace(&quot;not reported/missing&quot;, &quot;not_reported&quot;) %&gt;%
+  str_squish() %&gt;%
+  strsplit(split = &quot; &quot;)
+
+# add na to allow table to be made
+ks_d_eth[[3]][3] = &quot;na&quot;
+
+# make table
+ks_death_eth = ks_d_eth %&gt;%
+  plyr::ldply() %&gt;%
+  rename(level = V1, death_race = V2) %&gt;%
+  mutate(level = str_c(&quot;eth_&quot;, level)) %&gt;%
+  select(level, death_race)
+
+# death age demo- might have to update this if people younger than 35 die
+ks_death_age = ks_text[687:693] %&gt;%
+  str_to_lower() %&gt;%
+  str_replace_all(&quot;,&quot;, &quot;&quot;) %&gt;%
+  str_replace_all(&quot; years&quot;, &quot;&quot;) %&gt;%
+  str_squish() %&gt;%
+  strsplit(split = &quot; &quot;) %&gt;%
+  plyr::ldply() %&gt;%
+  rename(level = V1, death_age = V2) %&gt;%
+  mutate(level = str_c(&quot;age_&quot;, level)) %&gt;%
+  select(level, death_age)
+
+# death sex demo
+ks_death_sex = ks_text[697:699] %&gt;%
+  str_to_lower() %&gt;%
+  str_replace_all(&quot;,&quot;, &quot;&quot;) %&gt;%
+  str_squish() %&gt;%
+  strsplit(split = &quot; &quot;) %&gt;%
+  plyr::ldply() %&gt;%
+  rename(level = V1, death_gender = V2) %&gt;%
+  mutate(level = str_c(&quot;sex_&quot;, level)) %&gt;%
+  select(level, death_gender)
+
+# combine all tables into outcome table
+plyr::rbind.fill(ks_tot, ks_case_race, ks_case_eth, ks_case_age, ks_case_sex,
+                 ks_death_race, ks_death_eth, ks_death_age, ks_death_sex,
+                 ks_hosp_race, ks_hosp_eth, ks_hosp_age) %&gt;%
+  select(level, total_tested, total_case, positive_race, positive_age, 
+         positive_gender, positivity_rate, positivity_percent, total_death,
+         death_race, death_age, death_gender, total_hosp, hosp_race, hosp_age)
+  
+}</code></pre>
 </div>
 <div id="kansas-tables" class="section level3">
 <h3>Kansas Tables</h3>
-<pre class="r"><code>knitr::kable(ks_age_demo)</code></pre>
-<table>
-<thead>
-<tr class="header">
-<th align="left">age_grp</th>
-<th align="left">num_cases</th>
-<th align="left">percent_of_total</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">0-9</td>
-<td align="left">82</td>
-<td align="left">1.4%</td>
-</tr>
-<tr class="even">
-<td align="left">10-17</td>
-<td align="left">140</td>
-<td align="left">2.4%</td>
-</tr>
-<tr class="odd">
-<td align="left">18-24</td>
-<td align="left">648</td>
-<td align="left">11.3%</td>
-</tr>
-<tr class="even">
-<td align="left">25-34</td>
-<td align="left">1064</td>
-<td align="left">18.6%</td>
-</tr>
-<tr class="odd">
-<td align="left">35-44</td>
-<td align="left">1095</td>
-<td align="left">19.1%</td>
-</tr>
-<tr class="even">
-<td align="left">45-54</td>
-<td align="left">1030</td>
-<td align="left">18.0%</td>
-</tr>
-<tr class="odd">
-<td align="left">55-64</td>
-<td align="left">863</td>
-<td align="left">15.1%</td>
-</tr>
-<tr class="even">
-<td align="left">65-74</td>
-<td align="left">414</td>
-<td align="left">7.2%</td>
-</tr>
-<tr class="odd">
-<td align="left">75-84</td>
-<td align="left">214</td>
-<td align="left">3.7%</td>
-</tr>
-<tr class="even">
-<td align="left">85+</td>
-<td align="left">178</td>
-<td align="left">3.1%</td>
-</tr>
-<tr class="odd">
-<td align="left">not_reported</td>
-<td align="left">6</td>
-<td align="left">0.1%</td>
-</tr>
-<tr class="even">
-<td align="left">total</td>
-<td align="left">5734</td>
-<td align="left">100.0%</td>
-</tr>
-</tbody>
-</table>
-<pre class="r"><code>knitr::kable(ks_sex_demo)</code></pre>
-<table>
-<thead>
-<tr class="header">
-<th align="left">sex</th>
-<th align="left">num_cases</th>
-<th align="left">percent_of_cases</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">female</td>
-<td align="left">2454</td>
-<td align="left">42.8%</td>
-</tr>
-<tr class="even">
-<td align="left">male</td>
-<td align="left">3201</td>
-<td align="left">55.8%</td>
-</tr>
-<tr class="odd">
-<td align="left">not_reported</td>
-<td align="left">79</td>
-<td align="left">1.4%</td>
-</tr>
-<tr class="even">
-<td align="left">Total</td>
-<td align="left">5734</td>
-<td align="left">100.0%</td>
-</tr>
-</tbody>
-</table>
-<pre class="r"><code>knitr::kable(ks_race_demo)</code></pre>
-<table>
-<thead>
-<tr class="header">
-<th align="left">race</th>
-<th align="left">num_cases</th>
-<th align="left">rate_per_100000</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">white</td>
-<td align="left">3382</td>
-<td align="left">132.90</td>
-</tr>
-<tr class="even">
-<td align="left">black</td>
-<td align="left">613</td>
-<td align="left">281.19</td>
-</tr>
-<tr class="odd">
-<td align="left">american_indian_alaskan_native</td>
-<td align="left">18</td>
-<td align="left">27.78</td>
-</tr>
-<tr class="even">
-<td align="left">asian</td>
-<td align="left">275</td>
-<td align="left">256.25</td>
-</tr>
-<tr class="odd">
-<td align="left">other</td>
-<td align="left">150</td>
-<td align="left">162.93</td>
-</tr>
-<tr class="even">
-<td align="left">not_reported</td>
-<td align="left">1296</td>
-<td align="left">na</td>
-</tr>
-</tbody>
-</table>
-<pre class="r"><code>knitr::kable(ks_eth_demo)</code></pre>
-<table>
-<thead>
-<tr class="header">
-<th align="left">ethnicity</th>
-<th align="left">num_cases</th>
-<th align="left">rate_per_100000</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">hispanic</td>
-<td align="left">2044</td>
-<td align="left">5.87</td>
-</tr>
-<tr class="even">
-<td align="left">non_hispanic</td>
-<td align="left">2378</td>
-<td align="left">0.93</td>
-</tr>
-<tr class="odd">
-<td align="left">not_reported</td>
-<td align="left">1312</td>
-<td align="left">na</td>
-</tr>
-</tbody>
-</table>
+<pre class="r"><code># run function with date
+ks_05102020 = ks_scrape_fun(ks_date = &quot;05102020&quot;)</code></pre>
 </div>
 <div id="idaho" class="section level3">
 <h3>Idaho</h3>
