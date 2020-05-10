@@ -493,6 +493,7 @@ get_florida = function(pdf_url) {
   skeleton[["hospitalized"]][["race_other"]] = other_race_hosp
   skeleton[["hospitalized"]][["race_unk"]] = unk_race_hosp
   
+  skeleton[["deaths"]][["total"]] = deaths
   skeleton[["deaths"]][["age_0_4"]] = between_0_and_4_death
   skeleton[["deaths"]][["age_5_14"]] = between_5_and_14_death
   skeleton[["deaths"]][["age_15_24"]] = between_15_and_24_death
@@ -525,17 +526,51 @@ florida$data %>% View
 # Tennessee
 
 ```{r}
+# FIX TENNESSEES AGE BRACKETS
+tn_cols = c(
+    "total",
+    "age_0_10", 
+    "age_11_20", 
+    "age_21_30",
+    "age_31_40",
+    "age_41_50",
+    "age_51_60",
+    "age_61_70",
+    "age_71_80",
+    "age_81+", 
+    "age_unk",
+    "sex_male", 
+    "sex_female", 
+    "sex_unk",
+    "ethnicity_hispanic", 
+    "ethnicity_non_hispanic",
+    "ethnicity_unk",
+    "race_white", 
+    "race_AfrA",
+    "race_NatA",
+    "race_asian", 
+    "race_other",
+    "race_multi", 
+    "race_unk")
+
 get_tennessee = function(date) {
   
-  # Get download the datasets from the Tennessee site
-  # https://www.tn.gov/health/cedep/ncov/data/downloadable-datasets.html
+  # Scrape the website to get to the datasets by their source link
+  url = "https://www.tn.gov/health/cedep/ncov/data/downloadable-datasets.html"
+  
+  xlsx_paths = read_html(url) %>% 
+    html_nodes("body #main .row .col-lg-8 article div .tn-panel .panel") %>% 
+    html_nodes("div .tn-rte p a") %>% 
+    html_attr("href")
+
   age_temp = tempfile(fileext = ".xlsx")
   case_temp = tempfile(fileext = ".xlsx")
   demo_temp = tempfile(fileext = ".xlsx")
   
-  age_url = "https://www.tn.gov/content/dam/tn/health/documents/cedep/novel-coronavirus/datasets/Public-Dataset-Age.xlsx"
-  case_url = "https://www.tn.gov/content/dam/tn/health/documents/cedep/novel-coronavirus/datasets/Public-Dataset-Daily-Case-Info.xlsx"
-  demo_url = "https://www.tn.gov/content/dam/tn/health/documents/cedep/novel-coronavirus/datasets/Public-Dataset-RaceEthSex.xlsx"
+  age_url = paste0("https://www.tn.gov", xlsx_paths[1])
+  case_url = paste0("https://www.tn.gov", xlsx_paths[3])
+  demo_url = paste0("https://www.tn.gov", xlsx_paths[5])
+  
   
   download.file(age_url, destfile = age_temp, mode = 'wb')
   download.file(case_url, destfile = case_temp, mode = 'wb')
@@ -548,7 +583,7 @@ get_tennessee = function(date) {
   demo_data = read_excel(demo_temp, sheet = 1) %>% 
     filter(Date == as_date(date))
   
-  skeleton = skeleton_table()
+  skeleton = skeleton_table(tn_cols)
   
   tests = case_data %>% pull(TOTAL_TESTS)
   cases = case_data %>% pull(TOTAL_CASES)
@@ -566,19 +601,20 @@ get_tennessee = function(date) {
   race_deaths = demo_data %>% filter(Category == "RACE")
   ethnicity_deaths = demo_data %>% filter(Category == "ETHNICITY")
   sex_deaths = demo_data %>% filter(Category == "SEX")
-  
+
   # Log all the data from the Excel sheet
   skeleton[["tested"]][["total"]] = tests
   
   skeleton[["cases"]][["total"]] = cases
-  skeleton[["cases"]][["age_0_19"]] = ar_cases[1] + ar_cases[2]
-  skeleton[["cases"]][["age_20_29"]] = ar_cases[3]
-  skeleton[["cases"]][["age_30_39"]] = ar_cases[4]
-  skeleton[["cases"]][["age_40_49"]] = ar_cases[5]
-  skeleton[["cases"]][["age_50_59"]] = ar_cases[6]
-  skeleton[["cases"]][["age_60_69"]] = ar_cases[7]
-  skeleton[["cases"]][["age_70_79"]] = ar_cases[8]
-  skeleton[["cases"]][["age_80+"]] = ar_cases[9]
+  skeleton[["cases"]][["age_0_10"]] = ar_cases[1] 
+  skeleton[["cases"]][["age_11_20"]] = ar_cases[2]
+  skeleton[["cases"]][["age_21_30"]] = ar_cases[3]
+  skeleton[["cases"]][["age_31_40"]] = ar_cases[4]
+  skeleton[["cases"]][["age_41_50"]] = ar_cases[5]
+  skeleton[["cases"]][["age_51_60"]] = ar_cases[6]
+  skeleton[["cases"]][["age_61_70"]] = ar_cases[7]
+  skeleton[["cases"]][["age_71_80"]] = ar_cases[8]
+  skeleton[["cases"]][["age_81+"]] = ar_cases[9]
   skeleton[["cases"]][["age_unk"]] = ar_cases[10]
   skeleton[["cases"]][["sex_male"]] = sex_cases %>% 
     filter(Cat_Detail == "Male") %>% pull(Cat_CaseCount) 
@@ -606,14 +642,22 @@ get_tennessee = function(date) {
   skeleton[["negatives"]][["total"]] = negatives
   
   skeleton[["deaths"]][["total"]] = deaths
-  skeleton[["deaths"]][["age_20_29"]] = ar_deaths[3]
-  skeleton[["deaths"]][["age_30_39"]] = ar_deaths[4]
-  skeleton[["deaths"]][["age_40_49"]] = ar_deaths[5]
-  skeleton[["deaths"]][["age_50_59"]] = ar_deaths[6]
-  skeleton[["deaths"]][["age_60_69"]] = ar_deaths[7]
-  skeleton[["deaths"]][["age_70_79"]] = ar_deaths[8]
-  skeleton[["deaths"]][["age_80+"]] = ar_deaths[9]
+  skeleton[["deaths"]][["age_0_10"]] = ar_deaths[1] 
+  skeleton[["deaths"]][["age_11_20"]] = ar_deaths[2]
+  skeleton[["deaths"]][["age_21_30"]] = ar_deaths[3]
+  skeleton[["deaths"]][["age_31_40"]] = ar_deaths[4]
+  skeleton[["deaths"]][["age_41_50"]] = ar_deaths[5]
+  skeleton[["deaths"]][["age_51_60"]] = ar_deaths[6]
+  skeleton[["deaths"]][["age_61_70"]] = ar_deaths[7]
+  skeleton[["deaths"]][["age_71_80"]] = ar_deaths[8]
+  skeleton[["deaths"]][["age_81+"]] = ar_deaths[9]
   skeleton[["deaths"]][["age_unk"]] = ar_deaths[10]
+  skeleton[["deaths"]][["sex_male"]] = sex_deaths %>% 
+    filter(Cat_Detail == "Male") %>% pull(CAT_DEATHCOUNT) 
+  skeleton[["deaths"]][["sex_female"]] = sex_deaths %>% 
+    filter(Cat_Detail == "Female") %>% pull(CAT_DEATHCOUNT) 
+  skeleton[["deaths"]][["sex_unk"]] = sex_deaths %>% 
+    filter(Cat_Detail == "Pending") %>% pull(CAT_DEATHCOUNT) 
   skeleton[["deaths"]][["race_white"]] = race_deaths %>% 
     filter(Cat_Detail == "White") %>% pull(CAT_DEATHCOUNT) 
   skeleton[["deaths"]][["race_AfrA"]] = race_deaths %>% 
@@ -635,12 +679,12 @@ get_tennessee = function(date) {
   
   return(list(
     data = as_tibble(skeleton),
-    comments = list(
-      "Age ranges are slightly off here"
-    )
+    comments = list()
     ))
 }
-tennessee = get_tennessee("2020/05/07")
+
+tennessee = get_tennessee("2020-05-09")
+tennessee
 ```
 
 # North Carolina
