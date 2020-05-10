@@ -41,7 +41,7 @@
 | Kentucky               | x      | 31    |
 | District of Columbia   | x      | 32    |
 | Delaware               | x      | 33    |
-| Oklahoma               | cp     | 34    |
+| Oklahoma               | x      | 34    |
 | Minnesota              | x      | 35    |
 | Arkansas               | x      | 36    |
 | Kansas                 | x      | 37    |
