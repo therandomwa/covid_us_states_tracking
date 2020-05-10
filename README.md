@@ -31,11 +31,11 @@
 | Missouri               | x      | 21    |
 | Rhode Island           | x      | 22    |
 | Alabama                | x      | 23    |
-| Arizona                | cp     | 24    |
+| Arizona                | x      | 24    |
 | Mississippi            | x      | 25    |
 | Wisconsin              | x      | 26    |
 | South Carolina         | x      | 27    |
-| Nevada                 | cp     | 28    |
+| Nevada                 | -      | 28    |
 | Iowa                   | x      | 29    |
 | Utah                   | x      | 30    |
 | Kentucky               | x      | 31    |

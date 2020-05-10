@@ -69,7 +69,12 @@ example = skeleton_table(default_cols)
 
 # PDF/CSV States
 
-# Oklahoma
+Notes To Self:
+
+- Oklahoma: Demographic and age data too messy to parse cleanlys
+- Mississippi: Age and sex figures shown, but are contained in an image, not text
+
+## Oklahoma
 
 ```{r}
 get_oklahoma = function() {
@@ -99,70 +104,87 @@ oklahoma = get_oklahoma()
 oklahoma$data
 ```
 
-
-
-# Mississippi
+## Mississippi
 
 ```{r}
-extract_mississippi_data = function() {
+get_mississippi= function() {
+  
+  skeleton = skeleton_table(default_cols)
   
   # Extract pdf locations from the site to account for updates
   site_url = "https://msdh.ms.gov/msdhsite/_static/14,0,420.html"
-  html = read_html(site_url) %>% 
-    html_nodes("body") %>% 
-    html_nodes("#pageContainer") %>% 
-    html_nodes("#pageContent") %>% 
-    html_nodes("#article") %>% 
-    html_nodes(".msdh") %>% 
-    html_nodes("ul") %>% .[[7]]
-  
-  cases_path = html %>% 
-    xml_child(., 1) %>% 
-    html_nodes("a") %>% 
-    xml_attrs() %>% .[[1]]
-  
-  death_path = html %>% 
-    xml_child(., 2) %>% 
-    html_nodes("a") %>% 
-    xml_attrs() %>% .[[1]]
-  
-  url = paste0("https://msdh.ms.gov/msdhsite/_static/", cases_path)
-  deaths_url = paste0("https://msdh.ms.gov/msdhsite/_static/", death_path)
   
   
+  # Need to extract the paths for the demo cases and deaths data
+  # since I presume they will change over time
+  demo_path = read_html(site_url) %>% 
+    html_nodes("body #pageContainer #pageContent #article .msdh .links") %>% 
+    .[[6]] %>% 
+    html_nodes("li") %>% .[[1]] %>% 
+    html_nodes("a") %>% html_attr("href")
   
-  # Table is by county, just need to look at the last row
-  mississippi = pdf_text(url) %>% .[2] %>% 
-    str_split(., "\n") %>% .[[1]] %>% .[17] %>% # Last row
-    str_squish() %>%
-    str_split(., " ") %>%  .[[1]] %>% .[-1] %>% # Removing "Total" string
+  demo_death_path = read_html(site_url) %>% 
+    html_nodes("body #pageContainer #pageContent #article .msdh .links") %>% 
+    .[[6]] %>% 
+    html_nodes("li") %>% .[[2]] %>% 
+    html_nodes("a") %>% html_attr("href")
+  
+  demo_url = paste0("https://msdh.ms.gov/msdhsite/_static/", demo_path)
+  demo_death_url = paste0("https://msdh.ms.gov/msdhsite/_static/", demo_death_path)
+  
+  summary_vals = read_html(site_url) %>% 
+    html_nodes("body #pageContainer #pageContent #article .msdh table") %>% 
+    html_table() %>% .[[1]] %>% 
+    tail(1) %>% unlist() %>% .[-1] %>% 
+    str_replace(",", "") %>% as.numeric()
+  
+  skeleton[["cases"]][["total"]] = summary_vals[1]
+  skeleton[["deaths"]][["total"]] = summary_vals[2]
+  
+  demo = pdf_text(demo_url) %>% tail(1) %>% #only want the last page
+    str_split("\n") %>% .[[1]] %>% 
+    str_squish() %>% .[17] %>% # 17 assumed to be the subtotal row
+    str_split(" ") %>% .[[1]] %>% .[-1] %>% 
     as.numeric()
-
-  deaths = pdf_text(deaths_url) %>% .[2] %>% 
-    str_split(., "\n") %>% .[[1]] %>% .[17] %>% # Last row
-    str_squish() %>%
-    str_split(., " ") %>%  .[[1]] %>% .[-1] %>% # Removing "Total" string
+  
+  skeleton[["cases"]][["race_AfrA"]] = demo[2] + demo[8] + demo[14]
+  skeleton[["cases"]][["race_white"]] = demo[3] + demo[9] + demo[15]
+  skeleton[["cases"]][["race_NatA"]] = demo[4] + demo[10] + demo[16]
+  skeleton[["cases"]][["race_asian"]] = demo[5] + demo[11] + demo[17]
+  skeleton[["cases"]][["race_other"]] = demo[6] + demo[12] + demo[18]
+  skeleton[["cases"]][["race_unk"]] = demo[7] + demo[13] + demo[19]
+  
+  skeleton[["cases"]][["ethnicity_non_hispanic"]] = demo[2:7] %>% sum()
+  skeleton[["cases"]][["ethnicity_hispanic"]] = demo[8:13] %>% sum()
+  skeleton[["cases"]][["ethnicity_unk"]] = demo[14:19] %>% sum()
+  
+  demo_death = pdf_text(demo_death_url) %>% tail(1) %>% #only want the last page
+    str_split("\n") %>% .[[1]] %>% 
+    str_squish() %>% .[17] %>% # 17 assumed to be the subtotal row
+    str_split(" ") %>% .[[1]] %>% .[-1] %>% 
     as.numeric()
+  
+  skeleton[["deaths"]][["race_AfrA"]] = demo_death[2] + demo_death[8] + demo_death[14]
+  skeleton[["deaths"]][["race_white"]] = demo_death[3] + demo_death[9] + demo_death[15]
+  skeleton[["deaths"]][["race_NatA"]] = demo_death[4] + demo[10] + demo_death[16]
+  skeleton[["deaths"]][["race_asian"]] = demo_death[5] + demo_death[11] + demo_death[17]
+  skeleton[["deaths"]][["race_other"]] = demo_death[6] + demo_death[12] + demo_death[18]
+  skeleton[["deaths"]][["race_unk"]] = demo_death[7] + demo_death[13] + demo_death[19]
+  
+  skeleton[["deaths"]][["ethnicity_non_hispanic"]] = demo_death[2:7] %>% sum()
+  skeleton[["deaths"]][["ethnicity_hispanic"]] = demo_death[8:13] %>% sum()
+  skeleton[["deaths"]][["ethnicity_unk"]] = demo_death[14:19] %>% sum()
   
   return(list(
-    cases = mississippi[1],
-    deaths = deaths[1],
-    white_cases = mississippi[3] + mississippi[9] + mississippi[15],
-    unknown_race_cases = mississippi[7] + mississippi[13] + mississippi[19],
-    native_american_cases = mississippi[4] + mississippi[10] + mississippi[16],
-    african_american_cases = mississippi[2] + mississippi[8] + mississippi[14],
-    asian_cases = mississippi[5] + mississippi[11] + mississippi[17],
-    other_race_cases = mississippi[6] + mississippi[12] + mississippi[18],
-    white_deaths = deaths[3] + deaths[9] + deaths[15],
-    unknown_race_deaths = deaths[7] + deaths[13] + deaths[19],
-    native_american_deaths = deaths[4] + deaths[10] + deaths[16],
-    african_american_deaths = deaths[2] + deaths[8] + deaths[14],
-    asian_deaths = deaths[5] + deaths[11] + deaths[17],
-    other_race_deaths = deaths[6] + deaths[12] + deaths[18]
+    data = as_tibble(skeleton),
+    comments = list(
+      "Age data only available in images on site"
+    )
   ))
+  
 }
 
-mississippi = extract_mississippi_data()
+mississippi = get_mississippi()
 mississippi
 ```
 
@@ -1401,7 +1423,6 @@ get_arizona = function(date) {
   demo_data = pdf_text(demo_path) %>% .[1] %>% 
     str_split("\n") %>% .[[1]] %>% 
     str_squish()
-  
   
   return(list(
     data = as_tibble(skeleton),
