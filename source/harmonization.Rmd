@@ -1,0 +1,678 @@
+---
+title: "Data Harmonization"
+author: "Christian Pascual"
+output: html_document
+---
+
+# Purpose Of Notebook
+
+Create a visualization that shows trends in age and race between two states, in face of different ways of collecting these data
+
+```{r, message = FALSE, warning = FALSE }
+library(tidyverse)
+library(pdftools)
+library(rvest)
+library(lubridate)
+library(readxl)
+```
+
+# Helper Functions
+
+```{r}
+default_cols = c(
+    "total",
+    "age_0_19", 
+    "age_20_29", 
+    "age_30_39", 
+    "age_40_49",
+    "age_50_59", 
+    "age_60_69", 
+    "age_70_79", 
+    "age_80+", 
+    "age_unk",
+    "sex_male", 
+    "sex_female", 
+    "sex_unk",
+    "ethnicity_hispanic", 
+    "ethnicity_non_hispanic",
+    "ethnicity_unk",
+    "race_white", 
+    "race_AfrA",
+    "race_NatA",
+    "race_asian", 
+    "race_other",
+    "race_multi", 
+    "race_unk")
+
+# Helper functions for data cleaning
+skeleton_col = function(subdivs) {
+  # Need to make a named vector to make it easier to insert data
+  # in a cel-wise fashion
+  
+  # subdivs should contain all of the relevant information that
+  # a state provides on their websitE
+  
+  skeleton = vector(mode = "list", length = length(subdivs))
+  names(skeleton) = subdivs
+  return(skeleton)
+}
+skeleton_table = function(subdivs) {
+  # Create a table of blanks using named vectors
+  # Easy insert of data
+  skeleton = list(
+    "data" = names(skeleton_col(subdivs)),
+    "tested" = skeleton_col(subdivs),
+    "cases" = skeleton_col(subdivs),
+    "negatives" = skeleton_col(subdivs),
+    "recovered" = skeleton_col(subdivs),
+    "deaths" = skeleton_col(subdivs),
+    "hospitalized" = skeleton_col(subdivs))
+  return(skeleton)
+}
+```
+
+# Bringing In Data
+
+Using Florida and Tennessee as example states since I have the functions for those:
+
+## Florida
+
+```{r}
+# Changing columns to fit specific age brackets
+fl_cols = c(
+    "total",
+    "age_0_4", 
+    "age_5_14", 
+    "age_15_24", 
+    "age_25_34",
+    "age_35_44", 
+    "age_45_54", 
+    "age_55_64", 
+    "age_65_74", 
+    "age_75_84", 
+    "age_85+", 
+    "age_unk",
+    "sex_male", 
+    "sex_female", 
+    "sex_unk",
+    "ethnicity_hispanic", 
+    "ethnicity_non_hispanic",
+    "ethnicity_unk",
+    "race_white", 
+    "race_AfrA",
+    "race_NatA",
+    "race_asian", 
+    "race_other",
+    "race_multi", 
+    "race_unk")
+
+get_florida = function(pdf_url) {
+  # Get pdf from: https://www.floridadisaster.org/covid19/covid-19-data-reports/
+  url = "https://www.floridadisaster.org/covid19/covid-19-data-reports/"
+  
+  pdf_path = read_html(url) %>% 
+    html_nodes("body .l-surround #mainContent #text-page-wrap .row") %>% 
+    html_nodes("#mainContent .main-column p a") %>% html_attr("href") %>% .[1]
+  # Index 1 gets the first pdf in the list, presumed to be the most recent
+  
+  pdf_url = paste0("https://www.floridadisaster.org/", pdf_path)
+  data = pdf_text(pdf_url)
+  
+  # Demographic data is on
+  demographic_data = data %>% .[3] %>% 
+    str_split(., "\n") %>% .[[1]] %>% 
+    str_squish()
+  
+  # Initialize skeleton
+  skeleton = skeleton_table(fl_cols)
+  
+  tested = data %>% .[1] %>% 
+    str_split(., "\n") %>% .[[1]] %>% 
+    str_squish() %>% .[[22]] %>% 
+    str_split(., " ", simplify = TRUE) %>% .[1, 3] %>% 
+    str_replace(., ",", "") %>% as.numeric()
+  
+  negatives = data %>% .[1] %>% 
+    str_split(., "\n") %>% .[[1]] %>% 
+    str_squish() %>% .[[25]] %>% 
+    str_split(., " ", simplify = TRUE) %>% .[1, 2] %>% 
+    str_replace(., ",", "") %>% as.numeric()
+  
+  cases = demographic_data %>% .[16] %>% 
+    str_split(., " ", simplify = TRUE) %>% .[1, 2] %>% 
+    str_replace(., ",", "") %>% as.numeric()
+  
+  deaths = demographic_data %>% .[16] %>% 
+    str_split(., " ", simplify = TRUE) %>% .[1, 4] %>% 
+    str_replace(., ",", "") %>% as.numeric()
+  
+  
+  males = demographic_data %>% .[5] %>% 
+    str_split(., " ", simplify = TRUE) %>%  .[1, 10] %>% 
+    str_replace(., ",", "") %>% as.numeric()
+  
+  # Each row contains data on cases, hosp and death
+  between_0_and_4 = demographic_data %>% .[5] %>% 
+    str_split(., " ", simplify = TRUE)
+  
+  between_0_and_4_case = between_0_and_4 %>% .[1, 3] %>% 
+    str_replace(",","") %>% as.numeric
+  between_0_and_4_hosp = between_0_and_4 %>% .[1, 5] %>% 
+    str_replace(",","") %>% as.numeric
+  between_0_and_4_death = between_0_and_4 %>% .[1, 7] %>% 
+    str_replace(",","") %>% as.numeric
+  
+  between_5_and_14 = demographic_data %>% .[6] %>% 
+    str_split(., " ", simplify = TRUE)
+
+  between_5_and_14_case = between_5_and_14 %>% .[1, 3] %>% 
+    str_replace(",","") %>% as.numeric
+  between_5_and_14_hosp = between_5_and_14 %>% .[1, 5] %>% 
+    str_replace(",","") %>% as.numeric
+  between_5_and_14_death = between_5_and_14 %>% .[1, 7] %>% 
+    str_replace(",","") %>% as.numeric
+  
+  between_15_and_24 = demographic_data %>% .[7] %>% 
+    str_split(., " ", simplify = TRUE)
+  
+  between_15_and_24_case = between_15_and_24 %>% .[1, 3] %>% 
+    str_replace(",","") %>% as.numeric
+  between_15_and_24_hosp = between_15_and_24 %>% .[1, 5] %>% 
+    str_replace(",","") %>% as.numeric
+  between_15_and_24_death = between_15_and_24 %>% .[1, 7] %>% 
+    str_replace(",","") %>% as.numeric
+  
+  between_25_and_34 = demographic_data %>% .[8] %>% 
+    str_split(., " ", simplify = TRUE)
+  
+  between_25_and_34_case = between_25_and_34 %>% .[1, 3] %>% 
+    str_replace(",","") %>% as.numeric
+  between_25_and_34_hosp = between_25_and_34 %>% .[1, 5] %>% 
+    str_replace(",","") %>% as.numeric
+  between_25_and_34_death = between_25_and_34 %>% .[1, 7] %>% 
+    str_replace(",","") %>% as.numeric
+  
+  between_35_and_44 = demographic_data %>% .[9] %>% 
+    str_split(., " ", simplify = TRUE)
+  
+  between_35_and_44_case = between_35_and_44 %>% .[1, 3] %>% 
+    str_replace(",","") %>% as.numeric
+  between_35_and_44_hosp = between_35_and_44 %>% .[1, 5] %>% 
+    str_replace(",","") %>% as.numeric
+  between_35_and_44_death = between_35_and_44 %>% .[1, 7] %>% 
+    str_replace(",","") %>% as.numeric
+  
+  between_45_and_54 = demographic_data %>% .[10] %>% 
+    str_split(., " ", simplify = TRUE)
+  
+  between_45_and_54_case = between_45_and_54 %>% .[1, 3] %>% 
+    str_replace(",","") %>% as.numeric
+  between_45_and_54_hosp = between_45_and_54 %>% .[1, 5] %>% 
+    str_replace(",","") %>% as.numeric
+  between_45_and_54_death = between_45_and_54 %>% .[1, 7] %>% 
+    str_replace(",","") %>% as.numeric
+  
+  between_55_and_64 = demographic_data %>% .[11] %>% 
+    str_split(., " ", simplify = TRUE)
+  
+  between_55_and_64_case = between_55_and_64 %>% .[1, 3] %>% 
+    str_replace(",","") %>% as.numeric
+  between_55_and_64_hosp = between_55_and_64 %>% .[1, 5] %>% 
+    str_replace(",","") %>% as.numeric
+  between_55_and_64_death = between_55_and_64 %>% .[1, 7] %>% 
+    str_replace(",","") %>% as.numeric
+  
+  between_65_and_74 = demographic_data %>% .[12] %>% 
+    str_split(., " ", simplify = TRUE)
+  
+  between_65_and_74_case = between_65_and_74 %>% .[1, 3] %>% 
+    str_replace(",","") %>% as.numeric
+  between_65_and_74_hosp = between_65_and_74 %>% .[1, 5] %>% 
+    str_replace(",","") %>% as.numeric
+  between_65_and_74_death = between_65_and_74 %>% .[1, 7] %>% 
+    str_replace(",","") %>% as.numeric
+  
+  between_75_and_84 = demographic_data %>% .[13] %>% 
+    str_split(., " ", simplify = TRUE)
+  
+  between_75_and_84_case = between_75_and_84 %>% .[1, 3] %>% 
+    str_replace(",","") %>% as.numeric
+  between_75_and_84_hosp = between_75_and_84 %>% .[1, 5] %>% 
+    str_replace(",","") %>% as.numeric
+  between_75_and_84_death = between_75_and_84 %>% .[1, 7] %>% 
+    str_replace(",","") %>% as.numeric
+  
+  older_than_85 = demographic_data %>% .[14] %>% 
+    str_split(., " ", simplify = TRUE)
+  
+  older_than_85_case = older_than_85 %>% .[1, 3] %>% 
+    str_replace(",","") %>% as.numeric
+  older_than_85_hosp = older_than_85 %>% .[1, 5] %>% 
+    str_replace(",","") %>% as.numeric
+  older_than_85_death = older_than_85 %>% .[1, 7] %>% 
+    str_replace(",","") %>% as.numeric
+  
+  unknown_age = demographic_data %>% .[15] %>% 
+    str_split(., " ", simplify = TRUE)
+  
+  unknown_age_case = unknown_age %>% .[1, 2] %>% 
+    str_replace(",","") %>% as.numeric
+  unknown_age_hosp = unknown_age %>% .[1, 4] %>% 
+    str_replace(",","") %>% as.numeric
+  unknown_age_death = unknown_age %>% .[1, 6] %>% 
+    str_replace(",","") %>% as.numeric
+  
+  hispanic = demographic_data %>% .[18] %>% 
+    str_split(., " ", simplify = TRUE)
+  
+  hispanic_case = hispanic %>% .[1, 2] %>% 
+    str_replace(",","") %>% as.numeric
+  hispanic_hosp = hispanic %>% .[1, 4] %>% 
+    str_replace(",","") %>% as.numeric
+  hispanic_death = hispanic %>% .[1, 6] %>% 
+    str_replace(",","") %>% as.numeric
+  
+  non_hispanic = demographic_data %>% .[19] %>% 
+    str_split(., " ", simplify = TRUE)
+  
+  non_hispanic_case = non_hispanic %>% .[1, 2] %>% 
+    str_replace(",","") %>% as.numeric
+  non_hispanic_hosp = non_hispanic %>% .[1, 4] %>% 
+    str_replace(",","") %>% as.numeric
+  non_hispanic_death = non_hispanic %>% .[1, 6] %>% 
+    str_replace(",","") %>% as.numeric
+  
+  unknown_ethnicity = demographic_data %>% .[20] %>% 
+    str_split(., " ", simplify = TRUE)
+  
+  unknown_ethnicity_case = unknown_ethnicity %>% .[1, 2] %>% 
+    str_replace(",","") %>% as.numeric
+  unknown_ethnicity_hosp = unknown_ethnicity %>% .[1, 4] %>% 
+    str_replace(",","") %>% as.numeric
+  unknown_ethnicity_death = unknown_ethnicity %>% .[1, 6] %>% 
+    str_replace(",","") %>% as.numeric
+  
+  white = demographic_data %>% .[23] %>% 
+    str_split(., " ", simplify = TRUE)
+  
+  white_case = white %>% .[1, 2] %>% 
+    str_replace(",","") %>% as.numeric
+  white_hosp = white %>% .[1, 4] %>% 
+    str_replace(",","") %>% as.numeric
+  white_death = white %>% .[1, 6] %>% 
+    str_replace(",","") %>% as.numeric
+  
+  black = demographic_data %>% .[27] %>% 
+    str_split(., " ", simplify = TRUE) 
+  
+  black_case = black %>% .[1, 2] %>% 
+    str_replace(",","") %>% as.numeric
+  black_hosp = black %>% .[1, 4] %>% 
+    str_replace(",","") %>% as.numeric
+  black_death = black %>% .[1, 6] %>% 
+    str_replace(",","") %>% as.numeric
+  
+  other_race = demographic_data %>% .[31] %>% 
+    str_split(., " ", simplify = TRUE) 
+  
+  other_race_case = other_race %>% .[1, 2] %>% 
+    str_replace(",","") %>% as.numeric
+  other_race_hosp = other_race %>% .[1, 4] %>% 
+    str_replace(",","") %>% as.numeric
+  other_race_death = other_race %>% .[1, 6] %>% 
+    str_replace(",","") %>% as.numeric
+  
+  unk_race = demographic_data %>% .[35] %>% 
+    str_split(., " ", simplify = TRUE)
+
+  unk_race_case = unk_race %>% .[1, 3] %>% 
+    str_replace(",","") %>% as.numeric
+  unk_race_hosp = unk_race %>% .[1, 5] %>% 
+    str_replace(",","") %>% as.numeric
+  unk_race_death = unk_race %>% .[1, 7] %>% 
+    str_replace(",","") %>% as.numeric
+  
+  # Log all of the information
+  skeleton[["tested"]][["total"]] = tested
+  skeleton[["negatives"]][["total"]] = negatives
+  
+  skeleton[["cases"]][["total"]] = cases
+  
+  skeleton[["cases"]][["sex_male"]] = males
+  skeleton[["cases"]][["sex_female"]] = cases - males
+  
+  skeleton[["cases"]][["age_0_4"]] = between_0_and_4_case
+  skeleton[["cases"]][["age_5_14"]] = between_5_and_14_case
+  skeleton[["cases"]][["age_15_24"]] = between_15_and_24_case
+  skeleton[["cases"]][["age_25_34"]] = between_25_and_34_case
+  skeleton[["cases"]][["age_35_44"]] = between_35_and_44_case
+  skeleton[["cases"]][["age_45_54"]] = between_45_and_54_case
+  skeleton[["cases"]][["age_55_64"]] = between_55_and_64_case
+  skeleton[["cases"]][["age_65_74"]] = between_65_and_74_case
+  skeleton[["cases"]][["age_75_84"]] = between_75_and_84_case
+  skeleton[["cases"]][["age_85+"]] = older_than_85_case
+  skeleton[["cases"]][["age_unk"]] = unknown_age_case
+  skeleton[["cases"]][["ethnicity_hispanic"]] = hispanic_case
+  skeleton[["cases"]][["ethnicity_non_hispanic"]] = non_hispanic_case
+  skeleton[["cases"]][["ethnicity_unk"]] = unknown_ethnicity_case
+  skeleton[["cases"]][["race_white"]] = white_case
+  skeleton[["cases"]][["race_AfrA"]] = black_case
+  skeleton[["cases"]][["race_other"]] = other_race_case
+  skeleton[["cases"]][["race_unk"]] = unk_race_case
+
+  skeleton[["hospitalized"]][["age_0_4"]] = between_0_and_4_hosp
+  skeleton[["hospitalized"]][["age_5_14"]] = between_5_and_14_hosp
+  skeleton[["hospitalized"]][["age_15_24"]] = between_15_and_24_hosp
+  skeleton[["hospitalized"]][["age_25_34"]] = between_25_and_34_hosp
+  skeleton[["hospitalized"]][["age_35_44"]] = between_35_and_44_hosp
+  skeleton[["hospitalized"]][["age_45_54"]] = between_45_and_54_hosp
+  skeleton[["hospitalized"]][["age_55_64"]] = between_55_and_64_hosp
+  skeleton[["hospitalized"]][["age_65_74"]] = between_65_and_74_hosp
+  skeleton[["hospitalized"]][["age_75_84"]] = between_75_and_84_hosp
+  skeleton[["hospitalized"]][["age_85+"]] = older_than_85_hosp
+  skeleton[["hospitalized"]][["age_unk"]] = unknown_age_hosp
+  skeleton[["hospitalized"]][["ethnicity_hispanic"]] = hispanic_hosp
+  skeleton[["hospitalized"]][["ethnicity_non_hispanic"]] = non_hispanic_hosp
+  skeleton[["hospitalized"]][["ethnicity_unk"]] = unknown_ethnicity_hosp
+  skeleton[["hospitalized"]][["race_white"]] = white_hosp
+  skeleton[["hospitalized"]][["race_AfrA"]] = black_hosp
+  skeleton[["hospitalized"]][["race_other"]] = other_race_hosp
+  skeleton[["hospitalized"]][["race_unk"]] = unk_race_hosp
+  
+  skeleton[["deaths"]][["total"]] = deaths
+  skeleton[["deaths"]][["age_0_4"]] = between_0_and_4_death
+  skeleton[["deaths"]][["age_5_14"]] = between_5_and_14_death
+  skeleton[["deaths"]][["age_15_24"]] = between_15_and_24_death
+  skeleton[["deaths"]][["age_25_34"]] = between_25_and_34_death
+  skeleton[["deaths"]][["age_35_44"]] = between_35_and_44_death
+  skeleton[["deaths"]][["age_45_54"]] = between_45_and_54_death
+  skeleton[["deaths"]][["age_55_64"]] = between_55_and_64_death
+  skeleton[["deaths"]][["age_65_74"]] = between_65_and_74_death
+  skeleton[["deaths"]][["age_75_84"]] = between_75_and_84_death
+  skeleton[["deaths"]][["age_85+"]] = older_than_85_death
+  skeleton[["deaths"]][["age_unk"]] = unknown_age_death
+  skeleton[["deaths"]][["ethnicity_hispanic"]] = hispanic_death
+  skeleton[["deaths"]][["ethnicity_non_hispanic"]] = non_hispanic_death
+  skeleton[["deaths"]][["ethnicity_unk"]] = unknown_ethnicity_death
+  skeleton[["deaths"]][["race_white"]] = white_death
+  skeleton[["deaths"]][["race_AfrA"]] = black_death
+  skeleton[["deaths"]][["race_other"]] = other_race_death
+  skeleton[["deaths"]][["race_unk"]] = unk_race_death
+  
+  return(list(
+    data = as_tibble(skeleton),
+    comments = list()
+  ))
+}
+```
+
+## Tennessee
+
+```{r}
+tn_cols = c(
+    "total",
+    "age_0_10", 
+    "age_11_20", 
+    "age_21_30",
+    "age_31_40",
+    "age_41_50",
+    "age_51_60",
+    "age_61_70",
+    "age_71_80",
+    "age_81+", 
+    "age_unk",
+    "sex_male", 
+    "sex_female", 
+    "sex_unk",
+    "ethnicity_hispanic", 
+    "ethnicity_non_hispanic",
+    "ethnicity_unk",
+    "race_white", 
+    "race_AfrA",
+    "race_NatA",
+    "race_asian", 
+    "race_other",
+    "race_multi", 
+    "race_unk")
+
+get_tennessee = function(date) {
+  
+  # Scrape the website to get to the datasets by their source link
+  url = "https://www.tn.gov/health/cedep/ncov/data/downloadable-datasets.html"
+  
+  xlsx_paths = read_html(url) %>% 
+    html_nodes("body #main .row .col-lg-8 article div .tn-panel .panel") %>% 
+    html_nodes("div .tn-rte p a") %>% 
+    html_attr("href")
+
+  age_temp = tempfile(fileext = ".xlsx")
+  case_temp = tempfile(fileext = ".xlsx")
+  demo_temp = tempfile(fileext = ".xlsx")
+  
+  age_url = paste0("https://www.tn.gov", xlsx_paths[1])
+  case_url = paste0("https://www.tn.gov", xlsx_paths[3])
+  demo_url = paste0("https://www.tn.gov", xlsx_paths[5])
+  
+  
+  download.file(age_url, destfile = age_temp, mode = 'wb')
+  download.file(case_url, destfile = case_temp, mode = 'wb')
+  download.file(demo_url, destfile = demo_temp, mode = 'wb')
+  
+  age_data = read_excel(age_temp, sheet = 1) %>% 
+    filter(DATE == as_date(date))
+  case_data = read_excel(case_temp, sheet = 1) %>% 
+    filter(DATE == as_date(date))
+  demo_data = read_excel(demo_temp, sheet = 1) %>% 
+    filter(Date == as_date(date))
+  
+  skeleton = skeleton_table(tn_cols)
+  
+  tests = case_data %>% pull(TOTAL_TESTS)
+  cases = case_data %>% pull(TOTAL_CASES)
+  negatives = case_data %>% pull(NEG_TESTS)
+  deaths = case_data %>% pull(TOTAL_DEATHS)
+  recovered = case_data %>% pull(TOTAL_RECOVERED)
+  
+  ar_cases = age_data %>% pull(AR_CASECOUNT)
+  ar_deaths = age_data %>% pull(AR_TOTALDEATHS)
+  
+  race_cases = demo_data %>% filter(Category == "RACE")
+  ethnicity_cases = demo_data %>% filter(Category == "ETHNICITY") 
+  sex_cases = demo_data %>% filter(Category == "SEX")
+  
+  race_deaths = demo_data %>% filter(Category == "RACE")
+  ethnicity_deaths = demo_data %>% filter(Category == "ETHNICITY")
+  sex_deaths = demo_data %>% filter(Category == "SEX")
+
+  # Log all the data from the Excel sheet
+  skeleton[["tested"]][["total"]] = tests
+  
+  skeleton[["cases"]][["total"]] = cases
+  skeleton[["cases"]][["age_0_10"]] = ar_cases[1] 
+  skeleton[["cases"]][["age_11_20"]] = ar_cases[2]
+  skeleton[["cases"]][["age_21_30"]] = ar_cases[3]
+  skeleton[["cases"]][["age_31_40"]] = ar_cases[4]
+  skeleton[["cases"]][["age_41_50"]] = ar_cases[5]
+  skeleton[["cases"]][["age_51_60"]] = ar_cases[6]
+  skeleton[["cases"]][["age_61_70"]] = ar_cases[7]
+  skeleton[["cases"]][["age_71_80"]] = ar_cases[8]
+  skeleton[["cases"]][["age_81+"]] = ar_cases[9]
+  skeleton[["cases"]][["age_unk"]] = ar_cases[10]
+  skeleton[["cases"]][["sex_male"]] = sex_cases %>% 
+    filter(Cat_Detail == "Male") %>% pull(Cat_CaseCount) 
+  skeleton[["cases"]][["sex_female"]] = sex_cases %>% 
+    filter(Cat_Detail == "Female") %>% pull(Cat_CaseCount) 
+  skeleton[["cases"]][["sex_unk"]] = sex_cases %>% 
+    filter(Cat_Detail == "Pending") %>% pull(Cat_CaseCount) 
+  skeleton[["cases"]][["race_white"]] = race_cases %>% 
+    filter(Cat_Detail == "White") %>% pull(Cat_CaseCount) 
+  skeleton[["cases"]][["race_AfrA"]] = race_cases %>% 
+    filter(Cat_Detail == "Black or African American") %>% pull(Cat_CaseCount) 
+  skeleton[["cases"]][["race_other"]] = race_cases %>% 
+    filter(Cat_Detail == "Other/Multiracial") %>% pull(Cat_CaseCount)
+  skeleton[["cases"]][["race_asian"]] = race_cases %>% 
+    filter(Cat_Detail == "Asian") %>% pull(Cat_CaseCount) 
+  skeleton[["cases"]][["race_unk"]] = race_cases %>% 
+    filter(Cat_Detail == "Pending") %>% pull(Cat_CaseCount) 
+  skeleton[["cases"]][["ethnicity_hispanic"]] = ethnicity_cases %>% 
+    filter(Cat_Detail == "Hispanic") %>% pull(Cat_CaseCount)
+  skeleton[["cases"]][["ethnicity_non_hispanic"]] = ethnicity_cases %>% 
+    filter(Cat_Detail == "Not Hispanic or Latino") %>% pull(Cat_CaseCount)
+  skeleton[["cases"]][["ethnicity_unk"]] = ethnicity_cases %>% 
+    filter(Cat_Detail == "Pending") %>% pull(Cat_CaseCount)
+  
+  skeleton[["negatives"]][["total"]] = negatives
+  
+  skeleton[["deaths"]][["total"]] = deaths
+  skeleton[["deaths"]][["age_0_10"]] = ar_deaths[1] 
+  skeleton[["deaths"]][["age_11_20"]] = ar_deaths[2]
+  skeleton[["deaths"]][["age_21_30"]] = ar_deaths[3]
+  skeleton[["deaths"]][["age_31_40"]] = ar_deaths[4]
+  skeleton[["deaths"]][["age_41_50"]] = ar_deaths[5]
+  skeleton[["deaths"]][["age_51_60"]] = ar_deaths[6]
+  skeleton[["deaths"]][["age_61_70"]] = ar_deaths[7]
+  skeleton[["deaths"]][["age_71_80"]] = ar_deaths[8]
+  skeleton[["deaths"]][["age_81+"]] = ar_deaths[9]
+  skeleton[["deaths"]][["age_unk"]] = ar_deaths[10]
+  skeleton[["deaths"]][["sex_male"]] = sex_deaths %>% 
+    filter(Cat_Detail == "Male") %>% pull(CAT_DEATHCOUNT) 
+  skeleton[["deaths"]][["sex_female"]] = sex_deaths %>% 
+    filter(Cat_Detail == "Female") %>% pull(CAT_DEATHCOUNT) 
+  skeleton[["deaths"]][["sex_unk"]] = sex_deaths %>% 
+    filter(Cat_Detail == "Pending") %>% pull(CAT_DEATHCOUNT) 
+  skeleton[["deaths"]][["race_white"]] = race_deaths %>% 
+    filter(Cat_Detail == "White") %>% pull(CAT_DEATHCOUNT) 
+  skeleton[["deaths"]][["race_AfrA"]] = race_deaths %>% 
+    filter(Cat_Detail == "Black or African American") %>% pull(CAT_DEATHCOUNT) 
+  skeleton[["deaths"]][["race_other"]] = race_deaths %>% 
+    filter(Cat_Detail == "Other/Multiracial") %>% pull(CAT_DEATHCOUNT)
+  skeleton[["deaths"]][["race_asian"]] = race_deaths %>% 
+    filter(Cat_Detail == "Asian") %>% pull(CAT_DEATHCOUNT) 
+  skeleton[["deaths"]][["race_unk"]] = race_deaths %>% 
+    filter(Cat_Detail == "Pending") %>% pull(CAT_DEATHCOUNT) 
+  skeleton[["deaths"]][["ethnicity_hispanic"]] = ethnicity_deaths %>% 
+    filter(Cat_Detail == "Hispanic") %>% pull(CAT_DEATHCOUNT)
+  skeleton[["deaths"]][["ethnicity_non_hispanic"]] = ethnicity_deaths %>% 
+    filter(Cat_Detail == "Not Hispanic or Latino") %>% pull(CAT_DEATHCOUNT)
+  skeleton[["deaths"]][["ethnicity_unk"]] = ethnicity_deaths %>% 
+    filter(Cat_Detail == "Pending") %>% pull(CAT_DEATHCOUNT)
+  
+  skeleton[["recovered"]][["total"]] = recovered
+  
+  return(list(
+    data = as_tibble(skeleton),
+    comments = list()
+    ))
+}
+```
+
+```{r}
+florida = get_florida() %>% 
+  .$data %>% select(data, cases)
+tennessee = get_tennessee("2020-05-09") %>% 
+  .$data %>% select(data, cases)
+```
+
+# Idea
+
+Age is still numeric, so that will be the x-axis. To express the different bounds, we'll show an age bound for each age and state. In order to plot it, we'll just use the midpoint of this bound. Upper age brackets like 85+ limits will be shown at that point (85). Unknown age will be set to 100.
+
+```{r}
+fl_ages = florida %>% 
+  filter(
+    data %in% c("age_0_4", "age_5_14", "age_15_24", 
+                "age_25_34", "age_35_44", "age_45_54", 
+                "age_55_64", "age_65_74", "age_75_84", 
+                "age_85+", "age_unk")) %>% 
+  mutate(
+    bounds = map(data, function(s) {
+      str_split(s, "_") %>% unlist %>% .[-1] %>% unlist
+      }),
+    left_bound = map_dbl(bounds, function(b) {
+      if (length(b) == 2) {
+        b[1] %>% as.numeric
+      } else if (str_detect(b, "\\+")) {
+        b %>% str_replace("\\+", "") %>% as.numeric
+      } else {
+        100 # default to 100 to show unknown on graph
+      }
+    }),
+    right_bound = map_dbl(bounds, function(b) {
+      if (length(b) == 2) {
+        b[2] %>% as.numeric
+      } else if (str_detect(b, "\\+")) {
+        b %>% str_replace("\\+", "") %>% as.numeric
+      } else {
+        100 # default to 100 to show unknown on graph
+      }
+    }),
+    mid = (left_bound + right_bound) / 2,
+    state = "Florida"
+  )
+
+tn_ages = tennessee %>% 
+  filter(
+    data %in% c("age_0_10", "age_11_20", "age_21_30",
+                "age_31_40", "age_41_50", "age_51_60",
+                "age_61_70", "age_71_80", "age_81+", 
+                "age_unk")) %>% 
+  mutate(
+    bounds = map(data, function(s) {
+      str_split(s, "_") %>% unlist %>% .[-1] %>% unlist
+      }),
+    left_bound = map_dbl(bounds, function(b) {
+      if (length(b) == 2) {
+        b[1] %>% as.numeric
+      } else if (str_detect(b, "\\+")) {
+        b %>% str_replace("\\+", "") %>% as.numeric
+      } else {
+        100 # default to 100 to show unknown on graph
+      }
+    }),
+    right_bound = map_dbl(bounds, function(b) {
+      if (length(b) == 2) {
+        b[2] %>% as.numeric
+      } else if (str_detect(b, "\\+")) {
+        b %>% str_replace("\\+", "") %>% as.numeric
+      } else {
+        100 # default to 100 to show unknown on graph
+      }
+    }),
+    mid = (left_bound + right_bound) / 2,
+    state = "Tennessee"
+  )
+
+final_data = bind_rows(fl_ages, tn_ages) %>% 
+  mutate(
+    cases = unlist(cases),
+    state = factor(state),
+    bracket_line = if_else(state == "Florida", -500, -1000)
+    )
+```
+
+```{r}
+final_data %>% 
+  ggplot(aes(color = state)) +
+  geom_line(aes(x = mid, y = cases)) +
+  geom_point(aes(x = mid, y = cases), size = 0.75) +
+  geom_line(aes(x = left_bound, y = bracket_line)) +
+  geom_pointrange(aes(x = left_bound,
+                      y = bracket_line,
+                      ymin = bracket_line - 250,
+                      ymax = bracket_line + 250,
+                      fatten = 0
+                      )) + 
+  theme(legend.position = "bottom",
+        plot.title = element_text(hjust = 0.5)) +
+  labs(
+    title = "Comparison of Florida and Tennessee\n by age on May 9, 2020",
+    x = "Age",
+    y = "Cases"
+  )
+```
+
+# Possible Improvements?
+
+- Show each states age ranges as text on the chart? Might clutter the chart
+- I feel like showing the midpoints captures this information well, but it might not do so well for states with very large age spans
+- Maybe don't show the unknowns since there's so little of them?

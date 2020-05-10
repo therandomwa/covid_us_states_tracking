@@ -524,7 +524,7 @@ get_florida = function(pdf_url) {
 }
 
 florida = get_florida()
-florida$data %>% View
+florida
 ```
 
 ## Tennessee
@@ -956,6 +956,8 @@ south_carolina
 ## New Jersey
 
 ```{r}
+
+# Need to update New Jersey
 # Changing columns to account for provided data
 nj_cols = c(
     "total",
