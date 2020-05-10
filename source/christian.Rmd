@@ -72,7 +72,7 @@ example = skeleton_table(default_cols)
 # Oklahoma
 
 ```{r}
-extract_oklahoma_data = function() {
+get_oklahoma = function() {
   case_url = "https://storage.googleapis.com/ok-covid-gcs-public-download/oklahoma_cases_county.csv"
   
   case_by_county = read_csv(case_url)
@@ -95,22 +95,11 @@ extract_oklahoma_data = function() {
   ))
 }
 
-oklahoma = extract_oklahoma_data()
-oklahoma %>% colnames
+oklahoma = get_oklahoma()
+oklahoma$data
 ```
 
-# Arizona
 
-```{r}
-extract_arizona_data = function() {
-  url = "https://www.azdhs.gov/preparedness/epidemiology-disease-control/infectious-disease-epidemiology/covid-19/dashboards/index.php"
-  # arizona = read_html()
-  arizona = htmlParse(GET(url, user_agent("Mozilla")))
-  return(arizona)
-}
-
-arizona = extract_arizona_data()
-```
 
 # Mississippi
 
@@ -1305,15 +1294,17 @@ guam
 
 # Tableau States
 
+Notes To Self:
+
+- Not possible/difficult to scrape the data off of the site. Best strategy seems to be manually downloading a pdf version of the necessary pages and scraping that instead.
+- Iowa: demographic & age data available, but are messily formatted on the given pdf
+- Arizona: different information is stored on different dashboards, so multiple pdfs need to be downloaded to get all the necessary data (Summary, Demographics)
+
 ## Iowa
 
 ```{r}
 # Need to access the data through daily pdfs
 # Get pdfs from Tableau download: https://coronavirus.iowa.gov/#CurrentStatus
-
-# Pain point: must redownload pdf from Tableau table every day, 
-# then put it in pdfs folder
-# Download the "Current Status" and "Demographics" sheets as pdf 
 
 now = Sys.time() %>% as_date() %>% as.character()
 date_for_url = paste0(str_sub(now, 6,7), 
@@ -1322,7 +1313,7 @@ date_for_url = paste0(str_sub(now, 6,7),
 
 iowa = pdf_text(paste0("../pdfs/IowaCOVID19_", date_for_url, ".pdf"))
 
-extract_iowa_data = function(pdf_data) {
+get_iowa = function(pdf_data) {
   total_page = pdf_data[1] %>% str_split(., "\n") %>% .[[1]]
   demographics_page = pdf_data[2] %>% str_split(., "\n") %>% .[[1]]
   
@@ -1353,9 +1344,76 @@ extract_iowa_data = function(pdf_data) {
 }
 
 
-extract_iowa_data(iowa)
+iowa = get_iowa(iowa)
+iowa
 ```
 
+## Arizona
+
+```{r}
+# Link to Summary Dashboard
+# https://tableau.azdhs.gov/views/COVID-19Summary/Overview2?:embed=y&amp;:showVizHome=no&amp;:host_url=https%3A%2F%2Ftableau.azdhs.gov%2F&amp;:embed_code_version=3&amp;:tabs=no&amp;:toolbar=no&amp;:showAppBanner=false&amp;:display_spinner=no&amp;iframeSizedToWindow=true&amp;:loadOrderID=1
+
+# Link to Demographics Dashboard
+# https://tableau.azdhs.gov/views/COVID19Demographics/EpiData?:embed=y&amp;:showVizHome=no&amp;:host_url=https%3A%2F%2Ftableau.azdhs.gov%2F&amp;:embed_code_version=3&amp;:tabs=no&amp;:toolbar=no&amp;:showAppBanner=false&amp;:display_spinner=no&amp;iframeSizedToWindow=true&amp;:loadOrderID=1
+
+az_cols = c(
+    "total",
+    "age_0_19", 
+    "age_20_44", 
+    "age_45_54",
+    "age_55_64", 
+    "age_65+", 
+    "age_unk",
+    "sex_male", 
+    "sex_female", 
+    "sex_unk",
+    "ethnicity_hispanic", 
+    "ethnicity_non_hispanic",
+    "ethnicity_unk",
+    "race_white", 
+    "race_AfrA",
+    "race_NatA",
+    "race_asian", 
+    "race_other",
+    "race_multi", 
+    "race_unk")
+
+get_arizona = function(date) {
+  
+  skeleton = skeleton_table(az_cols)
+  
+  summary_path = paste0("../pdfs/AZ/summary_", date, ".pdf")
+  demo_path = paste0("../pdfs/AZ/demo_", date, ".pdf")
+  
+  summary_data = pdf_text(summary_path) %>% .[1] %>% 
+    str_split("\n") %>% .[[1]] %>% 
+    str_squish() %>% .[11] %>% 
+    str_replace(", ", "") %>% str_replace(",", "") %>% 
+    str_split(" ") %>% .[[1]] %>% .[2:4] %>% 
+    as.numeric()
+    
+  skeleton[["cases"]][["total"]] = summary_data[1]
+  skeleton[["deaths"]][["total"]] = summary_data[2]
+  skeleton[["tested"]][["total"]] = summary_data[3]
+  
+  # Way too messy to be properly scraped but I'll leave this here
+  demo_data = pdf_text(demo_path) %>% .[1] %>% 
+    str_split("\n") %>% .[[1]] %>% 
+    str_squish()
+  
+  
+  return(list(
+    data = as_tibble(skeleton),
+    comments = list(
+      "Demographic and age information are messily formatted for scraping"
+    )
+    ))
+}
+
+arizona = get_arizona("20200509")
+arizona
+```
 
 # Microsoft BI States
 
