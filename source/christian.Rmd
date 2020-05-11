@@ -36,7 +36,11 @@ default_cols = c(
     "race_other",
     "race_multi", 
     "race_unk")
+```
 
+# Helper Functions
+
+```{r}
 # Helper functions for data cleaning
 skeleton_col = function(subdivs) {
   # Need to make a named vector to make it easier to insert data
@@ -45,7 +49,7 @@ skeleton_col = function(subdivs) {
   # subdivs should contain all of the relevant information that
   # a state provides on their websitE
   
-  skeleton = vector(mode = "list", length = length(subdivs))
+  skeleton = rep(NA, length = length(subdivs))
   names(skeleton) = subdivs
   return(skeleton)
 }
@@ -65,7 +69,54 @@ skeleton_table = function(subdivs) {
 }
 
 example = skeleton_table(default_cols)
+example_tibble = as_tibble(example)
+
+convert_aijin = function(skeleton) {
+  
+  tibble(
+    total.tested = skeleton[["tested"]][["total"]],
+    total.case = skeleton[["cases"]][["total"]],
+    total.death = skeleton[["deaths"]][["total"]],
+    total_hosp = skeleton[["hospitalized"]][["total"]],
+    total.tested.today = NA,
+    total.positive.today = NA,
+    total.death.today = NA,
+    positivity.rate = NA,
+    county.details = NA,
+    comorbidities = NA
+  ) %>% 
+    mutate(
+      positive_race = map(1, function(s) {
+        skeleton %>% filter(str_detect(data, 'race')) %>% select(data, cases)
+      }),
+      positive_age = map(1, function(s) {
+        skeleton %>% filter(str_detect(data, 'age')) %>% select(data, cases)
+      }),
+      positive_gender = map(1, function(s) {
+        skeleton %>% filter(str_detect(data, 'sex')) %>% select(data, cases) 
+        }),
+      death_race = map(1, function(s) {
+        skeleton %>% filter(str_detect(data, 'race')) %>% select(data, deaths)
+      }),
+      death_age = map(1, function(s) {
+        skeleton %>% filter(str_detect(data, 'race')) %>% select(data, deaths)
+      }),
+      death_gender = map(1, function(s) {
+        skeleton %>% filter(str_detect(data, 'sex')) %>% select(data, deaths)
+      }),
+      hosp_race = map(1, function(s) {
+        skeleton %>% filter(str_detect(data, 'race')) %>% select(data, hospitalized)
+      }),
+      hosp_age = map(1, function(s) {
+        skeleton %>% filter(str_detect(data, 'age')) %>% select(data, hospitalized)
+      }),
+      hosp_gender = map(1, function(s) {
+        skeleton %>% filter(str_detect(data, 'sex')) %>% select(data, hospitalized)
+      })
+      )
+}
 ```
+
 
 # PDF/CSV States
 
@@ -88,6 +139,7 @@ get_oklahoma = function() {
   case_by_county = read_csv(case_url)
   skeleton = skeleton_table(default_cols)
   
+  # Push items into the skeleton  
   skeleton[["cases"]][["total"]] = case_by_county %>% 
     pull(Cases) %>% sum
   skeleton[["recovered"]][["total"]] = case_by_county %>% 
@@ -95,18 +147,22 @@ get_oklahoma = function() {
   skeleton[["deaths"]][["total"]] = case_by_county %>% 
     pull(Deaths) %>% sum
   
-  
-  return(list(
-    data = as_tibble(skeleton),
-    comments = list(
-      "Demographic and age data available, but is displayed in undesirable
-      format for pdf scraping. Too fragile."
-    )
-  ))
+  as_tibble(skeleton) %>% 
+    convert_aijin() %>% 
+    mutate(
+      state_name = "Oklahoma",
+      Link = "https://coronavirus.health.ok.gov",
+      platform = "pdf",
+      comments = "Demographic and age data available, but is displayed in undesirable format for pdf scraping. Too fragile.",
+      last.updat = Sys.time() %>% as_date) %>% 
+    select(
+      state_name, Link,
+      total.tested:hosp_gender,
+      platform, comments, last.updat)
 }
 
 oklahoma = get_oklahoma()
-oklahoma$data
+oklahoma
 ```
 
 ## Mississippi
@@ -137,9 +193,9 @@ get_mississippi = function() {
   demo_death_url = paste0("https://msdh.ms.gov/msdhsite/_static/", demo_death_path)
   
   summary_vals = read_html(site_url) %>% 
-    html_nodes("body #pageContainer #pageContent #article .msdh table") %>% 
-    html_table() %>% .[[1]] %>% 
-    tail(1) %>% unlist() %>% .[-1] %>% 
+    html_nodes("body #pageContainer #pageContent #article .msdh #msdhTotalCovid-19Cases") %>% 
+    html_table(fill = TRUE) %>% .[[1]] %>%
+    tail(1) %>% unlist() %>% .[-1] %>%
     str_replace(",", "") %>% as.numeric()
   
   skeleton[["cases"]][["total"]] = summary_vals[1]
@@ -179,12 +235,18 @@ get_mississippi = function() {
   skeleton[["deaths"]][["ethnicity_hispanic"]] = demo_death[8:13] %>% sum()
   skeleton[["deaths"]][["ethnicity_unk"]] = demo_death[14:19] %>% sum()
   
-  return(list(
-    data = as_tibble(skeleton),
-    comments = list(
-      "Age data only available in images on site"
-    )
-  ))
+  as_tibble(skeleton) %>% 
+    convert_aijin() %>% 
+    mutate(
+      state_name = "Mississippi",
+      Link = site_url,
+      platform = "pdf",
+      comments = "Age data only available in images on site",
+      last.updat = Sys.time() %>% as_date) %>% 
+    select(
+      state_name, Link,
+      total.tested:hosp_gender,
+      platform, comments, last.updat)
   
 }
 
@@ -516,10 +578,18 @@ get_florida = function(pdf_url) {
   skeleton[["deaths"]][["race_other"]] = other_race_death
   skeleton[["deaths"]][["race_unk"]] = unk_race_death
   
-  return(list(
-    data = as_tibble(skeleton),
-    comments = list()
-  ))
+  as_tibble(skeleton) %>% 
+    convert_aijin() %>% 
+    mutate(
+      state_name = "Florida",
+      Link = url,
+      platform = "pdf",
+      comments = "Age data only available in images on site",
+      last.updat = Sys.time() %>% as_date) %>% 
+    select(
+      state_name, Link,
+      total.tested:hosp_gender,
+      platform, comments, last.updat)
 }
 
 florida = get_florida()
