@@ -905,12 +905,12 @@ north_carolina
 get_dc = function(date) {
   # Supply date in the form MonthName-Day-Year
   
-  skeleton = skeleton_table()
+  skeleton = skeleton_table(default_cols)
   url = paste0(
-    "https://coronavirus.dc.gov/sites/default/files/dc/sites/thrivebyfive/page_content/attachments/DC-COVID-19-Data-for-",
+    "https://coronavirus.dc.gov/sites/default/files/dc/sites/coronavirus/page_content/attachments/DC-COVID-19-Data-for-",
     date,
     ".xlsx")
-  
+ 
   temp = tempfile(fileext = ".xlsx")
   download.file(url, destfile = temp, mode = 'wb')
   overall_stats = read_excel(temp, sheet = 1)
@@ -949,15 +949,21 @@ get_dc = function(date) {
   skeleton[["deaths"]][["ethnicity_non_hispanic"]] = today_deaths[6]
   skeleton[["deaths"]][["race_unk"]] = today_deaths[7]
   
-  return(list(
-    data = as_tibble(skeleton),
-    comments = list(
-      "Deaths are combined between race and ethnicity"
-    )
-  ))
+  as_tibble(skeleton) %>% 
+    standardize %>% 
+    mutate(
+      state_name = "District of Columbia",
+      Link = url,
+      platform = "pdf",
+      comments = "Deaths are combined between race and ethnicity",
+      last.updat = Sys.time() %>% as_date) %>% 
+    select(
+      state_name, Link,
+      total.tested:hosp_gender,
+      platform, comments, last.updat)
 }
 
-dc = get_dc("May-7-2020")
+dc = get_dc("May-10-2020")
 dc
 ```
 
@@ -981,19 +987,24 @@ get_south_carolina = function() {
     str_replace(",", "") %>% 
     as.numeric()
   
-  skeleton = skeleton_table()
+  skeleton = skeleton_table(default_cols)
   
   skeleton[["tested"]][["total"]] = html[7]
   skeleton[["negatives"]][["total"]] = html[3]
   skeleton[["cases"]][["total"]] = html[6]
-    
   
-  return(list(
-    data = as_tibble(skeleton),
-    comments = list(
-      "Demographic and age data stored in complicated Tableau viz"
-    )
-  ))
+  as_tibble(skeleton) %>% 
+    standardize %>% 
+    mutate(
+      state_name = "South Carolina",
+      Link = url,
+      platform = "pdf",
+      comments = "Demographic and age data stored in complicated Tableau viz",
+      last.updat = Sys.time() %>% as_date) %>% 
+    select(
+      state_name, Link,
+      total.tested:hosp_gender,
+      platform, comments, last.updat)
 }
 
 south_carolina = get_south_carolina()
@@ -1003,7 +1014,6 @@ south_carolina
 ## New Jersey
 
 ```{r}
-
 # Need to update New Jersey
 # Changing columns to account for provided data
 nj_cols = c(
@@ -1037,80 +1047,76 @@ get_new_jersey = function() {
     str_split("\n") %>% .[[1]] %>% 
     str_squish()
   skeleton = skeleton_table(nj_cols)
-  
+
   cases = data %>% .[9] %>% 
     str_split(" ", simplify = TRUE) %>% .[1, 5] %>% 
-    as.numeric()
+    str_replace(",", "") %>% .[[1]] %>% as.numeric()
   
   deaths = data %>% .[12] %>% 
-    str_split(" ", simplify = TRUE) %>% .[1, 6] %>% 
+    str_split(" ", simplify = TRUE) %>% .[1, 1] %>% 
     as.numeric()
   
   hospitalizations = data %>% .[14] %>% 
-    str_split(" ", simplify = TRUE) %>% .[1, 5] %>% 
+    str_split(" ", simplify = TRUE) %>% .[1, 1] %>% 
     as.numeric()
   
-  between_0_and_4 = data %>% .[17] %>% 
+  between_0_and_4 = data %>% .[16] %>% 
     str_split(" ", simplify = TRUE) %>% .[1, 4] %>% 
     as.numeric()
   
-  between_5_and_17 = data %>% .[18] %>% 
+  between_5_and_17 = data %>% .[17] %>% 
     str_split(" ", simplify = TRUE) %>% .[1, 4] %>% 
     as.numeric()
   
-  between_18_and_29 = data %>% .[19] %>% 
+  between_18_and_29 = data %>% .[18] %>% 
     str_split(" ", simplify = TRUE) %>% .[1, 4] %>% 
     as.numeric()
   
-  between_30_and_49 = data %>% .[20] %>% 
+  between_30_and_49 = data %>% .[19] %>% 
     str_split(" ", simplify = TRUE) %>% .[1, 4] %>% 
     as.numeric()
   
-  between_50_and_64 = data %>% .[21] %>% 
+  between_50_and_64 = data %>% .[20] %>% 
     str_split(" ", simplify = TRUE) %>% .[1, 4] %>% 
     as.numeric()
   
-  between_65_and_79 = data %>% .[22] %>% 
+  between_65_and_79 = data %>% .[21] %>% 
     str_split(" ", simplify = TRUE) %>% .[1, 4] %>% 
     as.numeric()
   
-  older_than_80 = data %>% .[23] %>% 
+  older_than_80 = data %>% .[22] %>% 
     str_split(" ", simplify = TRUE) %>% .[1, 2] %>% 
     as.numeric()
   
-  male = data %>% .[29] %>% 
+  male = data %>% .[28] %>% 
     str_split(" ", simplify = TRUE) %>% .[1, 2] %>% 
     as.numeric()
   
-  female = data %>% .[28] %>% 
+  female = data %>% .[27] %>% 
     str_split(" ", simplify = TRUE) %>% .[1, 2] %>% 
     as.numeric()
   
-  unknown_sex = data %>% .[30] %>% 
+  unknown_sex = data %>% .[29] %>% 
     str_split(" ", simplify = TRUE) %>% .[1, 2] %>% 
     as.numeric()
   
-  available_race = data %>% .[31] %>% 
+  white = data %>% .[31] %>% 
     str_split(" ", simplify = TRUE) %>% .[1, 3] %>% 
     as.numeric()
   
-  white = data %>% .[32] %>% 
+  black = data %>% .[35] %>% 
     str_split(" ", simplify = TRUE) %>% .[1, 3] %>% 
     as.numeric()
   
-  black = data %>% .[36] %>% 
+  asian = data %>% .[36] %>% 
     str_split(" ", simplify = TRUE) %>% .[1, 3] %>% 
     as.numeric()
   
-  asian = data %>% .[37] %>% 
+  other_race = data %>% .[37] %>% 
     str_split(" ", simplify = TRUE) %>% .[1, 3] %>% 
     as.numeric()
   
-  other_race = data %>% .[38] %>% 
-    str_split(" ", simplify = TRUE) %>% .[1, 3] %>% 
-    as.numeric()
-  
-  hispanic = data %>% .[34] %>% 
+  hispanic = data %>% .[33] %>% 
     str_split(" ", simplify = TRUE) %>% .[1, 1] %>% 
     as.numeric()
   
@@ -1120,11 +1126,13 @@ get_new_jersey = function() {
   
   unknown_race = cases - (non_hispanic)
   
+  skeleton[["deaths"]][["total"]] = deaths
+  skeleton[["hospitalized"]][["total"]] = hospitalizations
+  
   skeleton[["cases"]][["total"]] = cases
   skeleton[["cases"]][["sex_male"]] = male
   skeleton[["cases"]][["sex_female"]] = female
   skeleton[["cases"]][["sex_unk"]] = unknown_sex
-  skeleton[["deaths"]][["total"]] = deaths
   
   skeleton[["cases"]][["age_0_4"]] = between_0_and_4
   skeleton[["cases"]][["age_5_17"]] = between_5_and_17
@@ -1143,13 +1151,20 @@ get_new_jersey = function() {
   skeleton[["cases"]][["race_asian"]] = asian
   skeleton[["cases"]][["race_other"]] = other_race
   skeleton[["cases"]][["race_unk"]] = unknown_race
+
+  as_tibble(skeleton) %>% 
+    standardize %>% 
+    mutate(
+      state_name = "New Jersey",
+      Link = url,
+      platform = "pdf",
+      comments = "Site combined race and ethnicity, so calculation needed",
+      last.updat = Sys.time() %>% as_date) %>% 
+    select(
+      state_name, Link,
+      total.tested:hosp_gender,
+      platform, comments, last.updat)
   
-  return(list(
-    data = as_tibble(skeleton),
-    comments = list(
-      "Site combined race and ethnicity, so calculation needed"
-    )
-  ))
 }
 
 new_jersey = get_new_jersey()
@@ -1499,12 +1514,18 @@ get_new_hampshire = function() {
   
   skeleton[["recovered"]][["total"]] = recovered
   
-  return(list(
-    data = as_tibble(skeleton),
-    comment = list(
-      "Race/ethnicity combined"
-    )
-  ))
+  as_tibble(skeleton) %>% 
+    standardize %>% 
+    mutate(
+      state_name = "New Hampshire",
+      Link = url,
+      platform = "pdf",
+      comments = "Race/ethnicity combined",
+      last.updat = Sys.time() %>% as_date) %>% 
+    select(
+      state_name, Link,
+      total.tested:hosp_gender,
+      platform, comments, last.updat)
 }
 
 new_hampshire = get_new_hampshire()
@@ -1514,7 +1535,6 @@ new_hampshire
 ## Guam
 
 ```{r}
-url1 = "https://ghs.guam.gov/jic-release-no-118-end-day-results-zero-test-positive-covid-19-dphss"
 url2 = "https://ghs.guam.gov/jic-release-no-116-end-day-results-zero-test-positive-covid-19-dphss"
 
 get_guam = function(url) {
@@ -1534,17 +1554,23 @@ get_guam = function(url) {
   cases = data$X4 %>% str_split("\t") %>% .[[1]] %>% 
     .[4] %>% str_trim() %>% str_replace(",", "") %>% as.numeric
   
-  skeleton = skeleton_table(old_cols)
+  skeleton = skeleton_table(default_cols)
   
   skeleton[["negatives"]][["total"]] = negatives
   skeleton[["cases"]][["total"]] = cases
   
-  return(list(
-    data = as_tibble(skeleton),
-    comment = list(
-      "Not too much data present"
-    )
-  ))
+  as_tibble(skeleton) %>% 
+    standardize %>% 
+    mutate(
+      state_name = "Guam",
+      Link = url,
+      platform = "pdf",
+      comments = "",
+      last.updat = Sys.time() %>% as_date) %>% 
+    select(
+      state_name, Link,
+      total.tested:hosp_gender,
+      platform, comments, last.updat)
 }
 
 guam = get_guam(url2)
