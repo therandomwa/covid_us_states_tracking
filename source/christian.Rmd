@@ -71,7 +71,7 @@ skeleton_table = function(subdivs) {
 example = skeleton_table(default_cols)
 example_tibble = as_tibble(example)
 
-convert_aijin = function(skeleton) {
+standardize = function(skeleton) {
   
   tibble(
     total.tested = skeleton[["tested"]][["total"]],
@@ -148,7 +148,7 @@ get_oklahoma = function() {
     pull(Deaths) %>% sum
   
   as_tibble(skeleton) %>% 
-    convert_aijin() %>% 
+    standardize %>% 
     mutate(
       state_name = "Oklahoma",
       Link = "https://coronavirus.health.ok.gov",
@@ -236,7 +236,7 @@ get_mississippi = function() {
   skeleton[["deaths"]][["ethnicity_unk"]] = demo_death[14:19] %>% sum()
   
   as_tibble(skeleton) %>% 
-    convert_aijin() %>% 
+    standardize %>% 
     mutate(
       state_name = "Mississippi",
       Link = site_url,
@@ -579,7 +579,7 @@ get_florida = function(pdf_url) {
   skeleton[["deaths"]][["race_unk"]] = unk_race_death
   
   as_tibble(skeleton) %>% 
-    convert_aijin() %>% 
+    standardize %>% 
     mutate(
       state_name = "Florida",
       Link = url,
@@ -749,13 +749,21 @@ get_tennessee = function(date) {
   
   skeleton[["recovered"]][["total"]] = recovered
   
-  return(list(
-    data = as_tibble(skeleton),
-    comments = list()
-    ))
+  as_tibble(skeleton) %>% 
+    standardize %>% 
+    mutate(
+      state_name = "Tennessee",
+      Link = url,
+      platform = "pdf",
+      comments = "",
+      last.updat = Sys.time() %>% as_date) %>% 
+    select(
+      state_name, Link,
+      total.tested:hosp_gender,
+      platform, comments, last.updat)
 }
 
-tennessee = get_tennessee("2020-05-09")
+tennessee = get_tennessee("2020-05-11")
 tennessee
 ```
 
@@ -769,152 +777,122 @@ get_north_carolina = function() {
   
   data = read_html(url)
   
-  heading_table = data %>% 
-    html_nodes("body") %>% 
-    html_nodes("#page-wrapper") %>% 
-    html_nodes("#page") %>% 
-    html_nodes("#content-container") %>% 
-    html_nodes("#main") %>% 
-    html_nodes("article") %>% 
-    html_nodes(".section") %>% 
-    html_nodes(".region") %>% 
-    html_nodes("#block-system-main") %>% 
-    html_nodes(".content") %>% 
-    html_nodes("#node-3210") %>% 
-    html_nodes(".content") %>% 
-    html_nodes(".field") %>% 
-    html_nodes(".field-items") %>% 
-    html_nodes(".field-item") %>% .[[1]] %>% 
-    html_nodes("table") %>% 
-    html_nodes("tbody") %>% 
-    html_nodes("tr") %>% 
-    html_nodes("td") %>% 
-    map(., html_text) %>% 
-    unlist() %>% 
-    str_replace(",", "") %>% 
-    as.numeric()
+  tables = data %>% 
+    html_nodes("body #page-wrapper #page #content-container") %>% 
+    html_nodes("#main article .section .region") %>% 
+    html_nodes("#block-system-main .content #node-103") %>% 
+    html_nodes(".content .field .field-items .field-item") %>% 
+    html_nodes("table") %>% html_table() 
   
-  demo_table = data %>% 
-    html_nodes("body") %>% 
-    html_nodes("#page-wrapper") %>% 
-    html_nodes("#page") %>% 
-    html_nodes("#content-container") %>% 
-    html_nodes("#main") %>% 
-    html_nodes("article") %>% 
-    html_nodes(".section") %>% 
-    html_nodes(".region") %>% 
-    html_nodes("#block-system-main") %>% 
-    html_nodes(".content") %>% 
-    html_nodes("#node-3210") %>% 
-    html_nodes(".content") %>% .[[1]] %>% 
-    html_nodes(".paragraphs-items") %>% 
-    html_nodes(".field") %>% 
-    html_nodes(".field-items") %>% 
-    html_nodes(".field-item") %>% 
-    html_nodes("section") %>% .[[1]] %>% 
-    html_nodes(".content") %>% .[[1]] %>% 
-    html_nodes("div") %>% .[[8]] %>% 
-    html_nodes("section") %>% 
-    html_nodes("table") %>% 
-    html_nodes("tbody") %>% 
-    html_nodes("tr")
+  heading_table = tables %>% .[[1]] %>% unlist() %>% as.numeric()
+  demo_table = tables %>% .[[5]]
+  colnames(demo_table) = c("name", "cases", "cases%", "deaths", "deaths%")
   
-  nata = demo_table %>% .[[3]] %>% 
-    html_nodes("td") %>% 
-    map(., html_text) %>% 
-    unlist() %>% 
-    str_replace(",", "") %>% 
-    as.numeric()
+  nata = demo_table %>% 
+    filter(name == "American Indian Alaskan Native") %>% 
+    select(cases) %>% pull() %>% as.numeric
+  asian = demo_table %>% 
+    filter(name == "Asian") %>% 
+    select(cases) %>% pull() %>% as.numeric
+  afra = demo_table %>% 
+    filter(name == "Black or African American") %>% 
+    select(cases) %>% pull() %>% as.numeric
+  white = demo_table %>% 
+    filter(name == "White") %>% 
+    select(cases) %>% pull() %>% as.numeric
+  other = demo_table %>% 
+    filter(name == "Other") %>% 
+    select(cases) %>% pull() %>% as.numeric
+  race_known = demo_table %>% 
+    filter(name == "Total with known race1") %>% 
+    select(cases) %>% pull() %>% as.numeric
   
-  asian = demo_table %>% .[[4]] %>% 
-    html_nodes("td") %>% 
-    map(., html_text) %>% 
-    unlist() %>% 
-    str_replace(",", "") %>% 
-    as.numeric()
+  race_unk = race_known - (nata + asian + afra + white + other)
   
-  afra = demo_table %>% .[[5]] %>% 
-    html_nodes("td") %>% 
-    map(., html_text) %>% 
-    unlist() %>% 
-    str_replace(",", "") %>% 
-    as.numeric()
+  nata_deaths = demo_table %>% 
+    filter(name == "American Indian Alaskan Native") %>% 
+    select(deaths) %>% pull() %>% as.numeric
+  asian_deaths = demo_table %>% 
+    filter(name == "Asian") %>% 
+    select(deaths) %>% pull() %>% as.numeric
+  afra_deaths = demo_table %>% 
+    filter(name == "Black or African American") %>% 
+    select(deaths) %>% pull() %>% as.numeric
+  white_deaths = demo_table %>% 
+    filter(name == "White") %>% 
+    select(deaths) %>% pull() %>% as.numeric
+  other_deaths = demo_table %>% 
+    filter(name == "Other") %>% 
+    select(deaths) %>% pull() %>% as.numeric
+  race_known_deaths = demo_table %>% 
+    filter(name == "Total with known race1") %>% 
+    select(deaths) %>% pull() %>% as.numeric
+  race_unk_deaths = race_known_deaths - 
+    (nata_deaths + asian_deaths + afra_deaths + white_deaths + other_deaths)
   
-  white = demo_table %>% .[[7]] %>% 
-    html_nodes("td") %>% 
-    map(., html_text) %>% 
-    unlist() %>% 
-    str_replace(",", "") %>% 
-    as.numeric()
+  hispanic = demo_table %>% 
+    filter(name == "Hispanic") %>% 
+    select(cases) %>% pull() %>% as.numeric
+  non_hispanic = demo_table %>% 
+    filter(name == "Non-Hispanic") %>% 
+    select(cases) %>% pull() %>% as.numeric
+  eth_known = demo_table %>% 
+    filter(name == "Total with known ethnicity2") %>% 
+    select(cases) %>% pull() %>% as.numeric
+  eth_unk = eth_known - (hispanic + non_hispanic)
   
-  other = demo_table %>% .[[8]] %>% 
-    html_nodes("td") %>% 
-    map(., html_text) %>% 
-    unlist() %>% 
-    str_replace(",", "") %>% 
-    as.numeric()
-  
-  not_unk = demo_table %>% .[[2]] %>% 
-    html_nodes("td") %>% 
-    map(., html_text) %>% 
-    unlist() %>% 
-    str_replace(",", "") %>% 
-    as.numeric()
-  
-  hispanic = demo_table %>% .[[11]] %>% 
-    html_nodes("td") %>% 
-    map(., html_text) %>% 
-    unlist() %>% 
-    str_replace(",", "") %>% 
-    as.numeric()
-  
-  non_hispanic = demo_table %>% .[[12]] %>% 
-    html_nodes("td") %>% 
-    map(., html_text) %>% 
-    unlist() %>% 
-    str_replace(",", "") %>% 
-    as.numeric()
-  
-  eth_unk = demo_table %>% .[[10]] %>% 
-    html_nodes("td") %>% 
-    map(., html_text) %>% 
-    unlist() %>% 
-    str_replace(",", "") %>% 
-    as.numeric()
+  hispanic_deaths = demo_table %>% 
+    filter(name == "Hispanic") %>% 
+    select(deaths) %>% pull() %>% as.numeric
+  non_hispanic_deaths = demo_table %>% 
+    filter(name == "Non-Hispanic") %>% 
+    select(deaths) %>% pull() %>% as.numeric
+  eth_known_deaths = demo_table %>% 
+    filter(name == "Total with known ethnicity2") %>% 
+    select(deaths) %>% pull() %>% as.numeric
+  eth_unk_deaths= eth_known_deaths - (hispanic_deaths + non_hispanic_deaths)
   
   cases = heading_table[1]
   deaths = heading_table[2]
   
   skeleton[["tested"]][["total"]] = heading_table[3]
+  
   skeleton[["deaths"]][["total"]] = deaths
-  skeleton[["deaths"]][["race_NatA"]] = nata[4]
-  skeleton[["deaths"]][["race_asian"]] = asian[4]
-  skeleton[["deaths"]][["race_AfrA"]] = afra[4]
-  skeleton[["deaths"]][["race_white"]] = white[4]
-  skeleton[["deaths"]][["race_other"]] = other[4]
-  skeleton[["deaths"]][["race_unk"]] = deaths - not_unk[4]
-  skeleton[["deaths"]][["ethnicity_hispanic"]] = hispanic[4]
-  skeleton[["deaths"]][["ethnicity_non_hispanic"]] = non_hispanic[4]
-  skeleton[["deaths"]][["ethnicity_unk"]] = deaths = eth_unk[4]
+  skeleton[["deaths"]][["race_NatA"]] = nata_deaths
+  skeleton[["deaths"]][["race_asian"]] = asian_deaths
+  skeleton[["deaths"]][["race_AfrA"]] = afra_deaths
+  skeleton[["deaths"]][["race_white"]] = white_deaths
+  skeleton[["deaths"]][["race_other"]] = other_deaths
+  skeleton[["deaths"]][["race_unk"]] = race_unk_deaths
+  skeleton[["deaths"]][["ethnicity_hispanic"]] = hispanic_deaths
+  skeleton[["deaths"]][["ethnicity_non_hispanic"]] = non_hispanic_deaths
+  skeleton[["deaths"]][["ethnicity_unk"]] = eth_unk_deaths
   
   skeleton[["cases"]][["total"]] = cases
-  skeleton[["cases"]][["race_NatA"]] = nata[2]
-  skeleton[["cases"]][["race_asian"]] = asian[2]
-  skeleton[["cases"]][["race_AfrA"]] = afra[2]
-  skeleton[["cases"]][["race_white"]] = white[2]
-  skeleton[["cases"]][["race_other"]] = other[2]
-  skeleton[["cases"]][["race_unk"]] = cases - not_unk[2]
-  skeleton[["cases"]][["ethnicity_hispanic"]] = hispanic[2]
-  skeleton[["cases"]][["ethnicity_non_hispanic"]] = non_hispanic[2]
-  skeleton[["cases"]][["ethnicity_unk"]] = cases - eth_unk[2]
+  skeleton[["cases"]][["race_NatA"]] = nata
+  skeleton[["cases"]][["race_asian"]] = asian
+  skeleton[["cases"]][["race_AfrA"]] = afra
+  skeleton[["cases"]][["race_white"]] = white
+  skeleton[["cases"]][["race_other"]] = other
+  skeleton[["cases"]][["race_unk"]] = race_unk
+  skeleton[["cases"]][["ethnicity_hispanic"]] = hispanic
+  skeleton[["cases"]][["ethnicity_non_hispanic"]] = non_hispanic
+  skeleton[["cases"]][["ethnicity_unk"]] = eth_unk
   
-  return(list(
-    data = as_tibble(skeleton),
-    comment = list(
-      "Age data is only available in images, can't scrape"
-    )
-    ))
+  skeleton[["hospitalized"]][["total"]] = heading_table[4]
   
+  as_tibble(skeleton) %>% 
+    standardize %>% 
+    mutate(
+      state_name = "North Carolina",
+      Link = url,
+      platform = "pdf",
+      comments = "Age data is only available in images, can't scrape",
+      last.updat = Sys.time() %>% as_date) %>% 
+    select(
+      state_name, Link,
+      total.tested:hosp_gender,
+      platform, comments, last.updat)
 }
 
 north_carolina = get_north_carolina()

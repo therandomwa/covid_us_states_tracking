@@ -53,13 +53,7 @@ Column names:
 Just change all of my `get_*` functions to produce a row that matches Aijin's format, then compile it with one function.
 
 ```{r}
-compile = function(skeleton) {
+compile = function() {
   
 }
 ```
-
-
-```{r}
-
-```
-
