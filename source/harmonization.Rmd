@@ -75,9 +75,7 @@ skeleton_table = function(subdivs) {
 
 Using Florida and Tennessee as example states since I have the functions for those:
 
-## Florida
-
-```{r}
+```{r, echo = FALSE }
 # Changing columns to fit specific age brackets
 fl_cols = c(
     "total",
@@ -406,9 +404,7 @@ get_florida = function(pdf_url) {
 }
 ```
 
-## Tennessee
-
-```{r}
+```{r, echo = FALSE}
 tn_cols = c(
     "total",
     "age_0_10", 
@@ -573,7 +569,7 @@ tennessee = get_tennessee("2020-05-09") %>%
   .$data %>% select(data, cases)
 ```
 
-# Idea
+# Age Harmonization
 
 Age is still numeric, so that will be the x-axis. To express the different bounds, we'll show an age bound for each age and state. In order to plot it, we'll just use the midpoint of this bound. Upper age brackets like 85+ limits will be shown at that point (85). Unknown age will be set to 100.
 
@@ -650,6 +646,8 @@ final_data = bind_rows(fl_ages, tn_ages) %>%
     )
 ```
 
+## Version 1
+
 ```{r}
 final_data %>% 
   ggplot(aes(color = state)) +
@@ -660,10 +658,11 @@ final_data %>%
                       y = bracket_line,
                       ymin = bracket_line - 250,
                       ymax = bracket_line + 250,
-                      fatten = 0
-                      )) + 
+                      ), fatten = 0) + 
   theme(legend.position = "bottom",
         plot.title = element_text(hjust = 0.5)) +
+  scale_x_continuous(breaks = c(0, 25, 50, 75, 90, 100), 
+                     labels = c("0", "25", "50", "75", "90", "Unknown")) +
   labs(
     title = "Comparison of Florida and Tennessee\n by age on May 9, 2020",
     x = "Age",
@@ -671,8 +670,30 @@ final_data %>%
   )
 ```
 
+## Version 2
+
+```{r}
+final_data %>% 
+  ggplot(aes(color = state)) +
+  geom_point(aes(x = mid, y = cases), size = 0.75) +
+  geom_pointrange(aes(x = mid,
+                      y = cases,
+                      xmin = right_bound,
+                      xmax = left_bound,
+                      ), fatten = 0) + 
+  theme(legend.position = "bottom",
+        plot.title = element_text(hjust = 0.5)) +
+  scale_x_continuous(breaks = c(0, 25, 50, 75, 90, 100), 
+                     labels = c("0", "25", "50", "75", "90", "Unknown")) +
+  labs(
+    title = "Comparison of Florida and Tennessee\n by age on May 9, 2020",
+    x = "Age",
+    y = "Cases")
+```
+
 # Possible Improvements?
 
 - Show each states age ranges as text on the chart? Might clutter the chart
 - I feel like showing the midpoints captures this information well, but it might not do so well for states with very large age spans
 - Maybe don't show the unknowns since there's so little of them?
+- Try to use the Census data to standardize to X cases / 100,000 people? The differing age brackets will be a problem here.

@@ -119,7 +119,6 @@ get_mississippi = function() {
   # Extract pdf locations from the site to account for updates
   site_url = "https://msdh.ms.gov/msdhsite/_static/14,0,420.html"
   
-  
   # Need to extract the paths for the demo cases and deaths data
   # since I presume they will change over time
   demo_path = read_html(site_url) %>% 
