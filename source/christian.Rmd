@@ -285,7 +285,7 @@ fl_cols = c(
     "race_multi", 
     "race_unk")
 
-get_florida = function(pdf_url) {
+get_florida = function() {
   # Get pdf from: https://www.floridadisaster.org/covid19/covid-19-data-reports/
   url = "https://www.floridadisaster.org/covid19/covid-19-data-reports/"
   
@@ -1535,7 +1535,7 @@ new_hampshire
 ## Guam
 
 ```{r}
-url2 = "https://ghs.guam.gov/jic-release-no-116-end-day-results-zero-test-positive-covid-19-dphss"
+today_url = "https://ghs.guam.gov/jic-release-no-116-end-day-results-zero-test-positive-covid-19-dphss"
 
 get_guam = function(url) {
   data = read_html(url) %>% 
@@ -1573,7 +1573,7 @@ get_guam = function(url) {
       platform, comments, last.updat)
 }
 
-guam = get_guam(url2)
+guam = get_guam(today_url)
 guam
 ```
 
@@ -1599,6 +1599,41 @@ get_puerto_rico = function(date) {
 puerto_rico = get_puerto_rico("20200509")
 puerto_rico
 ```
+
+# Compile Data
+
+```{r}
+# Just shove everything together
+compile = function() {
+  oklahoma = get_oklahoma()
+  mississippi = get_mississippi()
+  florida = get_florida()
+  tennessee = get_tennessee("2020-05-11")
+  north_carolina = get_north_carolina()
+  dc = get_dc("May-10-2020")
+  new_jersey = get_new_jersey()
+  south_carolina = get_south_carolina()
+  new_hampshire = get_new_hampshire()
+  guam = get_guam(url2)
+  
+  return(bind_rows(
+    oklahoma,
+    mississippi,
+    florida,
+    tennessee,
+    north_carolina,
+    dc,
+    new_jersey,
+    south_carolina,
+    new_hampshire,
+    guam
+  ))
+}
+
+compiled_data = compile()
+save(compiled_data, file = "../Data/meta_2020-05-11-cbp.rda")
+```
+
 
 
 # Tableau States
