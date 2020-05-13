@@ -1,10 +1,8 @@
 # covid_us_states_tracking
-# **Leave your initials for the ones that you are working on to avoid duplications.**
 **x** : date scraped
 
 **-**: data cannot be scraped
 
-**empty**: pending
 
 | State (desc by # case) | Status | Index |
 |------------------------|--------|-------|
