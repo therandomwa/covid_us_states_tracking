@@ -1,0 +1,74 @@
+---
+title: "Case and Death Information by Day"
+author: "Courtney Johnson"
+date: "May 13, 2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(rvest)
+library(httr)
+library(plotly)
+```
+
+### Case Data 
+```{r, case, warning = FALSE, message = FALSE}
+# read in data using API from divs in html
+cdc_cases = 
+  GET("www.cdc.gov//coronavirus/2019-ncov/json/new-cases-chart-data.json") %>%
+  content("text") %>%
+  jsonlite::fromJSON() %>%
+  as_tibble() %>%
+  select(-V1)
+
+# transpose the data into desired format
+cdc_trans = as_tibble(t(as.matrix(cdc_cases))) %>%
+  rename(date = V1, new_cases = V2) %>%
+  mutate(new_cases = as.numeric(new_cases),
+         new_date = as.Date(date, format = "%m/%d/%y"))
+
+cdc_trans %>%
+  ggplot(aes(x = new_date, y = new_cases)) +
+  geom_point() + geom_line() +
+  theme_classic() +
+  theme(axis.text.x = element_text(angle = 60, hjust = 1)) +
+  labs(x = "Date", y = "Number of New COVID-19 Cases")
+```
+
+### Death Data by Day and State
+```{r, death}
+# read in data using API
+cdc_death = 
+  GET("https://data.cdc.gov/resource/r8kw-7aab.json") %>%
+  content("text") %>%
+  jsonlite::fromJSON() %>%
+  as_tibble() %>%
+  mutate(data_as_of = substr(data_as_of, 1, 10),
+         start_week = substr(start_week, 1, 10),
+         end_week = substr(end_week, 1, 10),
+         covid_deaths = as.numeric(covid_deaths),
+         total_deaths = as.numeric(total_deaths),
+         percent_of_expected_deaths = as.numeric(percent_of_expected_deaths),
+         pneumonia_deaths = as.numeric(pneumonia_deaths),
+         pneumonia_and_covid_deaths = as.numeric(pneumonia_and_covid_deaths),
+         influenza_deaths = as.numeric(influenza_deaths),
+         pneumonia_influenza_or_covid = as.numeric(pneumonia_influenza_or_covid))
+
+# name states you want to see-is this something we can do in the dashboard?
+# enter up to x amount of states?
+states_select = c("New York", "New Jersey", "California", "Maryland", "Arizona", "Washington", "New Jersey")
+
+death_plot = cdc_death %>%
+#  filter(state %in% states_select) %>%
+  filter(state != "United States" & state != "New York City") %>%
+  ggplot(aes(x = end_week, y = covid_deaths, color = state, group = state)) +
+  geom_point() + geom_line() +
+  theme_classic() +
+  theme(axis.text.x = element_text(angle = 60, hjust = 1)) +
+  labs(x = "Week End Date", y = "Number of COVID-19 Deaths", color = "State")
+
+ggplotly(death_plot)
+```
+
