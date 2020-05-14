@@ -74,11 +74,9 @@ For each of these states, we'll collect sex, age, and race information.
 manual_state_data = compile_manual_states()
 ```
 
-
-
-
 ## TODO:
 
-- combine Aijins and your data compilation into one
 - standardize Aijins data into your format
+- combine Aijins and your data compilation into one
 - add some manual data entry into the automated function to capture that extra bit of information that you cant scrape
+- my coding is better than yours Aijin
