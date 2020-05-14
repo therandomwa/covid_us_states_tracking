@@ -72,3 +72,122 @@ death_plot = cdc_death %>%
 ggplotly(death_plot)
 ```
 
+## Case and Death Data 
+```{r, right_data_imp, warning = FALSE, message = FALSE}
+# will need to figure out automating the date columns
+# pivot dates to date variable instead of variable name
+# mutate date variable into date format
+# calculate lag difference to get new cases and deaths
+
+
+# read in case data
+cases = read_csv("https://usafactsstatic.blob.core.windows.net/public/data/covid-19/covid_confirmed_usafacts.csv", col_names = TRUE) %>%
+  janitor::clean_names() %>%
+  pivot_longer(x1_22_20:x5_13_20,
+               names_to = "date",
+               values_to = "total_cases") %>%
+  mutate(date = substr(date, 2, 8),
+         date = str_replace_all(date, "_", "/"),
+         date = as.Date(date, "%m/%d/%y")) %>%
+  group_by(state, date) %>%
+  summarize(total_cases = sum(total_cases)) %>%
+  group_by(state) %>%
+  mutate(new_cases = if_else(date != "2020-01-22", total_cases - lag(total_cases), total_cases))
+
+
+
+# read in death data
+deaths = read_csv("https://usafactsstatic.blob.core.windows.net/public/data/covid-19/covid_deaths_usafacts.csv", col_names = TRUE) %>%
+  janitor::clean_names() %>%
+  pivot_longer(x1_22_20:x5_13_20,
+               names_to = "date",
+               values_to = "total_deaths") %>%
+  mutate(date = substr(date, 2, 8),
+         date = str_replace_all(date, "_", "/"),
+         date = as.Date(date, "%m/%d/%y")) %>%
+  group_by(state, date) %>%
+  summarize(total_deaths = sum(total_deaths)) %>%
+  group_by(state) %>%
+  mutate(new_deaths = if_else(date != "2020-01-22", total_deaths - lag(total_deaths), total_deaths))
+
+# read in population data
+pop = read_csv("https://usafactsstatic.blob.core.windows.net/public/data/covid-19/covid_county_population_usafacts.csv", col_names = TRUE) %>%
+  janitor::clean_names() %>%
+  group_by(state) %>%
+  summarize(population = sum(population))
+
+# join population counts to cases and deaths datasets for normalized counts
+cases2 = left_join(cases, pop, by = "state") %>%
+  mutate(new_cases_norm = (new_cases/population)*100000)
+
+deaths2 = left_join(deaths, pop, by = "state") %>%
+  mutate(new_deaths_norm = (new_deaths/population)*100000)
+```
+
+
+## Make Plots
+```{r, plots, warning = FALSE, message = FALSE}
+# these will only show one state at a time on the dashboard-will have drop down menu
+
+# cases plot non-normal
+cases_plot = cases2 %>%
+   mutate(text_label = str_c("Date: ", date, '\nCases: ', new_cases)) %>%
+  filter(state == "NY") %>%
+  ggplot(aes(x = date, y = new_cases)) +
+  geom_bar(stat = "identity", fill = "lightblue") +
+  theme_classic() +
+  labs(
+    x = "Date",
+    y = "No. New Cases",
+    title = "New COVID-19 Cases by Day") 
+
+ggplotly(cases_plot)
+
+# cases plot normal
+cases_plot_norm = cases2 %>%
+   mutate(text_label = str_c("Date: ", date, '\nCases per 100k: ', new_cases_norm)) %>%
+  filter(state == "NY") %>%
+  ggplot(aes(x = date, y = new_cases_norm)) +
+  geom_bar(stat = "identity", fill = "lightblue") +
+  theme_classic() +
+  labs(
+    x = "Date",
+    y = "No. New Cases per 100,000",
+    title = "New COVID-19 Cases per 100,000 by Day"
+  )
+
+ggplotly(cases_plot_norm)
+
+# death plot
+death_plot = deaths2 %>%
+   mutate(text_label = str_c("Date: ", date, '\nDeaths: ', new_deaths)) %>%
+  filter(state == "NY") %>%
+  ggplot(aes(x = date, y = new_deaths)) +
+  geom_bar(stat = "identity", fill = "darkblue") +
+  theme_classic() +
+  labs(
+    x = "Date",
+    y = "No. New Deaths",
+    title = "New COVID-19 Deaths by Day"
+  )
+
+ggplotly(death_plot)
+
+# death plot norm
+death_plot_norm = deaths2 %>%
+  mutate(text_label = str_c("Date: ", date, '\nDeaths per 100k: ', new_deaths_norm)) %>%
+  filter(state == "NY") %>%
+  ggplot(aes(x = date, y = new_deaths_norm)) +
+  geom_bar(stat = "identity", fill = "darkblue") +
+  theme_classic() +
+  labs(
+    x = "Date",
+    y = "No. New Deaths per 100,000",
+    title = "New COVID-19 Deaths per 100,000 by Day"
+  ) 
+
+# need
+ggplotly(death_plot_norm)
+
+```
+
