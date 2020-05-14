@@ -2,9 +2,135 @@
 # DATA STRUCTURE FUNCTIONS
 ##########################
 
+# Default names to use in the skeleton columns
 default_cols = c(
   "total",
   "age_0_19", 
+  "age_20_29", 
+  "age_30_39", 
+  "age_40_49",
+  "age_50_59", 
+  "age_60_69", 
+  "age_70_79", 
+  "age_80+", 
+  "age_unk",
+  "sex_male", 
+  "sex_female", 
+  "sex_unk",
+  "ethnicity_hispanic", 
+  "ethnicity_non_hispanic",
+  "ethnicity_unk",
+  "race_white", 
+  "race_AfrA",
+  "race_NatA",
+  "race_asian", 
+  "race_other",
+  "race_multi", 
+  "race_unk")
+
+az_cols = c(
+  "total",
+  "age_0_19", 
+  "age_20_44", 
+  "age_45_54",
+  "age_55_64", 
+  "age_65+", 
+  "age_unk",
+  "sex_male", 
+  "sex_female", 
+  "sex_unk",
+  "ethnicity_hispanic", 
+  "ethnicity_non_hispanic",
+  "ethnicity_unk",
+  "race_white", 
+  "race_AfrA",
+  "race_NatA",
+  "race_asian", 
+  "race_other",
+  "race_multi", 
+  "race_unk")
+
+fl_cols = c(
+  "total",
+  "age_0_4", 
+  "age_5_14", 
+  "age_15_24", 
+  "age_25_34",
+  "age_35_44", 
+  "age_45_54", 
+  "age_55_64", 
+  "age_65_74", 
+  "age_75_84", 
+  "age_85+", 
+  "age_unk",
+  "sex_male", 
+  "sex_female", 
+  "sex_unk",
+  "ethnicity_hispanic", 
+  "ethnicity_non_hispanic",
+  "ethnicity_unk",
+  "race_white", 
+  "race_AfrA",
+  "race_NatA",
+  "race_asian", 
+  "race_other",
+  "race_multi", 
+  "race_unk")
+
+tn_cols = c(
+  "total",
+  "age_0_10", 
+  "age_11_20", 
+  "age_21_30",
+  "age_31_40",
+  "age_41_50",
+  "age_51_60",
+  "age_61_70",
+  "age_71_80",
+  "age_81+", 
+  "age_unk",
+  "sex_male", 
+  "sex_female", 
+  "sex_unk",
+  "ethnicity_hispanic", 
+  "ethnicity_non_hispanic",
+  "ethnicity_unk",
+  "race_white", 
+  "race_AfrA",
+  "race_NatA",
+  "race_asian", 
+  "race_other",
+  "race_multi", 
+  "race_unk")
+
+nj_cols = c(
+  "total",
+  "age_0_4", 
+  "age_5_17", 
+  "age_18_29", 
+  "age_30_49",
+  "age_50_64", 
+  "age_65_79", 
+  "age_80+", 
+  "age_unk",
+  "sex_male", 
+  "sex_female", 
+  "sex_unk",
+  "ethnicity_hispanic", 
+  "ethnicity_non_hispanic",
+  "ethnicity_unk",
+  "race_white", 
+  "race_AfrA",
+  "race_NatA",
+  "race_asian", 
+  "race_other",
+  "race_multi", 
+  "race_unk")
+
+nh_cols = c(
+  "total",
+  "age_0_9", 
+  "age_10_19",
   "age_20_29", 
   "age_30_39", 
   "age_40_49",
@@ -515,7 +641,14 @@ get_florida = function() {
       platform, comments, last.updat)
 }
 
-get_tennessee = function(date) {
+get_tennessee = function(date = "today") {
+  
+  # Just in case you don't start bringing together data until the midnight after
+  if (date == "today") {
+    date_str = now = Sys.time() %>% as_date
+  } else {
+    date_str = date
+  }
   
   # Scrape the website to get to the datasets by their source link
   url = "https://www.tn.gov/health/cedep/ncov/data/downloadable-datasets.html"
@@ -539,11 +672,11 @@ get_tennessee = function(date) {
   download.file(demo_url, destfile = demo_temp, mode = 'wb')
   
   age_data = read_excel(age_temp, sheet = 1) %>% 
-    filter(DATE == as_date(date))
+    filter(DATE == as_date(date_str))
   case_data = read_excel(case_temp, sheet = 1) %>% 
-    filter(DATE == as_date(date))
+    filter(DATE == as_date(date_str))
   demo_data = read_excel(demo_temp, sheet = 1) %>% 
-    filter(Date == as_date(date))
+    filter(Date == as_date(date_str))
   
   skeleton = skeleton_table(tn_cols)
   
@@ -1404,17 +1537,16 @@ get_guam = function() {
       platform, comments, last.updat)
 }
 
-compile = function(tn_date, dc_date) {
+compile = function(tn_date) {
   
   # tn_date: Must be structured as YEAR-MM-DD ("2020-05-11")
-  # dc_date: Must be structured as MonthName ("May-11-2020")
   
   oklahoma = get_oklahoma()
   mississippi = get_mississippi()
   florida = get_florida()
   tennessee = get_tennessee(tn_date)
   north_carolina = get_north_carolina()
-  dc = get_dc(dc_date)
+  dc = get_dc()
   new_jersey = get_new_jersey()
   south_carolina = get_south_carolina()
   new_hampshire = get_new_hampshire()
