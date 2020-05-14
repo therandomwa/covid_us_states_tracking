@@ -14,16 +14,92 @@ library(readxl)
 source("states.R")
 ```
 
+# Automated States
 
-# PDF/CSV States
+- Oklahoma: needs demographic and ages manually entered
+- Mississippi: needs age and sex manually entered
+- Florida: no manual entry needed, expect long compilation
+- Tennessee: no manual entry needed, but needs a date input to function
+- North Carolina: needs age manually entered
+- 
+
+
+```{r}
+get_dc = function() {
+  
+  skeleton = skeleton_table(default_cols)
+  
+  url = "https://coronavirus.dc.gov/page/coronavirus-data"
+  data = read_html(url) %>% 
+    html_nodes("body #page #section-content #zone-content-wrapper") %>% 
+    html_nodes("#zone-content #region-content .region-inner") %>% 
+    html_nodes("#block-system-main .block-inner .content article") %>% 
+    html_nodes(".content .field .field-items .field-item ul li a") %>% 
+    html_attr("href")
+  
+  # Get the link for the most recent xlsx file
+  most_recent = data[str_detect(data, "xlsx")] %>% .[1]
+  data_url = paste0("https://coronavirus.dc.gov", most_recent)
+  
+  # Download temporarily and extract data
+  temp = tempfile(fileext = ".xlsx")
+  download.file(data_url, destfile = temp, mode = 'wb')
+  overall_stats = read_excel(temp, sheet = 1)
+  case_by_race_ethnicity = read_excel(temp, sheet = 3)
+  deaths_by_race = read_excel(temp, sheet = 4)
+  
+  # Log all the totals from this file
+  today_stats = overall_stats[, ncol(overall_stats)] %>% unlist()
+  
+  skeleton[["tested"]][["total"]] = today_stats[2]
+  skeleton[["cases"]][["total"]] = today_stats[3]
+  skeleton[["deaths"]][["total"]] = today_stats[4]
+  skeleton[["recovered"]][["total"]] = today_stats[5]
+  
+  # Log cases by race and ethnicity
+  today_race_ethn = case_by_race_ethnicity[, ncol(case_by_race_ethnicity)] %>% 
+    unlist
+  skeleton[["cases"]][["race_unk"]] = today_race_ethn[3] + 
+    today_race_ethn[10]
+  skeleton[["cases"]][["race_white"]] = today_race_ethn[4]
+  skeleton[["cases"]][["race_AfrA"]] = today_race_ethn[5]
+  skeleton[["cases"]][["race_asian"]] = today_race_ethn[6]
+  skeleton[["cases"]][["race_NatA"]] = today_race_ethn[7]
+  skeleton[["cases"]][["race_other"]] = today_race_ethn[8] +
+    today_race_ethn[9]
+  skeleton[["cases"]][["ethnicity_unk"]] = today_race_ethn[12] +
+    today_race_ethn[15]
+  skeleton[["cases"]][["ethnicity_hispanic"]] = today_race_ethn[13]
+  skeleton[["cases"]][["ethnicity_non_hispanic"]] = today_race_ethn[14]
+  
+  # Logging deaths
+  today_deaths = deaths_by_race[, ncol(deaths_by_race)] %>% unlist()
+  skeleton[["deaths"]][["race_asian"]] = today_deaths[3]
+  skeleton[["deaths"]][["race_AfrA"]] = today_deaths[4]
+  skeleton[["deaths"]][["ethnicity_hispanic"]] = today_deaths[5]
+  skeleton[["deaths"]][["ethnicity_non_hispanic"]] = today_deaths[6]
+  skeleton[["deaths"]][["race_unk"]] = today_deaths[7]
+  
+  as_tibble(skeleton) %>% 
+    standardize %>% 
+    mutate(
+      state_name = "District of Columbia",
+      Link = url,
+      platform = "xlsx",
+      comments = "Deaths are combined between race and ethnicity",
+      last.updat = Sys.time() %>% as_date) %>% 
+    select(
+      state_name, Link,
+      total.tested:hosp_gender,
+      platform, comments, last.updat)
+}
+
+dc = get_dc()
+```
+
 
 Notes To Self:
 
-- Oklahoma: Demographic and age data too messy to parse cleanly
-- Mississippi: Age and sex figures shown, but are contained in an image, not text
-- Florida: function downloads the first pdf that it sees off of the page. It can take a while to work since Florida's pdfs are 600+ pages long
-- Tennessee: Everything in xlsx, easier to scrape, need to input *date*
-- North Carolina: missing age data since its in messy graphic
 - District of Columbia: no information on age
 - South Carolina: age and sex stored in messy Tableau visualization
 
@@ -231,7 +307,6 @@ puerto_rico
 
 ## TODO:
 
-- fix guam so that it searches for the first post about the updated figures
 - combine Aijins and your data compilation into one
 - standardize Aijins data into your format
 - ask to just incorporate courtneys functions into your own compiler
@@ -245,56 +320,6 @@ ideas for compiling all 50 states
 - have other function make it easier to manually input data for other states (at least the base information for Lauren's 3x3)
 
 ```{r}
-get_cdc = function() {
-  url = "https://www.cdc.gov/TemplatePackage/contrib/widgets/cdcCharts/iframe.html?chost=www.cdc.gov&amp;cpath=/coronavirus/2019-ncov/cases-updates/cases-in-us.html&amp;csearch=&amp;chash=&amp;ctitle=Cases%20in%20the%20U.S.%20%7C%20CDC&amp;wn=cdcCharts&amp;wf=/TemplatePackage/contrib/widgets/cdcCharts/&amp;wid=cdcCharts3&amp;mMode=widget&amp;mPage=&amp;mChannel=&amp;host=www.cdc.gov&amp;displayMode=wcms&amp;configUrl=/coronavirus/2019-ncov/cases-updates/new_cases_by_day.json&amp;dataUrl=/coronavirus/2019-ncov/json/new-cases-chart-data.json&amp;class=mb-3"
-  
-  data = read_html(url) %>% 
-    html_nodes("body")
-  
-  return(data)
-}
-
-new_add <- function(x, y, ...) {
-  current_sum = x + y
-  
-  for (num in list(...)) { 
-    current_sum = current_sum + num
-  }
-  
-  return(current_sum)
-}
-new_add(1, 2, z = 3)
-```
-
-
-
-```{r}
-# Just shove everything together
-compile = function(tn_date, dc_date) {
-  oklahoma = get_oklahoma()
-  mississippi = get_mississippi()
-  florida = get_florida()
-  tennessee = get_tennessee("2020-05-11")
-  north_carolina = get_north_carolina()
-  dc = get_dc("May-10-2020")
-  new_jersey = get_new_jersey()
-  south_carolina = get_south_carolina()
-  new_hampshire = get_new_hampshire()
-  # guam = get_guam(url2)
-  
-  return(bind_rows(
-    oklahoma,
-    mississippi,
-    florida,
-    tennessee,
-    north_carolina,
-    dc,
-    new_jersey,
-    south_carolina,
-    new_hampshire
-  ))
-}
-
 compiled_data_20200512 = compile(
   tn_date = "2020-05-12",
   dc_date = "May-11-2020")

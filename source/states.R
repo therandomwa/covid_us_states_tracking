@@ -793,17 +793,25 @@ get_north_carolina = function() {
       platform, comments, last.updat)
 }
 
-get_dc = function(date) {
-  # Supply date in the form MonthName-Day-Year
+get_dc = function() {
   
   skeleton = skeleton_table(default_cols)
-  url = paste0(
-    "https://coronavirus.dc.gov/sites/default/files/dc/sites/coronavirus/page_content/attachments/DC-COVID-19-Data-for-",
-    date,
-    ".xlsx")
   
+  url = "https://coronavirus.dc.gov/page/coronavirus-data"
+  data = read_html(url) %>% 
+    html_nodes("body #page #section-content #zone-content-wrapper") %>% 
+    html_nodes("#zone-content #region-content .region-inner") %>% 
+    html_nodes("#block-system-main .block-inner .content article") %>% 
+    html_nodes(".content .field .field-items .field-item ul li a") %>% 
+    html_attr("href")
+  
+  # Get the link for the most recent xlsx file
+  most_recent = data[str_detect(data, "xlsx")] %>% .[1]
+  data_url = paste0("https://coronavirus.dc.gov", most_recent)
+  
+  # Download temporarily and extract data
   temp = tempfile(fileext = ".xlsx")
-  download.file(url, destfile = temp, mode = 'wb')
+  download.file(data_url, destfile = temp, mode = 'wb')
   overall_stats = read_excel(temp, sheet = 1)
   case_by_race_ethnicity = read_excel(temp, sheet = 3)
   deaths_by_race = read_excel(temp, sheet = 4)
@@ -845,7 +853,7 @@ get_dc = function(date) {
     mutate(
       state_name = "District of Columbia",
       Link = url,
-      platform = "pdf",
+      platform = "xlsx",
       comments = "Deaths are combined between race and ethnicity",
       last.updat = Sys.time() %>% as_date) %>% 
     select(
@@ -1394,4 +1402,34 @@ get_guam = function() {
       state_name, Link,
       total.tested:hosp_gender,
       platform, comments, last.updat)
+}
+
+compile = function(tn_date, dc_date) {
+  
+  # tn_date: Must be structured as YEAR-MM-DD ("2020-05-11")
+  # dc_date: Must be structured as MonthName ("May-11-2020")
+  
+  oklahoma = get_oklahoma()
+  mississippi = get_mississippi()
+  florida = get_florida()
+  tennessee = get_tennessee(tn_date)
+  north_carolina = get_north_carolina()
+  dc = get_dc(dc_date)
+  new_jersey = get_new_jersey()
+  south_carolina = get_south_carolina()
+  new_hampshire = get_new_hampshire()
+  guam = get_guam()
+  
+  return(bind_rows(
+    oklahoma,
+    mississippi,
+    florida,
+    tennessee,
+    north_carolina,
+    dc,
+    new_jersey,
+    south_carolina,
+    new_hampshire,
+    guam
+  ))
 }
