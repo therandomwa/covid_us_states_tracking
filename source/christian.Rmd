@@ -55,8 +55,6 @@ save(compiled_data_20200513, file = "../Data/meta_2020-05-13-cbp.rda")
 
 In addition to the information above, we need manual entry for:
 
-PR + VI + Guam + DC + 10 Manual State + 8 Automated State + 32 Aijin
-
 - Arizona
 - Hawaii
 - Idaho
@@ -73,49 +71,7 @@ PR + VI + Guam + DC + 10 Manual State + 8 Automated State + 32 Aijin
 For each of these states, we'll collect sex, age, and race information.
 
 ```{r}
-
-
-manual_fill = function(state, state_cols) {
-  # Function for making it easy to fill out a skeleton
-  
-  # Create the skeleton from the state specific information
-  skeleton = skeleton_table(state_cols)
-  needed_strata = c("cases", "deaths", "hospitalized")
-  
-  # Get the total tested
-  skeleton[["tested"]][["total"]] = readline(prompt = "Total tested?: ") %>% 
-        as.numeric
-  
-  for (strata in needed_strata) {
-    for (sc in state_cols) {
-      fmt_prompt = paste0(state, ", ", strata, ", ", sc, ": ")
-      skeleton[[strata]][[sc]] = readline(prompt = fmt_prompt) %>% 
-        as.numeric
-    }
-  }
-  
-  return(as_tibble(skeleton))
-}
-
-test = manual_fill("Arizona", az_cols)
-```
-
-```{r}
-compile_manual_states = function() {
-  manual_states = c(
-    "Arizona",
-    "Hawaii",
-    "Idaho",
-    "Iowa",
-    "Kansas",
-    "Nevada",
-    "New York",
-    "Puerto Rico",
-    "South Dakota",
-    "Virgin Island",
-    "West Virginia",
-    "Wyoming")
-}
+manual_state_data = compile_manual_states()
 ```
 
 
@@ -125,5 +81,4 @@ compile_manual_states = function() {
 
 - combine Aijins and your data compilation into one
 - standardize Aijins data into your format
-- ask to just incorporate courtneys functions into your own compiler
-- create a function to make it easier to manually insert data from states that we can get all 50
+- add some manual data entry into the automated function to capture that extra bit of information that you cant scrape

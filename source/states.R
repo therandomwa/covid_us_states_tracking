@@ -93,6 +93,26 @@ id_cols = c(
   "race_multi", 
   "race_unk")
 
+ia_cols = c(
+  "total",
+  "age_0_17", 
+  "age_18_40", 
+  "age_41_60",
+  "age_61_80",
+  "age_80+", 
+  "sex_male", 
+  "sex_female", 
+  "ethnicity_hispanic", 
+  "ethnicity_non_hispanic",
+  "ethnicity_unk",
+  "race_white", 
+  "race_AfrA",
+  "race_NatA",
+  "race_asian", 
+  "race_other",
+  "race_multi", 
+  "race_unk")
+
 ks_cols = c(
   "total",
   "age_0_9", 
@@ -190,6 +210,27 @@ sd_cols = c(
   "age_60_69", 
   "age_70_79", 
   "age_80+",
+  "age_unk",
+  "sex_male", 
+  "sex_female", 
+  "sex_unk",
+  "ethnicity_hispanic", 
+  "ethnicity_non_hispanic",
+  "ethnicity_unk",
+  "race_white", 
+  "race_AfrA",
+  "race_NatA",
+  "race_asian", 
+  "race_other",
+  "race_multi", 
+  "race_unk")
+
+vi_cols = c(
+  "total",
+  "age_0_17", 
+  "age_18_49", 
+  "age_35_64", 
+  "age_65+",
   "age_unk",
   "sex_male", 
   "sex_female", 
@@ -450,11 +491,11 @@ get_oklahoma = function() {
       Link = "https://coronavirus.health.ok.gov",
       platform = "pdf",
       comments = "Demographic and age data available, but is displayed in undesirable format for pdf scraping. Too fragile.",
-      last.updat = Sys.time() %>% as_date) %>% 
+      last.update = Sys.time() %>% as_date) %>% 
     select(
       state_name, Link,
       total.tested:hosp_gender,
-      platform, comments, last.updat)
+      platform, comments, last.update)
 }
 
 get_mississippi = function() {
@@ -531,11 +572,11 @@ get_mississippi = function() {
       Link = site_url,
       platform = "pdf",
       comments = "Age data only available in images on site",
-      last.updat = Sys.time() %>% as_date) %>% 
+      last.update = Sys.time() %>% as_date) %>% 
     select(
       state_name, Link,
       total.tested:hosp_gender,
-      platform, comments, last.updat)
+      platform, comments, last.update)
   
 }
 
@@ -839,11 +880,11 @@ get_florida = function() {
       Link = url,
       platform = "pdf",
       comments = "Age data only available in images on site",
-      last.updat = Sys.time() %>% as_date) %>% 
+      last.update = Sys.time() %>% as_date) %>% 
     select(
       state_name, Link,
       total.tested:hosp_gender,
-      platform, comments, last.updat)
+      platform, comments, last.update)
 }
 
 get_tennessee = function(date = "today") {
@@ -984,11 +1025,11 @@ get_tennessee = function(date = "today") {
       Link = url,
       platform = "pdf",
       comments = "",
-      last.updat = Sys.time() %>% as_date) %>% 
+      last.update = Sys.time() %>% as_date) %>% 
     select(
       state_name, Link,
       total.tested:hosp_gender,
-      platform, comments, last.updat)
+      platform, comments, last.update)
 }
 
 get_north_carolina = function() {
@@ -1124,11 +1165,11 @@ get_north_carolina = function() {
       Link = url,
       platform = "pdf",
       comments = "Age data is only available in images, can't scrape",
-      last.updat = Sys.time() %>% as_date) %>% 
+      last.update = Sys.time() %>% as_date) %>% 
     select(
       state_name, Link,
       total.tested:hosp_gender,
-      platform, comments, last.updat)
+      platform, comments, last.update)
 }
 
 get_dc = function() {
@@ -1193,11 +1234,11 @@ get_dc = function() {
       Link = url,
       platform = "xlsx",
       comments = "Deaths are combined between race and ethnicity",
-      last.updat = Sys.time() %>% as_date) %>% 
+      last.update = Sys.time() %>% as_date) %>% 
     select(
       state_name, Link,
       total.tested:hosp_gender,
-      platform, comments, last.updat)
+      platform, comments, last.update)
 }
 
 get_south_carolina = function() {
@@ -1229,11 +1270,11 @@ get_south_carolina = function() {
       Link = url,
       platform = "pdf",
       comments = "Demographic and age data stored in complicated Tableau viz",
-      last.updat = Sys.time() %>% as_date) %>% 
+      last.update = Sys.time() %>% as_date) %>% 
     select(
       state_name, Link,
       total.tested:hosp_gender,
-      platform, comments, last.updat)
+      platform, comments, last.update)
 }
 
 get_new_jersey = function() {
@@ -1357,11 +1398,11 @@ get_new_jersey = function() {
       Link = url,
       platform = "pdf",
       comments = "Site combined race and ethnicity, so calculation needed",
-      last.updat = Sys.time() %>% as_date) %>% 
+      last.update = Sys.time() %>% as_date) %>% 
     select(
       state_name, Link,
       total.tested:hosp_gender,
-      platform, comments, last.updat)
+      platform, comments, last.update)
   
 }
 
@@ -1686,11 +1727,11 @@ get_new_hampshire = function() {
       Link = url,
       platform = "pdf",
       comments = "Race/ethnicity combined",
-      last.updat = Sys.time() %>% as_date) %>% 
+      last.update = Sys.time() %>% as_date) %>% 
     select(
       state_name, Link,
       total.tested:hosp_gender,
-      platform, comments, last.updat)
+      platform, comments, last.update)
 }
 
 get_guam = function() {
@@ -1735,11 +1776,11 @@ get_guam = function() {
       Link = url,
       platform = "pdf",
       comments = "",
-      last.updat = Sys.time() %>% as_date) %>% 
+      last.update = Sys.time() %>% as_date) %>% 
     select(
       state_name, Link,
       total.tested:hosp_gender,
-      platform, comments, last.updat)
+      platform, comments, last.update)
 }
 
 compile = function(tn_date) {
@@ -1795,4 +1836,84 @@ manual_fill = function(state, state_cols) {
   }
   
   return(as_tibble(skeleton))
+}
+
+compile_manual_states = function() {
+  
+  # All the states we do complete manual data entry for
+  manual_states = c(
+    "Arizona",
+    "Hawaii",
+    "Idaho",
+    "Iowa",
+    "Kansas",
+    "Nevada",
+    "New York",
+    "Puerto Rico",
+    "South Dakota",
+    "Virgin Island",
+    "West Virginia",
+    "Wyoming")
+  
+  # The urls to get information from
+  manual_state_urls = c(
+    "https://www.azdhs.gov/preparedness/epidemiology-disease-control/infectious-disease-epidemiology/covid-19/dashboards/index.php",
+    "https://health.hawaii.gov/coronavirusdisease2019/what-you-should-know/current-situation-in-hawaii/",
+    "https://public.tableau.com/profile/idaho.division.of.public.health#!/vizhome/DPHIdahoCOVID-19Dashboard_V2/Story1",
+    "https://coronavirus.iowa.gov/pages/case-counts",
+    "https://www.coronavirus.kdheks.gov/160/COVID-19-in-Kansas",
+    "https://nvhealthresponse.nv.gov/",
+    "https://covid19tracker.health.ny.gov/views/NYS-COVID19-Tracker/NYSDOHCOVID-19Tracker-TableView?%3Aembed=yes&%3Atoolbar=no#/views/NYS%2dCOVID19%2dTracker/NYSDOHCOVID%2d19Tracker%2dMap?%253Aembed=yes&%253Atoolbar=no",
+    "https://estadisticas.pr/en/covid-19",
+    "https://doh.sd.gov/news/coronavirus.aspx#SD",
+    "https://www.covid19usvi.com/?utm_source=doh&utm_medium=web&utm_campaign=covid19usvi",
+    "https://dhhr.wv.gov/COVID-19/Pages/default.aspx",
+    "https://health.wyo.gov/publichealth/infectious-disease-epidemiology-unit/disease/novel-coronavirus/covid-19-map-and-statistics/")
+  
+  state_vecs = list(
+    az_cols,
+    hi_cols, 
+    id_cols,
+    ia_cols,
+    ks_cols,
+    nv_cols,
+    default_cols,
+    pr_cols,
+    sd_cols,
+    vi_cols,
+    wv_cols,
+    wy_cols)
+  
+  final_data = NULL
+  
+  "Starting manual data entry..." %>% print
+  
+  for (i in 1:length(manual_states)) {
+    
+    paste0("Starting ", manual_states[i], ", go to:") %>% print
+    manual_state_urls[i] %>% print
+    
+    filled_skeleton = manual_fill(manual_states[i], state_vecs[[i]])
+    
+    final_skeleton = filled_skeleton %>% 
+      standardize %>% 
+      mutate(
+        state_name = manual_states[i],
+        Link = manual_state_urls[i],
+        platform = "manual",
+        comments = "",
+        last.update = Sys.time() %>% as_date) %>% 
+      select(
+        state_name, Link,
+        total.tested:hosp_gender,
+        platform, comments, last.update)
+    
+    final_data = bind_rows(final_data, final_skeleton)
+    paste0("Finishing ", manual_states[i]) %>% print
+  }
+  
+  "Ending manual data entry..." %>% print
+  "Inspect final output for errors" %>% print
+  
+  return(final_data)
 }
