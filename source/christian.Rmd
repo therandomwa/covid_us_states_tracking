@@ -14,11 +14,6 @@ library(readxl)
 source("states.R")
 ```
 
-```{r}
-now = Sys.time() %>% as_date
-```
-
-
 # Automated States
 
 - Oklahoma: needs demographic and ages manually entered
@@ -28,16 +23,14 @@ now = Sys.time() %>% as_date
 - North Carolina: needs age manually entered
 - District of Columbia: no data on age available
 - South Carolina: needs age and sex manually entered
+- New Jersey
+- New Hampshire
+- Guam: no age, sex, race or ethnicity data available
+
+## Troubleshoot States Before Compiling
 
 ```{r}
-# Get as much automated data as you can
-compiled_data_20200512 = compile(tn_date = "2020-05-13")
-save(compiled_data_20200512, file = "../Data/meta_2020-05-12-cbp.rda")
-```
-
-## Troubleshooting
-
-```{r}
+# Check with these first to make sure all states have good data
 oklahoma = get_oklahoma()
 mississippi = get_mississippi()
 florida = get_florida()
@@ -50,28 +43,83 @@ new_hampshire = get_new_hampshire()
 guam = get_guam()
 ```
 
+```{r}
+# Get as much automated data as you can
+compiled_data_20200513 = compile(tn_date = "2020-05-13")
+save(compiled_data_20200513, file = "../Data/meta_2020-05-13-cbp.rda")
+```
+
+
+
 # Manual States
 
 In addition to the information above, we need manual entry for:
 
-- Virgin Island
-- Iowa
+PR + VI + Guam + DC + 10 Manual State + 8 Automated State + 32 Aijin
+
 - Arizona
-- Nevada
-- West Virginia
-- Delaware
 - Hawaii
-- South Dakota
 - Idaho
-- Wyoming
+- Iowa
 - Kansas (can automate but reading pdf crashes my RStudio?)
-- Puerto Rico
-- New York
+- Nevada: no race information
+- New York: no demographic information at all
+- Puerto Rico: no race data
+- South Dakota: have to calculate race counts from case total
+- Virgin Island
+- West Virginia
+- Wyoming
 
-## Puerto Rico
+For each of these states, we'll collect sex, age, and race information.
+
+```{r}
 
 
-# Compile Data
+manual_fill = function(state, state_cols) {
+  # Function for making it easy to fill out a skeleton
+  
+  # Create the skeleton from the state specific information
+  skeleton = skeleton_table(state_cols)
+  needed_strata = c("cases", "deaths", "hospitalized")
+  
+  # Get the total tested
+  skeleton[["tested"]][["total"]] = readline(prompt = "Total tested?: ") %>% 
+        as.numeric
+  
+  for (strata in needed_strata) {
+    for (sc in state_cols) {
+      fmt_prompt = paste0(state, ", ", strata, ", ", sc, ": ")
+      skeleton[[strata]][[sc]] = readline(prompt = fmt_prompt) %>% 
+        as.numeric
+    }
+  }
+  
+  return(as_tibble(skeleton))
+}
+
+test = manual_fill("Arizona", az_cols)
+```
+
+```{r}
+compile_manual_states = function() {
+  manual_states = c(
+    "Arizona",
+    "Hawaii",
+    "Idaho",
+    "Iowa",
+    "Kansas",
+    "Nevada",
+    "New York",
+    "Puerto Rico",
+    "South Dakota",
+    "Virgin Island",
+    "West Virginia",
+    "Wyoming")
+}
+```
+
+
+
 
 ## TODO:
 
@@ -79,7 +127,3 @@ In addition to the information above, we need manual entry for:
 - standardize Aijins data into your format
 - ask to just incorporate courtneys functions into your own compiler
 - create a function to make it easier to manually insert data from states that we can get all 50
-
-
-
-

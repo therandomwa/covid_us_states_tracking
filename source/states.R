@@ -50,6 +50,211 @@ az_cols = c(
   "race_multi", 
   "race_unk")
 
+hi_cols = c(
+  "total",
+  "age_0_19", 
+  "age_20_39", 
+  "age_40_59",
+  "age_60+", 
+  "sex_male", 
+  "sex_female", 
+  "sex_unk",
+  "ethnicity_hispanic", 
+  "ethnicity_non_hispanic",
+  "ethnicity_unk",
+  "race_white", 
+  "race_AfrA",
+  "race_NatA",
+  "race_asian", 
+  "race_other",
+  "race_multi", 
+  "race_unk")
+
+id_cols = c(
+  "total",
+  "age_0_17", 
+  "age_18_29", 
+  "age_30_39",
+  "age_40_49",
+  "age_50_59",
+  "age_60_69",
+  "age_70_79",
+  "age_80+", 
+  "sex_male", 
+  "sex_female", 
+  "ethnicity_hispanic", 
+  "ethnicity_non_hispanic",
+  "ethnicity_unk",
+  "race_white", 
+  "race_AfrA",
+  "race_NatA",
+  "race_asian", 
+  "race_other",
+  "race_multi", 
+  "race_unk")
+
+ks_cols = c(
+  "total",
+  "age_0_9", 
+  "age_10_17", 
+  "age_18_24",
+  "age_25_34",
+  "age_35_44",
+  "age_45_54",
+  "age_55_64",
+  "age_65_74",
+  "age_75_84",
+  "age_85+", 
+  "age_unk",
+  "sex_male", 
+  "sex_female", 
+  "ethnicity_hispanic", 
+  "ethnicity_non_hispanic",
+  "ethnicity_unk",
+  "race_white", 
+  "race_AfrA",
+  "race_NatA",
+  "race_asian", 
+  "race_other",
+  "race_multi", 
+  "race_unk")
+
+nv_cols = c(
+  "total",
+  "age_0_9", 
+  "age_10_19", 
+  "age_20_29",
+  "age_30_39",
+  "age_40_49",
+  "age_50_59",
+  "age_60_69",
+  "age_70+", 
+  "age_unk",
+  "sex_male", 
+  "sex_female", 
+  "sex_unk",
+  "ethnicity_hispanic", 
+  "ethnicity_non_hispanic",
+  "ethnicity_unk",
+  "race_white", 
+  "race_AfrA",
+  "race_NatA",
+  "race_asian", 
+  "race_other",
+  "race_multi", 
+  "race_unk")
+
+pr_cols = c(
+  "total",
+  "age_0_4", 
+  "age_5_9", 
+  "age_10_14", 
+  "age_15_19",
+  "age_20_24", 
+  "age_25_29",
+  "age_30_34", 
+  "age_35_39",
+  "age_40_44", 
+  "age_45_49",
+  "age_50_54", 
+  "age_55_59",
+  "age_60_64", 
+  "age_65_69",
+  "age_70_74", 
+  "age_75_79",
+  "age_80_84", 
+  "age_85_89",
+  "age_90+",
+  "age_unk",
+  "sex_male", 
+  "sex_female", 
+  "sex_unk",
+  "ethnicity_hispanic", 
+  "ethnicity_non_hispanic",
+  "ethnicity_unk",
+  "race_white", 
+  "race_AfrA",
+  "race_NatA",
+  "race_asian", 
+  "race_other",
+  "race_multi", 
+  "race_unk")
+
+sd_cols = c(
+  "total",
+  "age_0_19", 
+  "age_20_29", 
+  "age_30_39", 
+  "age_40_49", 
+  "age_50_59", 
+  "age_60_69", 
+  "age_70_79", 
+  "age_80+",
+  "age_unk",
+  "sex_male", 
+  "sex_female", 
+  "sex_unk",
+  "ethnicity_hispanic", 
+  "ethnicity_non_hispanic",
+  "ethnicity_unk",
+  "race_white", 
+  "race_AfrA",
+  "race_NatA",
+  "race_asian", 
+  "race_other",
+  "race_multi", 
+  "race_unk")
+
+wv_cols = c(
+  "total",
+  "age_0_9", 
+  "age_10_19",
+  "age_20_29",
+  "age_30_39", 
+  "age_40_49", 
+  "age_50_59", 
+  "age_60_69", 
+  "age_70+",
+  "age_unk",
+  "sex_male", 
+  "sex_female", 
+  "sex_unk",
+  "ethnicity_hispanic", 
+  "ethnicity_non_hispanic",
+  "ethnicity_unk",
+  "race_white", 
+  "race_AfrA",
+  "race_NatA",
+  "race_asian", 
+  "race_other",
+  "race_multi", 
+  "race_unk")
+
+wy_cols = c(
+  "total",
+  "age_0_18", 
+  "age_19_29",
+  "age_30_39",
+  "age_40_49", 
+  "age_50_59", 
+  "age_60_69",
+  "age_70_79",
+  "age_80+",
+  "age_unk",
+  "sex_male", 
+  "sex_female", 
+  "sex_unk",
+  "ethnicity_hispanic", 
+  "ethnicity_non_hispanic",
+  "ethnicity_unk",
+  "race_white", 
+  "race_AfrA",
+  "race_NatA",
+  "race_asian", 
+  "race_other",
+  "race_multi", 
+  "race_unk")
+
 fl_cols = c(
   "total",
   "age_0_4", 
@@ -646,7 +851,7 @@ get_tennessee = function(date = "today") {
   # Just in case you don't start bringing together data until the midnight after
   if (date == "today") {
     date_str = now = Sys.time() %>% as_date
-  } else {
+  } else { # If you need another date to put in
     date_str = date
   }
   
@@ -1564,4 +1769,30 @@ compile = function(tn_date) {
     new_hampshire,
     guam
   ))
+}
+
+#################################
+# FUNCTIONS FOR MANUAL DATA ENTRY
+#################################
+
+manual_fill = function(state, state_cols) {
+  # Function for making it easy to fill out a skeleton
+  
+  # Create the skeleton from the state specific information
+  skeleton = skeleton_table(state_cols)
+  needed_strata = c("cases", "deaths", "hospitalized")
+  
+  # Get the total tested
+  skeleton[["tested"]][["total"]] = readline(prompt = "Total tested?: ") %>% 
+    as.numeric
+  
+  for (strata in needed_strata) {
+    for (sc in state_cols) {
+      fmt_prompt = paste0(state, ", ", strata, ", ", sc, ": ")
+      skeleton[[strata]][[sc]] = readline(prompt = fmt_prompt) %>% 
+        as.numeric
+    }
+  }
+  
+  return(as_tibble(skeleton))
 }
