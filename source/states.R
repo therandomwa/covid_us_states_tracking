@@ -296,6 +296,102 @@ wy_cols = c(
   "race_multi", 
   "race_unk")
 
+ok_cols = c(
+  "total",
+  "age_0_4", 
+  "age_5_17", 
+  "age_18_35", 
+  "age_36_49",
+  "age_50_64", 
+  "age_65+", 
+  "age_unk",
+  "sex_male", 
+  "sex_female", 
+  "sex_unk",
+  "ethnicity_hispanic", 
+  "ethnicity_non_hispanic",
+  "ethnicity_unk",
+  "race_white", 
+  "race_AfrA",
+  "race_NatA",
+  "race_asian", 
+  "race_other",
+  "race_multi", 
+  "race_unk")
+
+ms_cols = c(
+  "total",
+  "age_0_17", 
+  "age_18_29", 
+  "age_30_39",
+  "age_40_49",
+  "age_50_59",
+  "age_60_69",
+  "age_70_79",
+  "age_80_89",
+  "age_90+", 
+  "age_unk",
+  "sex_male", 
+  "sex_female", 
+  "sex_unk",
+  "ethnicity_hispanic", 
+  "ethnicity_non_hispanic",
+  "ethnicity_unk",
+  "race_white", 
+  "race_AfrA",
+  "race_NatA",
+  "race_asian", 
+  "race_other",
+  "race_multi", 
+  "race_unk")
+
+nc_cols = c(
+  "total",
+  "age_0_17", 
+  "age_18_24", 
+  "age_25_49", 
+  "age_50_64",
+  "age_65+", 
+  "age_unk",
+  "sex_male", 
+  "sex_female", 
+  "sex_unk",
+  "ethnicity_hispanic", 
+  "ethnicity_non_hispanic",
+  "ethnicity_unk",
+  "race_white", 
+  "race_AfrA",
+  "race_NatA",
+  "race_asian", 
+  "race_other",
+  "race_multi", 
+  "race_unk")
+
+sc_cols = c(
+  "total",
+  "age_0_19", 
+  "age_20_29",
+  "age_30_39",
+  "age_40_49",
+  "age_50_59",
+  "age_60_69",
+  "age_70_79",
+  "age_80+", 
+  "age_unk",
+  "sex_male", 
+  "sex_female", 
+  "sex_unk",
+  "ethnicity_hispanic", 
+  "ethnicity_non_hispanic",
+  "ethnicity_unk",
+  "race_white", 
+  "race_AfrA",
+  "race_NatA",
+  "race_asian", 
+  "race_other",
+  "race_multi", 
+  "race_unk")
+
 fl_cols = c(
   "total",
   "age_0_4", 
@@ -474,7 +570,7 @@ get_oklahoma = function() {
   case_url = "https://storage.googleapis.com/ok-covid-gcs-public-download/oklahoma_cases_county.csv"
   
   case_by_county = read_csv(case_url)
-  skeleton = skeleton_table(default_cols)
+  skeleton = skeleton_table(ok_cols)
   
   # Push items into the skeleton  
   skeleton[["cases"]][["total"]] = case_by_county %>% 
@@ -484,23 +580,12 @@ get_oklahoma = function() {
   skeleton[["deaths"]][["total"]] = case_by_county %>% 
     pull(Deaths) %>% sum
   
-  as_tibble(skeleton) %>% 
-    standardize %>% 
-    mutate(
-      state_name = "Oklahoma",
-      Link = "https://coronavirus.health.ok.gov",
-      platform = "pdf",
-      comments = "Demographic and age data available, but is displayed in undesirable format for pdf scraping. Too fragile.",
-      last.update = Sys.time() %>% as_date) %>% 
-    select(
-      state_name, Link,
-      total.tested:hosp_gender,
-      platform, comments, last.update)
+  return(skeleton)
 }
 
 get_mississippi = function() {
   
-  skeleton = skeleton_table(default_cols)
+  skeleton = skeleton_table(ms_cols)
   
   # Extract pdf locations from the site to account for updates
   site_url = "https://msdh.ms.gov/msdhsite/_static/14,0,420.html"
@@ -565,18 +650,7 @@ get_mississippi = function() {
   skeleton[["deaths"]][["ethnicity_hispanic"]] = demo_death[8:13] %>% sum()
   skeleton[["deaths"]][["ethnicity_unk"]] = demo_death[14:19] %>% sum()
   
-  as_tibble(skeleton) %>% 
-    standardize %>% 
-    mutate(
-      state_name = "Mississippi",
-      Link = site_url,
-      platform = "pdf",
-      comments = "Age data only available in images on site",
-      last.update = Sys.time() %>% as_date) %>% 
-    select(
-      state_name, Link,
-      total.tested:hosp_gender,
-      platform, comments, last.update)
+  return(skeleton)
   
 }
 
@@ -891,7 +965,7 @@ get_tennessee = function(date = "today") {
   
   # Just in case you don't start bringing together data until the midnight after
   if (date == "today") {
-    date_str = now = Sys.time() %>% as_date
+    date_str = Sys.time() %>% as_date
   } else { # If you need another date to put in
     date_str = date
   }
@@ -1034,7 +1108,7 @@ get_tennessee = function(date = "today") {
 
 get_north_carolina = function() {
   
-  skeleton = skeleton_table(default_cols)
+  skeleton = skeleton_table(nc_cols)
   url = "https://www.ncdhhs.gov/divisions/public-health/covid19/covid-19-nc-case-count#by-race-ethnicity"
   
   data = read_html(url)
@@ -1158,18 +1232,7 @@ get_north_carolina = function() {
   
   skeleton[["hospitalized"]][["total"]] = heading_table[4]
   
-  as_tibble(skeleton) %>% 
-    standardize %>% 
-    mutate(
-      state_name = "North Carolina",
-      Link = url,
-      platform = "pdf",
-      comments = "Age data is only available in images, can't scrape",
-      last.update = Sys.time() %>% as_date) %>% 
-    select(
-      state_name, Link,
-      total.tested:hosp_gender,
-      platform, comments, last.update)
+  return(skeleton)
 }
 
 get_dc = function() {
@@ -1257,24 +1320,13 @@ get_south_carolina = function() {
     str_replace(",", "") %>% 
     as.numeric()
   
-  skeleton = skeleton_table(default_cols)
+  skeleton = skeleton_table(sc_cols)
   
   skeleton[["tested"]][["total"]] = html[7]
   skeleton[["negatives"]][["total"]] = html[3]
   skeleton[["cases"]][["total"]] = html[6]
   
-  as_tibble(skeleton) %>% 
-    standardize %>% 
-    mutate(
-      state_name = "South Carolina",
-      Link = url,
-      platform = "pdf",
-      comments = "Demographic and age data stored in complicated Tableau viz",
-      last.update = Sys.time() %>% as_date) %>% 
-    select(
-      state_name, Link,
-      total.tested:hosp_gender,
-      platform, comments, last.update)
+  return(skeleton)
 }
 
 get_new_jersey = function() {
@@ -1783,30 +1835,164 @@ get_guam = function() {
       platform, comments, last.update)
 }
 
-compile = function(tn_date) {
+compile = function() {
   
   # tn_date: Must be structured as YEAR-MM-DD ("2020-05-11")
   
+  # Run the functions for all of the automated states
+  
+  "Running Oklahoma..." %>% print()
   oklahoma = get_oklahoma()
+  
+  "Running Mississippi" %>% print()
   mississippi = get_mississippi()
+  
+  "Running Florida" %>% print()
   florida = get_florida()
-  tennessee = get_tennessee(tn_date)
+  
+  "Running Tennessee" %>% print()
+  tennessee = get_tennessee()
+  
+  "Running North Carolina" %>% print()
   north_carolina = get_north_carolina()
+  
+  "Running DC..." %>% print()
   dc = get_dc()
+  
+  "Running New Jersey..." %>% print()
   new_jersey = get_new_jersey()
+  
+  "Running South Carolina" %>% print()
   south_carolina = get_south_carolina()
+  
+  "Running New Hampshire" %>% print()
   new_hampshire = get_new_hampshire()
+  
+  "Running Guam" %>% print()
   guam = get_guam()
   
+  # Manual entry for some extra items
+  "Starting manual entry for these states" %>% print()
+  "Manual entry for Oklahoma, go to: " %>% print()
+  "https://coronavirus.health.ok.gov/" %>% print()
+  
+  oklahoma[["cases"]][["age_0_4"]] = readline(prompt = "OK, age_0_4: ") %>% as.numeric
+  oklahoma[["cases"]][["age_5_17"]] = readline(prompt = "OK, age_5_17: ") %>% as.numeric
+  oklahoma[["cases"]][["age_18_35"]] = readline(prompt = "OK, age_18_35: ") %>% as.numeric
+  oklahoma[["cases"]][["age_36_49"]] = readline(prompt = "OK, age_36_49: ") %>% as.numeric
+  oklahoma[["cases"]][["age_50_64"]] = readline(prompt = "OK, age_50_64: ") %>% as.numeric
+  oklahoma[["cases"]][["age_65+"]] = readline(prompt = "OK, age_age_65+: ") %>% as.numeric
+  oklahoma[["cases"]][["race_white"]] = readline(prompt = "OK, white: ") %>% as.numeric
+  oklahoma[["cases"]][["race_AfrA"]] = readline(prompt = "OK, AfrA: ") %>% as.numeric
+  oklahoma[["cases"]][["race_NatA"]] = readline(prompt = "OK, NatA: ") %>% as.numeric
+  oklahoma[["cases"]][["race_asian"]] = readline(prompt = "OK, asian: ") %>% as.numeric
+  oklahoma[["cases"]][["race_other"]] = readline(prompt = "OK, race_other: ") %>% as.numeric
+  oklahoma[["cases"]][["race_multi"]] = readline(prompt = "OK, race_multi: ") %>% as.numeric
+  oklahoma[["cases"]][["race_unk"]] = readline(prompt = "OK, race_unk: ") %>% as.numeric
+  
+  final_oklahoma = as_tibble(oklahoma) %>% 
+    standardize %>% 
+    mutate(
+      state_name = "Oklahoma",
+      Link = "https://coronavirus.health.ok.gov",
+      platform = "pdf",
+      comments = "Demographic and age data available, but age and demo data manually entered.",
+      last.update = Sys.time() %>% as_date) %>% 
+    select(
+      state_name, Link,
+      total.tested:hosp_gender,
+      platform, comments, last.update)
+  
+  "Starting manual entry for these states" %>% print()
+  "Manual entry for Mississippi, go to: " %>% print()
+  "https://msdh.ms.gov/msdhsite/_static/14,0,420.html" %>% print()
+  
+  mississippi[["cases"]][["age_0_17"]] = readline(prompt = "MS, age_0_17: ") %>% as.numeric
+  mississippi[["cases"]][["age_18_29"]] = readline(prompt = "MS, age_18_29: ") %>% as.numeric
+  mississippi[["cases"]][["age_30_39"]] = readline(prompt = "MS, age_30_39: ") %>% as.numeric
+  mississippi[["cases"]][["age_40_49"]] = readline(prompt = "MS, age_40_49: ") %>% as.numeric
+  mississippi[["cases"]][["age_50_59"]] = readline(prompt = "MS, age_50_59: ") %>% as.numeric
+  mississippi[["cases"]][["age_60_69"]] = readline(prompt = "MS, age_60_69: ") %>% as.numeric
+  mississippi[["cases"]][["age_70_79"]] = readline(prompt = "MS, age_70_79: ") %>% as.numeric
+  mississippi[["cases"]][["age_80_89"]] = readline(prompt = "MS, age_80_89: ") %>% as.numeric
+  mississippi[["cases"]][["age_90+"]] = readline(prompt = "MS, age_90+: ") %>% as.numeric
+  mississippi[["cases"]][["sex_male"]] = readline(prompt = "MS, male: ") %>% as.numeric
+  mississippi[["cases"]][["sex_female"]] = readline(prompt = "MS, female: ") %>% as.numeric
+  mississippi[["cases"]][["sex_unk"]] = readline(prompt = "MS, sex_unk: ") %>% as.numeric
+  
+  final_mississippi = as_tibble(mississippi) %>% 
+    standardize %>% 
+    mutate(
+      state_name = "Mississippi",
+      Link = "https://msdh.ms.gov/msdhsite/_static/14,0,420.html",
+      platform = "pdf",
+      comments = "Age data manually entered",
+      last.update = Sys.time() %>% as_date) %>% 
+    select(
+      state_name, Link,
+      total.tested:hosp_gender,
+      platform, comments, last.update)
+  
+  "Starting manual entry for these states" %>% print()
+  "Manual entry for North Carolina, go to: " %>% print()
+  "https://covid19.ncdhhs.gov/dashboard#by-gender" %>% print()
+  
+  north_carolina[["cases"]][["age_0_17"]] = readline(prompt = "NC, age_0_17: ") %>% as.numeric
+  north_carolina[["cases"]][["age_18_24"]] = readline(prompt = "NC, age_18_24: ") %>% as.numeric
+  north_carolina[["cases"]][["age_25_49"]] = readline(prompt = "NC, age_25_49: ") %>% as.numeric
+  north_carolina[["cases"]][["age_50_64"]] = readline(prompt = "NC, age_50_44: ") %>% as.numeric
+  north_carolina[["cases"]][["age_65+"]] = readline(prompt = "NC, age_65+: ") %>% as.numeric
+  
+  final_north_carolina = as_tibble(north_carolina) %>% 
+    standardize %>% 
+    mutate(
+      state_name = "North Carolina",
+      Link = "https://covid19.ncdhhs.gov/dashboard#by-gender",
+      platform = "pdf",
+      comments = "Age data manually entered",
+      last.update = Sys.time() %>% as_date) %>% 
+    select(
+      state_name, Link,
+      total.tested:hosp_gender,
+      platform, comments, last.update)
+  
+  "Starting manual entry for these states" %>% print()
+  "Manual entry for South Carolina, go to: " %>% print()
+  "https://doh.sd.gov/news/coronavirus.aspx#SD" %>% print()
+  
+  south_carolina[["cases"]][["age_0_19"]] = readline(prompt = "SC, age_0_19: ") %>% as.numeric
+  south_carolina[["cases"]][["age_20_29"]] = readline(prompt = "SC, age_20_29: ") %>% as.numeric
+  south_carolina[["cases"]][["age_30_39"]] = readline(prompt = "SC, age_30_39: ") %>% as.numeric
+  south_carolina[["cases"]][["age_40_49"]] = readline(prompt = "SC, age_40_49: ") %>% as.numeric
+  south_carolina[["cases"]][["age_50_59"]] = readline(prompt = "SC, age_50_59: ") %>% as.numeric
+  south_carolina[["cases"]][["age_60_69"]] = readline(prompt = "SC, age_60_69: ") %>% as.numeric
+  south_carolina[["cases"]][["age_70_79"]] = readline(prompt = "SC, age_70_79: ") %>% as.numeric
+  south_carolina[["cases"]][["age_80+"]] = readline(prompt = "SC, age_80+: ") %>% as.numeric
+  south_carolina[["cases"]][["sex_male"]] = readline(prompt = "SC, male: ") %>% as.numeric
+  south_carolina[["cases"]][["sex_female"]] = readline(prompt = "SC, female: ") %>% as.numeric
+  
+  final_south_carolina = as_tibble(south_carolina) %>% 
+    standardize %>% 
+    mutate(
+      state_name = "South Carolina",
+      Link = "https://doh.sd.gov/news/coronavirus.aspx#SD",
+      platform = "pdf",
+      comments = "Demographic and age data manually entered",
+      last.update = Sys.time() %>% as_date) %>% 
+    select(
+      state_name, Link,
+      total.tested:hosp_gender,
+      platform, comments, last.update)
+  
   return(bind_rows(
-    oklahoma,
-    mississippi,
+    final_oklahoma,
+    final_mississippi,
     florida,
     tennessee,
-    north_carolina,
+    final_north_carolina,
     dc,
     new_jersey,
-    south_carolina,
+    final_south_carolina,
     new_hampshire,
     guam
   ))

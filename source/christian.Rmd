@@ -34,7 +34,7 @@ source("states.R")
 oklahoma = get_oklahoma()
 mississippi = get_mississippi()
 florida = get_florida()
-tennessee = get_tennessee("2020-05-13")
+tennessee = get_tennessee()
 north_carolina = get_north_carolina()
 dc = get_dc()
 south_carolina = get_south_carolina()
@@ -43,13 +43,13 @@ new_hampshire = get_new_hampshire()
 guam = get_guam()
 ```
 
+# Compile The Automated States
+
 ```{r}
 # Get as much automated data as you can
-compiled_data_20200513 = compile(tn_date = "2020-05-13")
-save(compiled_data_20200513, file = "../Data/meta_2020-05-13-cbp.rda")
+automated_data_20200514 = compile()
+save(compiled_data_20200514, file = "../Data/meta_2020-05-14-cbp.rda")
 ```
-
-
 
 # Manual States
 
@@ -71,8 +71,14 @@ In addition to the information above, we need manual entry for:
 For each of these states, we'll collect sex, age, and race information.
 
 ```{r}
-manual_state_data = compile_manual_states()
+manual_data_20200514 = compile_manual_states()
 ```
+
+```{r}
+full_data_20200514 = bind_rows(compiled_data_20200514, manual_data_20200514)
+save(full_data_20200514, file = "../Data/meta_2020-05-14-cbp.rda")
+```
+
 
 ## TODO:
 
