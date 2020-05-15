@@ -24,5 +24,8 @@ df2$last.update = df2$last.update %>% format("%m/%d/%Y")
 meta = rbind.fill(df3, df2)
 meta$X = NULL
 meta = meta[order(meta$state_name), ]
+meta[meta == ""] = NA
+meta$positivity.rate = NULL
+meta$county.details = NULL
 write.csv(meta, file = paste0("../Data/meta_v2_", Sys.Date(), ".csv"),
           row.names = F)
