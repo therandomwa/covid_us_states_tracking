@@ -162,7 +162,6 @@ cases_plot = cases2 %>%
     x = "Date",
     y = "No. New Cases",
     title = "New COVID-19 Cases by Day") +
-  scale_y_continuous(limits = c(-40, 13500)) +
   scale_x_date(date_labels = "%b %d",
                date_breaks = "7 days") +
   theme(axis.text.x = element_text(angle = 60, hjust = 1))
@@ -181,7 +180,6 @@ cases_plot_norm = cases2 %>%
     y = "No. New Cases per 100,000",
     title = "New COVID-19 Cases per 100,000 by Day"
   ) +
-  scale_y_continuous(limits = c(-5, 100)) +
   scale_x_date(date_labels = "%b %d",
                date_breaks = "7 days") +
   theme(axis.text.x = element_text(angle = 60, hjust = 1))
@@ -200,7 +198,6 @@ death_plot = deaths2 %>%
     y = "No. New Deaths",
     title = "New COVID-19 Deaths by Day"
   ) +
-  scale_y_continuous(limits = c(-50, 5000)) +
   scale_x_date(date_labels = "%b %d",
                date_breaks = "7 days") +
   theme(axis.text.x = element_text(angle = 60, hjust = 1))
@@ -219,13 +216,23 @@ death_plot_norm = deaths2 %>%
     y = "No. New Deaths per 100,000",
     title = "New COVID-19 Deaths per 100,000 by Day"
   ) +
-  scale_y_continuous(limits = c(-2, 25)) +
   scale_x_date(date_labels = "%b %d",
                date_breaks = "7 days") +
   theme(axis.text.x = element_text(angle = 60, hjust = 1))
 
 # need
 ggplotly(death_plot_norm)
+
+ggplotly(deaths2 %>%
+ ggplot(aes(x = date, y = new_deaths, color = state)) +
+ geom_point() + geom_line() +
+ theme_classic() +
+ theme(axis.text.x = element_text(angle = 60, hjust = 1)) +
+ labs(x = "Date", y = "Number of COVID-19 Deaths", color = "State") +
+ scale_x_date(date_labels = "%b %d",
+              date_breaks = "7 days") +
+ theme(axis.text.x = element_text(angle = 60, hjust = 1)))
+
 
 ```
 
