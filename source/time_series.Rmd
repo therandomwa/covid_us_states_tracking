@@ -16,60 +16,71 @@ library(plotly)
 ### Case Data 
 ```{r, case, warning = FALSE, message = FALSE}
 # read in data using API from divs in html
-cdc_cases = 
-  GET("www.cdc.gov//coronavirus/2019-ncov/json/new-cases-chart-data.json") %>%
-  content("text") %>%
-  jsonlite::fromJSON() %>%
-  as_tibble() %>%
-  select(-V1)
+# cdc_cases = 
+#   GET("www.cdc.gov//coronavirus/2019-ncov/json/new-cases-chart-data.json") %>%
+#   content("text") %>%
+#   jsonlite::fromJSON() %>%
+#   as_tibble() %>%
+#   select(-V1)
 
 # transpose the data into desired format
-cdc_trans = as_tibble(t(as.matrix(cdc_cases))) %>%
-  rename(date = V1, new_cases = V2) %>%
-  mutate(new_cases = as.numeric(new_cases),
-         new_date = as.Date(date, format = "%m/%d/%y"))
+# cdc_trans = as_tibble(t(as.matrix(cdc_cases))) %>%
+#   rename(date = V1, new_cases = V2) %>%
+#   mutate(new_cases = as.numeric(new_cases),
+#          new_date = as.Date(date, format = "%m/%d/%y"))
 
-cdc_trans %>%
-  ggplot(aes(x = new_date, y = new_cases)) +
-  geom_point() + geom_line() +
-  theme_classic() +
-  theme(axis.text.x = element_text(angle = 60, hjust = 1)) +
-  labs(x = "Date", y = "Number of New COVID-19 Cases")
+# cdc_trans %>%
+#   ggplot(aes(x = new_date, y = new_cases)) +
+#   geom_point() + geom_line() +
+#   theme_classic() +
+#   theme(axis.text.x = element_text(angle = 60, hjust = 1)) +
+#   labs(x = "Date", y = "Number of New COVID-19 Cases")
 ```
 
 ### Death Data by Day and State
 ```{r, death}
 # read in data using API
-cdc_death = 
-  GET("https://data.cdc.gov/resource/r8kw-7aab.json") %>%
-  content("text") %>%
-  jsonlite::fromJSON() %>%
-  as_tibble() %>%
-  mutate(data_as_of = substr(data_as_of, 1, 10),
-         start_week = substr(start_week, 1, 10),
-         end_week = substr(end_week, 1, 10),
-         covid_deaths = as.numeric(covid_deaths),
-         total_deaths = as.numeric(total_deaths),
-         percent_of_expected_deaths = as.numeric(percent_of_expected_deaths),
-         pneumonia_deaths = as.numeric(pneumonia_deaths),
-         pneumonia_and_covid_deaths = as.numeric(pneumonia_and_covid_deaths),
-         influenza_deaths = as.numeric(influenza_deaths),
-         pneumonia_influenza_or_covid = as.numeric(pneumonia_influenza_or_covid))
+# cdc_death = 
+#   GET("https://data.cdc.gov/resource/r8kw-7aab.json") %>%
+#   content("text") %>%
+#   jsonlite::fromJSON() %>%
+#   as_tibble() %>%
+#   mutate(data_as_of = substr(data_as_of, 1, 10),
+#          start_week = substr(start_week, 1, 10),
+#          end_week = substr(end_week, 1, 10),
+#          covid_deaths = as.numeric(covid_deaths),
+#          total_deaths = as.numeric(total_deaths),
+#          percent_of_expected_deaths = as.numeric(percent_of_expected_deaths),
+#          pneumonia_deaths = as.numeric(pneumonia_deaths),
+#          pneumonia_and_covid_deaths = as.numeric(pneumonia_and_covid_deaths),
+#          influenza_deaths = as.numeric(influenza_deaths),
+#          pneumonia_influenza_or_covid = as.numeric(pneumonia_influenza_or_covid))
 
 # name states you want to see-is this something we can do in the dashboard?
 # enter up to x amount of states?
-states_select = c("New York", "New Jersey", "California", "Maryland", "Arizona", "Washington", "New Jersey")
+# states_select = c("New York", "New Jersey", "California", "Maryland", "Arizona", "Washington", "New Jersey")
 
-death_plot = cdc_death %>%
+# death_plot = cdc_death %>%
 #  filter(state %in% states_select) %>%
-  filter(state != "United States" & state != "New York City") %>%
-  ggplot(aes(x = end_week, y = covid_deaths, color = state, group = state)) +
-  geom_point() + geom_line() +
-  theme_classic() +
-  theme(axis.text.x = element_text(angle = 60, hjust = 1)) +
-  labs(x = "Week End Date", y = "Number of COVID-19 Deaths", color = "State")
+#   filter(state != "United States" & state != "New York City") %>%
+#   ggplot(aes(x = end_week, y = covid_deaths, color = state, group = state)) +
+#   geom_point() + geom_line() +
+#  theme_classic() +
+#   theme(axis.text.x = element_text(angle = 60, hjust = 1)) +
+#   labs(x = "Week End Date", y = "Number of COVID-19 Deaths", color = "State")
 
-ggplotly(death_plot)
+# ggplotly(death_plot)
+
+# ggplotly(cdc_death %>%
+#   filter(state == "New York") %>%
+#   ggplot(aes(x = end_week, y = covid_deaths)) +
+#   geom_bar(stat = "identity", fill = "darkblue") +
+#   theme_classic() +
+#   theme(axis.text.x = element_text(angle = 60, hjust = 1)) +
+#   labs(
+#     x = "Week Ending In",
+#     y = "No. COVID-19 Deaths"
+#   ))
 ```
 
 ## Case and Death Data 
@@ -81,9 +92,10 @@ ggplotly(death_plot)
 
 
 # read in case data
+# str_c("x", str_replace_all(substr(as.character(Sys.Date() - 1), 7, 10), "-", "_"), "_20") does not work when it comes to knitting
 cases = read_csv("https://usafactsstatic.blob.core.windows.net/public/data/covid-19/covid_confirmed_usafacts.csv", col_names = TRUE) %>%
   janitor::clean_names() %>%
-  pivot_longer(x1_22_20:x5_13_20,
+  pivot_longer(x1_22_20:x5_14_20,
                names_to = "date",
                values_to = "total_cases") %>%
   mutate(date = substr(date, 2, 8),
@@ -94,12 +106,13 @@ cases = read_csv("https://usafactsstatic.blob.core.windows.net/public/data/covid
   group_by(state) %>%
   mutate(new_cases = if_else(date != "2020-01-22", total_cases - lag(total_cases), total_cases))
 
-
+# minimum new cases: -36
+# maximum new cases: 13262
 
 # read in death data
 deaths = read_csv("https://usafactsstatic.blob.core.windows.net/public/data/covid-19/covid_deaths_usafacts.csv", col_names = TRUE) %>%
   janitor::clean_names() %>%
-  pivot_longer(x1_22_20:x5_13_20,
+  pivot_longer(x1_22_20:x5_14_20,
                names_to = "date",
                values_to = "total_deaths") %>%
   mutate(date = substr(date, 2, 8),
@@ -109,6 +122,9 @@ deaths = read_csv("https://usafactsstatic.blob.core.windows.net/public/data/covi
   summarize(total_deaths = sum(total_deaths)) %>%
   group_by(state) %>%
   mutate(new_deaths = if_else(date != "2020-01-22", total_deaths - lag(total_deaths), total_deaths))
+
+# minimum new deaths: -45
+# maximum new deaths: 4564
 
 # read in population data
 pop = read_csv("https://usafactsstatic.blob.core.windows.net/public/data/covid-19/covid_county_population_usafacts.csv", col_names = TRUE) %>%
@@ -120,8 +136,14 @@ pop = read_csv("https://usafactsstatic.blob.core.windows.net/public/data/covid-1
 cases2 = left_join(cases, pop, by = "state") %>%
   mutate(new_cases_norm = (new_cases/population)*100000)
 
+# minimum new cases norm: -1.69
+# maximum new cases norm: 83.07
+
 deaths2 = left_join(deaths, pop, by = "state") %>%
   mutate(new_deaths_norm = (new_deaths/population)*100000)
+
+# minimum new deaths norm: -0.82
+# maximum new deaths norm: 23.46
 ```
 
 
@@ -139,7 +161,11 @@ cases_plot = cases2 %>%
   labs(
     x = "Date",
     y = "No. New Cases",
-    title = "New COVID-19 Cases by Day") 
+    title = "New COVID-19 Cases by Day") +
+  scale_y_continuous(limits = c(-40, 13500)) +
+  scale_x_date(date_labels = "%b %d",
+               date_breaks = "7 days") +
+  theme(axis.text.x = element_text(angle = 60, hjust = 1))
 
 ggplotly(cases_plot)
 
@@ -154,7 +180,11 @@ cases_plot_norm = cases2 %>%
     x = "Date",
     y = "No. New Cases per 100,000",
     title = "New COVID-19 Cases per 100,000 by Day"
-  )
+  ) +
+  scale_y_continuous(limits = c(-5, 100)) +
+  scale_x_date(date_labels = "%b %d",
+               date_breaks = "7 days") +
+  theme(axis.text.x = element_text(angle = 60, hjust = 1))
 
 ggplotly(cases_plot_norm)
 
@@ -169,7 +199,11 @@ death_plot = deaths2 %>%
     x = "Date",
     y = "No. New Deaths",
     title = "New COVID-19 Deaths by Day"
-  )
+  ) +
+  scale_y_continuous(limits = c(-50, 5000)) +
+  scale_x_date(date_labels = "%b %d",
+               date_breaks = "7 days") +
+  theme(axis.text.x = element_text(angle = 60, hjust = 1))
 
 ggplotly(death_plot)
 
@@ -184,7 +218,11 @@ death_plot_norm = deaths2 %>%
     x = "Date",
     y = "No. New Deaths per 100,000",
     title = "New COVID-19 Deaths per 100,000 by Day"
-  ) 
+  ) +
+  scale_y_continuous(limits = c(-2, 25)) +
+  scale_x_date(date_labels = "%b %d",
+               date_breaks = "7 days") +
+  theme(axis.text.x = element_text(angle = 60, hjust = 1))
 
 # need
 ggplotly(death_plot_norm)
