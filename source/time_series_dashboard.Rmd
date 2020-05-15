@@ -1,0 +1,140 @@
+---
+title: "Untitled"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
+runtime: shiny
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+library(tidyverse)
+library(rvest)
+library(httr)
+library(plotly)
+```
+
+
+```{r}
+# read in case data
+cases = read_csv("https://usafactsstatic.blob.core.windows.net/public/data/covid-19/covid_confirmed_usafacts.csv", col_names = TRUE) %>%
+  janitor::clean_names() %>%
+  pivot_longer(x1_22_20:x5_14_20,
+               names_to = "date",
+               values_to = "total_cases") %>%
+  mutate(date = substr(date, 2, 8),
+         date = str_replace_all(date, "_", "/"),
+         date = as.Date(date, "%m/%d/%y")) %>%
+  group_by(state, date) %>%
+  summarize(total_cases = sum(total_cases)) %>%
+  group_by(state) %>%
+  mutate(new_cases = if_else(date != "2020-01-22", total_cases - lag(total_cases), total_cases))
+
+# read in death data
+deaths = read_csv("https://usafactsstatic.blob.core.windows.net/public/data/covid-19/covid_deaths_usafacts.csv", col_names = TRUE) %>%
+  janitor::clean_names() %>%
+  pivot_longer(x1_22_20:x5_14_20,
+               names_to = "date",
+               values_to = "total_deaths") %>%
+  mutate(date = substr(date, 2, 8),
+         date = str_replace_all(date, "_", "/"),
+         date = as.Date(date, "%m/%d/%y")) %>%
+  group_by(state, date) %>%
+  summarize(total_deaths = sum(total_deaths)) %>%
+  group_by(state) %>%
+  mutate(new_deaths = if_else(date != "2020-01-22", total_deaths - lag(total_deaths), total_deaths))
+
+# read in pop data
+pop = read_csv("https://usafactsstatic.blob.core.windows.net/public/data/covid-19/covid_county_population_usafacts.csv", col_names = TRUE) %>%
+  janitor::clean_names() %>%
+  group_by(state) %>%
+  summarize(population = sum(population))
+
+# join population counts to cases and deaths datasets for normalized counts
+cases2 = left_join(cases, pop, by = "state") %>%
+  mutate(new_cases_norm = (new_cases/population)*100000) %>%
+  select(state, date, new_cases, new_cases_norm) %>%
+  pivot_longer(new_cases:new_cases_norm,
+               names_to = "num_type",
+               values_to = "val") %>%
+  mutate(num_type = if_else(num_type == "new_cases", "Count", "Per 100k"))
+
+deaths2 = left_join(deaths, pop, by = "state") %>%
+  mutate(new_deaths_norm = (new_deaths/population)*100000) %>%
+  select(state, date, new_deaths, new_deaths_norm) %>%
+  pivot_longer(new_deaths:new_deaths_norm,
+               names_to = "num_type",
+               values_to = "val") %>%
+  mutate(num_type = if_else(num_type == "new_deaths", "Count", "Per 100k"))
+```
+
+Column {.sidebar}
+-----------------------------------------------------------------------
+```{r}
+states = cases2 %>% distinct(state) %>% pull()
+
+selectInput(
+  "state_choice",
+  label = h3("Select State"),
+  choices = states, selected = "AK"
+)
+```
+
+```{r}
+radioButtons(
+  "count_choice",
+  label = h3("Select Count Type"),
+  choices = c("Count", "Per 100k"), selected = "Count"
+)
+```
+
+
+Column {data-width=650}
+-----------------------------------------------------------------------
+
+### Chart A
+
+```{r}
+
+```
+
+Column {data-width=350}
+-----------------------------------------------------------------------
+
+### Chart B
+
+```{r}
+renderPlotly({
+  cases2 %>%
+    filter(state == input$state_choice,
+           num_type == input$count_choice) %>%
+#    mutate(text_label = str_c("Date: ", date, '\nCases: ', new_cases)) %>%
+    plot_ly(
+      x = ~date, y = ~val, type = "bar"
+    ) %>%
+    layout(
+      xaxis = list(title = "Date"),
+      yaxis = list(title = "New COVID-19 Cases")
+    )
+})
+```
+
+### Chart C
+
+```{r}
+renderPlotly({
+  deaths2 %>%
+    filter(state == input$state_choice,
+           num_type == input$count_choice) %>%
+ #   mutate(text_label = str_c("Date: ", date, '\nDeaths: ', new_deaths)) %>%
+    plot_ly(
+      x = ~date, y = ~val, type = "bar"
+    ) %>%
+    layout(
+      xaxis = list(title = "Date"),
+      yaxis = list(title = "New COVID-19 Deaths")
+    )
+})
+```
+
