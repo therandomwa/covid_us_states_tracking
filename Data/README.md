@@ -6,3 +6,6 @@
 05/14:
 - Utah: adding additional information regarding comorbidities and risk factors.
 - Adding manual entries for 8 states
+
+05/15:
+- Virginia: adding ethnicity
