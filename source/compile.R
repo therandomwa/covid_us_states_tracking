@@ -27,5 +27,6 @@ meta[meta == ""] = NA
 meta$positivity.rate = NULL
 meta$county.details = NULL
 meta$Link = NULL
-write.csv(meta, file = paste0("../Data/meta_final_", Sys.Date(), ".csv"),
+meta = meta[-grep("Guam|Virgin Island|Puerto Rico", meta$state_name),]
+write.csv(meta, file = paste0("../Data/Archive/meta_final_", Sys.Date()-2, ".csv"),
           row.names = F)
