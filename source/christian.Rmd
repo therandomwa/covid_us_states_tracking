@@ -12,6 +12,7 @@ library(rvest)
 library(lubridate)
 library(readxl)
 source("states.R")
+source("states_constants.R")
 ```
 
 # Automated States
@@ -36,19 +37,21 @@ mississippi = get_mississippi()
 florida = get_florida()
 tennessee = get_tennessee()
 north_carolina = get_north_carolina()
-dc = get_dc()
 south_carolina = get_south_carolina()
 new_jersey = get_new_jersey()
 new_hampshire = get_new_hampshire()
-guam = get_guam()
+```
+
+```{r}
+# Space for troubleshooting
+
 ```
 
 # Compile The Automated States
 
 ```{r}
 # Get as much automated data as you can
-automated_data_20200514 = compile()
-save(compiled_data_20200514, file = "../Data/meta_2020-05-14-cbp.rda")
+automated_data_20200515 = compile()
 ```
 
 # Manual States
@@ -62,20 +65,170 @@ In addition to the information above, we need manual entry for:
 - Kansas (can automate but reading pdf crashes my RStudio?)
 - Nevada: no race information
 - New York: no demographic information at all
-- Puerto Rico: no race data
 - South Dakota: have to calculate race counts from case total
-- Virgin Island
 - West Virginia
 - Wyoming
 
 For each of these states, we'll collect sex, age, and race information.
 
 ```{r}
-manual_data_20200514 = compile_manual_states()
+# All the states we do complete manual data entry for
+
+# https://www.azdhs.gov/preparedness/epidemiology-disease-control/infectious-disease-epidemiology/covid-19/dashboards/index.php
+arizona = manual_fill(manual_states[1], state_vecs[[1]]) %>% 
+      standardize %>% 
+      mutate(
+        state_name = manual_states[1],
+        Link = "https://www.azdhs.gov/preparedness/epidemiology-disease-control/infectious-disease-epidemiology/covid-19/dashboards/index.php",
+        platform = "manual",
+        comments = "",
+        last.update = Sys.time() %>% as_date) %>% 
+      select(
+        state_name, Link,
+        total.tested:hosp_gender,
+        platform, comments, last.update)
+
+# https://health.hawaii.gov/coronavirusdisease2019/what-you-should-know/current-situation-in-hawaii/
+hawaii = manual_fill(manual_states[2], state_vecs[[2]]) %>% 
+  standardize %>% 
+  mutate(
+    state_name = manual_states[2],
+    Link = "https://health.hawaii.gov/coronavirusdisease2019/what-you-should-know/current-situation-in-hawaii/",
+    platform = "manual",
+    comments = "",
+    last.update = Sys.time() %>% as_date) %>% 
+  select(
+    state_name, Link,
+    total.tested:hosp_gender,
+    platform, comments, last.update)
+
+# https://public.tableau.com/profile/idaho.division.of.public.health#!/vizhome/DPHIdahoCOVID-19Dashboard_V2/Story1
+idaho = manual_fill(manual_states[3], state_vecs[[3]]) %>%
+  standardize %>% 
+  mutate(
+    state_name = manual_states[3],
+    Link = "https://public.tableau.com/profile/idaho.division.of.public.health#!/vizhome/DPHIdahoCOVID-19Dashboard_V2/Story1",
+    platform = "manual",
+    comments = "",
+    last.update = Sys.time() %>% as_date) %>% 
+  select(
+    state_name, Link,
+    total.tested:hosp_gender,
+    platform, comments, last.update)
+
+# https://coronavirus.iowa.gov/pages/case-counts
+iowa = manual_fill(manual_states[4], state_vecs[[4]]) %>% 
+  standardize %>% 
+  mutate(
+    state_name = manual_states[4],
+    Link = "https://coronavirus.iowa.gov/pages/case-counts",
+    platform = "manual",
+    comments = "",
+    last.update = Sys.time() %>% as_date) %>% 
+  select(
+    state_name, Link,
+    total.tested:hosp_gender,
+    platform, comments, last.update)
+
+# https://www.coronavirus.kdheks.gov/160/COVID-19-in-Kansas
+kansas = manual_fill(manual_states[5], state_vecs[[5]]) %>% 
+  standardize %>% 
+  mutate(
+    state_name = manual_states[5],
+    Link = "https://www.coronavirus.kdheks.gov/160/COVID-19-in-Kansas",
+    platform = "manual",
+    comments = "",
+    last.update = Sys.time() %>% as_date) %>% 
+  select(
+    state_name, Link,
+    total.tested:hosp_gender,
+    platform, comments, last.update)
+
+# https://nvhealthresponse.nv.gov/
+nevada = manual_fill(manual_states[6], state_vecs[[6]]) %>% 
+      standardize %>% 
+      mutate(
+        state_name = manual_states[6],
+        Link = "https://nvhealthresponse.nv.gov/",
+        platform = "manual",
+        comments = "",
+        last.update = Sys.time() %>% as_date) %>% 
+      select(
+        state_name, Link,
+        total.tested:hosp_gender,
+        platform, comments, last.update)
+
+# https://covid19tracker.health.ny.gov/views/NYS-COVID19-Tracker/NYSDOHCOVID-19Tracker-TableView?%3Aembed=yes&%3Atoolbar=no#/views/NYS%2dCOVID19%2dTracker/NYSDOHCOVID%2d19Tracker%2dMap?%253Aembed=yes&%253Atoolbar=no
+new_york = manual_fill(manual_states[7], state_vecs[[7]]) %>% 
+      standardize %>% 
+      mutate(
+        state_name = manual_states[7],
+        Link = "https://covid19tracker.health.ny.gov/views/NYS-COVID19-Tracker/NYSDOHCOVID-19Tracker-TableView?%3Aembed=yes&%3Atoolbar=no#/views/NYS%2dCOVID19%2dTracker/NYSDOHCOVID%2d19Tracker%2dMap?%253Aembed=yes&%253Atoolbar=no",
+        platform = "manual",
+        comments = "",
+        last.update = Sys.time() %>% as_date) %>% 
+      select(
+        state_name, Link,
+        total.tested:hosp_gender,
+        platform, comments, last.update)
+
+# https://doh.sd.gov/news/coronavirus.aspx#SD
+south_dakota = manual_fill(manual_states[8], state_vecs[[8]]) %>% 
+      standardize %>% 
+      mutate(
+        state_name = manual_states[8],
+        Link = "https://doh.sd.gov/news/coronavirus.aspx#SD",
+        platform = "manual",
+        comments = "",
+        last.update = Sys.time() %>% as_date) %>% 
+      select(
+        state_name, Link,
+        total.tested:hosp_gender,
+        platform, comments, last.update)
+
+# https://dhhr.wv.gov/COVID-19/Pages/default.aspx
+west_virginia = manual_fill(manual_states[9], state_vecs[[9]]) %>% 
+      standardize %>% 
+      mutate(
+        state_name = manual_states[9],
+        Link = "https://dhhr.wv.gov/COVID-19/Pages/default.aspx",
+        platform = "manual",
+        comments = "",
+        last.update = Sys.time() %>% as_date) %>% 
+      select(
+        state_name, Link,
+        total.tested:hosp_gender,
+        platform, comments, last.update)
+
+# https://health.wyo.gov/publichealth/infectious-disease-epidemiology-unit/disease/novel-coronavirus/covid-19-map-and-statistics/
+wyoming = manual_fill(manual_states[10], state_vecs[[10]]) %>% 
+      standardize %>% 
+      mutate(
+        state_name = manual_states[10],
+        Link = "https://health.wyo.gov/publichealth/infectious-disease-epidemiology-unit/disease/novel-coronavirus/covid-19-map-and-statistics/",
+        platform = "manual",
+        comments = "",
+        last.update = Sys.time() %>% as_date) %>% 
+      select(
+        state_name, Link,
+        total.tested:hosp_gender,
+        platform, comments, last.update)
+    
+manual_data_20200515 = bind_rows(
+  arizona,
+  hawaii,
+  idaho,
+  iowa,
+  kansas,
+  nevada,
+  new_york,
+  south_dakota,
+  west_virginia,
+  wyoming)
 ```
 
 ```{r}
-full_data_20200514 = bind_rows(compiled_data_20200514, manual_data_20200514)
+full_data_20200514 = bind_rows(automated_data_20200514, manual_data_20200514)
 save(full_data_20200514, file = "../Data/meta_2020-05-14-cbp.rda")
 ```
 

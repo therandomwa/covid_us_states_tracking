@@ -2,499 +2,6 @@
 # DATA STRUCTURE FUNCTIONS
 ##########################
 
-# Default names to use in the skeleton columns
-default_cols = c(
-  "total",
-  "age_0_19", 
-  "age_20_29", 
-  "age_30_39", 
-  "age_40_49",
-  "age_50_59", 
-  "age_60_69", 
-  "age_70_79", 
-  "age_80+", 
-  "age_unk",
-  "sex_male", 
-  "sex_female", 
-  "sex_unk",
-  "ethnicity_hispanic", 
-  "ethnicity_non_hispanic",
-  "ethnicity_unk",
-  "race_white", 
-  "race_AfrA",
-  "race_NatA",
-  "race_asian", 
-  "race_other",
-  "race_multi", 
-  "race_unk")
-
-az_cols = c(
-  "total",
-  "age_0_19", 
-  "age_20_44", 
-  "age_45_54",
-  "age_55_64", 
-  "age_65+", 
-  "age_unk",
-  "sex_male", 
-  "sex_female", 
-  "sex_unk",
-  "ethnicity_hispanic", 
-  "ethnicity_non_hispanic",
-  "ethnicity_unk",
-  "race_white", 
-  "race_AfrA",
-  "race_NatA",
-  "race_asian", 
-  "race_other",
-  "race_multi", 
-  "race_unk")
-
-hi_cols = c(
-  "total",
-  "age_0_19", 
-  "age_20_39", 
-  "age_40_59",
-  "age_60+", 
-  "sex_male", 
-  "sex_female", 
-  "sex_unk",
-  "ethnicity_hispanic", 
-  "ethnicity_non_hispanic",
-  "ethnicity_unk",
-  "race_white", 
-  "race_AfrA",
-  "race_NatA",
-  "race_asian", 
-  "race_other",
-  "race_multi", 
-  "race_unk")
-
-id_cols = c(
-  "total",
-  "age_0_17", 
-  "age_18_29", 
-  "age_30_39",
-  "age_40_49",
-  "age_50_59",
-  "age_60_69",
-  "age_70_79",
-  "age_80+", 
-  "sex_male", 
-  "sex_female", 
-  "ethnicity_hispanic", 
-  "ethnicity_non_hispanic",
-  "ethnicity_unk",
-  "race_white", 
-  "race_AfrA",
-  "race_NatA",
-  "race_asian", 
-  "race_other",
-  "race_multi", 
-  "race_unk")
-
-ia_cols = c(
-  "total",
-  "age_0_17", 
-  "age_18_40", 
-  "age_41_60",
-  "age_61_80",
-  "age_80+", 
-  "sex_male", 
-  "sex_female", 
-  "ethnicity_hispanic", 
-  "ethnicity_non_hispanic",
-  "ethnicity_unk",
-  "race_white", 
-  "race_AfrA",
-  "race_NatA",
-  "race_asian", 
-  "race_other",
-  "race_multi", 
-  "race_unk")
-
-ks_cols = c(
-  "total",
-  "age_0_9", 
-  "age_10_17", 
-  "age_18_24",
-  "age_25_34",
-  "age_35_44",
-  "age_45_54",
-  "age_55_64",
-  "age_65_74",
-  "age_75_84",
-  "age_85+", 
-  "age_unk",
-  "sex_male", 
-  "sex_female", 
-  "ethnicity_hispanic", 
-  "ethnicity_non_hispanic",
-  "ethnicity_unk",
-  "race_white", 
-  "race_AfrA",
-  "race_NatA",
-  "race_asian", 
-  "race_other",
-  "race_multi", 
-  "race_unk")
-
-nv_cols = c(
-  "total",
-  "age_0_9", 
-  "age_10_19", 
-  "age_20_29",
-  "age_30_39",
-  "age_40_49",
-  "age_50_59",
-  "age_60_69",
-  "age_70+", 
-  "age_unk",
-  "sex_male", 
-  "sex_female", 
-  "sex_unk",
-  "ethnicity_hispanic", 
-  "ethnicity_non_hispanic",
-  "ethnicity_unk",
-  "race_white", 
-  "race_AfrA",
-  "race_NatA",
-  "race_asian", 
-  "race_other",
-  "race_multi", 
-  "race_unk")
-
-pr_cols = c(
-  "total",
-  "age_0_4", 
-  "age_5_9", 
-  "age_10_14", 
-  "age_15_19",
-  "age_20_24", 
-  "age_25_29",
-  "age_30_34", 
-  "age_35_39",
-  "age_40_44", 
-  "age_45_49",
-  "age_50_54", 
-  "age_55_59",
-  "age_60_64", 
-  "age_65_69",
-  "age_70_74", 
-  "age_75_79",
-  "age_80_84", 
-  "age_85_89",
-  "age_90+",
-  "age_unk",
-  "sex_male", 
-  "sex_female", 
-  "sex_unk",
-  "ethnicity_hispanic", 
-  "ethnicity_non_hispanic",
-  "ethnicity_unk",
-  "race_white", 
-  "race_AfrA",
-  "race_NatA",
-  "race_asian", 
-  "race_other",
-  "race_multi", 
-  "race_unk")
-
-sd_cols = c(
-  "total",
-  "age_0_19", 
-  "age_20_29", 
-  "age_30_39", 
-  "age_40_49", 
-  "age_50_59", 
-  "age_60_69", 
-  "age_70_79", 
-  "age_80+",
-  "age_unk",
-  "sex_male", 
-  "sex_female", 
-  "sex_unk",
-  "ethnicity_hispanic", 
-  "ethnicity_non_hispanic",
-  "ethnicity_unk",
-  "race_white", 
-  "race_AfrA",
-  "race_NatA",
-  "race_asian", 
-  "race_other",
-  "race_multi", 
-  "race_unk")
-
-vi_cols = c(
-  "total",
-  "age_0_17", 
-  "age_18_49", 
-  "age_35_64", 
-  "age_65+",
-  "age_unk",
-  "sex_male", 
-  "sex_female", 
-  "sex_unk",
-  "ethnicity_hispanic", 
-  "ethnicity_non_hispanic",
-  "ethnicity_unk",
-  "race_white", 
-  "race_AfrA",
-  "race_NatA",
-  "race_asian", 
-  "race_other",
-  "race_multi", 
-  "race_unk")
-
-wv_cols = c(
-  "total",
-  "age_0_9", 
-  "age_10_19",
-  "age_20_29",
-  "age_30_39", 
-  "age_40_49", 
-  "age_50_59", 
-  "age_60_69", 
-  "age_70+",
-  "age_unk",
-  "sex_male", 
-  "sex_female", 
-  "sex_unk",
-  "ethnicity_hispanic", 
-  "ethnicity_non_hispanic",
-  "ethnicity_unk",
-  "race_white", 
-  "race_AfrA",
-  "race_NatA",
-  "race_asian", 
-  "race_other",
-  "race_multi", 
-  "race_unk")
-
-wy_cols = c(
-  "total",
-  "age_0_18", 
-  "age_19_29",
-  "age_30_39",
-  "age_40_49", 
-  "age_50_59", 
-  "age_60_69",
-  "age_70_79",
-  "age_80+",
-  "age_unk",
-  "sex_male", 
-  "sex_female", 
-  "sex_unk",
-  "ethnicity_hispanic", 
-  "ethnicity_non_hispanic",
-  "ethnicity_unk",
-  "race_white", 
-  "race_AfrA",
-  "race_NatA",
-  "race_asian", 
-  "race_other",
-  "race_multi", 
-  "race_unk")
-
-ok_cols = c(
-  "total",
-  "age_0_4", 
-  "age_5_17", 
-  "age_18_35", 
-  "age_36_49",
-  "age_50_64", 
-  "age_65+", 
-  "age_unk",
-  "sex_male", 
-  "sex_female", 
-  "sex_unk",
-  "ethnicity_hispanic", 
-  "ethnicity_non_hispanic",
-  "ethnicity_unk",
-  "race_white", 
-  "race_AfrA",
-  "race_NatA",
-  "race_asian", 
-  "race_other",
-  "race_multi", 
-  "race_unk")
-
-ms_cols = c(
-  "total",
-  "age_0_17", 
-  "age_18_29", 
-  "age_30_39",
-  "age_40_49",
-  "age_50_59",
-  "age_60_69",
-  "age_70_79",
-  "age_80_89",
-  "age_90+", 
-  "age_unk",
-  "sex_male", 
-  "sex_female", 
-  "sex_unk",
-  "ethnicity_hispanic", 
-  "ethnicity_non_hispanic",
-  "ethnicity_unk",
-  "race_white", 
-  "race_AfrA",
-  "race_NatA",
-  "race_asian", 
-  "race_other",
-  "race_multi", 
-  "race_unk")
-
-nc_cols = c(
-  "total",
-  "age_0_17", 
-  "age_18_24", 
-  "age_25_49", 
-  "age_50_64",
-  "age_65+", 
-  "age_unk",
-  "sex_male", 
-  "sex_female", 
-  "sex_unk",
-  "ethnicity_hispanic", 
-  "ethnicity_non_hispanic",
-  "ethnicity_unk",
-  "race_white", 
-  "race_AfrA",
-  "race_NatA",
-  "race_asian", 
-  "race_other",
-  "race_multi", 
-  "race_unk")
-
-sc_cols = c(
-  "total",
-  "age_0_19", 
-  "age_20_29",
-  "age_30_39",
-  "age_40_49",
-  "age_50_59",
-  "age_60_69",
-  "age_70_79",
-  "age_80+", 
-  "age_unk",
-  "sex_male", 
-  "sex_female", 
-  "sex_unk",
-  "ethnicity_hispanic", 
-  "ethnicity_non_hispanic",
-  "ethnicity_unk",
-  "race_white", 
-  "race_AfrA",
-  "race_NatA",
-  "race_asian", 
-  "race_other",
-  "race_multi", 
-  "race_unk")
-
-fl_cols = c(
-  "total",
-  "age_0_4", 
-  "age_5_14", 
-  "age_15_24", 
-  "age_25_34",
-  "age_35_44", 
-  "age_45_54", 
-  "age_55_64", 
-  "age_65_74", 
-  "age_75_84", 
-  "age_85+", 
-  "age_unk",
-  "sex_male", 
-  "sex_female", 
-  "sex_unk",
-  "ethnicity_hispanic", 
-  "ethnicity_non_hispanic",
-  "ethnicity_unk",
-  "race_white", 
-  "race_AfrA",
-  "race_NatA",
-  "race_asian", 
-  "race_other",
-  "race_multi", 
-  "race_unk")
-
-tn_cols = c(
-  "total",
-  "age_0_10", 
-  "age_11_20", 
-  "age_21_30",
-  "age_31_40",
-  "age_41_50",
-  "age_51_60",
-  "age_61_70",
-  "age_71_80",
-  "age_81+", 
-  "age_unk",
-  "sex_male", 
-  "sex_female", 
-  "sex_unk",
-  "ethnicity_hispanic", 
-  "ethnicity_non_hispanic",
-  "ethnicity_unk",
-  "race_white", 
-  "race_AfrA",
-  "race_NatA",
-  "race_asian", 
-  "race_other",
-  "race_multi", 
-  "race_unk")
-
-nj_cols = c(
-  "total",
-  "age_0_4", 
-  "age_5_17", 
-  "age_18_29", 
-  "age_30_49",
-  "age_50_64", 
-  "age_65_79", 
-  "age_80+", 
-  "age_unk",
-  "sex_male", 
-  "sex_female", 
-  "sex_unk",
-  "ethnicity_hispanic", 
-  "ethnicity_non_hispanic",
-  "ethnicity_unk",
-  "race_white", 
-  "race_AfrA",
-  "race_NatA",
-  "race_asian", 
-  "race_other",
-  "race_multi", 
-  "race_unk")
-
-nh_cols = c(
-  "total",
-  "age_0_9", 
-  "age_10_19",
-  "age_20_29", 
-  "age_30_39", 
-  "age_40_49",
-  "age_50_59", 
-  "age_60_69", 
-  "age_70_79", 
-  "age_80+", 
-  "age_unk",
-  "sex_male", 
-  "sex_female", 
-  "sex_unk",
-  "ethnicity_hispanic", 
-  "ethnicity_non_hispanic",
-  "ethnicity_unk",
-  "race_white", 
-  "race_AfrA",
-  "race_NatA",
-  "race_asian", 
-  "race_other",
-  "race_multi", 
-  "race_unk")
-
 skeleton_col = function(cnames) {
   # Need to make a named vector to make it easier to insert data
   # in a cel-wise fashion
@@ -545,7 +52,7 @@ standardize = function(skeleton) {
         skeleton %>% filter(str_detect(data, 'race')) %>% select(data, deaths)
       }),
       death_age = map(1, function(s) {
-        skeleton %>% filter(str_detect(data, 'race')) %>% select(data, deaths)
+        skeleton %>% filter(str_detect(data, 'age')) %>% select(data, deaths)
       }),
       death_gender = map(1, function(s) {
         skeleton %>% filter(str_detect(data, 'sex')) %>% select(data, deaths)
@@ -565,6 +72,8 @@ standardize = function(skeleton) {
 ###########################
 # STATE SCRAPING FUNCTIONS
 ###########################
+
+### FUNCTIONS FOR AUTOMATED STATES
 
 get_oklahoma = function() {
   case_url = "https://storage.googleapis.com/ok-covid-gcs-public-download/oklahoma_cases_county.csv"
@@ -1145,12 +654,6 @@ get_north_carolina = function() {
     filter(name == "Other") %>% 
     select(cases) %>% pull() %>% 
     str_replace(",", "") %>% unlist() %>% as.numeric
-  race_known = demo_table %>% 
-    filter(name == "Total with known race1") %>% 
-    select(cases) %>% pull() %>% 
-    str_replace(",", "") %>% unlist() %>% as.numeric
-  
-  race_unk = race_known - (nata + asian + afra + white + other)
   
   nata_deaths = demo_table %>% 
     filter(name == "American Indian Alaskan Native") %>% 
@@ -1172,11 +675,6 @@ get_north_carolina = function() {
     filter(name == "Other") %>% 
     select(deaths) %>% pull() %>% 
     str_replace(",", "") %>% unlist() %>% as.numeric
-  race_known_deaths = demo_table %>% 
-    filter(name == "Total with known race1") %>% 
-    select(deaths) %>% pull() %>% as.numeric
-  race_unk_deaths = race_known_deaths - 
-    (nata_deaths + asian_deaths + afra_deaths + white_deaths + other_deaths)
   
   hispanic = demo_table %>% 
     filter(name == "Hispanic") %>% 
@@ -1186,11 +684,6 @@ get_north_carolina = function() {
     filter(name == "Non-Hispanic") %>% 
     select(cases) %>% pull() %>% 
     str_replace(",", "") %>% unlist() %>% as.numeric
-  eth_known = demo_table %>% 
-    filter(name == "Total with known ethnicity2") %>% 
-    select(cases) %>% pull() %>% 
-    str_replace(",", "") %>% unlist() %>% as.numeric
-  eth_unk = eth_known - (hispanic + non_hispanic)
   
   hispanic_deaths = demo_table %>% 
     filter(name == "Hispanic") %>% 
@@ -1198,10 +691,7 @@ get_north_carolina = function() {
   non_hispanic_deaths = demo_table %>% 
     filter(name == "Non-Hispanic") %>% 
     select(deaths) %>% pull() %>% as.numeric
-  eth_known_deaths = demo_table %>% 
-    filter(name == "Total with known ethnicity2") %>% 
-    select(deaths) %>% pull() %>% as.numeric
-  eth_unk_deaths= eth_known_deaths - (hispanic_deaths + non_hispanic_deaths)
+
   
   cases = heading_table[1]
   deaths = heading_table[2]
@@ -1209,15 +699,15 @@ get_north_carolina = function() {
   skeleton[["tested"]][["total"]] = heading_table[3]
   
   skeleton[["deaths"]][["total"]] = deaths
+  
   skeleton[["deaths"]][["race_NatA"]] = nata_deaths
   skeleton[["deaths"]][["race_asian"]] = asian_deaths
   skeleton[["deaths"]][["race_AfrA"]] = afra_deaths
   skeleton[["deaths"]][["race_white"]] = white_deaths
   skeleton[["deaths"]][["race_other"]] = other_deaths
-  skeleton[["deaths"]][["race_unk"]] = race_unk_deaths
+  
   skeleton[["deaths"]][["ethnicity_hispanic"]] = hispanic_deaths
   skeleton[["deaths"]][["ethnicity_non_hispanic"]] = non_hispanic_deaths
-  skeleton[["deaths"]][["ethnicity_unk"]] = eth_unk_deaths
   
   skeleton[["cases"]][["total"]] = cases
   skeleton[["cases"]][["race_NatA"]] = nata
@@ -1225,10 +715,10 @@ get_north_carolina = function() {
   skeleton[["cases"]][["race_AfrA"]] = afra
   skeleton[["cases"]][["race_white"]] = white
   skeleton[["cases"]][["race_other"]] = other
-  skeleton[["cases"]][["race_unk"]] = race_unk
+  
   skeleton[["cases"]][["ethnicity_hispanic"]] = hispanic
   skeleton[["cases"]][["ethnicity_non_hispanic"]] = non_hispanic
-  skeleton[["cases"]][["ethnicity_unk"]] = eth_unk
+  
   
   skeleton[["hospitalized"]][["total"]] = heading_table[4]
   
@@ -1411,12 +901,6 @@ get_new_jersey = function() {
     str_split(" ", simplify = TRUE) %>% .[1, 3] %>% 
     str_replace(",", "") %>% .[[1]] %>% as.numeric()
   
-  non_hispanic = (white + black + asian + other_race)
-  
-  unknown_ethnicity = cases - (hispanic + non_hispanic)
-  
-  unknown_race = cases - (non_hispanic)
-  
   skeleton[["deaths"]][["total"]] = deaths
   skeleton[["hospitalized"]][["total"]] = hospitalizations
   
@@ -1434,14 +918,11 @@ get_new_jersey = function() {
   skeleton[["cases"]][["age_80+"]] = older_than_80
   
   skeleton[["cases"]][["ethnicity_hispanic"]] = hispanic
-  skeleton[["cases"]][["ethnicity_non_hispanic"]] = non_hispanic
-  skeleton[["cases"]][["ethnicity_unk"]] = unknown_ethnicity
   
   skeleton[["cases"]][["race_white"]] = white
   skeleton[["cases"]][["race_AfrA"]] = black
   skeleton[["cases"]][["race_asian"]] = asian
   skeleton[["cases"]][["race_other"]] = other_race
-  skeleton[["cases"]][["race_unk"]] = unknown_race
   
   as_tibble(skeleton) %>% 
     standardize %>% 
@@ -1476,7 +957,7 @@ get_new_hampshire = function() {
     str_split("\n") %>% .[[1]] %>% 
     str_squish()
   skeleton = skeleton_table(nh_cols)
-  
+
   cases = first_page %>% .[7] %>% 
     str_split(" ", simplify = TRUE) %>% .[1, 3] %>% 
     str_replace(",", "") %>% as.numeric()
@@ -1493,135 +974,135 @@ get_new_hampshire = function() {
     str_split(" ", simplify = TRUE) %>% .[1, 8] %>% 
     str_replace(",", "") %>% as.numeric()
   
-  males = first_page %>% .[15] %>% 
+  females = first_page %>% .[15] %>% 
     str_split(" ", simplify = TRUE) %>% .[1, 2] %>% 
     str_replace(",", "") %>% as.numeric()
   
-  males_hosp = first_page %>% .[15] %>% 
+  females_hosp = first_page %>% .[15] %>% 
     str_split(" ", simplify = TRUE) %>% .[1, 4] %>% 
     str_replace(",", "") %>% as.numeric()
   
-  males_death = first_page %>% .[15] %>% 
+  females_death = first_page %>% .[15] %>% 
     str_split(" ", simplify = TRUE) %>% .[1, 6] %>% 
     str_replace(",", "") %>% as.numeric()
   
-  females = first_page %>% .[14] %>% 
+  males = first_page %>% .[16] %>% 
     str_split(" ", simplify = TRUE) %>% .[1, 2] %>% 
     str_replace(",", "") %>% as.numeric()
   
-  females_hosp = first_page %>% .[14] %>% 
+  males_hosp = first_page %>% .[16] %>% 
     str_split(" ", simplify = TRUE) %>% .[1, 4] %>% 
     str_replace(",", "") %>% as.numeric()
   
-  females_death = first_page %>% .[14] %>% 
+  males_death = first_page %>% .[16] %>% 
     str_split(" ", simplify = TRUE) %>% .[1, 6] %>% 
     str_replace(",", "") %>% as.numeric()
   
-  between_0_and_9 = first_page %>% .[17] %>% 
+  between_0_and_9 = first_page %>% .[18] %>% 
     str_split(" ", simplify = TRUE) %>% .[1, 2] %>% 
     str_replace(",", "") %>% as.numeric()
   
-  between_0_and_9_hosp = first_page %>% .[17] %>% 
+  between_0_and_9_hosp = first_page %>% .[18] %>% 
     str_split(" ", simplify = TRUE) %>% .[1, 4] %>% 
     str_replace(",", "") %>% as.numeric()
   
-  between_0_and_9_death = first_page %>% .[17] %>% 
+  between_0_and_9_death = first_page %>% .[18] %>% 
     str_split(" ", simplify = TRUE) %>% .[1, 6] %>% 
     str_replace(",", "") %>% as.numeric()
   
-  between_10_and_19 = first_page %>% .[18] %>% 
+  between_10_and_19 = first_page %>% .[19] %>% 
     str_split(" ", simplify = TRUE) %>% .[1, 4] %>% 
     str_replace(",", "") %>% as.numeric()
   
-  between_10_and_19_hosp = first_page %>% .[18] %>% 
+  between_10_and_19_hosp = first_page %>% .[19] %>% 
     str_split(" ", simplify = TRUE) %>% .[1, 6] %>% 
     str_replace(",", "") %>% as.numeric()
   
-  between_10_and_19_death = first_page %>% .[18] %>% 
+  between_10_and_19_death = first_page %>% .[19] %>% 
     str_split(" ", simplify = TRUE) %>% .[1, 8] %>% 
     str_replace(",", "") %>% as.numeric()
   
-  between_20_and_29 = first_page %>% .[19] %>% 
+  between_20_and_29 = first_page %>% .[20] %>% 
     str_split(" ", simplify = TRUE) %>% .[1, 4] %>% 
     str_replace(",", "") %>% as.numeric()
   
-  between_20_and_29_hosp = first_page %>% .[19] %>% 
+  between_20_and_29_hosp = first_page %>% .[20] %>% 
     str_split(" ", simplify = TRUE) %>% .[1, 6] %>% 
     str_replace(",", "") %>% as.numeric()
   
-  between_20_and_29_death = first_page %>% .[19] %>% 
+  between_20_and_29_death = first_page %>% .[20] %>% 
     str_split(" ", simplify = TRUE) %>% .[1, 8] %>% 
     str_replace(",", "") %>% as.numeric()
   
-  between_30_and_39 = first_page %>% .[20] %>% 
+  between_30_and_39 = first_page %>% .[21] %>% 
     str_split(" ", simplify = TRUE) %>% .[1, 4] %>% 
     str_replace(",", "") %>% as.numeric()
   
-  between_30_and_39_hosp = first_page %>% .[20] %>% 
+  between_30_and_39_hosp = first_page %>% .[21] %>% 
     str_split(" ", simplify = TRUE) %>% .[1, 6] %>% 
     str_replace(",", "") %>% as.numeric()
   
-  between_30_and_39_death = first_page %>% .[20] %>% 
+  between_30_and_39_death = first_page %>% .[21] %>% 
     str_split(" ", simplify = TRUE) %>% .[1, 8] %>% 
     str_replace(",", "") %>% as.numeric()
   
-  between_40_and_49 = first_page %>% .[21] %>% 
+  between_40_and_49 = first_page %>% .[22] %>% 
     str_split(" ", simplify = TRUE) %>% .[1, 4] %>% 
     str_replace(",", "") %>% as.numeric()
   
-  between_40_and_49_hosp = first_page %>% .[21] %>% 
+  between_40_and_49_hosp = first_page %>% .[22] %>% 
     str_split(" ", simplify = TRUE) %>% .[1, 6] %>% 
     str_replace(",", "") %>% as.numeric()
   
-  between_40_and_49_death = first_page %>% .[21] %>% 
+  between_40_and_49_death = first_page %>% .[22] %>% 
     str_split(" ", simplify = TRUE) %>% .[1, 8] %>% 
     str_replace(",", "") %>% as.numeric()
   
-  between_50_and_59 = first_page %>% .[22] %>% 
+  between_50_and_59 = first_page %>% .[23] %>% 
     str_split(" ", simplify = TRUE) %>% .[1, 4] %>% 
     str_replace(",", "") %>% as.numeric()
   
-  between_50_and_59_hosp = first_page %>% .[22] %>% 
+  between_50_and_59_hosp = first_page %>% .[23] %>% 
     str_split(" ", simplify = TRUE) %>% .[1, 6] %>% 
     str_replace(",", "") %>% as.numeric()
   
-  between_50_and_59_death = first_page %>% .[22] %>% 
+  between_50_and_59_death = first_page %>% .[23] %>% 
     str_split(" ", simplify = TRUE) %>% .[1, 8] %>% 
     str_replace(",", "") %>% as.numeric()
   
-  between_60_and_69 = first_page %>% .[23] %>% 
+  between_60_and_69 = first_page %>% .[24] %>% 
     str_split(" ", simplify = TRUE) %>% .[1, 4] %>% 
     str_replace(",", "") %>% as.numeric()
   
-  between_60_and_69_hosp = first_page %>% .[23] %>% 
+  between_60_and_69_hosp = first_page %>% .[24] %>% 
     str_split(" ", simplify = TRUE) %>% .[1, 6] %>% 
     str_replace(",", "") %>% as.numeric()
   
-  between_60_and_69_death = first_page %>% .[23] %>% 
+  between_60_and_69_death = first_page %>% .[24] %>% 
     str_split(" ", simplify = TRUE) %>% .[1, 8] %>% 
     str_replace(",", "") %>% as.numeric()
   
-  between_70_and_79 = first_page %>% .[24] %>% 
+  between_70_and_79 = first_page %>% .[25] %>% 
     str_split(" ", simplify = TRUE) %>% .[1, 4] %>% 
     str_replace(",", "") %>% as.numeric()
   
-  between_70_and_79_hosp = first_page %>% .[24] %>% 
+  between_70_and_79_hosp = first_page %>% .[25] %>% 
     str_split(" ", simplify = TRUE) %>% .[1, 6] %>% 
     str_replace(",", "") %>% as.numeric()
   
-  between_70_and_79_death = first_page %>% .[24] %>% 
+  between_70_and_79_death = first_page %>% .[25] %>% 
     str_split(" ", simplify = TRUE) %>% .[1, 8] %>% 
     str_replace(",", "") %>% as.numeric()
   
-  older_than_80 = first_page %>% .[25] %>% 
+  older_than_80 = first_page %>% .[26] %>% 
     str_split(" ", simplify = TRUE) %>% .[1, 3] %>% 
     str_replace(",", "") %>% as.numeric()
   
-  older_than_80_hosp = first_page %>% .[25] %>% 
+  older_than_80_hosp = first_page %>% .[26] %>% 
     str_split(" ", simplify = TRUE) %>% .[1, 5] %>% 
     str_replace(",", "") %>% as.numeric()
   
-  older_than_80_death = first_page %>% .[25] %>% 
+  older_than_80_death = first_page %>% .[26] %>% 
     str_split(" ", simplify = TRUE) %>% .[1, 7] %>% 
     str_replace(",", "") %>% as.numeric()
   
@@ -1697,10 +1178,6 @@ get_new_hampshire = function() {
     str_split(" ", simplify = TRUE) %>% .[1, 6] %>% 
     str_replace(",", "") %>% as.numeric()
   
-  non_hispanic = white + black + other + asian
-  non_hispanic_hosp = white_hosp + black_hosp + other_hosp + asian_hosp
-  non_hispanic_death = white_death + black_death + other_death + asian_death
-  
   skeleton[["cases"]][["total"]] = cases
   skeleton[["cases"]][["sex_male"]] = males
   skeleton[["cases"]][["sex_female"]] = females
@@ -1715,14 +1192,12 @@ get_new_hampshire = function() {
   skeleton[["cases"]][["age_70_79"]] = between_70_and_79
   skeleton[["cases"]][["age_80+"]] = older_than_80
   
-  skeleton[["cases"]][["race_unk"]] = cases - has_race_ethn
   skeleton[["cases"]][["race_white"]] = white
   skeleton[["cases"]][["race_AfrA"]] = black
   skeleton[["cases"]][["race_other"]] = other
   skeleton[["cases"]][["race_asian"]] = asian
   
   skeleton[["cases"]][["ethnicity_hispanic"]] = hispanic
-  skeleton[["cases"]][["ethnicity_non_hispanic"]] = non_hispanic
   
   skeleton[["hospitalized"]][["total"]] = hospitalized
   skeleton[["hospitalized"]][["sex_male"]] = males_hosp
@@ -1738,14 +1213,12 @@ get_new_hampshire = function() {
   skeleton[["hospitalized"]][["age_70_79"]] = between_70_and_79_hosp
   skeleton[["hospitalized"]][["age_80+"]] = older_than_80_hosp
   
-  skeleton[["hospitalized"]][["race_unk"]] = hospitalized - has_race_ethn_hosp
   skeleton[["hospitalized"]][["race_white"]] = white_hosp
   skeleton[["hospitalized"]][["race_AfrA"]] = black_hosp
   skeleton[["hospitalized"]][["race_other"]] = other_hosp
   skeleton[["hospitalized"]][["race_asian"]] = asian_hosp
   
   skeleton[["hospitalized"]][["ethnicity_hispanic"]] = hispanic_hosp
-  skeleton[["hospitalized"]][["ethnicity_non_hispanic"]] = non_hispanic_hosp
   
   skeleton[["deaths"]][["total"]] = deaths
   skeleton[["deaths"]][["sex_male"]] = males_death
@@ -1761,14 +1234,12 @@ get_new_hampshire = function() {
   skeleton[["deaths"]][["age_70_79"]] = between_70_and_79_death
   skeleton[["deaths"]][["age_80+"]] = older_than_80_death
   
-  skeleton[["deaths"]][["race_unk"]] = deaths - has_race_ethn_death
   skeleton[["deaths"]][["race_white"]] = white_death
   skeleton[["deaths"]][["race_AfrA"]] = black_death
   skeleton[["deaths"]][["race_other"]] = other_death
   skeleton[["deaths"]][["race_asian"]] = asian_death
   
   skeleton[["deaths"]][["ethnicity_hispanic"]] = hispanic_death
-  skeleton[["deaths"]][["ethnicity_non_hispanic"]] = non_hispanic_death
   
   skeleton[["recovered"]][["total"]] = recovered
   
@@ -1856,9 +1327,6 @@ compile = function() {
   "Running North Carolina" %>% print()
   north_carolina = get_north_carolina()
   
-  "Running DC..." %>% print()
-  dc = get_dc()
-  
   "Running New Jersey..." %>% print()
   new_jersey = get_new_jersey()
   
@@ -1867,9 +1335,6 @@ compile = function() {
   
   "Running New Hampshire" %>% print()
   new_hampshire = get_new_hampshire()
-  
-  "Running Guam" %>% print()
-  guam = get_guam()
   
   # Manual entry for some extra items
   "Starting manual entry for these states" %>% print()
@@ -1907,18 +1372,87 @@ compile = function() {
   "Manual entry for Mississippi, go to: " %>% print()
   "https://msdh.ms.gov/msdhsite/_static/14,0,420.html" %>% print()
   
-  mississippi[["cases"]][["age_0_17"]] = readline(prompt = "MS, age_0_17: ") %>% as.numeric
-  mississippi[["cases"]][["age_18_29"]] = readline(prompt = "MS, age_18_29: ") %>% as.numeric
-  mississippi[["cases"]][["age_30_39"]] = readline(prompt = "MS, age_30_39: ") %>% as.numeric
-  mississippi[["cases"]][["age_40_49"]] = readline(prompt = "MS, age_40_49: ") %>% as.numeric
-  mississippi[["cases"]][["age_50_59"]] = readline(prompt = "MS, age_50_59: ") %>% as.numeric
-  mississippi[["cases"]][["age_60_69"]] = readline(prompt = "MS, age_60_69: ") %>% as.numeric
-  mississippi[["cases"]][["age_70_79"]] = readline(prompt = "MS, age_70_79: ") %>% as.numeric
-  mississippi[["cases"]][["age_80_89"]] = readline(prompt = "MS, age_80_89: ") %>% as.numeric
-  mississippi[["cases"]][["age_90+"]] = readline(prompt = "MS, age_90+: ") %>% as.numeric
-  mississippi[["cases"]][["sex_male"]] = readline(prompt = "MS, male: ") %>% as.numeric
-  mississippi[["cases"]][["sex_female"]] = readline(prompt = "MS, female: ") %>% as.numeric
-  mississippi[["cases"]][["sex_unk"]] = readline(prompt = "MS, sex_unk: ") %>% as.numeric
+  mississippi[["cases"]][["age_0_17"]] = readline(prompt = "MS, cases age_0_17: ") %>% as.numeric
+  mississippi[["cases"]][["age_18_29"]] = readline(prompt = "MS, cases age_18_29: ") %>% as.numeric
+  mississippi[["cases"]][["age_30_39"]] = readline(prompt = "MS, cases age_30_39: ") %>% as.numeric
+  mississippi[["cases"]][["age_40_49"]] = readline(prompt = "MS, cases age_40_49: ") %>% as.numeric
+  mississippi[["cases"]][["age_50_59"]] = readline(prompt = "MS, cases age_50_59: ") %>% as.numeric
+  mississippi[["cases"]][["age_60_69"]] = readline(prompt = "MS, cases age_60_69: ") %>% as.numeric
+  mississippi[["cases"]][["age_70_79"]] = readline(prompt = "MS, cases age_70_79: ") %>% as.numeric
+  mississippi[["cases"]][["age_80_89"]] = readline(prompt = "MS, cases age_80_89: ") %>% as.numeric
+  mississippi[["cases"]][["age_90+"]] = readline(prompt = "MS, cases age_90+: ") %>% as.numeric
+  
+  male_afra = readline(prompt = "MS, male cases AfrA: ") %>% as.numeric
+  male_white = readline(prompt = "MS, male cases white: ") %>% as.numeric
+  male_hispanic = readline(prompt = "MS, male cases hisp: ") %>% as.numeric
+  male_asian = readline(prompt = "MS, male cases Asian: ") %>% as.numeric
+  male_nata = readline(prompt = "MS, male cases NatA: ") %>% as.numeric
+  male_other = readline(prompt = "MS, male cases other_race: ") %>% as.numeric
+  
+  female_afra = readline(prompt = "MS, female cases AfrA: ") %>% as.numeric
+  female_white = readline(prompt = "MS, female cases white: ") %>% as.numeric
+  female_hispanic = readline(prompt = "MS, female cases hisp: ") %>% as.numeric
+  female_asian = readline(prompt = "MS, female cases Asian: ") %>% as.numeric
+  female_nata = readline(prompt = "MS, female cases NatA: ") %>% as.numeric
+  female_other = readline(prompt = "MS, female cases other_race: ") %>% as.numeric
+  
+  mississippi[["cases"]][["sex_male"]] = male_afra + male_white + male_hispanic + male_asian + 
+    male_nata + male_other
+  mississippi[["cases"]][["sex_female"]] = female_afra + female_white + female_hispanic + female_asian + 
+    female_nata + female_other
+  
+  mississippi[["cases"]][["race_AfrA"]] = male_afra + female_afra
+  mississippi[["cases"]][["race_white"]] = male_white + female_white
+  mississippi[["cases"]][["race_asian"]] = male_asian + female_asian
+  mississippi[["cases"]][["race_NatA"]] = male_nata + female_nata
+  mississippi[["cases"]][["race_other"]] = male_other + female_other
+  mississippi[["cases"]][["ethnicity_hispanic"]] = male_hispanic + female_hispanic 
+  
+  mississippi[["deaths"]][["age_0_17"]] = readline(prompt = "MS, deaths age_0_17: ") %>% as.numeric
+  mississippi[["deaths"]][["age_18_29"]] = readline(prompt = "MS, deaths age_18_29: ") %>% as.numeric
+  mississippi[["deaths"]][["age_30_39"]] = readline(prompt = "MS, deaths age_30_39: ") %>% as.numeric
+  mississippi[["deaths"]][["age_40_49"]] = readline(prompt = "MS, deaths age_40_49: ") %>% as.numeric
+  mississippi[["deaths"]][["age_50_59"]] = readline(prompt = "MS, deaths age_50_59: ") %>% as.numeric
+  mississippi[["deaths"]][["age_60_69"]] = readline(prompt = "MS, deaths age_60_69: ") %>% as.numeric
+  mississippi[["deaths"]][["age_70_79"]] = readline(prompt = "MS, deaths age_70_79: ") %>% as.numeric
+  mississippi[["deaths"]][["age_80_89"]] = readline(prompt = "MS, deaths age_80_89: ") %>% as.numeric
+  mississippi[["deaths"]][["age_90+"]] = readline(prompt = "MS, deaths age_90+: ") %>% as.numeric
+  
+  male_afra = readline(prompt = "MS, male deaths AfrA: ") %>% as.numeric
+  male_white = readline(prompt = "MS, male deaths white: ") %>% as.numeric
+  male_hispanic = readline(prompt = "MS, male deaths hisp: ") %>% as.numeric
+  male_asian = readline(prompt = "MS, male deaths Asian: ") %>% as.numeric
+  male_nata = readline(prompt = "MS, male deaths NatA: ") %>% as.numeric
+  male_other = readline(prompt = "MS, male deaths other_race: ") %>% as.numeric
+  
+  female_afra = readline(prompt = "MS, female deaths AfrA: ") %>% as.numeric
+  female_white = readline(prompt = "MS, female deaths white: ") %>% as.numeric
+  female_hispanic = readline(prompt = "MS, female deaths hisp: ") %>% as.numeric
+  female_asian = readline(prompt = "MS, female deaths Asian: ") %>% as.numeric
+  female_nata = readline(prompt = "MS, female deaths NatA: ") %>% as.numeric
+  female_other = readline(prompt = "MS, female deaths other_race: ") %>% as.numeric
+  
+  mississippi[["deaths"]][["sex_male"]] = male_afra + male_white + male_hispanic + male_asian + 
+    male_nata + male_other
+  mississippi[["deaths"]][["sex_female"]] = female_afra + female_white + female_hispanic + female_asian + 
+    female_nata + female_other
+
+  mississippi[["deaths"]][["race_AfrA"]] = male_afra + female_afra
+  mississippi[["deaths"]][["race_white"]] = male_white + female_white
+  mississippi[["deaths"]][["race_asian"]] = male_asian + female_asian
+  mississippi[["deaths"]][["race_NatA"]] = male_nata + female_nata
+  mississippi[["deaths"]][["race_other"]] = male_other + female_other
+  mississippi[["deaths"]][["ethnicity_hispanic"]] = male_hispanic + female_hispanic 
+  
+  mississippi[["hospitalized"]][["age_0_17"]] = readline(prompt = "MS, hosp age_0_17: ") %>% as.numeric
+  mississippi[["hospitalized"]][["age_18_29"]] = readline(prompt = "MS, hosp age_18_29: ") %>% as.numeric
+  mississippi[["hospitalized"]][["age_30_39"]] = readline(prompt = "MS, hosp age_30_39: ") %>% as.numeric
+  mississippi[["hospitalized"]][["age_40_49"]] = readline(prompt = "MS, hosp age_40_49: ") %>% as.numeric
+  mississippi[["hospitalized"]][["age_50_59"]] = readline(prompt = "MS, hosp age_50_59: ") %>% as.numeric
+  mississippi[["hospitalized"]][["age_60_69"]] = readline(prompt = "MS, hosp age_60_69: ") %>% as.numeric
+  mississippi[["hospitalized"]][["age_70_79"]] = readline(prompt = "MS, hosp age_70_79: ") %>% as.numeric
+  mississippi[["hospitalized"]][["age_80_89"]] = readline(prompt = "MS, hosp age_80_89: ") %>% as.numeric
+  mississippi[["hospitalized"]][["age_90+"]] = readline(prompt = "MS, hosp age_90+: ") %>% as.numeric
   
   final_mississippi = as_tibble(mississippi) %>% 
     standardize %>% 
@@ -1942,6 +1476,7 @@ compile = function() {
   north_carolina[["cases"]][["age_25_49"]] = readline(prompt = "NC, age_25_49: ") %>% as.numeric
   north_carolina[["cases"]][["age_50_64"]] = readline(prompt = "NC, age_50_44: ") %>% as.numeric
   north_carolina[["cases"]][["age_65+"]] = readline(prompt = "NC, age_65+: ") %>% as.numeric
+  north_carolina[["cases"]][["age_unk"]] = readline(prompt = "NC, age_unk: ") %>% as.numeric
   
   final_north_carolina = as_tibble(north_carolina) %>% 
     standardize %>% 
@@ -1949,7 +1484,7 @@ compile = function() {
       state_name = "North Carolina",
       Link = "https://covid19.ncdhhs.gov/dashboard#by-gender",
       platform = "pdf",
-      comments = "Age data manually entered",
+      comments = "Age data manually entered as percentages.",
       last.update = Sys.time() %>% as_date) %>% 
     select(
       state_name, Link,
@@ -1958,18 +1493,44 @@ compile = function() {
   
   "Starting manual entry for these states" %>% print()
   "Manual entry for South Carolina, go to: " %>% print()
-  "https://doh.sd.gov/news/coronavirus.aspx#SD" %>% print()
+  "https://scdhec.gov/sc-demographic-data-covid-19" %>% print()
   
-  south_carolina[["cases"]][["age_0_19"]] = readline(prompt = "SC, age_0_19: ") %>% as.numeric
-  south_carolina[["cases"]][["age_20_29"]] = readline(prompt = "SC, age_20_29: ") %>% as.numeric
-  south_carolina[["cases"]][["age_30_39"]] = readline(prompt = "SC, age_30_39: ") %>% as.numeric
-  south_carolina[["cases"]][["age_40_49"]] = readline(prompt = "SC, age_40_49: ") %>% as.numeric
-  south_carolina[["cases"]][["age_50_59"]] = readline(prompt = "SC, age_50_59: ") %>% as.numeric
-  south_carolina[["cases"]][["age_60_69"]] = readline(prompt = "SC, age_60_69: ") %>% as.numeric
-  south_carolina[["cases"]][["age_70_79"]] = readline(prompt = "SC, age_70_79: ") %>% as.numeric
-  south_carolina[["cases"]][["age_80+"]] = readline(prompt = "SC, age_80+: ") %>% as.numeric
-  south_carolina[["cases"]][["sex_male"]] = readline(prompt = "SC, male: ") %>% as.numeric
-  south_carolina[["cases"]][["sex_female"]] = readline(prompt = "SC, female: ") %>% as.numeric
+  south_carolina[["cases"]][["age_0_19"]] = readline(prompt = "SC, cases age_0_19: ") %>% as.numeric
+  south_carolina[["cases"]][["age_20_29"]] = readline(prompt = "SC, cases age_20_29: ") %>% as.numeric
+  south_carolina[["cases"]][["age_30_39"]] = readline(prompt = "SC, cases age_30_39: ") %>% as.numeric
+  south_carolina[["cases"]][["age_40_49"]] = readline(prompt = "SC, cases age_40_49: ") %>% as.numeric
+  south_carolina[["cases"]][["age_50_59"]] = readline(prompt = "SC, cases age_50_59: ") %>% as.numeric
+  south_carolina[["cases"]][["age_60_69"]] = readline(prompt = "SC, cases age_60_69: ") %>% as.numeric
+  south_carolina[["cases"]][["age_70_79"]] = readline(prompt = "SC, cases age_70_79: ") %>% as.numeric
+  south_carolina[["cases"]][["age_80+"]] = readline(prompt = "SC, cases age_80+: ") %>% as.numeric
+  
+  south_carolina[["cases"]][["sex_male"]] = readline(prompt = "SC, cases male: ") %>% as.numeric
+  south_carolina[["cases"]][["sex_female"]] = readline(prompt = "SC, cases female: ") %>% as.numeric
+  
+  south_carolina[["cases"]][["race_white"]] = readline(prompt = "SC, cases race_white: ") %>% as.numeric
+  south_carolina[["cases"]][["race_AfrA"]] = readline(prompt = "SC, cases race_Afra: ") %>% as.numeric
+  south_carolina[["cases"]][["ethnicity_hispanic"]] = readline(prompt = "SC, cases ethnicity_hispanic: ") %>% as.numeric
+  south_carolina[["cases"]][["race_other"]] = readline(prompt = "SC, cases race_other: ") %>% as.numeric
+  south_carolina[["cases"]][["race_asian"]] = readline(prompt = "SC, cases race_asian: ") %>% as.numeric
+  south_carolina[["cases"]][["race_NatA"]] = readline(prompt = "SC, cases race_NatA: ") %>% as.numeric
+  
+  south_carolina[["deaths"]][["age_0_19"]] = readline(prompt = "SC, deaths age_0_19: ") %>% as.numeric
+  south_carolina[["deaths"]][["age_20_29"]] = readline(prompt = "SC, deaths age_20_29: ") %>% as.numeric
+  south_carolina[["deaths"]][["age_30_39"]] = readline(prompt = "SC, deaths age_30_39: ") %>% as.numeric
+  south_carolina[["deaths"]][["age_40_49"]] = readline(prompt = "SC, deaths age_40_49: ") %>% as.numeric
+  south_carolina[["deaths"]][["age_50_59"]] = readline(prompt = "SC, deaths age_50_59: ") %>% as.numeric
+  south_carolina[["deaths"]][["age_60_69"]] = readline(prompt = "SC, deaths age_60_69: ") %>% as.numeric
+  south_carolina[["deaths"]][["age_70_79"]] = readline(prompt = "SC, deaths age_70_79: ") %>% as.numeric
+  south_carolina[["deaths"]][["age_80+"]] = readline(prompt = "SC, deaths age_80+: ") %>% as.numeric
+  
+  south_carolina[["hospitalized"]][["age_0_19"]] = readline(prompt = "SC, hosp age_0_19: ") %>% as.numeric
+  south_carolina[["hospitalized"]][["age_20_29"]] = readline(prompt = "SC, hosp age_20_29: ") %>% as.numeric
+  south_carolina[["hospitalized"]][["age_30_39"]] = readline(prompt = "SC, hosp age_30_39: ") %>% as.numeric
+  south_carolina[["hospitalized"]][["age_40_49"]] = readline(prompt = "SC, hosp age_40_49: ") %>% as.numeric
+  south_carolina[["hospitalized"]][["age_50_59"]] = readline(prompt = "SC, hosp age_50_59: ") %>% as.numeric
+  south_carolina[["hospitalized"]][["age_60_69"]] = readline(prompt = "SC, hosp age_60_69: ") %>% as.numeric
+  south_carolina[["hospitalized"]][["age_70_79"]] = readline(prompt = "SC, hosp age_70_79: ") %>% as.numeric
+  south_carolina[["hospitalized"]][["age_80+"]] = readline(prompt = "SC, hosp age_80+: ") %>% as.numeric
   
   final_south_carolina = as_tibble(south_carolina) %>% 
     standardize %>% 
@@ -1990,11 +1551,9 @@ compile = function() {
     florida,
     tennessee,
     final_north_carolina,
-    dc,
     new_jersey,
     final_south_carolina,
-    new_hampshire,
-    guam
+    new_hampshire
   ))
 }
 
