@@ -9,3 +9,7 @@
 
 05/15:
 - Virginia: adding ethnicity
+
+05/16:
+- Delete territories data
+- Standardize category bins for age gender and race across states
