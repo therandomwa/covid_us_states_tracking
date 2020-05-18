@@ -228,14 +228,380 @@ manual_data_20200515 = bind_rows(
 ```
 
 ```{r}
-full_data_20200514 = bind_rows(automated_data_20200514, manual_data_20200514)
-save(full_data_20200514, file = "../Data/meta_2020-05-14-cbp.rda")
+full_data_20200515 = bind_rows(automated_data_20200515, manual_data_20200515)
+save(full_data_20200515, file = "../Data/meta_2020-05-15-cbp.rda")
+```
+
+# Data Separation
+
+```{r}
+full_data = read_csv("../Data/meta_final_2020-05-16.csv") %>% 
+  mutate(
+    total_test = unlist(map(total.tested, function(data) {
+      if (is.na(data)) {
+        return(NA)
+      } else if (str_detect(data, ";")) {
+        total = data %>% str_split(";", simplify = TRUE) %>% .[1,1]
+        return(as.numeric(total))
+      } else {
+        as.numeric(data)
+      }
+    })),
+    total_case = unlist(map(total.case, function(data) {
+      if (is.na(data)) {
+        return(NA)
+      } else if (str_detect(data, ";")) {
+        total = data %>% str_split(";", simplify = TRUE) %>% .[1,1]
+        return(as.numeric(total))
+      } else {
+        as.numeric(data)
+      }
+    })),
+    total_death = unlist(map(total.death, function(data) {
+      if (is.na(data)) {
+        return(NA)
+      } else if (str_detect(data, ";")) {
+        total = data %>% str_split(";", simplify = TRUE) %>% .[1,1]
+        return(as.numeric(total))
+      } else {
+        as.numeric(data)
+      }
+    })),
+    total_hosp = unlist(map(total_hosp, function(data) {
+      if (is.na(data)) {
+        return(NA)
+      } else if (str_detect(data, ";")) {
+        total = data %>% str_split(";", simplify = TRUE) %>% .[1,1]
+        return(as.numeric(total))
+      } else {
+        as.numeric(data)
+      }
+    }))
+  )
+
+# Dealing with cases first
+final_case_data = full_data %>% 
+  select(state_name, 
+         total_test,
+         total_case, 
+         total_death, 
+         total_hosp,
+         positive_age, 
+         positive_race, 
+         positive_gender) %>% 
+  mutate(
+    case_by_age = map(positive_age, function(data) {
+      if (is.na(data)) {
+        return(NA)
+      } else if (str_detect(data, ";")) {
+        age_tib = data %>% 
+          str_split(";", simplify = TRUE) %>% 
+          str_split(":", simplify = TRUE) %>% 
+          as_tibble()
+        colnames(age_tib) = c("category", "count")
+        age_tib %>% 
+          mutate(
+            category = str_trim(category),
+            count = as.numeric(count)
+          )
+      }
+    }),
+    case_by_race = map(positive_race, function(data) {
+      if (is.na(data)) {
+        return(NA)
+      } else if (str_detect(data, ";")) {
+        race_tib = data %>% 
+          str_split(";", simplify = TRUE) %>% 
+          str_split(":", simplify = TRUE) %>% 
+          as_tibble()
+        colnames(race_tib) = c("category", "count")
+        race_tib %>% 
+          mutate(
+            category = str_trim(category),
+            count = str_replace(count, ",", "") %>%  as.numeric(count)
+          )
+      }
+    }),
+    case_by_sex = map(positive_gender, function(data) {
+      if (is.na(data)) {
+        return(NA)
+      } else if (str_detect(data, ";")) {
+        sex_tib = data %>% 
+          str_split(";", simplify = TRUE) %>% 
+          str_split(":", simplify = TRUE) %>% 
+          as_tibble()
+        colnames(sex_tib) = c("category", "count")
+        sex_tib %>% 
+          mutate(
+            category = str_trim(category),
+            count = str_replace(count, ",", "") %>%  as.numeric(count)
+          )
+      }
+    })
+  ) %>% 
+  select(
+    state_name, 
+    total_test,
+    total_case, 
+    total_death, 
+    total_hosp,
+    case_by_age,
+    case_by_race,
+    case_by_sex
+    ) 
+
+case_age_data = final_case_data %>% 
+  select(state_name, total_test, total_case, total_death, total_hosp, case_by_age) %>% 
+  unnest_wider(case_by_age) %>% 
+  unnest(c(category, count)) %>% 
+  select(-`...1`) %>% 
+  mutate( 
+    strata_type = "age",
+    data_type = "case"
+    )
+
+case_race_data = final_case_data %>% 
+  select(state_name, total_test, total_case, total_death, total_hosp, case_by_race) %>% 
+  unnest_wider(case_by_race) %>% 
+  unnest(c(category, count)) %>% 
+  select(-`...1`) %>% 
+  mutate( 
+    strata_type = "race",
+    data_type = "case" 
+    )
+
+case_sex_data = final_case_data %>% 
+  select(state_name, total_test, total_case, total_death, total_hosp, case_by_sex) %>% 
+  unnest_wider(case_by_sex) %>% 
+  unnest(c(category, count)) %>% 
+  select(-`...1`) %>% 
+  mutate( 
+    strata_type = "sex",
+    data_type = "case" 
+    )
+```
+
+```{r}
+# Dealing with deaths
+final_death_data = full_data %>% 
+  select(state_name, 
+         total_test,
+         total_case, 
+         total_death, 
+         total_hosp,
+         death_age, 
+         death_race, 
+         death_gender) %>% 
+  mutate(
+    death_by_age = map(death_age, function(data) {
+      if (is.na(data)) {
+        return(NA)
+      } else if (str_detect(data, ";")) {
+        age_tib = data %>% 
+          str_split(";", simplify = TRUE) %>% 
+          str_split(":", simplify = TRUE) %>% 
+          as_tibble()
+        colnames(age_tib) = c("category", "count")
+        age_tib %>% 
+          mutate(
+            category = str_trim(category),
+            count = as.numeric(count)
+          )
+      }
+    }),
+    death_by_race = map(death_race, function(data) {
+      if (is.na(data)) {
+        return(NA)
+      } else if (str_detect(data, ";")) {
+        race_tib = data %>% 
+          str_split(";", simplify = TRUE) %>% 
+          str_split(":", simplify = TRUE) %>% 
+          as_tibble()
+        colnames(race_tib) = c("category", "count")
+        race_tib %>% 
+          mutate(
+            category = str_trim(category),
+            count = str_replace(count, ",", "") %>%  as.numeric(count)
+          )
+      }
+    }),
+    death_by_sex = map(death_gender, function(data) {
+      if (is.na(data)) {
+        return(NA)
+      } else if (str_detect(data, ";")) {
+        sex_tib = data %>% 
+          str_split(";", simplify = TRUE) %>% 
+          str_split(":", simplify = TRUE) %>% 
+          as_tibble()
+        colnames(sex_tib) = c("category", "count")
+        sex_tib %>% 
+          mutate(
+            category = str_trim(category),
+            count = str_replace(count, ",", "") %>%  as.numeric(count)
+          )
+      }
+    })
+  ) %>% 
+  select(
+    state_name, 
+    total_test, 
+    total_case, 
+    total_death, 
+    total_hosp,
+    death_by_race,
+    death_by_age,
+    death_by_sex
+    ) 
+
+death_age_data = final_death_data %>% 
+  select(state_name, total_test, total_case, total_death, total_hosp, death_by_age) %>% 
+  unnest_wider(death_by_age) %>% 
+  unnest(c(category, count)) %>% 
+  select(-`...1`) %>% 
+  mutate( 
+    strata_type = "age",
+    data_type = "death"
+    )
+
+death_race_data = final_death_data %>% 
+  select(state_name, total_test, total_case, total_death, total_hosp, death_by_race) %>% 
+  unnest_wider(death_by_race) %>% 
+  unnest(c(category, count)) %>% 
+  select(-`...1`) %>% 
+  mutate( 
+    strata_type = "race",
+    data_type = "death"
+    )
+
+death_sex_data = final_death_data %>% 
+  select(state_name, total_test, total_case, total_death, total_hosp, death_by_sex) %>% 
+  unnest_wider(death_by_sex) %>% 
+  unnest(c(category, count)) %>% 
+  select(-`...1`) %>% 
+  mutate( 
+    strata_type = "sex",
+    data_type = "death" 
+    )
+```
+
+```{r}
+# Handling data for hospitalizations
+final_hosp_data = full_data %>% 
+  select(state_name, 
+         total_test,
+         total_case, 
+         total_death, 
+         total_hosp, 
+         hosp_age, 
+         hosp_race, 
+         hosp_gender) %>% 
+  mutate(
+    hosp_by_age = map(hosp_age, function(data) {
+      if (is.na(data)) {
+        return(NA)
+      } else if (str_detect(data, ";")) {
+        age_tib = data %>% 
+          str_split(";", simplify = TRUE) %>% 
+          str_split(":", simplify = TRUE) %>% 
+          as_tibble()
+        colnames(age_tib) = c("category", "count")
+        age_tib %>% 
+          mutate(
+            category = str_trim(category),
+            count = as.numeric(count)
+          )
+      }
+    }),
+    hosp_by_race = map(hosp_race, function(data) {
+      if (is.na(data)) {
+        return(NA)
+      } else if (str_detect(data, ";")) {
+        race_tib = data %>% 
+          str_split(";", simplify = TRUE) %>% 
+          str_split(":", simplify = TRUE) %>% 
+          as_tibble()
+        colnames(race_tib) = c("category", "count")
+        race_tib %>% 
+          mutate(
+            category = str_trim(category),
+            count = str_replace(count, ",", "") %>%  as.numeric(count)
+          )
+      }
+    }),
+    hosp_by_sex = map(hosp_gender, function(data) {
+      if (is.na(data)) {
+        return(NA)
+      } else if (str_detect(data, ";")) {
+        sex_tib = data %>% 
+          str_split(";", simplify = TRUE) %>% 
+          str_split(":", simplify = TRUE) %>% 
+          as_tibble()
+        colnames(sex_tib) = c("category", "count")
+        sex_tib %>% 
+          mutate(
+            category = str_trim(category),
+            count = str_replace(count, ",", "") %>%  as.numeric(count)
+          )
+      }
+    })
+  ) %>% 
+  select(
+    state_name, 
+    total_test, 
+    total_case, 
+    total_death, 
+    total_hosp,
+    hosp_by_race,
+    hosp_by_age,
+    hosp_by_sex
+    ) 
+
+hosp_age_data = final_hosp_data %>% 
+  select(state_name, total_test, total_case, total_death, total_hosp, hosp_by_age) %>% 
+  unnest_wider(hosp_by_age) %>% 
+  unnest(c(category, count)) %>% 
+  select(-`...1`) %>% 
+  mutate( 
+    strata_type = "hosp",
+    data_type = "age"
+    )
+
+hosp_race_data = final_hosp_data %>% 
+  select(state_name, total_test, total_case, total_death, total_hosp, hosp_by_race) %>% 
+  unnest_wider(hosp_by_race) %>% 
+  unnest(c(category, count)) %>% 
+  select(-`...1`) %>% 
+  mutate( 
+    strata_type = "hosp",
+    data_type = "race"
+    )
+
+hosp_sex_data = final_hosp_data %>% 
+  select(state_name, total_test, total_case, total_death, total_hosp, hosp_by_sex) %>% 
+  unnest_wider(hosp_by_sex) %>% 
+  unnest(c(category, count)) %>% 
+  select(-`...1`) %>% 
+  mutate( 
+    strata_type = "hosp",
+    data_type = "sex"
+    )
+```
+
+## Save To CSV
+
+```{r}
+final = bind_rows(
+  case_age_data,
+  case_race_data,
+  case_sex_data,
+  death_age_data,
+  death_race_data,
+  death_sex_data,
+  hosp_age_data,
+  hosp_race_data,
+  hosp_sex_data) 
+
+write.csv(final, "../Data/processed_state_data_20200514.csv")
 ```
 
 
-## TODO:
-
-- standardize Aijins data into your format
-- combine Aijins and your data compilation into one
-- add some manual data entry into the automated function to capture that extra bit of information that you cant scrape
-- my coding is better than yours Aijin
