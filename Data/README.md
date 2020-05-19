@@ -15,4 +15,4 @@
 - Standardize category bins for age gender and race across states
 
 05/18:
-- PA moving death data into pdf
+- PA moving death data into pdf, adding comorbidities and place of death
