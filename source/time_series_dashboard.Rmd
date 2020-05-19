@@ -1,5 +1,5 @@
 ---
-title: "Untitled"
+title: "Daily COVID-19 Cases and Deaths by State"
 output: 
   flexdashboard::flex_dashboard:
     orientation: columns
@@ -13,6 +13,7 @@ library(tidyverse)
 library(rvest)
 library(httr)
 library(plotly)
+library(vistime)
 ```
 
 
@@ -20,7 +21,7 @@ library(plotly)
 # read in case data
 cases = read_csv("https://usafactsstatic.blob.core.windows.net/public/data/covid-19/covid_confirmed_usafacts.csv", col_names = TRUE) %>%
   janitor::clean_names() %>%
-  pivot_longer(x1_22_20:x5_14_20,
+  pivot_longer(starts_with("x"),
                names_to = "date",
                values_to = "total_cases") %>%
   mutate(date = substr(date, 2, 8),
@@ -34,7 +35,7 @@ cases = read_csv("https://usafactsstatic.blob.core.windows.net/public/data/covid
 # read in death data
 deaths = read_csv("https://usafactsstatic.blob.core.windows.net/public/data/covid-19/covid_deaths_usafacts.csv", col_names = TRUE) %>%
   janitor::clean_names() %>%
-  pivot_longer(x1_22_20:x5_14_20,
+  pivot_longer(starts_with("x"),
                names_to = "date",
                values_to = "total_deaths") %>%
   mutate(date = substr(date, 2, 8),
@@ -43,7 +44,7 @@ deaths = read_csv("https://usafactsstatic.blob.core.windows.net/public/data/covi
   group_by(state, date) %>%
   summarize(total_deaths = sum(total_deaths)) %>%
   group_by(state) %>%
-  mutate(new_deaths = if_else(date != "2020-01-22", total_deaths - lag(total_deaths), total_deaths))
+  mutate(new_deaths = if_else(date != "2020-01-22", total_deaths - lag(total_deaths), total_deaths)) 
 
 # read in pop data
 pop = read_csv("https://usafactsstatic.blob.core.windows.net/public/data/covid-19/covid_county_population_usafacts.csv", col_names = TRUE) %>%
@@ -58,7 +59,10 @@ cases2 = left_join(cases, pop, by = "state") %>%
   pivot_longer(new_cases:new_cases_norm,
                names_to = "num_type",
                values_to = "val") %>%
-  mutate(num_type = if_else(num_type == "new_cases", "Count", "Per 100k"))
+  mutate(num_type = if_else(num_type == "new_cases", "Count", "Per 100k")) %>%
+  arrange(state, num_type, date) %>%
+  mutate(roll_avg = (val + lag(val) + lag(lag(val)))/3) %>%
+  mutate(roll_avg = ifelse(num_type != lag(num_type) | num_type != lag(lag(num_type)), NA, roll_avg))
 
 deaths2 = left_join(deaths, pop, by = "state") %>%
   mutate(new_deaths_norm = (new_deaths/population)*100000) %>%
@@ -66,7 +70,23 @@ deaths2 = left_join(deaths, pop, by = "state") %>%
   pivot_longer(new_deaths:new_deaths_norm,
                names_to = "num_type",
                values_to = "val") %>%
-  mutate(num_type = if_else(num_type == "new_deaths", "Count", "Per 100k"))
+  mutate(num_type = if_else(num_type == "new_deaths", "Count", "Per 100k")) %>%
+  arrange(state, num_type, date) %>%
+  mutate(roll_avg = (val + lag(val) + lag(lag(val)))/3) %>%
+  mutate(roll_avg = ifelse(num_type != lag(num_type) | num_type != lag(lag(num_type)), NA, roll_avg))
+
+
+state_string = cases2 %>% distinct(state) %>% pull()
+
+# make temporary timeline dataset to test timeline visual-must have full data from same start date as cases and deaths
+timelines = tibble(
+  state = rep(state_string, 2),
+  start = c(rep("1/22/2020", 51), rep("5/01/2020", 25), rep("5/15/2020", 26)),
+  event = c(rep("closed", 51), rep("open", 51)),
+  end = c(rep("5/1/2020", 25), rep("5/15/2020", 26), rep("05/17/2020", 51))
+) %>%
+  mutate(start = as.Date(start, "%m/%d/%y"),
+         end = as.Date(end, "%m/%d/%y"))
 ```
 
 Column {.sidebar}
@@ -89,29 +109,86 @@ radioButtons(
 )
 ```
 
-
-Column {data-width=650}
------------------------------------------------------------------------
-
-### Chart A
-
 ```{r}
+states_grp = cases2 %>% distinct(state) %>% pull()
 
+checkboxGroupInput(
+  "group_choice",
+  label = h3("Select States to Compare Over Time"),
+  choices = states_grp, selected = c("AK", "AL", "AR", "AZ")
+)
 ```
 
-Column {data-width=350}
+
+
+Column {data-width=500}
 -----------------------------------------------------------------------
 
-### Chart B
+### New COVID-19 Cases by Day with 3 Day Average
 
 ```{r}
 renderPlotly({
   cases2 %>%
     filter(state == input$state_choice,
            num_type == input$count_choice) %>%
-#    mutate(text_label = str_c("Date: ", date, '\nCases: ', new_cases)) %>%
     plot_ly(
-      x = ~date, y = ~val, type = "bar"
+      x = ~date, y = ~val, type = "bar", showlegend = FALSE,
+      hoverinfo = "text",
+      text = ~paste0("Date: ", date, '\nCases: ', round(val, 2), '\n3 Day Avg: ', round(roll_avg, 2))) %>%
+    layout(
+      xaxis = list(title = "Date"),
+      yaxis = list(title = "No. Cases")) %>%
+    add_lines(y = ~roll_avg, 
+              line = list(color = "orange"))
+})
+```
+
+### Opening and Closure Timeline
+```{r}
+renderPlotly({
+  timelines %>%
+    filter(state == input$state_choice) %>%
+    vistime(start = "start", end = "end", groups = "state", events = "event",
+              background_lines = 0)
+})
+```
+
+
+### New COVID-19 Deaths by Day with 3 Day Average
+
+```{r}
+renderPlotly({
+  deaths2 %>%
+    filter(state == input$state_choice,
+           num_type == input$count_choice) %>%
+    plot_ly(
+      x = ~date, y = ~val, type = "bar", showlegend = FALSE,
+      hoverinfo = "text",
+      text = ~paste("Date: ", date, '\nDeaths: ', round(val, 2), '\n3 Day Avg: ', round(roll_avg, 2))
+    ) %>%
+    layout(
+      xaxis = list(title = "Date"),
+      yaxis = list(title = "No. Deaths")
+    ) %>%
+    add_lines(y = ~roll_avg, 
+              line = list(color = "orange"))
+})
+```
+
+
+Column {data-width=500}
+-----------------------------------------------------------------------
+
+### New COVID-19 Cases by Day and State
+
+```{r}
+renderPlotly({
+ cases2 %>%
+    filter(state %in% input$group_choice,
+           num_type == input$count_choice) %>%
+    plot_ly(
+      x = ~date, y = ~val, color = ~state, 
+      type = "scatter", mode = "lines+markers"
     ) %>%
     layout(
       xaxis = list(title = "Date"),
@@ -120,16 +197,16 @@ renderPlotly({
 })
 ```
 
-### Chart C
+### New COVID-19 Deaths by Day and State
 
 ```{r}
 renderPlotly({
-  deaths2 %>%
-    filter(state == input$state_choice,
+ deaths2 %>%
+    filter(state %in% input$group_choice,
            num_type == input$count_choice) %>%
- #   mutate(text_label = str_c("Date: ", date, '\nDeaths: ', new_deaths)) %>%
     plot_ly(
-      x = ~date, y = ~val, type = "bar"
+      x = ~date, y = ~val, color = ~state, 
+      type = "scatter", mode = "lines+markers"
     ) %>%
     layout(
       xaxis = list(title = "Date"),
