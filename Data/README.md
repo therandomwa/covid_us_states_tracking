@@ -13,3 +13,6 @@
 05/16:
 - Delete territories data
 - Standardize category bins for age gender and race across states
+
+05/18:
+- PA moving death data into pdf
