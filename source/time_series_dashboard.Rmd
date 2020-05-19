@@ -64,6 +64,7 @@ cases2 = left_join(cases, pop, by = "state") %>%
   mutate(roll_avg = (val + lag(val) + lag(lag(val)))/3) %>%
   mutate(roll_avg = ifelse(num_type != lag(num_type) | num_type != lag(lag(num_type)), NA, roll_avg))
 
+
 deaths2 = left_join(deaths, pop, by = "state") %>%
   mutate(new_deaths_norm = (new_deaths/population)*100000) %>%
   select(state, date, new_deaths, new_deaths_norm) %>%
@@ -73,7 +74,7 @@ deaths2 = left_join(deaths, pop, by = "state") %>%
   mutate(num_type = if_else(num_type == "new_deaths", "Count", "Per 100k")) %>%
   arrange(state, num_type, date) %>%
   mutate(roll_avg = (val + lag(val) + lag(lag(val)))/3) %>%
-  mutate(roll_avg = ifelse(num_type != lag(num_type) | num_type != lag(lag(num_type)), NA, roll_avg))
+  mutate(roll_avg = ifelse(num_type != lag(num_type) | num_type != lag(lag(num_type)), NA, roll_avg)) 
 
 
 state_string = cases2 %>% distinct(state) %>% pull()
@@ -87,12 +88,27 @@ timelines = tibble(
 ) %>%
   mutate(start = as.Date(start, "%m/%d/%y"),
          end = as.Date(end, "%m/%d/%y"))
+
+timelines2 = tibble(
+  state = state_string,
+  start_close = c(rep("2/15/2020", 25), rep("3/15/2020", 26)),
+  end_close = c(rep("5/1/2020", 25), rep("5/15/2020", 26)),
+  start_open = c(rep("5/1/2020", 25), rep("5/15/2020", 26)),
+  end_open = rep("5/18/2020", 51)
+) %>%
+  mutate(start_close = as.Date(start_close, "%m/%d/%y"),
+         end_close = as.Date(end_close, "%m/%d/%y"),
+         start_open = as.Date(start_open, "%m/%d/%y"),
+         end_open = as.Date(end_open, "%m/%d/%y"))
+
+cases3 = left_join(cases2, timelines2, by = "state")
+deaths3 = left_join(deaths2, timelines2, by = "state")
 ```
 
 Column {.sidebar}
 -----------------------------------------------------------------------
 ```{r}
-states = cases2 %>% distinct(state) %>% pull()
+states = cases3 %>% distinct(state) %>% pull()
 
 selectInput(
   "state_choice",
@@ -110,7 +126,7 @@ radioButtons(
 ```
 
 ```{r}
-states_grp = cases2 %>% distinct(state) %>% pull()
+states_grp = cases3 %>% distinct(state) %>% pull()
 
 checkboxGroupInput(
   "group_choice",
@@ -128,28 +144,33 @@ Column {data-width=500}
 
 ```{r}
 renderPlotly({
-  cases2 %>%
+  cases3 %>%
     filter(state == input$state_choice,
            num_type == input$count_choice) %>%
+    mutate(max_val = max(val)) %>%
     plot_ly(
       x = ~date, y = ~val, type = "bar", showlegend = FALSE,
       hoverinfo = "text",
       text = ~paste0("Date: ", date, '\nCases: ', round(val, 2), '\n3 Day Avg: ', round(roll_avg, 2))) %>%
     layout(
       xaxis = list(title = "Date"),
-      yaxis = list(title = "No. Cases")) %>%
+      yaxis = list(title = "No. Cases"),
+      shapes = list(
+        list(
+          type = "rect",
+          fillcolor = "yellow", line = list(color = "yellow"), opacity = 0.3,
+          x0 = ~start_close, x1 = ~end_close, xref = "x",
+          y0 = 0, y1 = ~max_val, yref = "y"
+        ),
+        list(
+          type = "rect",
+          fillcolor = "gray", line = list(color = "gray"), opacity = 0.3,
+          x0 = ~start_open, x1 = ~end_open, xref = "x",
+          y0 = 0, y1 = ~max_val, yref = "y"
+        ))
+      ) %>%
     add_lines(y = ~roll_avg, 
               line = list(color = "orange"))
-})
-```
-
-### Opening and Closure Timeline
-```{r}
-renderPlotly({
-  timelines %>%
-    filter(state == input$state_choice) %>%
-    vistime(start = "start", end = "end", groups = "state", events = "event",
-              background_lines = 0)
 })
 ```
 
@@ -158,9 +179,10 @@ renderPlotly({
 
 ```{r}
 renderPlotly({
-  deaths2 %>%
+  deaths3 %>%
     filter(state == input$state_choice,
            num_type == input$count_choice) %>%
+    mutate(max_val = max(val)) %>%
     plot_ly(
       x = ~date, y = ~val, type = "bar", showlegend = FALSE,
       hoverinfo = "text",
@@ -169,6 +191,21 @@ renderPlotly({
     layout(
       xaxis = list(title = "Date"),
       yaxis = list(title = "No. Deaths")
+    ) %>%
+    layout(
+      shapes = list(
+        list(
+          type = "rect",
+          fillcolor = "yellow", line = list(color = "yellow"), opacity = 0.3,
+          x0 = ~start_close, x1 = ~end_close, xref = "x",
+          y0 = 0, y1 = ~max_val, yref = "y"
+        ),
+        list(
+          type = "rect",
+          fillcolor = "gray", line = list(color = "gray"), opacity = 0.3,
+          x0 = ~start_open, x1 = ~end_open, xref = "x",
+          y0 = 0, y1 = ~max_val, yref = "y"
+        ))
     ) %>%
     add_lines(y = ~roll_avg, 
               line = list(color = "orange"))
@@ -179,7 +216,7 @@ renderPlotly({
 Column {data-width=500}
 -----------------------------------------------------------------------
 
-### New COVID-19 Cases by Day and State
+### 3 Day Average of COVID-19 Cases by Day and State
 
 ```{r}
 renderPlotly({
@@ -187,8 +224,8 @@ renderPlotly({
     filter(state %in% input$group_choice,
            num_type == input$count_choice) %>%
     plot_ly(
-      x = ~date, y = ~val, color = ~state, 
-      type = "scatter", mode = "lines+markers"
+      x = ~date, y = ~roll_avg, color = ~state, 
+      type = "scatter", mode = "lines"
     ) %>%
     layout(
       xaxis = list(title = "Date"),
@@ -197,7 +234,7 @@ renderPlotly({
 })
 ```
 
-### New COVID-19 Deaths by Day and State
+### 3 Day Average of COVID-19 Deaths by Day and State
 
 ```{r}
 renderPlotly({
@@ -205,8 +242,8 @@ renderPlotly({
     filter(state %in% input$group_choice,
            num_type == input$count_choice) %>%
     plot_ly(
-      x = ~date, y = ~val, color = ~state, 
-      type = "scatter", mode = "lines+markers"
+      x = ~date, y = ~roll_avg, color = ~state, 
+      type = "scatter", mode = "lines"
     ) %>%
     layout(
       xaxis = list(title = "Date"),
