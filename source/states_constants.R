@@ -86,6 +86,7 @@ id_cols = c(
   "race_AfrA",
   "race_NatA",
   "race_asian", 
+  "race_pac",
   "race_other",
   "race_multi", 
   "race_unk")
@@ -99,6 +100,7 @@ ia_cols = c(
   "age_80+", 
   "sex_male", 
   "sex_female", 
+  "sex_unk",
   "ethnicity_hispanic", 
   "ethnicity_non_hispanic",
   "ethnicity_unk",
@@ -107,6 +109,7 @@ ia_cols = c(
   "race_NatA",
   "race_asian", 
   "race_other",
+  "race_pac",
   "race_multi", 
   "race_unk")
 
@@ -493,7 +496,8 @@ nh_cols = c(
 
 ny_cols = c(
   "total",
-  "age_0_19", 
+  "age_0_9", 
+  "age_10_19", 
   "age_20_29",
   "age_30_39",
   "age_40_49",
@@ -501,6 +505,7 @@ ny_cols = c(
   "age_60_69",
   "age_70_79",
   "age_80_89",
+  "age_90+", 
   "age_unk",
   "sex_male", 
   "sex_female", 
@@ -510,11 +515,8 @@ ny_cols = c(
   "ethnicity_unk",
   "race_white", 
   "race_AfrA",
-  "race_NatA",
   "race_asian", 
-  "race_other",
-  "race_multi", 
-  "race_unk")
+  "race_other")
 
 manual_states = c(
   "Arizona",

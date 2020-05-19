@@ -1341,19 +1341,18 @@ compile = function() {
   "Manual entry for Oklahoma, go to: " %>% print()
   "https://coronavirus.health.ok.gov/" %>% print()
   
-  oklahoma[["cases"]][["age_0_4"]] = readline(prompt = "OK, age_0_4: ") %>% as.numeric
-  oklahoma[["cases"]][["age_5_17"]] = readline(prompt = "OK, age_5_17: ") %>% as.numeric
-  oklahoma[["cases"]][["age_18_35"]] = readline(prompt = "OK, age_18_35: ") %>% as.numeric
-  oklahoma[["cases"]][["age_36_49"]] = readline(prompt = "OK, age_36_49: ") %>% as.numeric
-  oklahoma[["cases"]][["age_50_64"]] = readline(prompt = "OK, age_50_64: ") %>% as.numeric
-  oklahoma[["cases"]][["age_65+"]] = readline(prompt = "OK, age_age_65+: ") %>% as.numeric
-  oklahoma[["cases"]][["race_white"]] = readline(prompt = "OK, white: ") %>% as.numeric
-  oklahoma[["cases"]][["race_AfrA"]] = readline(prompt = "OK, AfrA: ") %>% as.numeric
-  oklahoma[["cases"]][["race_NatA"]] = readline(prompt = "OK, NatA: ") %>% as.numeric
-  oklahoma[["cases"]][["race_asian"]] = readline(prompt = "OK, asian: ") %>% as.numeric
-  oklahoma[["cases"]][["race_other"]] = readline(prompt = "OK, race_other: ") %>% as.numeric
-  oklahoma[["cases"]][["race_multi"]] = readline(prompt = "OK, race_multi: ") %>% as.numeric
-  oklahoma[["cases"]][["race_unk"]] = readline(prompt = "OK, race_unk: ") %>% as.numeric
+  # oklahoma[["cases"]][["age_0_4"]] = readline(prompt = "OK, age_0_4: ") %>% as.numeric
+  # oklahoma[["cases"]][["age_5_17"]] = readline(prompt = "OK, age_5_17: ") %>% as.numeric
+  # oklahoma[["cases"]][["age_18_35"]] = readline(prompt = "OK, age_18_35: ") %>% as.numeric
+  # oklahoma[["cases"]][["age_36_49"]] = readline(prompt = "OK, age_36_49: ") %>% as.numeric
+  # oklahoma[["cases"]][["age_50_64"]] = readline(prompt = "OK, age_50_64: ") %>% as.numeric
+  # oklahoma[["cases"]][["age_65+"]] = readline(prompt = "OK, age_age_65+: ") %>% as.numeric
+  # oklahoma[["cases"]][["race_white"]] = readline(prompt = "OK, white: ") %>% as.numeric
+  # oklahoma[["cases"]][["race_AfrA"]] = readline(prompt = "OK, AfrA: ") %>% as.numeric
+  # oklahoma[["cases"]][["race_NatA"]] = readline(prompt = "OK, NatA: ") %>% as.numeric
+  # oklahoma[["cases"]][["race_asian"]] = readline(prompt = "OK, asian: ") %>% as.numeric
+  # oklahoma[["cases"]][["race_other"]] = readline(prompt = "OK, race_other: ") %>% as.numeric
+  # oklahoma[["cases"]][["race_unk"]] = readline(prompt = "OK, race_unk: ") %>% as.numeric
   
   final_oklahoma = as_tibble(oklahoma) %>% 
     standardize %>% 
@@ -1372,87 +1371,87 @@ compile = function() {
   "Manual entry for Mississippi, go to: " %>% print()
   "https://msdh.ms.gov/msdhsite/_static/14,0,420.html" %>% print()
   
-  mississippi[["cases"]][["age_0_17"]] = readline(prompt = "MS, cases age_0_17: ") %>% as.numeric
-  mississippi[["cases"]][["age_18_29"]] = readline(prompt = "MS, cases age_18_29: ") %>% as.numeric
-  mississippi[["cases"]][["age_30_39"]] = readline(prompt = "MS, cases age_30_39: ") %>% as.numeric
-  mississippi[["cases"]][["age_40_49"]] = readline(prompt = "MS, cases age_40_49: ") %>% as.numeric
-  mississippi[["cases"]][["age_50_59"]] = readline(prompt = "MS, cases age_50_59: ") %>% as.numeric
-  mississippi[["cases"]][["age_60_69"]] = readline(prompt = "MS, cases age_60_69: ") %>% as.numeric
-  mississippi[["cases"]][["age_70_79"]] = readline(prompt = "MS, cases age_70_79: ") %>% as.numeric
-  mississippi[["cases"]][["age_80_89"]] = readline(prompt = "MS, cases age_80_89: ") %>% as.numeric
-  mississippi[["cases"]][["age_90+"]] = readline(prompt = "MS, cases age_90+: ") %>% as.numeric
-  
-  male_afra = readline(prompt = "MS, male cases AfrA: ") %>% as.numeric
-  male_white = readline(prompt = "MS, male cases white: ") %>% as.numeric
-  male_hispanic = readline(prompt = "MS, male cases hisp: ") %>% as.numeric
-  male_asian = readline(prompt = "MS, male cases Asian: ") %>% as.numeric
-  male_nata = readline(prompt = "MS, male cases NatA: ") %>% as.numeric
-  male_other = readline(prompt = "MS, male cases other_race: ") %>% as.numeric
-  
-  female_afra = readline(prompt = "MS, female cases AfrA: ") %>% as.numeric
-  female_white = readline(prompt = "MS, female cases white: ") %>% as.numeric
-  female_hispanic = readline(prompt = "MS, female cases hisp: ") %>% as.numeric
-  female_asian = readline(prompt = "MS, female cases Asian: ") %>% as.numeric
-  female_nata = readline(prompt = "MS, female cases NatA: ") %>% as.numeric
-  female_other = readline(prompt = "MS, female cases other_race: ") %>% as.numeric
-  
-  mississippi[["cases"]][["sex_male"]] = male_afra + male_white + male_hispanic + male_asian + 
-    male_nata + male_other
-  mississippi[["cases"]][["sex_female"]] = female_afra + female_white + female_hispanic + female_asian + 
-    female_nata + female_other
-  
-  mississippi[["cases"]][["race_AfrA"]] = male_afra + female_afra
-  mississippi[["cases"]][["race_white"]] = male_white + female_white
-  mississippi[["cases"]][["race_asian"]] = male_asian + female_asian
-  mississippi[["cases"]][["race_NatA"]] = male_nata + female_nata
-  mississippi[["cases"]][["race_other"]] = male_other + female_other
-  mississippi[["cases"]][["ethnicity_hispanic"]] = male_hispanic + female_hispanic 
-  
-  mississippi[["deaths"]][["age_0_17"]] = readline(prompt = "MS, deaths age_0_17: ") %>% as.numeric
-  mississippi[["deaths"]][["age_18_29"]] = readline(prompt = "MS, deaths age_18_29: ") %>% as.numeric
-  mississippi[["deaths"]][["age_30_39"]] = readline(prompt = "MS, deaths age_30_39: ") %>% as.numeric
-  mississippi[["deaths"]][["age_40_49"]] = readline(prompt = "MS, deaths age_40_49: ") %>% as.numeric
-  mississippi[["deaths"]][["age_50_59"]] = readline(prompt = "MS, deaths age_50_59: ") %>% as.numeric
-  mississippi[["deaths"]][["age_60_69"]] = readline(prompt = "MS, deaths age_60_69: ") %>% as.numeric
-  mississippi[["deaths"]][["age_70_79"]] = readline(prompt = "MS, deaths age_70_79: ") %>% as.numeric
-  mississippi[["deaths"]][["age_80_89"]] = readline(prompt = "MS, deaths age_80_89: ") %>% as.numeric
-  mississippi[["deaths"]][["age_90+"]] = readline(prompt = "MS, deaths age_90+: ") %>% as.numeric
-  
-  male_afra = readline(prompt = "MS, male deaths AfrA: ") %>% as.numeric
-  male_white = readline(prompt = "MS, male deaths white: ") %>% as.numeric
-  male_hispanic = readline(prompt = "MS, male deaths hisp: ") %>% as.numeric
-  male_asian = readline(prompt = "MS, male deaths Asian: ") %>% as.numeric
-  male_nata = readline(prompt = "MS, male deaths NatA: ") %>% as.numeric
-  male_other = readline(prompt = "MS, male deaths other_race: ") %>% as.numeric
-  
-  female_afra = readline(prompt = "MS, female deaths AfrA: ") %>% as.numeric
-  female_white = readline(prompt = "MS, female deaths white: ") %>% as.numeric
-  female_hispanic = readline(prompt = "MS, female deaths hisp: ") %>% as.numeric
-  female_asian = readline(prompt = "MS, female deaths Asian: ") %>% as.numeric
-  female_nata = readline(prompt = "MS, female deaths NatA: ") %>% as.numeric
-  female_other = readline(prompt = "MS, female deaths other_race: ") %>% as.numeric
-  
-  mississippi[["deaths"]][["sex_male"]] = male_afra + male_white + male_hispanic + male_asian + 
-    male_nata + male_other
-  mississippi[["deaths"]][["sex_female"]] = female_afra + female_white + female_hispanic + female_asian + 
-    female_nata + female_other
-
-  mississippi[["deaths"]][["race_AfrA"]] = male_afra + female_afra
-  mississippi[["deaths"]][["race_white"]] = male_white + female_white
-  mississippi[["deaths"]][["race_asian"]] = male_asian + female_asian
-  mississippi[["deaths"]][["race_NatA"]] = male_nata + female_nata
-  mississippi[["deaths"]][["race_other"]] = male_other + female_other
-  mississippi[["deaths"]][["ethnicity_hispanic"]] = male_hispanic + female_hispanic 
-  
-  mississippi[["hospitalized"]][["age_0_17"]] = readline(prompt = "MS, hosp age_0_17: ") %>% as.numeric
-  mississippi[["hospitalized"]][["age_18_29"]] = readline(prompt = "MS, hosp age_18_29: ") %>% as.numeric
-  mississippi[["hospitalized"]][["age_30_39"]] = readline(prompt = "MS, hosp age_30_39: ") %>% as.numeric
-  mississippi[["hospitalized"]][["age_40_49"]] = readline(prompt = "MS, hosp age_40_49: ") %>% as.numeric
-  mississippi[["hospitalized"]][["age_50_59"]] = readline(prompt = "MS, hosp age_50_59: ") %>% as.numeric
-  mississippi[["hospitalized"]][["age_60_69"]] = readline(prompt = "MS, hosp age_60_69: ") %>% as.numeric
-  mississippi[["hospitalized"]][["age_70_79"]] = readline(prompt = "MS, hosp age_70_79: ") %>% as.numeric
-  mississippi[["hospitalized"]][["age_80_89"]] = readline(prompt = "MS, hosp age_80_89: ") %>% as.numeric
-  mississippi[["hospitalized"]][["age_90+"]] = readline(prompt = "MS, hosp age_90+: ") %>% as.numeric
+  # mississippi[["cases"]][["age_0_17"]] = readline(prompt = "MS, cases age_0_17: ") %>% as.numeric
+  # mississippi[["cases"]][["age_18_29"]] = readline(prompt = "MS, cases age_18_29: ") %>% as.numeric
+  # mississippi[["cases"]][["age_30_39"]] = readline(prompt = "MS, cases age_30_39: ") %>% as.numeric
+  # mississippi[["cases"]][["age_40_49"]] = readline(prompt = "MS, cases age_40_49: ") %>% as.numeric
+  # mississippi[["cases"]][["age_50_59"]] = readline(prompt = "MS, cases age_50_59: ") %>% as.numeric
+  # mississippi[["cases"]][["age_60_69"]] = readline(prompt = "MS, cases age_60_69: ") %>% as.numeric
+  # mississippi[["cases"]][["age_70_79"]] = readline(prompt = "MS, cases age_70_79: ") %>% as.numeric
+  # mississippi[["cases"]][["age_80_89"]] = readline(prompt = "MS, cases age_80_89: ") %>% as.numeric
+  # mississippi[["cases"]][["age_90+"]] = readline(prompt = "MS, cases age_90+: ") %>% as.numeric
+  # 
+  # male_afra = readline(prompt = "MS, male cases AfrA: ") %>% as.numeric
+  # male_white = readline(prompt = "MS, male cases white: ") %>% as.numeric
+  # male_hispanic = readline(prompt = "MS, male cases hisp: ") %>% as.numeric
+  # male_asian = readline(prompt = "MS, male cases Asian: ") %>% as.numeric
+  # male_nata = readline(prompt = "MS, male cases NatA: ") %>% as.numeric
+  # male_other = readline(prompt = "MS, male cases other_race: ") %>% as.numeric
+  # 
+  # female_afra = readline(prompt = "MS, female cases AfrA: ") %>% as.numeric
+  # female_white = readline(prompt = "MS, female cases white: ") %>% as.numeric
+  # female_hispanic = readline(prompt = "MS, female cases hisp: ") %>% as.numeric
+  # female_asian = readline(prompt = "MS, female cases Asian: ") %>% as.numeric
+  # female_nata = readline(prompt = "MS, female cases NatA: ") %>% as.numeric
+  # female_other = readline(prompt = "MS, female cases other_race: ") %>% as.numeric
+  # 
+  # mississippi[["cases"]][["sex_male"]] = male_afra + male_white + male_hispanic + male_asian + 
+  #   male_nata + male_other
+  # mississippi[["cases"]][["sex_female"]] = female_afra + female_white + female_hispanic + female_asian + 
+  #   female_nata + female_other
+  # 
+  # mississippi[["cases"]][["race_AfrA"]] = male_afra + female_afra
+  # mississippi[["cases"]][["race_white"]] = male_white + female_white
+  # mississippi[["cases"]][["race_asian"]] = male_asian + female_asian
+  # mississippi[["cases"]][["race_NatA"]] = male_nata + female_nata
+  # mississippi[["cases"]][["race_other"]] = male_other + female_other
+  # mississippi[["cases"]][["ethnicity_hispanic"]] = male_hispanic + female_hispanic 
+  # 
+  # mississippi[["deaths"]][["age_0_17"]] = readline(prompt = "MS, deaths age_0_17: ") %>% as.numeric
+  # mississippi[["deaths"]][["age_18_29"]] = readline(prompt = "MS, deaths age_18_29: ") %>% as.numeric
+  # mississippi[["deaths"]][["age_30_39"]] = readline(prompt = "MS, deaths age_30_39: ") %>% as.numeric
+  # mississippi[["deaths"]][["age_40_49"]] = readline(prompt = "MS, deaths age_40_49: ") %>% as.numeric
+  # mississippi[["deaths"]][["age_50_59"]] = readline(prompt = "MS, deaths age_50_59: ") %>% as.numeric
+  # mississippi[["deaths"]][["age_60_69"]] = readline(prompt = "MS, deaths age_60_69: ") %>% as.numeric
+  # mississippi[["deaths"]][["age_70_79"]] = readline(prompt = "MS, deaths age_70_79: ") %>% as.numeric
+  # mississippi[["deaths"]][["age_80_89"]] = readline(prompt = "MS, deaths age_80_89: ") %>% as.numeric
+  # mississippi[["deaths"]][["age_90+"]] = readline(prompt = "MS, deaths age_90+: ") %>% as.numeric
+  # 
+  # male_afra = readline(prompt = "MS, male deaths AfrA: ") %>% as.numeric
+  # male_white = readline(prompt = "MS, male deaths white: ") %>% as.numeric
+  # male_hispanic = readline(prompt = "MS, male deaths hisp: ") %>% as.numeric
+  # male_asian = readline(prompt = "MS, male deaths Asian: ") %>% as.numeric
+  # male_nata = readline(prompt = "MS, male deaths NatA: ") %>% as.numeric
+  # male_other = readline(prompt = "MS, male deaths other_race: ") %>% as.numeric
+  # 
+  # female_afra = readline(prompt = "MS, female deaths AfrA: ") %>% as.numeric
+  # female_white = readline(prompt = "MS, female deaths white: ") %>% as.numeric
+  # female_hispanic = readline(prompt = "MS, female deaths hisp: ") %>% as.numeric
+  # female_asian = readline(prompt = "MS, female deaths Asian: ") %>% as.numeric
+  # female_nata = readline(prompt = "MS, female deaths NatA: ") %>% as.numeric
+  # female_other = readline(prompt = "MS, female deaths other_race: ") %>% as.numeric
+  # 
+  # mississippi[["deaths"]][["sex_male"]] = male_afra + male_white + male_hispanic + male_asian + 
+  #   male_nata + male_other
+  # mississippi[["deaths"]][["sex_female"]] = female_afra + female_white + female_hispanic + female_asian + 
+  #   female_nata + female_other
+  # 
+  # mississippi[["deaths"]][["race_AfrA"]] = male_afra + female_afra
+  # mississippi[["deaths"]][["race_white"]] = male_white + female_white
+  # mississippi[["deaths"]][["race_asian"]] = male_asian + female_asian
+  # mississippi[["deaths"]][["race_NatA"]] = male_nata + female_nata
+  # mississippi[["deaths"]][["race_other"]] = male_other + female_other
+  # mississippi[["deaths"]][["ethnicity_hispanic"]] = male_hispanic + female_hispanic 
+  # 
+  # mississippi[["hospitalized"]][["age_0_17"]] = readline(prompt = "MS, hosp age_0_17: ") %>% as.numeric
+  # mississippi[["hospitalized"]][["age_18_29"]] = readline(prompt = "MS, hosp age_18_29: ") %>% as.numeric
+  # mississippi[["hospitalized"]][["age_30_39"]] = readline(prompt = "MS, hosp age_30_39: ") %>% as.numeric
+  # mississippi[["hospitalized"]][["age_40_49"]] = readline(prompt = "MS, hosp age_40_49: ") %>% as.numeric
+  # mississippi[["hospitalized"]][["age_50_59"]] = readline(prompt = "MS, hosp age_50_59: ") %>% as.numeric
+  # mississippi[["hospitalized"]][["age_60_69"]] = readline(prompt = "MS, hosp age_60_69: ") %>% as.numeric
+  # mississippi[["hospitalized"]][["age_70_79"]] = readline(prompt = "MS, hosp age_70_79: ") %>% as.numeric
+  # mississippi[["hospitalized"]][["age_80_89"]] = readline(prompt = "MS, hosp age_80_89: ") %>% as.numeric
+  # mississippi[["hospitalized"]][["age_90+"]] = readline(prompt = "MS, hosp age_90+: ") %>% as.numeric
   
   final_mississippi = as_tibble(mississippi) %>% 
     standardize %>% 
@@ -1471,12 +1470,12 @@ compile = function() {
   "Manual entry for North Carolina, go to: " %>% print()
   "https://covid19.ncdhhs.gov/dashboard#by-gender" %>% print()
   
-  north_carolina[["cases"]][["age_0_17"]] = readline(prompt = "NC, age_0_17: ") %>% as.numeric
-  north_carolina[["cases"]][["age_18_24"]] = readline(prompt = "NC, age_18_24: ") %>% as.numeric
-  north_carolina[["cases"]][["age_25_49"]] = readline(prompt = "NC, age_25_49: ") %>% as.numeric
-  north_carolina[["cases"]][["age_50_64"]] = readline(prompt = "NC, age_50_44: ") %>% as.numeric
-  north_carolina[["cases"]][["age_65+"]] = readline(prompt = "NC, age_65+: ") %>% as.numeric
-  north_carolina[["cases"]][["age_unk"]] = readline(prompt = "NC, age_unk: ") %>% as.numeric
+  # north_carolina[["cases"]][["age_0_17"]] = readline(prompt = "NC, age_0_17: ") %>% as.numeric
+  # north_carolina[["cases"]][["age_18_24"]] = readline(prompt = "NC, age_18_24: ") %>% as.numeric
+  # north_carolina[["cases"]][["age_25_49"]] = readline(prompt = "NC, age_25_49: ") %>% as.numeric
+  # north_carolina[["cases"]][["age_50_64"]] = readline(prompt = "NC, age_50_44: ") %>% as.numeric
+  # north_carolina[["cases"]][["age_65+"]] = readline(prompt = "NC, age_65+: ") %>% as.numeric
+  # north_carolina[["cases"]][["age_unk"]] = readline(prompt = "NC, age_unk: ") %>% as.numeric
   
   final_north_carolina = as_tibble(north_carolina) %>% 
     standardize %>% 
@@ -1495,42 +1494,29 @@ compile = function() {
   "Manual entry for South Carolina, go to: " %>% print()
   "https://scdhec.gov/sc-demographic-data-covid-19" %>% print()
   
-  south_carolina[["cases"]][["age_0_19"]] = readline(prompt = "SC, cases age_0_19: ") %>% as.numeric
-  south_carolina[["cases"]][["age_20_29"]] = readline(prompt = "SC, cases age_20_29: ") %>% as.numeric
-  south_carolina[["cases"]][["age_30_39"]] = readline(prompt = "SC, cases age_30_39: ") %>% as.numeric
-  south_carolina[["cases"]][["age_40_49"]] = readline(prompt = "SC, cases age_40_49: ") %>% as.numeric
-  south_carolina[["cases"]][["age_50_59"]] = readline(prompt = "SC, cases age_50_59: ") %>% as.numeric
-  south_carolina[["cases"]][["age_60_69"]] = readline(prompt = "SC, cases age_60_69: ") %>% as.numeric
-  south_carolina[["cases"]][["age_70_79"]] = readline(prompt = "SC, cases age_70_79: ") %>% as.numeric
-  south_carolina[["cases"]][["age_80+"]] = readline(prompt = "SC, cases age_80+: ") %>% as.numeric
+  # south_carolina[["cases"]][["age_0_10"]] = readline(prompt = "SC, cases age_0_10: ") %>% as.numeric
+  # south_carolina[["cases"]][["age_11_20"]] = readline(prompt = "SC, cases age_11_20: ") %>% as.numeric
+  # south_carolina[["cases"]][["age_21_30"]] = readline(prompt = "SC, cases age_21_30: ") %>% as.numeric
+  # south_carolina[["cases"]][["age_31_40"]] = readline(prompt = "SC, cases age_31_40: ") %>% as.numeric
+  # south_carolina[["cases"]][["age_41_50"]] = readline(prompt = "SC, cases age_41_50: ") %>% as.numeric
+  # south_carolina[["cases"]][["age_51_60"]] = readline(prompt = "SC, cases age_51_60: ") %>% as.numeric
+  # south_carolina[["cases"]][["age_61_70"]] = readline(prompt = "SC, cases age_61_70: ") %>% as.numeric
+  # south_carolina[["cases"]][["age_71_80"]] = readline(prompt = "SC, cases age_71_80: ") %>% as.numeric
+  # south_carolina[["cases"]][["age_81+"]] = readline(prompt = "SC, cases age_81+: ") %>% as.numeric
+  # 
+  # south_carolina[["cases"]][["sex_male"]] = readline(prompt = "SC, cases male: ") %>% as.numeric
+  # south_carolina[["cases"]][["sex_female"]] = readline(prompt = "SC, cases female: ") %>% as.numeric
+  # south_carolina[["cases"]][["sex_unk"]] = readline(prompt = "SC, cases unk: ") %>% as.numeric
   
-  south_carolina[["cases"]][["sex_male"]] = readline(prompt = "SC, cases male: ") %>% as.numeric
-  south_carolina[["cases"]][["sex_female"]] = readline(prompt = "SC, cases female: ") %>% as.numeric
-  
-  south_carolina[["cases"]][["race_white"]] = readline(prompt = "SC, cases race_white: ") %>% as.numeric
-  south_carolina[["cases"]][["race_AfrA"]] = readline(prompt = "SC, cases race_Afra: ") %>% as.numeric
-  south_carolina[["cases"]][["ethnicity_hispanic"]] = readline(prompt = "SC, cases ethnicity_hispanic: ") %>% as.numeric
-  south_carolina[["cases"]][["race_other"]] = readline(prompt = "SC, cases race_other: ") %>% as.numeric
-  south_carolina[["cases"]][["race_asian"]] = readline(prompt = "SC, cases race_asian: ") %>% as.numeric
-  south_carolina[["cases"]][["race_NatA"]] = readline(prompt = "SC, cases race_NatA: ") %>% as.numeric
-  
-  south_carolina[["deaths"]][["age_0_19"]] = readline(prompt = "SC, deaths age_0_19: ") %>% as.numeric
-  south_carolina[["deaths"]][["age_20_29"]] = readline(prompt = "SC, deaths age_20_29: ") %>% as.numeric
-  south_carolina[["deaths"]][["age_30_39"]] = readline(prompt = "SC, deaths age_30_39: ") %>% as.numeric
-  south_carolina[["deaths"]][["age_40_49"]] = readline(prompt = "SC, deaths age_40_49: ") %>% as.numeric
-  south_carolina[["deaths"]][["age_50_59"]] = readline(prompt = "SC, deaths age_50_59: ") %>% as.numeric
-  south_carolina[["deaths"]][["age_60_69"]] = readline(prompt = "SC, deaths age_60_69: ") %>% as.numeric
-  south_carolina[["deaths"]][["age_70_79"]] = readline(prompt = "SC, deaths age_70_79: ") %>% as.numeric
-  south_carolina[["deaths"]][["age_80+"]] = readline(prompt = "SC, deaths age_80+: ") %>% as.numeric
-  
-  south_carolina[["hospitalized"]][["age_0_19"]] = readline(prompt = "SC, hosp age_0_19: ") %>% as.numeric
-  south_carolina[["hospitalized"]][["age_20_29"]] = readline(prompt = "SC, hosp age_20_29: ") %>% as.numeric
-  south_carolina[["hospitalized"]][["age_30_39"]] = readline(prompt = "SC, hosp age_30_39: ") %>% as.numeric
-  south_carolina[["hospitalized"]][["age_40_49"]] = readline(prompt = "SC, hosp age_40_49: ") %>% as.numeric
-  south_carolina[["hospitalized"]][["age_50_59"]] = readline(prompt = "SC, hosp age_50_59: ") %>% as.numeric
-  south_carolina[["hospitalized"]][["age_60_69"]] = readline(prompt = "SC, hosp age_60_69: ") %>% as.numeric
-  south_carolina[["hospitalized"]][["age_70_79"]] = readline(prompt = "SC, hosp age_70_79: ") %>% as.numeric
-  south_carolina[["hospitalized"]][["age_80+"]] = readline(prompt = "SC, hosp age_80+: ") %>% as.numeric
+  # south_carolina[["cases"]][["ethnicity_hispanic"]] = readline(prompt = "SC, cases ethnicity_hispanic: ") %>% as.numeric
+  # south_carolina[["cases"]][["ethnicity_non_hispanic"]] = readline(prompt = "SC, cases ethnicity_non_hispanic: ") %>% as.numeric
+  # south_carolina[["cases"]][["ethnicity_unk"]] = readline(prompt = "SC, cases ethnicity_unk: ") %>% as.numeric
+   
+  # south_carolina[["cases"]][["race_white"]] = readline(prompt = "SC, cases race_white: ") %>% as.numeric
+  # south_carolina[["cases"]][["race_AfrA"]] = readline(prompt = "SC, cases race_Afra: ") %>% as.numeric
+  # south_carolina[["cases"]][["race_asian"]] = readline(prompt = "SC, cases race_asian: ") %>% as.numeric
+  # south_carolina[["cases"]][["race_other"]] = readline(prompt = "SC, cases race_other: ") %>% as.numeric
+  # south_carolina[["cases"]][["race_unk"]] = readline(prompt = "SC, cases race_unk: ") %>% as.numeric
   
   final_south_carolina = as_tibble(south_carolina) %>% 
     standardize %>% 
@@ -1561,104 +1547,605 @@ compile = function() {
 # FUNCTIONS FOR MANUAL DATA ENTRY
 #################################
 
-manual_fill = function(state, state_cols) {
-  # Function for making it easy to fill out a skeleton
+get_arizona = function() {
+  browseURL("https://www.azdhs.gov/preparedness/epidemiology-disease-control/infectious-disease-epidemiology/covid-19/dashboards/index.php")
   
-  # Create the skeleton from the state specific information
-  skeleton = skeleton_table(state_cols)
-  needed_strata = c("cases", "deaths", "hospitalized")
+  skeleton = skeleton_table(az_cols)
   
-  # Get the total tested
-  skeleton[["tested"]][["total"]] = readline(prompt = "Total tested?: ") %>% 
-    as.numeric
+  skeleton[["cases"]][["total"]] = get_information("AZ: Total cases?: ")
+  skeleton[["deaths"]][["total"]] = get_information("AZ: Total deaths?: ")
+  skeleton[["tested"]][["total"]] = get_information("AZ: Total tested?: ")
   
-  for (strata in needed_strata) {
-    for (sc in state_cols) {
-      fmt_prompt = paste0(state, ", ", strata, ", ", sc, ": ")
-      skeleton[[strata]][[sc]] = readline(prompt = fmt_prompt) %>% 
-        as.numeric
+  skeleton[["cases"]][["age_0_19"]] = get_information("AZ: Cases age <20?: ")
+  skeleton[["cases"]][["age_20_44"]] = get_information("AZ: Cases age 20 - 44?: ")
+  skeleton[["cases"]][["age_45_54"]] = get_information("AZ: Cases age 45 - 54?: ")
+  skeleton[["cases"]][["age_55_64"]] = get_information("AZ: Cases age 55 - 64?: ")
+  skeleton[["cases"]][["age_65+"]] = get_information("AZ: Cases age 65+?: ")
+  skeleton[["cases"]][["age_unk"]] = get_information("AZ: Cases age unknown: ")
+  skeleton[["cases"]][["sex_male"]] = get_information("AZ: Cases sex male: ")
+  skeleton[["cases"]][["sex_female"]] = get_information("AZ: Cases sex female: ")
+  skeleton[["cases"]][["race_white"]] = get_information("AZ: Cases white?: ")
+  skeleton[["cases"]][["ethnicity_hispanic"]] = get_information("AZ: Cases hispanic?: ")
+  skeleton[["cases"]][["race_NatA"]] = get_information("AZ: Cases NatA?: ")
+  skeleton[["cases"]][["race_AfrA"]] = get_information("AZ: Cases AfrA?: ")
+  skeleton[["cases"]][["race_asian"]] = get_information("AZ: Cases asian?: ")
+  skeleton[["cases"]][["race_other"]] = get_information("AZ: Cases race other?: ")
+  skeleton[["cases"]][["race_unk"]] = get_information("AZ: Cases race unknown?: ")
+  
+  skeleton[["deaths"]][["age_0_19"]] = get_information("AZ: Deaths age <20?: ")
+  skeleton[["deaths"]][["age_20_44"]] = get_information("AZ: Deaths age 20 - 44?: ")
+  skeleton[["deaths"]][["age_45_54"]] = get_information("AZ: Deaths age 45 - 54?: ")
+  skeleton[["deaths"]][["age_55_64"]] = get_information("AZ: Deaths age 55 - 64?: ")
+  skeleton[["deaths"]][["age_65+"]] = get_information("AZ: Deaths age 65+?: ")
+  skeleton[["deaths"]][["age_unk"]] = get_information("AZ: Deaths age unknown: ")
+  skeleton[["deaths"]][["sex_male"]] = get_information("AZ: Deaths sex male: ")
+  skeleton[["deaths"]][["sex_female"]] = get_information("AZ: Deaths sex female: ")
+  skeleton[["deaths"]][["race_white"]] = get_information("AZ: Deaths white?: ")
+  skeleton[["deaths"]][["ethnicity_hispanic"]] = get_information("AZ: Deaths hispanic?: ")
+  skeleton[["deaths"]][["race_NatA"]] = get_information("AZ: Deaths NatA?: ")
+  skeleton[["deaths"]][["race_AfrA"]] = get_information("AZ: Deaths AfrA?: ")
+  skeleton[["deaths"]][["race_asian"]] = get_information("AZ: Deaths asian?: ")
+  skeleton[["deaths"]][["race_other"]] = get_information("AZ: Deaths race other?: ")
+  skeleton[["deaths"]][["race_unk"]] = get_information("AZ: Deaths race unknown?: ")
+  
+  skeleton[["hospitalized"]][["age_0_19"]] = get_information("AZ: Hospitalized age <20?: ")
+  skeleton[["hospitalized"]][["age_20_44"]] = get_information("AZ: Hospitalized age 20 - 44?: ")
+  skeleton[["hospitalized"]][["age_45_54"]] = get_information("AZ: Hospitalized age 45 - 54?: ")
+  skeleton[["hospitalized"]][["age_55_64"]] = get_information("AZ: Hospitalized age 55 - 64?: ")
+  skeleton[["hospitalized"]][["age_65+"]] = get_information("AZ: Hospitalized age 65+?: ")
+  skeleton[["hospitalized"]][["age_unk"]] = get_information("AZ: Hospitalized age unknown: ")
+  skeleton[["hospitalized"]][["sex_male"]] = get_information("AZ: Hospitalized sex male: ")
+  skeleton[["hospitalized"]][["sex_female"]] = get_information("AZ: Hospitalized sex female: ")
+  skeleton[["hospitalized"]][["race_white"]] = get_information("AZ: Hospitalized white?: ")
+  skeleton[["hospitalized"]][["ethnicity_hispanic"]] = get_information("AZ: Hospitalized hispanic?: ")
+  skeleton[["hospitalized"]][["race_NatA"]] = get_information("AZ: Hospitalized NatA?: ")
+  skeleton[["hospitalized"]][["race_AfrA"]] = get_information("AZ: Hospitalized AfrA?: ")
+  skeleton[["hospitalized"]][["race_asian"]] = get_information("AZ: Hospitalized asian?: ")
+  skeleton[["hospitalized"]][["race_other"]] = get_information("AZ: Hospitalized race other?: ")
+  skeleton[["hospitalized"]][["race_unk"]] = get_information("AZ: Hospitalized race unknown?: ")
+  
+  full_skeleton = skeleton %>% 
+    standardize %>% 
+    mutate(
+      state_name = "Arizona",
+      Link = "https://www.azdhs.gov/preparedness/epidemiology-disease-control/infectious-disease-epidemiology/covid-19/dashboards/index.php",
+      platform = "manual",
+      comments = "",
+      last.update = Sys.time() %>% as_date) %>% 
+    select(
+      state_name, Link,
+      total.tested:hosp_gender,
+      platform, comments, last.update)
+  
+  return(full_skeleton)
+}
+
+get_hawaii = function() {
+  browseURL("https://health.hawaii.gov/coronavirusdisease2019/what-you-should-know/current-situation-in-hawaii/")
+  
+  skeleton = skeleton_table(hi_cols)
+  
+  skeleton[["cases"]][["total"]] = get_information("HI: Total cases?: ")
+  skeleton[["hospitalized"]][["total"]] = get_information("HI: Total hospitalized?: ")
+  skeleton[["deaths"]][["total"]] = get_information("HI: Total deaths?: ")
+  
+  skeleton[["cases"]][["age_0_19"]] = get_information("HI: Cases age 0 - 19?: ")
+  skeleton[["cases"]][["age_20_39"]] = get_information("HI: Cases age 20 - 39?: ")
+  skeleton[["cases"]][["age_40_59"]] = get_information("HI: Cases age 40 - 59?: ")
+  skeleton[["cases"]][["age_60+"]] = get_information("HI: Cases age 60+?: ")
+  
+  skeleton[["cases"]][["race_asian"]] = get_information("HI: Deaths race asian %?: ")
+  skeleton[["cases"]][["race_white"]] = get_information("HI: Deaths race white %?: ")
+  skeleton[["cases"]][["race_pac"]] = get_information("HI: Deaths race Native Hawaiian %?: ")
+  skeleton[["cases"]][["race_AfrA"]] = get_information("HI: Deaths race AfrA %?: ")
+  skeleton[["cases"]][["race_other"]] = get_information("HI: Deaths race other %?: ")
+  skeleton[["cases"]][["race_multi"]] = get_information("HI: Deaths race multirace %?: ")
+  
+  full_skeleton = skeleton %>% 
+    standardize %>% 
+    mutate(
+      state_name = "Hawaii",
+      Link = "https://health.hawaii.gov/coronavirusdisease2019/what-you-should-know/current-situation-in-hawaii/",
+      platform = "manual",
+      comments = "",
+      last.update = Sys.time() %>% as_date) %>% 
+    select(
+      state_name, Link,
+      total.tested:hosp_gender,
+      platform, comments, last.update)
+  
+  return(full_skeleton)
+}
+
+get_idaho = function() {
+  browseURL("https://public.tableau.com/profile/idaho.division.of.public.health#!/vizhome/DPHIdahoCOVID-19Dashboard_V2/Story1")
+  
+  skeleton = skeleton_table(id_cols)
+  
+  skeleton[["cases"]][["total"]] = get_information("ID: Total cases?: ")
+  
+  skeleton[["cases"]][["age_0_17"]] = get_information("ID: Cases age <18")
+  skeleton[["cases"]][["age_18_29"]] = get_information("ID: Cases age 18 - 29: ")
+  skeleton[["cases"]][["age_30_39"]] = get_information("ID: Cases age 30 - 39?: ")
+  skeleton[["cases"]][["age_40_49"]] = get_information("ID: Cases age 40 - 49?: ")
+  skeleton[["cases"]][["age_50_59"]] = get_information("ID: Cases age 50 - 59?: ")
+  skeleton[["cases"]][["age_60_69"]] = get_information("ID: Cases age 60 - 69?: ")
+  skeleton[["cases"]][["age_70_79"]] = get_information("ID: Cases age 70 - 79?: ")
+  skeleton[["cases"]][["age_80+"]] = get_information("ID: Cases age 80+?: ")
+  skeleton[["cases"]][["sex_male"]] = get_information("ID: Cases sex male?: ")
+  skeleton[["cases"]][["sex_female"]] = get_information("ID: Cases sex female?: ")
+  skeleton[["cases"]][["ethnicity_unk"]] = get_information("ID: Cases ethnicity unknown? (calc.): ")
+  skeleton[["cases"]][["ethnicity_hispanic"]] = get_information("ID: Cases hispanic %?: ")
+  skeleton[["cases"]][["ethnicity_non_hispanic"]] = get_information("ID: Cases not hispanic %?: ")
+  
+  skeleton[["cases"]][["race_unk"]] = get_information("ID: Cases race unknown? (calc.): ")
+  skeleton[["cases"]][["race_white"]] = get_information("ID: Cases race white %?: ")
+  skeleton[["cases"]][["race_other"]] = get_information("ID: Cases race other %?: ")
+  skeleton[["cases"]][["race_asian"]] = get_information("ID: Cases race asian %?: ")
+  skeleton[["cases"]][["race_AfrA"]] = get_information("ID: Cases race AfrA %?: ")
+  skeleton[["cases"]][["race_multi"]] = get_information("ID: Cases multirace %?: ")
+  skeleton[["cases"]][["race_NatA"]] = get_information("ID: Cases race NatA %?: ")
+  skeleton[["cases"]][["race_pac"]] = get_information("ID: Cases race Pacific Islander %?: ")
+  
+  skeleton[["hospitalized"]][["total"]] = get_information("ID: Total hospitalized?: ")
+  
+  skeleton[["deaths"]][["age_0_17"]] = get_information("ID: Deaths age <18")
+  skeleton[["deaths"]][["age_18_29"]] = get_information("ID: Deaths age 18 - 29: ")
+  skeleton[["deaths"]][["age_30_39"]] = get_information("ID: Deaths age 30 - 39?: ")
+  skeleton[["deaths"]][["age_40_49"]] = get_information("ID: Deaths age 40 - 49?: ")
+  skeleton[["deaths"]][["age_50_59"]] = get_information("ID: Deaths age 50 - 59?: ")
+  skeleton[["deaths"]][["age_60_69"]] = get_information("ID: Deaths age 60 - 69?: ")
+  skeleton[["deaths"]][["age_70_79"]] = get_information("ID: Deaths age 70 - 79?: ")
+  skeleton[["deaths"]][["age_80+"]] = get_information("ID: Deaths age 80+?: ")
+  skeleton[["deaths"]][["sex_male"]] = get_information("ID: Deaths sex male?: ")
+  skeleton[["deaths"]][["sex_female"]] = get_information("ID: Deaths sex female?: ")
+  skeleton[["deaths"]][["ethnicity_hispanic"]] = get_information("ID: Deaths hispanic?: ")
+  skeleton[["deaths"]][["ethnicity_non_hispanic"]] = get_information("ID: Deaths not hispanic?: ")
+  skeleton[["deaths"]][["race_white"]] = get_information("ID: Cases race white %?: ")
+  skeleton[["deaths"]][["race_asian"]] = get_information("ID: Cases race asian %?: ")
+  skeleton[["deaths"]][["race_AfrA"]] = get_information("ID: Cases race AfrA %?: ")
+
+  skeleton[["tested"]][["total"]] = get_information("ID: Total tested?: ")
+  
+  full_skeleton = skeleton %>%
+    standardize %>% 
+    mutate(
+      state_name = "Idaho",
+      Link = "https://public.tableau.com/profile/idaho.division.of.public.health#!/vizhome/DPHIdahoCOVID-19Dashboard_V2/Story1",
+      platform = "manual",
+      comments = "Percentages present. Manual entry.",
+      last.update = Sys.time() %>% as_date) %>% 
+    select(
+      state_name, Link,
+      total.tested:hosp_gender,
+      platform, comments, last.update)
+  
+  return(full_skeleton)
+}
+
+get_iowa = function() {
+  browseURL("https://coronavirus.iowa.gov/pages/case-counts")
+  
+  skeleton = skeleton_table(ia_cols)
+  
+  skeleton[["tested"]][["total"]] = get_information("IA: Total tested?: ")
+  skeleton[["cases"]][["total"]] = get_information("IA: Total cases?: ")
+  
+  skeleton[["cases"]][["age_0_17"]] = get_information("IA: Cases age 0-17 %?: ")
+  skeleton[["cases"]][["age_18_40"]] = get_information("IA: Cases age 18-40 %?: ")
+  skeleton[["cases"]][["age_41_60"]] = get_information("IA: Cases age 41-60 %?: ")
+  skeleton[["cases"]][["age_61_80"]] = get_information("IA: Cases age 61-80 %?: ")
+  skeleton[["cases"]][["age_80+"]] = get_information("IA: Cases age 80+ %?: ")
+  skeleton[["cases"]][["sex_male"]] = get_information("IA: Cases sex male %?: ")
+  skeleton[["cases"]][["sex_female"]] = get_information("IA: Cases sex female %?: ")
+  skeleton[["cases"]][["sex_unk"]] = get_information("IA: Cases sex unknown/pending %?: ")
+  
+  skeleton[["cases"]][["race_asian"]] = get_information("IA: Cases race asian %?: ")
+  skeleton[["cases"]][["race_AfrA"]] = get_information("IA: Cases race AfrA %?: ")
+  skeleton[["cases"]][["race_other"]] = get_information("IA: Cases race other %?: ")
+  skeleton[["cases"]][["race_white"]] = get_information("IA: Cases race white %?: ")
+  
+  skeleton[["cases"]][["ethnicity_hispanic"]] = get_information("IA: Cases ethnicity hispanic %?: ")
+  skeleton[["cases"]][["ethnicity_non_hispanic"]] = get_information("IA: Cases ethnicity not hispanic %?: ")
+  skeleton[["cases"]][["ethnicity_unk"]] = get_information("IA: Cases ethnicity pending %?: ")
+  
+  skeleton[["deaths"]][["total"]] = get_information("IA: Total deaths?: ")
+  
+  skeleton[["deaths"]][["age_0_17"]] = get_information("IA: Deaths age 0-17 %?: ")
+  skeleton[["deaths"]][["age_18_40"]] = get_information("IA: Deaths age 18-40 %?: ")
+  skeleton[["deaths"]][["age_41_60"]] = get_information("IA: Deaths age 41-60 %?: ")
+  skeleton[["deaths"]][["age_61_80"]] = get_information("IA: Deaths age 61-80 %?: ")
+  skeleton[["deaths"]][["age_80+"]] = get_information("IA: Deaths age 80+ %?: ")
+  skeleton[["deaths"]][["sex_male"]] = get_information("IA: Deaths sex male %?: ")
+  skeleton[["deaths"]][["sex_female"]] = get_information("IA: Deaths sex female %?: ")
+  skeleton[["deaths"]][["sex_unk"]] = get_information("IA: Deaths sex unknown/pending %?: ")
+  
+  skeleton[["deaths"]][["race_NatA"]] = get_information("IA: Deaths race NatA %?: ")
+  skeleton[["deaths"]][["race_asian"]] = get_information("IA: Deaths race asian %?: ")
+  skeleton[["deaths"]][["race_AfrA"]] = get_information("IA: Deaths race AfrA %?: ")
+  skeleton[["deaths"]][["race_pac"]] = get_information("IA: Deaths race Pacific Islander %?: ")
+  skeleton[["deaths"]][["race_unk"]] = get_information("IA: Deaths race pending %?: ")
+  skeleton[["deaths"]][["race_white"]] = get_information("IA: Deaths race white %?: ")
+  
+  skeleton[["deaths"]][["ethnicity_hispanic"]] = get_information("IA: Deaths ethnicity hispanic %?: ")
+  skeleton[["deaths"]][["ethnicity_non_hispanic"]] = get_information("IA: Deaths ethnicity not hispanic %?: ")
+  skeleton[["deaths"]][["ethnicity_unk"]] = get_information("IA: Deaths ethnicity pending %?: ")
+  
+  full_skeleton = skeleton %>% 
+    standardize %>% 
+    mutate(
+      state_name = "Iowa",
+      Link = "https://coronavirus.iowa.gov/pages/case-counts",
+      platform = "manual",
+      comments = "",
+      last.update = Sys.time() %>% as_date) %>% 
+    select(
+      state_name, Link,
+      total.tested:hosp_gender,
+      platform, comments, last.update)
+  
+  return(full_skeleton)
+}
+
+get_kansas = function() {
+  browseURL("https://www.coronavirus.kdheks.gov/160/COVID-19-in-Kansas")
+  
+  skeleton = skeleton_table(ks_cols)
+  
+  skeleton[["cases"]][["total"]] = get_information("KS: Total cases?: ")
+  skeleton[["hospitalized"]][["total"]] = get_information("KS: Total hospitalized?: ")
+  skeleton[["deaths"]][["total"]] = get_information("KS: Total deaths?: ")
+  
+  skeleton[["cases"]][["sex_female"]] = get_information("KS: Cases sex female?: ")
+  skeleton[["cases"]][["sex_male"]] = get_information("KS: Cases sex male?: ")
+  skeleton[["cases"]][["sex_unk"]] = get_information("KS: Cases sex unknown?: ")
+  skeleton[["cases"]][["age_0_9"]] = get_information("KS: Cases age 0 - 9?: ")
+  skeleton[["cases"]][["age_10_17"]] = get_information("KS: Cases age 10 - 17?: ")
+  skeleton[["cases"]][["age_18_24"]] = get_information("KS: Cases age 18 - 24?: ")
+  skeleton[["cases"]][["age_25_34"]] = get_information("KS: Cases age 25 - 34?: ")
+  skeleton[["cases"]][["age_45_54"]] = get_information("KS: Cases age 35 - 44?: ")
+  skeleton[["cases"]][["age_35_44"]] = get_information("KS: Cases age 45 - 54?: ")
+  skeleton[["cases"]][["age_55_64"]] = get_information("KS: Cases age 55 - 64?: ")
+  skeleton[["cases"]][["age_65_74"]] = get_information("KS: Cases age 65 - 74?: ")
+  skeleton[["cases"]][["age_75_84"]] = get_information("KS: Cases age 75 - 84?: ")
+  skeleton[["cases"]][["age_85+"]] = get_information("KS: Cases age 85+?: ")
+  skeleton[["cases"]][["age_unk"]] = get_information("KS: Cases age not reported?: ")
+  skeleton[["cases"]][["race_white"]] = get_information("KS: Cases race white?: ")
+  skeleton[["cases"]][["race_AfrA"]] = get_information("KS: Cases race AfrA?: ")
+  skeleton[["cases"]][["race_NatA"]] = get_information("KS: Cases race NatA?: ")
+  skeleton[["cases"]][["race_asian"]] = get_information("KS: Cases race asian?: ")
+  skeleton[["cases"]][["race_other"]] = get_information("KS: Cases race other?: ")
+  skeleton[["cases"]][["race_unk"]] = get_information("KS: Cases race not reported/missing?: ")
+  skeleton[["cases"]][["ethnicity_hispanic"]] = get_information("KS: Cases ethnicity hispanic?: ")
+  skeleton[["cases"]][["ethnicity_non_hispanic"]] = get_information("KS: Cases ethnicity not hispanic?: ")
+  skeleton[["cases"]][["ethnicity_unk"]] = get_information("KS: Cases ethnicity unknown/missing?: ")
+  
+  skeleton[["deaths"]][["sex_female"]] = get_information("KS: Deaths sex female?: ")
+  skeleton[["deaths"]][["sex_male"]] = get_information("KS: Deaths sex male?: ")
+  skeleton[["deaths"]][["sex_unk"]] = get_information("KS: Deaths sex unknown?: ")
+  skeleton[["deaths"]][["age_0_9"]] = get_information("KS: Deaths age 0 - 9?: ")
+  skeleton[["deaths"]][["age_10_17"]] = get_information("KS: Deaths age 10 - 17?: ")
+  skeleton[["deaths"]][["age_18_24"]] = get_information("KS: Deaths age 18 - 24?: ")
+  skeleton[["deaths"]][["age_25_34"]] = get_information("KS: Deaths age 25 - 34?: ")
+  skeleton[["deaths"]][["age_45_54"]] = get_information("KS: Deaths age 35 - 44?: ")
+  skeleton[["deaths"]][["age_35_44"]] = get_information("KS: Deaths age 45 - 54?: ")
+  skeleton[["deaths"]][["age_55_64"]] = get_information("KS: Deaths age 55 - 64?: ")
+  skeleton[["deaths"]][["age_65_74"]] = get_information("KS: Deaths age 65 - 74?: ")
+  skeleton[["deaths"]][["age_75_84"]] = get_information("KS: Deaths age 75 - 84?: ")
+  skeleton[["deaths"]][["age_85+"]] = get_information("KS: Deaths age 85+?: ")
+  skeleton[["deaths"]][["age_unk"]] = get_information("KS: Deaths age not reported?: ")
+  skeleton[["deaths"]][["race_white"]] = get_information("KS: Deaths race white?: ")
+  skeleton[["deaths"]][["race_AfrA"]] = get_information("KS: Deaths race AfrA?: ")
+  skeleton[["deaths"]][["race_NatA"]] = get_information("KS: Deaths race NatA?: ")
+  skeleton[["deaths"]][["race_asian"]] = get_information("KS: Deaths race asian?: ")
+  skeleton[["deaths"]][["race_other"]] = get_information("KS: Deaths race other?: ")
+  skeleton[["deaths"]][["race_unk"]] = get_information("KS: Deaths race not reported/missing?: ")
+  skeleton[["deaths"]][["ethnicity_hispanic"]] = get_information("KS: Deaths ethnicity hispanic?: ")
+  skeleton[["deaths"]][["ethnicity_non_hispanic"]] = get_information("KS: Deaths ethnicity not hispanic?: ")
+  skeleton[["deaths"]][["ethnicity_unk"]] = get_information("KS: Deaths ethnicity unknown/missing?: ")
+  
+  skeleton[["hospitalized"]][["age_0_9"]] = get_information("KS: Hospitalized age 0 - 9?: ")
+  skeleton[["hospitalized"]][["age_10_17"]] = get_information("KS: Hospitalized age 10 - 17?: ")
+  skeleton[["hospitalized"]][["age_18_24"]] = get_information("KS: Hospitalized age 18 - 24?: ")
+  skeleton[["hospitalized"]][["age_25_34"]] = get_information("KS: Hospitalized age 25 - 34?: ")
+  skeleton[["hospitalized"]][["age_45_54"]] = get_information("KS: Hospitalized age 35 - 44?: ")
+  skeleton[["hospitalized"]][["age_35_44"]] = get_information("KS: Hospitalized age 45 - 54?: ")
+  skeleton[["hospitalized"]][["age_55_64"]] = get_information("KS: Hospitalized age 55 - 64?: ")
+  skeleton[["hospitalized"]][["age_65_74"]] = get_information("KS: Hospitalized age 65 - 74?: ")
+  skeleton[["hospitalized"]][["age_75_84"]] = get_information("KS: Hospitalized age 75 - 84?: ")
+  skeleton[["hospitalized"]][["age_85+"]] = get_information("KS: Hospitalized age 85+?: ")
+  skeleton[["hospitalized"]][["age_unk"]] = get_information("KS: Hospitalized age not reported?: ")
+  skeleton[["hospitalized"]][["race_white"]] = get_information("KS: Hospitalized race white?: ")
+  skeleton[["hospitalized"]][["race_AfrA"]] = get_information("KS: Hospitalized race AfrA?: ")
+  skeleton[["hospitalized"]][["race_NatA"]] = get_information("KS: Hospitalized race NatA?: ")
+  skeleton[["hospitalized"]][["race_asian"]] = get_information("KS: Hospitalized race asian?: ")
+  skeleton[["hospitalized"]][["race_other"]] = get_information("KS: Hospitalized race other?: ")
+  skeleton[["hospitalized"]][["race_unk"]] = get_information("KS: Hospitalized race not reported/missing?: ")
+  skeleton[["hospitalized"]][["ethnicity_hispanic"]] = get_information("KS: Hospitalized ethnicity hispanic?: ")
+  skeleton[["hospitalized"]][["ethnicity_non_hispanic"]] = get_information("KS: Hospitalized ethnicity not hispanic?: ")
+  skeleton[["hospitalized"]][["ethnicity_unk"]] = get_information("KS: Hospitalized ethnicity unknown/missing?: ")
+  
+  full_skeleton = skeleton %>% 
+    standardize %>% 
+    mutate(
+      state_name = manual_states[5],
+      Link = "https://www.coronavirus.kdheks.gov/160/COVID-19-in-Kansas",
+      platform = "manual",
+      comments = "",
+      last.update = Sys.time() %>% as_date) %>% 
+    select(
+      state_name, Link,
+      total.tested:hosp_gender,
+      platform, comments, last.update)
+  
+  return(full_skeleton)
+}
+
+get_nevada = function() {
+  browseURL("https://nvhealthresponse.nv.gov/")
+  
+  skeleton = skeleton_table(nv_cols)
+  
+  skeleton[["tested"]][["total"]] = get_information("NV: Total tested?: ")
+  skeleton[["cases"]][["total"]] = get_information("NV: Total cases?: ")
+  skeleton[["deaths"]][["total"]] = get_information("NV: Total deaths?: ")
+  
+  skeleton[["cases"]][["age_0_9"]] = get_information("NV: Cases ages < 10?: ")
+  skeleton[["cases"]][["age_10_19"]] = get_information("NV: Cases ages 10-19?: ")
+  skeleton[["cases"]][["age_20_29"]] = get_information("NV: Cases ages 20-29?: ")
+  skeleton[["cases"]][["age_30_39"]] = get_information("NV: Cases ages 30-39?: ")
+  skeleton[["cases"]][["age_40_49"]] = get_information("NV: Cases ages 40-49?: ")
+  skeleton[["cases"]][["age_50_59"]] = get_information("NV: Cases ages 50-59?: ")
+  skeleton[["cases"]][["age_60_69"]] = get_information("NV: Cases ages 60-69?: ")
+  skeleton[["cases"]][["age_70+"]] = get_information("NV: Cases ages 70+?: ")
+  skeleton[["cases"]][["age_unk"]] = get_information("NV: Cases ages not reported?: ")
+  skeleton[["cases"]][["sex_male"]] = get_information("NV: Cases sex male?: ")
+  skeleton[["cases"]][["sex_female"]] = get_information("NV: Cases sex female?: ")
+  skeleton[["cases"]][["sex_unk"]] = get_information("NV: Cases sex not reported?: ")
+  
+  skeleton[["deaths"]][["age_0_9"]] = get_information("NV: Deaths ages < 10?: ")
+  skeleton[["deaths"]][["age_10_19"]] = get_information("NV: Deaths ages 10-19?: ")
+  skeleton[["deaths"]][["age_20_29"]] = get_information("NV: Deaths ages 20-29?: ")
+  skeleton[["deaths"]][["age_30_39"]] = get_information("NV: Deaths ages 30-39?: ")
+  skeleton[["deaths"]][["age_40_49"]] = get_information("NV: Deaths ages 40-49?: ")
+  skeleton[["deaths"]][["age_50_59"]] = get_information("NV: Deaths ages 50-59?: ")
+  skeleton[["deaths"]][["age_60_69"]] = get_information("NV: Deaths ages 60-69?: ")
+  skeleton[["deaths"]][["age_70+"]] = get_information("NV: Deaths ages 70+?: ")
+  skeleton[["deaths"]][["age_unk"]] = get_information("NV: Deaths ages not reported?: ")
+  skeleton[["deaths"]][["sex_male"]] = get_information("NV: Deaths sex male?: ")
+  skeleton[["deaths"]][["sex_female"]] = get_information("NV: Deaths sex female?: ")
+  skeleton[["deaths"]][["sex_unk"]] = get_information("NV: Deaths sex not reported?: ")
+  
+  full_skeleton = skeleton %>% 
+    standardize %>% 
+    mutate(
+      state_name = "Nevada",
+      Link = "https://nvhealthresponse.nv.gov/",
+      platform = "manual",
+      comments = "",
+      last.update = Sys.time() %>% as_date) %>% 
+    select(
+      state_name, Link,
+      total.tested:hosp_gender,
+      platform, comments, last.update)
+  
+  return(full_skeleton)
+}
+
+get_new_york = function() {
+  browseURL("https://covid19tracker.health.ny.gov/views/NYS-COVID19-Tracker/NYSDOHCOVID-19Tracker-DailyTracker?%3Aembed=yes&%3Atoolbar=no#/views/NYS-COVID19-Tracker/NYSDOHCOVID-19Tracker-Map?%253Aembed=yes&%253Atoolbar=no")
+  
+  skeleton = skeleton_table(ny_cols)
+  
+  skeleton[["tested"]][["total"]] = get_information("NY: Total tested?: ")
+  skeleton[["cases"]][["total"]] = get_information("NY: Total cases?: ")
+  
+  skeleton[["cases"]][["sex_male"]] = get_information("NY: Cases sex male %?: ")
+  skeleton[["cases"]][["sex_female"]] = get_information("NY: Cases sex female %?: ")
+  skeleton[["cases"]][["sex_unk"]] = get_information("NY: Cases sex unknown %?: ")
+  
+  skeleton[["deaths"]][["total"]] = get_information("NY: Total deaths?: ")
+  
+  skeleton[["deaths"]][["ethnicity_hispanic"]] = get_information("NY: Deaths hispanic %?: ")
+  skeleton[["deaths"]][["race_AfrA"]] = get_information("NY: Deaths race AfrA %?: ")
+  skeleton[["deaths"]][["race_white"]] = get_information("NY: Deaths race white %?: ")
+  skeleton[["deaths"]][["race_asian"]] = get_information("NY: Deaths race asian %?: ")
+  skeleton[["deaths"]][["race_other"]] = get_information("NY: Deaths race other %?: ")
+  
+  skeleton[["deaths"]][["age_0_9"]] = get_information("NY: Deaths age 0 to 9?: ")
+  skeleton[["deaths"]][["age_10_19"]] = get_information("NY: Deaths age 10 to 19?: ")
+  skeleton[["deaths"]][["age_20_29"]] = get_information("NY: Deaths age 20 to 29?: ")
+  skeleton[["deaths"]][["age_30_39"]] = get_information("NY: Deaths age 30 to 39?: ")
+  skeleton[["deaths"]][["age_40_49"]] = get_information("NY: Deaths age 40 to 49?: ")
+  skeleton[["deaths"]][["age_50_59"]] = get_information("NY: Deaths age 50 to 59?: ")
+  skeleton[["deaths"]][["age_60_69"]] = get_information("NY: Deaths age 60 to 69?: ")
+  skeleton[["deaths"]][["age_70_79"]] = get_information("NY: Deaths age 70 to 79?: ")
+  skeleton[["deaths"]][["age_80_89"]] = get_information("NY: Deaths age 80 to 89?: ")
+  skeleton[["deaths"]][["age_90+"]] = get_information("NY: Deaths age 90+?: ")
+  skeleton[["deaths"]][["age_unk"]] = get_information("NY: Deaths age unknown?: ")
+  
+  full_skeleton = skeleton %>% 
+    standardize %>% 
+    mutate(
+      state_name = manual_states[7],
+      Link = "https://covid19tracker.health.ny.gov/views/NYS-COVID19-Tracker/NYSDOHCOVID-19Tracker-TableView?%3Aembed=yes&%3Atoolbar=no#/views/NYS%2dCOVID19%2dTracker/NYSDOHCOVID%2d19Tracker%2dMap?%253Aembed=yes&%253Atoolbar=no",
+      platform = "manual",
+      comments = "Percentages present. Manual entry.",
+      last.update = Sys.time() %>% as_date) %>% 
+    select(
+      state_name, Link,
+      total.tested:hosp_gender,
+      platform, comments, last.update)
+  
+  return(full_skeleton)
+}
+
+get_south_dakota = function() {
+  browseURL("https://doh.sd.gov/news/coronavirus.aspx#SD")
+  
+  skeleton = skelton_table(sd_cols)
+  
+  skeleton[["tested"]][["total"]] = get_information("SD: Total tested? (add): ")
+  skeleton[["cases"]][["total"]] = get_information("SD: Total cases?: ")
+  skeleton[["hospitalized"]][["total"]] = get_information("SD: Total hospitalized?: ")
+  skeleton[["deaths"]][["total"]] = get_information("SD: Total deaths?: ")
+  
+  skeleton[["cases"]][["age_0_19"]] = get_information("SD: Cases age 0-19?: ")
+  skeleton[["cases"]][["age_20_29"]] = get_information("SD: Cases age 20-29?: ")
+  skeleton[["cases"]][["age_30_39"]] = get_information("SD: Cases age 30-39?: ")  
+  skeleton[["cases"]][["age_40_49"]] = get_information("SD: Cases age 40-49?: ")
+  skeleton[["cases"]][["age_50_59"]] = get_information("SD: Cases age 50-59?: ")
+  skeleton[["cases"]][["age_60_69"]] = get_information("SD: Cases age 60-69?: ")
+  skeleton[["cases"]][["age_70_79"]] = get_information("SD: Cases age 70-79?: ")
+  skeleton[["cases"]][["age_80+"]] = get_information("SD: Cases age 80+?: ")
+  
+  skeleton[["hospitalized"]][["age_0_19"]] = get_information("SD: Hospitalized age 0-19?: ")
+  skeleton[["hospitalized"]][["age_20_29"]] = get_information("SD: Hospitalized age 20-29?: ")
+  skeleton[["hospitalized"]][["age_30_39"]] = get_information("SD: Hospitalized age 30-39?: ")  
+  skeleton[["hospitalized"]][["age_40_49"]] = get_information("SD: Hospitalized age 40-49?: ")
+  skeleton[["hospitalized"]][["age_50_59"]] = get_information("SD: Hospitalized age 50-59?: ")
+  skeleton[["hospitalized"]][["age_60_69"]] = get_information("SD: Hospitalized age 60-69?: ")
+  skeleton[["hospitalized"]][["age_70_79"]] = get_information("SD: Hospitalized age 70-79?: ")
+  skeleton[["hospitalized"]][["age_80+"]] = get_information("SD: Hospitalized age 80+?: ")
+  
+  skeleton[["deaths"]][["age_0_19"]] = get_information("SD: Deaths age 0-19?: ")
+  skeleton[["deaths"]][["age_20_29"]] = get_information("SD: Deaths age 20-29?: ")
+  skeleton[["deaths"]][["age_30_39"]] = get_information("SD: Deaths age 30-39?: ")  
+  skeleton[["deaths"]][["age_40_49"]] = get_information("SD: Deaths age 40-49?: ")
+  skeleton[["deaths"]][["age_50_59"]] = get_information("SD: Deaths age 50-59?: ")
+  skeleton[["deaths"]][["age_60_69"]] = get_information("SD: Deaths age 60-69?: ")
+  skeleton[["deaths"]][["age_70_79"]] = get_information("SD: Deaths age 70-79?: ")
+  skeleton[["deaths"]][["age_80+"]] = get_information("SD: Deaths age 80+?: ")
+  
+  skeleton[["cases"]][["sex_male"]] = get_information("SD: Cases sex male?: ")
+  skeleton[["cases"]][["sex_female"]] = get_information("SD: Cases sex female?: ")
+  
+  skeleton[["cases"]][["race_white"]] = get_information("SD: Cases race white?: ")
+  skeleton[["cases"]][["race_AfrA"]] = get_information("SD: Cases race AfrA?: ")
+  skeleton[["cases"]][["ethnicity_hispanic"]] = get_information("SD: Cases hispanic %?: ")
+  skeleton[["cases"]][["race_other"]] = get_information("SD: Cases race other?: ")
+  skeleton[["cases"]][["race_asian"]] = get_information("SD: Cases race asian?: ")
+  skeleton[["cases"]][["race_NatA"]] = get_information("SD: Cases race NatA?: ")
+  
+  full_skeleton = skeleton %>% 
+    standardize %>% 
+    mutate(
+      state_name = "South Dakota",
+      Link = "https://doh.sd.gov/news/coronavirus.aspx#SD",
+      platform = "manual",
+      comments = "",
+      last.update = Sys.time() %>% as_date) %>% 
+    select(
+      state_name, Link,
+      total.tested:hosp_gender,
+      platform, comments, last.update)
+  
+  return(full_skeleton)
+}
+
+get_west_virginia = function() {
+  browseURL("https://dhhr.wv.gov/COVID-19/Pages/default.aspx")
+  
+  skeleton = skeleton_table(wv_cols)
+  
+  skeleton[["tested"]][["total"]] = get_information("WV: Total tested?: ")
+  skeleton[["cases"]][["total"]] = get_information("WV:  Total cases?: ")
+  skeleton[["deaths"]][["total"]] = get_information("WV: Total deaths?: ")
+  
+  skeleton[["cases"]][["race_white"]] = get_information("WV: Cases race white %?: ")
+  skeleton[["cases"]][["race_AfrA"]] = get_information("WV: Cases race AfrA %?: ")
+  skeleton[["cases"]][["race_other"]] = get_information("WV: Cases race other %?: ")
+  skeleton[["cases"]][["age_0_9"]] = get_information("WV: Cases age 0-9 %?: ")
+  skeleton[["cases"]][["age_10_19"]] = get_information("WV: Cases age 10-19 %?: ")
+  skeleton[["cases"]][["age_20_29"]] = get_information("WV: Cases age 20-29 %?: ")
+  skeleton[["cases"]][["age_30_39"]] = get_information("WV: Cases age 30-39 %?: ")
+  skeleton[["cases"]][["age_40_49"]] = get_information("WV: Cases age 40-49 %?: ")
+  skeleton[["cases"]][["age_50_59"]] = get_information("WV: Cases age 50-59 %?: ")
+  skeleton[["cases"]][["age_60_69"]] = get_information("WV: Cases age 60-69 %?: ")
+  skeleton[["cases"]][["age_70+"]] = get_information("WV: Cases age 70+ %?: ")
+  
+  skeleton[["cases"]][["sex_male"]] = get_information("WV: Cases male %?: ")
+  skeleton[["cases"]][["sex_female"]] = get_information("WV: Cases female %?: ")
+  skeleton[["cases"]][["sex_unk"]] = get_information("WV: Cases sex unknown %?: ")
+  
+  full_skeleton = skeleton %>% 
+    standardize %>% 
+    mutate(
+      state_name = "West Virginia",
+      Link = "https://dhhr.wv.gov/COVID-19/Pages/default.aspx",
+      platform = "manual",
+      comments = "Percentages present. Manual entry.",
+      last.update = Sys.time() %>% as_date) %>% 
+    select(
+      state_name, Link,
+      total.tested:hosp_gender,
+      platform, comments, last.update)
+  
+  return(full_skeleton)
+}
+
+get_wyoming = function() {
+  browseURL("https://health.wyo.gov/publichealth/infectious-disease-epidemiology-unit/disease/novel-coronavirus/covid-19-map-and-statistics/")
+  
+  skeleton = skeleton_table(wy_cols)
+  
+  skeleton[["tested"]][["total"]] = get_information("WY: Total tested?: ")
+  skeleton[["cases"]][["total"]] = get_information("WY: Total cases?: ")
+  skeleton[["deaths"]][["total"]] = get_information("WY: Total deaths?: ")
+  skeleton[["cases"]][["age_0_18"]] = get_information("WY: Cases age <= 18?: ")
+  skeleton[["cases"]][["age_19_29"]] = get_information("WY: Cases age 19-29?: ")
+  skeleton[["cases"]][["age_30_39"]] = get_information("WY: Cases age 30-39?: ")            
+  skeleton[["cases"]][["age_40_49"]] = get_information("WY: Cases age 40-49?: ")             
+  skeleton[["cases"]][["age_50_59"]] = get_information("WY: Cases age 50-59?: ")             
+  skeleton[["cases"]][["age_60_69"]] = get_information("WY: Cases age 60-69?: ")             
+  skeleton[["cases"]][["age_70_79"]] = get_information("WY: Cases age 70-79?: ")            
+  skeleton[["cases"]][["age_80+"]] = get_information("WY: Cases age 80+?: ")
+  skeleton[["cases"]][["sex_male"]] = get_information("WY: Cases male?: ")
+  skeleton[["cases"]][["sex_female"]] = get_information("WY: Cases female?: ")
+  skeleton[["cases"]][["race_white"]] = get_information("WY: Cases race white?: ")
+  skeleton[["cases"]][["race_NatA"]] = get_information("WY: Cases race NatA?: ")
+  skeleton[["cases"]][["ethnicity_hispanic"]] = get_information("WY: Cases hispanic %?: ")
+  skeleton[["cases"]][["race_AfrA"]] = get_information("WY: Cases race AfrA?: ")
+  skeleton[["cases"]][["race_asian"]] = get_information("WY: Cases race asian?: ")
+  skeleton[["cases"]][["race_other"]] = get_information("WY: Cases race other?: ")
+  skeleton[["cases"]][["race_unk"]] = get_information("WY: Cases race unknown?: ")
+  
+  full_skeleton = skeleton %>% 
+    standardize %>% 
+    mutate(
+      state_name = "Wyoming",
+      Link = "https://health.wyo.gov/publichealth/infectious-disease-epidemiology-unit/disease/novel-coronavirus/covid-19-map-and-statistics/",
+      platform = "manual",
+      comments = "",
+      last.update = Sys.time() %>% as_date) %>% 
+    select(
+      state_name, Link,
+      total.tested:hosp_gender,
+      platform, comments, last.update)
+  
+  return(full_skeleton)
+  
+}
+
+get_information = function(prompt) {
+  # Keep asking for information until it is given to prevent typos
+  answered = FALSE
+  
+  while (!answered) {
+    answer = readline(prompt = prompt)
+    
+    if (answer != "") {
+      answered = TRUE
+      processed_answer = eval(parse(text = answer))
+    } else if (is.na(answer)) {
+      answered = TRUE
+      processed_answer = NA
     }
   }
   
-  return(as_tibble(skeleton))
+  return(processed_answer)
 }
 
-compile_manual_states = function() {
-  
-  # All the states we do complete manual data entry for
-  manual_states = c(
-    "Arizona",
-    "Hawaii",
-    "Idaho",
-    "Iowa",
-    "Kansas",
-    "Nevada",
-    "New York",
-    "Puerto Rico",
-    "South Dakota",
-    "Virgin Island",
-    "West Virginia",
-    "Wyoming")
-  
-  # The urls to get information from
-  manual_state_urls = c(
-    "https://www.azdhs.gov/preparedness/epidemiology-disease-control/infectious-disease-epidemiology/covid-19/dashboards/index.php",
-    "https://health.hawaii.gov/coronavirusdisease2019/what-you-should-know/current-situation-in-hawaii/",
-    "https://public.tableau.com/profile/idaho.division.of.public.health#!/vizhome/DPHIdahoCOVID-19Dashboard_V2/Story1",
-    "https://coronavirus.iowa.gov/pages/case-counts",
-    "https://www.coronavirus.kdheks.gov/160/COVID-19-in-Kansas",
-    "https://nvhealthresponse.nv.gov/",
-    "https://covid19tracker.health.ny.gov/views/NYS-COVID19-Tracker/NYSDOHCOVID-19Tracker-TableView?%3Aembed=yes&%3Atoolbar=no#/views/NYS%2dCOVID19%2dTracker/NYSDOHCOVID%2d19Tracker%2dMap?%253Aembed=yes&%253Atoolbar=no",
-    "https://estadisticas.pr/en/covid-19",
-    "https://doh.sd.gov/news/coronavirus.aspx#SD",
-    "https://www.covid19usvi.com/?utm_source=doh&utm_medium=web&utm_campaign=covid19usvi",
-    "https://dhhr.wv.gov/COVID-19/Pages/default.aspx",
-    "https://health.wyo.gov/publichealth/infectious-disease-epidemiology-unit/disease/novel-coronavirus/covid-19-map-and-statistics/")
-  
-  state_vecs = list(
-    az_cols,
-    hi_cols, 
-    id_cols,
-    ia_cols,
-    ks_cols,
-    nv_cols,
-    default_cols,
-    pr_cols,
-    sd_cols,
-    vi_cols,
-    wv_cols,
-    wy_cols)
-  
-  final_data = NULL
-  
-  "Starting manual data entry..." %>% print
-  
-  for (i in 1:length(manual_states)) {
-    
-    paste0("Starting ", manual_states[i], ", go to:") %>% print
-    manual_state_urls[i] %>% print
-    
-    filled_skeleton = manual_fill(manual_states[i], state_vecs[[i]])
-    
-    final_skeleton = filled_skeleton %>% 
-      standardize %>% 
-      mutate(
-        state_name = manual_states[i],
-        Link = manual_state_urls[i],
-        platform = "manual",
-        comments = "",
-        last.update = Sys.time() %>% as_date) %>% 
-      select(
-        state_name, Link,
-        total.tested:hosp_gender,
-        platform, comments, last.update)
-    
-    final_data = bind_rows(final_data, final_skeleton)
-    paste0("Finishing ", manual_states[i]) %>% print
-  }
-  
-  "Ending manual data entry..." %>% print
-  "Inspect final output for errors" %>% print
-  
-  return(final_data)
-}
+
+
+
