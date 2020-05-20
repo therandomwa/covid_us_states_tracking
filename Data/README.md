@@ -16,3 +16,6 @@
 
 05/18:
 - PA moving death data into pdf, adding comorbidities and place of death
+
+05/19:
+- North Carolina totally changed their dashboard, changed get_north_carolina()
