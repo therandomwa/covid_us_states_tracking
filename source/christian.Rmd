@@ -51,7 +51,7 @@ new_hampshire = get_new_hampshire()
 
 ```{r}
 # Get as much automated data as you can
-automated_data_20200515 = compile()
+automated_data_20200519 = compile()
 ```
 
 # Manual States
@@ -69,41 +69,39 @@ In addition to the information above, we need manual entry for:
 - West Virginia
 - Wyoming
 
+add in count/prop
+label for approximation
+add in census counts for appropriate category and age
+prettify the shiny
+add in plots
+
 For each of these states, we'll collect sex, age, and race information.
 
 ```{r}
 # All the states we do complete manual data entry for
 arizona = get_arizona() 
-hawaii = get_hawaii()
-
-idaho = get_idaho() 
+kansas = get_kansas()
 iowa = get_iowa()
 
-kansas = get_kansas()
-nevada = get_nevada()
+# hawaii = get_hawaii() # Courtney
+# idaho = get_idaho() # Courtney
 
-new_york = get_new_york()
-south_dakota = get_south_dakota()
+# nevada = get_nevada() # Lauren
+# new_york = get_new_york() # Lauren
 
-west_virginia = get_west_virginia()
-wyoming = get_wyoming()
+# south_dakota = get_south_dakota() # Gloria
+# west_virginia = get_west_virginia() # Gloria 
+# wyoming = get_wyoming() # Amy
     
-manual_data_20200515 = bind_rows(
+manual_data_20200519 = bind_rows(
   arizona,
-  hawaii,
-  idaho,
   iowa,
-  kansas,
-  nevada,
-  new_york,
-  south_dakota,
-  west_virginia,
-  wyoming)
+  kansas)
 ```
 
 ```{r}
-full_data_20200518 = bind_rows(automated_data_20200515, manual_data_20200515)
-save(full_data_20200518, file = "../Data/meta_2020-05-18-cbp.rda")
+full_data_20200519 = bind_rows(automated_data_20200519, manual_data_20200519)
+save(full_data_20200519, file = "../Data/meta_2020-05-19-cbp.rda")
 ```
 
 # Data Separation
@@ -478,4 +476,48 @@ final = bind_rows(
 write.csv(final, "../Data/processed_state_data_20200516.csv")
 ```
 
+```{r}
+test = finalize_data("../Data/Archive/meta_final_2020-05-16.csv")
+census = read_xlsx("../Data/cleaned_census.xlsx") %>% 
+  filter(State != "puerto rico", State != "virgin islands") %>% 
+  mutate(
+    state_name = c(datasets::state.name, "District of Columbia"),
+    MALE = population_estimate * (1 - Females),
+    FEMALE = population_estimate * (Females),
+    WHITE = population_estimate * (White_alone),
+    BLACK = population_estimate * (Black),
+    `AI/AN` = population_estimate * (American_indian_alaskan_native),
+    ASIAN = population_estimate * Asian,
+    #`NH/PI` = population_estimate * Native_Hawaiian_Other_Pacific_islander,
+    MULTI = population_estimate * Two_or_more_races,
+    HISPANIC = population_estimate * Hispanic
+  ) %>% 
+  select(
+    state_name, population_estimate, 
+    MALE, FEMALE,
+    WHITE, BLACK, `AI/AN`, ASIAN, 
+    #`NH/PI`, 
+    MULTI, HISPANIC) %>% 
+  pivot_longer(
+    population_estimate:HISPANIC,
+    names_to = "category",
+    values_to = "count")
+```
 
+```{r}
+totals_table = test %>% 
+  select(state_name, total_test, total_case, total_death, total_hosp) %>% 
+  pivot_longer(
+    total_case:total_hosp,
+    names_to = "total_type",
+    values_to = "data_type_total"
+  ) %>% 
+  separate(total_type, c("prefix", "data_type")) %>% 
+  select(state_name, data_type, data_type_total)
+
+strata_values = test %>% 
+  select(state_name, total_test, category, raw, strata_type, data_type)
+
+better_test = left_join(strata_values, totals_table, by = c("state_name", "data_type")) %>% 
+  distinct()
+```

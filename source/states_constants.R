@@ -517,29 +517,3 @@ ny_cols = c(
   "race_AfrA",
   "race_asian", 
   "race_other")
-
-manual_states = c(
-  "Arizona",
-  "Hawaii",
-  "Idaho",
-  "Iowa",
-  "Kansas",
-  "Nevada",
-  "New York",
-  "South Dakota",
-  "West Virginia",
-  "Wyoming")
-
-
-
-state_vecs = list(
-  az_cols,
-  hi_cols, 
-  id_cols,
-  ia_cols,
-  ks_cols,
-  nv_cols,
-  ny_cols,
-  sd_cols,
-  wv_cols,
-  wy_cols)
