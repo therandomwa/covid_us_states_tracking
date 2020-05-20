@@ -1707,12 +1707,12 @@ get_hawaii = function() {
   skeleton[["cases"]][["age_40_59"]] = get_information("HI: Cases age 40 - 59?: ")
   skeleton[["cases"]][["age_60+"]] = get_information("HI: Cases age 60+?: ")
   
-  skeleton[["cases"]][["race_asian"]] = get_information("HI: Deaths race asian %?: ")
-  skeleton[["cases"]][["race_white"]] = get_information("HI: Deaths race white %?: ")
-  skeleton[["cases"]][["race_pac"]] = get_information("HI: Deaths race Native Hawaiian %?: ")
-  skeleton[["cases"]][["race_AfrA"]] = get_information("HI: Deaths race AfrA %?: ")
-  skeleton[["cases"]][["race_other"]] = get_information("HI: Deaths race other %?: ")
-  skeleton[["cases"]][["race_multi"]] = get_information("HI: Deaths race multirace %?: ")
+  skeleton[["cases"]][["race_asian"]] = get_information("HI: Cases race asian %?: ")
+  skeleton[["cases"]][["race_white"]] = get_information("HI: Cases race white %?: ")
+  skeleton[["cases"]][["race_pac"]] = get_information("HI: Cases race Native Hawaiian %?: ")
+  skeleton[["cases"]][["race_AfrA"]] = get_information("HI: Cases race AfrA %?: ")
+  skeleton[["cases"]][["race_other"]] = get_information("HI: Cases race other %?: ")
+  skeleton[["cases"]][["race_multi"]] = get_information("HI: Cases race multirace %?: ")
   
   full_skeleton = as_tibble(skeleton) %>% 
     standardize %>% 
@@ -1774,9 +1774,9 @@ get_idaho = function() {
   skeleton[["deaths"]][["sex_female"]] = get_information("ID: Deaths sex female?: ")
   skeleton[["deaths"]][["ethnicity_hispanic"]] = get_information("ID: Deaths hispanic?: ")
   skeleton[["deaths"]][["ethnicity_non_hispanic"]] = get_information("ID: Deaths not hispanic?: ")
-  skeleton[["deaths"]][["race_white"]] = get_information("ID: Cases race white %?: ")
-  skeleton[["deaths"]][["race_asian"]] = get_information("ID: Cases race asian %?: ")
-  skeleton[["deaths"]][["race_AfrA"]] = get_information("ID: Cases race AfrA %?: ")
+  skeleton[["deaths"]][["race_white"]] = get_information("ID: Deaths race white %?: ")
+  skeleton[["deaths"]][["race_asian"]] = get_information("ID: Deaths race asian %?: ")
+  skeleton[["deaths"]][["race_AfrA"]] = get_information("ID: Deaths race AfrA %?: ")
 
   skeleton[["tested"]][["total"]] = get_information("ID: Total tested?: ")
   
