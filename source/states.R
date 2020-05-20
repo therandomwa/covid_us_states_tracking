@@ -1336,6 +1336,9 @@ compile = function() {
   "Running New Hampshire" %>% print()
   new_hampshire = get_new_hampshire()
   
+  "Running District of Columbia" %>% print()
+  dc = get_dc()
+  
   # Manual entry for some extra items
   "Starting manual entry for these states" %>% print()
   browseURL("https://coronavirus.health.ok.gov/")
@@ -1608,7 +1611,8 @@ compile = function() {
     final_north_carolina,
     new_jersey,
     final_south_carolina,
-    new_hampshire
+    new_hampshire,
+    dc
   ))
 }
 

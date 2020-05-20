@@ -521,3 +521,14 @@ strata_values = test %>%
 better_test = left_join(strata_values, totals_table, by = c("state_name", "data_type")) %>% 
   distinct()
 ```
+
+
+
+
+```{r}
+load("../data/raw_states/meta_2020-05-19-cbp.rda")
+dc = get_dc()
+fixed = bind_rows(full_data_20200519, dc)
+save(fixed, "../data/raw_states/meta_2020-05-19-cbp.rda")
+```
+
