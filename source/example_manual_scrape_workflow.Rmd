@@ -1,0 +1,40 @@
+---
+title: "Example Manual Scraping Workflow"
+---
+
+```{r}
+# Step 1: Load in my R source files
+library(tidyverse)
+source("states.R")
+source("states_constants.R")
+```
+
+```{r}
+# Step 2: Do the data entry 
+hawaii = get_hawaii() # Courtney
+idaho = get_idaho() # Courtney
+
+nevada = get_nevada() # Lauren
+new_york = get_new_york() # Lauren
+
+south_dakota = get_south_dakota() # Gloria
+west_virginia = get_west_virginia() # Gloria 
+wyoming = get_wyoming() # Amy
+
+```
+
+```{r}
+# Step 3: combine the two states together with bind_rows
+# Name your variable like manual_data_yearmonthday_initials
+# ie: manual_data_20200519_cbp = bind_rows(arizona, kansas, iowa)
+```
+
+```{r}
+# Step 4: save your data as an Rda with a similar name
+# ie: save(manual_data_20200519_cbp, file = "manual_data_20200519_cbp.rda")
+
+# Then place into the Sharepoint! 
+# As Aijin suggested, try doing this at least one day a week, like Friday
+# Thanks everyone for helping out
+```
+
