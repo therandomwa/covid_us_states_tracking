@@ -157,7 +157,8 @@ renderPlotly({
 #    filter(state == input$state_choice1,
 #           num_type == input$count_choice) %>%
     filter(state == "WV",
-           num_type == "Count") %>%
+           num_type == "Count",
+           date >= min(date[val!= 0])) %>%
     mutate(max_val = max(val),
            min_date = min(date[val != 0])) %>%
     plot_ly(
@@ -166,7 +167,7 @@ renderPlotly({
       hoverinfo = "text",
       text = ~paste0("Date: ", date, '\nCases: ', round(val, 2), '\n3 Day Avg: ', round(roll_avg, 2))) %>%
     layout(
-      xaxis = list(title = "Date", range = c(~min_date, Sys.Date()),
+      xaxis = list(title = "Date"),
       yaxis = list(title = "No. Cases"),
       shapes = list(
         list(
