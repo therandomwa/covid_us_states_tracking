@@ -155,9 +155,11 @@ Column {data-width=500}
 renderPlotly({
   cases3 %>%
     filter(state == input$state_choice1,
-           num_type == input$count_choice) %>%
-#    filter(state == "AZ",
-#           num_type == "Count") %>%
+           num_type == input$count_choice,
+           date >= min(date[val != 0])) %>%
+#    filter(state == "AK",
+#           num_type == "Count",
+#           date >= min(date[val != 0])) %>%
     mutate(max_val = max(val)) %>%
     plot_ly(
       x = ~date, y = ~val, type = "bar", showlegend = FALSE,
@@ -170,15 +172,15 @@ renderPlotly({
       shapes = list(
         list(
           type = "rect",
-          fillcolor = "yellow", line = list(color = "yellow"), opacity = 0.3,
-          x0 = "2020-03-15", x1 = "2020-05-01", xref = "x",
-          y0 = 0, y1 = 22, yref = "y"
+          fillcolor = "#D14124", line = list(color = "#D14124"), opacity = 0.3,
+          x0 = ~start_close, x1 = ~end_close, xref = "x",
+          y0 = 0, y1 = ~max_val, yref = "y"
         ),
         list(
           type = "rect",
           fillcolor = "#D0D0CE", line = list(color = "#D0D0CE"), opacity = 0.3,
-          x0 = "2020-05-01", x1 = "2020-05-20", xref = "x",
-          y0 = 0, y1 = 22, yref = "y"
+          x0 = ~start_open, x1 = ~end_open, xref = "x",
+          y0 = 0, y1 = ~max_val, yref = "y"
         ))
       ) %>%
     add_lines(y = ~roll_avg, 
@@ -193,7 +195,10 @@ renderPlotly({
 renderPlotly({
   deaths3 %>%
     filter(state == input$state_choice1,
-           num_type == input$count_choice) %>%
+           num_type == input$count_choice,
+           date >= min(date[val != 0])) %>%
+#    filter(state == "AK",
+#           num_type == "Count") %>%
     mutate(max_val = max(val)) %>%
     plot_ly(
       x = ~date, y = ~val, type = "bar", showlegend = FALSE,
@@ -209,7 +214,7 @@ renderPlotly({
       shapes = list(
         list(
           type = "rect",
-          fillcolor = "yellow", line = list(color = "yellow"), opacity = 0.3,
+          fillcolor = "#D14124", line = list(color = "#D14124"), opacity = 0.3,
           x0 = ~start_close, x1 = ~end_close, xref = "x",
           y0 = 0, y1 = ~max_val, yref = "y"
         ),
@@ -236,7 +241,8 @@ renderPlotly({
  cases3 %>%
     filter(state %in% c(input$state_choice1, input$state_choice2,
                         input$state_choice3),
-           num_type == input$count_choice) %>%
+           num_type == input$count_choice,
+           date >= min(date[val != 0])) %>%
     plot_ly(
       x = ~date, y = ~roll_avg, color = ~state, 
       type = "scatter", mode = "lines",
@@ -256,7 +262,8 @@ renderPlotly({
  deaths3 %>%
     filter(state %in% c(input$state_choice1, input$state_choice2,
                         input$state_choice3),
-           num_type == input$count_choice) %>%
+           num_type == input$count_choice,
+           date >= min(date[val != 0])) %>%
     plot_ly(
       x = ~date, y = ~roll_avg, color = ~state, 
       type = "scatter", mode = "lines",

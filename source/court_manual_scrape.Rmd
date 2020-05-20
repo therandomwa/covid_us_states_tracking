@@ -1,0 +1,37 @@
+---
+title: "Courtney Manual Scraping Workflow"
+---
+
+```{r}
+# Step 1: Load in my R source files
+library(tidyverse)
+source("./source/states.R")
+source("./source/states_constants.R")
+```
+
+```{r}
+# Step 2: Do the data entry 
+hawaii = get_hawaii() # Courtney
+# error at the end: skeleton[["tested"]][["total"]] : subscript out of bounds; 
+# also it's asking for deaths by race but the site only has cases by race
+idaho = get_idaho() # Courtney
+# when you're entering in deaths by race, it still says case
+# no question for total deaths
+# at total tested entry: "error in skeleton [["tested"]][["total"]] subscript out of bounds"
+```
+
+```{r}
+# Step 3: combine the two states together with bind_rows
+# Name your variable like manual_data_yearmonthday_initials
+# ie: manual_data_20200519_cbp = bind_rows(arizona, kansas, iowa)
+```
+
+```{r}
+# Step 4: save your data as an Rda with a similar name
+# ie: save(manual_data_20200519_cbp, file = "manual_data_20200519_cbp.rda")
+
+# Then place into the Sharepoint! 
+# As Aijin suggested, try doing this at least one day a week, like Friday
+# Thanks everyone for helping out
+```
+
