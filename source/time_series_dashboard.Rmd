@@ -111,7 +111,7 @@ Column {.sidebar}
 states = cases3 %>% distinct(state) %>% pull()
 
 selectInput(
-  "state_choice",
+  "state_choice1",
   label = h3("Select State"),
   choices = states, selected = "AK"
 )
@@ -126,15 +126,24 @@ radioButtons(
 ```
 
 ```{r}
-states_grp = cases3 %>% distinct(state) %>% pull()
+states = cases3 %>% distinct(state) %>% pull()
 
-checkboxGroupInput(
-  "group_choice",
-  label = h3("Select States to Compare Over Time"),
-  choices = states_grp, selected = c("AK", "AL", "AR", "AZ")
+selectInput(
+  "state_choice2",
+  label = h3("Select State # 2 to Compare"),
+  choices = states, selected = "AL"
 )
 ```
 
+```{r}
+states = cases3 %>% distinct(state) %>% pull()
+
+selectInput(
+  "state_choice3",
+  label = h3("Select State # 3 to Compare"),
+  choices = states, selected = "AR"
+)
+```
 
 
 Column {data-width=500}
@@ -145,11 +154,14 @@ Column {data-width=500}
 ```{r}
 renderPlotly({
   cases3 %>%
-    filter(state == input$state_choice,
+    filter(state == input$state_choice1,
            num_type == input$count_choice) %>%
+#    filter(state == "AZ",
+#           num_type == "Count") %>%
     mutate(max_val = max(val)) %>%
     plot_ly(
       x = ~date, y = ~val, type = "bar", showlegend = FALSE,
+      color = I("#0077C8"),
       hoverinfo = "text",
       text = ~paste0("Date: ", date, '\nCases: ', round(val, 2), '\n3 Day Avg: ', round(roll_avg, 2))) %>%
     layout(
@@ -159,18 +171,18 @@ renderPlotly({
         list(
           type = "rect",
           fillcolor = "yellow", line = list(color = "yellow"), opacity = 0.3,
-          x0 = ~start_close, x1 = ~end_close, xref = "x",
-          y0 = 0, y1 = ~max_val, yref = "y"
+          x0 = "2020-03-15", x1 = "2020-05-01", xref = "x",
+          y0 = 0, y1 = 22, yref = "y"
         ),
         list(
           type = "rect",
-          fillcolor = "gray", line = list(color = "gray"), opacity = 0.3,
-          x0 = ~start_open, x1 = ~end_open, xref = "x",
-          y0 = 0, y1 = ~max_val, yref = "y"
+          fillcolor = "#D0D0CE", line = list(color = "#D0D0CE"), opacity = 0.3,
+          x0 = "2020-05-01", x1 = "2020-05-20", xref = "x",
+          y0 = 0, y1 = 22, yref = "y"
         ))
       ) %>%
     add_lines(y = ~roll_avg, 
-              line = list(color = "orange"))
+              line = list(color = "#FF9800"))
 })
 ```
 
@@ -180,11 +192,12 @@ renderPlotly({
 ```{r}
 renderPlotly({
   deaths3 %>%
-    filter(state == input$state_choice,
+    filter(state == input$state_choice1,
            num_type == input$count_choice) %>%
     mutate(max_val = max(val)) %>%
     plot_ly(
       x = ~date, y = ~val, type = "bar", showlegend = FALSE,
+      color = I("#0077C8"),
       hoverinfo = "text",
       text = ~paste("Date: ", date, '\nDeaths: ', round(val, 2), '\n3 Day Avg: ', round(roll_avg, 2))
     ) %>%
@@ -202,13 +215,13 @@ renderPlotly({
         ),
         list(
           type = "rect",
-          fillcolor = "gray", line = list(color = "gray"), opacity = 0.3,
+          fillcolor = "#D0D0CE", line = list(color = "#D0D0CE"), opacity = 0.3,
           x0 = ~start_open, x1 = ~end_open, xref = "x",
           y0 = 0, y1 = ~max_val, yref = "y"
         ))
     ) %>%
     add_lines(y = ~roll_avg, 
-              line = list(color = "orange"))
+              line = list(color = "#FF9800"))
 })
 ```
 
@@ -220,12 +233,14 @@ Column {data-width=500}
 
 ```{r}
 renderPlotly({
- cases2 %>%
-    filter(state %in% input$group_choice,
+ cases3 %>%
+    filter(state %in% c(input$state_choice1, input$state_choice2,
+                        input$state_choice3),
            num_type == input$count_choice) %>%
     plot_ly(
       x = ~date, y = ~roll_avg, color = ~state, 
-      type = "scatter", mode = "lines"
+      type = "scatter", mode = "lines",
+      colors = c("#71B2C9", "#FF9800", "#AE2573")
     ) %>%
     layout(
       xaxis = list(title = "Date"),
@@ -238,12 +253,14 @@ renderPlotly({
 
 ```{r}
 renderPlotly({
- deaths2 %>%
-    filter(state %in% input$group_choice,
+ deaths3 %>%
+    filter(state %in% c(input$state_choice1, input$state_choice2,
+                        input$state_choice3),
            num_type == input$count_choice) %>%
     plot_ly(
       x = ~date, y = ~roll_avg, color = ~state, 
-      type = "scatter", mode = "lines"
+      type = "scatter", mode = "lines",
+      colors = c("#71B2C9", "#FF9800", "#AE2573")
     ) %>%
     layout(
       xaxis = list(title = "Date"),
