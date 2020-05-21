@@ -1871,6 +1871,11 @@ get_nevada = function() {
   skeleton[["cases"]][["sex_male"]] = get_information("NV: Cases sex male?: ")
   skeleton[["cases"]][["sex_female"]] = get_information("NV: Cases sex female?: ")
   skeleton[["cases"]][["sex_unk"]] = get_information("NV: Cases sex not reported?: ")
+  skeleton[["cases"]][["race_white"]] = get_information("NV: Cases race white?: ")
+  skeleton[["cases"]][["ethnicity_hispanic"]] = get_information("NV: Cases ethnicity hispanic?: ")
+  skeleton[["cases"]][["race_AfrA"]] = get_information("NV: Cases race AfrA?: ")
+  skeleton[["cases"]][["race_asian"]] = get_information("NV: Cases race asian?: ")
+  skeleton[["cases"]][["race_NatA"]] = get_information("NV: Cases race NatA?: ")
   
   skeleton[["deaths"]][["age_0_9"]] = get_information("NV: Deaths ages < 10?: ")
   skeleton[["deaths"]][["age_10_19"]] = get_information("NV: Deaths ages 10-19?: ")
@@ -1884,6 +1889,11 @@ get_nevada = function() {
   skeleton[["deaths"]][["sex_male"]] = get_information("NV: Deaths sex male?: ")
   skeleton[["deaths"]][["sex_female"]] = get_information("NV: Deaths sex female?: ")
   skeleton[["deaths"]][["sex_unk"]] = get_information("NV: Deaths sex not reported?: ")
+  skeleton[["deaths"]][["race_white"]] = get_information("NV: Deaths race white?: ")
+  skeleton[["deaths"]][["ethnicity_hispanic"]] = get_information("NV: Deaths ethnicity hispanic?: ")
+  skeleton[["deaths"]][["race_AfrA"]] = get_information("NV: Deaths race AfrA?: ")
+  skeleton[["deaths"]][["race_asian"]] = get_information("NV: Deaths race asian?: ")
+  skeleton[["deaths"]][["race_NatA"]] = get_information("NV: Deaths race NatA?: ")
   
   full_skeleton = as_tibble(skeleton) %>% 
     standardize %>% 
