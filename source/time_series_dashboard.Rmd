@@ -79,36 +79,29 @@ deaths2 = left_join(deaths, pop, by = "state") %>%
 
 state_string = cases2 %>% distinct(state) %>% pull()
 
-# make temporary timeline dataset to test timeline visual-must have full data from same start date as cases and deaths
+# make temporary timeline dataset to test timeline visual
+# must have full data from same start date as cases and deaths
+set.seed(1)
+
 timelines = tibble(
-  state = rep(state_string, 2),
-  start = c(rep("1/22/2020", 51), rep("5/01/2020", 25), rep("5/15/2020", 26)),
-  event = c(rep("closed", 51), rep("open", 51)),
-  end = c(rep("5/1/2020", 25), rep("5/15/2020", 26), rep("05/17/2020", 51))
-) %>%
-  mutate(start = as.Date(start, "%m/%d/%y"),
-         end = as.Date(end, "%m/%d/%y"))
+  state = rep(state_string, 3),
+  category = c(rep("Stay at Home Order", 51), 
+               rep("Education Facilities Closed", 51), 
+               rep("Gathering Restrictions", 51)),
+  date = sample(c("03/15/2020", "03/31/2020", "04/01/2020", "03/20/2020", "03/10/2020"), 
+                153, replace = TRUE),
+  description = rep(NA, 153),
+  end_date = rep(Sys.Date(), 153)) %>%
+  mutate(date = as.Date(date, "%m/%d/%y"))
 
-timelines2 = tibble(
-  state = state_string,
-  start_close = c(rep("2/15/2020", 25), rep("3/15/2020", 26)),
-  end_close = c(rep("5/1/2020", 25), rep("5/15/2020", 26)),
-  start_open = c(rep("5/1/2020", 25), rep("5/15/2020", 26)),
-  end_open = rep("5/18/2020", 51)
-) %>%
-  mutate(start_close = as.Date(start_close, "%m/%d/%y"),
-         end_close = as.Date(end_close, "%m/%d/%y"),
-         start_open = as.Date(start_open, "%m/%d/%y"),
-         end_open = as.Date(end_open, "%m/%d/%y"))
-
-cases3 = left_join(cases2, timelines2, by = "state")
-deaths3 = left_join(deaths2, timelines2, by = "state")
+# cases3 = left_join(cases2, timelines2, by = "state")
+# deaths3 = left_join(deaths2, timelines2, by = "state")
 ```
 
 Column {.sidebar}
 -----------------------------------------------------------------------
 ```{r}
-states = cases3 %>% distinct(state) %>% pull()
+states = cases2 %>% distinct(state) %>% pull()
 
 selectInput(
   "state_choice1",
@@ -134,7 +127,7 @@ Column {data-width=500}
 
 ```{r}
 renderPlotly({
-  cases3 %>%
+  subplot((cases2 %>%
     filter(state == input$state_choice1,
            num_type == input$count_choice,
            date >= min(date[val != 0])) %>%
@@ -149,23 +142,15 @@ renderPlotly({
       text = ~paste0("Date: ", date, '\nCases: ', round(val, 2), '\n3 Day Avg: ', round(roll_avg, 2))) %>%
     layout(
       xaxis = list(title = "Date"),
-      yaxis = list(title = "No. Cases"),
-      shapes = list(
-        list(
-          type = "rect",
-          fillcolor = "#D14124", line = list(color = "#D14124"), opacity = 0.3,
-          x0 = ~start_close, x1 = ~end_close, xref = "x",
-          y0 = 0, y1 = ~max_val, yref = "y"
-        ),
-        list(
-          type = "rect",
-          fillcolor = "#D0D0CE", line = list(color = "#D0D0CE"), opacity = 0.3,
-          x0 = ~start_open, x1 = ~end_open, xref = "x",
-          y0 = 0, y1 = ~max_val, yref = "y"
-        ))
+      yaxis = list(title = "No. Cases")
       ) %>%
     add_lines(y = ~roll_avg, 
-              line = list(color = "#FF9800"))
+              line = list(color = "#FF9800"))),
+(timelines %>%
+   filter(state == input$state_choice1) %>%
+   vistime(events = "category", start = "date", end = "end_date",
+           background_lines = 0)),
+nrows = 2, shareX = TRUE, titleY = TRUE)
 })
 ```
 
@@ -178,7 +163,7 @@ Column {data-width=500}
 
 ```{r}
 renderPlotly({
-  deaths3 %>%
+  deaths2 %>%
     filter(state == input$state_choice1,
            num_type == input$count_choice,
            date >= min(date[val != 0])) %>%
@@ -194,21 +179,6 @@ renderPlotly({
     layout(
       xaxis = list(title = "Date"),
       yaxis = list(title = "No. Deaths")
-    ) %>%
-    layout(
-      shapes = list(
-        list(
-          type = "rect",
-          fillcolor = "#D14124", line = list(color = "#D14124"), opacity = 0.3,
-          x0 = ~start_close, x1 = ~end_close, xref = "x",
-          y0 = 0, y1 = ~max_val, yref = "y"
-        ),
-        list(
-          type = "rect",
-          fillcolor = "#D0D0CE", line = list(color = "#D0D0CE"), opacity = 0.3,
-          x0 = ~start_open, x1 = ~end_open, xref = "x",
-          y0 = 0, y1 = ~max_val, yref = "y"
-        ))
     ) %>%
     add_lines(y = ~roll_avg, 
               line = list(color = "#FF9800"))
