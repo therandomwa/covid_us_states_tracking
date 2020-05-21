@@ -12,11 +12,11 @@ source("./source/states_constants.R")
 ```{r}
 # Step 2: Do the data entry 
 hawaii = get_hawaii() # Courtney
-# error at the end: skeleton[["tested"]][["total"]] : subscript out of bounds; 
-# also it's asking for deaths by race but the site only has cases by race
+# error at the end: skeleton[["tested"]][["total"]] : subscript out of bounds
+
+
 idaho = get_idaho() # Courtney
-# when you're entering in deaths by race, it still says case
-# no question for total deaths
+
 # at total tested entry: "error in skeleton [["tested"]][["total"]] subscript out of bounds"
 ```
 
