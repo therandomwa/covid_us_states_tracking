@@ -1,0 +1,4387 @@
+NAME,pre,age,pop_est
+Alabama,AGE,0,56739
+Alabama,AGE,1,57964
+Alabama,AGE,2,59428
+Alabama,AGE,3,59872
+Alabama,AGE,4,59200
+Alabama,AGE,5,58221
+Alabama,AGE,6,59259
+Alabama,AGE,7,59811
+Alabama,AGE,8,60005
+Alabama,AGE,9,60604
+Alabama,AGE,10,62859
+Alabama,AGE,11,62768
+Alabama,AGE,12,61782
+Alabama,AGE,13,61527
+Alabama,AGE,14,61559
+Alabama,AGE,15,61608
+Alabama,AGE,16,61747
+Alabama,AGE,17,64887
+Alabama,AGE,18,64281
+Alabama,AGE,19,63157
+Alabama,AGE,20,63954
+Alabama,AGE,21,64258
+Alabama,AGE,22,64735
+Alabama,AGE,23,65722
+Alabama,AGE,24,66551
+Alabama,AGE,25,66397
+Alabama,AGE,26,68132
+Alabama,AGE,27,70333
+Alabama,AGE,28,69597
+Alabama,AGE,29,65555
+Alabama,AGE,30,62245
+Alabama,AGE,31,60439
+Alabama,AGE,32,60082
+Alabama,AGE,33,61281
+Alabama,AGE,34,59479
+Alabama,AGE,35,60424
+Alabama,AGE,36,61043
+Alabama,AGE,37,61017
+Alabama,AGE,38,62813
+Alabama,AGE,39,58697
+Alabama,AGE,40,58243
+Alabama,AGE,41,58338
+Alabama,AGE,42,55780
+Alabama,AGE,43,58464
+Alabama,AGE,44,57483
+Alabama,AGE,45,59086
+Alabama,AGE,46,62099
+Alabama,AGE,47,65814
+Alabama,AGE,48,64944
+Alabama,AGE,49,61023
+Alabama,AGE,50,59574
+Alabama,AGE,51,59898
+Alabama,AGE,52,61705
+Alabama,AGE,53,66124
+Alabama,AGE,54,67191
+Alabama,AGE,55,66911
+Alabama,AGE,56,67444
+Alabama,AGE,57,67632
+Alabama,AGE,58,68617
+Alabama,AGE,59,66207
+Alabama,AGE,60,65716
+Alabama,AGE,61,65975
+Alabama,AGE,62,63662
+Alabama,AGE,63,62620
+Alabama,AGE,64,60395
+Alabama,AGE,65,57463
+Alabama,AGE,66,55469
+Alabama,AGE,67,53650
+Alabama,AGE,68,52614
+Alabama,AGE,69,51603
+Alabama,AGE,70,51064
+Alabama,AGE,71,52887
+Alabama,AGE,72,38231
+Alabama,AGE,73,37953
+Alabama,AGE,74,36787
+Alabama,AGE,75,37420
+Alabama,AGE,76,31908
+Alabama,AGE,77,28771
+Alabama,AGE,78,27489
+Alabama,AGE,79,25270
+Alabama,AGE,80,23856
+Alabama,AGE,81,21028
+Alabama,AGE,82,19723
+Alabama,AGE,83,18117
+Alabama,AGE,84,15726
+Alabama,AGE,85,89865
+Alaska,AGE,0,10665
+Alaska,AGE,1,10622
+Alaska,AGE,2,10649
+Alaska,AGE,3,10582
+Alaska,AGE,4,10597
+Alaska,AGE,5,10551
+Alaska,AGE,6,10378
+Alaska,AGE,7,10581
+Alaska,AGE,8,10403
+Alaska,AGE,9,10143
+Alaska,AGE,10,10245
+Alaska,AGE,11,10136
+Alaska,AGE,12,9791
+Alaska,AGE,13,9921
+Alaska,AGE,14,9666
+Alaska,AGE,15,9636
+Alaska,AGE,16,9537
+Alaska,AGE,17,9713
+Alaska,AGE,18,9035
+Alaska,AGE,19,8342
+Alaska,AGE,20,9606
+Alaska,AGE,21,10275
+Alaska,AGE,22,10535
+Alaska,AGE,23,11092
+Alaska,AGE,24,11492
+Alaska,AGE,25,11850
+Alaska,AGE,26,12556
+Alaska,AGE,27,12779
+Alaska,AGE,28,12538
+Alaska,AGE,29,11949
+Alaska,AGE,30,11781
+Alaska,AGE,31,11341
+Alaska,AGE,32,11529
+Alaska,AGE,33,11599
+Alaska,AGE,34,10943
+Alaska,AGE,35,11189
+Alaska,AGE,36,10656
+Alaska,AGE,37,10318
+Alaska,AGE,38,10205
+Alaska,AGE,39,9304
+Alaska,AGE,40,9099
+Alaska,AGE,41,8948
+Alaska,AGE,42,8324
+Alaska,AGE,43,8545
+Alaska,AGE,44,8062
+Alaska,AGE,45,8213
+Alaska,AGE,46,8531
+Alaska,AGE,47,8965
+Alaska,AGE,48,9243
+Alaska,AGE,49,8606
+Alaska,AGE,50,8410
+Alaska,AGE,51,8490
+Alaska,AGE,52,8766
+Alaska,AGE,53,9322
+Alaska,AGE,54,9571
+Alaska,AGE,55,9804
+Alaska,AGE,56,9786
+Alaska,AGE,57,9959
+Alaska,AGE,58,10142
+Alaska,AGE,59,9555
+Alaska,AGE,60,9508
+Alaska,AGE,61,9416
+Alaska,AGE,62,8899
+Alaska,AGE,63,9061
+Alaska,AGE,64,8472
+Alaska,AGE,65,7929
+Alaska,AGE,66,7460
+Alaska,AGE,67,6861
+Alaska,AGE,68,6661
+Alaska,AGE,69,6167
+Alaska,AGE,70,5767
+Alaska,AGE,71,5672
+Alaska,AGE,72,4150
+Alaska,AGE,73,4082
+Alaska,AGE,74,3806
+Alaska,AGE,75,3566
+Alaska,AGE,76,3072
+Alaska,AGE,77,2782
+Alaska,AGE,78,2409
+Alaska,AGE,79,2064
+Alaska,AGE,80,1938
+Alaska,AGE,81,1675
+Alaska,AGE,82,1478
+Alaska,AGE,83,1392
+Alaska,AGE,84,1227
+Alaska,AGE,85,6853
+Arizona,AGE,0,83553
+Arizona,AGE,1,85206
+Arizona,AGE,2,87218
+Arizona,AGE,3,89977
+Arizona,AGE,4,89982
+Arizona,AGE,5,89586
+Arizona,AGE,6,89696
+Arizona,AGE,7,90466
+Arizona,AGE,8,90175
+Arizona,AGE,9,91803
+Arizona,AGE,10,95985
+Arizona,AGE,11,96440
+Arizona,AGE,12,95263
+Arizona,AGE,13,94661
+Arizona,AGE,14,94072
+Arizona,AGE,15,91210
+Arizona,AGE,16,92264
+Arizona,AGE,17,95100
+Arizona,AGE,18,98259
+Arizona,AGE,19,96961
+Arizona,AGE,20,95670
+Arizona,AGE,21,96903
+Arizona,AGE,22,97874
+Arizona,AGE,23,100561
+Arizona,AGE,24,101168
+Arizona,AGE,25,102245
+Arizona,AGE,26,104716
+Arizona,AGE,27,106747
+Arizona,AGE,28,105131
+Arizona,AGE,29,99141
+Arizona,AGE,30,95840
+Arizona,AGE,31,93001
+Arizona,AGE,32,94154
+Arizona,AGE,33,93944
+Arizona,AGE,34,90926
+Arizona,AGE,35,92849
+Arizona,AGE,36,92962
+Arizona,AGE,37,91870
+Arizona,AGE,38,94135
+Arizona,AGE,39,87071
+Arizona,AGE,40,85115
+Arizona,AGE,41,84744
+Arizona,AGE,42,82708
+Arizona,AGE,43,85750
+Arizona,AGE,44,83227
+Arizona,AGE,45,82402
+Arizona,AGE,46,84940
+Arizona,AGE,47,89628
+Arizona,AGE,48,90146
+Arizona,AGE,49,85049
+Arizona,AGE,50,82245
+Arizona,AGE,51,80875
+Arizona,AGE,52,81402
+Arizona,AGE,53,86511
+Arizona,AGE,54,87592
+Arizona,AGE,55,87657
+Arizona,AGE,56,87941
+Arizona,AGE,57,89270
+Arizona,AGE,58,90100
+Arizona,AGE,59,87117
+Arizona,AGE,60,87083
+Arizona,AGE,61,86496
+Arizona,AGE,62,83958
+Arizona,AGE,63,84332
+Arizona,AGE,64,82323
+Arizona,AGE,65,80318
+Arizona,AGE,66,78443
+Arizona,AGE,67,77436
+Arizona,AGE,68,77224
+Arizona,AGE,69,76308
+Arizona,AGE,70,77037
+Arizona,AGE,71,81490
+Arizona,AGE,72,60125
+Arizona,AGE,73,59532
+Arizona,AGE,74,58249
+Arizona,AGE,75,59360
+Arizona,AGE,76,51120
+Arizona,AGE,77,46410
+Arizona,AGE,78,43108
+Arizona,AGE,79,39496
+Arizona,AGE,80,36694
+Arizona,AGE,81,32765
+Arizona,AGE,82,30094
+Arizona,AGE,83,27295
+Arizona,AGE,84,23471
+Arizona,AGE,85,142275
+Arkansas,AGE,0,36901
+Arkansas,AGE,1,37516
+Arkansas,AGE,2,38615
+Arkansas,AGE,3,38888
+Arkansas,AGE,4,38423
+Arkansas,AGE,5,37981
+Arkansas,AGE,6,38726
+Arkansas,AGE,7,38664
+Arkansas,AGE,8,38947
+Arkansas,AGE,9,38966
+Arkansas,AGE,10,40392
+Arkansas,AGE,11,40924
+Arkansas,AGE,12,40035
+Arkansas,AGE,13,39920
+Arkansas,AGE,14,39515
+Arkansas,AGE,15,39439
+Arkansas,AGE,16,39207
+Arkansas,AGE,17,40121
+Arkansas,AGE,18,39598
+Arkansas,AGE,19,39342
+Arkansas,AGE,20,40449
+Arkansas,AGE,21,40382
+Arkansas,AGE,22,40507
+Arkansas,AGE,23,39931
+Arkansas,AGE,24,40369
+Arkansas,AGE,25,40330
+Arkansas,AGE,26,41335
+Arkansas,AGE,27,42670
+Arkansas,AGE,28,42388
+Arkansas,AGE,29,39774
+Arkansas,AGE,30,38672
+Arkansas,AGE,31,37705
+Arkansas,AGE,32,37775
+Arkansas,AGE,33,38048
+Arkansas,AGE,34,37891
+Arkansas,AGE,35,38293
+Arkansas,AGE,36,38397
+Arkansas,AGE,37,38707
+Arkansas,AGE,38,39612
+Arkansas,AGE,39,36664
+Arkansas,AGE,40,36213
+Arkansas,AGE,41,35645
+Arkansas,AGE,42,34428
+Arkansas,AGE,43,35977
+Arkansas,AGE,44,34582
+Arkansas,AGE,45,35117
+Arkansas,AGE,46,36694
+Arkansas,AGE,47,38170
+Arkansas,AGE,48,38368
+Arkansas,AGE,49,35823
+Arkansas,AGE,50,34836
+Arkansas,AGE,51,34944
+Arkansas,AGE,52,35570
+Arkansas,AGE,53,39145
+Arkansas,AGE,54,40000
+Arkansas,AGE,55,39862
+Arkansas,AGE,56,39613
+Arkansas,AGE,57,39759
+Arkansas,AGE,58,40072
+Arkansas,AGE,59,38857
+Arkansas,AGE,60,38367
+Arkansas,AGE,61,38132
+Arkansas,AGE,62,37130
+Arkansas,AGE,63,36809
+Arkansas,AGE,64,35866
+Arkansas,AGE,65,34530
+Arkansas,AGE,66,33190
+Arkansas,AGE,67,32287
+Arkansas,AGE,68,31470
+Arkansas,AGE,69,31084
+Arkansas,AGE,70,30749
+Arkansas,AGE,71,32307
+Arkansas,AGE,72,23575
+Arkansas,AGE,73,23764
+Arkansas,AGE,74,23055
+Arkansas,AGE,75,23060
+Arkansas,AGE,76,20203
+Arkansas,AGE,77,18603
+Arkansas,AGE,78,17535
+Arkansas,AGE,79,15833
+Arkansas,AGE,80,14705
+Arkansas,AGE,81,13126
+Arkansas,AGE,82,12189
+Arkansas,AGE,83,11603
+Arkansas,AGE,84,9942
+Arkansas,AGE,85,59017
+California,AGE,0,477320
+California,AGE,1,480807
+California,AGE,2,488744
+California,AGE,3,498325
+California,AGE,4,496104
+California,AGE,5,496909
+California,AGE,6,495526
+California,AGE,7,506874
+California,AGE,8,495113
+California,AGE,9,494480
+California,AGE,10,513360
+California,AGE,11,514706
+California,AGE,12,509164
+California,AGE,13,506635
+California,AGE,14,504108
+California,AGE,15,501871
+California,AGE,16,496941
+California,AGE,17,512968
+California,AGE,18,529012
+California,AGE,19,504583
+California,AGE,20,510309
+California,AGE,21,520836
+California,AGE,22,536779
+California,AGE,23,561777
+California,AGE,24,582099
+California,AGE,25,594167
+California,AGE,26,618991
+California,AGE,27,646679
+California,AGE,28,647509
+California,AGE,29,618470
+California,AGE,30,603099
+California,AGE,31,585442
+California,AGE,32,582017
+California,AGE,33,583094
+California,AGE,34,564331
+California,AGE,35,567403
+California,AGE,36,563023
+California,AGE,37,550063
+California,AGE,38,557002
+California,AGE,39,517489
+California,AGE,40,506911
+California,AGE,41,503432
+California,AGE,42,493638
+California,AGE,43,507536
+California,AGE,44,489174
+California,AGE,45,490577
+California,AGE,46,500404
+California,AGE,47,522948
+California,AGE,48,542698
+California,AGE,49,511456
+California,AGE,50,498345
+California,AGE,51,486379
+California,AGE,52,489081
+California,AGE,53,513729
+California,AGE,54,516357
+California,AGE,55,511918
+California,AGE,56,504398
+California,AGE,57,504507
+California,AGE,58,513489
+California,AGE,59,484498
+California,AGE,60,476834
+California,AGE,61,467496
+California,AGE,62,450325
+California,AGE,63,446239
+California,AGE,64,421522
+California,AGE,65,401505
+California,AGE,66,379294
+California,AGE,67,366372
+California,AGE,68,362770
+California,AGE,69,343161
+California,AGE,70,333817
+California,AGE,71,339077
+California,AGE,72,262337
+California,AGE,73,256763
+California,AGE,74,240318
+California,AGE,75,236410
+California,AGE,76,206908
+California,AGE,77,188421
+California,AGE,78,179517
+California,AGE,79,165462
+California,AGE,80,155503
+California,AGE,81,142103
+California,AGE,82,132023
+California,AGE,83,123934
+California,AGE,84,109745
+California,AGE,85,743585
+Colorado,AGE,0,66125
+Colorado,AGE,1,66815
+Colorado,AGE,2,67444
+Colorado,AGE,3,68294
+Colorado,AGE,4,68176
+Colorado,AGE,5,67668
+Colorado,AGE,6,68350
+Colorado,AGE,7,69971
+Colorado,AGE,8,71058
+Colorado,AGE,9,70906
+Colorado,AGE,10,72523
+Colorado,AGE,11,73517
+Colorado,AGE,12,72973
+Colorado,AGE,13,73186
+Colorado,AGE,14,73179
+Colorado,AGE,15,72625
+Colorado,AGE,16,70645
+Colorado,AGE,17,71780
+Colorado,AGE,18,74061
+Colorado,AGE,19,74253
+Colorado,AGE,20,71352
+Colorado,AGE,21,72002
+Colorado,AGE,22,74573
+Colorado,AGE,23,78323
+Colorado,AGE,24,82264
+Colorado,AGE,25,86795
+Colorado,AGE,26,90934
+Colorado,AGE,27,92737
+Colorado,AGE,28,93371
+Colorado,AGE,29,90070
+Colorado,AGE,30,88291
+Colorado,AGE,31,88647
+Colorado,AGE,32,89435
+Colorado,AGE,33,88818
+Colorado,AGE,34,85324
+Colorado,AGE,35,85824
+Colorado,AGE,36,84486
+Colorado,AGE,37,83386
+Colorado,AGE,38,83730
+Colorado,AGE,39,77632
+Colorado,AGE,40,75884
+Colorado,AGE,41,74158
+Colorado,AGE,42,71337
+Colorado,AGE,43,73404
+Colorado,AGE,44,70238
+Colorado,AGE,45,70177
+Colorado,AGE,46,72681
+Colorado,AGE,47,76291
+Colorado,AGE,48,76503
+Colorado,AGE,49,71929
+Colorado,AGE,50,68166
+Colorado,AGE,51,66007
+Colorado,AGE,52,65974
+Colorado,AGE,53,70387
+Colorado,AGE,54,72056
+Colorado,AGE,55,72588
+Colorado,AGE,56,72899
+Colorado,AGE,57,74404
+Colorado,AGE,58,74916
+Colorado,AGE,59,72469
+Colorado,AGE,60,71703
+Colorado,AGE,61,71012
+Colorado,AGE,62,68356
+Colorado,AGE,63,67291
+Colorado,AGE,64,64962
+Colorado,AGE,65,63059
+Colorado,AGE,66,60083
+Colorado,AGE,67,57157
+Colorado,AGE,68,55212
+Colorado,AGE,69,52566
+Colorado,AGE,70,51298
+Colorado,AGE,71,53071
+Colorado,AGE,72,37655
+Colorado,AGE,73,36229
+Colorado,AGE,74,34468
+Colorado,AGE,75,33844
+Colorado,AGE,76,28888
+Colorado,AGE,77,25680
+Colorado,AGE,78,23800
+Colorado,AGE,79,21895
+Colorado,AGE,80,20297
+Colorado,AGE,81,18293
+Colorado,AGE,82,16884
+Colorado,AGE,83,15592
+Colorado,AGE,84,13894
+Colorado,AGE,85,88364
+Connecticut,AGE,0,35113
+Connecticut,AGE,1,35886
+Connecticut,AGE,2,36783
+Connecticut,AGE,3,37674
+Connecticut,AGE,4,37678
+Connecticut,AGE,5,37866
+Connecticut,AGE,6,38517
+Connecticut,AGE,7,39555
+Connecticut,AGE,8,39743
+Connecticut,AGE,9,40330
+Connecticut,AGE,10,42078
+Connecticut,AGE,11,42900
+Connecticut,AGE,12,43456
+Connecticut,AGE,13,44411
+Connecticut,AGE,14,45052
+Connecticut,AGE,15,45283
+Connecticut,AGE,16,45826
+Connecticut,AGE,17,47042
+Connecticut,AGE,18,51615
+Connecticut,AGE,19,52138
+Connecticut,AGE,20,52062
+Connecticut,AGE,21,51130
+Connecticut,AGE,22,47966
+Connecticut,AGE,23,45996
+Connecticut,AGE,24,45962
+Connecticut,AGE,25,46378
+Connecticut,AGE,26,44968
+Connecticut,AGE,27,44172
+Connecticut,AGE,28,44061
+Connecticut,AGE,29,43344
+Connecticut,AGE,30,44372
+Connecticut,AGE,31,44257
+Connecticut,AGE,32,45164
+Connecticut,AGE,33,44964
+Connecticut,AGE,34,43710
+Connecticut,AGE,35,43884
+Connecticut,AGE,36,43931
+Connecticut,AGE,37,43443
+Connecticut,AGE,38,44366
+Connecticut,AGE,39,42252
+Connecticut,AGE,40,41308
+Connecticut,AGE,41,41333
+Connecticut,AGE,42,40392
+Connecticut,AGE,43,41712
+Connecticut,AGE,44,40715
+Connecticut,AGE,45,42164
+Connecticut,AGE,46,44738
+Connecticut,AGE,47,48540
+Connecticut,AGE,48,50611
+Connecticut,AGE,49,48923
+Connecticut,AGE,50,48857
+Connecticut,AGE,51,49664
+Connecticut,AGE,52,51829
+Connecticut,AGE,53,54570
+Connecticut,AGE,54,55055
+Connecticut,AGE,55,54151
+Connecticut,AGE,56,53597
+Connecticut,AGE,57,54503
+Connecticut,AGE,58,54595
+Connecticut,AGE,59,52621
+Connecticut,AGE,60,51943
+Connecticut,AGE,61,50693
+Connecticut,AGE,62,48377
+Connecticut,AGE,63,47088
+Connecticut,AGE,64,44237
+Connecticut,AGE,65,42233
+Connecticut,AGE,66,39543
+Connecticut,AGE,67,37253
+Connecticut,AGE,68,36366
+Connecticut,AGE,69,34925
+Connecticut,AGE,70,35026
+Connecticut,AGE,71,37339
+Connecticut,AGE,72,27698
+Connecticut,AGE,73,26787
+Connecticut,AGE,74,26400
+Connecticut,AGE,75,27648
+Connecticut,AGE,76,23079
+Connecticut,AGE,77,20227
+Connecticut,AGE,78,18821
+Connecticut,AGE,79,17611
+Connecticut,AGE,80,16768
+Connecticut,AGE,81,15140
+Connecticut,AGE,82,14472
+Connecticut,AGE,83,13673
+Connecticut,AGE,84,12241
+Connecticut,AGE,85,91871
+Delaware,AGE,0,10645
+Delaware,AGE,1,10892
+Delaware,AGE,2,11126
+Delaware,AGE,3,11092
+Delaware,AGE,4,11056
+Delaware,AGE,5,11018
+Delaware,AGE,6,11303
+Delaware,AGE,7,11398
+Delaware,AGE,8,11275
+Delaware,AGE,9,11253
+Delaware,AGE,10,11508
+Delaware,AGE,11,11502
+Delaware,AGE,12,11599
+Delaware,AGE,13,11481
+Delaware,AGE,14,11564
+Delaware,AGE,15,11674
+Delaware,AGE,16,11548
+Delaware,AGE,17,11682
+Delaware,AGE,18,12942
+Delaware,AGE,19,12517
+Delaware,AGE,20,11935
+Delaware,AGE,21,11093
+Delaware,AGE,22,11089
+Delaware,AGE,23,11816
+Delaware,AGE,24,12416
+Delaware,AGE,25,12604
+Delaware,AGE,26,12956
+Delaware,AGE,27,13726
+Delaware,AGE,28,13899
+Delaware,AGE,29,13795
+Delaware,AGE,30,13100
+Delaware,AGE,31,12444
+Delaware,AGE,32,12254
+Delaware,AGE,33,12429
+Delaware,AGE,34,11856
+Delaware,AGE,35,12054
+Delaware,AGE,36,11736
+Delaware,AGE,37,11629
+Delaware,AGE,38,11981
+Delaware,AGE,39,11450
+Delaware,AGE,40,11058
+Delaware,AGE,41,10588
+Delaware,AGE,42,10150
+Delaware,AGE,43,10548
+Delaware,AGE,44,10274
+Delaware,AGE,45,10612
+Delaware,AGE,46,11165
+Delaware,AGE,47,12172
+Delaware,AGE,48,12623
+Delaware,AGE,49,11860
+Delaware,AGE,50,11895
+Delaware,AGE,51,12326
+Delaware,AGE,52,12695
+Delaware,AGE,53,13461
+Delaware,AGE,54,13682
+Delaware,AGE,55,13735
+Delaware,AGE,56,13691
+Delaware,AGE,57,13859
+Delaware,AGE,58,13932
+Delaware,AGE,59,13576
+Delaware,AGE,60,13908
+Delaware,AGE,61,13603
+Delaware,AGE,62,13363
+Delaware,AGE,63,13187
+Delaware,AGE,64,12785
+Delaware,AGE,65,12666
+Delaware,AGE,66,12193
+Delaware,AGE,67,11739
+Delaware,AGE,68,11558
+Delaware,AGE,69,11358
+Delaware,AGE,70,11423
+Delaware,AGE,71,12100
+Delaware,AGE,72,8659
+Delaware,AGE,73,8350
+Delaware,AGE,74,8148
+Delaware,AGE,75,8411
+Delaware,AGE,76,7180
+Delaware,AGE,77,6316
+Delaware,AGE,78,5683
+Delaware,AGE,79,5215
+Delaware,AGE,80,4965
+Delaware,AGE,81,4331
+Delaware,AGE,82,4021
+Delaware,AGE,83,3734
+Delaware,AGE,84,3199
+Delaware,AGE,85,19837
+District of Columbia,AGE,0,9870
+District of Columbia,AGE,1,9451
+District of Columbia,AGE,2,9099
+District of Columbia,AGE,3,8908
+District of Columbia,AGE,4,8289
+District of Columbia,AGE,5,8482
+District of Columbia,AGE,6,8094
+District of Columbia,AGE,7,7711
+District of Columbia,AGE,8,6851
+District of Columbia,AGE,9,6484
+District of Columbia,AGE,10,6287
+District of Columbia,AGE,11,6099
+District of Columbia,AGE,12,5592
+District of Columbia,AGE,13,5379
+District of Columbia,AGE,14,5216
+District of Columbia,AGE,15,5076
+District of Columbia,AGE,16,5104
+District of Columbia,AGE,17,5502
+District of Columbia,AGE,18,9021
+District of Columbia,AGE,19,12197
+District of Columbia,AGE,20,10677
+District of Columbia,AGE,21,9124
+District of Columbia,AGE,22,8435
+District of Columbia,AGE,23,10967
+District of Columbia,AGE,24,13721
+District of Columbia,AGE,25,14798
+District of Columbia,AGE,26,16222
+District of Columbia,AGE,27,17008
+District of Columbia,AGE,28,17598
+District of Columbia,AGE,29,17470
+District of Columbia,AGE,30,17579
+District of Columbia,AGE,31,16831
+District of Columbia,AGE,32,16280
+District of Columbia,AGE,33,15643
+District of Columbia,AGE,34,14658
+District of Columbia,AGE,35,13969
+District of Columbia,AGE,36,13154
+District of Columbia,AGE,37,12314
+District of Columbia,AGE,38,11877
+District of Columbia,AGE,39,10898
+District of Columbia,AGE,40,9815
+District of Columbia,AGE,41,9293
+District of Columbia,AGE,42,8298
+District of Columbia,AGE,43,8302
+District of Columbia,AGE,44,7754
+District of Columbia,AGE,45,7791
+District of Columbia,AGE,46,7737
+District of Columbia,AGE,47,8084
+District of Columbia,AGE,48,7804
+District of Columbia,AGE,49,7371
+District of Columbia,AGE,50,7167
+District of Columbia,AGE,51,7094
+District of Columbia,AGE,52,7120
+District of Columbia,AGE,53,7605
+District of Columbia,AGE,54,7680
+District of Columbia,AGE,55,7627
+District of Columbia,AGE,56,7293
+District of Columbia,AGE,57,7345
+District of Columbia,AGE,58,7416
+District of Columbia,AGE,59,6995
+District of Columbia,AGE,60,6936
+District of Columbia,AGE,61,6829
+District of Columbia,AGE,62,6673
+District of Columbia,AGE,63,6666
+District of Columbia,AGE,64,6522
+District of Columbia,AGE,65,6067
+District of Columbia,AGE,66,5703
+District of Columbia,AGE,67,5551
+District of Columbia,AGE,68,5439
+District of Columbia,AGE,69,5224
+District of Columbia,AGE,70,5046
+District of Columbia,AGE,71,4967
+District of Columbia,AGE,72,3791
+District of Columbia,AGE,73,3748
+District of Columbia,AGE,74,3568
+District of Columbia,AGE,75,3414
+District of Columbia,AGE,76,3173
+District of Columbia,AGE,77,2749
+District of Columbia,AGE,78,2667
+District of Columbia,AGE,79,2416
+District of Columbia,AGE,80,2228
+District of Columbia,AGE,81,2068
+District of Columbia,AGE,82,1881
+District of Columbia,AGE,83,1813
+District of Columbia,AGE,84,1637
+District of Columbia,AGE,85,12153
+Florida,AGE,0,222040
+Florida,AGE,1,226785
+Florida,AGE,2,230991
+Florida,AGE,3,231519
+Florida,AGE,4,231848
+Florida,AGE,5,229244
+Florida,AGE,6,231879
+Florida,AGE,7,233764
+Florida,AGE,8,231064
+Florida,AGE,9,231636
+Florida,AGE,10,241136
+Florida,AGE,11,243256
+Florida,AGE,12,242451
+Florida,AGE,13,240317
+Florida,AGE,14,239087
+Florida,AGE,15,233383
+Florida,AGE,16,240454
+Florida,AGE,17,248227
+Florida,AGE,18,247558
+Florida,AGE,19,236800
+Florida,AGE,20,242346
+Florida,AGE,21,247152
+Florida,AGE,22,251360
+Florida,AGE,23,260737
+Florida,AGE,24,268228
+Florida,AGE,25,274252
+Florida,AGE,26,284160
+Florida,AGE,27,295472
+Florida,AGE,28,297296
+Florida,AGE,29,285297
+Florida,AGE,30,276746
+Florida,AGE,31,269747
+Florida,AGE,32,269904
+Florida,AGE,33,271621
+Florida,AGE,34,263760
+Florida,AGE,35,267113
+Florida,AGE,36,266310
+Florida,AGE,37,262946
+Florida,AGE,38,268477
+Florida,AGE,39,253736
+Florida,AGE,40,251649
+Florida,AGE,41,252132
+Florida,AGE,42,245828
+Florida,AGE,43,252338
+Florida,AGE,44,248235
+Florida,AGE,45,255504
+Florida,AGE,46,267439
+Florida,AGE,47,280316
+Florida,AGE,48,282084
+Florida,AGE,49,266512
+Florida,AGE,50,263168
+Florida,AGE,51,266392
+Florida,AGE,52,274265
+Florida,AGE,53,292447
+Florida,AGE,54,298245
+Florida,AGE,55,296034
+Florida,AGE,56,294331
+Florida,AGE,57,296821
+Florida,AGE,58,297111
+Florida,AGE,59,286283
+Florida,AGE,60,283495
+Florida,AGE,61,282862
+Florida,AGE,62,275017
+Florida,AGE,63,274712
+Florida,AGE,64,267935
+Florida,AGE,65,261356
+Florida,AGE,66,256278
+Florida,AGE,67,254396
+Florida,AGE,68,251097
+Florida,AGE,69,248753
+Florida,AGE,70,252145
+Florida,AGE,71,270275
+Florida,AGE,72,204511
+Florida,AGE,73,201489
+Florida,AGE,74,197602
+Florida,AGE,75,204630
+Florida,AGE,76,177054
+Florida,AGE,77,160572
+Florida,AGE,78,150535
+Florida,AGE,79,140395
+Florida,AGE,80,132247
+Florida,AGE,81,120124
+Florida,AGE,82,111266
+Florida,AGE,83,103116
+Florida,AGE,84,88811
+Florida,AGE,85,571419
+Georgia,AGE,0,126952
+Georgia,AGE,1,129588
+Georgia,AGE,2,132570
+Georgia,AGE,3,134469
+Georgia,AGE,4,133835
+Georgia,AGE,5,133485
+Georgia,AGE,6,136430
+Georgia,AGE,7,137827
+Georgia,AGE,8,138662
+Georgia,AGE,9,139500
+Georgia,AGE,10,145668
+Georgia,AGE,11,146769
+Georgia,AGE,12,146038
+Georgia,AGE,13,144569
+Georgia,AGE,14,144714
+Georgia,AGE,15,143398
+Georgia,AGE,16,143670
+Georgia,AGE,17,147607
+Georgia,AGE,18,148676
+Georgia,AGE,19,145019
+Georgia,AGE,20,142342
+Georgia,AGE,21,140989
+Georgia,AGE,22,140714
+Georgia,AGE,23,144723
+Georgia,AGE,24,147884
+Georgia,AGE,25,151681
+Georgia,AGE,26,154891
+Georgia,AGE,27,156809
+Georgia,AGE,28,155506
+Georgia,AGE,29,148858
+Georgia,AGE,30,143683
+Georgia,AGE,31,141169
+Georgia,AGE,32,140521
+Georgia,AGE,33,142289
+Georgia,AGE,34,137839
+Georgia,AGE,35,140403
+Georgia,AGE,36,141413
+Georgia,AGE,37,141109
+Georgia,AGE,38,145328
+Georgia,AGE,39,136975
+Georgia,AGE,40,134336
+Georgia,AGE,41,133927
+Georgia,AGE,42,130391
+Georgia,AGE,43,135761
+Georgia,AGE,44,132959
+Georgia,AGE,45,137175
+Georgia,AGE,46,142926
+Georgia,AGE,47,149567
+Georgia,AGE,48,149582
+Georgia,AGE,49,139169
+Georgia,AGE,50,134781
+Georgia,AGE,51,134798
+Georgia,AGE,52,137264
+Georgia,AGE,53,142905
+Georgia,AGE,54,143271
+Georgia,AGE,55,140264
+Georgia,AGE,56,138103
+Georgia,AGE,57,137452
+Georgia,AGE,58,136339
+Georgia,AGE,59,130189
+Georgia,AGE,60,126936
+Georgia,AGE,61,125884
+Georgia,AGE,62,120188
+Georgia,AGE,63,117971
+Georgia,AGE,64,112356
+Georgia,AGE,65,107197
+Georgia,AGE,66,102310
+Georgia,AGE,67,99429
+Georgia,AGE,68,97488
+Georgia,AGE,69,94552
+Georgia,AGE,70,93829
+Georgia,AGE,71,96027
+Georgia,AGE,72,70265
+Georgia,AGE,73,68781
+Georgia,AGE,74,65541
+Georgia,AGE,75,65574
+Georgia,AGE,76,55438
+Georgia,AGE,77,50152
+Georgia,AGE,78,46449
+Georgia,AGE,79,42127
+Georgia,AGE,80,38400
+Georgia,AGE,81,34216
+Georgia,AGE,82,31601
+Georgia,AGE,83,29416
+Georgia,AGE,84,24984
+Georgia,AGE,85,146633
+Hawaii,AGE,0,17224
+Hawaii,AGE,1,17474
+Hawaii,AGE,2,17619
+Hawaii,AGE,3,17491
+Hawaii,AGE,4,17896
+Hawaii,AGE,5,18111
+Hawaii,AGE,6,17773
+Hawaii,AGE,7,17703
+Hawaii,AGE,8,16808
+Hawaii,AGE,9,16474
+Hawaii,AGE,10,16915
+Hawaii,AGE,11,16456
+Hawaii,AGE,12,16217
+Hawaii,AGE,13,16081
+Hawaii,AGE,14,16285
+Hawaii,AGE,15,15950
+Hawaii,AGE,16,15353
+Hawaii,AGE,17,15584
+Hawaii,AGE,18,15126
+Hawaii,AGE,19,15166
+Hawaii,AGE,20,16502
+Hawaii,AGE,21,17486
+Hawaii,AGE,22,18227
+Hawaii,AGE,23,18925
+Hawaii,AGE,24,19811
+Hawaii,AGE,25,20216
+Hawaii,AGE,26,20793
+Hawaii,AGE,27,21686
+Hawaii,AGE,28,21238
+Hawaii,AGE,29,20044
+Hawaii,AGE,30,19942
+Hawaii,AGE,31,19973
+Hawaii,AGE,32,19632
+Hawaii,AGE,33,19771
+Hawaii,AGE,34,19711
+Hawaii,AGE,35,19962
+Hawaii,AGE,36,19757
+Hawaii,AGE,37,19400
+Hawaii,AGE,38,19460
+Hawaii,AGE,39,18217
+Hawaii,AGE,40,17544
+Hawaii,AGE,41,17089
+Hawaii,AGE,42,16479
+Hawaii,AGE,43,16539
+Hawaii,AGE,44,16063
+Hawaii,AGE,45,16157
+Hawaii,AGE,46,16697
+Hawaii,AGE,47,17314
+Hawaii,AGE,48,18313
+Hawaii,AGE,49,17024
+Hawaii,AGE,50,16585
+Hawaii,AGE,51,16384
+Hawaii,AGE,52,16640
+Hawaii,AGE,53,17770
+Hawaii,AGE,54,17740
+Hawaii,AGE,55,17998
+Hawaii,AGE,56,18012
+Hawaii,AGE,57,17872
+Hawaii,AGE,58,18913
+Hawaii,AGE,59,18012
+Hawaii,AGE,60,18151
+Hawaii,AGE,61,18158
+Hawaii,AGE,62,17975
+Hawaii,AGE,63,18060
+Hawaii,AGE,64,17576
+Hawaii,AGE,65,17475
+Hawaii,AGE,66,16767
+Hawaii,AGE,67,16084
+Hawaii,AGE,68,16516
+Hawaii,AGE,69,15650
+Hawaii,AGE,70,15503
+Hawaii,AGE,71,15115
+Hawaii,AGE,72,12162
+Hawaii,AGE,73,12121
+Hawaii,AGE,74,11540
+Hawaii,AGE,75,10306
+Hawaii,AGE,76,9144
+Hawaii,AGE,77,8319
+Hawaii,AGE,78,7732
+Hawaii,AGE,79,6894
+Hawaii,AGE,80,6606
+Hawaii,AGE,81,5960
+Hawaii,AGE,82,5625
+Hawaii,AGE,83,5474
+Hawaii,AGE,84,4930
+Hawaii,AGE,85,41044
+Idaho,AGE,0,22348
+Idaho,AGE,1,22656
+Idaho,AGE,2,23563
+Idaho,AGE,3,24141
+Idaho,AGE,4,23631
+Idaho,AGE,5,24138
+Idaho,AGE,6,23900
+Idaho,AGE,7,24640
+Idaho,AGE,8,24965
+Idaho,AGE,9,25322
+Idaho,AGE,10,26288
+Idaho,AGE,11,26432
+Idaho,AGE,12,26103
+Idaho,AGE,13,26122
+Idaho,AGE,14,26091
+Idaho,AGE,15,25495
+Idaho,AGE,16,25258
+Idaho,AGE,17,25879
+Idaho,AGE,18,24700
+Idaho,AGE,19,23174
+Idaho,AGE,20,21807
+Idaho,AGE,21,22288
+Idaho,AGE,22,23507
+Idaho,AGE,23,23307
+Idaho,AGE,24,23985
+Idaho,AGE,25,23988
+Idaho,AGE,26,24045
+Idaho,AGE,27,24233
+Idaho,AGE,28,23995
+Idaho,AGE,29,22915
+Idaho,AGE,30,22233
+Idaho,AGE,31,22085
+Idaho,AGE,32,22337
+Idaho,AGE,33,22913
+Idaho,AGE,34,22638
+Idaho,AGE,35,23063
+Idaho,AGE,36,23206
+Idaho,AGE,37,23235
+Idaho,AGE,38,23491
+Idaho,AGE,39,22388
+Idaho,AGE,40,21880
+Idaho,AGE,41,21447
+Idaho,AGE,42,20589
+Idaho,AGE,43,20895
+Idaho,AGE,44,19835
+Idaho,AGE,45,19408
+Idaho,AGE,46,20175
+Idaho,AGE,47,21027
+Idaho,AGE,48,20969
+Idaho,AGE,49,20093
+Idaho,AGE,50,19077
+Idaho,AGE,51,19282
+Idaho,AGE,52,19261
+Idaho,AGE,53,19988
+Idaho,AGE,54,20645
+Idaho,AGE,55,21281
+Idaho,AGE,56,21724
+Idaho,AGE,57,22128
+Idaho,AGE,58,22095
+Idaho,AGE,59,21380
+Idaho,AGE,60,21702
+Idaho,AGE,61,21903
+Idaho,AGE,62,21151
+Idaho,AGE,63,20937
+Idaho,AGE,64,20549
+Idaho,AGE,65,20394
+Idaho,AGE,66,19648
+Idaho,AGE,67,18737
+Idaho,AGE,68,18099
+Idaho,AGE,69,17667
+Idaho,AGE,70,17455
+Idaho,AGE,71,17960
+Idaho,AGE,72,12988
+Idaho,AGE,73,12787
+Idaho,AGE,74,12506
+Idaho,AGE,75,12643
+Idaho,AGE,76,10678
+Idaho,AGE,77,9638
+Idaho,AGE,78,8983
+Idaho,AGE,79,8226
+Idaho,AGE,80,7375
+Idaho,AGE,81,6636
+Idaho,AGE,82,6040
+Idaho,AGE,83,5642
+Idaho,AGE,84,4761
+Idaho,AGE,85,29419
+Illinois,AGE,0,147623
+Illinois,AGE,1,149997
+Illinois,AGE,2,154179
+Illinois,AGE,3,155702
+Illinois,AGE,4,153118
+Illinois,AGE,5,152837
+Illinois,AGE,6,154486
+Illinois,AGE,7,156400
+Illinois,AGE,8,157443
+Illinois,AGE,9,156936
+Illinois,AGE,10,161916
+Illinois,AGE,11,163391
+Illinois,AGE,12,163371
+Illinois,AGE,13,164091
+Illinois,AGE,14,166379
+Illinois,AGE,15,165212
+Illinois,AGE,16,164992
+Illinois,AGE,17,169193
+Illinois,AGE,18,167074
+Illinois,AGE,19,161734
+Illinois,AGE,20,163848
+Illinois,AGE,21,165089
+Illinois,AGE,22,168312
+Illinois,AGE,23,173542
+Illinois,AGE,24,176711
+Illinois,AGE,25,178851
+Illinois,AGE,26,182529
+Illinois,AGE,27,183820
+Illinois,AGE,28,182722
+Illinois,AGE,29,175858
+Illinois,AGE,30,174141
+Illinois,AGE,31,171845
+Illinois,AGE,32,173505
+Illinois,AGE,33,176046
+Illinois,AGE,34,170464
+Illinois,AGE,35,172051
+Illinois,AGE,36,172433
+Illinois,AGE,37,170485
+Illinois,AGE,38,175475
+Illinois,AGE,39,164077
+Illinois,AGE,40,160821
+Illinois,AGE,41,159404
+Illinois,AGE,42,154143
+Illinois,AGE,43,158082
+Illinois,AGE,44,152754
+Illinois,AGE,45,154086
+Illinois,AGE,46,161591
+Illinois,AGE,47,169707
+Illinois,AGE,48,170988
+Illinois,AGE,49,161521
+Illinois,AGE,50,158553
+Illinois,AGE,51,158925
+Illinois,AGE,52,161411
+Illinois,AGE,53,170671
+Illinois,AGE,54,172397
+Illinois,AGE,55,172587
+Illinois,AGE,56,172243
+Illinois,AGE,57,175361
+Illinois,AGE,58,176767
+Illinois,AGE,59,170640
+Illinois,AGE,60,168957
+Illinois,AGE,61,165439
+Illinois,AGE,62,158564
+Illinois,AGE,63,156872
+Illinois,AGE,64,147757
+Illinois,AGE,65,141001
+Illinois,AGE,66,134523
+Illinois,AGE,67,130017
+Illinois,AGE,68,124930
+Illinois,AGE,69,119103
+Illinois,AGE,70,116629
+Illinois,AGE,71,119838
+Illinois,AGE,72,88194
+Illinois,AGE,73,85027
+Illinois,AGE,74,82991
+Illinois,AGE,75,85719
+Illinois,AGE,76,75021
+Illinois,AGE,77,66959
+Illinois,AGE,78,62277
+Illinois,AGE,79,58445
+Illinois,AGE,80,55530
+Illinois,AGE,81,50201
+Illinois,AGE,82,47423
+Illinois,AGE,83,44204
+Illinois,AGE,84,38255
+Illinois,AGE,85,266674
+Indiana,AGE,0,80539
+Indiana,AGE,1,82185
+Indiana,AGE,2,84577
+Indiana,AGE,3,85801
+Indiana,AGE,4,85442
+Indiana,AGE,5,85734
+Indiana,AGE,6,85646
+Indiana,AGE,7,85744
+Indiana,AGE,8,86387
+Indiana,AGE,9,86595
+Indiana,AGE,10,89432
+Indiana,AGE,11,90041
+Indiana,AGE,12,89639
+Indiana,AGE,13,89235
+Indiana,AGE,14,90243
+Indiana,AGE,15,89494
+Indiana,AGE,16,89094
+Indiana,AGE,17,92302
+Indiana,AGE,18,89322
+Indiana,AGE,19,95441
+Indiana,AGE,20,96648
+Indiana,AGE,21,95660
+Indiana,AGE,22,94862
+Indiana,AGE,23,92597
+Indiana,AGE,24,91447
+Indiana,AGE,25,91732
+Indiana,AGE,26,95318
+Indiana,AGE,27,93773
+Indiana,AGE,28,90900
+Indiana,AGE,29,87136
+Indiana,AGE,30,84746
+Indiana,AGE,31,82785
+Indiana,AGE,32,83817
+Indiana,AGE,33,84836
+Indiana,AGE,34,82395
+Indiana,AGE,35,84611
+Indiana,AGE,36,85096
+Indiana,AGE,37,85350
+Indiana,AGE,38,87843
+Indiana,AGE,39,83018
+Indiana,AGE,40,81136
+Indiana,AGE,41,80045
+Indiana,AGE,42,77489
+Indiana,AGE,43,80214
+Indiana,AGE,44,77400
+Indiana,AGE,45,79229
+Indiana,AGE,46,82854
+Indiana,AGE,47,88180
+Indiana,AGE,48,87063
+Indiana,AGE,49,81760
+Indiana,AGE,50,79750
+Indiana,AGE,51,80928
+Indiana,AGE,52,82143
+Indiana,AGE,53,87812
+Indiana,AGE,54,90105
+Indiana,AGE,55,89225
+Indiana,AGE,56,89618
+Indiana,AGE,57,91689
+Indiana,AGE,58,91638
+Indiana,AGE,59,88752
+Indiana,AGE,60,89019
+Indiana,AGE,61,87471
+Indiana,AGE,62,83901
+Indiana,AGE,63,82626
+Indiana,AGE,64,79347
+Indiana,AGE,65,75847
+Indiana,AGE,66,72981
+Indiana,AGE,67,69450
+Indiana,AGE,68,67027
+Indiana,AGE,69,65220
+Indiana,AGE,70,62753
+Indiana,AGE,71,65350
+Indiana,AGE,72,46379
+Indiana,AGE,73,46060
+Indiana,AGE,74,44514
+Indiana,AGE,75,45962
+Indiana,AGE,76,39777
+Indiana,AGE,77,36012
+Indiana,AGE,78,33057
+Indiana,AGE,79,31105
+Indiana,AGE,80,29415
+Indiana,AGE,81,26228
+Indiana,AGE,82,24555
+Indiana,AGE,83,22819
+Indiana,AGE,84,19700
+Indiana,AGE,85,130810
+Iowa,AGE,0,38291
+Iowa,AGE,1,39118
+Iowa,AGE,2,39958
+Iowa,AGE,3,40477
+Iowa,AGE,4,40374
+Iowa,AGE,5,40035
+Iowa,AGE,6,39766
+Iowa,AGE,7,39375
+Iowa,AGE,8,40848
+Iowa,AGE,9,41091
+Iowa,AGE,10,42109
+Iowa,AGE,11,42237
+Iowa,AGE,12,41927
+Iowa,AGE,13,41228
+Iowa,AGE,14,41063
+Iowa,AGE,15,40974
+Iowa,AGE,16,40575
+Iowa,AGE,17,41321
+Iowa,AGE,18,43274
+Iowa,AGE,19,47978
+Iowa,AGE,20,47752
+Iowa,AGE,21,47177
+Iowa,AGE,22,46470
+Iowa,AGE,23,43752
+Iowa,AGE,24,42627
+Iowa,AGE,25,41723
+Iowa,AGE,26,42550
+Iowa,AGE,27,41091
+Iowa,AGE,28,40409
+Iowa,AGE,29,38513
+Iowa,AGE,30,37301
+Iowa,AGE,31,37146
+Iowa,AGE,32,38967
+Iowa,AGE,33,40549
+Iowa,AGE,34,39466
+Iowa,AGE,35,40411
+Iowa,AGE,36,41097
+Iowa,AGE,37,40367
+Iowa,AGE,38,41365
+Iowa,AGE,39,38864
+Iowa,AGE,40,37423
+Iowa,AGE,41,36417
+Iowa,AGE,42,34607
+Iowa,AGE,43,35873
+Iowa,AGE,44,33511
+Iowa,AGE,45,33520
+Iowa,AGE,46,35586
+Iowa,AGE,47,37823
+Iowa,AGE,48,38545
+Iowa,AGE,49,36793
+Iowa,AGE,50,35654
+Iowa,AGE,51,36408
+Iowa,AGE,52,36940
+Iowa,AGE,53,39342
+Iowa,AGE,54,40720
+Iowa,AGE,55,41467
+Iowa,AGE,56,42426
+Iowa,AGE,57,43593
+Iowa,AGE,58,44060
+Iowa,AGE,59,42361
+Iowa,AGE,60,42256
+Iowa,AGE,61,41809
+Iowa,AGE,62,40472
+Iowa,AGE,63,40448
+Iowa,AGE,64,38645
+Iowa,AGE,65,37177
+Iowa,AGE,66,36334
+Iowa,AGE,67,34725
+Iowa,AGE,68,32988
+Iowa,AGE,69,31469
+Iowa,AGE,70,30330
+Iowa,AGE,71,31496
+Iowa,AGE,72,22596
+Iowa,AGE,73,22072
+Iowa,AGE,74,21686
+Iowa,AGE,75,22100
+Iowa,AGE,76,19281
+Iowa,AGE,77,18071
+Iowa,AGE,78,17054
+Iowa,AGE,79,16181
+Iowa,AGE,80,15456
+Iowa,AGE,81,14197
+Iowa,AGE,82,13650
+Iowa,AGE,83,12696
+Iowa,AGE,84,11180
+Iowa,AGE,85,79091
+Kansas,AGE,0,36439
+Kansas,AGE,1,37293
+Kansas,AGE,2,38293
+Kansas,AGE,3,38443
+Kansas,AGE,4,38867
+Kansas,AGE,5,39065
+Kansas,AGE,6,39159
+Kansas,AGE,7,39658
+Kansas,AGE,8,40093
+Kansas,AGE,9,39646
+Kansas,AGE,10,40540
+Kansas,AGE,11,40500
+Kansas,AGE,12,40056
+Kansas,AGE,13,39691
+Kansas,AGE,14,39659
+Kansas,AGE,15,39787
+Kansas,AGE,16,38993
+Kansas,AGE,17,39779
+Kansas,AGE,18,39837
+Kansas,AGE,19,41878
+Kansas,AGE,20,43602
+Kansas,AGE,21,42766
+Kansas,AGE,22,42821
+Kansas,AGE,23,43071
+Kansas,AGE,24,40760
+Kansas,AGE,25,40380
+Kansas,AGE,26,40676
+Kansas,AGE,27,38883
+Kansas,AGE,28,38032
+Kansas,AGE,29,37064
+Kansas,AGE,30,36689
+Kansas,AGE,31,36559
+Kansas,AGE,32,37751
+Kansas,AGE,33,38831
+Kansas,AGE,34,38019
+Kansas,AGE,35,38378
+Kansas,AGE,36,38749
+Kansas,AGE,37,38333
+Kansas,AGE,38,38618
+Kansas,AGE,39,35894
+Kansas,AGE,40,34560
+Kansas,AGE,41,34422
+Kansas,AGE,42,32665
+Kansas,AGE,43,33241
+Kansas,AGE,44,31462
+Kansas,AGE,45,31498
+Kansas,AGE,46,32771
+Kansas,AGE,47,34541
+Kansas,AGE,48,35043
+Kansas,AGE,49,33136
+Kansas,AGE,50,31647
+Kansas,AGE,51,31999
+Kansas,AGE,52,33034
+Kansas,AGE,53,35369
+Kansas,AGE,54,36899
+Kansas,AGE,55,37690
+Kansas,AGE,56,38096
+Kansas,AGE,57,39030
+Kansas,AGE,58,38900
+Kansas,AGE,59,37973
+Kansas,AGE,60,37599
+Kansas,AGE,61,37698
+Kansas,AGE,62,36203
+Kansas,AGE,63,35832
+Kansas,AGE,64,34404
+Kansas,AGE,65,32812
+Kansas,AGE,66,31343
+Kansas,AGE,67,30113
+Kansas,AGE,68,28712
+Kansas,AGE,69,27282
+Kansas,AGE,70,26603
+Kansas,AGE,71,27707
+Kansas,AGE,72,19678
+Kansas,AGE,73,19517
+Kansas,AGE,74,19090
+Kansas,AGE,75,19216
+Kansas,AGE,76,16442
+Kansas,AGE,77,15202
+Kansas,AGE,78,14178
+Kansas,AGE,79,13373
+Kansas,AGE,80,12891
+Kansas,AGE,81,11631
+Kansas,AGE,82,11059
+Kansas,AGE,83,10459
+Kansas,AGE,84,9397
+Kansas,AGE,85,65536
+Kentucky,AGE,0,53557
+Kentucky,AGE,1,54670
+Kentucky,AGE,2,55437
+Kentucky,AGE,3,55824
+Kentucky,AGE,4,55924
+Kentucky,AGE,5,55751
+Kentucky,AGE,6,55294
+Kentucky,AGE,7,55040
+Kentucky,AGE,8,54976
+Kentucky,AGE,9,55665
+Kentucky,AGE,10,56971
+Kentucky,AGE,11,57660
+Kentucky,AGE,12,56987
+Kentucky,AGE,13,56986
+Kentucky,AGE,14,57184
+Kentucky,AGE,15,56699
+Kentucky,AGE,16,56239
+Kentucky,AGE,17,57965
+Kentucky,AGE,18,58281
+Kentucky,AGE,19,57921
+Kentucky,AGE,20,58954
+Kentucky,AGE,21,59245
+Kentucky,AGE,22,60244
+Kentucky,AGE,23,61585
+Kentucky,AGE,24,61502
+Kentucky,AGE,25,61328
+Kentucky,AGE,26,62907
+Kentucky,AGE,27,64400
+Kentucky,AGE,28,62860
+Kentucky,AGE,29,58831
+Kentucky,AGE,30,55982
+Kentucky,AGE,31,54684
+Kentucky,AGE,32,54326
+Kentucky,AGE,33,55410
+Kentucky,AGE,34,54379
+Kentucky,AGE,35,55994
+Kentucky,AGE,36,56012
+Kentucky,AGE,37,56994
+Kentucky,AGE,38,58463
+Kentucky,AGE,39,55582
+Kentucky,AGE,40,54951
+Kentucky,AGE,41,54648
+Kentucky,AGE,42,52624
+Kentucky,AGE,43,54086
+Kentucky,AGE,44,52595
+Kentucky,AGE,45,53606
+Kentucky,AGE,46,57140
+Kentucky,AGE,47,59733
+Kentucky,AGE,48,58982
+Kentucky,AGE,49,56171
+Kentucky,AGE,50,55381
+Kentucky,AGE,51,55652
+Kentucky,AGE,52,56637
+Kentucky,AGE,53,61085
+Kentucky,AGE,54,62427
+Kentucky,AGE,55,61670
+Kentucky,AGE,56,61561
+Kentucky,AGE,57,61957
+Kentucky,AGE,58,62234
+Kentucky,AGE,59,60459
+Kentucky,AGE,60,60597
+Kentucky,AGE,61,59528
+Kentucky,AGE,62,57239
+Kentucky,AGE,63,57175
+Kentucky,AGE,64,54925
+Kentucky,AGE,65,52025
+Kentucky,AGE,66,50699
+Kentucky,AGE,67,48753
+Kentucky,AGE,68,47202
+Kentucky,AGE,69,46380
+Kentucky,AGE,70,45112
+Kentucky,AGE,71,47034
+Kentucky,AGE,72,33275
+Kentucky,AGE,73,32828
+Kentucky,AGE,74,31897
+Kentucky,AGE,75,32017
+Kentucky,AGE,76,27606
+Kentucky,AGE,77,25435
+Kentucky,AGE,78,23696
+Kentucky,AGE,79,22145
+Kentucky,AGE,80,20690
+Kentucky,AGE,81,17790
+Kentucky,AGE,82,16615
+Kentucky,AGE,83,15296
+Kentucky,AGE,84,13513
+Kentucky,AGE,85,80618
+Louisiana,AGE,0,59755
+Louisiana,AGE,1,61043
+Louisiana,AGE,2,62174
+Louisiana,AGE,3,62025
+Louisiana,AGE,4,62022
+Louisiana,AGE,5,60482
+Louisiana,AGE,6,60154
+Louisiana,AGE,7,60325
+Louisiana,AGE,8,59959
+Louisiana,AGE,9,60647
+Louisiana,AGE,10,62799
+Louisiana,AGE,11,62967
+Louisiana,AGE,12,61101
+Louisiana,AGE,13,60551
+Louisiana,AGE,14,59940
+Louisiana,AGE,15,59483
+Louisiana,AGE,16,59474
+Louisiana,AGE,17,61015
+Louisiana,AGE,18,59616
+Louisiana,AGE,19,56425
+Louisiana,AGE,20,58353
+Louisiana,AGE,21,60238
+Louisiana,AGE,22,61430
+Louisiana,AGE,23,63936
+Louisiana,AGE,24,65351
+Louisiana,AGE,25,66169
+Louisiana,AGE,26,68317
+Louisiana,AGE,27,71394
+Louisiana,AGE,28,70320
+Louisiana,AGE,29,67619
+Louisiana,AGE,30,64709
+Louisiana,AGE,31,64101
+Louisiana,AGE,32,64974
+Louisiana,AGE,33,65741
+Louisiana,AGE,34,63838
+Louisiana,AGE,35,64368
+Louisiana,AGE,36,64123
+Louisiana,AGE,37,63276
+Louisiana,AGE,38,63225
+Louisiana,AGE,39,58695
+Louisiana,AGE,40,56740
+Louisiana,AGE,41,55951
+Louisiana,AGE,42,52932
+Louisiana,AGE,43,53014
+Louisiana,AGE,44,51202
+Louisiana,AGE,45,51948
+Louisiana,AGE,46,54532
+Louisiana,AGE,47,56898
+Louisiana,AGE,48,57078
+Louisiana,AGE,49,54990
+Louisiana,AGE,50,54533
+Louisiana,AGE,51,55036
+Louisiana,AGE,52,56276
+Louisiana,AGE,53,60366
+Louisiana,AGE,54,61649
+Louisiana,AGE,55,61478
+Louisiana,AGE,56,61937
+Louisiana,AGE,57,62788
+Louisiana,AGE,58,64071
+Louisiana,AGE,59,62059
+Louisiana,AGE,60,60621
+Louisiana,AGE,61,60513
+Louisiana,AGE,62,58844
+Louisiana,AGE,63,58411
+Louisiana,AGE,64,55544
+Louisiana,AGE,65,52419
+Louisiana,AGE,66,50014
+Louisiana,AGE,67,48745
+Louisiana,AGE,68,46999
+Louisiana,AGE,69,44708
+Louisiana,AGE,70,43652
+Louisiana,AGE,71,45209
+Louisiana,AGE,72,32688
+Louisiana,AGE,73,32535
+Louisiana,AGE,74,30977
+Louisiana,AGE,75,30861
+Louisiana,AGE,76,26829
+Louisiana,AGE,77,24667
+Louisiana,AGE,78,23130
+Louisiana,AGE,79,21147
+Louisiana,AGE,80,19974
+Louisiana,AGE,81,17671
+Louisiana,AGE,82,16575
+Louisiana,AGE,83,15357
+Louisiana,AGE,84,13226
+Louisiana,AGE,85,81050
+Maine,AGE,0,12409
+Maine,AGE,1,12629
+Maine,AGE,2,12930
+Maine,AGE,3,13126
+Maine,AGE,4,13188
+Maine,AGE,5,13253
+Maine,AGE,6,13288
+Maine,AGE,7,13301
+Maine,AGE,8,13870
+Maine,AGE,9,13884
+Maine,AGE,10,14317
+Maine,AGE,11,14599
+Maine,AGE,12,14662
+Maine,AGE,13,14862
+Maine,AGE,14,14795
+Maine,AGE,15,14814
+Maine,AGE,16,14908
+Maine,AGE,17,15569
+Maine,AGE,18,16197
+Maine,AGE,19,15903
+Maine,AGE,20,15347
+Maine,AGE,21,14942
+Maine,AGE,22,14786
+Maine,AGE,23,14770
+Maine,AGE,24,15179
+Maine,AGE,25,15604
+Maine,AGE,26,16068
+Maine,AGE,27,16244
+Maine,AGE,28,16422
+Maine,AGE,29,16303
+Maine,AGE,30,16093
+Maine,AGE,31,15937
+Maine,AGE,32,16216
+Maine,AGE,33,16118
+Maine,AGE,34,15335
+Maine,AGE,35,15567
+Maine,AGE,36,15814
+Maine,AGE,37,15583
+Maine,AGE,38,16024
+Maine,AGE,39,15175
+Maine,AGE,40,15083
+Maine,AGE,41,14700
+Maine,AGE,42,14398
+Maine,AGE,43,15052
+Maine,AGE,44,14987
+Maine,AGE,45,15440
+Maine,AGE,46,16737
+Maine,AGE,47,17920
+Maine,AGE,48,18090
+Maine,AGE,49,17523
+Maine,AGE,50,17559
+Maine,AGE,51,18103
+Maine,AGE,52,18568
+Maine,AGE,53,19653
+Maine,AGE,54,20580
+Maine,AGE,55,21034
+Maine,AGE,56,21335
+Maine,AGE,57,21700
+Maine,AGE,58,21557
+Maine,AGE,59,21526
+Maine,AGE,60,21748
+Maine,AGE,61,21463
+Maine,AGE,62,20780
+Maine,AGE,63,20523
+Maine,AGE,64,20315
+Maine,AGE,65,19669
+Maine,AGE,66,18960
+Maine,AGE,67,18128
+Maine,AGE,68,17636
+Maine,AGE,69,17334
+Maine,AGE,70,17345
+Maine,AGE,71,17863
+Maine,AGE,72,12334
+Maine,AGE,73,12098
+Maine,AGE,74,12000
+Maine,AGE,75,12123
+Maine,AGE,76,10300
+Maine,AGE,77,8992
+Maine,AGE,78,8341
+Maine,AGE,79,7829
+Maine,AGE,80,7323
+Maine,AGE,81,6757
+Maine,AGE,82,6302
+Maine,AGE,83,5986
+Maine,AGE,84,5260
+Maine,AGE,85,33419
+Maryland,AGE,0,70843
+Maryland,AGE,1,72391
+Maryland,AGE,2,73640
+Maryland,AGE,3,74367
+Maryland,AGE,4,73263
+Maryland,AGE,5,73216
+Maryland,AGE,6,73929
+Maryland,AGE,7,74954
+Maryland,AGE,8,74679
+Maryland,AGE,9,73666
+Maryland,AGE,10,76510
+Maryland,AGE,11,76352
+Maryland,AGE,12,75267
+Maryland,AGE,13,75088
+Maryland,AGE,14,75289
+Maryland,AGE,15,74632
+Maryland,AGE,16,74911
+Maryland,AGE,17,77151
+Maryland,AGE,18,80028
+Maryland,AGE,19,74782
+Maryland,AGE,20,74441
+Maryland,AGE,21,74005
+Maryland,AGE,22,73457
+Maryland,AGE,23,76150
+Maryland,AGE,24,78497
+Maryland,AGE,25,81293
+Maryland,AGE,26,82078
+Maryland,AGE,27,84797
+Maryland,AGE,28,86501
+Maryland,AGE,29,83765
+Maryland,AGE,30,83626
+Maryland,AGE,31,83386
+Maryland,AGE,32,83220
+Maryland,AGE,33,83921
+Maryland,AGE,34,82025
+Maryland,AGE,35,82491
+Maryland,AGE,36,82429
+Maryland,AGE,37,82051
+Maryland,AGE,38,83097
+Maryland,AGE,39,77334
+Maryland,AGE,40,75195
+Maryland,AGE,41,74308
+Maryland,AGE,42,72074
+Maryland,AGE,43,73963
+Maryland,AGE,44,70859
+Maryland,AGE,45,72827
+Maryland,AGE,46,77521
+Maryland,AGE,47,82521
+Maryland,AGE,48,83961
+Maryland,AGE,49,80511
+Maryland,AGE,50,80317
+Maryland,AGE,51,81033
+Maryland,AGE,52,83177
+Maryland,AGE,53,87843
+Maryland,AGE,54,89216
+Maryland,AGE,55,87958
+Maryland,AGE,56,86772
+Maryland,AGE,57,87073
+Maryland,AGE,58,86756
+Maryland,AGE,59,83754
+Maryland,AGE,60,81556
+Maryland,AGE,61,79700
+Maryland,AGE,62,75528
+Maryland,AGE,63,73975
+Maryland,AGE,64,69662
+Maryland,AGE,65,67194
+Maryland,AGE,66,63046
+Maryland,AGE,67,61291
+Maryland,AGE,68,58730
+Maryland,AGE,69,57017
+Maryland,AGE,70,56315
+Maryland,AGE,71,58018
+Maryland,AGE,72,42451
+Maryland,AGE,73,41593
+Maryland,AGE,74,39797
+Maryland,AGE,75,40697
+Maryland,AGE,76,35284
+Maryland,AGE,77,31309
+Maryland,AGE,78,28855
+Maryland,AGE,79,26705
+Maryland,AGE,80,25092
+Maryland,AGE,81,22296
+Maryland,AGE,82,20743
+Maryland,AGE,83,19352
+Maryland,AGE,84,16948
+Maryland,AGE,85,118403
+Massachusetts,AGE,0,70787
+Massachusetts,AGE,1,71405
+Massachusetts,AGE,2,72227
+Massachusetts,AGE,3,72739
+Massachusetts,AGE,4,73003
+Massachusetts,AGE,5,73518
+Massachusetts,AGE,6,73715
+Massachusetts,AGE,7,74876
+Massachusetts,AGE,8,74048
+Massachusetts,AGE,9,73853
+Massachusetts,AGE,10,76451
+Massachusetts,AGE,11,77018
+Massachusetts,AGE,12,77385
+Massachusetts,AGE,13,77985
+Massachusetts,AGE,14,80303
+Massachusetts,AGE,15,81320
+Massachusetts,AGE,16,81648
+Massachusetts,AGE,17,84577
+Massachusetts,AGE,18,99978
+Massachusetts,AGE,19,107883
+Massachusetts,AGE,20,103735
+Massachusetts,AGE,21,99726
+Massachusetts,AGE,22,96751
+Massachusetts,AGE,23,95142
+Massachusetts,AGE,24,98713
+Massachusetts,AGE,25,101022
+Massachusetts,AGE,26,101325
+Massachusetts,AGE,27,101162
+Massachusetts,AGE,28,102946
+Massachusetts,AGE,29,101405
+Massachusetts,AGE,30,100800
+Massachusetts,AGE,31,99269
+Massachusetts,AGE,32,97595
+Massachusetts,AGE,33,96150
+Massachusetts,AGE,34,91239
+Massachusetts,AGE,35,90955
+Massachusetts,AGE,36,89707
+Massachusetts,AGE,37,87235
+Massachusetts,AGE,38,88165
+Massachusetts,AGE,39,84019
+Massachusetts,AGE,40,82013
+Massachusetts,AGE,41,79959
+Massachusetts,AGE,42,78636
+Massachusetts,AGE,43,80921
+Massachusetts,AGE,44,79042
+Massachusetts,AGE,45,81246
+Massachusetts,AGE,46,85968
+Massachusetts,AGE,47,91457
+Massachusetts,AGE,48,94141
+Massachusetts,AGE,49,90981
+Massachusetts,AGE,50,91085
+Massachusetts,AGE,51,92297
+Massachusetts,AGE,52,94664
+Massachusetts,AGE,53,99256
+Massachusetts,AGE,54,100436
+Massachusetts,AGE,55,99628
+Massachusetts,AGE,56,98559
+Massachusetts,AGE,57,99250
+Massachusetts,AGE,58,99060
+Massachusetts,AGE,59,95977
+Massachusetts,AGE,60,95170
+Massachusetts,AGE,61,92569
+Massachusetts,AGE,62,88680
+Massachusetts,AGE,63,87317
+Massachusetts,AGE,64,82957
+Massachusetts,AGE,65,79737
+Massachusetts,AGE,66,75670
+Massachusetts,AGE,67,72958
+Massachusetts,AGE,68,70334
+Massachusetts,AGE,69,68551
+Massachusetts,AGE,70,67644
+Massachusetts,AGE,71,70384
+Massachusetts,AGE,72,50830
+Massachusetts,AGE,73,49715
+Massachusetts,AGE,74,48006
+Massachusetts,AGE,75,49051
+Massachusetts,AGE,76,41595
+Massachusetts,AGE,77,36822
+Massachusetts,AGE,78,33948
+Massachusetts,AGE,79,31921
+Massachusetts,AGE,80,30387
+Massachusetts,AGE,81,28130
+Massachusetts,AGE,82,26405
+Massachusetts,AGE,83,25078
+Massachusetts,AGE,84,22082
+Massachusetts,AGE,85,159852
+Michigan,AGE,0,110301
+Michigan,AGE,1,113010
+Michigan,AGE,2,115262
+Michigan,AGE,3,116558
+Michigan,AGE,4,117032
+Michigan,AGE,5,116164
+Michigan,AGE,6,116602
+Michigan,AGE,7,117303
+Michigan,AGE,8,118491
+Michigan,AGE,9,118088
+Michigan,AGE,10,121277
+Michigan,AGE,11,123240
+Michigan,AGE,12,123589
+Michigan,AGE,13,124566
+Michigan,AGE,14,126750
+Michigan,AGE,15,126486
+Michigan,AGE,16,127583
+Michigan,AGE,17,132366
+Michigan,AGE,18,136339
+Michigan,AGE,19,130973
+Michigan,AGE,20,135208
+Michigan,AGE,21,138071
+Michigan,AGE,22,139236
+Michigan,AGE,23,141735
+Michigan,AGE,24,140377
+Michigan,AGE,25,139125
+Michigan,AGE,26,140744
+Michigan,AGE,27,144674
+Michigan,AGE,28,141017
+Michigan,AGE,29,128894
+Michigan,AGE,30,123723
+Michigan,AGE,31,119058
+Michigan,AGE,32,120545
+Michigan,AGE,33,121560
+Michigan,AGE,34,117311
+Michigan,AGE,35,119581
+Michigan,AGE,36,120506
+Michigan,AGE,37,120105
+Michigan,AGE,38,122647
+Michigan,AGE,39,116851
+Michigan,AGE,40,114879
+Michigan,AGE,41,112990
+Michigan,AGE,42,109998
+Michigan,AGE,43,113532
+Michigan,AGE,44,112100
+Michigan,AGE,45,115186
+Michigan,AGE,46,122826
+Michigan,AGE,47,132069
+Michigan,AGE,48,133197
+Michigan,AGE,49,126634
+Michigan,AGE,50,125389
+Michigan,AGE,51,127236
+Michigan,AGE,52,129809
+Michigan,AGE,53,136539
+Michigan,AGE,54,141175
+Michigan,AGE,55,141657
+Michigan,AGE,56,142367
+Michigan,AGE,57,144574
+Michigan,AGE,58,145019
+Michigan,AGE,59,142661
+Michigan,AGE,60,144061
+Michigan,AGE,61,142577
+Michigan,AGE,62,136634
+Michigan,AGE,63,134260
+Michigan,AGE,64,128994
+Michigan,AGE,65,123383
+Michigan,AGE,66,119291
+Michigan,AGE,67,114658
+Michigan,AGE,68,109059
+Michigan,AGE,69,105565
+Michigan,AGE,70,102705
+Michigan,AGE,71,106549
+Michigan,AGE,72,76089
+Michigan,AGE,73,74156
+Michigan,AGE,74,73247
+Michigan,AGE,75,76138
+Michigan,AGE,76,65668
+Michigan,AGE,77,57811
+Michigan,AGE,78,53063
+Michigan,AGE,79,49422
+Michigan,AGE,80,46233
+Michigan,AGE,81,41498
+Michigan,AGE,82,39474
+Michigan,AGE,83,36937
+Michigan,AGE,84,31672
+Michigan,AGE,85,213986
+Minnesota,AGE,0,68566
+Minnesota,AGE,1,70145
+Minnesota,AGE,2,71486
+Minnesota,AGE,3,72308
+Minnesota,AGE,4,72786
+Minnesota,AGE,5,72189
+Minnesota,AGE,6,71826
+Minnesota,AGE,7,71594
+Minnesota,AGE,8,72574
+Minnesota,AGE,9,72251
+Minnesota,AGE,10,74332
+Minnesota,AGE,11,74642
+Minnesota,AGE,12,73784
+Minnesota,AGE,13,73630
+Minnesota,AGE,14,74264
+Minnesota,AGE,15,72538
+Minnesota,AGE,16,71082
+Minnesota,AGE,17,72618
+Minnesota,AGE,18,71144
+Minnesota,AGE,19,70427
+Minnesota,AGE,20,70648
+Minnesota,AGE,21,71309
+Minnesota,AGE,22,71938
+Minnesota,AGE,23,72263
+Minnesota,AGE,24,73907
+Minnesota,AGE,25,75134
+Minnesota,AGE,26,76924
+Minnesota,AGE,27,74274
+Minnesota,AGE,28,75597
+Minnesota,AGE,29,74605
+Minnesota,AGE,30,74655
+Minnesota,AGE,31,75943
+Minnesota,AGE,32,77324
+Minnesota,AGE,33,79327
+Minnesota,AGE,34,77142
+Minnesota,AGE,35,78185
+Minnesota,AGE,36,78589
+Minnesota,AGE,37,77531
+Minnesota,AGE,38,77394
+Minnesota,AGE,39,71991
+Minnesota,AGE,40,69227
+Minnesota,AGE,41,66706
+Minnesota,AGE,42,63919
+Minnesota,AGE,43,65135
+Minnesota,AGE,44,61588
+Minnesota,AGE,45,61694
+Minnesota,AGE,46,64756
+Minnesota,AGE,47,70247
+Minnesota,AGE,48,71616
+Minnesota,AGE,49,68609
+Minnesota,AGE,50,67020
+Minnesota,AGE,51,67234
+Minnesota,AGE,52,69504
+Minnesota,AGE,53,74136
+Minnesota,AGE,54,76675
+Minnesota,AGE,55,78055
+Minnesota,AGE,56,78573
+Minnesota,AGE,57,80298
+Minnesota,AGE,58,80586
+Minnesota,AGE,59,77410
+Minnesota,AGE,60,76563
+Minnesota,AGE,61,74728
+Minnesota,AGE,62,71267
+Minnesota,AGE,63,69884
+Minnesota,AGE,64,67081
+Minnesota,AGE,65,64282
+Minnesota,AGE,66,62099
+Minnesota,AGE,67,58949
+Minnesota,AGE,68,56125
+Minnesota,AGE,69,53027
+Minnesota,AGE,70,51191
+Minnesota,AGE,71,52520
+Minnesota,AGE,72,37830
+Minnesota,AGE,73,37631
+Minnesota,AGE,74,36526
+Minnesota,AGE,75,37454
+Minnesota,AGE,76,32384
+Minnesota,AGE,77,29551
+Minnesota,AGE,78,27723
+Minnesota,AGE,79,26042
+Minnesota,AGE,80,24295
+Minnesota,AGE,81,22468
+Minnesota,AGE,82,21132
+Minnesota,AGE,83,19544
+Minnesota,AGE,84,17345
+Minnesota,AGE,85,121684
+Mississippi,AGE,0,35878
+Mississippi,AGE,1,36911
+Mississippi,AGE,2,37345
+Mississippi,AGE,3,37696
+Mississippi,AGE,4,37647
+Mississippi,AGE,5,37353
+Mississippi,AGE,6,38308
+Mississippi,AGE,7,38284
+Mississippi,AGE,8,38800
+Mississippi,AGE,9,40222
+Mississippi,AGE,10,41866
+Mississippi,AGE,11,42965
+Mississippi,AGE,12,41310
+Mississippi,AGE,13,40491
+Mississippi,AGE,14,40295
+Mississippi,AGE,15,39979
+Mississippi,AGE,16,39630
+Mississippi,AGE,17,41161
+Mississippi,AGE,18,42425
+Mississippi,AGE,19,42738
+Mississippi,AGE,20,41431
+Mississippi,AGE,21,40762
+Mississippi,AGE,22,40957
+Mississippi,AGE,23,41962
+Mississippi,AGE,24,41649
+Mississippi,AGE,25,41737
+Mississippi,AGE,26,42738
+Mississippi,AGE,27,42728
+Mississippi,AGE,28,42174
+Mississippi,AGE,29,40034
+Mississippi,AGE,30,37200
+Mississippi,AGE,31,36544
+Mississippi,AGE,32,36832
+Mississippi,AGE,33,37829
+Mississippi,AGE,34,36490
+Mississippi,AGE,35,37734
+Mississippi,AGE,36,38040
+Mississippi,AGE,37,38494
+Mississippi,AGE,38,39087
+Mississippi,AGE,39,36514
+Mississippi,AGE,40,35781
+Mississippi,AGE,41,35667
+Mississippi,AGE,42,34504
+Mississippi,AGE,43,34937
+Mississippi,AGE,44,34240
+Mississippi,AGE,45,35043
+Mississippi,AGE,46,36891
+Mississippi,AGE,47,38379
+Mississippi,AGE,48,38133
+Mississippi,AGE,49,35887
+Mississippi,AGE,50,35490
+Mississippi,AGE,51,35084
+Mississippi,AGE,52,35964
+Mississippi,AGE,53,38641
+Mississippi,AGE,54,39281
+Mississippi,AGE,55,39303
+Mississippi,AGE,56,39644
+Mississippi,AGE,57,40017
+Mississippi,AGE,58,40517
+Mississippi,AGE,59,39217
+Mississippi,AGE,60,38566
+Mississippi,AGE,61,38794
+Mississippi,AGE,62,37225
+Mississippi,AGE,63,37173
+Mississippi,AGE,64,35437
+Mississippi,AGE,65,33268
+Mississippi,AGE,66,32330
+Mississippi,AGE,67,31631
+Mississippi,AGE,68,30773
+Mississippi,AGE,69,29409
+Mississippi,AGE,70,28840
+Mississippi,AGE,71,30249
+Mississippi,AGE,72,21800
+Mississippi,AGE,73,21457
+Mississippi,AGE,74,20828
+Mississippi,AGE,75,20823
+Mississippi,AGE,76,17901
+Mississippi,AGE,77,16600
+Mississippi,AGE,78,15650
+Mississippi,AGE,79,14434
+Mississippi,AGE,80,13752
+Mississippi,AGE,81,12082
+Mississippi,AGE,82,11229
+Mississippi,AGE,83,10494
+Mississippi,AGE,84,8584
+Mississippi,AGE,85,52341
+Missouri,AGE,0,72258
+Missouri,AGE,1,73835
+Missouri,AGE,2,75014
+Missouri,AGE,3,75700
+Missouri,AGE,4,75906
+Missouri,AGE,5,75069
+Missouri,AGE,6,75023
+Missouri,AGE,7,75766
+Missouri,AGE,8,75828
+Missouri,AGE,9,76261
+Missouri,AGE,10,78657
+Missouri,AGE,11,78907
+Missouri,AGE,12,78490
+Missouri,AGE,13,77947
+Missouri,AGE,14,77939
+Missouri,AGE,15,77693
+Missouri,AGE,16,77211
+Missouri,AGE,17,79326
+Missouri,AGE,18,77779
+Missouri,AGE,19,79378
+Missouri,AGE,20,80665
+Missouri,AGE,21,81401
+Missouri,AGE,22,81843
+Missouri,AGE,23,82196
+Missouri,AGE,24,83123
+Missouri,AGE,25,84322
+Missouri,AGE,26,87711
+Missouri,AGE,27,87530
+Missouri,AGE,28,85341
+Missouri,AGE,29,81664
+Missouri,AGE,30,78862
+Missouri,AGE,31,78652
+Missouri,AGE,32,80355
+Missouri,AGE,33,80838
+Missouri,AGE,34,78230
+Missouri,AGE,35,80561
+Missouri,AGE,36,79741
+Missouri,AGE,37,79150
+Missouri,AGE,38,80369
+Missouri,AGE,39,74521
+Missouri,AGE,40,72853
+Missouri,AGE,41,71304
+Missouri,AGE,42,68208
+Missouri,AGE,43,70350
+Missouri,AGE,44,67482
+Missouri,AGE,45,68842
+Missouri,AGE,46,72860
+Missouri,AGE,47,77831
+Missouri,AGE,48,77464
+Missouri,AGE,49,72942
+Missouri,AGE,50,71313
+Missouri,AGE,51,72645
+Missouri,AGE,52,74069
+Missouri,AGE,53,80251
+Missouri,AGE,54,83471
+Missouri,AGE,55,84790
+Missouri,AGE,56,86184
+Missouri,AGE,57,87506
+Missouri,AGE,58,87553
+Missouri,AGE,59,84253
+Missouri,AGE,60,83547
+Missouri,AGE,61,83326
+Missouri,AGE,62,79470
+Missouri,AGE,63,77874
+Missouri,AGE,64,75038
+Missouri,AGE,65,71305
+Missouri,AGE,66,68746
+Missouri,AGE,67,66520
+Missouri,AGE,68,64033
+Missouri,AGE,69,61905
+Missouri,AGE,70,60634
+Missouri,AGE,71,63383
+Missouri,AGE,72,45727
+Missouri,AGE,73,45472
+Missouri,AGE,74,44852
+Missouri,AGE,75,45802
+Missouri,AGE,76,39532
+Missouri,AGE,77,36147
+Missouri,AGE,78,33350
+Missouri,AGE,79,31129
+Missouri,AGE,80,28998
+Missouri,AGE,81,26133
+Missouri,AGE,82,24638
+Missouri,AGE,83,23144
+Missouri,AGE,84,20630
+Missouri,AGE,85,131884
+Montana,AGE,0,12099
+Montana,AGE,1,12212
+Montana,AGE,2,12633
+Montana,AGE,3,12859
+Montana,AGE,4,12733
+Montana,AGE,5,12618
+Montana,AGE,6,12656
+Montana,AGE,7,12652
+Montana,AGE,8,12774
+Montana,AGE,9,12826
+Montana,AGE,10,13250
+Montana,AGE,11,13374
+Montana,AGE,12,13093
+Montana,AGE,13,12805
+Montana,AGE,14,12759
+Montana,AGE,15,12517
+Montana,AGE,16,12660
+Montana,AGE,17,12914
+Montana,AGE,18,12450
+Montana,AGE,19,13482
+Montana,AGE,20,13788
+Montana,AGE,21,14321
+Montana,AGE,22,14890
+Montana,AGE,23,14934
+Montana,AGE,24,14580
+Montana,AGE,25,14609
+Montana,AGE,26,14738
+Montana,AGE,27,14283
+Montana,AGE,28,14044
+Montana,AGE,29,13446
+Montana,AGE,30,13120
+Montana,AGE,31,13041
+Montana,AGE,32,13183
+Montana,AGE,33,13538
+Montana,AGE,34,13461
+Montana,AGE,35,13700
+Montana,AGE,36,13786
+Montana,AGE,37,13453
+Montana,AGE,38,13674
+Montana,AGE,39,12781
+Montana,AGE,40,12609
+Montana,AGE,41,12222
+Montana,AGE,42,11602
+Montana,AGE,43,11495
+Montana,AGE,44,11074
+Montana,AGE,45,11112
+Montana,AGE,46,11398
+Montana,AGE,47,12338
+Montana,AGE,48,12289
+Montana,AGE,49,11749
+Montana,AGE,50,11420
+Montana,AGE,51,11473
+Montana,AGE,52,11868
+Montana,AGE,53,13045
+Montana,AGE,54,13586
+Montana,AGE,55,14083
+Montana,AGE,56,14576
+Montana,AGE,57,15169
+Montana,AGE,58,15425
+Montana,AGE,59,15270
+Montana,AGE,60,15577
+Montana,AGE,61,15631
+Montana,AGE,62,15286
+Montana,AGE,63,15257
+Montana,AGE,64,15113
+Montana,AGE,65,14804
+Montana,AGE,66,14330
+Montana,AGE,67,13815
+Montana,AGE,68,13200
+Montana,AGE,69,12573
+Montana,AGE,70,12101
+Montana,AGE,71,12478
+Montana,AGE,72,8972
+Montana,AGE,73,8709
+Montana,AGE,74,8601
+Montana,AGE,75,8655
+Montana,AGE,76,7298
+Montana,AGE,77,6857
+Montana,AGE,78,6190
+Montana,AGE,79,5678
+Montana,AGE,80,5181
+Montana,AGE,81,4853
+Montana,AGE,82,4397
+Montana,AGE,83,3966
+Montana,AGE,84,3549
+Montana,AGE,85,22695
+Nebraska,AGE,0,25809
+Nebraska,AGE,1,26251
+Nebraska,AGE,2,26691
+Nebraska,AGE,3,27323
+Nebraska,AGE,4,26894
+Nebraska,AGE,5,26473
+Nebraska,AGE,6,26215
+Nebraska,AGE,7,26346
+Nebraska,AGE,8,26576
+Nebraska,AGE,9,26730
+Nebraska,AGE,10,27043
+Nebraska,AGE,11,26684
+Nebraska,AGE,12,26632
+Nebraska,AGE,13,26644
+Nebraska,AGE,14,26479
+Nebraska,AGE,15,26254
+Nebraska,AGE,16,25915
+Nebraska,AGE,17,25882
+Nebraska,AGE,18,25929
+Nebraska,AGE,19,27599
+Nebraska,AGE,20,27915
+Nebraska,AGE,21,27844
+Nebraska,AGE,22,27210
+Nebraska,AGE,23,27343
+Nebraska,AGE,24,26868
+Nebraska,AGE,25,26587
+Nebraska,AGE,26,27094
+Nebraska,AGE,27,25492
+Nebraska,AGE,28,24978
+Nebraska,AGE,29,24324
+Nebraska,AGE,30,24789
+Nebraska,AGE,31,25108
+Nebraska,AGE,32,25410
+Nebraska,AGE,33,26296
+Nebraska,AGE,34,25645
+Nebraska,AGE,35,26330
+Nebraska,AGE,36,26238
+Nebraska,AGE,37,25982
+Nebraska,AGE,38,26016
+Nebraska,AGE,39,23773
+Nebraska,AGE,40,23142
+Nebraska,AGE,41,22603
+Nebraska,AGE,42,21684
+Nebraska,AGE,43,22419
+Nebraska,AGE,44,21124
+Nebraska,AGE,45,20845
+Nebraska,AGE,46,22035
+Nebraska,AGE,47,22500
+Nebraska,AGE,48,22753
+Nebraska,AGE,49,21557
+Nebraska,AGE,50,20673
+Nebraska,AGE,51,20873
+Nebraska,AGE,52,21477
+Nebraska,AGE,53,23142
+Nebraska,AGE,54,24116
+Nebraska,AGE,55,24542
+Nebraska,AGE,56,24974
+Nebraska,AGE,57,25364
+Nebraska,AGE,58,25741
+Nebraska,AGE,59,24926
+Nebraska,AGE,60,24436
+Nebraska,AGE,61,24174
+Nebraska,AGE,62,23503
+Nebraska,AGE,63,23126
+Nebraska,AGE,64,22262
+Nebraska,AGE,65,21259
+Nebraska,AGE,66,20782
+Nebraska,AGE,67,19954
+Nebraska,AGE,68,19013
+Nebraska,AGE,69,18304
+Nebraska,AGE,70,17357
+Nebraska,AGE,71,17876
+Nebraska,AGE,72,12745
+Nebraska,AGE,73,12634
+Nebraska,AGE,74,12603
+Nebraska,AGE,75,12463
+Nebraska,AGE,76,10849
+Nebraska,AGE,77,9791
+Nebraska,AGE,78,9293
+Nebraska,AGE,79,8798
+Nebraska,AGE,80,8378
+Nebraska,AGE,81,7897
+Nebraska,AGE,82,7330
+Nebraska,AGE,83,6991
+Nebraska,AGE,84,6271
+Nebraska,AGE,85,43078
+Nevada,AGE,0,35781
+Nevada,AGE,1,36778
+Nevada,AGE,2,37496
+Nevada,AGE,3,38222
+Nevada,AGE,4,37718
+Nevada,AGE,5,38169
+Nevada,AGE,6,37583
+Nevada,AGE,7,38825
+Nevada,AGE,8,38505
+Nevada,AGE,9,38525
+Nevada,AGE,10,40320
+Nevada,AGE,11,40129
+Nevada,AGE,12,39409
+Nevada,AGE,13,38720
+Nevada,AGE,14,38444
+Nevada,AGE,15,38216
+Nevada,AGE,16,37762
+Nevada,AGE,17,38395
+Nevada,AGE,18,35218
+Nevada,AGE,19,31507
+Nevada,AGE,20,32411
+Nevada,AGE,21,33944
+Nevada,AGE,22,36227
+Nevada,AGE,23,38894
+Nevada,AGE,24,40588
+Nevada,AGE,25,42074
+Nevada,AGE,26,45272
+Nevada,AGE,27,47075
+Nevada,AGE,28,47843
+Nevada,AGE,29,45200
+Nevada,AGE,30,44462
+Nevada,AGE,31,43263
+Nevada,AGE,32,43607
+Nevada,AGE,33,44097
+Nevada,AGE,34,42479
+Nevada,AGE,35,43017
+Nevada,AGE,36,42905
+Nevada,AGE,37,42233
+Nevada,AGE,38,42867
+Nevada,AGE,39,39816
+Nevada,AGE,40,39364
+Nevada,AGE,41,38703
+Nevada,AGE,42,37696
+Nevada,AGE,43,38796
+Nevada,AGE,44,37756
+Nevada,AGE,45,38403
+Nevada,AGE,46,39413
+Nevada,AGE,47,41769
+Nevada,AGE,48,42299
+Nevada,AGE,49,39741
+Nevada,AGE,50,38351
+Nevada,AGE,51,37523
+Nevada,AGE,52,37825
+Nevada,AGE,53,40114
+Nevada,AGE,54,39901
+Nevada,AGE,55,39249
+Nevada,AGE,56,39044
+Nevada,AGE,57,39102
+Nevada,AGE,58,39506
+Nevada,AGE,59,37380
+Nevada,AGE,60,37358
+Nevada,AGE,61,37054
+Nevada,AGE,62,36320
+Nevada,AGE,63,36650
+Nevada,AGE,64,34898
+Nevada,AGE,65,33636
+Nevada,AGE,66,32525
+Nevada,AGE,67,31794
+Nevada,AGE,68,31732
+Nevada,AGE,69,30740
+Nevada,AGE,70,30896
+Nevada,AGE,71,32258
+Nevada,AGE,72,23970
+Nevada,AGE,73,23273
+Nevada,AGE,74,22428
+Nevada,AGE,75,22449
+Nevada,AGE,76,19031
+Nevada,AGE,77,16830
+Nevada,AGE,78,15778
+Nevada,AGE,79,14124
+Nevada,AGE,80,12949
+Nevada,AGE,81,11307
+Nevada,AGE,82,10130
+Nevada,AGE,83,9240
+Nevada,AGE,84,7729
+Nevada,AGE,85,43362
+New Hampshire,AGE,0,12217
+New Hampshire,AGE,1,12604
+New Hampshire,AGE,2,12946
+New Hampshire,AGE,3,13196
+New Hampshire,AGE,4,13057
+New Hampshire,AGE,5,13771
+New Hampshire,AGE,6,13423
+New Hampshire,AGE,7,14148
+New Hampshire,AGE,8,13935
+New Hampshire,AGE,9,14083
+New Hampshire,AGE,10,14570
+New Hampshire,AGE,11,15009
+New Hampshire,AGE,12,15198
+New Hampshire,AGE,13,15484
+New Hampshire,AGE,14,15853
+New Hampshire,AGE,15,16139
+New Hampshire,AGE,16,16217
+New Hampshire,AGE,17,16320
+New Hampshire,AGE,18,17730
+New Hampshire,AGE,19,18725
+New Hampshire,AGE,20,18951
+New Hampshire,AGE,21,18766
+New Hampshire,AGE,22,18016
+New Hampshire,AGE,23,16869
+New Hampshire,AGE,24,17080
+New Hampshire,AGE,25,17137
+New Hampshire,AGE,26,17481
+New Hampshire,AGE,27,17222
+New Hampshire,AGE,28,17108
+New Hampshire,AGE,29,16896
+New Hampshire,AGE,30,16754
+New Hampshire,AGE,31,16644
+New Hampshire,AGE,32,17040
+New Hampshire,AGE,33,16862
+New Hampshire,AGE,34,15931
+New Hampshire,AGE,35,16334
+New Hampshire,AGE,36,16104
+New Hampshire,AGE,37,15992
+New Hampshire,AGE,38,16162
+New Hampshire,AGE,39,15255
+New Hampshire,AGE,40,15127
+New Hampshire,AGE,41,14641
+New Hampshire,AGE,42,14564
+New Hampshire,AGE,43,15335
+New Hampshire,AGE,44,15160
+New Hampshire,AGE,45,15772
+New Hampshire,AGE,46,17330
+New Hampshire,AGE,47,18952
+New Hampshire,AGE,48,19103
+New Hampshire,AGE,49,18711
+New Hampshire,AGE,50,18603
+New Hampshire,AGE,51,19227
+New Hampshire,AGE,52,19676
+New Hampshire,AGE,53,21142
+New Hampshire,AGE,54,21726
+New Hampshire,AGE,55,22009
+New Hampshire,AGE,56,21973
+New Hampshire,AGE,57,22502
+New Hampshire,AGE,58,22345
+New Hampshire,AGE,59,22092
+New Hampshire,AGE,60,21637
+New Hampshire,AGE,61,21299
+New Hampshire,AGE,62,20028
+New Hampshire,AGE,63,19724
+New Hampshire,AGE,64,18906
+New Hampshire,AGE,65,17996
+New Hampshire,AGE,66,17280
+New Hampshire,AGE,67,16380
+New Hampshire,AGE,68,15726
+New Hampshire,AGE,69,15497
+New Hampshire,AGE,70,15556
+New Hampshire,AGE,71,16190
+New Hampshire,AGE,72,11087
+New Hampshire,AGE,73,10737
+New Hampshire,AGE,74,10484
+New Hampshire,AGE,75,10706
+New Hampshire,AGE,76,9095
+New Hampshire,AGE,77,7830
+New Hampshire,AGE,78,7276
+New Hampshire,AGE,79,6608
+New Hampshire,AGE,80,6145
+New Hampshire,AGE,81,5658
+New Hampshire,AGE,82,5401
+New Hampshire,AGE,83,5024
+New Hampshire,AGE,84,4481
+New Hampshire,AGE,85,30488
+New Jersey,AGE,0,100364
+New Jersey,AGE,1,102829
+New Jersey,AGE,2,104990
+New Jersey,AGE,3,105141
+New Jersey,AGE,4,105304
+New Jersey,AGE,5,105277
+New Jersey,AGE,6,106086
+New Jersey,AGE,7,108278
+New Jersey,AGE,8,107226
+New Jersey,AGE,9,106695
+New Jersey,AGE,10,110080
+New Jersey,AGE,11,111150
+New Jersey,AGE,12,111301
+New Jersey,AGE,13,112321
+New Jersey,AGE,14,113762
+New Jersey,AGE,15,113674
+New Jersey,AGE,16,113205
+New Jersey,AGE,17,115960
+New Jersey,AGE,18,112489
+New Jersey,AGE,19,102487
+New Jersey,AGE,20,105218
+New Jersey,AGE,21,108757
+New Jersey,AGE,22,110341
+New Jersey,AGE,23,112124
+New Jersey,AGE,24,114590
+New Jersey,AGE,25,117068
+New Jersey,AGE,26,116750
+New Jersey,AGE,27,117035
+New Jersey,AGE,28,117624
+New Jersey,AGE,29,114576
+New Jersey,AGE,30,113649
+New Jersey,AGE,31,113547
+New Jersey,AGE,32,115491
+New Jersey,AGE,33,116355
+New Jersey,AGE,34,113744
+New Jersey,AGE,35,116139
+New Jersey,AGE,36,116512
+New Jersey,AGE,37,115476
+New Jersey,AGE,38,119568
+New Jersey,AGE,39,113792
+New Jersey,AGE,40,112466
+New Jersey,AGE,41,111556
+New Jersey,AGE,42,109982
+New Jersey,AGE,43,113800
+New Jersey,AGE,44,110009
+New Jersey,AGE,45,111165
+New Jersey,AGE,46,116715
+New Jersey,AGE,47,124100
+New Jersey,AGE,48,127761
+New Jersey,AGE,49,122599
+New Jersey,AGE,50,121587
+New Jersey,AGE,51,122454
+New Jersey,AGE,52,125503
+New Jersey,AGE,53,131640
+New Jersey,AGE,54,132350
+New Jersey,AGE,55,131338
+New Jersey,AGE,56,129484
+New Jersey,AGE,57,130344
+New Jersey,AGE,58,129953
+New Jersey,AGE,59,125654
+New Jersey,AGE,60,123269
+New Jersey,AGE,61,119912
+New Jersey,AGE,62,114207
+New Jersey,AGE,63,111314
+New Jersey,AGE,64,103856
+New Jersey,AGE,65,98520
+New Jersey,AGE,66,93084
+New Jersey,AGE,67,89905
+New Jersey,AGE,68,87063
+New Jersey,AGE,69,83344
+New Jersey,AGE,70,82888
+New Jersey,AGE,71,86961
+New Jersey,AGE,72,65411
+New Jersey,AGE,73,62802
+New Jersey,AGE,74,60120
+New Jersey,AGE,75,63559
+New Jersey,AGE,76,54509
+New Jersey,AGE,77,47849
+New Jersey,AGE,78,45473
+New Jersey,AGE,79,42245
+New Jersey,AGE,80,40230
+New Jersey,AGE,81,36866
+New Jersey,AGE,82,34595
+New Jersey,AGE,83,32149
+New Jersey,AGE,84,28661
+New Jersey,AGE,85,202293
+New Mexico,AGE,0,23668
+New Mexico,AGE,1,23873
+New Mexico,AGE,2,25038
+New Mexico,AGE,3,25619
+New Mexico,AGE,4,26048
+New Mexico,AGE,5,26333
+New Mexico,AGE,6,26313
+New Mexico,AGE,7,27168
+New Mexico,AGE,8,27337
+New Mexico,AGE,9,27671
+New Mexico,AGE,10,28255
+New Mexico,AGE,11,28288
+New Mexico,AGE,12,27897
+New Mexico,AGE,13,27973
+New Mexico,AGE,14,27528
+New Mexico,AGE,15,27520
+New Mexico,AGE,16,27465
+New Mexico,AGE,17,28159
+New Mexico,AGE,18,28064
+New Mexico,AGE,19,27844
+New Mexico,AGE,20,27827
+New Mexico,AGE,21,27942
+New Mexico,AGE,22,27925
+New Mexico,AGE,23,28950
+New Mexico,AGE,24,28903
+New Mexico,AGE,25,29222
+New Mexico,AGE,26,29941
+New Mexico,AGE,27,29772
+New Mexico,AGE,28,29089
+New Mexico,AGE,29,27663
+New Mexico,AGE,30,27663
+New Mexico,AGE,31,27436
+New Mexico,AGE,32,27674
+New Mexico,AGE,33,28017
+New Mexico,AGE,34,27358
+New Mexico,AGE,35,27765
+New Mexico,AGE,36,27413
+New Mexico,AGE,37,26599
+New Mexico,AGE,38,26957
+New Mexico,AGE,39,24860
+New Mexico,AGE,40,24185
+New Mexico,AGE,41,23757
+New Mexico,AGE,42,23226
+New Mexico,AGE,43,23513
+New Mexico,AGE,44,22509
+New Mexico,AGE,45,22756
+New Mexico,AGE,46,23564
+New Mexico,AGE,47,24490
+New Mexico,AGE,48,24700
+New Mexico,AGE,49,23773
+New Mexico,AGE,50,22939
+New Mexico,AGE,51,23292
+New Mexico,AGE,52,23485
+New Mexico,AGE,53,25496
+New Mexico,AGE,54,26370
+New Mexico,AGE,55,26872
+New Mexico,AGE,56,27977
+New Mexico,AGE,57,28325
+New Mexico,AGE,58,28726
+New Mexico,AGE,59,27364
+New Mexico,AGE,60,27446
+New Mexico,AGE,61,27661
+New Mexico,AGE,62,26994
+New Mexico,AGE,63,26806
+New Mexico,AGE,64,25976
+New Mexico,AGE,65,25434
+New Mexico,AGE,66,24945
+New Mexico,AGE,67,24043
+New Mexico,AGE,68,24037
+New Mexico,AGE,69,23214
+New Mexico,AGE,70,22776
+New Mexico,AGE,71,22981
+New Mexico,AGE,72,17264
+New Mexico,AGE,73,17103
+New Mexico,AGE,74,16087
+New Mexico,AGE,75,15925
+New Mexico,AGE,76,13818
+New Mexico,AGE,77,12598
+New Mexico,AGE,78,11674
+New Mexico,AGE,79,10881
+New Mexico,AGE,80,10111
+New Mexico,AGE,81,9077
+New Mexico,AGE,82,8500
+New Mexico,AGE,83,7872
+New Mexico,AGE,84,6678
+New Mexico,AGE,85,41171
+New York,AGE,0,227883
+New York,AGE,1,227305
+New York,AGE,2,229416
+New York,AGE,3,230190
+New York,AGE,4,225648
+New York,AGE,5,226596
+New York,AGE,6,225831
+New York,AGE,7,228353
+New York,AGE,8,221931
+New York,AGE,9,216615
+New York,AGE,10,222095
+New York,AGE,11,222699
+New York,AGE,12,221720
+New York,AGE,13,224257
+New York,AGE,14,227099
+New York,AGE,15,227918
+New York,AGE,16,228289
+New York,AGE,17,234257
+New York,AGE,18,251285
+New York,AGE,19,246543
+New York,AGE,20,251472
+New York,AGE,21,252301
+New York,AGE,22,252843
+New York,AGE,23,266222
+New York,AGE,24,279500
+New York,AGE,25,288160
+New York,AGE,26,292156
+New York,AGE,27,302966
+New York,AGE,28,307546
+New York,AGE,29,294749
+New York,AGE,30,290525
+New York,AGE,31,283382
+New York,AGE,32,279087
+New York,AGE,33,277817
+New York,AGE,34,262405
+New York,AGE,35,261971
+New York,AGE,36,258828
+New York,AGE,37,251773
+New York,AGE,38,258433
+New York,AGE,39,242058
+New York,AGE,40,236146
+New York,AGE,41,233452
+New York,AGE,42,227226
+New York,AGE,43,236383
+New York,AGE,44,225594
+New York,AGE,45,227477
+New York,AGE,46,237682
+New York,AGE,47,254894
+New York,AGE,48,266379
+New York,AGE,49,253582
+New York,AGE,50,250590
+New York,AGE,51,252361
+New York,AGE,52,259778
+New York,AGE,53,275533
+New York,AGE,54,276853
+New York,AGE,55,273896
+New York,AGE,56,269086
+New York,AGE,57,271655
+New York,AGE,58,278185
+New York,AGE,59,265871
+New York,AGE,60,261797
+New York,AGE,61,256358
+New York,AGE,62,245974
+New York,AGE,63,243497
+New York,AGE,64,228302
+New York,AGE,65,217753
+New York,AGE,66,208312
+New York,AGE,67,202302
+New York,AGE,68,198997
+New York,AGE,69,189699
+New York,AGE,70,186040
+New York,AGE,71,190100
+New York,AGE,72,143110
+New York,AGE,73,139860
+New York,AGE,74,132947
+New York,AGE,75,136313
+New York,AGE,76,118981
+New York,AGE,77,107148
+New York,AGE,78,102373
+New York,AGE,79,94756
+New York,AGE,80,90611
+New York,AGE,81,82666
+New York,AGE,82,77531
+New York,AGE,83,73087
+New York,AGE,84,64629
+New York,AGE,85,456319
+North Carolina,AGE,0,118550
+North Carolina,AGE,1,120958
+North Carolina,AGE,2,123154
+North Carolina,AGE,3,123840
+North Carolina,AGE,4,123626
+North Carolina,AGE,5,122799
+North Carolina,AGE,6,124134
+North Carolina,AGE,7,124732
+North Carolina,AGE,8,127464
+North Carolina,AGE,9,128965
+North Carolina,AGE,10,133122
+North Carolina,AGE,11,134086
+North Carolina,AGE,12,133099
+North Carolina,AGE,13,131827
+North Carolina,AGE,14,132074
+North Carolina,AGE,15,131301
+North Carolina,AGE,16,131208
+North Carolina,AGE,17,135706
+North Carolina,AGE,18,142236
+North Carolina,AGE,19,143727
+North Carolina,AGE,20,141547
+North Carolina,AGE,21,137531
+North Carolina,AGE,22,137580
+North Carolina,AGE,23,139383
+North Carolina,AGE,24,141830
+North Carolina,AGE,25,143271
+North Carolina,AGE,26,146387
+North Carolina,AGE,27,149308
+North Carolina,AGE,28,147343
+North Carolina,AGE,29,142253
+North Carolina,AGE,30,137012
+North Carolina,AGE,31,133724
+North Carolina,AGE,32,132959
+North Carolina,AGE,33,132848
+North Carolina,AGE,34,128043
+North Carolina,AGE,35,132253
+North Carolina,AGE,36,131811
+North Carolina,AGE,37,131250
+North Carolina,AGE,38,134900
+North Carolina,AGE,39,128390
+North Carolina,AGE,40,128583
+North Carolina,AGE,41,128551
+North Carolina,AGE,42,124244
+North Carolina,AGE,43,129189
+North Carolina,AGE,44,126734
+North Carolina,AGE,45,130887
+North Carolina,AGE,46,137732
+North Carolina,AGE,47,146333
+North Carolina,AGE,48,145577
+North Carolina,AGE,49,136765
+North Carolina,AGE,50,132780
+North Carolina,AGE,51,132571
+North Carolina,AGE,52,133165
+North Carolina,AGE,53,139747
+North Carolina,AGE,54,142283
+North Carolina,AGE,55,140933
+North Carolina,AGE,56,139444
+North Carolina,AGE,57,140003
+North Carolina,AGE,58,139887
+North Carolina,AGE,59,135703
+North Carolina,AGE,60,134740
+North Carolina,AGE,61,132675
+North Carolina,AGE,62,128900
+North Carolina,AGE,63,127098
+North Carolina,AGE,64,123600
+North Carolina,AGE,65,118843
+North Carolina,AGE,66,115329
+North Carolina,AGE,67,111378
+North Carolina,AGE,68,108478
+North Carolina,AGE,69,105995
+North Carolina,AGE,70,105834
+North Carolina,AGE,71,110278
+North Carolina,AGE,72,80531
+North Carolina,AGE,73,78552
+North Carolina,AGE,74,75240
+North Carolina,AGE,75,75961
+North Carolina,AGE,76,64686
+North Carolina,AGE,77,58040
+North Carolina,AGE,78,53239
+North Carolina,AGE,79,48745
+North Carolina,AGE,80,45731
+North Carolina,AGE,81,40921
+North Carolina,AGE,82,38885
+North Carolina,AGE,83,36158
+North Carolina,AGE,84,30692
+North Carolina,AGE,85,185749
+North Dakota,AGE,0,10802
+North Dakota,AGE,1,11125
+North Dakota,AGE,2,10999
+North Dakota,AGE,3,11069
+North Dakota,AGE,4,10700
+North Dakota,AGE,5,10417
+North Dakota,AGE,6,10188
+North Dakota,AGE,7,9858
+North Dakota,AGE,8,9907
+North Dakota,AGE,9,9836
+North Dakota,AGE,10,9823
+North Dakota,AGE,11,9806
+North Dakota,AGE,12,9569
+North Dakota,AGE,13,9391
+North Dakota,AGE,14,9059
+North Dakota,AGE,15,8857
+North Dakota,AGE,16,8650
+North Dakota,AGE,17,8642
+North Dakota,AGE,18,9349
+North Dakota,AGE,19,11784
+North Dakota,AGE,20,12087
+North Dakota,AGE,21,12333
+North Dakota,AGE,22,13270
+North Dakota,AGE,23,13142
+North Dakota,AGE,24,12747
+North Dakota,AGE,25,12509
+North Dakota,AGE,26,12291
+North Dakota,AGE,27,12475
+North Dakota,AGE,28,12286
+North Dakota,AGE,29,11592
+North Dakota,AGE,30,10891
+North Dakota,AGE,31,10651
+North Dakota,AGE,32,10793
+North Dakota,AGE,33,10958
+North Dakota,AGE,34,10354
+North Dakota,AGE,35,10547
+North Dakota,AGE,36,10386
+North Dakota,AGE,37,10019
+North Dakota,AGE,38,9863
+North Dakota,AGE,39,9080
+North Dakota,AGE,40,8805
+North Dakota,AGE,41,8317
+North Dakota,AGE,42,7781
+North Dakota,AGE,43,8013
+North Dakota,AGE,44,7591
+North Dakota,AGE,45,7567
+North Dakota,AGE,46,7662
+North Dakota,AGE,47,7970
+North Dakota,AGE,48,8146
+North Dakota,AGE,49,7867
+North Dakota,AGE,50,7680
+North Dakota,AGE,51,7694
+North Dakota,AGE,52,7926
+North Dakota,AGE,53,8543
+North Dakota,AGE,54,8950
+North Dakota,AGE,55,9354
+North Dakota,AGE,56,9510
+North Dakota,AGE,57,9724
+North Dakota,AGE,58,10107
+North Dakota,AGE,59,9780
+North Dakota,AGE,60,9698
+North Dakota,AGE,61,9556
+North Dakota,AGE,62,9334
+North Dakota,AGE,63,9157
+North Dakota,AGE,64,8603
+North Dakota,AGE,65,8359
+North Dakota,AGE,66,8000
+North Dakota,AGE,67,7386
+North Dakota,AGE,68,6930
+North Dakota,AGE,69,6602
+North Dakota,AGE,70,6314
+North Dakota,AGE,71,6406
+North Dakota,AGE,72,4839
+North Dakota,AGE,73,4769
+North Dakota,AGE,74,4617
+North Dakota,AGE,75,4520
+North Dakota,AGE,76,3952
+North Dakota,AGE,77,3648
+North Dakota,AGE,78,3449
+North Dakota,AGE,79,3393
+North Dakota,AGE,80,3260
+North Dakota,AGE,81,3116
+North Dakota,AGE,82,2954
+North Dakota,AGE,83,2809
+North Dakota,AGE,84,2518
+North Dakota,AGE,85,18796
+Ohio,AGE,0,134002
+Ohio,AGE,1,136712
+Ohio,AGE,2,140350
+Ohio,AGE,3,141734
+Ohio,AGE,4,141991
+Ohio,AGE,5,142117
+Ohio,AGE,6,140929
+Ohio,AGE,7,140701
+Ohio,AGE,8,141599
+Ohio,AGE,9,142802
+Ohio,AGE,10,146222
+Ohio,AGE,11,147906
+Ohio,AGE,12,147722
+Ohio,AGE,13,147079
+Ohio,AGE,14,148858
+Ohio,AGE,15,148620
+Ohio,AGE,16,149443
+Ohio,AGE,17,154538
+Ohio,AGE,18,154337
+Ohio,AGE,19,154959
+Ohio,AGE,20,151782
+Ohio,AGE,21,149061
+Ohio,AGE,22,150439
+Ohio,AGE,23,152616
+Ohio,AGE,24,155004
+Ohio,AGE,25,158599
+Ohio,AGE,26,163102
+Ohio,AGE,27,163542
+Ohio,AGE,28,163464
+Ohio,AGE,29,158179
+Ohio,AGE,30,151636
+Ohio,AGE,31,147923
+Ohio,AGE,32,147902
+Ohio,AGE,33,148823
+Ohio,AGE,34,142110
+Ohio,AGE,35,144516
+Ohio,AGE,36,145452
+Ohio,AGE,37,145702
+Ohio,AGE,38,148464
+Ohio,AGE,39,140071
+Ohio,AGE,40,136305
+Ohio,AGE,41,134260
+Ohio,AGE,42,130132
+Ohio,AGE,43,135225
+Ohio,AGE,44,131065
+Ohio,AGE,45,134179
+Ohio,AGE,46,143514
+Ohio,AGE,47,154218
+Ohio,AGE,48,154232
+Ohio,AGE,49,146383
+Ohio,AGE,50,142977
+Ohio,AGE,51,145006
+Ohio,AGE,52,147414
+Ohio,AGE,53,156471
+Ohio,AGE,54,160483
+Ohio,AGE,55,160464
+Ohio,AGE,56,162139
+Ohio,AGE,57,166385
+Ohio,AGE,58,167073
+Ohio,AGE,59,165341
+Ohio,AGE,60,167112
+Ohio,AGE,61,164497
+Ohio,AGE,62,156574
+Ohio,AGE,63,154975
+Ohio,AGE,64,146988
+Ohio,AGE,65,140691
+Ohio,AGE,66,135963
+Ohio,AGE,67,130458
+Ohio,AGE,68,125744
+Ohio,AGE,69,122151
+Ohio,AGE,70,119567
+Ohio,AGE,71,125303
+Ohio,AGE,72,86545
+Ohio,AGE,73,82924
+Ohio,AGE,74,81029
+Ohio,AGE,75,85664
+Ohio,AGE,76,75224
+Ohio,AGE,77,67614
+Ohio,AGE,78,62606
+Ohio,AGE,79,58711
+Ohio,AGE,80,56362
+Ohio,AGE,81,51077
+Ohio,AGE,82,47420
+Ohio,AGE,83,44972
+Ohio,AGE,84,38660
+Ohio,AGE,85,256337
+Oklahoma,AGE,0,50353
+Oklahoma,AGE,1,51369
+Oklahoma,AGE,2,52629
+Oklahoma,AGE,3,52814
+Oklahoma,AGE,4,53264
+Oklahoma,AGE,5,53672
+Oklahoma,AGE,6,53247
+Oklahoma,AGE,7,53640
+Oklahoma,AGE,8,53527
+Oklahoma,AGE,9,53711
+Oklahoma,AGE,10,54684
+Oklahoma,AGE,11,54878
+Oklahoma,AGE,12,53712
+Oklahoma,AGE,13,53448
+Oklahoma,AGE,14,53388
+Oklahoma,AGE,15,52685
+Oklahoma,AGE,16,52571
+Oklahoma,AGE,17,52894
+Oklahoma,AGE,18,52451
+Oklahoma,AGE,19,53539
+Oklahoma,AGE,20,54698
+Oklahoma,AGE,21,54024
+Oklahoma,AGE,22,54246
+Oklahoma,AGE,23,55272
+Oklahoma,AGE,24,55450
+Oklahoma,AGE,25,55092
+Oklahoma,AGE,26,57196
+Oklahoma,AGE,27,57952
+Oklahoma,AGE,28,56677
+Oklahoma,AGE,29,53932
+Oklahoma,AGE,30,52322
+Oklahoma,AGE,31,51425
+Oklahoma,AGE,32,52456
+Oklahoma,AGE,33,53550
+Oklahoma,AGE,34,52616
+Oklahoma,AGE,35,53816
+Oklahoma,AGE,36,53515
+Oklahoma,AGE,37,52108
+Oklahoma,AGE,38,53152
+Oklahoma,AGE,39,48819
+Oklahoma,AGE,40,47045
+Oklahoma,AGE,41,46590
+Oklahoma,AGE,42,44976
+Oklahoma,AGE,43,46341
+Oklahoma,AGE,44,44026
+Oklahoma,AGE,45,44497
+Oklahoma,AGE,46,46311
+Oklahoma,AGE,47,48050
+Oklahoma,AGE,48,48339
+Oklahoma,AGE,49,45121
+Oklahoma,AGE,50,43566
+Oklahoma,AGE,51,43161
+Oklahoma,AGE,52,44173
+Oklahoma,AGE,53,47716
+Oklahoma,AGE,54,49376
+Oklahoma,AGE,55,50554
+Oklahoma,AGE,56,50774
+Oklahoma,AGE,57,51586
+Oklahoma,AGE,58,52227
+Oklahoma,AGE,59,49885
+Oklahoma,AGE,60,49529
+Oklahoma,AGE,61,49091
+Oklahoma,AGE,62,47431
+Oklahoma,AGE,63,47102
+Oklahoma,AGE,64,45265
+Oklahoma,AGE,65,43088
+Oklahoma,AGE,66,40962
+Oklahoma,AGE,67,39703
+Oklahoma,AGE,68,38613
+Oklahoma,AGE,69,37061
+Oklahoma,AGE,70,36514
+Oklahoma,AGE,71,38349
+Oklahoma,AGE,72,28184
+Oklahoma,AGE,73,28397
+Oklahoma,AGE,74,27775
+Oklahoma,AGE,75,27232
+Oklahoma,AGE,76,23864
+Oklahoma,AGE,77,21861
+Oklahoma,AGE,78,20742
+Oklahoma,AGE,79,19236
+Oklahoma,AGE,80,17885
+Oklahoma,AGE,81,15819
+Oklahoma,AGE,82,14764
+Oklahoma,AGE,83,14047
+Oklahoma,AGE,84,12261
+Oklahoma,AGE,85,73196
+Oregon,AGE,0,45259
+Oregon,AGE,1,45898
+Oregon,AGE,2,47148
+Oregon,AGE,3,47737
+Oregon,AGE,4,48172
+Oregon,AGE,5,47787
+Oregon,AGE,6,47965
+Oregon,AGE,7,48768
+Oregon,AGE,8,49212
+Oregon,AGE,9,48843
+Oregon,AGE,10,50710
+Oregon,AGE,11,50366
+Oregon,AGE,12,49649
+Oregon,AGE,13,48999
+Oregon,AGE,14,49490
+Oregon,AGE,15,49061
+Oregon,AGE,16,48561
+Oregon,AGE,17,49942
+Oregon,AGE,18,50416
+Oregon,AGE,19,48855
+Oregon,AGE,20,49963
+Oregon,AGE,21,51595
+Oregon,AGE,22,53361
+Oregon,AGE,23,54903
+Oregon,AGE,24,55951
+Oregon,AGE,25,57210
+Oregon,AGE,26,59787
+Oregon,AGE,27,62956
+Oregon,AGE,28,62757
+Oregon,AGE,29,60034
+Oregon,AGE,30,58601
+Oregon,AGE,31,58208
+Oregon,AGE,32,58934
+Oregon,AGE,33,59764
+Oregon,AGE,34,58234
+Oregon,AGE,35,59546
+Oregon,AGE,36,59771
+Oregon,AGE,37,58809
+Oregon,AGE,38,60130
+Oregon,AGE,39,56092
+Oregon,AGE,40,55295
+Oregon,AGE,41,54134
+Oregon,AGE,42,52404
+Oregon,AGE,43,52990
+Oregon,AGE,44,50596
+Oregon,AGE,45,50121
+Oregon,AGE,46,51606
+Oregon,AGE,47,55046
+Oregon,AGE,48,55385
+Oregon,AGE,49,52150
+Oregon,AGE,50,48994
+Oregon,AGE,51,48534
+Oregon,AGE,52,48609
+Oregon,AGE,53,50696
+Oregon,AGE,54,51533
+Oregon,AGE,55,52605
+Oregon,AGE,56,53485
+Oregon,AGE,57,54542
+Oregon,AGE,58,55484
+Oregon,AGE,59,53913
+Oregon,AGE,60,54673
+Oregon,AGE,61,55426
+Oregon,AGE,62,54371
+Oregon,AGE,63,55027
+Oregon,AGE,64,54959
+Oregon,AGE,65,54174
+Oregon,AGE,66,52226
+Oregon,AGE,67,50472
+Oregon,AGE,68,49144
+Oregon,AGE,69,47252
+Oregon,AGE,70,46117
+Oregon,AGE,71,48236
+Oregon,AGE,72,34279
+Oregon,AGE,73,33782
+Oregon,AGE,74,32510
+Oregon,AGE,75,32447
+Oregon,AGE,76,27368
+Oregon,AGE,77,24472
+Oregon,AGE,78,22757
+Oregon,AGE,79,20782
+Oregon,AGE,80,18946
+Oregon,AGE,81,17149
+Oregon,AGE,82,15652
+Oregon,AGE,83,14353
+Oregon,AGE,84,12548
+Oregon,AGE,85,84025
+Pennsylvania,AGE,0,135446
+Pennsylvania,AGE,1,138131
+Pennsylvania,AGE,2,141576
+Pennsylvania,AGE,3,143556
+Pennsylvania,AGE,4,144288
+Pennsylvania,AGE,5,144015
+Pennsylvania,AGE,6,144445
+Pennsylvania,AGE,7,145349
+Pennsylvania,AGE,8,145946
+Pennsylvania,AGE,9,145859
+Pennsylvania,AGE,10,150169
+Pennsylvania,AGE,11,150806
+Pennsylvania,AGE,12,150355
+Pennsylvania,AGE,13,151090
+Pennsylvania,AGE,14,152813
+Pennsylvania,AGE,15,153378
+Pennsylvania,AGE,16,153162
+Pennsylvania,AGE,17,158527
+Pennsylvania,AGE,18,170254
+Pennsylvania,AGE,19,174979
+Pennsylvania,AGE,20,167211
+Pennsylvania,AGE,21,163141
+Pennsylvania,AGE,22,159899
+Pennsylvania,AGE,23,159843
+Pennsylvania,AGE,24,164955
+Pennsylvania,AGE,25,167718
+Pennsylvania,AGE,26,172266
+Pennsylvania,AGE,27,175315
+Pennsylvania,AGE,28,179588
+Pennsylvania,AGE,29,175861
+Pennsylvania,AGE,30,171964
+Pennsylvania,AGE,31,168443
+Pennsylvania,AGE,32,167137
+Pennsylvania,AGE,33,164411
+Pennsylvania,AGE,34,158403
+Pennsylvania,AGE,35,159345
+Pennsylvania,AGE,36,159000
+Pennsylvania,AGE,37,156566
+Pennsylvania,AGE,38,158406
+Pennsylvania,AGE,39,149449
+Pennsylvania,AGE,40,146685
+Pennsylvania,AGE,41,144400
+Pennsylvania,AGE,42,139564
+Pennsylvania,AGE,43,143788
+Pennsylvania,AGE,44,141342
+Pennsylvania,AGE,45,145093
+Pennsylvania,AGE,46,154956
+Pennsylvania,AGE,47,166532
+Pennsylvania,AGE,48,168404
+Pennsylvania,AGE,49,162608
+Pennsylvania,AGE,50,161778
+Pennsylvania,AGE,51,164969
+Pennsylvania,AGE,52,168303
+Pennsylvania,AGE,53,178527
+Pennsylvania,AGE,54,181611
+Pennsylvania,AGE,55,180562
+Pennsylvania,AGE,56,181637
+Pennsylvania,AGE,57,186547
+Pennsylvania,AGE,58,187604
+Pennsylvania,AGE,59,185445
+Pennsylvania,AGE,60,187015
+Pennsylvania,AGE,61,184159
+Pennsylvania,AGE,62,175979
+Pennsylvania,AGE,63,173908
+Pennsylvania,AGE,64,166949
+Pennsylvania,AGE,65,160483
+Pennsylvania,AGE,66,153686
+Pennsylvania,AGE,67,146680
+Pennsylvania,AGE,68,140443
+Pennsylvania,AGE,69,136606
+Pennsylvania,AGE,70,135798
+Pennsylvania,AGE,71,143322
+Pennsylvania,AGE,72,100270
+Pennsylvania,AGE,73,97087
+Pennsylvania,AGE,74,96375
+Pennsylvania,AGE,75,101615
+Pennsylvania,AGE,76,86937
+Pennsylvania,AGE,77,78121
+Pennsylvania,AGE,78,72269
+Pennsylvania,AGE,79,68396
+Pennsylvania,AGE,80,65765
+Pennsylvania,AGE,81,60033
+Pennsylvania,AGE,82,56752
+Pennsylvania,AGE,83,53704
+Pennsylvania,AGE,84,47045
+Pennsylvania,AGE,85,334243
+Rhode Island,AGE,0,10557
+Rhode Island,AGE,1,10868
+Rhode Island,AGE,2,11040
+Rhode Island,AGE,3,11078
+Rhode Island,AGE,4,10870
+Rhode Island,AGE,5,10798
+Rhode Island,AGE,6,10979
+Rhode Island,AGE,7,11081
+Rhode Island,AGE,8,11038
+Rhode Island,AGE,9,10944
+Rhode Island,AGE,10,11453
+Rhode Island,AGE,11,11528
+Rhode Island,AGE,12,11807
+Rhode Island,AGE,13,11947
+Rhode Island,AGE,14,12086
+Rhode Island,AGE,15,12267
+Rhode Island,AGE,16,12321
+Rhode Island,AGE,17,12551
+Rhode Island,AGE,18,16247
+Rhode Island,AGE,19,18040
+Rhode Island,AGE,20,16977
+Rhode Island,AGE,21,16129
+Rhode Island,AGE,22,14646
+Rhode Island,AGE,23,14234
+Rhode Island,AGE,24,14630
+Rhode Island,AGE,25,14895
+Rhode Island,AGE,26,14770
+Rhode Island,AGE,27,15493
+Rhode Island,AGE,28,15729
+Rhode Island,AGE,29,15482
+Rhode Island,AGE,30,15018
+Rhode Island,AGE,31,14218
+Rhode Island,AGE,32,13766
+Rhode Island,AGE,33,13598
+Rhode Island,AGE,34,13262
+Rhode Island,AGE,35,13265
+Rhode Island,AGE,36,13291
+Rhode Island,AGE,37,13200
+Rhode Island,AGE,38,13245
+Rhode Island,AGE,39,12404
+Rhode Island,AGE,40,12037
+Rhode Island,AGE,41,11770
+Rhode Island,AGE,42,11352
+Rhode Island,AGE,43,11928
+Rhode Island,AGE,44,11694
+Rhode Island,AGE,45,12081
+Rhode Island,AGE,46,12739
+Rhode Island,AGE,47,13594
+Rhode Island,AGE,48,14121
+Rhode Island,AGE,49,13608
+Rhode Island,AGE,50,13800
+Rhode Island,AGE,51,14225
+Rhode Island,AGE,52,14439
+Rhode Island,AGE,53,15449
+Rhode Island,AGE,54,15314
+Rhode Island,AGE,55,15171
+Rhode Island,AGE,56,15576
+Rhode Island,AGE,57,15660
+Rhode Island,AGE,58,15452
+Rhode Island,AGE,59,15115
+Rhode Island,AGE,60,15153
+Rhode Island,AGE,61,15012
+Rhode Island,AGE,62,14447
+Rhode Island,AGE,63,14242
+Rhode Island,AGE,64,13330
+Rhode Island,AGE,65,12564
+Rhode Island,AGE,66,11926
+Rhode Island,AGE,67,11409
+Rhode Island,AGE,68,11105
+Rhode Island,AGE,69,10721
+Rhode Island,AGE,70,10458
+Rhode Island,AGE,71,11058
+Rhode Island,AGE,72,8073
+Rhode Island,AGE,73,7836
+Rhode Island,AGE,74,7445
+Rhode Island,AGE,75,7855
+Rhode Island,AGE,76,6558
+Rhode Island,AGE,77,5837
+Rhode Island,AGE,78,5438
+Rhode Island,AGE,79,5053
+Rhode Island,AGE,80,4833
+Rhode Island,AGE,81,4513
+Rhode Island,AGE,82,4180
+Rhode Island,AGE,83,3893
+Rhode Island,AGE,84,3647
+Rhode Island,AGE,85,27852
+South Carolina,AGE,0,55932
+South Carolina,AGE,1,57248
+South Carolina,AGE,2,59123
+South Carolina,AGE,3,60341
+South Carolina,AGE,4,59747
+South Carolina,AGE,5,59672
+South Carolina,AGE,6,60542
+South Carolina,AGE,7,60810
+South Carolina,AGE,8,62069
+South Carolina,AGE,9,63162
+South Carolina,AGE,10,64643
+South Carolina,AGE,11,65575
+South Carolina,AGE,12,63825
+South Carolina,AGE,13,62847
+South Carolina,AGE,14,62664
+South Carolina,AGE,15,62162
+South Carolina,AGE,16,61985
+South Carolina,AGE,17,63598
+South Carolina,AGE,18,67498
+South Carolina,AGE,19,68651
+South Carolina,AGE,20,66864
+South Carolina,AGE,21,66183
+South Carolina,AGE,22,65298
+South Carolina,AGE,23,66419
+South Carolina,AGE,24,67310
+South Carolina,AGE,25,68667
+South Carolina,AGE,26,70053
+South Carolina,AGE,27,72919
+South Carolina,AGE,28,73199
+South Carolina,AGE,29,69613
+South Carolina,AGE,30,66167
+South Carolina,AGE,31,63800
+South Carolina,AGE,32,63641
+South Carolina,AGE,33,63649
+South Carolina,AGE,34,62182
+South Carolina,AGE,35,63487
+South Carolina,AGE,36,63446
+South Carolina,AGE,37,63483
+South Carolina,AGE,38,64253
+South Carolina,AGE,39,61405
+South Carolina,AGE,40,59990
+South Carolina,AGE,41,59843
+South Carolina,AGE,42,56919
+South Carolina,AGE,43,59812
+South Carolina,AGE,44,58759
+South Carolina,AGE,45,60577
+South Carolina,AGE,46,63052
+South Carolina,AGE,47,66544
+South Carolina,AGE,48,66754
+South Carolina,AGE,49,63195
+South Carolina,AGE,50,62179
+South Carolina,AGE,51,62092
+South Carolina,AGE,52,64134
+South Carolina,AGE,53,67849
+South Carolina,AGE,54,70082
+South Carolina,AGE,55,68928
+South Carolina,AGE,56,68545
+South Carolina,AGE,57,69637
+South Carolina,AGE,58,70173
+South Carolina,AGE,59,67472
+South Carolina,AGE,60,67559
+South Carolina,AGE,61,68301
+South Carolina,AGE,62,66119
+South Carolina,AGE,63,66568
+South Carolina,AGE,64,64997
+South Carolina,AGE,65,62925
+South Carolina,AGE,66,61399
+South Carolina,AGE,67,60397
+South Carolina,AGE,68,59385
+South Carolina,AGE,69,58173
+South Carolina,AGE,70,58066
+South Carolina,AGE,71,61099
+South Carolina,AGE,72,43983
+South Carolina,AGE,73,43155
+South Carolina,AGE,74,41249
+South Carolina,AGE,75,41645
+South Carolina,AGE,76,35029
+South Carolina,AGE,77,31781
+South Carolina,AGE,78,28940
+South Carolina,AGE,79,25879
+South Carolina,AGE,80,23850
+South Carolina,AGE,81,21023
+South Carolina,AGE,82,19472
+South Carolina,AGE,83,17977
+South Carolina,AGE,84,15513
+South Carolina,AGE,85,88975
+South Dakota,AGE,0,12109
+South Dakota,AGE,1,12377
+South Dakota,AGE,2,12534
+South Dakota,AGE,3,12549
+South Dakota,AGE,4,12563
+South Dakota,AGE,5,12313
+South Dakota,AGE,6,12210
+South Dakota,AGE,7,12025
+South Dakota,AGE,8,12040
+South Dakota,AGE,9,12174
+South Dakota,AGE,10,12408
+South Dakota,AGE,11,12411
+South Dakota,AGE,12,12219
+South Dakota,AGE,13,11969
+South Dakota,AGE,14,11875
+South Dakota,AGE,15,11408
+South Dakota,AGE,16,11187
+South Dakota,AGE,17,11235
+South Dakota,AGE,18,11310
+South Dakota,AGE,19,12534
+South Dakota,AGE,20,12007
+South Dakota,AGE,21,12038
+South Dakota,AGE,22,11737
+South Dakota,AGE,23,11845
+South Dakota,AGE,24,11958
+South Dakota,AGE,25,11951
+South Dakota,AGE,26,12239
+South Dakota,AGE,27,11728
+South Dakota,AGE,28,11405
+South Dakota,AGE,29,11431
+South Dakota,AGE,30,11462
+South Dakota,AGE,31,11237
+South Dakota,AGE,32,11446
+South Dakota,AGE,33,11651
+South Dakota,AGE,34,11545
+South Dakota,AGE,35,11257
+South Dakota,AGE,36,11563
+South Dakota,AGE,37,11269
+South Dakota,AGE,38,11555
+South Dakota,AGE,39,10363
+South Dakota,AGE,40,10039
+South Dakota,AGE,41,9910
+South Dakota,AGE,42,9504
+South Dakota,AGE,43,9381
+South Dakota,AGE,44,9068
+South Dakota,AGE,45,8944
+South Dakota,AGE,46,9288
+South Dakota,AGE,47,9791
+South Dakota,AGE,48,9834
+South Dakota,AGE,49,9384
+South Dakota,AGE,50,9254
+South Dakota,AGE,51,9319
+South Dakota,AGE,52,9691
+South Dakota,AGE,53,10437
+South Dakota,AGE,54,11139
+South Dakota,AGE,55,11542
+South Dakota,AGE,56,11665
+South Dakota,AGE,57,12031
+South Dakota,AGE,58,12279
+South Dakota,AGE,59,11794
+South Dakota,AGE,60,11877
+South Dakota,AGE,61,11645
+South Dakota,AGE,62,11599
+South Dakota,AGE,63,11540
+South Dakota,AGE,64,11289
+South Dakota,AGE,65,10956
+South Dakota,AGE,66,10460
+South Dakota,AGE,67,10055
+South Dakota,AGE,68,9641
+South Dakota,AGE,69,9048
+South Dakota,AGE,70,8482
+South Dakota,AGE,71,8532
+South Dakota,AGE,72,6141
+South Dakota,AGE,73,5907
+South Dakota,AGE,74,5828
+South Dakota,AGE,75,5840
+South Dakota,AGE,76,4979
+South Dakota,AGE,77,4422
+South Dakota,AGE,78,4325
+South Dakota,AGE,79,4100
+South Dakota,AGE,80,3807
+South Dakota,AGE,81,3556
+South Dakota,AGE,82,3545
+South Dakota,AGE,83,3292
+South Dakota,AGE,84,2947
+South Dakota,AGE,85,20991
+Tennessee,AGE,0,78974
+Tennessee,AGE,1,80367
+Tennessee,AGE,2,82175
+Tennessee,AGE,3,82894
+Tennessee,AGE,4,82164
+Tennessee,AGE,5,82084
+Tennessee,AGE,6,82528
+Tennessee,AGE,7,81701
+Tennessee,AGE,8,82544
+Tennessee,AGE,9,83483
+Tennessee,AGE,10,86995
+Tennessee,AGE,11,86698
+Tennessee,AGE,12,86059
+Tennessee,AGE,13,85195
+Tennessee,AGE,14,85167
+Tennessee,AGE,15,85094
+Tennessee,AGE,16,84968
+Tennessee,AGE,17,87130
+Tennessee,AGE,18,85335
+Tennessee,AGE,19,82798
+Tennessee,AGE,20,84627
+Tennessee,AGE,21,85850
+Tennessee,AGE,22,88053
+Tennessee,AGE,23,92330
+Tennessee,AGE,24,94797
+Tennessee,AGE,25,95932
+Tennessee,AGE,26,99772
+Tennessee,AGE,27,101697
+Tennessee,AGE,28,100154
+Tennessee,AGE,29,94909
+Tennessee,AGE,30,90799
+Tennessee,AGE,31,87960
+Tennessee,AGE,32,87385
+Tennessee,AGE,33,87549
+Tennessee,AGE,34,84910
+Tennessee,AGE,35,86724
+Tennessee,AGE,36,87112
+Tennessee,AGE,37,85996
+Tennessee,AGE,38,88872
+Tennessee,AGE,39,84179
+Tennessee,AGE,40,82745
+Tennessee,AGE,41,82350
+Tennessee,AGE,42,78496
+Tennessee,AGE,43,82908
+Tennessee,AGE,44,80885
+Tennessee,AGE,45,83367
+Tennessee,AGE,46,87486
+Tennessee,AGE,47,92845
+Tennessee,AGE,48,92239
+Tennessee,AGE,49,86873
+Tennessee,AGE,50,83889
+Tennessee,AGE,51,84254
+Tennessee,AGE,52,86241
+Tennessee,AGE,53,91917
+Tennessee,AGE,54,93684
+Tennessee,AGE,55,92404
+Tennessee,AGE,56,91245
+Tennessee,AGE,57,91486
+Tennessee,AGE,58,92455
+Tennessee,AGE,59,88947
+Tennessee,AGE,60,88859
+Tennessee,AGE,61,88391
+Tennessee,AGE,62,85587
+Tennessee,AGE,63,84734
+Tennessee,AGE,64,82066
+Tennessee,AGE,65,78132
+Tennessee,AGE,66,74770
+Tennessee,AGE,67,73144
+Tennessee,AGE,68,70699
+Tennessee,AGE,69,70175
+Tennessee,AGE,70,69560
+Tennessee,AGE,71,72352
+Tennessee,AGE,72,51936
+Tennessee,AGE,73,51300
+Tennessee,AGE,74,49534
+Tennessee,AGE,75,50028
+Tennessee,AGE,76,43205
+Tennessee,AGE,77,38775
+Tennessee,AGE,78,36184
+Tennessee,AGE,79,33143
+Tennessee,AGE,80,30692
+Tennessee,AGE,81,26849
+Tennessee,AGE,82,25628
+Tennessee,AGE,83,23388
+Tennessee,AGE,84,20141
+Tennessee,AGE,85,120062
+Texas,AGE,0,390665
+Texas,AGE,1,398574
+Texas,AGE,2,408353
+Texas,AGE,3,414429
+Texas,AGE,4,412105
+Texas,AGE,5,406888
+Texas,AGE,6,403957
+Texas,AGE,7,411252
+Texas,AGE,8,413346
+Texas,AGE,9,412304
+Texas,AGE,10,421871
+Texas,AGE,11,420804
+Texas,AGE,12,417556
+Texas,AGE,13,416675
+Texas,AGE,14,414513
+Texas,AGE,15,412512
+Texas,AGE,16,408131
+Texas,AGE,17,414164
+Texas,AGE,18,404998
+Texas,AGE,19,392538
+Texas,AGE,20,389195
+Texas,AGE,21,389781
+Texas,AGE,22,396282
+Texas,AGE,23,406451
+Texas,AGE,24,416834
+Texas,AGE,25,424188
+Texas,AGE,26,437345
+Texas,AGE,27,438759
+Texas,AGE,28,437014
+Texas,AGE,29,422501
+Texas,AGE,30,416849
+Texas,AGE,31,415238
+Texas,AGE,32,416517
+Texas,AGE,33,420121
+Texas,AGE,34,407796
+Texas,AGE,35,413789
+Texas,AGE,36,411971
+Texas,AGE,37,407350
+Texas,AGE,38,412695
+Texas,AGE,39,385022
+Texas,AGE,40,376509
+Texas,AGE,41,373396
+Texas,AGE,42,366218
+Texas,AGE,43,373419
+Texas,AGE,44,361403
+Texas,AGE,45,362678
+Texas,AGE,46,371391
+Texas,AGE,47,382655
+Texas,AGE,48,377716
+Texas,AGE,49,352927
+Texas,AGE,50,340277
+Texas,AGE,51,332372
+Texas,AGE,52,333759
+Texas,AGE,53,348265
+Texas,AGE,54,350917
+Texas,AGE,55,349067
+Texas,AGE,56,345374
+Texas,AGE,57,343777
+Texas,AGE,58,345404
+Texas,AGE,59,329279
+Texas,AGE,60,323119
+Texas,AGE,61,316947
+Texas,AGE,62,303427
+Texas,AGE,63,297351
+Texas,AGE,64,280545
+Texas,AGE,65,268302
+Texas,AGE,66,252745
+Texas,AGE,67,243385
+Texas,AGE,68,236161
+Texas,AGE,69,225862
+Texas,AGE,70,220732
+Texas,AGE,71,225920
+Texas,AGE,72,168666
+Texas,AGE,73,165934
+Texas,AGE,74,158822
+Texas,AGE,75,154336
+Texas,AGE,76,133126
+Texas,AGE,77,123006
+Texas,AGE,78,113570
+Texas,AGE,79,103278
+Texas,AGE,80,96576
+Texas,AGE,81,87296
+Texas,AGE,82,81058
+Texas,AGE,83,76461
+Texas,AGE,84,66585
+Texas,AGE,85,400499
+Utah,AGE,0,50160
+Utah,AGE,1,50053
+Utah,AGE,2,50573
+Utah,AGE,3,51050
+Utah,AGE,4,51168
+Utah,AGE,5,51880
+Utah,AGE,6,50305
+Utah,AGE,7,51662
+Utah,AGE,8,52672
+Utah,AGE,9,52559
+Utah,AGE,10,53970
+Utah,AGE,11,54129
+Utah,AGE,12,53185
+Utah,AGE,13,52831
+Utah,AGE,14,52684
+Utah,AGE,15,52057
+Utah,AGE,16,50856
+Utah,AGE,17,50668
+Utah,AGE,18,49222
+Utah,AGE,19,46182
+Utah,AGE,20,46480
+Utah,AGE,21,50247
+Utah,AGE,22,53592
+Utah,AGE,23,56565
+Utah,AGE,24,54022
+Utah,AGE,25,51198
+Utah,AGE,26,51186
+Utah,AGE,27,50868
+Utah,AGE,28,47786
+Utah,AGE,29,46193
+Utah,AGE,30,43879
+Utah,AGE,31,42206
+Utah,AGE,32,43099
+Utah,AGE,33,44327
+Utah,AGE,34,44166
+Utah,AGE,35,45970
+Utah,AGE,36,46478
+Utah,AGE,37,46375
+Utah,AGE,38,47374
+Utah,AGE,39,45162
+Utah,AGE,40,44520
+Utah,AGE,41,43145
+Utah,AGE,42,40296
+Utah,AGE,43,38849
+Utah,AGE,44,36445
+Utah,AGE,45,35175
+Utah,AGE,46,35045
+Utah,AGE,47,35627
+Utah,AGE,48,34538
+Utah,AGE,49,32283
+Utah,AGE,50,30399
+Utah,AGE,51,29931
+Utah,AGE,52,29016
+Utah,AGE,53,29841
+Utah,AGE,54,30318
+Utah,AGE,55,31096
+Utah,AGE,56,31130
+Utah,AGE,57,31469
+Utah,AGE,58,31285
+Utah,AGE,59,30382
+Utah,AGE,60,30098
+Utah,AGE,61,29943
+Utah,AGE,62,28800
+Utah,AGE,63,28427
+Utah,AGE,64,27530
+Utah,AGE,65,26367
+Utah,AGE,66,24943
+Utah,AGE,67,23562
+Utah,AGE,68,22687
+Utah,AGE,69,21944
+Utah,AGE,70,21460
+Utah,AGE,71,21619
+Utah,AGE,72,15794
+Utah,AGE,73,15710
+Utah,AGE,74,15785
+Utah,AGE,75,15573
+Utah,AGE,76,13105
+Utah,AGE,77,12013
+Utah,AGE,78,11067
+Utah,AGE,79,10269
+Utah,AGE,80,9609
+Utah,AGE,81,8780
+Utah,AGE,82,8220
+Utah,AGE,83,7638
+Utah,AGE,84,6557
+Utah,AGE,85,37776
+Vermont,AGE,0,5632
+Vermont,AGE,1,5797
+Vermont,AGE,2,5950
+Vermont,AGE,3,6037
+Vermont,AGE,4,6265
+Vermont,AGE,5,6088
+Vermont,AGE,6,6277
+Vermont,AGE,7,6235
+Vermont,AGE,8,6341
+Vermont,AGE,9,6331
+Vermont,AGE,10,6638
+Vermont,AGE,11,6790
+Vermont,AGE,12,6701
+Vermont,AGE,13,6715
+Vermont,AGE,14,6917
+Vermont,AGE,15,6991
+Vermont,AGE,16,6932
+Vermont,AGE,17,7336
+Vermont,AGE,18,9626
+Vermont,AGE,19,11400
+Vermont,AGE,20,10849
+Vermont,AGE,21,10176
+Vermont,AGE,22,8881
+Vermont,AGE,23,8417
+Vermont,AGE,24,7870
+Vermont,AGE,25,7908
+Vermont,AGE,26,7575
+Vermont,AGE,27,7385
+Vermont,AGE,28,7491
+Vermont,AGE,29,7174
+Vermont,AGE,30,7324
+Vermont,AGE,31,7353
+Vermont,AGE,32,7244
+Vermont,AGE,33,7311
+Vermont,AGE,34,7326
+Vermont,AGE,35,7448
+Vermont,AGE,36,7383
+Vermont,AGE,37,7315
+Vermont,AGE,38,7501
+Vermont,AGE,39,6957
+Vermont,AGE,40,6992
+Vermont,AGE,41,6753
+Vermont,AGE,42,6532
+Vermont,AGE,43,6915
+Vermont,AGE,44,6805
+Vermont,AGE,45,6851
+Vermont,AGE,46,7297
+Vermont,AGE,47,8077
+Vermont,AGE,48,8348
+Vermont,AGE,49,7959
+Vermont,AGE,50,7785
+Vermont,AGE,51,8027
+Vermont,AGE,52,8246
+Vermont,AGE,53,8919
+Vermont,AGE,54,9210
+Vermont,AGE,55,9384
+Vermont,AGE,56,9590
+Vermont,AGE,57,10048
+Vermont,AGE,58,9785
+Vermont,AGE,59,9890
+Vermont,AGE,60,9880
+Vermont,AGE,61,9820
+Vermont,AGE,62,9462
+Vermont,AGE,63,9537
+Vermont,AGE,64,9093
+Vermont,AGE,65,8872
+Vermont,AGE,66,8507
+Vermont,AGE,67,8290
+Vermont,AGE,68,7925
+Vermont,AGE,69,7742
+Vermont,AGE,70,7458
+Vermont,AGE,71,7723
+Vermont,AGE,72,5537
+Vermont,AGE,73,5549
+Vermont,AGE,74,5290
+Vermont,AGE,75,5412
+Vermont,AGE,76,4324
+Vermont,AGE,77,4074
+Vermont,AGE,78,3605
+Vermont,AGE,79,3295
+Vermont,AGE,80,3189
+Vermont,AGE,81,2773
+Vermont,AGE,82,2580
+Vermont,AGE,83,2444
+Vermont,AGE,84,2197
+Vermont,AGE,85,14421
+Virginia,AGE,0,99261
+Virginia,AGE,1,101645
+Virginia,AGE,2,103237
+Virginia,AGE,3,103808
+Virginia,AGE,4,102973
+Virginia,AGE,5,102763
+Virginia,AGE,6,103040
+Virginia,AGE,7,103679
+Virginia,AGE,8,103091
+Virginia,AGE,9,101884
+Virginia,AGE,10,105992
+Virginia,AGE,11,106234
+Virginia,AGE,12,105454
+Virginia,AGE,13,104943
+Virginia,AGE,14,105739
+Virginia,AGE,15,104681
+Virginia,AGE,16,104546
+Virginia,AGE,17,106822
+Virginia,AGE,18,112720
+Virginia,AGE,19,113515
+Virginia,AGE,20,114015
+Virginia,AGE,21,115465
+Virginia,AGE,22,115120
+Virginia,AGE,23,115806
+Virginia,AGE,24,118406
+Virginia,AGE,25,120054
+Virginia,AGE,26,120785
+Virginia,AGE,27,122637
+Virginia,AGE,28,122180
+Virginia,AGE,29,118530
+Virginia,AGE,30,118046
+Virginia,AGE,31,116835
+Virginia,AGE,32,117982
+Virginia,AGE,33,118064
+Virginia,AGE,34,115193
+Virginia,AGE,35,117480
+Virginia,AGE,36,116863
+Virginia,AGE,37,116050
+Virginia,AGE,38,118057
+Virginia,AGE,39,110184
+Virginia,AGE,40,107963
+Virginia,AGE,41,106222
+Virginia,AGE,42,102703
+Virginia,AGE,43,106078
+Virginia,AGE,44,103283
+Virginia,AGE,45,104523
+Virginia,AGE,46,110694
+Virginia,AGE,47,115960
+Virginia,AGE,48,116549
+Virginia,AGE,49,110355
+Virginia,AGE,50,109052
+Virginia,AGE,51,109109
+Virginia,AGE,52,111079
+Virginia,AGE,53,117848
+Virginia,AGE,54,120215
+Virginia,AGE,55,119288
+Virginia,AGE,56,116982
+Virginia,AGE,57,117409
+Virginia,AGE,58,116828
+Virginia,AGE,59,112535
+Virginia,AGE,60,111313
+Virginia,AGE,61,108523
+Virginia,AGE,62,104048
+Virginia,AGE,63,102219
+Virginia,AGE,64,97727
+Virginia,AGE,65,93144
+Virginia,AGE,66,88516
+Virginia,AGE,67,85557
+Virginia,AGE,68,83963
+Virginia,AGE,69,81622
+Virginia,AGE,70,81550
+Virginia,AGE,71,84076
+Virginia,AGE,72,61631
+Virginia,AGE,73,60498
+Virginia,AGE,74,58481
+Virginia,AGE,75,58889
+Virginia,AGE,76,50351
+Virginia,AGE,77,45252
+Virginia,AGE,78,42017
+Virginia,AGE,79,38684
+Virginia,AGE,80,35990
+Virginia,AGE,81,32377
+Virginia,AGE,82,29736
+Virginia,AGE,83,27492
+Virginia,AGE,84,23683
+Virginia,AGE,85,151892
+Washington,AGE,0,90662
+Washington,AGE,1,92067
+Washington,AGE,2,93100
+Washington,AGE,3,93747
+Washington,AGE,4,93125
+Washington,AGE,5,93397
+Washington,AGE,6,92720
+Washington,AGE,7,93707
+Washington,AGE,8,93947
+Washington,AGE,9,93145
+Washington,AGE,10,94908
+Washington,AGE,11,94052
+Washington,AGE,12,91910
+Washington,AGE,13,91218
+Washington,AGE,14,90714
+Washington,AGE,15,89875
+Washington,AGE,16,88936
+Washington,AGE,17,92055
+Washington,AGE,18,89793
+Washington,AGE,19,86390
+Washington,AGE,20,89203
+Washington,AGE,21,90827
+Washington,AGE,22,94869
+Washington,AGE,23,100515
+Washington,AGE,24,105849
+Washington,AGE,25,110301
+Washington,AGE,26,117274
+Washington,AGE,27,121526
+Washington,AGE,28,122522
+Washington,AGE,29,117981
+Washington,AGE,30,114142
+Washington,AGE,31,112039
+Washington,AGE,32,113219
+Washington,AGE,33,113896
+Washington,AGE,34,110457
+Washington,AGE,35,110405
+Washington,AGE,36,110216
+Washington,AGE,37,107723
+Washington,AGE,38,107873
+Washington,AGE,39,99927
+Washington,AGE,40,97261
+Washington,AGE,41,95294
+Washington,AGE,42,91896
+Washington,AGE,43,93324
+Washington,AGE,44,88950
+Washington,AGE,45,88537
+Washington,AGE,46,92024
+Washington,AGE,47,98274
+Washington,AGE,48,100335
+Washington,AGE,49,95238
+Washington,AGE,50,90902
+Washington,AGE,51,88684
+Washington,AGE,52,89112
+Washington,AGE,53,94029
+Washington,AGE,54,96396
+Washington,AGE,55,98229
+Washington,AGE,56,97933
+Washington,AGE,57,99315
+Washington,AGE,58,99653
+Washington,AGE,59,96546
+Washington,AGE,60,96675
+Washington,AGE,61,95963
+Washington,AGE,62,93351
+Washington,AGE,63,93003
+Washington,AGE,64,90203
+Washington,AGE,65,87522
+Washington,AGE,66,82950
+Washington,AGE,67,79515
+Washington,AGE,68,77290
+Washington,AGE,69,74412
+Washington,AGE,70,72641
+Washington,AGE,71,75187
+Washington,AGE,72,54253
+Washington,AGE,73,53464
+Washington,AGE,74,51574
+Washington,AGE,75,50613
+Washington,AGE,76,42793
+Washington,AGE,77,38060
+Washington,AGE,78,34795
+Washington,AGE,79,31831
+Washington,AGE,80,30055
+Washington,AGE,81,26760
+Washington,AGE,82,24428
+Washington,AGE,83,22809
+Washington,AGE,84,19897
+Washington,AGE,85,133383
+West Virginia,AGE,0,17871
+West Virginia,AGE,1,18464
+West Virginia,AGE,2,19161
+West Virginia,AGE,3,19709
+West Virginia,AGE,4,20052
+West Virginia,AGE,5,20360
+West Virginia,AGE,6,20285
+West Virginia,AGE,7,20108
+West Virginia,AGE,8,20103
+West Virginia,AGE,9,20187
+West Virginia,AGE,10,20968
+West Virginia,AGE,11,20923
+West Virginia,AGE,12,20739
+West Virginia,AGE,13,20678
+West Virginia,AGE,14,21080
+West Virginia,AGE,15,21030
+West Virginia,AGE,16,21061
+West Virginia,AGE,17,21381
+West Virginia,AGE,18,21948
+West Virginia,AGE,19,21807
+West Virginia,AGE,20,22129
+West Virginia,AGE,21,22766
+West Virginia,AGE,22,22939
+West Virginia,AGE,23,22806
+West Virginia,AGE,24,22454
+West Virginia,AGE,25,22148
+West Virginia,AGE,26,22952
+West Virginia,AGE,27,23693
+West Virginia,AGE,28,23151
+West Virginia,AGE,29,21670
+West Virginia,AGE,30,20540
+West Virginia,AGE,31,20352
+West Virginia,AGE,32,20416
+West Virginia,AGE,33,20375
+West Virginia,AGE,34,20065
+West Virginia,AGE,35,21290
+West Virginia,AGE,36,21449
+West Virginia,AGE,37,21625
+West Virginia,AGE,38,22991
+West Virginia,AGE,39,21875
+West Virginia,AGE,40,21725
+West Virginia,AGE,41,21822
+West Virginia,AGE,42,20839
+West Virginia,AGE,43,21911
+West Virginia,AGE,44,21233
+West Virginia,AGE,45,22160
+West Virginia,AGE,46,23065
+West Virginia,AGE,47,24311
+West Virginia,AGE,48,24181
+West Virginia,AGE,49,22771
+West Virginia,AGE,50,22417
+West Virginia,AGE,51,22818
+West Virginia,AGE,52,23169
+West Virginia,AGE,53,24625
+West Virginia,AGE,54,24936
+West Virginia,AGE,55,24793
+West Virginia,AGE,56,24837
+West Virginia,AGE,57,25544
+West Virginia,AGE,58,26206
+West Virginia,AGE,59,26378
+West Virginia,AGE,60,26860
+West Virginia,AGE,61,26825
+West Virginia,AGE,62,25590
+West Virginia,AGE,63,26029
+West Virginia,AGE,64,25308
+West Virginia,AGE,65,24826
+West Virginia,AGE,66,24321
+West Virginia,AGE,67,23892
+West Virginia,AGE,68,23372
+West Virginia,AGE,69,23289
+West Virginia,AGE,70,22458
+West Virginia,AGE,71,23184
+West Virginia,AGE,72,16090
+West Virginia,AGE,73,16048
+West Virginia,AGE,74,15357
+West Virginia,AGE,75,15704
+West Virginia,AGE,76,13613
+West Virginia,AGE,77,12623
+West Virginia,AGE,78,11576
+West Virginia,AGE,79,10857
+West Virginia,AGE,80,10260
+West Virginia,AGE,81,9449
+West Virginia,AGE,82,8524
+West Virginia,AGE,83,8000
+West Virginia,AGE,84,6535
+West Virginia,AGE,85,39900
+Wisconsin,AGE,0,64588
+Wisconsin,AGE,1,66035
+Wisconsin,AGE,2,67476
+Wisconsin,AGE,3,68242
+Wisconsin,AGE,4,68041
+Wisconsin,AGE,5,68543
+Wisconsin,AGE,6,68969
+Wisconsin,AGE,7,69232
+Wisconsin,AGE,8,71653
+Wisconsin,AGE,9,71402
+Wisconsin,AGE,10,73425
+Wisconsin,AGE,11,74227
+Wisconsin,AGE,12,73851
+Wisconsin,AGE,13,73481
+Wisconsin,AGE,14,74364
+Wisconsin,AGE,15,73762
+Wisconsin,AGE,16,73592
+Wisconsin,AGE,17,75220
+Wisconsin,AGE,18,76495
+Wisconsin,AGE,19,79349
+Wisconsin,AGE,20,79447
+Wisconsin,AGE,21,79541
+Wisconsin,AGE,22,79822
+Wisconsin,AGE,23,78785
+Wisconsin,AGE,24,78326
+Wisconsin,AGE,25,78213
+Wisconsin,AGE,26,77837
+Wisconsin,AGE,27,74229
+Wisconsin,AGE,28,73357
+Wisconsin,AGE,29,70799
+Wisconsin,AGE,30,70131
+Wisconsin,AGE,31,70920
+Wisconsin,AGE,32,73018
+Wisconsin,AGE,33,75719
+Wisconsin,AGE,34,73154
+Wisconsin,AGE,35,74686
+Wisconsin,AGE,36,75056
+Wisconsin,AGE,37,74626
+Wisconsin,AGE,38,76114
+Wisconsin,AGE,39,71315
+Wisconsin,AGE,40,68952
+Wisconsin,AGE,41,68005
+Wisconsin,AGE,42,65082
+Wisconsin,AGE,43,67018
+Wisconsin,AGE,44,63862
+Wisconsin,AGE,45,64491
+Wisconsin,AGE,46,67819
+Wisconsin,AGE,47,73593
+Wisconsin,AGE,48,74633
+Wisconsin,AGE,49,71808
+Wisconsin,AGE,50,71618
+Wisconsin,AGE,51,73864
+Wisconsin,AGE,52,76032
+Wisconsin,AGE,53,80731
+Wisconsin,AGE,54,82968
+Wisconsin,AGE,55,83793
+Wisconsin,AGE,56,84556
+Wisconsin,AGE,57,86779
+Wisconsin,AGE,58,86467
+Wisconsin,AGE,59,84162
+Wisconsin,AGE,60,83010
+Wisconsin,AGE,61,81624
+Wisconsin,AGE,62,78042
+Wisconsin,AGE,63,77539
+Wisconsin,AGE,64,74605
+Wisconsin,AGE,65,71158
+Wisconsin,AGE,66,69110
+Wisconsin,AGE,67,65725
+Wisconsin,AGE,68,63007
+Wisconsin,AGE,69,60181
+Wisconsin,AGE,70,57974
+Wisconsin,AGE,71,59073
+Wisconsin,AGE,72,42756
+Wisconsin,AGE,73,41840
+Wisconsin,AGE,74,40799
+Wisconsin,AGE,75,41904
+Wisconsin,AGE,76,36357
+Wisconsin,AGE,77,32399
+Wisconsin,AGE,78,29808
+Wisconsin,AGE,79,28652
+Wisconsin,AGE,80,27108
+Wisconsin,AGE,81,24873
+Wisconsin,AGE,82,23338
+Wisconsin,AGE,83,21863
+Wisconsin,AGE,84,18912
+Wisconsin,AGE,85,128636
+Wyoming,AGE,0,6823
+Wyoming,AGE,1,7066
+Wyoming,AGE,2,7278
+Wyoming,AGE,3,7380
+Wyoming,AGE,4,7365
+Wyoming,AGE,5,7362
+Wyoming,AGE,6,7405
+Wyoming,AGE,7,7468
+Wyoming,AGE,8,7776
+Wyoming,AGE,9,7836
+Wyoming,AGE,10,8042
+Wyoming,AGE,11,8031
+Wyoming,AGE,12,7791
+Wyoming,AGE,13,7789
+Wyoming,AGE,14,7451
+Wyoming,AGE,15,7480
+Wyoming,AGE,16,7227
+Wyoming,AGE,17,7205
+Wyoming,AGE,18,7144
+Wyoming,AGE,19,7257
+Wyoming,AGE,20,7516
+Wyoming,AGE,21,7642
+Wyoming,AGE,22,7849
+Wyoming,AGE,23,7478
+Wyoming,AGE,24,7481
+Wyoming,AGE,25,7449
+Wyoming,AGE,26,7881
+Wyoming,AGE,27,7832
+Wyoming,AGE,28,8008
+Wyoming,AGE,29,7709
+Wyoming,AGE,30,7427
+Wyoming,AGE,31,7606
+Wyoming,AGE,32,7832
+Wyoming,AGE,33,8080
+Wyoming,AGE,34,7954
+Wyoming,AGE,35,8004
+Wyoming,AGE,36,7964
+Wyoming,AGE,37,7721
+Wyoming,AGE,38,8035
+Wyoming,AGE,39,7434
+Wyoming,AGE,40,7107
+Wyoming,AGE,41,6865
+Wyoming,AGE,42,6610
+Wyoming,AGE,43,6608
+Wyoming,AGE,44,6365
+Wyoming,AGE,45,6235
+Wyoming,AGE,46,6382
+Wyoming,AGE,47,6713
+Wyoming,AGE,48,6910
+Wyoming,AGE,49,6300
+Wyoming,AGE,50,6167
+Wyoming,AGE,51,6123
+Wyoming,AGE,52,6191
+Wyoming,AGE,53,6725
+Wyoming,AGE,54,7134
+Wyoming,AGE,55,7455
+Wyoming,AGE,56,7447
+Wyoming,AGE,57,8060
+Wyoming,AGE,58,8333
+Wyoming,AGE,59,8099
+Wyoming,AGE,60,8129
+Wyoming,AGE,61,8333
+Wyoming,AGE,62,8142
+Wyoming,AGE,63,8062
+Wyoming,AGE,64,7789
+Wyoming,AGE,65,7481
+Wyoming,AGE,66,6948
+Wyoming,AGE,67,6664
+Wyoming,AGE,68,6416
+Wyoming,AGE,69,6074
+Wyoming,AGE,70,5957
+Wyoming,AGE,71,6104
+Wyoming,AGE,72,4198
+Wyoming,AGE,73,4216
+Wyoming,AGE,74,4110
+Wyoming,AGE,75,4047
+Wyoming,AGE,76,3495
+Wyoming,AGE,77,3062
+Wyoming,AGE,78,2908
+Wyoming,AGE,79,2691
+Wyoming,AGE,80,2442
+Wyoming,AGE,81,2253
+Wyoming,AGE,82,2048
+Wyoming,AGE,83,1873
+Wyoming,AGE,84,1707
+Wyoming,AGE,85,10681

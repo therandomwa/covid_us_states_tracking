@@ -134,7 +134,46 @@ better_test = left_join(strata_values, totals_table, by = c("state_name", "data_
   distinct()
 ```
 
+# Census Transformation
+
 ```{r}
-get_idaho()
+census_race_sex = read_csv("../data/census.csv") %>% 
+  select(NAME, TOTAL_POP:FEMALE) %>% 
+  mutate(
+    `AI/AN/NH/PI` = `NH.AI/AN` + `NH.NH/PI`,
+    `ASIAN/PI` = `NH.ASIAN` + `NH.NH/PI`
+  ) %>% 
+  pivot_longer(
+    TOTAL_POP:`AI/AN/NH/PI`,
+    names_to = "category",
+    values_to = "pop_est") %>% 
+  mutate(
+    new_category = case_when(
+      category == "TOTAL_POP" ~ "TOTAL_POP",
+      category == "NH.WHITE" ~ "NH WHITE",
+      category == "ETH_HISPANIC" ~ "HISPANIC",
+      category == "ETH_NH" ~ "NH",
+      category == "NH.BLACK" ~ "BLACK",
+      category == "NH.AI/AN" ~ "AI/AN",
+      category == "NH.ASIAN" ~ "ASIAN",
+      category == "NH.NH/PI" ~ "NH/PI",
+      category == "AI/AN/NH/PI" ~ "AI/AN/NH/PI",
+      category == "NH.MULTI" ~ "MULTI",
+      category == "MALE" ~ "MALE",
+      category == "FEMALE" ~ "FEMALE"
+      )
+  )
+
+census_age = read_csv("../data/census.csv") %>% 
+  select(NAME, AGE_0:AGE_85) %>% 
+  pivot_longer(
+    AGE_0:AGE_85,
+    names_to = "age",
+    values_to = "pop_est") %>% 
+  separate(age, c("pre", "age")) %>% 
+  mutate( age = as.numeric(age) )
+
+write_csv(census_race_sex, "../data/census_race_sex.csv")
+write_csv(census_age, "../data/census_age.csv")
 ```
 
