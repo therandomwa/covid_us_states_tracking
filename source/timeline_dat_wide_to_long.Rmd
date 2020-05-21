@@ -1,0 +1,36 @@
+---
+title: "Timeline Data Wide to Long"
+author: "Courtney Johnson"
+date: "May 21, 2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(vistime)
+library(plotly)
+library(readxl)
+```
+
+```{r}
+dat = readxl::read_excel("../Data/Summary_stats_all.xlsx", 
+                   sheet = "Without nursing stuff", col_names = TRUE) %>%
+  janitor::clean_names() %>%
+  select(-check, -office_general, -outdoor_type) %>% 
+  # outdoor type needs to be manipulated differently
+  rename(state = location_name) %>%
+  mutate_all(as.character) %>%
+  pivot_longer(retail:all_non_ess_business_end_date,
+               names_to = "category",
+               values_to = "date") 
+
+# excel data change:
+# as.Date(variable, origin = "1899-12-30")
+
+knitr::kable(count(dat, date))
+
+head(dat)
+tail(dat)
+```
+
