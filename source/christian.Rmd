@@ -43,15 +43,13 @@ new_hampshire = get_new_hampshire()
 ```
 
 ```{r}
-# Space for troubleshooting
-
 ```
 
 # Compile The Automated States
 
 ```{r}
 # Get as much automated data as you can
-automated_data_20200519 = compile()
+automated_data_20200520 = compile()
 ```
 
 # Manual States
@@ -82,426 +80,40 @@ For each of these states, we'll collect sex, age, and race information.
 arizona = get_arizona() 
 kansas = get_kansas()
 iowa = get_iowa()
+north_carolina = get_north_carolina()
+hawaii = get_hawaii() # Courtney
+idaho = get_idaho() # Courtney
+nevada = get_nevada() 
+new_york = get_new_york()
+south_dakota = get_south_dakota() # Gloria
+west_virginia = get_west_virginia() # Gloria 
+wyoming = get_wyoming() # Amy
 
-# hawaii = get_hawaii() # Courtney
-# idaho = get_idaho() # Courtney
-
-# nevada = get_nevada() # Lauren
-# new_york = get_new_york() # Lauren
-
-# south_dakota = get_south_dakota() # Gloria
-# west_virginia = get_west_virginia() # Gloria 
-# wyoming = get_wyoming() # Amy
-    
-manual_data_20200519 = bind_rows(
+manual_data_20200520 = bind_rows(
   arizona,
   iowa,
-  kansas)
-```
-
-```{r}
-full_data_20200519 = bind_rows(automated_data_20200519, manual_data_20200519)
-save(full_data_20200519, file = "../Data/meta_2020-05-19-cbp.rda")
-```
-
-# Data Separation
-
-```{r}
-full_data = read_csv("../Data/meta_final_2020-05-16.csv") %>% 
-  mutate(
-    total_test = unlist(map(total.tested, function(data) {
-      if (is.na(data)) {
-        return(NA)
-      } else if (str_detect(data, ";")) {
-        total = data %>% str_split(";", simplify = TRUE) %>% .[1,1]
-        return(as.numeric(total))
-      } else {
-        as.numeric(data)
-      }
-    })),
-    total_case = unlist(map(total.case, function(data) {
-      if (is.na(data)) {
-        return(NA)
-      } else if (str_detect(data, ";")) {
-        total = data %>% str_split(";", simplify = TRUE) %>% .[1,1]
-        return(as.numeric(total))
-      } else {
-        as.numeric(data)
-      }
-    })),
-    total_death = unlist(map(total.death, function(data) {
-      if (is.na(data)) {
-        return(NA)
-      } else if (str_detect(data, ";")) {
-        total = data %>% str_split(";", simplify = TRUE) %>% .[1,1]
-        return(as.numeric(total))
-      } else {
-        as.numeric(data)
-      }
-    })),
-    total_hosp = unlist(map(total_hosp, function(data) {
-      if (is.na(data)) {
-        return(NA)
-      } else if (str_detect(data, ";")) {
-        total = data %>% str_split(";", simplify = TRUE) %>% .[1,1]
-        return(as.numeric(total))
-      } else {
-        as.numeric(data)
-      }
-    }))
+  kansas,
+  north_carolina,
+  hawaii,
+  idaho,
+  nevada,
+  new_york,
+  south_dakota,
+  west_virginia,
+  wyoming
   )
-
-# Dealing with cases first
-final_case_data = full_data %>% 
-  select(state_name, 
-         total_test,
-         total_case, 
-         total_death, 
-         total_hosp,
-         positive_age, 
-         positive_race, 
-         positive_gender) %>% 
-  mutate(
-    case_by_age = map(positive_age, function(data) {
-      if (is.na(data)) {
-        return(NA)
-      } else if (str_detect(data, ";")) {
-        age_tib = data %>% 
-          str_split(";", simplify = TRUE) %>% 
-          str_split(":", simplify = TRUE) %>% 
-          as_tibble()
-        colnames(age_tib) = c("category", "count")
-        age_tib %>% 
-          mutate(
-            category = str_trim(category),
-            count = as.numeric(count)
-          )
-      }
-    }),
-    case_by_race = map(positive_race, function(data) {
-      if (is.na(data)) {
-        return(NA)
-      } else if (str_detect(data, ";")) {
-        race_tib = data %>% 
-          str_split(";", simplify = TRUE) %>% 
-          str_split(":", simplify = TRUE) %>% 
-          as_tibble()
-        colnames(race_tib) = c("category", "count")
-        race_tib %>% 
-          mutate(
-            category = str_trim(category),
-            count = str_replace(count, ",", "") %>%  as.numeric(count)
-          )
-      }
-    }),
-    case_by_sex = map(positive_gender, function(data) {
-      if (is.na(data)) {
-        return(NA)
-      } else if (str_detect(data, ";")) {
-        sex_tib = data %>% 
-          str_split(";", simplify = TRUE) %>% 
-          str_split(":", simplify = TRUE) %>% 
-          as_tibble()
-        colnames(sex_tib) = c("category", "count")
-        sex_tib %>% 
-          mutate(
-            category = str_trim(category),
-            count = str_replace(count, ",", "") %>%  as.numeric(count)
-          )
-      }
-    })
-  ) %>% 
-  select(
-    state_name, 
-    total_test,
-    total_case, 
-    total_death, 
-    total_hosp,
-    case_by_age,
-    case_by_race,
-    case_by_sex
-    ) 
-
-case_age_data = final_case_data %>% 
-  select(state_name, total_test, total_case, total_death, total_hosp, case_by_age) %>% 
-  unnest_wider(case_by_age) %>% 
-  unnest(c(category, count)) %>% 
-  select(-`...1`) %>% 
-  mutate( 
-    strata_type = "age",
-    data_type = "case"
-    )
-
-case_race_data = final_case_data %>% 
-  select(state_name, total_test, total_case, total_death, total_hosp, case_by_race) %>% 
-  unnest_wider(case_by_race) %>% 
-  unnest(c(category, count)) %>% 
-  select(-`...1`) %>% 
-  mutate( 
-    strata_type = "race",
-    data_type = "case" 
-    )
-
-case_sex_data = final_case_data %>% 
-  select(state_name, total_test, total_case, total_death, total_hosp, case_by_sex) %>% 
-  unnest_wider(case_by_sex) %>% 
-  unnest(c(category, count)) %>% 
-  select(-`...1`) %>% 
-  mutate( 
-    strata_type = "sex",
-    data_type = "case" 
-    )
 ```
 
 ```{r}
-# Dealing with deaths
-final_death_data = full_data %>% 
-  select(state_name, 
-         total_test,
-         total_case, 
-         total_death, 
-         total_hosp,
-         death_age, 
-         death_race, 
-         death_gender) %>% 
-  mutate(
-    death_by_age = map(death_age, function(data) {
-      if (is.na(data)) {
-        return(NA)
-      } else if (str_detect(data, ";")) {
-        age_tib = data %>% 
-          str_split(";", simplify = TRUE) %>% 
-          str_split(":", simplify = TRUE) %>% 
-          as_tibble()
-        colnames(age_tib) = c("category", "count")
-        age_tib %>% 
-          mutate(
-            category = str_trim(category),
-            count = as.numeric(count)
-          )
-      }
-    }),
-    death_by_race = map(death_race, function(data) {
-      if (is.na(data)) {
-        return(NA)
-      } else if (str_detect(data, ";")) {
-        race_tib = data %>% 
-          str_split(";", simplify = TRUE) %>% 
-          str_split(":", simplify = TRUE) %>% 
-          as_tibble()
-        colnames(race_tib) = c("category", "count")
-        race_tib %>% 
-          mutate(
-            category = str_trim(category),
-            count = str_replace(count, ",", "") %>%  as.numeric(count)
-          )
-      }
-    }),
-    death_by_sex = map(death_gender, function(data) {
-      if (is.na(data)) {
-        return(NA)
-      } else if (str_detect(data, ";")) {
-        sex_tib = data %>% 
-          str_split(";", simplify = TRUE) %>% 
-          str_split(":", simplify = TRUE) %>% 
-          as_tibble()
-        colnames(sex_tib) = c("category", "count")
-        sex_tib %>% 
-          mutate(
-            category = str_trim(category),
-            count = str_replace(count, ",", "") %>%  as.numeric(count)
-          )
-      }
-    })
-  ) %>% 
-  select(
-    state_name, 
-    total_test, 
-    total_case, 
-    total_death, 
-    total_hosp,
-    death_by_race,
-    death_by_age,
-    death_by_sex
-    ) 
-
-death_age_data = final_death_data %>% 
-  select(state_name, total_test, total_case, total_death, total_hosp, death_by_age) %>% 
-  unnest_wider(death_by_age) %>% 
-  unnest(c(category, count)) %>% 
-  select(-`...1`) %>% 
-  mutate( 
-    strata_type = "age",
-    data_type = "death"
-    )
-
-death_race_data = final_death_data %>% 
-  select(state_name, total_test, total_case, total_death, total_hosp, death_by_race) %>% 
-  unnest_wider(death_by_race) %>% 
-  unnest(c(category, count)) %>% 
-  select(-`...1`) %>% 
-  mutate( 
-    strata_type = "race",
-    data_type = "death"
-    )
-
-death_sex_data = final_death_data %>% 
-  select(state_name, total_test, total_case, total_death, total_hosp, death_by_sex) %>% 
-  unnest_wider(death_by_sex) %>% 
-  unnest(c(category, count)) %>% 
-  select(-`...1`) %>% 
-  mutate( 
-    strata_type = "sex",
-    data_type = "death" 
-    )
+full_data_20200520 = bind_rows(automated_data_20200520, manual_data_20200520)
+save(full_data_20200520, file = "../Data/meta_2020-05-20-cbp.rda")
 ```
 
-```{r}
-# Handling data for hospitalizations
-final_hosp_data = full_data %>% 
-  select(state_name, 
-         total_test,
-         total_case, 
-         total_death, 
-         total_hosp, 
-         hosp_age, 
-         hosp_race, 
-         hosp_gender) %>% 
-  mutate(
-    hosp_by_age = map(hosp_age, function(data) {
-      if (is.na(data)) {
-        return(NA)
-      } else if (str_detect(data, ";")) {
-        age_tib = data %>% 
-          str_split(";", simplify = TRUE) %>% 
-          str_split(":", simplify = TRUE) %>% 
-          as_tibble()
-        colnames(age_tib) = c("category", "count")
-        age_tib %>% 
-          mutate(
-            category = str_trim(category),
-            count = as.numeric(count)
-          )
-      }
-    }),
-    hosp_by_race = map(hosp_race, function(data) {
-      if (is.na(data)) {
-        return(NA)
-      } else if (str_detect(data, ";")) {
-        race_tib = data %>% 
-          str_split(";", simplify = TRUE) %>% 
-          str_split(":", simplify = TRUE) %>% 
-          as_tibble()
-        colnames(race_tib) = c("category", "count")
-        race_tib %>% 
-          mutate(
-            category = str_trim(category),
-            count = str_replace(count, ",", "") %>%  as.numeric(count)
-          )
-      }
-    }),
-    hosp_by_sex = map(hosp_gender, function(data) {
-      if (is.na(data)) {
-        return(NA)
-      } else if (str_detect(data, ";")) {
-        sex_tib = data %>% 
-          str_split(";", simplify = TRUE) %>% 
-          str_split(":", simplify = TRUE) %>% 
-          as_tibble()
-        colnames(sex_tib) = c("category", "count")
-        sex_tib %>% 
-          mutate(
-            category = str_trim(category),
-            count = str_replace(count, ",", "") %>%  as.numeric(count)
-          )
-      }
-    })
-  ) %>% 
-  select(
-    state_name, 
-    total_test, 
-    total_case, 
-    total_death, 
-    total_hosp,
-    hosp_by_race,
-    hosp_by_age,
-    hosp_by_sex
-    ) 
-
-hosp_age_data = final_hosp_data %>% 
-  select(state_name, total_test, total_case, total_death, total_hosp, hosp_by_age) %>% 
-  unnest_wider(hosp_by_age) %>% 
-  unnest(c(category, count)) %>% 
-  select(-`...1`) %>% 
-  mutate( 
-    strata_type = "hosp",
-    data_type = "age"
-    )
-
-hosp_race_data = final_hosp_data %>% 
-  select(state_name, total_test, total_case, total_death, total_hosp, hosp_by_race) %>% 
-  unnest_wider(hosp_by_race) %>% 
-  unnest(c(category, count)) %>% 
-  select(-`...1`) %>% 
-  mutate( 
-    strata_type = "hosp",
-    data_type = "race"
-    )
-
-hosp_sex_data = final_hosp_data %>% 
-  select(state_name, total_test, total_case, total_death, total_hosp, hosp_by_sex) %>% 
-  unnest_wider(hosp_by_sex) %>% 
-  unnest(c(category, count)) %>% 
-  select(-`...1`) %>% 
-  mutate( 
-    strata_type = "hosp",
-    data_type = "sex"
-    )
-```
-
-## Save To CSV
+# Compile 
 
 ```{r}
-final = bind_rows(
-  case_age_data,
-  case_race_data,
-  case_sex_data,
-  death_age_data,
-  death_race_data,
-  death_sex_data,
-  hosp_age_data,
-  hosp_race_data,
-  hosp_sex_data) 
-
-write.csv(final, "../Data/processed_state_data_20200516.csv")
-```
-
-```{r}
-test = finalize_data("../Data/Archive/meta_final_2020-05-16.csv")
-census = read_xlsx("../Data/cleaned_census.xlsx") %>% 
-  filter(State != "puerto rico", State != "virgin islands") %>% 
-  mutate(
-    state_name = c(datasets::state.name, "District of Columbia"),
-    MALE = population_estimate * (1 - Females),
-    FEMALE = population_estimate * (Females),
-    WHITE = population_estimate * (White_alone),
-    BLACK = population_estimate * (Black),
-    `AI/AN` = population_estimate * (American_indian_alaskan_native),
-    ASIAN = population_estimate * Asian,
-    #`NH/PI` = population_estimate * Native_Hawaiian_Other_Pacific_islander,
-    MULTI = population_estimate * Two_or_more_races,
-    HISPANIC = population_estimate * Hispanic
-  ) %>% 
-  select(
-    state_name, population_estimate, 
-    MALE, FEMALE,
-    WHITE, BLACK, `AI/AN`, ASIAN, 
-    #`NH/PI`, 
-    MULTI, HISPANIC) %>% 
-  pivot_longer(
-    population_estimate:HISPANIC,
-    names_to = "category",
-    values_to = "count")
+test = finalize_data("../data/raw_states/meta_final_2020-05-19.csv")
+census = read_xlsx("../data/census.xlsx")
 ```
 
 ```{r}
@@ -522,4 +134,7 @@ better_test = left_join(strata_values, totals_table, by = c("state_name", "data_
   distinct()
 ```
 
+```{r}
+get_idaho()
+```
 
