@@ -922,11 +922,11 @@ get_new_hampshire = function() {
     str_replace(",", "") %>% as.numeric()
   
   recovered = first_page %>% .[7] %>% 
-    str_split(" ", simplify = TRUE) %>% .[1, 7] %>% 
+    str_split(" ", simplify = TRUE) %>% .[1, 8] %>% 
     str_replace(",", "") %>% as.numeric()
   
   deaths = first_page %>% .[7] %>% 
-    str_split(" ", simplify = TRUE) %>% .[1, 8] %>% 
+    str_split(" ", simplify = TRUE) %>% .[1, 9] %>% 
     str_replace(",", "") %>% as.numeric()
   
   females = first_page %>% .[15] %>% 
@@ -1061,77 +1061,67 @@ get_new_hampshire = function() {
     str_split(" ", simplify = TRUE) %>% .[1, 7] %>% 
     str_replace(",", "") %>% as.numeric()
   
-  has_race_ethn = second_page %>% .[12] %>% 
-    str_split(" ", simplify = TRUE) %>% .[1, 1] %>% 
-    str_replace(",", "") %>% as.numeric()
-  
-  has_race_ethn_hosp = second_page %>% .[12] %>% 
+  white = second_page %>% .[7] %>% 
     str_split(" ", simplify = TRUE) %>% .[1, 2] %>% 
     str_replace(",", "") %>% as.numeric()
   
-  has_race_ethn_death = second_page %>% .[12] %>% 
-    str_split(" ", simplify = TRUE) %>% .[1, 3] %>% 
-    str_replace(",", "") %>% as.numeric()
-  
-  white = second_page %>% .[6] %>% 
-    str_split(" ", simplify = TRUE) %>% .[1, 2] %>% 
-    str_replace(",", "") %>% as.numeric()
-  
-  white_hosp = second_page %>% .[6] %>% 
+  white_hosp = second_page %>% .[7] %>% 
     str_split(" ", simplify = TRUE) %>% .[1, 4] %>% 
     str_replace(",", "") %>% as.numeric()
   
-  white_death = second_page %>% .[6] %>% 
+  white_death = second_page %>% .[7] %>% 
     str_split(" ", simplify = TRUE) %>% .[1, 6] %>% 
     str_replace(",", "") %>% as.numeric()
   
-  black = second_page %>% .[8] %>% 
+  hispanic = second_page %>% .[8] %>% 
+    str_split(" ", simplify = TRUE) %>% .[1, 2] %>% 
+    str_replace(",", "") %>% as.numeric()
+  
+  hispanic_hosp = second_page %>% .[8] %>% 
+    str_split(" ", simplify = TRUE) %>% .[1, 4] %>% 
+    str_replace(",", "") %>% as.numeric()
+  
+  hispanic_death = second_page %>% .[8] %>% 
+    str_split(" ", simplify = TRUE) %>% .[1, 6] %>% 
+    str_replace(",", "") %>% as.numeric()
+  
+  black = second_page %>% .[9] %>% 
     str_split(" ", simplify = TRUE) %>% .[1, 5] %>% 
     str_replace(",", "") %>% as.numeric()
   
-  black_hosp = second_page %>% .[8] %>% 
+  black_hosp = second_page %>% .[9] %>% 
     str_split(" ", simplify = TRUE) %>% .[1, 7] %>% 
     str_replace(",", "") %>% as.numeric()
   
-  black_death = second_page %>% .[8] %>% 
+  black_death = second_page %>% .[9] %>% 
     str_split(" ", simplify = TRUE) %>% .[1, 9] %>% 
     str_replace(",", "") %>% as.numeric()
   
-  other = second_page %>% .[9] %>% 
+  other = second_page %>% .[10] %>% 
     str_split(" ", simplify = TRUE) %>% .[1, 2] %>% 
     str_replace(",", "") %>% as.numeric()
   
-  other_hosp = second_page %>% .[9] %>% 
+  other_hosp = second_page %>% .[10] %>% 
     str_split(" ", simplify = TRUE) %>% .[1, 4] %>% 
     str_replace(",", "") %>% as.numeric()
   
-  other_death = second_page %>% .[9] %>% 
+  other_death = second_page %>% .[10] %>% 
     str_split(" ", simplify = TRUE) %>% .[1, 6] %>% 
     str_replace(",", "") %>% as.numeric()
   
-  asian = second_page %>% .[10] %>% 
+  asian = second_page %>% .[11] %>% 
     str_split(" ", simplify = TRUE) %>% .[1, 2] %>% 
     str_replace(",", "") %>% as.numeric()
   
-  asian_hosp = second_page %>% .[10] %>% 
+  asian_hosp = second_page %>% .[11] %>% 
     str_split(" ", simplify = TRUE) %>% .[1, 4] %>% 
     str_replace(",", "") %>% as.numeric()
   
-  asian_death = second_page %>% .[10] %>% 
+  asian_death = second_page %>% .[11] %>% 
     str_split(" ", simplify = TRUE) %>% .[1, 6] %>% 
     str_replace(",", "") %>% as.numeric()
   
-  hispanic = second_page %>% .[7] %>% 
-    str_split(" ", simplify = TRUE) %>% .[1, 2] %>% 
-    str_replace(",", "") %>% as.numeric()
   
-  hispanic_hosp = second_page %>% .[7] %>% 
-    str_split(" ", simplify = TRUE) %>% .[1, 4] %>% 
-    str_replace(",", "") %>% as.numeric()
-  
-  hispanic_death = second_page %>% .[7] %>% 
-    str_split(" ", simplify = TRUE) %>% .[1, 6] %>% 
-    str_replace(",", "") %>% as.numeric()
   
   skeleton[["cases"]][["total"]] = cases
   skeleton[["cases"]][["sex_male"]] = males
@@ -1277,7 +1267,7 @@ compile = function() {
   florida = get_florida()
   
   "Running Tennessee" %>% print()
-  tennessee = get_tennessee()
+  tennessee = get_tennessee("2020-05-21")
   
   "Running New Jersey..." %>% print()
   new_jersey = get_new_jersey()
