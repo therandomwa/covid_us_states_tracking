@@ -5,6 +5,10 @@ title: "Courtney Manual Scraping Workflow"
 ```{r}
 # Step 1: Load in my R source files
 library(tidyverse)
+library(pdftools)
+library(rvest)
+library(lubridate)
+library(readxl)
 source("./source/states.R")
 source("./source/states_constants.R")
 ```
