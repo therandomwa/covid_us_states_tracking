@@ -127,7 +127,7 @@ Column {data-width=500}
 
 ```{r}
 renderPlotly({
-  subplot((cases2 %>%
+  cases2 %>%
     filter(state == input$state_choice1,
            num_type == input$count_choice,
            date >= min(date[val != 0])) %>%
@@ -142,12 +142,7 @@ renderPlotly({
       yaxis = list(title = "No. Cases")
       ) %>%
     add_lines(y = ~roll_avg, 
-              line = list(color = "#FF9800"))),
-(timelines %>%
-   filter(state == input$state_choice1) %>%
-   vistime(events = "category", start = "date", end = "end_date",
-           background_lines = 0)),
-nrows = 2, shareX = TRUE, titleY = TRUE)
+              line = list(color = "#FF9800"))
 })
 ```
 
@@ -160,7 +155,7 @@ Column {data-width=500}
 
 ```{r}
 renderPlotly({
-  subplot((deaths2 %>%
+  deaths2 %>%
     filter(state == input$state_choice1,
            num_type == input$count_choice,
            date >= min(date[val != 0])) %>%
@@ -176,11 +171,6 @@ renderPlotly({
       yaxis = list(title = "No. Deaths")
     ) %>%
     add_lines(y = ~roll_avg, 
-              line = list(color = "#FF9800"))),
-    (timelines %>%
-   filter(state == input$state_choice1) %>%
-   vistime(events = "category", start = "date", end = "end_date",
-           background_lines = 0)),
-   nrows = 2, shareX = TRUE, titleY = TRUE)
+              line = list(color = "#FF9800"))
 })
 ```
