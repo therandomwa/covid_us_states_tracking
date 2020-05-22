@@ -32,13 +32,14 @@ source("states_constants.R")
 
 ```{r}
 # Check with these first to make sure all states have good data
-oklahoma = get_oklahoma()
-mississippi = get_mississippi()
 florida = get_florida()
 tennessee = get_tennessee()
-south_carolina = get_south_carolina()
 new_jersey = get_new_jersey()
 new_hampshire = get_new_hampshire()
+dc = get_dc()
+oklahoma = get_oklahoma()
+mississippi = get_mississippi()
+south_carolina = get_south_carolina()
 ```
 
 ```{r}
@@ -49,7 +50,16 @@ new_hampshire
 
 ```{r}
 # Get as much automated data as you can
-automated_data_20200520 = compile()
+automated_data_20200520 = bind_rows(
+  oklahoma,
+  mississippi,
+  florida,
+  tennessee,
+  south_carolina,
+  new_jersey,
+  new_hampshire,
+  dc
+)
 ```
 
 # Manual States
