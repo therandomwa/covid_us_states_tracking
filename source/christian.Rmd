@@ -32,24 +32,34 @@ source("states_constants.R")
 
 ```{r}
 # Check with these first to make sure all states have good data
-oklahoma = get_oklahoma()
-mississippi = get_mississippi()
 florida = get_florida()
 tennessee = get_tennessee()
-north_carolina = get_north_carolina()
-south_carolina = get_south_carolina()
 new_jersey = get_new_jersey()
 new_hampshire = get_new_hampshire()
+dc = get_dc()
+oklahoma = get_oklahoma()
+mississippi = get_mississippi()
+south_carolina = get_south_carolina()
 ```
 
 ```{r}
+new_hampshire
 ```
 
 # Compile The Automated States
 
 ```{r}
 # Get as much automated data as you can
-automated_data_20200520 = compile()
+automated_data_20200520 = bind_rows(
+  oklahoma,
+  mississippi,
+  florida,
+  tennessee,
+  south_carolina,
+  new_jersey,
+  new_hampshire,
+  dc
+)
 ```
 
 # Manual States
@@ -89,7 +99,7 @@ south_dakota = get_south_dakota() # Gloria
 west_virginia = get_west_virginia() # Gloria 
 wyoming = get_wyoming() # Amy
 
-manual_data_20200520 = bind_rows(
+manual_data_20200521 = bind_rows(
   arizona,
   iowa,
   kansas,
@@ -105,8 +115,10 @@ manual_data_20200520 = bind_rows(
 ```
 
 ```{r}
-full_data_20200520 = bind_rows(automated_data_20200520, manual_data_20200520)
-save(full_data_20200520, file = "../Data/meta_2020-05-20-cbp.rda")
+full_data_20200521 = bind_rows(automated_data_20200520, manual_data_20200521)
+save(manual_data_20200521, file = "../data/raw_states/manual_states_2020-05-21-cbp.rda")
+
+save(full_data_20200521, file = "../data/raw_states/meta_2020-05-21-cbp.rda")
 ```
 
 # Compile 

@@ -19,3 +19,6 @@
 
 05/19:
 - North Carolina totally changed their dashboard, changed get_north_carolina()
+
+05/21:
+- MO missing; will update soon

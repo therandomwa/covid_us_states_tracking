@@ -1,0 +1,1857 @@
+state_name,total_test,total_case,total_death,total_hosp,category,raw,strata_type,data_type
+Alabama,NA,12302,494,1432,5-24,1303,age,case
+Alabama,NA,12302,494,1432,65+,3012,age,case
+Alabama,NA,12302,494,1432,0-4,105,age,case
+Alabama,NA,12302,494,1432,50-64,3009,age,case
+Alabama,NA,12302,494,1432,25-49,4860,age,case
+Alabama,NA,12302,494,1432,UNKNOWN,13,age,case
+Alaska,35611,399,10,43,0-10,9,age,case
+Alaska,35611,399,10,43,10-19,26,age,case
+Alaska,35611,399,10,43,20-29,69,age,case
+Alaska,35611,399,10,43,30-39,79,age,case
+Alaska,35611,399,10,43,40-49,57,age,case
+Alaska,35611,399,10,43,50-59,71,age,case
+Alaska,35611,399,10,43,60-69,55,age,case
+Alaska,35611,399,10,43,70-79,25,age,case
+Alaska,35611,399,10,43,80+,8,age,case
+Alaska,35611,399,10,43,UNKNOWN,0,age,case
+Arizona,212784,14170,686,1717,0-19,1134,age,case
+Arizona,212784,14170,686,1717,20-44,5483,age,case
+Arizona,212784,14170,686,1717,45-54,2383,age,case
+Arizona,212784,14170,686,1717,55-64,2121,age,case
+Arizona,212784,14170,686,1717,65+,3038,age,case
+Arizona,212784,14170,686,1717,UNKNOWN,11,age,case
+Arkansas,99173,4813,100,535,0-17,193,age,case
+Arkansas,99173,4813,100,535,18-24,416,age,case
+Arkansas,99173,4813,100,535,25-44,1899,age,case
+Arkansas,99173,4813,100,535,45-64,1565,age,case
+Arkansas,99173,4813,100,535,65+,740,age,case
+California,NA,80430,3216,NA,0-17,3335,age,case
+California,NA,80430,3216,NA,18-49,20496,age,case
+California,NA,80430,3216,NA,50-64,20043,age,case
+California,NA,80430,3216,NA,65+,19703,age,case
+Colorado,NA,20028,975,3275,0-9,443,age,case
+Colorado,NA,20028,975,3275,10-19,904,age,case
+Colorado,NA,20028,975,3275,20-29,3375,age,case
+Colorado,NA,20028,975,3275,30-39,3816,age,case
+Colorado,NA,20028,975,3275,40-49,3852,age,case
+Colorado,NA,20028,975,3275,50-59,3653,age,case
+Colorado,NA,20028,975,3275,60-69,2650,age,case
+Colorado,NA,20028,975,3275,70-79,1676,age,case
+Colorado,NA,20028,975,3275,80+,1778,age,case
+Colorado,NA,20028,975,3275,UNKNOWN,55,age,case
+Connecticut,177679,38116,3449,NA,0-9,376,age,case
+Connecticut,177679,38116,3449,NA,10-19,900,age,case
+Connecticut,177679,38116,3449,NA,20-29,4247,age,case
+Connecticut,177679,38116,3449,NA,30-39,5297,age,case
+Connecticut,177679,38116,3449,NA,40-49,5427,age,case
+Connecticut,177679,38116,3449,NA,50-59,6690,age,case
+Connecticut,177679,38116,3449,NA,60-69,5620,age,case
+Connecticut,177679,38116,3449,NA,70-79,3742,age,case
+Connecticut,177679,38116,3449,NA,80+,5681,age,case
+Delaware,42458,7869,297,NA,0-4,92,age,case
+Delaware,42458,7869,297,NA,5-17,359,age,case
+Delaware,42458,7869,297,NA,18-34,2032,age,case
+Delaware,42458,7869,297,NA,35-49,2050,age,case
+Delaware,42458,7869,297,NA,50-64,1858,age,case
+Delaware,42458,7869,297,NA,65+,1478,age,case
+Florida,677710,45208,1997,NA,0-4,290,age,case
+Florida,677710,45208,1997,NA,5-14,629,age,case
+Florida,677710,45208,1997,NA,15-24,3577,age,case
+Florida,677710,45208,1997,NA,25-34,6812,age,case
+Florida,677710,45208,1997,NA,35-44,6786,age,case
+Florida,677710,45208,1997,NA,45-54,7890,age,case
+Florida,677710,45208,1997,NA,55-64,7543,age,case
+Florida,677710,45208,1997,NA,65-74,5439,age,case
+Florida,677710,45208,1997,NA,75-84,3706,age,case
+Florida,677710,45208,1997,NA,85+,2525,age,case
+Florida,677710,45208,1997,NA,UNKNOWN,11,age,case
+Georgia,NA,38283,1649,6992,NA,NA,age,case
+Hawaii,45023,640,17,82,0-19,33,age,case
+Hawaii,45023,640,17,82,20-39,214,age,case
+Hawaii,45023,640,17,82,40-59,222,age,case
+Hawaii,45023,640,17,82,60+,171,age,case
+Idaho,37847,2455,74,213,0-17,115,age,case
+Idaho,37847,2455,74,213,18-29,512,age,case
+Idaho,37847,2455,74,213,30-39,396,age,case
+Idaho,37847,2455,74,213,40-49,402,age,case
+Idaho,37847,2455,74,213,50-59,399,age,case
+Idaho,37847,2455,74,213,60-69,295,age,case
+Idaho,37847,2455,74,213,70-79,171,age,case
+Idaho,37847,2455,74,213,80+,163,age,case
+Illinois,603241,96485,4234,NA,0-20,5340,age,case
+Illinois,603241,96485,4234,NA,20-29,14636,age,case
+Illinois,603241,96485,4234,NA,30-39,15885,age,case
+Illinois,603241,96485,4234,NA,40-49,17557,age,case
+Illinois,603241,96485,4234,NA,50-59,17348,age,case
+Illinois,603241,96485,4234,NA,60-69,12094,age,case
+Illinois,603241,96485,4234,NA,70-79,6772,age,case
+Illinois,603241,96485,4234,NA,80+,6786,age,case
+Illinois,603241,96485,4234,NA,UNKNOWN,67,age,case
+Indiana,183912,28255,1621,NA,0-19,1020,age,case
+Indiana,183912,28255,1621,NA,20-29,3850,age,case
+Indiana,183912,28255,1621,NA,30-39,4480,age,case
+Indiana,183912,28255,1621,NA,40-49,4811,age,case
+Indiana,183912,28255,1621,NA,50-59,4880,age,case
+Indiana,183912,28255,1621,NA,60-69,3748,age,case
+Indiana,183912,28255,1621,NA,70-79,2434,age,case
+Indiana,183912,28255,1621,NA,80+,3008,age,case
+Indiana,183912,28255,1621,NA,UNKNOWN,24,age,case
+Iowa,106427,15206,367,NA,0-17,0.03,age,case
+Iowa,106427,15206,367,NA,18-40,0.42,age,case
+Iowa,106427,15206,367,NA,41-60,0.37,age,case
+Iowa,106427,15206,367,NA,61-80,0.14,age,case
+Iowa,106427,15206,367,NA,80+,0.05,age,case
+Kansas,66882,8340,173,740,0-9,172,age,case
+Kansas,66882,8340,173,740,10-17,259,age,case
+Kansas,66882,8340,173,740,18-24,999,age,case
+Kansas,66882,8340,173,740,25-34,1586,age,case
+Kansas,66882,8340,173,740,35-44,1585,age,case
+Kansas,66882,8340,173,740,45-54,1506,age,case
+Kansas,66882,8340,173,740,55-64,1211,age,case
+Kansas,66882,8340,173,740,65-74,518,age,case
+Kansas,66882,8340,173,740,75-84,269,age,case
+Kansas,66882,8340,173,740,85+,221,age,case
+Kansas,66882,8340,173,740,UNKNOWN,14,age,case
+Kentucky,145238,7935,346,1514,0-9,106,age,case
+Kentucky,145238,7935,346,1514,10-19,264,age,case
+Kentucky,145238,7935,346,1514,20-29,1069,age,case
+Kentucky,145238,7935,346,1514,30-39,1238,age,case
+Kentucky,145238,7935,346,1514,40-49,1273,age,case
+Kentucky,145238,7935,346,1514,50-59,1179,age,case
+Kentucky,145238,7935,346,1514,60-69,948,age,case
+Kentucky,145238,7935,346,1514,70-79,637,age,case
+Kentucky,145238,7935,346,1514,80+,653,age,case
+Kentucky,145238,7935,346,1514,UNKNOWN,568,age,case
+Louisiana,269748,34709,2440,NA,0-18,606,age,case
+Louisiana,269748,34709,2440,NA,18-29,4278,age,case
+Louisiana,269748,34709,2440,NA,30-39,5521,age,case
+Louisiana,269748,34709,2440,NA,40-49,5786,age,case
+Louisiana,269748,34709,2440,NA,50-59,6496,age,case
+Louisiana,269748,34709,2440,NA,60-69,5618,age,case
+Louisiana,269748,34709,2440,NA,70+,6404,age,case
+Maine,NA,1713,71,223,0-20,59,age,case
+Maine,NA,1713,71,223,20-29,205,age,case
+Maine,NA,1713,71,223,30-39,218,age,case
+Maine,NA,1713,71,223,40-49,259,age,case
+Maine,NA,1713,71,223,50-59,330,age,case
+Maine,NA,1713,71,223,60-69,267,age,case
+Maine,NA,1713,71,223,70-79,190,age,case
+Maine,NA,1713,71,223,80+,185,age,case
+Maryland,201506,39762,1903,7086,0-9,811,age,case
+Maryland,201506,39762,1903,7086,10-19,1549,age,case
+Maryland,201506,39762,1903,7086,20-29,5279,age,case
+Maryland,201506,39762,1903,7086,30-39,7266,age,case
+Maryland,201506,39762,1903,7086,40-49,7135,age,case
+Maryland,201506,39762,1903,7086,50-59,6605,age,case
+Maryland,201506,39762,1903,7086,60-69,4834,age,case
+Maryland,201506,39762,1903,7086,70-79,3244,age,case
+Maryland,201506,39762,1903,7086,80+,3039,age,case
+Massachusetts,460826,86010,5797,8481,0-19,3431,age,case
+Massachusetts,460826,86010,5797,8481,20-29,11037,age,case
+Massachusetts,460826,86010,5797,8481,30-39,12725,age,case
+Massachusetts,460826,86010,5797,8481,40-49,12380,age,case
+Massachusetts,460826,86010,5797,8481,50-59,13887,age,case
+Massachusetts,460826,86010,5797,8481,60-69,11419,age,case
+Massachusetts,460826,86010,5797,8481,70-79,8018,age,case
+Massachusetts,460826,86010,5797,8481,80+,12860,age,case
+Massachusetts,460826,86010,5797,8481,UNKNOWN,253,age,case
+Michigan,424998,51915,4915,NA,0-19,0.03,age,case
+Michigan,424998,51915,4915,NA,20-29,0.11,age,case
+Michigan,424998,51915,4915,NA,30-39,0.14,age,case
+Michigan,424998,51915,4915,NA,40-49,0.16,age,case
+Michigan,424998,51915,4915,NA,50-59,0.18,age,case
+Michigan,424998,51915,4915,NA,60-69,0.16,age,case
+Michigan,424998,51915,4915,NA,70-79,0.11,age,case
+Michigan,424998,51915,4915,NA,80+,0.11,age,case
+Michigan,424998,51915,4915,NA,UNKNOWN,0.01,age,case
+Minnesota,NA,16372,731,1397,0-5,224,age,case
+Minnesota,NA,16372,731,1397,6-19,941,age,case
+Minnesota,NA,16372,731,1397,20-29,2866,age,case
+Minnesota,NA,16372,731,1397,30-39,3280,age,case
+Minnesota,NA,16372,731,1397,40-49,2576,age,case
+Minnesota,NA,16372,731,1397,50-59,2488,age,case
+Minnesota,NA,16372,731,1397,60-69,1595,age,case
+Minnesota,NA,16372,731,1397,70+,2394,age,case
+Minnesota,NA,16372,731,1397,UNKNOWN,8,age,case
+Mississippi,NA,11432,528,NA,NA,NA,age,case
+Missouri,154110,10945,605,NA,0-20,376,age,case
+Missouri,154110,10945,605,NA,20-24,649,age,case
+Missouri,154110,10945,605,NA,25-29,771,age,case
+Missouri,154110,10945,605,NA,30-34,745,age,case
+Missouri,154110,10945,605,NA,35-39,730,age,case
+Missouri,154110,10945,605,NA,40-44,777,age,case
+Missouri,154110,10945,605,NA,45-49,889,age,case
+Missouri,154110,10945,605,NA,50-54,929,age,case
+Missouri,154110,10945,605,NA,55-59,1008,age,case
+Missouri,154110,10945,605,NA,60-64,960,age,case
+Missouri,154110,10945,605,NA,65-69,743,age,case
+Missouri,154110,10945,605,NA,70-74,607,age,case
+Missouri,154110,10945,605,NA,75-79,481,age,case
+Missouri,154110,10945,605,NA,80+,1272,age,case
+Missouri,154110,10945,605,NA,UNKNOWN,8,age,case
+Montana,NA,470,16,64,0-9,3,age,case
+Montana,NA,470,16,64,10-19,17,age,case
+Montana,NA,470,16,64,20-29,92,age,case
+Montana,NA,470,16,64,30-39,77,age,case
+Montana,NA,470,16,64,40-49,67,age,case
+Montana,NA,470,16,64,50-59,86,age,case
+Montana,NA,470,16,64,60-69,74,age,case
+Montana,NA,470,16,64,70-79,37,age,case
+Montana,NA,470,16,64,80+,17,age,case
+Nebraska,70147,10625,124,595,NA,NA,age,case
+Nevada,81832,6906,2672,NA,0-9,90,age,case
+Nevada,81832,6906,2672,NA,10-19,290,age,case
+Nevada,81832,6906,2672,NA,20-29,939,age,case
+Nevada,81832,6906,2672,NA,30-39,1086,age,case
+Nevada,81832,6906,2672,NA,40-49,1020,age,case
+Nevada,81832,6906,2672,NA,50-59,1174,age,case
+Nevada,81832,6906,2672,NA,60-69,885,age,case
+Nevada,81832,6906,2672,NA,70+,944,age,case
+Nevada,81832,6906,2672,NA,UNKNOWN,478,age,case
+New Hampshire,NA,3160,1231,318,0-9,29,age,case
+New Hampshire,NA,3160,1231,318,10-19,126,age,case
+New Hampshire,NA,3160,1231,318,20-29,448,age,case
+New Hampshire,NA,3160,1231,318,30-39,430,age,case
+New Hampshire,NA,3160,1231,318,40-49,433,age,case
+New Hampshire,NA,3160,1231,318,50-59,583,age,case
+New Hampshire,NA,3160,1231,318,60-69,447,age,case
+New Hampshire,NA,3160,1231,318,70-79,266,age,case
+New Hampshire,NA,3160,1231,318,80+,396,age,case
+New Hampshire,NA,3160,1231,318,UNKNOWN,NA,age,case
+New Jersey,NA,148039,10435,15149,0-4,649,age,case
+New Jersey,NA,148039,10435,15149,5-17,2639,age,case
+New Jersey,NA,148039,10435,15149,18-29,18284,age,case
+New Jersey,NA,148039,10435,15149,30-49,47380,age,case
+New Jersey,NA,148039,10435,15149,50-64,42819,age,case
+New Jersey,NA,148039,10435,15149,65-79,21530,age,case
+New Jersey,NA,148039,10435,15149,80+,14453,age,case
+New Jersey,NA,148039,10435,15149,UNKNOWN,NA,age,case
+New Mexico,137620,6096,270,886,0-9,0.0422,age,case
+New Mexico,137620,6096,270,886,10-19,0.0853,age,case
+New Mexico,137620,6096,270,886,20-29,0.1539,age,case
+New Mexico,137620,6096,270,886,30-39,0.1629,age,case
+New Mexico,137620,6096,270,886,40-49,0.1563,age,case
+New Mexico,137620,6096,270,886,50-59,0.1515,age,case
+New Mexico,137620,6096,270,886,60-69,0.1222,age,case
+New Mexico,137620,6096,270,886,70-79,0.0576,age,case
+New Mexico,137620,6096,270,886,80-89,0.0458,age,case
+New Mexico,137620,6096,270,886,90+,0.0222,age,case
+New York,1439557,351371,22729,NA,NA,NA,age,case
+North Carolina,255755,19023,661,511,NA,NA,age,case
+North Dakota,56561,1931,44,133,0-9,92,age,case
+North Dakota,56561,1931,44,133,10-19,115,age,case
+North Dakota,56561,1931,44,133,20-29,387,age,case
+North Dakota,56561,1931,44,133,30-39,456,age,case
+North Dakota,56561,1931,44,133,40-49,294,age,case
+North Dakota,56561,1931,44,133,50-59,224,age,case
+North Dakota,56561,1931,44,133,60-69,153,age,case
+North Dakota,56561,1931,44,133,70-79,75,age,case
+North Dakota,56561,1931,44,133,80+,135,age,case
+Ohio,NA,28454,1657,4998,0-19,1067,age,case
+Ohio,NA,28454,1657,4998,20-29,3753,age,case
+Ohio,NA,28454,1657,4998,30-39,4565,age,case
+Ohio,NA,28454,1657,4998,40-49,4532,age,case
+Ohio,NA,28454,1657,4998,50-59,4818,age,case
+Ohio,NA,28454,1657,4998,60-69,3974,age,case
+Ohio,NA,28454,1657,4998,70-79,2573,age,case
+Ohio,NA,28454,1657,4998,80+,3152,age,case
+Ohio,NA,28454,1657,4998,UNKNOWN,20,age,case
+Oklahoma,NA,5398,288,NA,NA,NA,age,case
+Oregon,97232,3687,138,708,0-9,41,age,case
+Oregon,97232,3687,138,708,10-19,126,age,case
+Oregon,97232,3687,138,708,20-29,541,age,case
+Oregon,97232,3687,138,708,30-39,624,age,case
+Oregon,97232,3687,138,708,40-49,632,age,case
+Oregon,97232,3687,138,708,50-59,647,age,case
+Oregon,97232,3687,138,708,60-69,508,age,case
+Oregon,97232,3687,138,708,70-79,329,age,case
+Oregon,97232,3687,138,708,80+,229,age,case
+Oregon,97232,3687,138,708,UNKNOWN,10,age,case
+Pennsylvania,340609,63056,4505,1882,0-4,0.01,age,case
+Pennsylvania,340609,63056,4505,1882,5-12,0.01,age,case
+Pennsylvania,340609,63056,4505,1882,13-18,0.01,age,case
+Pennsylvania,340609,63056,4505,1882,19-24,0.06,age,case
+Pennsylvania,340609,63056,4505,1882,25-49,0.37,age,case
+Pennsylvania,340609,63056,4505,1882,50-64,0.26,age,case
+Pennsylvania,340609,63056,4505,1882,65+,0.29,age,case
+Rhode Island,115384,12795,506,1438,0-9,178,age,case
+Rhode Island,115384,12795,506,1438,10-19,418,age,case
+Rhode Island,115384,12795,506,1438,20-29,1314,age,case
+Rhode Island,115384,12795,506,1438,30-39,1486,age,case
+Rhode Island,115384,12795,506,1438,40-49,1481,age,case
+Rhode Island,115384,12795,506,1438,50-59,1642,age,case
+Rhode Island,115384,12795,506,1438,60-69,1168,age,case
+Rhode Island,115384,12795,506,1438,70-79,761,age,case
+Rhode Island,115384,12795,506,1438,80-89,634,age,case
+Rhode Island,115384,12795,506,1438,90-99,396,age,case
+Rhode Island,115384,12795,506,1438,100+,27,age,case
+Rhode Island,115384,12795,506,1438,PENDING,94,age,case
+South Carolina,131559,8942,NA,NA,NA,NA,age,case
+South Dakota,29045,4027,44,316,0-19,369,age,case
+South Dakota,29045,4027,44,316,20-29,729,age,case
+South Dakota,29045,4027,44,316,30-39,933,age,case
+South Dakota,29045,4027,44,316,40-49,734,age,case
+South Dakota,29045,4027,44,316,50-59,685,age,case
+South Dakota,29045,4027,44,316,60-69,369,age,case
+South Dakota,29045,4027,44,316,70-79,99,age,case
+South Dakota,29045,4027,44,316,80+,109,age,case
+South Dakota,29045,4027,44,316,UNKNOWN,NA,age,case
+Tennessee,337428,18011,301,NA,0-10,473,age,case
+Tennessee,337428,18011,301,NA,11-20,1231,age,case
+Tennessee,337428,18011,301,NA,21-30,3556,age,case
+Tennessee,337428,18011,301,NA,31-40,3506,age,case
+Tennessee,337428,18011,301,NA,41-50,3133,age,case
+Tennessee,337428,18011,301,NA,51-60,2713,age,case
+Tennessee,337428,18011,301,NA,61-70,1626,age,case
+Tennessee,337428,18011,301,NA,71-80,786,age,case
+Tennessee,337428,18011,301,NA,81+,491,age,case
+Tennessee,337428,18011,301,NA,UNKNOWN,496,age,case
+Texas,723013,48693,1347,NA,0-1,36,age,case
+Texas,723013,48693,1347,NA,1-9,167,age,case
+Texas,723013,48693,1347,NA,10-19,429,age,case
+Texas,723013,48693,1347,NA,20-29,2215,age,case
+Texas,723013,48693,1347,NA,30-39,2591,age,case
+Texas,723013,48693,1347,NA,40-49,2663,age,case
+Texas,723013,48693,1347,NA,50-59,2616,age,case
+Texas,723013,48693,1347,NA,60-64,1101,age,case
+Texas,723013,48693,1347,NA,65-69,792,age,case
+Texas,723013,48693,1347,NA,70-74,531,age,case
+Texas,723013,48693,1347,NA,75-79,353,age,case
+Texas,723013,48693,1347,NA,80+,640,age,case
+Texas,723013,48693,1347,NA,UNKNOWN,124,age,case
+Texas,723013,48693,1347,NA,PENDING,34435,age,case
+Utah,174022,7384,80,595,0-1,33,age,case
+Utah,174022,7384,80,595,1-14,369,age,case
+Utah,174022,7384,80,595,15-24,1246,age,case
+Utah,174022,7384,80,595,25-44,2900,age,case
+Utah,174022,7384,80,595,45-64,2118,age,case
+Utah,174022,7384,80,595,65-84,629,age,case
+Utah,174022,7384,80,595,85+,85,age,case
+Utah,174022,7384,80,595,UNKNOWN,4,age,case
+Vermont,23825,940,54,NA,0-9,1,age,case
+Vermont,23825,940,54,NA,10-19,27,age,case
+Vermont,23825,940,54,NA,20-29,131,age,case
+Vermont,23825,940,54,NA,30-39,140,age,case
+Vermont,23825,940,54,NA,40-49,131,age,case
+Vermont,23825,940,54,NA,50-59,188,age,case
+Vermont,23825,940,54,NA,60-69,142,age,case
+Vermont,23825,940,54,NA,70-79,95,age,case
+Vermont,23825,940,54,NA,80+,85,age,case
+Virginia,NA,31140,1014,3822,0-9,680,age,case
+Virginia,NA,31140,1014,3822,10-19,1368,age,case
+Virginia,NA,31140,1014,3822,20-29,4535,age,case
+Virginia,NA,31140,1014,3822,30-39,5622,age,case
+Virginia,NA,31140,1014,3822,40-49,5768,age,case
+Virginia,NA,31140,1014,3822,50-59,5241,age,case
+Virginia,NA,31140,1014,3822,60-69,3622,age,case
+Virginia,NA,31140,1014,3822,70-79,1939,age,case
+Virginia,NA,31140,1014,3822,80+,2200,age,case
+Virginia,NA,31140,1014,3822,UNKNOWN,165,age,case
+Washington,289135,18611,NA,NA,0-19,0.05,age,case
+Washington,289135,18611,NA,NA,20-39,0.31,age,case
+Washington,289135,18611,NA,NA,40-59,0.34,age,case
+Washington,289135,18611,NA,NA,60-79,0.21,age,case
+Washington,289135,18611,NA,NA,80+,0.09,age,case
+Washington,289135,18611,NA,NA,UNKNOWN,0,age,case
+West Virginia,77760,1502,68,NA,0-9,0.0126,age,case
+West Virginia,77760,1502,68,NA,10-19,0.0326,age,case
+West Virginia,77760,1502,68,NA,20-29,0.1551,age,case
+West Virginia,77760,1502,68,NA,30-39,0.1332,age,case
+West Virginia,77760,1502,68,NA,40-49,0.1558,age,case
+West Virginia,77760,1502,68,NA,50-59,0.1711,age,case
+West Virginia,77760,1502,68,NA,60-69,0.1345,age,case
+West Virginia,77760,1502,68,NA,70+,0.2051,age,case
+West Virginia,77760,1502,68,NA,UNKNOWN,NA,age,case
+Wisconsin,157189,12687,459,2068,0-10,229,age,case
+Wisconsin,157189,12687,459,2068,10-19,637,age,case
+Wisconsin,157189,12687,459,2068,20-29,2110,age,case
+Wisconsin,157189,12687,459,2068,30-39,2223,age,case
+Wisconsin,157189,12687,459,2068,40-49,2179,age,case
+Wisconsin,157189,12687,459,2068,50-59,2078,age,case
+Wisconsin,157189,12687,459,2068,60-69,1540,age,case
+Wisconsin,157189,12687,459,2068,70-79,860,age,case
+Wisconsin,157189,12687,459,2068,80-89,559,age,case
+Wisconsin,157189,12687,459,2068,90+,272,age,case
+Wyoming,17661,577,10,NA,0-18,0.138,age,case
+Wyoming,17661,577,10,NA,19-29,0.187,age,case
+Wyoming,17661,577,10,NA,30-39,0.156,age,case
+Wyoming,17661,577,10,NA,40-49,0.158,age,case
+Wyoming,17661,577,10,NA,50-59,0.151,age,case
+Wyoming,17661,577,10,NA,60-69,0.14,age,case
+Wyoming,17661,577,10,NA,70-79,0.052,age,case
+Wyoming,17661,577,10,NA,80+,0.026,age,case
+Wyoming,17661,577,10,NA,UNKNOWN,NA,age,case
+Alabama,NA,12302,494,1432,ASIAN,72,race,case
+Alabama,NA,12302,494,1432,BLACK,4868,race,case
+Alabama,NA,12302,494,1432,OTHER,482,race,case
+Alabama,NA,12302,494,1432,UNKNOWN,1702,race,case
+Alabama,NA,12302,494,1432,WHITE,5178,race,case
+Alaska,35611,399,10,43,AI/AN,30,race,case
+Alaska,35611,399,10,43,ASIAN,46,race,case
+Alaska,35611,399,10,43,BLACK,9,race,case
+Alaska,35611,399,10,43,MULTI,15,race,case
+Alaska,35611,399,10,43,NH/PI,14,race,case
+Alaska,35611,399,10,43,OTHER,12,race,case
+Alaska,35611,399,10,43,UNKNOWN,15,race,case
+Alaska,35611,399,10,43,WHITE,258,race,case
+Arizona,212784,14170,686,1717,AI/AN,1668,race,case
+Arizona,212784,14170,686,1717,ASIAN,152,race,case
+Arizona,212784,14170,686,1717,BLACK,450,race,case
+Arizona,212784,14170,686,1717,MULTI,0,race,case
+Arizona,212784,14170,686,1717,OTHER,286,race,case
+Arizona,212784,14170,686,1717,UNKNOWN,5934,race,case
+Arizona,212784,14170,686,1717,WHITE,3089,race,case
+Arkansas,99173,4813,100,535,AI,13,race,case
+Arkansas,99173,4813,100,535,ASIAN,55,race,case
+Arkansas,99173,4813,100,535,BLACK,1796,race,case
+Arkansas,99173,4813,100,535,HISPANIC,278,race,case
+Arkansas,99173,4813,100,535,MULTI,35,race,case
+Arkansas,99173,4813,100,535,OTHER,187,race,case
+Arkansas,99173,4813,100,535,PI,92,race,case
+Arkansas,99173,4813,100,535,UNKNOWN,268,race,case
+Arkansas,99173,4813,100,535,WHITE,2367,race,case
+California,NA,80430,3216,NA,AI/AN,108,race,case
+California,NA,80430,3216,NA,ASIAN,5952,race,case
+California,NA,80430,3216,NA,BLACK,3267,race,case
+California,NA,80430,3216,NA,HISPANIC,29693,race,case
+California,NA,80430,3216,NA,MULTI,498,race,case
+California,NA,80430,3216,NA,NH/PI,537,race,case
+California,NA,80430,3216,NA,OTHER,2902,race,case
+California,NA,80430,3216,NA,PENDING,24875,race,case
+California,NA,80430,3216,NA,WHITE,12598,race,case
+Colorado,NA,20028,975,3275,HISPANIC,0.3527,race,case
+Colorado,NA,20028,975,3275,NH AI/AN,0.0044,race,case
+Colorado,NA,20028,975,3275,NH ASIAN,0.0274,race,case
+Colorado,NA,20028,975,3275,NH BLACK,0.0613,race,case
+Colorado,NA,20028,975,3275,NH MULTI,0.0075,race,case
+Colorado,NA,20028,975,3275,NH NH/PI,0.0041,race,case
+Colorado,NA,20028,975,3275,NH WHITE,0.3592,race,case
+Colorado,NA,20028,975,3275,OTHER,0.0093,race,case
+Colorado,NA,20028,975,3275,UNKNOWN,0.1741,race,case
+Connecticut,177679,38116,3449,NA,HISPANIC,5079,race,case
+Connecticut,177679,38116,3449,NA,NH AI/AN,30,race,case
+Connecticut,177679,38116,3449,NA,NH ASIAN/PI,444,race,case
+Connecticut,177679,38116,3449,NA,NH BLACK,3720,race,case
+Connecticut,177679,38116,3449,NA,NH MULTI,43,race,case
+Connecticut,177679,38116,3449,NA,NH OTHER,163,race,case
+Connecticut,177679,38116,3449,NA,NH WHITE,9964,race,case
+Connecticut,177679,38116,3449,NA,UNKNOWN,11178,race,case
+Delaware,42458,7869,297,NA,ASIAN/PI,116,race,case
+Delaware,42458,7869,297,NA,HISPANIC,2177,race,case
+Delaware,42458,7869,297,NA,MULTI,411,race,case
+Delaware,42458,7869,297,NA,NH BLACK,2117,race,case
+Delaware,42458,7869,297,NA,NH WHITE,2218,race,case
+Delaware,42458,7869,297,NA,UNKNOWN,830,race,case
+Florida,677710,45208,1997,NA,AI/AN,0,race,case
+Florida,677710,45208,1997,NA,ASIAN,0,race,case
+Florida,677710,45208,1997,NA,BLACK,9223,race,case
+Florida,677710,45208,1997,NA,MULTI,0,race,case
+Florida,677710,45208,1997,NA,OTHER,4080,race,case
+Florida,677710,45208,1997,NA,UNKNOWN,7239,race,case
+Florida,677710,45208,1997,NA,WHITE,24666,race,case
+Georgia,NA,38283,1649,6992,AI/AN,48,race,case
+Georgia,NA,38283,1649,6992,ASIAN,559,race,case
+Georgia,NA,38283,1649,6992,BLACK,13299,race,case
+Georgia,NA,38283,1649,6992,NH/PI,25,race,case
+Georgia,NA,38283,1649,6992,OTHER,2275,race,case
+Georgia,NA,38283,1649,6992,UNKNOWN,10348,race,case
+Georgia,NA,38283,1649,6992,WHITE,11729,race,case
+Hawaii,45023,640,17,82,AI/AN,0,race,case
+Hawaii,45023,640,17,82,ASIAN,0.29,race,case
+Hawaii,45023,640,17,82,BLACK,0.01,race,case
+Hawaii,45023,640,17,82,MULTI,0.28,race,case
+Hawaii,45023,640,17,82,OTHER,0.01,race,case
+Hawaii,45023,640,17,82,PI,0.15,race,case
+Hawaii,45023,640,17,82,UNKNOWN,0,race,case
+Hawaii,45023,640,17,82,WHITE,0.26,race,case
+Idaho,37847,2455,74,213,AI/AN,0.013,race,case
+Idaho,37847,2455,74,213,ASIAN,0.0232,race,case
+Idaho,37847,2455,74,213,BLACK,0.0181,race,case
+Idaho,37847,2455,74,213,MULTI,0.0407,race,case
+Idaho,37847,2455,74,213,OTHER,0.143,race,case
+Idaho,37847,2455,74,213,UNKNOWN,777,race,case
+Idaho,37847,2455,74,213,WHITE,0.7603,race,case
+Illinois,603241,96485,4234,NA,AI/AN,164,race,case
+Illinois,603241,96485,4234,NA,ASIAN,2868,race,case
+Illinois,603241,96485,4234,NA,BLACK,16795,race,case
+Illinois,603241,96485,4234,NA,HISPANIC,28592,race,case
+Illinois,603241,96485,4234,NA,NH/PI,228,race,case
+Illinois,603241,96485,4234,NA,OTHER,3717,race,case
+Illinois,603241,96485,4234,NA,UNKNOWN,24606,race,case
+Illinois,603241,96485,4234,NA,WHITE,19515,race,case
+Indiana,183912,28255,1621,NA,ASIAN,409,race,case
+Indiana,183912,28255,1621,NA,BLACK,3958,race,case
+Indiana,183912,28255,1621,NA,OTHER,4694,race,case
+Indiana,183912,28255,1621,NA,UNKNOWN,6505,race,case
+Indiana,183912,28255,1621,NA,WHITE,12689,race,case
+Iowa,106427,15206,367,NA,AI/AN,0,race,case
+Iowa,106427,15206,367,NA,ASIAN,0.1,race,case
+Iowa,106427,15206,367,NA,BLACK,0.12,race,case
+Iowa,106427,15206,367,NA,MULTI,0,race,case
+Iowa,106427,15206,367,NA,OTHER,0.21,race,case
+Iowa,106427,15206,367,NA,UNKNOWN,0,race,case
+Iowa,106427,15206,367,NA,WHITE,0.56,race,case
+Kansas,66882,8340,173,740,AI/AN,27,race,case
+Kansas,66882,8340,173,740,ASIAN,486,race,case
+Kansas,66882,8340,173,740,BLACK,863,race,case
+Kansas,66882,8340,173,740,OTHER,191,race,case
+Kansas,66882,8340,173,740,UNKNOWN,1825,race,case
+Kansas,66882,8340,173,740,WHITE,4948,race,case
+Kentucky,145238,7935,346,1514,AI/AN,5e-4,race,case
+Kentucky,145238,7935,346,1514,ASIAN,0.0596,race,case
+Kentucky,145238,7935,346,1514,BLACK,0.1479,race,case
+Kentucky,145238,7935,346,1514,MULTI,0.0532,race,case
+Kentucky,145238,7935,346,1514,NH,9e-4,race,case
+Kentucky,145238,7935,346,1514,WHITE,0.7379,race,case
+Louisiana,269748,34709,2440,NA,NA,NA,race,case
+Maine,NA,1713,71,223,AI/AN,2,race,case
+Maine,NA,1713,71,223,ASIAN/PI,22,race,case
+Maine,NA,1713,71,223,BLACK,140,race,case
+Maine,NA,1713,71,223,MULTI,3,race,case
+Maine,NA,1713,71,223,OTHER,37,race,case
+Maine,NA,1713,71,223,UNKNOWN,331,race,case
+Maine,NA,1713,71,223,WHITE,980,race,case
+Maryland,201506,39762,1903,7086,HISPANIC,9196,race,case
+Maryland,201506,39762,1903,7086,NH ASIAN,770,race,case
+Maryland,201506,39762,1903,7086,NH BLACK,12220,race,case
+Maryland,201506,39762,1903,7086,NH OTHER,1888,race,case
+Maryland,201506,39762,1903,7086,NH WHITE,8180,race,case
+Maryland,201506,39762,1903,7086,UNKNOWN,7508,race,case
+Massachusetts,460826,86010,5797,8481,HISPANIC,14297,race,case
+Massachusetts,460826,86010,5797,8481,NH ASIAN,1555,race,case
+Massachusetts,460826,86010,5797,8481,NH BLACK,7410,race,case
+Massachusetts,460826,86010,5797,8481,NH OTHER,3630,race,case
+Massachusetts,460826,86010,5797,8481,NH WHITE,21670,race,case
+Massachusetts,460826,86010,5797,8481,UNKNOWN,37448,race,case
+Michigan,424998,51915,4915,NA,AI/AN,0.01,race,case
+Michigan,424998,51915,4915,NA,ASIAN/PI,0.02,race,case
+Michigan,424998,51915,4915,NA,BLACK,0.31,race,case
+Michigan,424998,51915,4915,NA,MULTI,0.08,race,case
+Michigan,424998,51915,4915,NA,OTHER,0.05,race,case
+Michigan,424998,51915,4915,NA,UNKNOWN,0.18,race,case
+Michigan,424998,51915,4915,NA,WHITE,0.35,race,case
+Minnesota,NA,16372,731,1397,AI,113,race,case
+Minnesota,NA,16372,731,1397,ASIAN,653,race,case
+Minnesota,NA,16372,731,1397,BLACK,3476,race,case
+Minnesota,NA,16372,731,1397,MULTI,267,race,case
+Minnesota,NA,16372,731,1397,OTHER,1576,race,case
+Minnesota,NA,16372,731,1397,PI,19,race,case
+Minnesota,NA,16372,731,1397,UNKNOWN,4836,race,case
+Minnesota,NA,16372,731,1397,WHITE,5432,race,case
+Mississippi,NA,11432,528,NA,AI/AN,380,race,case
+Mississippi,NA,11432,528,NA,ASIAN,42,race,case
+Mississippi,NA,11432,528,NA,BLACK,6188,race,case
+Mississippi,NA,11432,528,NA,MULTI,0,race,case
+Mississippi,NA,11432,528,NA,OTHER,697,race,case
+Mississippi,NA,11432,528,NA,UNKNOWN,459,race,case
+Mississippi,NA,11432,528,NA,WHITE,3666,race,case
+Missouri,154110,10945,605,NA,NA,NA,race,case
+Montana,NA,470,16,64,AI/AN/NH/PI,29,race,case
+Montana,NA,470,16,64,ASIAN,1,race,case
+Montana,NA,470,16,64,BLACK,2,race,case
+Montana,NA,470,16,64,OTHER,5,race,case
+Montana,NA,470,16,64,PENDING,5,race,case
+Montana,NA,470,16,64,WHITE,428,race,case
+Nebraska,70147,10625,124,595,NA,NA,race,case
+Nevada,81832,6906,2672,NA,NA,NA,race,case
+New Hampshire,NA,3160,1231,318,AI/AN,0,race,case
+New Hampshire,NA,3160,1231,318,ASIAN,70,race,case
+New Hampshire,NA,3160,1231,318,BLACK,131,race,case
+New Hampshire,NA,3160,1231,318,MULTI,0,race,case
+New Hampshire,NA,3160,1231,318,OTHER,206,race,case
+New Hampshire,NA,3160,1231,318,UNKNOWN,0,race,case
+New Hampshire,NA,3160,1231,318,WHITE,1685,race,case
+New Jersey,NA,148039,10435,15149,AI/AN,0,race,case
+New Jersey,NA,148039,10435,15149,ASIAN,3868,race,case
+New Jersey,NA,148039,10435,15149,BLACK,13724,race,case
+New Jersey,NA,148039,10435,15149,MULTI,0,race,case
+New Jersey,NA,148039,10435,15149,OTHER,8574,race,case
+New Jersey,NA,148039,10435,15149,UNKNOWN,0,race,case
+New Jersey,NA,148039,10435,15149,WHITE,28022,race,case
+New Mexico,137620,6096,270,886,AI/AN,0.5781,race,case
+New Mexico,137620,6096,270,886,ASIAN,0.0081,race,case
+New Mexico,137620,6096,270,886,BLACK,0.0283,race,case
+New Mexico,137620,6096,270,886,HISPANIC,0.2203,race,case
+New Mexico,137620,6096,270,886,UNKNOWN,0.0322,race,case
+New Mexico,137620,6096,270,886,WHITE,0.1274,race,case
+New York,1439557,351371,22729,NA,NA,NA,race,case
+North Carolina,255755,19023,661,511,AI/AN,142,race,case
+North Carolina,255755,19023,661,511,ASIAN,353,race,case
+North Carolina,255755,19023,661,511,BLACK,4531,race,case
+North Carolina,255755,19023,661,511,MULTI,0,race,case
+North Carolina,255755,19023,661,511,OTHER,1341,race,case
+North Carolina,255755,19023,661,511,UNKNOWN,0,race,case
+North Carolina,255755,19023,661,511,WHITE,7438,race,case
+North Dakota,56561,1931,44,133,NA,NA,race,case
+Ohio,NA,28454,1657,4998,NA,NA,race,case
+Oklahoma,NA,5398,288,NA,NA,NA,race,case
+Oregon,97232,3687,138,708,NA,NA,race,case
+Pennsylvania,340609,63056,4505,1882,ASIAN,791,race,case
+Pennsylvania,340609,63056,4505,1882,BLACK,7408,race,case
+Pennsylvania,340609,63056,4505,1882,OTHER,332,race,case
+Pennsylvania,340609,63056,4505,1882,UNKNOWN,38469,race,case
+Pennsylvania,340609,63056,4505,1882,WHITE,16056,race,case
+Rhode Island,115384,12795,506,1438,HISPANIC,2325,race,case
+Rhode Island,115384,12795,506,1438,NH BLACK,701,race,case
+Rhode Island,115384,12795,506,1438,NH MULTI,24,race,case
+Rhode Island,115384,12795,506,1438,NH OTHER,209,race,case
+Rhode Island,115384,12795,506,1438,NH WHITE,2031,race,case
+Rhode Island,115384,12795,506,1438,PENDING,2862,race,case
+Rhode Island,115384,12795,506,1438,UNKNOWN,1447,race,case
+South Carolina,131559,8942,NA,NA,NA,NA,race,case
+South Dakota,29045,4027,44,316,AI/AN,271,race,case
+South Dakota,29045,4027,44,316,ASIAN,476,race,case
+South Dakota,29045,4027,44,316,BLACK,862,race,case
+South Dakota,29045,4027,44,316,MULTI,0,race,case
+South Dakota,29045,4027,44,316,OTHER,507,race,case
+South Dakota,29045,4027,44,316,UNKNOWN,0,race,case
+South Dakota,29045,4027,44,316,WHITE,1206,race,case
+Tennessee,337428,18011,301,NA,AI/AN,0,race,case
+Tennessee,337428,18011,301,NA,ASIAN,366,race,case
+Tennessee,337428,18011,301,NA,BLACK,3747,race,case
+Tennessee,337428,18011,301,NA,MULTI,0,race,case
+Tennessee,337428,18011,301,NA,OTHER,1543,race,case
+Tennessee,337428,18011,301,NA,UNKNOWN,5256,race,case
+Tennessee,337428,18011,301,NA,WHITE,7099,race,case
+Texas,723013,48693,1347,NA,ASIAN,488,race,case
+Texas,723013,48693,1347,NA,BLACK,2181,race,case
+Texas,723013,48693,1347,NA,HISPANIC,5649,race,case
+Texas,723013,48693,1347,NA,OTHER,96,race,case
+Texas,723013,48693,1347,NA,PENDING,34435,race,case
+Texas,723013,48693,1347,NA,UNKNOWN,1891,race,case
+Texas,723013,48693,1347,NA,WHITE,3953,race,case
+Utah,174022,7384,80,595,AI/AN,260,race,case
+Utah,174022,7384,80,595,ASIAN,178,race,case
+Utah,174022,7384,80,595,BLACK,233,race,case
+Utah,174022,7384,80,595,HISPANIC,2789,race,case
+Utah,174022,7384,80,595,NH WHITE,2883,race,case
+Utah,174022,7384,80,595,NH/PI,253,race,case
+Utah,174022,7384,80,595,OTHER,817,race,case
+Utah,174022,7384,80,595,UNKNOWN,724,race,case
+Vermont,23825,940,54,NA,AI/AN,1,race,case
+Vermont,23825,940,54,NA,ASIAN,11,race,case
+Vermont,23825,940,54,NA,BLACK,27,race,case
+Vermont,23825,940,54,NA,OTHER,12,race,case
+Vermont,23825,940,54,NA,UNKNOWN,32,race,case
+Vermont,23825,940,54,NA,WHITE,857,race,case
+Virginia,NA,31140,1014,3822,BLACK,4864,race,case
+Virginia,NA,31140,1014,3822,OTHER,6589,race,case
+Virginia,NA,31140,1014,3822,UNKNOWN,9544,race,case
+Virginia,NA,31140,1014,3822,WHITE,10143,race,case
+Washington,289135,18611,NA,NA,HISPANIC,4532,race,case
+Washington,289135,18611,NA,NA,NH AI/AN,164,race,case
+Washington,289135,18611,NA,NA,NH ASIAN,1016,race,case
+Washington,289135,18611,NA,NA,NH BLACK,873,race,case
+Washington,289135,18611,NA,NA,NH MULTI,234,race,case
+Washington,289135,18611,NA,NA,NH NH/PI,254,race,case
+Washington,289135,18611,NA,NA,NH OTHER,245,race,case
+Washington,289135,18611,NA,NA,NH WHITE,5456,race,case
+Washington,289135,18611,NA,NA,UNKNOWN,5837,race,case
+West Virginia,77760,1502,68,NA,AI/AN,0,race,case
+West Virginia,77760,1502,68,NA,ASIAN,0,race,case
+West Virginia,77760,1502,68,NA,BLACK,107,race,case
+West Virginia,77760,1502,68,NA,MULTI,0,race,case
+West Virginia,77760,1502,68,NA,OTHER,167,race,case
+West Virginia,77760,1502,68,NA,UNKNOWN,0,race,case
+West Virginia,77760,1502,68,NA,WHITE,1228,race,case
+Wisconsin,157189,12687,459,2068,AI,146,race,case
+Wisconsin,157189,12687,459,2068,ASIAN/PI,468,race,case
+Wisconsin,157189,12687,459,2068,BLACK,2545,race,case
+Wisconsin,157189,12687,459,2068,MULTI/OTHERS,1387,race,case
+Wisconsin,157189,12687,459,2068,UNKNOWN,1377,race,case
+Wisconsin,157189,12687,459,2068,WHITE,6764,race,case
+Wyoming,17661,577,10,NA,AI/AN,0,race,case
+Wyoming,17661,577,10,NA,ASIAN,0.009,race,case
+Wyoming,17661,577,10,NA,BLACK,0.014,race,case
+Wyoming,17661,577,10,NA,MULTI,0,race,case
+Wyoming,17661,577,10,NA,OTHER,0.029,race,case
+Wyoming,17661,577,10,NA,UNKNOWN,0.087,race,case
+Wyoming,17661,577,10,NA,WHITE,0.487,race,case
+Alabama,NA,12302,494,1432,FEMALE,7119,sex,case
+Alabama,NA,12302,494,1432,MALE,5080,sex,case
+Alabama,NA,12302,494,1432,UNKNOWN/OTHER,103,sex,case
+Alaska,35611,399,10,43,FEMALE,196,sex,case
+Alaska,35611,399,10,43,MALE,203,sex,case
+Alaska,35611,399,10,43,UNKNOWN/OTHER,0,sex,case
+Arizona,212784,14170,686,1717,FEMALE,7454,sex,case
+Arizona,212784,14170,686,1717,MALE,6692,sex,case
+Arizona,212784,14170,686,1717,UNKNOWN/OTHER,0,sex,case
+Arkansas,99173,4813,100,535,FEMALE,0.38,sex,case
+Arkansas,99173,4813,100,535,MALE,0.612,sex,case
+California,NA,80430,3216,NA,NA,NA,sex,case
+Colorado,NA,20028,975,3275,FEMALE,0.506,sex,case
+Colorado,NA,20028,975,3275,MALE,0.4842,sex,case
+Colorado,NA,20028,975,3275,UNKNOWN/OTHER,0.0098,sex,case
+Connecticut,177679,38116,3449,NA,FEMALE,20855,sex,case
+Connecticut,177679,38116,3449,NA,MALE,17067,sex,case
+Delaware,42458,7869,297,NA,FEMALE,4313,sex,case
+Delaware,42458,7869,297,NA,MALE,3532,sex,case
+Delaware,42458,7869,297,NA,UNKNOWN/OTHER,24,sex,case
+Florida,677710,45208,1997,NA,FEMALE,22967,sex,case
+Florida,677710,45208,1997,NA,MALE,22241,sex,case
+Florida,677710,45208,1997,NA,UNKNOWN/OTHER,0,sex,case
+Georgia,NA,38283,1649,6992,NA,NA,sex,case
+Hawaii,45023,640,17,82,NA,NA,sex,case
+Idaho,37847,2455,74,213,FEMALE,1345,sex,case
+Idaho,37847,2455,74,213,MALE,1105,sex,case
+Illinois,603241,96485,4234,NA,FEMALE,48462,sex,case
+Illinois,603241,96485,4234,NA,MALE,45914,sex,case
+Illinois,603241,96485,4234,NA,UNKNOWN/OTHER,2109,sex,case
+Indiana,183912,28255,1621,NA,FEMALE,14507,sex,case
+Indiana,183912,28255,1621,NA,MALE,13048,sex,case
+Indiana,183912,28255,1621,NA,UNKNOWN/OTHER,700,sex,case
+Iowa,106427,15206,367,NA,FEMALE,0.47,sex,case
+Iowa,106427,15206,367,NA,MALE,0.5,sex,case
+Kansas,66882,8340,173,740,FEMALE,3482,sex,case
+Kansas,66882,8340,173,740,MALE,4651,sex,case
+Kansas,66882,8340,173,740,UNKNOWN/OTHER,207,sex,case
+Kentucky,145238,7935,346,1514,FEMALE,3899,sex,case
+Kentucky,145238,7935,346,1514,MALE,3780,sex,case
+Kentucky,145238,7935,346,1514,UNKNOWN/OTHER,256,sex,case
+Louisiana,269748,34709,2440,NA,FEMALE,0.55,sex,case
+Louisiana,269748,34709,2440,NA,MALE,0.4,sex,case
+Louisiana,269748,34709,2440,NA,UNKNOWN/OTHER,0.05,sex,case
+Maine,NA,1713,71,223,FEMALE,900,sex,case
+Maine,NA,1713,71,223,MALE,813,sex,case
+Maine,NA,1713,71,223,UNKNOWN/OTHER,0,sex,case
+Maryland,201506,39762,1903,7086,FEMALE,20706,sex,case
+Maryland,201506,39762,1903,7086,MALE,19056,sex,case
+Massachusetts,460826,86010,5797,8481,FEMALE,46825,sex,case
+Massachusetts,460826,86010,5797,8481,MALE,37810,sex,case
+Massachusetts,460826,86010,5797,8481,UNKNOWN/OTHER,1375,sex,case
+Michigan,424998,51915,4915,NA,FEMALE,0.52,sex,case
+Michigan,424998,51915,4915,NA,MALE,0.47,sex,case
+Michigan,424998,51915,4915,NA,UNKNOWN/OTHER,0.01,sex,case
+Minnesota,NA,16372,731,1397,FEMALE,8116,sex,case
+Minnesota,NA,16372,731,1397,MALE,7928,sex,case
+Minnesota,NA,16372,731,1397,UNKNOWN/OTHER,322,sex,case
+Mississippi,NA,11432,528,NA,NA,NA,sex,case
+Missouri,154110,10945,605,NA,FEMALE,5900,sex,case
+Missouri,154110,10945,605,NA,MALE,4975,sex,case
+Missouri,154110,10945,605,NA,UNKNOWN/OTHER,70,sex,case
+Montana,NA,470,16,64,FEMALE,243,sex,case
+Montana,NA,470,16,64,MALE,227,sex,case
+Nebraska,70147,10625,124,595,NA,NA,sex,case
+Nevada,81832,6906,2672,NA,FEMALE,3529,sex,case
+Nevada,81832,6906,2672,NA,MALE,3265,sex,case
+Nevada,81832,6906,2672,NA,UNKNOWN/OTHER,112,sex,case
+New Hampshire,NA,3160,1231,318,FEMALE,1742,sex,case
+New Hampshire,NA,3160,1231,318,MALE,1407,sex,case
+New Hampshire,NA,3160,1231,318,UNKNOWN/OTHER,0,sex,case
+New Jersey,NA,148039,10435,15149,FEMALE,73843,sex,case
+New Jersey,NA,148039,10435,15149,MALE,73554,sex,case
+New Jersey,NA,148039,10435,15149,UNKNOWN/OTHER,642,sex,case
+New Mexico,137620,6096,270,886,FEMALE,0.5365,sex,case
+New Mexico,137620,6096,270,886,MALE,0.4635,sex,case
+New York,1439557,351371,22729,NA,FEMALE,0.482,sex,case
+New York,1439557,351371,22729,NA,MALE,0.512,sex,case
+New York,1439557,351371,22729,NA,UNKNOWN/OTHER,0.006,sex,case
+North Carolina,255755,19023,661,511,NA,NA,sex,case
+North Dakota,56561,1931,44,133,FEMALE,998,sex,case
+North Dakota,56561,1931,44,133,MALE,933,sex,case
+Ohio,NA,28454,1657,4998,FEMALE,13087,sex,case
+Ohio,NA,28454,1657,4998,MALE,15196,sex,case
+Ohio,NA,28454,1657,4998,UNKNOWN/OTHER,171,sex,case
+Oklahoma,NA,5398,288,NA,NA,NA,sex,case
+Oregon,97232,3687,138,708,FEMALE,1939,sex,case
+Oregon,97232,3687,138,708,MALE,1744,sex,case
+Oregon,97232,3687,138,708,UNKNOWN/OTHER,4,sex,case
+Pennsylvania,340609,63056,4505,1882,FEMALE,34542,sex,case
+Pennsylvania,340609,63056,4505,1882,MALE,27803,sex,case
+Pennsylvania,340609,63056,4505,1882,UNKNOWN/OTHER,711,sex,case
+Rhode Island,115384,12795,506,1438,FEMALE,5201,sex,case
+Rhode Island,115384,12795,506,1438,MALE,4243,sex,case
+Rhode Island,115384,12795,506,1438,PENDING,155,sex,case
+South Carolina,131559,8942,NA,NA,NA,NA,sex,case
+South Dakota,29045,4027,44,316,FEMALE,1847,sex,case
+South Dakota,29045,4027,44,316,MALE,2180,sex,case
+South Dakota,29045,4027,44,316,UNKNOWN/OTHER,0,sex,case
+Tennessee,337428,18011,301,NA,FEMALE,7414,sex,case
+Tennessee,337428,18011,301,NA,MALE,9680,sex,case
+Tennessee,337428,18011,301,NA,UNKNOWN/OTHER,917,sex,case
+Texas,723013,48693,1347,NA,FEMALE,6567,sex,case
+Texas,723013,48693,1347,NA,MALE,7411,sex,case
+Texas,723013,48693,1347,NA,PENDING,34435,sex,case
+Texas,723013,48693,1347,NA,UNKNOWN/OTHER,280,sex,case
+Utah,174022,7384,80,595,FEMALE,3496,sex,case
+Utah,174022,7384,80,595,MALE,3877,sex,case
+Vermont,23825,940,54,NA,FEMALE,494,sex,case
+Vermont,23825,940,54,NA,MALE,442,sex,case
+Vermont,23825,940,54,NA,UNKNOWN/OTHER,4,sex,case
+Virginia,NA,31140,1014,3822,FEMALE,15541,sex,case
+Virginia,NA,31140,1014,3822,MALE,15406,sex,case
+Virginia,NA,31140,1014,3822,UNKNOWN/OTHER,193,sex,case
+Washington,289135,18611,NA,NA,FEMALE,0.52,sex,case
+Washington,289135,18611,NA,NA,MALE,0.46,sex,case
+Washington,289135,18611,NA,NA,UNKNOWN/OTHER,0.02,sex,case
+West Virginia,77760,1502,68,NA,FEMALE,0.567,sex,case
+West Virginia,77760,1502,68,NA,MALE,0.429,sex,case
+West Virginia,77760,1502,68,NA,UNKNOWN/OTHER,0.004,sex,case
+Wisconsin,157189,12687,459,2068,FEMALE,0.51,sex,case
+Wisconsin,157189,12687,459,2068,MALE,0.49,sex,case
+Wisconsin,157189,12687,459,2068,UNKNOWN/OTHER,0,sex,case
+Wyoming,17661,577,10,NA,FEMALE,0.501,sex,case
+Wyoming,17661,577,10,NA,MALE,0.499,sex,case
+Wyoming,17661,577,10,NA,UNKNOWN/OTHER,0,sex,case
+Alabama,NA,12302,494,1432,65+,399,age,death
+Alabama,NA,12302,494,1432,50-64,82,age,death
+Alabama,NA,12302,494,1432,25-49,12,age,death
+Alabama,NA,12302,494,1432,UNKNOWN,1,age,death
+Alaska,35611,399,10,43,0-10,0,age,death
+Alaska,35611,399,10,43,10-19,0,age,death
+Alaska,35611,399,10,43,20-29,0,age,death
+Alaska,35611,399,10,43,30-39,2,age,death
+Alaska,35611,399,10,43,40-49,0,age,death
+Alaska,35611,399,10,43,50-59,1,age,death
+Alaska,35611,399,10,43,60-69,1,age,death
+Alaska,35611,399,10,43,70-79,5,age,death
+Alaska,35611,399,10,43,80+,1,age,death
+Alaska,35611,399,10,43,UNKNOWN,0,age,death
+Arizona,212784,14170,686,1717,0-19,NA,age,death
+Arizona,212784,14170,686,1717,20-44,26,age,death
+Arizona,212784,14170,686,1717,45-54,33,age,death
+Arizona,212784,14170,686,1717,55-64,78,age,death
+Arizona,212784,14170,686,1717,65+,548,age,death
+Arizona,212784,14170,686,1717,UNKNOWN,NA,age,death
+Arkansas,99173,4813,100,535,NA,NA,age,death
+California,NA,80430,3216,NA,0-17,0,age,death
+California,NA,80430,3216,NA,18-49,32,age,death
+California,NA,80430,3216,NA,50-64,157,age,death
+California,NA,80430,3216,NA,65+,481,age,death
+Colorado,NA,20028,975,3275,10-19,2,age,death
+Colorado,NA,20028,975,3275,20-29,7,age,death
+Colorado,NA,20028,975,3275,30-39,7,age,death
+Colorado,NA,20028,975,3275,40-49,31,age,death
+Colorado,NA,20028,975,3275,50-59,65,age,death
+Colorado,NA,20028,975,3275,60-69,164,age,death
+Colorado,NA,20028,975,3275,70-79,284,age,death
+Colorado,NA,20028,975,3275,80+,664,age,death
+Connecticut,177679,38116,3449,NA,0-9,1,age,death
+Connecticut,177679,38116,3449,NA,10-19,1,age,death
+Connecticut,177679,38116,3449,NA,20-29,4,age,death
+Connecticut,177679,38116,3449,NA,30-39,20,age,death
+Connecticut,177679,38116,3449,NA,40-49,53,age,death
+Connecticut,177679,38116,3449,NA,50-59,140,age,death
+Connecticut,177679,38116,3449,NA,60-69,435,age,death
+Connecticut,177679,38116,3449,NA,70-79,745,age,death
+Connecticut,177679,38116,3449,NA,80+,2048,age,death
+Delaware,42458,7869,297,NA,0-4,0,age,death
+Delaware,42458,7869,297,NA,5-17,0,age,death
+Delaware,42458,7869,297,NA,18-34,8,age,death
+Delaware,42458,7869,297,NA,35-49,7,age,death
+Delaware,42458,7869,297,NA,50-64,45,age,death
+Delaware,42458,7869,297,NA,65+,237,age,death
+Florida,677710,45208,1997,NA,0-4,0,age,death
+Florida,677710,45208,1997,NA,5-14,0,age,death
+Florida,677710,45208,1997,NA,15-24,0,age,death
+Florida,677710,45208,1997,NA,25-34,14,age,death
+Florida,677710,45208,1997,NA,35-44,33,age,death
+Florida,677710,45208,1997,NA,45-54,77,age,death
+Florida,677710,45208,1997,NA,55-64,184,age,death
+Florida,677710,45208,1997,NA,65-74,439,age,death
+Florida,677710,45208,1997,NA,75-84,598,age,death
+Florida,677710,45208,1997,NA,85+,652,age,death
+Florida,677710,45208,1997,NA,UNKNOWN,0,age,death
+Georgia,NA,38283,1649,6992,.,1,age,death
+Georgia,NA,38283,1649,6992,22,2,age,death
+Georgia,NA,38283,1649,6992,25,2,age,death
+Georgia,NA,38283,1649,6992,26,2,age,death
+Georgia,NA,38283,1649,6992,27,1,age,death
+Georgia,NA,38283,1649,6992,28,1,age,death
+Georgia,NA,38283,1649,6992,29,3,age,death
+Georgia,NA,38283,1649,6992,30,2,age,death
+Georgia,NA,38283,1649,6992,31,4,age,death
+Georgia,NA,38283,1649,6992,32,2,age,death
+Georgia,NA,38283,1649,6992,33,6,age,death
+Georgia,NA,38283,1649,6992,34,6,age,death
+Georgia,NA,38283,1649,6992,35,2,age,death
+Georgia,NA,38283,1649,6992,36,3,age,death
+Georgia,NA,38283,1649,6992,37,3,age,death
+Georgia,NA,38283,1649,6992,38,2,age,death
+Georgia,NA,38283,1649,6992,39,1,age,death
+Georgia,NA,38283,1649,6992,40,2,age,death
+Georgia,NA,38283,1649,6992,42,3,age,death
+Georgia,NA,38283,1649,6992,43,4,age,death
+Georgia,NA,38283,1649,6992,44,7,age,death
+Georgia,NA,38283,1649,6992,45,7,age,death
+Georgia,NA,38283,1649,6992,46,6,age,death
+Georgia,NA,38283,1649,6992,47,3,age,death
+Georgia,NA,38283,1649,6992,48,13,age,death
+Georgia,NA,38283,1649,6992,49,13,age,death
+Georgia,NA,38283,1649,6992,50,9,age,death
+Georgia,NA,38283,1649,6992,51,6,age,death
+Georgia,NA,38283,1649,6992,52,6,age,death
+Georgia,NA,38283,1649,6992,53,16,age,death
+Georgia,NA,38283,1649,6992,54,15,age,death
+Georgia,NA,38283,1649,6992,55,12,age,death
+Georgia,NA,38283,1649,6992,56,19,age,death
+Georgia,NA,38283,1649,6992,57,14,age,death
+Georgia,NA,38283,1649,6992,58,22,age,death
+Georgia,NA,38283,1649,6992,59,19,age,death
+Georgia,NA,38283,1649,6992,60,19,age,death
+Georgia,NA,38283,1649,6992,61,27,age,death
+Georgia,NA,38283,1649,6992,62,29,age,death
+Georgia,NA,38283,1649,6992,63,41,age,death
+Georgia,NA,38283,1649,6992,64,27,age,death
+Georgia,NA,38283,1649,6992,65,42,age,death
+Georgia,NA,38283,1649,6992,66,37,age,death
+Georgia,NA,38283,1649,6992,67,34,age,death
+Georgia,NA,38283,1649,6992,68,45,age,death
+Georgia,NA,38283,1649,6992,69,29,age,death
+Georgia,NA,38283,1649,6992,70,42,age,death
+Georgia,NA,38283,1649,6992,71,45,age,death
+Georgia,NA,38283,1649,6992,72,28,age,death
+Georgia,NA,38283,1649,6992,73,55,age,death
+Georgia,NA,38283,1649,6992,74,45,age,death
+Georgia,NA,38283,1649,6992,75,53,age,death
+Georgia,NA,38283,1649,6992,76,42,age,death
+Georgia,NA,38283,1649,6992,77,43,age,death
+Georgia,NA,38283,1649,6992,78,52,age,death
+Georgia,NA,38283,1649,6992,79,51,age,death
+Georgia,NA,38283,1649,6992,80,34,age,death
+Georgia,NA,38283,1649,6992,81,50,age,death
+Georgia,NA,38283,1649,6992,82,47,age,death
+Georgia,NA,38283,1649,6992,83,51,age,death
+Georgia,NA,38283,1649,6992,84,52,age,death
+Georgia,NA,38283,1649,6992,85,57,age,death
+Georgia,NA,38283,1649,6992,86,26,age,death
+Georgia,NA,38283,1649,6992,87,40,age,death
+Georgia,NA,38283,1649,6992,88,30,age,death
+Georgia,NA,38283,1649,6992,89,40,age,death
+Georgia,NA,38283,1649,6992,90+,197,age,death
+Hawaii,45023,640,17,82,NA,NA,age,death
+Idaho,37847,2455,74,213,0-17,NA,age,death
+Idaho,37847,2455,74,213,18-29,NA,age,death
+Idaho,37847,2455,74,213,30-39,NA,age,death
+Idaho,37847,2455,74,213,40-49,NA,age,death
+Idaho,37847,2455,74,213,50-59,2,age,death
+Idaho,37847,2455,74,213,60-69,9,age,death
+Idaho,37847,2455,74,213,70-79,15,age,death
+Idaho,37847,2455,74,213,80+,48,age,death
+Illinois,603241,96485,4234,NA,0-20,3,age,death
+Illinois,603241,96485,4234,NA,20-29,18,age,death
+Illinois,603241,96485,4234,NA,30-39,62,age,death
+Illinois,603241,96485,4234,NA,40-49,145,age,death
+Illinois,603241,96485,4234,NA,50-59,361,age,death
+Illinois,603241,96485,4234,NA,60-69,739,age,death
+Illinois,603241,96485,4234,NA,70-79,1034,age,death
+Illinois,603241,96485,4234,NA,80+,1872,age,death
+Illinois,603241,96485,4234,NA,UNKNOWN,0,age,death
+Indiana,183912,28255,1621,NA,0-19,2,age,death
+Indiana,183912,28255,1621,NA,20-29,3,age,death
+Indiana,183912,28255,1621,NA,30-39,12,age,death
+Indiana,183912,28255,1621,NA,40-49,31,age,death
+Indiana,183912,28255,1621,NA,50-59,94,age,death
+Indiana,183912,28255,1621,NA,60-69,265,age,death
+Indiana,183912,28255,1621,NA,70-79,399,age,death
+Indiana,183912,28255,1621,NA,80+,815,age,death
+Indiana,183912,28255,1621,NA,UNKNOWN,0,age,death
+Iowa,106427,15206,367,NA,0-17,NA,age,death
+Iowa,106427,15206,367,NA,18-40,0.02,age,death
+Iowa,106427,15206,367,NA,41-60,0.11,age,death
+Iowa,106427,15206,367,NA,61-80,0.41,age,death
+Iowa,106427,15206,367,NA,80+,0.46,age,death
+Kansas,66882,8340,173,740,0-9,4,age,death
+Kansas,66882,8340,173,740,10-17,0,age,death
+Kansas,66882,8340,173,740,18-24,0,age,death
+Kansas,66882,8340,173,740,25-34,0,age,death
+Kansas,66882,8340,173,740,35-44,4,age,death
+Kansas,66882,8340,173,740,45-54,7,age,death
+Kansas,66882,8340,173,740,55-64,25,age,death
+Kansas,66882,8340,173,740,65-74,30,age,death
+Kansas,66882,8340,173,740,75-84,39,age,death
+Kansas,66882,8340,173,740,85+,68,age,death
+Kansas,66882,8340,173,740,UNKNOWN,NA,age,death
+Kentucky,145238,7935,346,1514,0-9,0,age,death
+Kentucky,145238,7935,346,1514,10-19,0,age,death
+Kentucky,145238,7935,346,1514,20-29,0,age,death
+Kentucky,145238,7935,346,1514,30-39,2,age,death
+Kentucky,145238,7935,346,1514,40-49,5,age,death
+Kentucky,145238,7935,346,1514,50-59,23,age,death
+Kentucky,145238,7935,346,1514,60-69,55,age,death
+Kentucky,145238,7935,346,1514,70-79,83,age,death
+Kentucky,145238,7935,346,1514,80+,178,age,death
+Kentucky,145238,7935,346,1514,UNKNOWN,0,age,death
+Louisiana,269748,34709,2440,NA,0-18,2,age,death
+Louisiana,269748,34709,2440,NA,18-29,9,age,death
+Louisiana,269748,34709,2440,NA,30-39,43,age,death
+Louisiana,269748,34709,2440,NA,40-49,92,age,death
+Louisiana,269748,34709,2440,NA,50-59,213,age,death
+Louisiana,269748,34709,2440,NA,60-69,443,age,death
+Louisiana,269748,34709,2440,NA,70+,1638,age,death
+Maine,NA,1713,71,223,NA,NA,age,death
+Maryland,201506,39762,1903,7086,20-29,10,age,death
+Maryland,201506,39762,1903,7086,30-39,23,age,death
+Maryland,201506,39762,1903,7086,40-49,51,age,death
+Maryland,201506,39762,1903,7086,50-59,126,age,death
+Maryland,201506,39762,1903,7086,60-69,302,age,death
+Maryland,201506,39762,1903,7086,70-79,465,age,death
+Maryland,201506,39762,1903,7086,80+,852,age,death
+Maryland,201506,39762,1903,7086,UNKNOWN,74,age,death
+Massachusetts,460826,86010,5797,8481,0-19,0,age,death
+Massachusetts,460826,86010,5797,8481,20-29,7,age,death
+Massachusetts,460826,86010,5797,8481,30-39,17,age,death
+Massachusetts,460826,86010,5797,8481,40-49,51,age,death
+Massachusetts,460826,86010,5797,8481,50-59,207,age,death
+Massachusetts,460826,86010,5797,8481,60-69,571,age,death
+Massachusetts,460826,86010,5797,8481,70-79,1314,age,death
+Massachusetts,460826,86010,5797,8481,80+,3630,age,death
+Massachusetts,460826,86010,5797,8481,UNKNOWN,0,age,death
+Michigan,424998,51915,4915,NA,0-19,0.01,age,death
+Michigan,424998,51915,4915,NA,20-29,0.01,age,death
+Michigan,424998,51915,4915,NA,30-39,0.01,age,death
+Michigan,424998,51915,4915,NA,40-49,0.03,age,death
+Michigan,424998,51915,4915,NA,50-59,0.08,age,death
+Michigan,424998,51915,4915,NA,60-69,0.18,age,death
+Michigan,424998,51915,4915,NA,70-79,0.27,age,death
+Michigan,424998,51915,4915,NA,80+,0.42,age,death
+Michigan,424998,51915,4915,NA,UNKNOWN,0,age,death
+Minnesota,NA,16372,731,1397,NA,NA,age,death
+Mississippi,NA,11432,528,NA,NA,NA,age,death
+Missouri,154110,10945,605,NA,0-20,0,age,death
+Missouri,154110,10945,605,NA,80+,284,age,death
+Missouri,154110,10945,605,NA,20-29,1,age,death
+Missouri,154110,10945,605,NA,30-39,3,age,death
+Missouri,154110,10945,605,NA,40-49,12,age,death
+Missouri,154110,10945,605,NA,50-59,44,age,death
+Missouri,154110,10945,605,NA,60-69,108,age,death
+Missouri,154110,10945,605,NA,70-79,153,age,death
+Montana,NA,470,16,64,NA,NA,age,death
+Nebraska,70147,10625,124,595,NA,NA,age,death
+Nevada,81832,6906,2672,NA,0-9,0,age,death
+Nevada,81832,6906,2672,NA,10-19,8,age,death
+Nevada,81832,6906,2672,NA,20-29,24,age,death
+Nevada,81832,6906,2672,NA,30-39,32,age,death
+Nevada,81832,6906,2672,NA,40-49,136,age,death
+Nevada,81832,6906,2672,NA,50-59,248,age,death
+Nevada,81832,6906,2672,NA,60-69,544,age,death
+Nevada,81832,6906,2672,NA,70+,1680,age,death
+Nevada,81832,6906,2672,NA,UNKNOWN,16,age,death
+New Hampshire,NA,3160,1231,318,0-9,0,age,death
+New Hampshire,NA,3160,1231,318,10-19,0,age,death
+New Hampshire,NA,3160,1231,318,20-29,2,age,death
+New Hampshire,NA,3160,1231,318,30-39,0,age,death
+New Hampshire,NA,3160,1231,318,40-49,5,age,death
+New Hampshire,NA,3160,1231,318,50-59,0,age,death
+New Hampshire,NA,3160,1231,318,60-69,10,age,death
+New Hampshire,NA,3160,1231,318,70-79,32,age,death
+New Hampshire,NA,3160,1231,318,80+,84,age,death
+New Hampshire,NA,3160,1231,318,UNKNOWN,NA,age,death
+New Jersey,NA,148039,10435,15149,NA,NA,age,death
+New Mexico,137620,6096,270,886,NA,NA,age,death
+New York,1439557,351371,22729,NA,0-19,4,age,death
+New York,1439557,351371,22729,NA,20-29,83,age,death
+New York,1439557,351371,22729,NA,30-39,306,age,death
+New York,1439557,351371,22729,NA,40-49,808,age,death
+New York,1439557,351371,22729,NA,50-59,2185,age,death
+New York,1439557,351371,22729,NA,60-69,4452,age,death
+New York,1439557,351371,22729,NA,70-79,5951,age,death
+New York,1439557,351371,22729,NA,80-89,5845,age,death
+New York,1439557,351371,22729,NA,UNKNOWN,9,age,death
+North Carolina,255755,19023,661,511,NA,NA,age,death
+North Dakota,56561,1931,44,133,0-9,0,age,death
+North Dakota,56561,1931,44,133,10-19,0,age,death
+North Dakota,56561,1931,44,133,20-29,0,age,death
+North Dakota,56561,1931,44,133,30-39,0,age,death
+North Dakota,56561,1931,44,133,40-49,3,age,death
+North Dakota,56561,1931,44,133,50-59,2,age,death
+North Dakota,56561,1931,44,133,60-69,1,age,death
+North Dakota,56561,1931,44,133,70-79,9,age,death
+North Dakota,56561,1931,44,133,80+,29,age,death
+Ohio,NA,28454,1657,4998,0-19,0,age,death
+Ohio,NA,28454,1657,4998,20-29,5,age,death
+Ohio,NA,28454,1657,4998,30-39,12,age,death
+Ohio,NA,28454,1657,4998,40-49,24,age,death
+Ohio,NA,28454,1657,4998,50-59,91,age,death
+Ohio,NA,28454,1657,4998,60-69,240,age,death
+Ohio,NA,28454,1657,4998,70-79,419,age,death
+Ohio,NA,28454,1657,4998,80+,865,age,death
+Ohio,NA,28454,1657,4998,UNKNOWN,1,age,death
+Oklahoma,NA,5398,288,NA,NA,NA,age,death
+Oregon,97232,3687,138,708,0-9,0,age,death
+Oregon,97232,3687,138,708,10-19,0,age,death
+Oregon,97232,3687,138,708,20-29,0,age,death
+Oregon,97232,3687,138,708,30-39,0,age,death
+Oregon,97232,3687,138,708,40-49,3,age,death
+Oregon,97232,3687,138,708,50-59,5,age,death
+Oregon,97232,3687,138,708,60-69,27,age,death
+Oregon,97232,3687,138,708,70-79,39,age,death
+Oregon,97232,3687,138,708,80+,64,age,death
+Oregon,97232,3687,138,708,UNKNOWN,0,age,death
+Pennsylvania,340609,63056,4505,1882,0-20,1,age,death
+Pennsylvania,340609,63056,4505,1882,20-24,3,age,death
+Pennsylvania,340609,63056,4505,1882,25-29,4,age,death
+Pennsylvania,340609,63056,4505,1882,30-34,7,age,death
+Pennsylvania,340609,63056,4505,1882,35-39,5,age,death
+Pennsylvania,340609,63056,4505,1882,40-44,21,age,death
+Pennsylvania,340609,63056,4505,1882,45-49,45,age,death
+Pennsylvania,340609,63056,4505,1882,50-54,83,age,death
+Pennsylvania,340609,63056,4505,1882,55-59,146,age,death
+Pennsylvania,340609,63056,4505,1882,60-64,251,age,death
+Pennsylvania,340609,63056,4505,1882,65-69,354,age,death
+Pennsylvania,340609,63056,4505,1882,70-74,444,age,death
+Pennsylvania,340609,63056,4505,1882,75-79,512,age,death
+Pennsylvania,340609,63056,4505,1882,80-84,638,age,death
+Pennsylvania,340609,63056,4505,1882,85-89,800,age,death
+Pennsylvania,340609,63056,4505,1882,90-94,768,age,death
+Pennsylvania,340609,63056,4505,1882,95-99,341,age,death
+Pennsylvania,340609,63056,4505,1882,100+,70,age,death
+Rhode Island,115384,12795,506,1438,0-9,0,age,death
+Rhode Island,115384,12795,506,1438,10-19,0,age,death
+Rhode Island,115384,12795,506,1438,20-29,NA,age,death
+Rhode Island,115384,12795,506,1438,30-39,5,age,death
+Rhode Island,115384,12795,506,1438,40-49,6,age,death
+Rhode Island,115384,12795,506,1438,50-59,19,age,death
+Rhode Island,115384,12795,506,1438,60-69,35,age,death
+Rhode Island,115384,12795,506,1438,70-79,83,age,death
+Rhode Island,115384,12795,506,1438,80-89,108,age,death
+Rhode Island,115384,12795,506,1438,90-99,79,age,death
+Rhode Island,115384,12795,506,1438,100+,5,age,death
+Rhode Island,115384,12795,506,1438,PENDING,0,age,death
+South Carolina,131559,8942,NA,NA,NA,NA,age,death
+South Dakota,29045,4027,44,316,0-19,0,age,death
+South Dakota,29045,4027,44,316,20-29,0,age,death
+South Dakota,29045,4027,44,316,30-39,1,age,death
+South Dakota,29045,4027,44,316,40-49,1,age,death
+South Dakota,29045,4027,44,316,50-59,6,age,death
+South Dakota,29045,4027,44,316,60-69,7,age,death
+South Dakota,29045,4027,44,316,70-79,5,age,death
+South Dakota,29045,4027,44,316,80+,24,age,death
+South Dakota,29045,4027,44,316,UNKNOWN,NA,age,death
+Tennessee,337428,18011,301,NA,0-10,1,age,death
+Tennessee,337428,18011,301,NA,11-20,1,age,death
+Tennessee,337428,18011,301,NA,21-30,1,age,death
+Tennessee,337428,18011,301,NA,31-40,3,age,death
+Tennessee,337428,18011,301,NA,41-50,14,age,death
+Tennessee,337428,18011,301,NA,51-60,27,age,death
+Tennessee,337428,18011,301,NA,61-70,63,age,death
+Tennessee,337428,18011,301,NA,71-80,87,age,death
+Tennessee,337428,18011,301,NA,81+,104,age,death
+Tennessee,337428,18011,301,NA,UNKNOWN,0,age,death
+Texas,723013,48693,1347,NA,0-1,0,age,death
+Texas,723013,48693,1347,NA,1-9,0,age,death
+Texas,723013,48693,1347,NA,10-19,2,age,death
+Texas,723013,48693,1347,NA,20-29,10,age,death
+Texas,723013,48693,1347,NA,30-39,9,age,death
+Texas,723013,48693,1347,NA,40-49,21,age,death
+Texas,723013,48693,1347,NA,50-59,54,age,death
+Texas,723013,48693,1347,NA,60-64,45,age,death
+Texas,723013,48693,1347,NA,65-69,59,age,death
+Texas,723013,48693,1347,NA,70-74,45,age,death
+Texas,723013,48693,1347,NA,75-79,45,age,death
+Texas,723013,48693,1347,NA,80+,196,age,death
+Texas,723013,48693,1347,NA,UNKNOWN,3,age,death
+Texas,723013,48693,1347,NA,PENDING,858,age,death
+Utah,174022,7384,80,595,NA,NA,age,death
+Vermont,23825,940,54,NA,0-9,0,age,death
+Vermont,23825,940,54,NA,10-19,0,age,death
+Vermont,23825,940,54,NA,20-29,0,age,death
+Vermont,23825,940,54,NA,30-39,1,age,death
+Vermont,23825,940,54,NA,40-49,2,age,death
+Vermont,23825,940,54,NA,50-59,1,age,death
+Vermont,23825,940,54,NA,60-69,10,age,death
+Vermont,23825,940,54,NA,70-79,17,age,death
+Vermont,23825,940,54,NA,80+,23,age,death
+Virginia,NA,31140,1014,3822,0-9,0,age,death
+Virginia,NA,31140,1014,3822,10-19,0,age,death
+Virginia,NA,31140,1014,3822,20-29,2,age,death
+Virginia,NA,31140,1014,3822,30-39,7,age,death
+Virginia,NA,31140,1014,3822,40-49,22,age,death
+Virginia,NA,31140,1014,3822,50-59,53,age,death
+Virginia,NA,31140,1014,3822,60-69,157,age,death
+Virginia,NA,31140,1014,3822,70-79,240,age,death
+Virginia,NA,31140,1014,3822,80+,532,age,death
+Virginia,NA,31140,1014,3822,UNKNOWN,1,age,death
+Washington,289135,18611,NA,NA,0-19,0,age,death
+Washington,289135,18611,NA,NA,20-39,0.01,age,death
+Washington,289135,18611,NA,NA,40-59,0.08,age,death
+Washington,289135,18611,NA,NA,60-79,0.39,age,death
+Washington,289135,18611,NA,NA,80+,0.52,age,death
+Washington,289135,18611,NA,NA,UNKNOWN,0,age,death
+West Virginia,77760,1502,68,NA,NA,NA,age,death
+Wisconsin,157189,12687,459,2068,0-10,0,age,death
+Wisconsin,157189,12687,459,2068,10-19,0,age,death
+Wisconsin,157189,12687,459,2068,20-29,4,age,death
+Wisconsin,157189,12687,459,2068,30-39,5,age,death
+Wisconsin,157189,12687,459,2068,40-49,11,age,death
+Wisconsin,157189,12687,459,2068,50-59,39,age,death
+Wisconsin,157189,12687,459,2068,60-69,75,age,death
+Wisconsin,157189,12687,459,2068,70-79,129,age,death
+Wisconsin,157189,12687,459,2068,80-89,111,age,death
+Wisconsin,157189,12687,459,2068,90+,85,age,death
+Wyoming,17661,577,10,NA,NA,NA,age,death
+Alabama,NA,12302,494,1432,ASIAN,3,race,death
+Alabama,NA,12302,494,1432,BLACK,216,race,death
+Alabama,NA,12302,494,1432,OTHER,6,race,death
+Alabama,NA,12302,494,1432,UNKNOWN,19,race,death
+Alabama,NA,12302,494,1432,WHITE,250,race,death
+Alaska,35611,399,10,43,AI/AN,2,race,death
+Alaska,35611,399,10,43,ASIAN,2,race,death
+Alaska,35611,399,10,43,BLACK,0,race,death
+Alaska,35611,399,10,43,MULTI,0,race,death
+Alaska,35611,399,10,43,NH/PI,1,race,death
+Alaska,35611,399,10,43,OTHER,0,race,death
+Alaska,35611,399,10,43,UNKNOWN,0,race,death
+Alaska,35611,399,10,43,WHITE,5,race,death
+Arizona,212784,14170,686,1717,AI/AN,116,race,death
+Arizona,212784,14170,686,1717,ASIAN,8,race,death
+Arizona,212784,14170,686,1717,BLACK,23,race,death
+Arizona,212784,14170,686,1717,MULTI,0,race,death
+Arizona,212784,14170,686,1717,OTHER,11,race,death
+Arizona,212784,14170,686,1717,UNKNOWN,132,race,death
+Arizona,212784,14170,686,1717,WHITE,289,race,death
+Arkansas,99173,4813,100,535,NA,NA,race,death
+California,NA,80430,3216,NA,AI/AN,14,race,death
+California,NA,80430,3216,NA,ASIAN,472,race,death
+California,NA,80430,3216,NA,BLACK,321,race,death
+California,NA,80430,3216,NA,HISPANIC,1173,race,death
+California,NA,80430,3216,NA,MULTI,21,race,death
+California,NA,80430,3216,NA,NH/PI,28,race,death
+California,NA,80430,3216,NA,OTHER,36,race,death
+California,NA,80430,3216,NA,PENDING,71,race,death
+California,NA,80430,3216,NA,WHITE,1080,race,death
+Colorado,NA,20028,975,3275,HISPANIC,0.1895,race,death
+Colorado,NA,20028,975,3275,NH AI/AN,0.0057,race,death
+Colorado,NA,20028,975,3275,NH ASIAN,0.0392,race,death
+Colorado,NA,20028,975,3275,NH BLACK,0.0686,race,death
+Colorado,NA,20028,975,3275,NH MULTI,0.009,race,death
+Colorado,NA,20028,975,3275,NH NH/PI,0.0033,race,death
+Colorado,NA,20028,975,3275,NH WHITE,0.6446,race,death
+Colorado,NA,20028,975,3275,OTHER,0.0057,race,death
+Colorado,NA,20028,975,3275,UNKNOWN,0.0343,race,death
+Connecticut,177679,38116,3449,NA,HISPANIC,234,race,death
+Connecticut,177679,38116,3449,NA,NH AI/AN,0,race,death
+Connecticut,177679,38116,3449,NA,NH ASIAN/PI,25,race,death
+Connecticut,177679,38116,3449,NA,NH BLACK,399,race,death
+Connecticut,177679,38116,3449,NA,NH MULTI,8,race,death
+Connecticut,177679,38116,3449,NA,NH OTHER,14,race,death
+Connecticut,177679,38116,3449,NA,NH WHITE,1879,race,death
+Connecticut,177679,38116,3449,NA,UNKNOWN,74,race,death
+Delaware,42458,7869,297,NA,ASIAN/PI,1,race,death
+Delaware,42458,7869,297,NA,HISPANIC,21,race,death
+Delaware,42458,7869,297,NA,MULTI,3,race,death
+Delaware,42458,7869,297,NA,NH BLACK,70,race,death
+Delaware,42458,7869,297,NA,NH WHITE,182,race,death
+Delaware,42458,7869,297,NA,UNKNOWN,20,race,death
+Florida,677710,45208,1997,NA,AI/AN,0,race,death
+Florida,677710,45208,1997,NA,ASIAN,0,race,death
+Florida,677710,45208,1997,NA,BLACK,436,race,death
+Florida,677710,45208,1997,NA,MULTI,0,race,death
+Florida,677710,45208,1997,NA,OTHER,124,race,death
+Florida,677710,45208,1997,NA,UNKNOWN,73,race,death
+Florida,677710,45208,1997,NA,WHITE,1364,race,death
+Georgia,NA,38283,1649,6992,AI/AN,4,race,death
+Georgia,NA,38283,1649,6992,ASIAN,28,race,death
+Georgia,NA,38283,1649,6992,BLACK,804,race,death
+Georgia,NA,38283,1649,6992,NH/PI,2,race,death
+Georgia,NA,38283,1649,6992,OTHER,22,race,death
+Georgia,NA,38283,1649,6992,UNKNOWN,27,race,death
+Georgia,NA,38283,1649,6992,WHITE,762,race,death
+Hawaii,45023,640,17,82,NA,NA,race,death
+Idaho,37847,2455,74,213,AI/AN,2,race,death
+Idaho,37847,2455,74,213,ASIAN,0,race,death
+Idaho,37847,2455,74,213,BLACK,1,race,death
+Idaho,37847,2455,74,213,MULTI,0,race,death
+Idaho,37847,2455,74,213,OTHER,0,race,death
+Idaho,37847,2455,74,213,UNKNOWN,0,race,death
+Idaho,37847,2455,74,213,WHITE,71,race,death
+Illinois,603241,96485,4234,NA,AI/AN,7,race,death
+Illinois,603241,96485,4234,NA,ASIAN,196,race,death
+Illinois,603241,96485,4234,NA,BLACK,1335,race,death
+Illinois,603241,96485,4234,NA,HISPANIC,757,race,death
+Illinois,603241,96485,4234,NA,NH/PI,3,race,death
+Illinois,603241,96485,4234,NA,OTHER,33,race,death
+Illinois,603241,96485,4234,NA,UNKNOWN,97,race,death
+Illinois,603241,96485,4234,NA,WHITE,1806,race,death
+Indiana,183912,28255,1621,NA,ASIAN,7,race,death
+Indiana,183912,28255,1621,NA,BLACK,250,race,death
+Indiana,183912,28255,1621,NA,OTHER,189,race,death
+Indiana,183912,28255,1621,NA,UNKNOWN,120,race,death
+Indiana,183912,28255,1621,NA,WHITE,1055,race,death
+Iowa,106427,15206,367,NA,AI/AN,0.01,race,death
+Iowa,106427,15206,367,NA,ASIAN,0.03,race,death
+Iowa,106427,15206,367,NA,BLACK,0.06,race,death
+Iowa,106427,15206,367,NA,MULTI,0,race,death
+Iowa,106427,15206,367,NA,OTHER,0,race,death
+Iowa,106427,15206,367,NA,UNKNOWN,0.11,race,death
+Iowa,106427,15206,367,NA,WHITE,0.77,race,death
+Kansas,66882,8340,173,740,AI/AN,1,race,death
+Kansas,66882,8340,173,740,ASIAN,1,race,death
+Kansas,66882,8340,173,740,BLACK,55,race,death
+Kansas,66882,8340,173,740,OTHER,1,race,death
+Kansas,66882,8340,173,740,UNKNOWN,3,race,death
+Kansas,66882,8340,173,740,WHITE,112,race,death
+Kentucky,145238,7935,346,1514,NA,NA,race,death
+Louisiana,269748,34709,2440,NA,AI/AN,2,race,death
+Louisiana,269748,34709,2440,NA,ASIAN,20,race,death
+Louisiana,269748,34709,2440,NA,BLACK,1350,race,death
+Louisiana,269748,34709,2440,NA,NH/PI,5,race,death
+Louisiana,269748,34709,2440,NA,OTHER,19,race,death
+Louisiana,269748,34709,2440,NA,UNKNOWN,4,race,death
+Louisiana,269748,34709,2440,NA,WHITE,1040,race,death
+Maine,NA,1713,71,223,NA,NA,race,death
+Maryland,201506,39762,1903,7086,HISPANIC,156,race,death
+Maryland,201506,39762,1903,7086,NH ASIAN,68,race,death
+Maryland,201506,39762,1903,7086,NH BLACK,792,race,death
+Maryland,201506,39762,1903,7086,NH OTHER,24,race,death
+Maryland,201506,39762,1903,7086,NH WHITE,785,race,death
+Maryland,201506,39762,1903,7086,UNKNOWN,78,race,death
+Massachusetts,460826,86010,5797,8481,HISPANIC,352,race,death
+Massachusetts,460826,86010,5797,8481,NH ASIAN,93,race,death
+Massachusetts,460826,86010,5797,8481,NH BLACK,296,race,death
+Massachusetts,460826,86010,5797,8481,NH OTHER,180,race,death
+Massachusetts,460826,86010,5797,8481,NH WHITE,2327,race,death
+Massachusetts,460826,86010,5797,8481,UNKNOWN,2549,race,death
+Michigan,424998,51915,4915,NA,AI/AN,0.01,race,death
+Michigan,424998,51915,4915,NA,ASIAN/PI,0.01,race,death
+Michigan,424998,51915,4915,NA,BLACK,0.4,race,death
+Michigan,424998,51915,4915,NA,MULTI,0.02,race,death
+Michigan,424998,51915,4915,NA,OTHER,0.02,race,death
+Michigan,424998,51915,4915,NA,UNKNOWN,0.04,race,death
+Michigan,424998,51915,4915,NA,WHITE,0.5,race,death
+Minnesota,NA,16372,731,1397,ASIAN,16,race,death
+Minnesota,NA,16372,731,1397,BLACK,39,race,death
+Minnesota,NA,16372,731,1397,OTHER,2,race,death
+Minnesota,NA,16372,731,1397,PI,0,race,death
+Minnesota,NA,16372,731,1397,UNKNOWN,191,race,death
+Minnesota,NA,16372,731,1397,WHITE,469,race,death
+Minnesota,NA,16372,731,1397,"NA",14,race,death
+Mississippi,NA,11432,528,NA,AI/AN,19,race,death
+Mississippi,NA,11432,528,NA,ASIAN,0,race,death
+Mississippi,NA,11432,528,NA,BLACK,274,race,death
+Mississippi,NA,11432,528,NA,MULTI,0,race,death
+Mississippi,NA,11432,528,NA,OTHER,5,race,death
+Mississippi,NA,11432,528,NA,UNKNOWN,0,race,death
+Mississippi,NA,11432,528,NA,WHITE,233,race,death
+Missouri,154110,10945,605,NA,NA,NA,race,death
+Montana,NA,470,16,64,NA,NA,race,death
+Nebraska,70147,10625,124,595,NA,NA,race,death
+Nevada,81832,6906,2672,NA,NA,NA,race,death
+New Hampshire,NA,3160,1231,318,AI/AN,0,race,death
+New Hampshire,NA,3160,1231,318,ASIAN,0,race,death
+New Hampshire,NA,3160,1231,318,BLACK,0,race,death
+New Hampshire,NA,3160,1231,318,MULTI,0,race,death
+New Hampshire,NA,3160,1231,318,OTHER,3,race,death
+New Hampshire,NA,3160,1231,318,UNKNOWN,0,race,death
+New Hampshire,NA,3160,1231,318,WHITE,73,race,death
+New Jersey,NA,148039,10435,15149,NA,NA,race,death
+New Mexico,137620,6096,270,886,NA,NA,race,death
+New York,1439557,351371,22729,NA,AI/AN,0,race,death
+New York,1439557,351371,22729,NA,ASIAN,0.07,race,death
+New York,1439557,351371,22729,NA,BLACK,0.28,race,death
+New York,1439557,351371,22729,NA,MULTI,0,race,death
+New York,1439557,351371,22729,NA,OTHER,0.04,race,death
+New York,1439557,351371,22729,NA,UNKNOWN,0,race,death
+New York,1439557,351371,22729,NA,WHITE,0.27,race,death
+North Carolina,255755,19023,661,511,AI/AN,1,race,death
+North Carolina,255755,19023,661,511,ASIAN,7,race,death
+North Carolina,255755,19023,661,511,BLACK,221,race,death
+North Carolina,255755,19023,661,511,MULTI,0,race,death
+North Carolina,255755,19023,661,511,OTHER,26,race,death
+North Carolina,255755,19023,661,511,UNKNOWN,0,race,death
+North Carolina,255755,19023,661,511,WHITE,370,race,death
+North Dakota,56561,1931,44,133,NA,NA,race,death
+Ohio,NA,28454,1657,4998,NA,NA,race,death
+Oklahoma,NA,5398,288,NA,NA,NA,race,death
+Oregon,97232,3687,138,708,NA,NA,race,death
+Pennsylvania,340609,63056,4505,1882,ASIAN,118,race,death
+Pennsylvania,340609,63056,4505,1882,BLACK,904,race,death
+Pennsylvania,340609,63056,4505,1882,MULTI,208,race,death
+Pennsylvania,340609,63056,4505,1882,WHITE,3263,race,death
+Rhode Island,115384,12795,506,1438,HISPANIC,38,race,death
+Rhode Island,115384,12795,506,1438,NH BLACK,17,race,death
+Rhode Island,115384,12795,506,1438,NH MULTI,0,race,death
+Rhode Island,115384,12795,506,1438,NH OTHER,7,race,death
+Rhode Island,115384,12795,506,1438,NH WHITE,234,race,death
+Rhode Island,115384,12795,506,1438,PENDING,45,race,death
+Rhode Island,115384,12795,506,1438,UNKNOWN,0,race,death
+South Carolina,131559,8942,NA,NA,NA,NA,race,death
+South Dakota,29045,4027,44,316,NA,NA,race,death
+Tennessee,337428,18011,301,NA,AI/AN,0,race,death
+Tennessee,337428,18011,301,NA,ASIAN,7,race,death
+Tennessee,337428,18011,301,NA,BLACK,99,race,death
+Tennessee,337428,18011,301,NA,MULTI,0,race,death
+Tennessee,337428,18011,301,NA,OTHER,10,race,death
+Tennessee,337428,18011,301,NA,UNKNOWN,8,race,death
+Tennessee,337428,18011,301,NA,WHITE,177,race,death
+Texas,723013,48693,1347,NA,ASIAN,6,race,death
+Texas,723013,48693,1347,NA,BLACK,67,race,death
+Texas,723013,48693,1347,NA,HISPANIC,120,race,death
+Texas,723013,48693,1347,NA,OTHER,2,race,death
+Texas,723013,48693,1347,NA,PENDING,858,race,death
+Texas,723013,48693,1347,NA,UNKNOWN,114,race,death
+Texas,723013,48693,1347,NA,WHITE,180,race,death
+Utah,174022,7384,80,595,NA,NA,race,death
+Vermont,23825,940,54,NA,AI/AN,0,race,death
+Vermont,23825,940,54,NA,ASIAN,2,race,death
+Vermont,23825,940,54,NA,BLACK,0,race,death
+Vermont,23825,940,54,NA,OTHER,3,race,death
+Vermont,23825,940,54,NA,UNKNOWN,0,race,death
+Vermont,23825,940,54,NA,WHITE,49,race,death
+Virginia,NA,31140,1014,3822,BLACK,213,race,death
+Virginia,NA,31140,1014,3822,OTHER,119,race,death
+Virginia,NA,31140,1014,3822,UNKNOWN,130,race,death
+Virginia,NA,31140,1014,3822,WHITE,552,race,death
+Washington,289135,18611,NA,NA,HISPANIC,82,race,death
+Washington,289135,18611,NA,NA,NH AI/AN,7,race,death
+Washington,289135,18611,NA,NA,NH ASIAN,86,race,death
+Washington,289135,18611,NA,NA,NH BLACK,29,race,death
+Washington,289135,18611,NA,NA,NH MULTI,13,race,death
+Washington,289135,18611,NA,NA,NH NH/PI,7,race,death
+Washington,289135,18611,NA,NA,NH OTHER,19,race,death
+Washington,289135,18611,NA,NA,NH WHITE,651,race,death
+Washington,289135,18611,NA,NA,UNKNOWN,108,race,death
+West Virginia,77760,1502,68,NA,NA,NA,race,death
+Wisconsin,157189,12687,459,2068,AI,5,race,death
+Wisconsin,157189,12687,459,2068,ASIAN/PI,10,race,death
+Wisconsin,157189,12687,459,2068,BLACK,132,race,death
+Wisconsin,157189,12687,459,2068,UNKNOWN,7,race,death
+Wisconsin,157189,12687,459,2068,WHITE,302,race,death
+Wisconsin,157189,12687,459,2068,"NA",3,race,death
+Wyoming,17661,577,10,NA,NA,NA,race,death
+Alabama,NA,12302,494,1432,FEMALE,220,sex,death
+Alabama,NA,12302,494,1432,MALE,273,sex,death
+Alaska,35611,399,10,43,FEMALE,5,sex,death
+Alaska,35611,399,10,43,MALE,5,sex,death
+Alaska,35611,399,10,43,UNKNOWN/OTHER,0,sex,death
+Arizona,212784,14170,686,1717,FEMALE,312,sex,death
+Arizona,212784,14170,686,1717,MALE,373,sex,death
+Arizona,212784,14170,686,1717,UNKNOWN/OTHER,0,sex,death
+Arkansas,99173,4813,100,535,NA,NA,sex,death
+California,NA,80430,3216,NA,NA,NA,sex,death
+Colorado,NA,20028,975,3275,FEMALE,0.4387,sex,death
+Colorado,NA,20028,975,3275,MALE,0.558,sex,death
+Colorado,NA,20028,975,3275,UNKNOWN/OTHER,0.0033,sex,death
+Connecticut,177679,38116,3449,NA,FEMALE,1737,sex,death
+Connecticut,177679,38116,3449,NA,MALE,1706,sex,death
+Delaware,42458,7869,297,NA,FEMALE,155,sex,death
+Delaware,42458,7869,297,NA,MALE,142,sex,death
+Florida,677710,45208,1997,NA,NA,NA,sex,death
+Georgia,NA,38283,1649,6992,FEMALE,778,sex,death
+Georgia,NA,38283,1649,6992,MALE,871,sex,death
+Hawaii,45023,640,17,82,NA,NA,sex,death
+Idaho,37847,2455,74,213,FEMALE,36,sex,death
+Idaho,37847,2455,74,213,MALE,38,sex,death
+Illinois,603241,96485,4234,NA,FEMALE,1880,sex,death
+Illinois,603241,96485,4234,NA,MALE,2346,sex,death
+Illinois,603241,96485,4234,NA,UNKNOWN/OTHER,8,sex,death
+Indiana,183912,28255,1621,NA,FEMALE,756,sex,death
+Indiana,183912,28255,1621,NA,MALE,829,sex,death
+Indiana,183912,28255,1621,NA,UNKNOWN/OTHER,36,sex,death
+Iowa,106427,15206,367,NA,FEMALE,0.48,sex,death
+Iowa,106427,15206,367,NA,MALE,0.52,sex,death
+Kansas,66882,8340,173,740,FEMALE,83,sex,death
+Kansas,66882,8340,173,740,MALE,90,sex,death
+Kansas,66882,8340,173,740,UNKNOWN/OTHER,0,sex,death
+Kentucky,145238,7935,346,1514,FEMALE,198,sex,death
+Kentucky,145238,7935,346,1514,MALE,148,sex,death
+Kentucky,145238,7935,346,1514,UNKNOWN/OTHER,0,sex,death
+Louisiana,269748,34709,2440,NA,FEMALE,0.456,sex,death
+Louisiana,269748,34709,2440,NA,MALE,0.544,sex,death
+Louisiana,269748,34709,2440,NA,UNKNOWN/OTHER,0,sex,death
+Maine,NA,1713,71,223,NA,NA,sex,death
+Maryland,201506,39762,1903,7086,FEMALE,940,sex,death
+Maryland,201506,39762,1903,7086,MALE,963,sex,death
+Massachusetts,460826,86010,5797,8481,FEMALE,2989,sex,death
+Massachusetts,460826,86010,5797,8481,MALE,2796,sex,death
+Michigan,424998,51915,4915,NA,FEMALE,0.47,sex,death
+Michigan,424998,51915,4915,NA,MALE,0.53,sex,death
+Michigan,424998,51915,4915,NA,UNKNOWN/OTHER,0.01,sex,death
+Minnesota,NA,16372,731,1397,NA,NA,sex,death
+Mississippi,NA,11432,528,NA,NA,NA,sex,death
+Missouri,154110,10945,605,NA,NA,NA,sex,death
+Montana,NA,470,16,64,NA,NA,sex,death
+Nebraska,70147,10625,124,595,NA,NA,sex,death
+Nevada,81832,6906,2672,NA,FEMALE,1072,sex,death
+Nevada,81832,6906,2672,NA,MALE,1576,sex,death
+Nevada,81832,6906,2672,NA,UNKNOWN/OTHER,0,sex,death
+New Hampshire,NA,3160,1231,318,FEMALE,61,sex,death
+New Hampshire,NA,3160,1231,318,MALE,71,sex,death
+New Hampshire,NA,3160,1231,318,UNKNOWN/OTHER,0,sex,death
+New Jersey,NA,148039,10435,15149,NA,NA,sex,death
+New Mexico,137620,6096,270,886,NA,NA,sex,death
+New York,1439557,351371,22729,NA,FEMALE,9493,sex,death
+New York,1439557,351371,22729,NA,MALE,13227,sex,death
+New York,1439557,351371,22729,NA,UNKNOWN/OTHER,9,sex,death
+North Carolina,255755,19023,661,511,NA,NA,sex,death
+North Dakota,56561,1931,44,133,NA,NA,sex,death
+Ohio,NA,28454,1657,4998,FEMALE,776,sex,death
+Ohio,NA,28454,1657,4998,MALE,881,sex,death
+Ohio,NA,28454,1657,4998,UNKNOWN/OTHER,0,sex,death
+Oklahoma,NA,5398,288,NA,NA,NA,sex,death
+Oregon,97232,3687,138,708,FEMALE,58,sex,death
+Oregon,97232,3687,138,708,MALE,80,sex,death
+Oregon,97232,3687,138,708,UNKNOWN/OTHER,0,sex,death
+Pennsylvania,340609,63056,4505,1882,FEMALE,2296,sex,death
+Pennsylvania,340609,63056,4505,1882,MALE,2197,sex,death
+Rhode Island,115384,12795,506,1438,FEMALE,172,sex,death
+Rhode Island,115384,12795,506,1438,MALE,169,sex,death
+Rhode Island,115384,12795,506,1438,PENDING,0,sex,death
+South Carolina,131559,8942,NA,NA,NA,NA,sex,death
+South Dakota,29045,4027,44,316,NA,NA,sex,death
+Tennessee,337428,18011,301,NA,FEMALE,133,sex,death
+Tennessee,337428,18011,301,NA,MALE,168,sex,death
+Tennessee,337428,18011,301,NA,UNKNOWN/OTHER,0,sex,death
+Texas,723013,48693,1347,NA,FEMALE,190,sex,death
+Texas,723013,48693,1347,NA,MALE,268,sex,death
+Texas,723013,48693,1347,NA,PENDING,858,sex,death
+Texas,723013,48693,1347,NA,UNKNOWN/OTHER,31,sex,death
+Utah,174022,7384,80,595,FEMALE,0.475,sex,death
+Utah,174022,7384,80,595,MALE,0.525,sex,death
+Vermont,23825,940,54,NA,FEMALE,24,sex,death
+Vermont,23825,940,54,NA,MALE,30,sex,death
+Vermont,23825,940,54,NA,UNKNOWN/OTHER,0,sex,death
+Virginia,NA,31140,1014,3822,FEMALE,489,sex,death
+Virginia,NA,31140,1014,3822,MALE,522,sex,death
+Virginia,NA,31140,1014,3822,UNKNOWN/OTHER,3,sex,death
+Washington,289135,18611,NA,NA,FEMALE,0.45,sex,death
+Washington,289135,18611,NA,NA,MALE,0.54,sex,death
+Washington,289135,18611,NA,NA,UNKNOWN/OTHER,0,sex,death
+West Virginia,77760,1502,68,NA,NA,NA,sex,death
+Wisconsin,157189,12687,459,2068,FEMALE,0.42,sex,death
+Wisconsin,157189,12687,459,2068,MALE,0.58,sex,death
+Wisconsin,157189,12687,459,2068,UNKNOWN/OTHER,0,sex,death
+Wyoming,17661,577,10,NA,NA,NA,sex,death
+Alabama,NA,12302,494,1432,NA,NA,age,hosp
+Alaska,35611,399,10,43,0-10,0,age,hosp
+Alaska,35611,399,10,43,10-19,0,age,hosp
+Alaska,35611,399,10,43,20-29,3,age,hosp
+Alaska,35611,399,10,43,30-39,5,age,hosp
+Alaska,35611,399,10,43,40-49,2,age,hosp
+Alaska,35611,399,10,43,50-59,8,age,hosp
+Alaska,35611,399,10,43,60-69,9,age,hosp
+Alaska,35611,399,10,43,70-79,13,age,hosp
+Alaska,35611,399,10,43,80+,3,age,hosp
+Alaska,35611,399,10,43,UNKNOWN,0,age,hosp
+Arizona,212784,14170,686,1717,0-19,17,age,hosp
+Arizona,212784,14170,686,1717,20-44,326,age,hosp
+Arizona,212784,14170,686,1717,45-54,263,age,hosp
+Arizona,212784,14170,686,1717,55-64,333,age,hosp
+Arizona,212784,14170,686,1717,65+,778,age,hosp
+Arizona,212784,14170,686,1717,UNKNOWN,NA,age,hosp
+Arkansas,99173,4813,100,535,NA,NA,age,hosp
+California,NA,80430,3216,NA,NA,NA,age,hosp
+Colorado,NA,20028,975,3275,0-9,32,age,hosp
+Colorado,NA,20028,975,3275,10-19,30,age,hosp
+Colorado,NA,20028,975,3275,20-29,169,age,hosp
+Colorado,NA,20028,975,3275,30-39,323,age,hosp
+Colorado,NA,20028,975,3275,40-49,480,age,hosp
+Colorado,NA,20028,975,3275,50-59,693,age,hosp
+Colorado,NA,20028,975,3275,60-69,689,age,hosp
+Colorado,NA,20028,975,3275,70-79,519,age,hosp
+Colorado,NA,20028,975,3275,80+,339,age,hosp
+Colorado,NA,20028,975,3275,UNKNOWN,1,age,hosp
+Connecticut,177679,38116,3449,NA,NA,NA,age,hosp
+Delaware,42458,7869,297,NA,NA,NA,age,hosp
+Florida,677710,45208,1997,NA,0-4,17,age,hosp
+Florida,677710,45208,1997,NA,5-14,16,age,hosp
+Florida,677710,45208,1997,NA,15-24,126,age,hosp
+Florida,677710,45208,1997,NA,25-34,406,age,hosp
+Florida,677710,45208,1997,NA,35-44,678,age,hosp
+Florida,677710,45208,1997,NA,45-54,1054,age,hosp
+Florida,677710,45208,1997,NA,55-64,1457,age,hosp
+Florida,677710,45208,1997,NA,65-74,1747,age,hosp
+Florida,677710,45208,1997,NA,75-84,1626,age,hosp
+Florida,677710,45208,1997,NA,85+,1177,age,hosp
+Florida,677710,45208,1997,NA,UNKNOWN,0,age,hosp
+Georgia,NA,38283,1649,6992,NA,NA,age,hosp
+Hawaii,45023,640,17,82,NA,NA,age,hosp
+Idaho,37847,2455,74,213,NA,NA,age,hosp
+Illinois,603241,96485,4234,NA,NA,NA,age,hosp
+Indiana,183912,28255,1621,NA,NA,NA,age,hosp
+Iowa,106427,15206,367,NA,NA,NA,age,hosp
+Kansas,66882,8340,173,740,0-9,5,age,hosp
+Kansas,66882,8340,173,740,10-17,13,age,hosp
+Kansas,66882,8340,173,740,18-24,32,age,hosp
+Kansas,66882,8340,173,740,25-34,81,age,hosp
+Kansas,66882,8340,173,740,35-44,109,age,hosp
+Kansas,66882,8340,173,740,45-54,162,age,hosp
+Kansas,66882,8340,173,740,55-64,133,age,hosp
+Kansas,66882,8340,173,740,65-74,105,age,hosp
+Kansas,66882,8340,173,740,75-84,144,age,hosp
+Kansas,66882,8340,173,740,85+,89,age,hosp
+Kansas,66882,8340,173,740,UNKNOWN,NA,age,hosp
+Kentucky,145238,7935,346,1514,0-9,16,age,hosp
+Kentucky,145238,7935,346,1514,10-19,43,age,hosp
+Kentucky,145238,7935,346,1514,20-29,179,age,hosp
+Kentucky,145238,7935,346,1514,30-39,198,age,hosp
+Kentucky,145238,7935,346,1514,40-49,219,age,hosp
+Kentucky,145238,7935,346,1514,50-59,283,age,hosp
+Kentucky,145238,7935,346,1514,60-69,218,age,hosp
+Kentucky,145238,7935,346,1514,70-79,158,age,hosp
+Kentucky,145238,7935,346,1514,80+,158,age,hosp
+Kentucky,145238,7935,346,1514,UNKNOWN,42,age,hosp
+Louisiana,269748,34709,2440,NA,NA,NA,age,hosp
+Maine,NA,1713,71,223,NA,NA,age,hosp
+Maryland,201506,39762,1903,7086,NA,NA,age,hosp
+Massachusetts,460826,86010,5797,8481,0-19,58,age,hosp
+Massachusetts,460826,86010,5797,8481,20-29,198,age,hosp
+Massachusetts,460826,86010,5797,8481,30-39,393,age,hosp
+Massachusetts,460826,86010,5797,8481,40-49,625,age,hosp
+Massachusetts,460826,86010,5797,8481,50-59,1160,age,hosp
+Massachusetts,460826,86010,5797,8481,60-69,1594,age,hosp
+Massachusetts,460826,86010,5797,8481,70-79,1852,age,hosp
+Massachusetts,460826,86010,5797,8481,80+,2658,age,hosp
+Massachusetts,460826,86010,5797,8481,UNKNOWN,1,age,hosp
+Michigan,424998,51915,4915,NA,NA,NA,age,hosp
+Minnesota,NA,16372,731,1397,NA,NA,age,hosp
+Mississippi,NA,11432,528,NA,NA,NA,age,hosp
+Missouri,154110,10945,605,NA,NA,NA,age,hosp
+Montana,NA,470,16,64,NA,NA,age,hosp
+Nebraska,70147,10625,124,595,NA,NA,age,hosp
+Nevada,81832,6906,2672,NA,NA,NA,age,hosp
+New Hampshire,NA,3160,1231,318,0-9,2,age,hosp
+New Hampshire,NA,3160,1231,318,10-19,4,age,hosp
+New Hampshire,NA,3160,1231,318,20-29,10,age,hosp
+New Hampshire,NA,3160,1231,318,30-39,11,age,hosp
+New Hampshire,NA,3160,1231,318,40-49,28,age,hosp
+New Hampshire,NA,3160,1231,318,50-59,50,age,hosp
+New Hampshire,NA,3160,1231,318,60-69,92,age,hosp
+New Hampshire,NA,3160,1231,318,70-79,74,age,hosp
+New Hampshire,NA,3160,1231,318,80+,47,age,hosp
+New Hampshire,NA,3160,1231,318,UNKNOWN,NA,age,hosp
+New Jersey,NA,148039,10435,15149,NA,NA,age,hosp
+New Mexico,137620,6096,270,886,NA,NA,age,hosp
+New York,1439557,351371,22729,NA,NA,NA,age,hosp
+North Carolina,255755,19023,661,511,NA,NA,age,hosp
+North Dakota,56561,1931,44,133,0-9,1,age,hosp
+North Dakota,56561,1931,44,133,10-19,1,age,hosp
+North Dakota,56561,1931,44,133,20-29,4,age,hosp
+North Dakota,56561,1931,44,133,30-39,19,age,hosp
+North Dakota,56561,1931,44,133,40-49,15,age,hosp
+North Dakota,56561,1931,44,133,50-59,29,age,hosp
+North Dakota,56561,1931,44,133,60-69,27,age,hosp
+North Dakota,56561,1931,44,133,70-79,19,age,hosp
+North Dakota,56561,1931,44,133,80+,18,age,hosp
+Ohio,NA,28454,1657,4998,0-19,47,age,hosp
+Ohio,NA,28454,1657,4998,20-29,165,age,hosp
+Ohio,NA,28454,1657,4998,30-39,294,age,hosp
+Ohio,NA,28454,1657,4998,40-49,485,age,hosp
+Ohio,NA,28454,1657,4998,50-59,921,age,hosp
+Ohio,NA,28454,1657,4998,60-69,1160,age,hosp
+Ohio,NA,28454,1657,4998,70-79,985,age,hosp
+Ohio,NA,28454,1657,4998,80+,940,age,hosp
+Ohio,NA,28454,1657,4998,UNKNOWN,1,age,hosp
+Oklahoma,NA,5398,288,NA,NA,NA,age,hosp
+Oregon,97232,3687,138,708,0-9,5,age,hosp
+Oregon,97232,3687,138,708,10-19,2,age,hosp
+Oregon,97232,3687,138,708,20-29,26,age,hosp
+Oregon,97232,3687,138,708,30-39,46,age,hosp
+Oregon,97232,3687,138,708,40-49,85,age,hosp
+Oregon,97232,3687,138,708,50-59,118,age,hosp
+Oregon,97232,3687,138,708,60-69,168,age,hosp
+Oregon,97232,3687,138,708,70-79,144,age,hosp
+Oregon,97232,3687,138,708,80+,110,age,hosp
+Oregon,97232,3687,138,708,UNKNOWN,4,age,hosp
+Pennsylvania,340609,63056,4505,1882,50-64,0.1,age,hosp
+Pennsylvania,340609,63056,4505,1882,0-29,0.02,age,hosp
+Pennsylvania,340609,63056,4505,1882,30-49,0.05,age,hosp
+Pennsylvania,340609,63056,4505,1882,65-79,0.2,age,hosp
+Pennsylvania,340609,63056,4505,1882,80+,0.18,age,hosp
+Rhode Island,115384,12795,506,1438,0-9,NA,age,hosp
+Rhode Island,115384,12795,506,1438,10-19,NA,age,hosp
+Rhode Island,115384,12795,506,1438,20-29,33,age,hosp
+Rhode Island,115384,12795,506,1438,30-39,80,age,hosp
+Rhode Island,115384,12795,506,1438,40-49,128,age,hosp
+Rhode Island,115384,12795,506,1438,50-59,206,age,hosp
+Rhode Island,115384,12795,506,1438,60-69,242,age,hosp
+Rhode Island,115384,12795,506,1438,70-79,198,age,hosp
+Rhode Island,115384,12795,506,1438,80-89,138,age,hosp
+Rhode Island,115384,12795,506,1438,90-99,57,age,hosp
+Rhode Island,115384,12795,506,1438,100+,0,age,hosp
+Rhode Island,115384,12795,506,1438,PENDING,0,age,hosp
+South Carolina,131559,8942,NA,NA,NA,NA,age,hosp
+South Dakota,29045,4027,44,316,0-19,6,age,hosp
+South Dakota,29045,4027,44,316,20-29,19,age,hosp
+South Dakota,29045,4027,44,316,30-39,37,age,hosp
+South Dakota,29045,4027,44,316,40-49,37,age,hosp
+South Dakota,29045,4027,44,316,50-59,77,age,hosp
+South Dakota,29045,4027,44,316,60-69,75,age,hosp
+South Dakota,29045,4027,44,316,70-79,35,age,hosp
+South Dakota,29045,4027,44,316,80+,30,age,hosp
+South Dakota,29045,4027,44,316,UNKNOWN,NA,age,hosp
+Tennessee,337428,18011,301,NA,NA,NA,age,hosp
+Texas,723013,48693,1347,NA,NA,NA,age,hosp
+Utah,174022,7384,80,595,0-1,0,age,hosp
+Utah,174022,7384,80,595,1-14,2,age,hosp
+Utah,174022,7384,80,595,15-24,27,age,hosp
+Utah,174022,7384,80,595,25-44,149,age,hosp
+Utah,174022,7384,80,595,45-64,240,age,hosp
+Utah,174022,7384,80,595,65-84,155,age,hosp
+Utah,174022,7384,80,595,85+,22,age,hosp
+Utah,174022,7384,80,595,UNKNOWN,0,age,hosp
+Vermont,23825,940,54,NA,NA,NA,age,hosp
+Virginia,NA,31140,1014,3822,0-9,23,age,hosp
+Virginia,NA,31140,1014,3822,10-19,29,age,hosp
+Virginia,NA,31140,1014,3822,20-29,158,age,hosp
+Virginia,NA,31140,1014,3822,30-39,322,age,hosp
+Virginia,NA,31140,1014,3822,40-49,498,age,hosp
+Virginia,NA,31140,1014,3822,50-59,693,age,hosp
+Virginia,NA,31140,1014,3822,60-69,756,age,hosp
+Virginia,NA,31140,1014,3822,70-79,671,age,hosp
+Virginia,NA,31140,1014,3822,80+,670,age,hosp
+Virginia,NA,31140,1014,3822,UNKNOWN,2,age,hosp
+Washington,289135,18611,NA,NA,NA,NA,age,hosp
+West Virginia,77760,1502,68,NA,NA,NA,age,hosp
+Wisconsin,157189,12687,459,2068,0-10,10,age,hosp
+Wisconsin,157189,12687,459,2068,10-19,20,age,hosp
+Wisconsin,157189,12687,459,2068,20-29,91,age,hosp
+Wisconsin,157189,12687,459,2068,30-39,139,age,hosp
+Wisconsin,157189,12687,459,2068,40-49,241,age,hosp
+Wisconsin,157189,12687,459,2068,50-59,359,age,hosp
+Wisconsin,157189,12687,459,2068,60-69,454,age,hosp
+Wisconsin,157189,12687,459,2068,70-79,398,age,hosp
+Wisconsin,157189,12687,459,2068,80-89,265,age,hosp
+Wisconsin,157189,12687,459,2068,90+,91,age,hosp
+Wyoming,17661,577,10,NA,NA,NA,age,hosp
+Alabama,NA,12302,494,1432,NA,NA,race,hosp
+Alaska,35611,399,10,43,AI/AN,6,race,hosp
+Alaska,35611,399,10,43,ASIAN,7,race,hosp
+Alaska,35611,399,10,43,BLACK,0,race,hosp
+Alaska,35611,399,10,43,MULTI,0,race,hosp
+Alaska,35611,399,10,43,WHITE,23,race,hosp
+Alaska,35611,399,10,43,"NA",7,race,hosp
+Arizona,212784,14170,686,1717,AI/AN,178,race,hosp
+Arizona,212784,14170,686,1717,ASIAN,35,race,hosp
+Arizona,212784,14170,686,1717,BLACK,89,race,hosp
+Arizona,212784,14170,686,1717,MULTI,0,race,hosp
+Arizona,212784,14170,686,1717,WHITE,681,race,hosp
+Arizona,212784,14170,686,1717,"NA",273,race,hosp
+Arkansas,99173,4813,100,535,NA,NA,race,hosp
+California,NA,80430,3216,NA,NA,NA,race,hosp
+Colorado,NA,20028,975,3275,NA,NA,race,hosp
+Connecticut,177679,38116,3449,NA,NA,NA,race,hosp
+Delaware,42458,7869,297,NA,NA,NA,race,hosp
+Florida,677710,45208,1997,NA,AI/AN,0,race,hosp
+Florida,677710,45208,1997,NA,ASIAN,0,race,hosp
+Florida,677710,45208,1997,NA,BLACK,2201,race,hosp
+Florida,677710,45208,1997,NA,MULTI,0,race,hosp
+Florida,677710,45208,1997,NA,WHITE,5039,race,hosp
+Florida,677710,45208,1997,NA,"NA",1064,race,hosp
+Georgia,NA,38283,1649,6992,NA,NA,race,hosp
+Hawaii,45023,640,17,82,NA,NA,race,hosp
+Idaho,37847,2455,74,213,NA,NA,race,hosp
+Illinois,603241,96485,4234,NA,NA,NA,race,hosp
+Indiana,183912,28255,1621,NA,NA,NA,race,hosp
+Iowa,106427,15206,367,NA,NA,NA,race,hosp
+Kansas,66882,8340,173,740,AI/AN,5,race,hosp
+Kansas,66882,8340,173,740,ASIAN,25,race,hosp
+Kansas,66882,8340,173,740,BLACK,161,race,hosp
+Kansas,66882,8340,173,740,WHITE,476,race,hosp
+Kansas,66882,8340,173,740,"NA",73,race,hosp
+Kentucky,145238,7935,346,1514,NA,NA,race,hosp
+Louisiana,269748,34709,2440,NA,NA,NA,race,hosp
+Maine,NA,1713,71,223,NA,NA,race,hosp
+Maryland,201506,39762,1903,7086,NA,NA,race,hosp
+Massachusetts,460826,86010,5797,8481,NH ASIAN,231,race,hosp
+Massachusetts,460826,86010,5797,8481,NH BLACK,820,race,hosp
+Massachusetts,460826,86010,5797,8481,NH WHITE,3160,race,hosp
+Massachusetts,460826,86010,5797,8481,"NA",4328,race,hosp
+Michigan,424998,51915,4915,NA,NA,NA,race,hosp
+Minnesota,NA,16372,731,1397,NA,NA,race,hosp
+Mississippi,NA,11432,528,NA,NA,NA,race,hosp
+Missouri,154110,10945,605,NA,NA,NA,race,hosp
+Montana,NA,470,16,64,NA,NA,race,hosp
+Nebraska,70147,10625,124,595,NA,NA,race,hosp
+Nevada,81832,6906,2672,NA,NA,NA,race,hosp
+New Hampshire,NA,3160,1231,318,AI/AN,0,race,hosp
+New Hampshire,NA,3160,1231,318,ASIAN,10,race,hosp
+New Hampshire,NA,3160,1231,318,BLACK,13,race,hosp
+New Hampshire,NA,3160,1231,318,MULTI,0,race,hosp
+New Hampshire,NA,3160,1231,318,WHITE,220,race,hosp
+New Hampshire,NA,3160,1231,318,"NA",8,race,hosp
+New Jersey,NA,148039,10435,15149,NA,NA,race,hosp
+New Mexico,137620,6096,270,886,NA,NA,race,hosp
+New York,1439557,351371,22729,NA,NA,NA,race,hosp
+North Carolina,255755,19023,661,511,NA,NA,race,hosp
+North Dakota,56561,1931,44,133,NA,NA,race,hosp
+Ohio,NA,28454,1657,4998,NA,NA,race,hosp
+Oklahoma,NA,5398,288,NA,NA,NA,race,hosp
+Oregon,97232,3687,138,708,NA,NA,race,hosp
+Pennsylvania,340609,63056,4505,1882,NA,NA,race,hosp
+Rhode Island,115384,12795,506,1438,NH BLACK,92,race,hosp
+Rhode Island,115384,12795,506,1438,NH MULTI,0,race,hosp
+Rhode Island,115384,12795,506,1438,NH WHITE,330,race,hosp
+Rhode Island,115384,12795,506,1438,"NA",666,race,hosp
+South Carolina,131559,8942,NA,NA,NA,NA,race,hosp
+South Dakota,29045,4027,44,316,NA,NA,race,hosp
+Tennessee,337428,18011,301,NA,NA,NA,race,hosp
+Texas,723013,48693,1347,NA,NA,NA,race,hosp
+Utah,174022,7384,80,595,AI/AN,29,race,hosp
+Utah,174022,7384,80,595,ASIAN,12,race,hosp
+Utah,174022,7384,80,595,BLACK,19,race,hosp
+Utah,174022,7384,80,595,NH WHITE,271,race,hosp
+Utah,174022,7384,80,595,"NA",317,race,hosp
+Vermont,23825,940,54,NA,NA,NA,race,hosp
+Virginia,NA,31140,1014,3822,BLACK,921,race,hosp
+Virginia,NA,31140,1014,3822,WHITE,1518,race,hosp
+Virginia,NA,31140,1014,3822,"NA",1383,race,hosp
+Washington,289135,18611,NA,NA,NA,NA,race,hosp
+West Virginia,77760,1502,68,NA,NA,NA,race,hosp
+Wisconsin,157189,12687,459,2068,NA,NA,race,hosp
+Wyoming,17661,577,10,NA,NA,NA,race,hosp
+Alabama,NA,12302,494,1432,NA,NA,sex,hosp
+Alaska,35611,399,10,43,FEMALE,17,sex,hosp
+Alaska,35611,399,10,43,MALE,26,sex,hosp
+Alaska,35611,399,10,43,UNKNOWN/OTHER,0,sex,hosp
+Arizona,212784,14170,686,1717,FEMALE,811,sex,hosp
+Arizona,212784,14170,686,1717,MALE,906,sex,hosp
+Arizona,212784,14170,686,1717,UNKNOWN/OTHER,0,sex,hosp
+Arkansas,99173,4813,100,535,NA,NA,sex,hosp
+California,NA,80430,3216,NA,NA,NA,sex,hosp
+Colorado,NA,20028,975,3275,NA,NA,sex,hosp
+Connecticut,177679,38116,3449,NA,NA,NA,sex,hosp
+Delaware,42458,7869,297,NA,NA,NA,sex,hosp
+Florida,677710,45208,1997,NA,NA,NA,sex,hosp
+Georgia,NA,38283,1649,6992,NA,NA,sex,hosp
+Hawaii,45023,640,17,82,NA,NA,sex,hosp
+Idaho,37847,2455,74,213,NA,NA,sex,hosp
+Illinois,603241,96485,4234,NA,NA,NA,sex,hosp
+Indiana,183912,28255,1621,NA,NA,NA,sex,hosp
+Iowa,106427,15206,367,NA,NA,NA,sex,hosp
+Kansas,66882,8340,173,740,NA,NA,sex,hosp
+Kentucky,145238,7935,346,1514,FEMALE,863,sex,hosp
+Kentucky,145238,7935,346,1514,MALE,648,sex,hosp
+Kentucky,145238,7935,346,1514,UNKNOWN/OTHER,3,sex,hosp
+Louisiana,269748,34709,2440,NA,NA,NA,sex,hosp
+Maine,NA,1713,71,223,NA,NA,sex,hosp
+Maryland,201506,39762,1903,7086,NA,NA,sex,hosp
+Massachusetts,460826,86010,5797,8481,NA,NA,sex,hosp
+Michigan,424998,51915,4915,NA,NA,NA,sex,hosp
+Minnesota,NA,16372,731,1397,NA,NA,sex,hosp
+Mississippi,NA,11432,528,NA,NA,NA,sex,hosp
+Missouri,154110,10945,605,NA,NA,NA,sex,hosp
+Montana,NA,470,16,64,NA,NA,sex,hosp
+Nebraska,70147,10625,124,595,NA,NA,sex,hosp
+Nevada,81832,6906,2672,NA,NA,NA,sex,hosp
+New Hampshire,NA,3160,1231,318,FEMALE,127,sex,hosp
+New Hampshire,NA,3160,1231,318,MALE,191,sex,hosp
+New Hampshire,NA,3160,1231,318,UNKNOWN/OTHER,0,sex,hosp
+New Jersey,NA,148039,10435,15149,NA,NA,sex,hosp
+New Mexico,137620,6096,270,886,NA,NA,sex,hosp
+New York,1439557,351371,22729,NA,NA,NA,sex,hosp
+North Carolina,255755,19023,661,511,NA,NA,sex,hosp
+North Dakota,56561,1931,44,133,NA,NA,sex,hosp
+Ohio,NA,28454,1657,4998,FEMALE,2332,sex,hosp
+Ohio,NA,28454,1657,4998,MALE,2658,sex,hosp
+Ohio,NA,28454,1657,4998,UNKNOWN/OTHER,8,sex,hosp
+Oklahoma,NA,5398,288,NA,NA,NA,sex,hosp
+Oregon,97232,3687,138,708,NA,NA,sex,hosp
+Pennsylvania,340609,63056,4505,1882,NA,NA,sex,hosp
+Rhode Island,115384,12795,506,1438,FEMALE,475,sex,hosp
+Rhode Island,115384,12795,506,1438,MALE,607,sex,hosp
+Rhode Island,115384,12795,506,1438,PENDING,7,sex,hosp
+South Carolina,131559,8942,NA,NA,NA,NA,sex,hosp
+South Dakota,29045,4027,44,316,NA,NA,sex,hosp
+Tennessee,337428,18011,301,NA,NA,NA,sex,hosp
+Texas,723013,48693,1347,NA,NA,NA,sex,hosp
+Utah,174022,7384,80,595,NA,NA,sex,hosp
+Vermont,23825,940,54,NA,NA,NA,sex,hosp
+Virginia,NA,31140,1014,3822,FEMALE,1738,sex,hosp
+Virginia,NA,31140,1014,3822,MALE,2076,sex,hosp
+Virginia,NA,31140,1014,3822,UNKNOWN/OTHER,8,sex,hosp
+Washington,289135,18611,NA,NA,NA,NA,sex,hosp
+West Virginia,77760,1502,68,NA,NA,NA,sex,hosp
+Wisconsin,157189,12687,459,2068,NA,NA,sex,hosp
+Wyoming,17661,577,10,NA,NA,NA,sex,hosp
