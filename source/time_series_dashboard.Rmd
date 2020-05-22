@@ -131,9 +131,6 @@ renderPlotly({
     filter(state == input$state_choice1,
            num_type == input$count_choice,
            date >= min(date[val != 0])) %>%
-#    filter(state == "AK",
-#           num_type == "Count",
-#           date >= min(date[val != 0])) %>%
     mutate(max_val = max(val)) %>%
     plot_ly(
       x = ~date, y = ~val, type = "bar", showlegend = FALSE,
@@ -163,12 +160,10 @@ Column {data-width=500}
 
 ```{r}
 renderPlotly({
-  deaths2 %>%
+  subplot((deaths2 %>%
     filter(state == input$state_choice1,
            num_type == input$count_choice,
            date >= min(date[val != 0])) %>%
-#    filter(state == "AK",
-#           num_type == "Count") %>%
     mutate(max_val = max(val)) %>%
     plot_ly(
       x = ~date, y = ~val, type = "bar", showlegend = FALSE,
@@ -181,6 +176,11 @@ renderPlotly({
       yaxis = list(title = "No. Deaths")
     ) %>%
     add_lines(y = ~roll_avg, 
-              line = list(color = "#FF9800"))
+              line = list(color = "#FF9800"))),
+    (timelines %>%
+   filter(state == input$state_choice1) %>%
+   vistime(events = "category", start = "date", end = "end_date",
+           background_lines = 0)),
+   nrows = 2, shareX = TRUE, titleY = TRUE)
 })
 ```
