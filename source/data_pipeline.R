@@ -1,26 +1,30 @@
-# after second thought, christian i don't think you are worth it (the rmd)- aijin
-
 library(plyr)
 library(dplyr)
 library(data.table)
 library(magrittr)
 library(stringr)
 library(tidyverse)
-
-
-### 1. compile files ----
-
 load_object <- function(file) {
   tmp <- new.env()
   load(file = file, envir = tmp)
   tmp[[ls(tmp)[1]]]
 }
-# load Aijin's data
-df_aw = read.csv("../Data/raw_states/meta_2020-05-20_aw.csv")
-# load Chistian's data
-df_cbp = load_object("../Data/raw_states/meta_2020-05-20-cbp.rda")
-file_date = Sys.Date()-2 # change accordingly if editing later
 
+
+# command + option + o to see the pipeline structure
+
+### 0. load files ----
+
+file_date = Sys.Date()-2 # change accordingly if the editing date is not the scraping date
+file_date_name = file_date %>% format("%Y%m%d")
+
+# load Aijin's data
+df_aw = read.csv("../Data/raw_states/meta_2020-05-21_aw.csv")
+
+# load Chistian's data
+df_cbp = load_object("../Data/raw_states/meta_2020-05-21-cbp.rda")
+
+### 1. compile files ----
 col_num = grep("age|gender|race", colnames(df_cbp))
 df2_cbp = as.data.frame(df_cbp)
 df2_cbp[,col_num] = NA
@@ -51,7 +55,7 @@ meta$Link = NULL
 
 
 
-# 2. data cleaning ----
+### 2. data cleaning ----
 
 df = meta
 df[df == ""] = NA
@@ -392,7 +396,7 @@ df = gender_standard("hosp_gender")
 
 
 
-# 3. data processing ----
+### 3. data processing ----
 
 full_data = df
 full_data = janitor::clean_names(full_data)
@@ -483,7 +487,7 @@ final = final[order(final$state_name),]
 
 
 
-# 4. incorporate census data ----
+### 4. incorporate census data ----
 
 census = read.csv("../Data/census.csv")
 
@@ -574,16 +578,17 @@ for (i in 1:nrow(eth_dat)){
 }
 
 
-#################################################################
-##                          aggregate                          ##
-#################################################################
+### aggregate
 
 new_pop = bind_rows(age_bound, gender_dat, eth_dat, tot_dat)
 final = full_join(final, new_pop)
 
 
-
-write.csv(final, "../Data/processed_states/processed_state_data_20200520.csv", row.names = F)
+### 5. save file ----
+write.csv(final, 
+          paste0("../Data/processed_states/processed_state_data_", 
+                 file_date_name, ".csv"), 
+          row.names = F)
 
 
 
