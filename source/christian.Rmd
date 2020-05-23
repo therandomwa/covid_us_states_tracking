@@ -37,13 +37,14 @@ tennessee = get_tennessee()
 new_jersey = get_new_jersey()
 new_hampshire = get_new_hampshire()
 dc = get_dc()
+
+# Some manual data entry
 oklahoma = get_oklahoma()
 mississippi = get_mississippi()
-south_carolina = get_south_carolina()
 ```
 
 ```{r}
-new_hampshire
+south_carolina
 ```
 
 # Compile The Automated States
@@ -87,12 +88,13 @@ For each of these states, we'll collect sex, age, and race information.
 
 ```{r}
 # All the states we do complete manual data entry for
+south_carolina = get_south_carolina()
 arizona = get_arizona() 
 kansas = get_kansas()
 iowa = get_iowa()
 north_carolina = get_north_carolina()
-hawaii = get_hawaii() # Courtney
-idaho = get_idaho() # Courtney
+hawaii = get_hawaii()
+idaho = get_idaho() # Co
 nevada = get_nevada() 
 new_york = get_new_york()
 south_dakota = get_south_dakota() # Gloria

@@ -1002,14 +1002,12 @@ get_south_carolina = function() {
     html_table() %>% .[[1]] %>% 
     pull(X2) %>% 
     str_replace(",", "") %>% 
+    str_replace_all("\\*", "") %>% 
     as.numeric()
-  
-  return(html)
-  
+
   south_carolina = skeleton_table(sc_cols)
 
   south_carolina[["tested"]][["total"]] = html[7]
-  south_carolina[["negatives"]][["total"]] = html[3]
   south_carolina[["cases"]][["total"]] = html[6]
   
   browseURL("https://scdhec.gov/sc-demographic-data-covid-19")
@@ -1040,6 +1038,7 @@ get_south_carolina = function() {
   
   south_carolina[["hospitalized"]][["total"]] = get_information("SC, Total hosp: ")
   
+  south_carolina[["deaths"]][["total"]] = get_information("SC, Total deaths: ")
   south_carolina[["deaths"]][["age_0_10"]] = get_information("SC, deaths age_0_10: ")
   south_carolina[["deaths"]][["age_11_20"]] = get_information("SC, deaths age_11_20: ")
   south_carolina[["deaths"]][["age_21_30"]] = get_information("SC, deaths age_21_30: ")
