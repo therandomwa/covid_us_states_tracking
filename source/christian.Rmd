@@ -200,4 +200,9 @@ TODO:
 - add gloria's plot
 - add in the normalization function
   - add in associated totals into the dataset
+  - calculate normalized values
+  - add in the addition of these functions to the overall dataset
+- style each of the plots to match columbia's guidelines
+- add in shings info
+- add icons?
 

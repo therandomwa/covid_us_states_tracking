@@ -78,22 +78,65 @@ get_oklahoma = function() {
   case_url = "https://storage.googleapis.com/ok-covid-gcs-public-download/oklahoma_cases_county.csv"
   
   case_by_county = read_csv(case_url)
-  skeleton = skeleton_table(ok_cols)
+  oklahoma = skeleton_table(ok_cols)
   
   # Push items into the skeleton  
-  skeleton[["cases"]][["total"]] = case_by_county %>% 
+  oklahoma[["cases"]][["total"]] = case_by_county %>% 
     pull(Cases) %>% sum
-  skeleton[["recovered"]][["total"]] = case_by_county %>% 
+  oklahoma[["recovered"]][["total"]] = case_by_county %>% 
     pull(Recovered) %>% sum
-  skeleton[["deaths"]][["total"]] = case_by_county %>% 
+  oklahoma[["deaths"]][["total"]] = case_by_county %>% 
     pull(Deaths) %>% sum
   
-  return(skeleton)
+  browseURL("https://coronavirus.health.ok.gov/")
+  
+  oklahoma[["cases"]][["age_0_4"]] = get_information("OK, cases age_0_4: ") 
+  oklahoma[["cases"]][["age_5_17"]] = get_information("OK, cases age_5_17: ") 
+  oklahoma[["cases"]][["age_18_35"]] = get_information("OK, cases age_18_35: ") 
+  oklahoma[["cases"]][["age_36_49"]] = get_information("OK, cases age_36_49: ")
+  oklahoma[["cases"]][["age_50_64"]] = get_information("OK, cases age_50_64: ") 
+  oklahoma[["cases"]][["age_65+"]] = get_information("OK, cases age_age_65+: ")
+  oklahoma[["cases"]][["race_white"]] = get_information("OK, cases white: ") 
+  oklahoma[["cases"]][["race_AfrA"]] = get_information("OK, cases AfrA: ") 
+  oklahoma[["cases"]][["race_NatA"]] = get_information("OK, cases NatA: ") 
+  oklahoma[["cases"]][["race_asian"]] = get_information("OK, cases asian: ")
+  oklahoma[["cases"]][["race_other"]] = get_information("OK, cases race_other: ") 
+  oklahoma[["cases"]][["race_unk"]] = get_information("OK, cases race_unk: ")
+  
+  oklahoma[["deaths"]][["age_0_4"]] = get_information("OK, death age_0_4: ") 
+  oklahoma[["deaths"]][["age_5_17"]] = get_information("OK, death age_5_17: ") 
+  oklahoma[["deaths"]][["age_18_35"]] = get_information("OK, death age_18_35: ") 
+  oklahoma[["deaths"]][["age_36_49"]] = get_information("OK, death age_36_49: ")
+  oklahoma[["deaths"]][["age_50_64"]] = get_information("OK, death age_50_64: ") 
+  oklahoma[["deaths"]][["age_65+"]] = get_information("OK, deathage_65+: ")
+  oklahoma[["deaths"]][["race_white"]] = get_information("OK, death white: ") 
+  oklahoma[["deaths"]][["race_AfrA"]] = get_information("OK, death AfrA: ") 
+  oklahoma[["deaths"]][["race_NatA"]] = get_information("OK, death NatA: ") 
+  oklahoma[["deaths"]][["race_asian"]] = get_information("OK, death asian: ")
+  oklahoma[["deaths"]][["race_other"]] = get_information("OK, death race_other: ") 
+  oklahoma[["deaths"]][["race_unk"]] = get_information("OK, death race_unk: ")
+  oklahoma[["deaths"]][["sex_male"]] = get_information("OK, death sex_male: ") 
+  oklahoma[["deaths"]][["sex_female"]] = get_information("OK, death sex_female: ")
+  
+  final_oklahoma = as_tibble(oklahoma) %>% 
+    standardize %>% 
+    mutate(
+      state_name = "Oklahoma",
+      Link = "https://coronavirus.health.ok.gov",
+      platform = "pdf",
+      comments = "Demographic and age data available, but age and demo data manually entered.",
+      last.update = Sys.time() %>% as_date) %>% 
+    select(
+      state_name, Link,
+      total.tested:hosp_gender,
+      platform, comments, last.update)
+  
+  return(final_oklahoma)
 }
 
 get_mississippi = function() {
   
-  skeleton = skeleton_table(ms_cols)
+  mississippi = skeleton_table(ms_cols)
   
   # Extract pdf locations from the site to account for updates
   site_url = "https://msdh.ms.gov/msdhsite/_static/14,0,420.html"
@@ -121,8 +164,8 @@ get_mississippi = function() {
     tail(1) %>% unlist() %>% .[-1] %>%
     str_replace(",", "") %>% as.numeric()
   
-  skeleton[["cases"]][["total"]] = summary_vals[1]
-  skeleton[["deaths"]][["total"]] = summary_vals[2]
+  mississippi[["cases"]][["total"]] = summary_vals[1]
+  mississippi[["deaths"]][["total"]] = summary_vals[2]
   
   demo = pdf_text(demo_url) %>% tail(1) %>% #only want the last page
     str_split("\n") %>% .[[1]] %>% 
@@ -130,16 +173,16 @@ get_mississippi = function() {
     str_split(" ") %>% .[[1]] %>% .[-1] %>% 
     as.numeric()
   
-  skeleton[["cases"]][["race_AfrA"]] = demo[2] + demo[8] + demo[14]
-  skeleton[["cases"]][["race_white"]] = demo[3] + demo[9] + demo[15]
-  skeleton[["cases"]][["race_NatA"]] = demo[4] + demo[10] + demo[16]
-  skeleton[["cases"]][["race_asian"]] = demo[5] + demo[11] + demo[17]
-  skeleton[["cases"]][["race_other"]] = demo[6] + demo[12] + demo[18]
-  skeleton[["cases"]][["race_unk"]] = demo[7] + demo[13] + demo[19]
+  mississippi[["cases"]][["race_AfrA"]] = demo[2] + demo[8] + demo[14]
+  mississippi[["cases"]][["race_white"]] = demo[3] + demo[9] + demo[15]
+  mississippi[["cases"]][["race_NatA"]] = demo[4] + demo[10] + demo[16]
+  mississippi[["cases"]][["race_asian"]] = demo[5] + demo[11] + demo[17]
+  mississippi[["cases"]][["race_other"]] = demo[6] + demo[12] + demo[18]
+  mississippi[["cases"]][["race_unk"]] = demo[7] + demo[13] + demo[19]
   
-  skeleton[["cases"]][["ethnicity_non_hispanic"]] = demo[2:7] %>% sum()
-  skeleton[["cases"]][["ethnicity_hispanic"]] = demo[8:13] %>% sum()
-  skeleton[["cases"]][["ethnicity_unk"]] = demo[14:19] %>% sum()
+  mississippi[["cases"]][["ethnicity_non_hispanic"]] = demo[2:7] %>% sum()
+  mississippi[["cases"]][["ethnicity_hispanic"]] = demo[8:13] %>% sum()
+  mississippi[["cases"]][["ethnicity_unk"]] = demo[14:19] %>% sum()
   
   demo_death = pdf_text(demo_death_url) %>% tail(1) %>% #only want the last page
     str_split("\n") %>% .[[1]] %>% 
@@ -147,18 +190,115 @@ get_mississippi = function() {
     str_split(" ") %>% .[[1]] %>% .[-1] %>% 
     as.numeric()
   
-  skeleton[["deaths"]][["race_AfrA"]] = demo_death[2] + demo_death[8] + demo_death[14]
-  skeleton[["deaths"]][["race_white"]] = demo_death[3] + demo_death[9] + demo_death[15]
-  skeleton[["deaths"]][["race_NatA"]] = demo_death[4] + demo[10] + demo_death[16]
-  skeleton[["deaths"]][["race_asian"]] = demo_death[5] + demo_death[11] + demo_death[17]
-  skeleton[["deaths"]][["race_other"]] = demo_death[6] + demo_death[12] + demo_death[18]
-  skeleton[["deaths"]][["race_unk"]] = demo_death[7] + demo_death[13] + demo_death[19]
+  mississippi[["deaths"]][["race_AfrA"]] = demo_death[2] + demo_death[8] + demo_death[14]
+  mississippi[["deaths"]][["race_white"]] = demo_death[3] + demo_death[9] + demo_death[15]
+  mississippi[["deaths"]][["race_NatA"]] = demo_death[4] + demo[10] + demo_death[16]
+  mississippi[["deaths"]][["race_asian"]] = demo_death[5] + demo_death[11] + demo_death[17]
+  mississippi[["deaths"]][["race_other"]] = demo_death[6] + demo_death[12] + demo_death[18]
+  mississippi[["deaths"]][["race_unk"]] = demo_death[7] + demo_death[13] + demo_death[19]
   
-  skeleton[["deaths"]][["ethnicity_non_hispanic"]] = demo_death[2:7] %>% sum()
-  skeleton[["deaths"]][["ethnicity_hispanic"]] = demo_death[8:13] %>% sum()
-  skeleton[["deaths"]][["ethnicity_unk"]] = demo_death[14:19] %>% sum()
+  mississippi[["deaths"]][["ethnicity_non_hispanic"]] = demo_death[2:7] %>% sum()
+  mississippi[["deaths"]][["ethnicity_hispanic"]] = demo_death[8:13] %>% sum()
+  mississippi[["deaths"]][["ethnicity_unk"]] = demo_death[14:19] %>% sum()
   
-  return(skeleton)
+  browseURL("https://msdh.ms.gov/msdhsite/_static/14,0,420.html")
+  
+  mississippi[["cases"]][["age_0_17"]] = get_information("MS, cases age_0_17: ") 
+  mississippi[["cases"]][["age_18_29"]] = get_information("MS, cases age_18_29: ")
+  mississippi[["cases"]][["age_30_39"]] = get_information("MS, cases age_30_39: ")
+  mississippi[["cases"]][["age_40_49"]] = get_information("MS, cases age_40_49: ")
+  mississippi[["cases"]][["age_50_59"]] = get_information("MS, cases age_50_59: ")
+  mississippi[["cases"]][["age_60_69"]] = get_information("MS, cases age_60_69: ")
+  mississippi[["cases"]][["age_70_79"]] = get_information("MS, cases age_70_79: ")
+  mississippi[["cases"]][["age_80_89"]] = get_information("MS, cases age_80_89: ")
+  mississippi[["cases"]][["age_90+"]] = get_information("MS, cases age_90+: ")
+  
+  mississippi[["deaths"]][["age_0_17"]] = get_information("MS, deaths age_0_17: ") 
+  mississippi[["deaths"]][["age_18_29"]] = get_information("MS, deaths age_18_29: ")
+  mississippi[["deaths"]][["age_30_39"]] = get_information("MS, deaths age_30_39: ")
+  mississippi[["deaths"]][["age_40_49"]] = get_information("MS, deaths age_40_49: ")
+  mississippi[["deaths"]][["age_50_59"]] = get_information("MS, deaths age_50_59: ")
+  mississippi[["deaths"]][["age_60_69"]] = get_information("MS, deaths age_60_69: ")
+  mississippi[["deaths"]][["age_70_79"]] = get_information("MS, deaths age_70_79: ")
+  mississippi[["deaths"]][["age_80_89"]] = get_information("MS, deaths age_80_89: ")
+  mississippi[["deaths"]][["age_90+"]] = get_information("MS, deaths age_90+: ")
+  
+  mississippi[["hospitalized"]][["age_0_17"]] = get_information(prompt = "MS, hosp age_0_17: ") 
+  mississippi[["hospitalized"]][["age_18_29"]] = get_information(prompt = "MS, hosp age_18_29: ")
+  mississippi[["hospitalized"]][["age_30_39"]] = get_information(prompt = "MS, hosp age_30_39: ")
+  mississippi[["hospitalized"]][["age_40_49"]] = get_information(prompt = "MS, hosp age_40_49: ")
+  mississippi[["hospitalized"]][["age_50_59"]] = get_information(prompt = "MS, hosp age_50_59: ")
+  mississippi[["hospitalized"]][["age_60_69"]] = get_information(prompt = "MS, hosp age_60_69: ")
+  mississippi[["hospitalized"]][["age_70_79"]] = get_information(prompt = "MS, hosp age_70_79: ")
+  mississippi[["hospitalized"]][["age_80_89"]] = get_information(prompt = "MS, hosp age_80_89: ")
+  mississippi[["hospitalized"]][["age_90+"]] = get_information(prompt = "MS, hosp age_90+: ")
+  
+  male_afra = get_information("MS, male cases AfrA: ")
+  male_white = get_information("MS, male cases white: ")
+  male_hispanic = get_information("MS, male cases hisp: ")
+  male_asian = get_information("MS, male cases Asian: ")
+  male_nata = get_information("MS, male cases NatA: ")
+  male_other = get_information("MS, male cases other_race: ")
+  
+  female_afra = get_information("MS, female cases AfrA: ")
+  female_white = get_information("MS, female cases white: ")
+  female_hispanic = get_information("MS, female cases hisp: ")
+  female_asian = get_information("MS, female cases Asian: ")
+  female_nata = get_information("MS, female cases NatA: ")
+  female_other = get_information("MS, female cases other_race: ")
+  
+  mississippi[["cases"]][["sex_male"]] = male_afra + male_white + male_hispanic + male_asian +
+    male_nata + male_other
+  mississippi[["cases"]][["sex_female"]] = female_afra + female_white + female_hispanic + female_asian +
+    female_nata + female_other
+  
+  mississippi[["cases"]][["race_AfrA"]] = male_afra + female_afra
+  mississippi[["cases"]][["race_white"]] = male_white + female_white
+  mississippi[["cases"]][["race_asian"]] = male_asian + female_asian
+  mississippi[["cases"]][["race_NatA"]] = male_nata + female_nata
+  mississippi[["cases"]][["race_other"]] = male_other + female_other
+  mississippi[["cases"]][["ethnicity_hispanic"]] = male_hispanic + female_hispanic
+  
+  male_afra = get_information("MS, male deaths AfrA: ")
+  male_white = get_information("MS, male deaths white: ")
+  male_hispanic = get_information("MS, male deaths hisp: ")
+  male_asian = get_information("MS, male deaths Asian: ")
+  male_nata = get_information("MS, male deaths NatA: ")
+  male_other = get_information("MS, male deaths other_race: ")
+  
+  female_afra = get_information("MS, female deaths AfrA: ")
+  female_white = get_information("MS, female deaths white: ")
+  female_hispanic = get_information("MS, female deaths hisp: ")
+  female_asian = get_information("MS, female deaths Asian: ")
+  female_nata = get_information("MS, female deaths NatA: ")
+  female_other = get_information("MS, female deaths other_race: ")
+  
+  mississippi[["deaths"]][["sex_male"]] = male_afra + male_white + male_hispanic + male_asian +
+    male_nata + male_other
+  mississippi[["deaths"]][["sex_female"]] = female_afra + female_white + female_hispanic + female_asian +
+    female_nata + female_other
+  
+  mississippi[["deaths"]][["race_AfrA"]] = male_afra + female_afra
+  mississippi[["deaths"]][["race_white"]] = male_white + female_white
+  mississippi[["deaths"]][["race_asian"]] = male_asian + female_asian
+  mississippi[["deaths"]][["race_NatA"]] = male_nata + female_nata
+  mississippi[["deaths"]][["race_other"]] = male_other + female_other
+  mississippi[["deaths"]][["ethnicity_hispanic"]] = male_hispanic + female_hispanic
+  
+  final_mississippi = as_tibble(mississippi) %>% 
+    standardize %>% 
+    mutate(
+      state_name = "Mississippi",
+      Link = "https://msdh.ms.gov/msdhsite/_static/14,0,420.html",
+      platform = "pdf",
+      comments = "Age data manually entered",
+      last.update = Sys.time() %>% as_date) %>% 
+    select(
+      state_name, Link,
+      total.tested:hosp_gender,
+      platform, comments, last.update)
+  
+  return(final_mississippi)
   
 }
 
@@ -616,7 +756,7 @@ get_tennessee = function(date = "today") {
 
 get_north_carolina = function() {
   
-  skeleton = skeleton_table(nc_cols)
+  north_carolina = skeleton_table(nc_cols)
   url = "https://www.ncdhhs.gov/divisions/public-health/covid19/covid-19-nc-case-count#by-race-ethnicity"
   
   data = read_html(url)
@@ -695,33 +835,87 @@ get_north_carolina = function() {
   cases = heading_table[1]
   deaths = heading_table[2]
   
-  skeleton[["tested"]][["total"]] = heading_table[3]
+  north_carolina[["tested"]][["total"]] = heading_table[3]
   
-  skeleton[["deaths"]][["total"]] = deaths
+  north_carolina[["deaths"]][["total"]] = deaths
   
-  skeleton[["deaths"]][["race_NatA"]] = nata_deaths
-  skeleton[["deaths"]][["race_asian"]] = asian_deaths
-  skeleton[["deaths"]][["race_AfrA"]] = afra_deaths
-  skeleton[["deaths"]][["race_white"]] = white_deaths
-  skeleton[["deaths"]][["race_other"]] = other_deaths
+  north_carolina[["deaths"]][["race_NatA"]] = nata_deaths
+  north_carolina[["deaths"]][["race_asian"]] = asian_deaths
+  north_carolina[["deaths"]][["race_AfrA"]] = afra_deaths
+  north_carolina[["deaths"]][["race_white"]] = white_deaths
+  north_carolina[["deaths"]][["race_other"]] = other_deaths
   
-  skeleton[["deaths"]][["ethnicity_hispanic"]] = hispanic_deaths
-  skeleton[["deaths"]][["ethnicity_non_hispanic"]] = non_hispanic_deaths
+  north_carolina[["deaths"]][["ethnicity_hispanic"]] = hispanic_deaths
+  north_carolina[["deaths"]][["ethnicity_non_hispanic"]] = non_hispanic_deaths
   
-  skeleton[["cases"]][["total"]] = cases
-  skeleton[["cases"]][["race_NatA"]] = nata
-  skeleton[["cases"]][["race_asian"]] = asian
-  skeleton[["cases"]][["race_AfrA"]] = afra
-  skeleton[["cases"]][["race_white"]] = white
-  skeleton[["cases"]][["race_other"]] = other
+  north_carolina[["cases"]][["total"]] = cases
+  north_carolina[["cases"]][["race_NatA"]] = nata
+  north_carolina[["cases"]][["race_asian"]] = asian
+  north_carolina[["cases"]][["race_AfrA"]] = afra
+  north_carolina[["cases"]][["race_white"]] = white
+  north_carolina[["cases"]][["race_other"]] = other
   
-  skeleton[["cases"]][["ethnicity_hispanic"]] = hispanic
-  skeleton[["cases"]][["ethnicity_non_hispanic"]] = non_hispanic
+  north_carolina[["cases"]][["ethnicity_hispanic"]] = hispanic
+  north_carolina[["cases"]][["ethnicity_non_hispanic"]] = non_hispanic
+  
+  north_carolina[["hospitalized"]][["total"]] = heading_table[4]
+  
+  browseURL("https://covid19.ncdhhs.gov/dashboard#by-age")
+  
+  north_carolina[["cases"]][["age_0_17"]] = get_information("NC, case age_0_17: ") 
+  north_carolina[["cases"]][["age_18_24"]] = get_information("NC, case age_18_24: ")
+  north_carolina[["cases"]][["age_25_49"]] = get_information("NC, case age_25_49: ")
+  north_carolina[["cases"]][["age_50_64"]] = get_information("NC, case age_50_44: ")
+  north_carolina[["cases"]][["age_65+"]] = get_information("NC, case age_65+: ")
+  north_carolina[["cases"]][["age_unk"]] = get_information("NC, case age_unk: ")
+  north_carolina[["cases"]][["race_NatA"]] = get_information("NC, case race NatA: ")
+  north_carolina[["cases"]][["race_asian"]] = get_information("NC, case race asian: ")
+  north_carolina[["cases"]][["race_AfrA"]] = get_information("NC, case race AfrA: ")
+  north_carolina[["cases"]][["race_white"]] = get_information("NC, case race white: ")
+  north_carolina[["cases"]][["race_other"]] = get_information("NC, case race other: ")
+  north_carolina[["cases"]][["race_unk"]] = get_information("NC, case race unknown: ")
+  north_carolina[["cases"]][["ethnicity_hispanic"]] = get_information("NC, case hispanic: ")
+  north_carolina[["cases"]][["ethnicity_non_hispanic"]] = get_information("NC, case non_hispanic: ")
+  north_carolina[["cases"]][["ethnicity_unknown"]] = get_information("NC, case hisp unknown: ")
+  north_carolina[["cases"]][["sex_male"]] = get_information("NC, case sex male: ")
+  north_carolina[["cases"]][["sex_female"]] = get_information("NC, case sex female: ")
+  north_carolina[["cases"]][["sex_unk"]] = get_information("NC, case sex unknown: ")
+  
+  north_carolina[["deaths"]][["age_0_17"]] = get_information("NC, deaths age_0_17: ") 
+  north_carolina[["deaths"]][["age_18_24"]] = get_information("NC, deaths age_18_24: ")
+  north_carolina[["deaths"]][["age_25_49"]] = get_information("NC, deaths age_25_49: ")
+  north_carolina[["deaths"]][["age_50_64"]] = get_information("NC, deaths age_50_44: ")
+  north_carolina[["deaths"]][["age_65+"]] = get_information("NC, deaths age_65+: ")
+  north_carolina[["deaths"]][["age_unk"]] = get_information("NC, deaths age_unk: ")
+  north_carolina[["deaths"]][["race_NatA"]] = get_information("NC, deaths race NatA: ")
+  north_carolina[["deaths"]][["race_asian"]] = get_information("NC, deaths race asian: ")
+  north_carolina[["deaths"]][["race_AfrA"]] = get_information("NC, deaths race AfrA: ")
+  north_carolina[["deaths"]][["race_white"]] = get_information("NC, deaths race white: ")
+  north_carolina[["deaths"]][["race_other"]] = get_information("NC, deaths race other: ")
+  north_carolina[["deaths"]][["race_unk"]] = get_information("NC, deaths race unknown: ")
+  north_carolina[["deaths"]][["ethnicity_hispanic"]] = get_information("NC, deaths hispanic: ")
+  north_carolina[["deaths"]][["ethnicity_non_hispanic"]] = get_information("NC, deaths non_hispanic: ")
+  north_carolina[["deaths"]][["ethnicity_unknown"]] = get_information("NC, deaths hisp unknown: ")
+  north_carolina[["deaths"]][["sex_male"]] = get_information("NC, deaths sex male: ")
+  north_carolina[["deaths"]][["sex_female"]] = get_information("NC, deaths sex female: ")
+  north_carolina[["deaths"]][["sex_unk"]] = get_information("NC, deaths sex unknown: ")
   
   
-  skeleton[["hospitalized"]][["total"]] = heading_table[4]
+  final_north_carolina = as_tibble(north_carolina) %>% 
+    standardize %>% 
+    mutate(
+      state_name = "North Carolina",
+      Link = "https://covid19.ncdhhs.gov/dashboard#by-gender",
+      platform = "pdf",
+      comments = "Age data manually entered as percentages.",
+      last.update = Sys.time() %>% as_date) %>% 
+    select(
+      state_name, Link,
+      total.tested:hosp_gender,
+      platform, comments, last.update)
   
-  return(skeleton)
+  
+  return(final_north_carolina)
 }
 
 get_dc = function() {
@@ -794,6 +988,7 @@ get_dc = function() {
 }
 
 get_south_carolina = function() {
+  
   url = "https://scdhec.gov/infectious-diseases/viruses/coronavirus-disease-2019-covid-19/sc-testing-data-projections-covid-19"
   html = read_html(url) %>% 
     html_nodes("body") %>% 
@@ -809,13 +1004,80 @@ get_south_carolina = function() {
     str_replace(",", "") %>% 
     as.numeric()
   
-  skeleton = skeleton_table(sc_cols)
+  return(html)
   
-  skeleton[["tested"]][["total"]] = html[7]
-  skeleton[["negatives"]][["total"]] = html[3]
-  skeleton[["cases"]][["total"]] = html[6]
+  south_carolina = skeleton_table(sc_cols)
+
+  south_carolina[["tested"]][["total"]] = html[7]
+  south_carolina[["negatives"]][["total"]] = html[3]
+  south_carolina[["cases"]][["total"]] = html[6]
   
-  return(skeleton)
+  browseURL("https://scdhec.gov/sc-demographic-data-covid-19")
+  
+  south_carolina[["cases"]][["age_0_10"]] = get_information("SC, cases age_0_10: ")
+  south_carolina[["cases"]][["age_11_20"]] = get_information("SC, cases age_11_20: ")
+  south_carolina[["cases"]][["age_21_30"]] = get_information("SC, cases age_21_30: ")
+  south_carolina[["cases"]][["age_31_40"]] = get_information("SC, cases age_31_40: ")
+  south_carolina[["cases"]][["age_41_50"]] = get_information("SC, cases age_41_50: ")
+  south_carolina[["cases"]][["age_51_60"]] = get_information("SC, cases age_51_60: ")
+  south_carolina[["cases"]][["age_61_70"]] = get_information("SC, cases age_61_70: ")
+  south_carolina[["cases"]][["age_71_80"]] = get_information("SC, cases age_71_80: ")
+  south_carolina[["cases"]][["age_81+"]] = get_information("SC, cases age_81+: ") 
+  
+  south_carolina[["cases"]][["race_AfrA"]] = get_information("SC, cases race_Afra: ")
+  south_carolina[["cases"]][["race_white"]] = get_information("SC, cases race_white: ")
+  south_carolina[["cases"]][["race_asian"]] = get_information("SC, cases race_asian: ")
+  south_carolina[["cases"]][["race_other"]] = get_information("SC, cases race_other: ")
+  south_carolina[["cases"]][["race_unk"]] = get_information("SC, cases race_unk: ")
+  
+  south_carolina[["cases"]][["ethnicity_hispanic"]] = get_information("SC, cases ethnicity_hispanic: ")
+  south_carolina[["cases"]][["ethnicity_non_hispanic"]] = get_information("SC, cases ethnicity_non_hispanic: ")
+  south_carolina[["cases"]][["ethnicity_unk"]] = get_information("SC, cases ethnicity_unk: ")
+  
+  south_carolina[["cases"]][["sex_male"]] = get_information("SC, cases male: ")
+  south_carolina[["cases"]][["sex_female"]] = get_information("SC, cases female: ")
+  south_carolina[["cases"]][["sex_unk"]] = get_information("SC, cases unk: ")
+  
+  south_carolina[["hospitalized"]][["total"]] = get_information("SC, Total hosp: ")
+  
+  south_carolina[["deaths"]][["age_0_10"]] = get_information("SC, deaths age_0_10: ")
+  south_carolina[["deaths"]][["age_11_20"]] = get_information("SC, deaths age_11_20: ")
+  south_carolina[["deaths"]][["age_21_30"]] = get_information("SC, deaths age_21_30: ")
+  south_carolina[["deaths"]][["age_31_40"]] = get_information("SC, deaths age_31_40: ")
+  south_carolina[["deaths"]][["age_41_50"]] = get_information("SC, deaths age_41_50: ")
+  south_carolina[["deaths"]][["age_51_60"]] = get_information("SC, deaths age_51_60: ")
+  south_carolina[["deaths"]][["age_61_70"]] = get_information("SC, deaths age_61_70: ")
+  south_carolina[["deaths"]][["age_71_80"]] = get_information("SC, deaths age_71_80: ")
+  south_carolina[["deaths"]][["age_81+"]] = get_information("SC, deaths age_81+: ") 
+  
+  south_carolina[["deaths"]][["race_AfrA"]] = get_information("SC, deaths race_Afra: ")
+  south_carolina[["deaths"]][["race_white"]] = get_information("SC, deaths race_white: ")
+  south_carolina[["deaths"]][["race_asian"]] = get_information("SC, deaths race_asian: ")
+  south_carolina[["deaths"]][["race_other"]] = get_information("SC, deaths race_other: ")
+  south_carolina[["deaths"]][["race_unk"]] = get_information("SC, deaths race_unk: ")
+  
+  south_carolina[["deaths"]][["ethnicity_hispanic"]] = get_information("SC, deaths ethnicity_hispanic: ")
+  south_carolina[["deaths"]][["ethnicity_non_hispanic"]] = get_information("SC, deaths ethnicity_non_hispanic: ")
+  south_carolina[["deaths"]][["ethnicity_unk"]] = get_information("SC, deaths ethnicity_unk: ")
+  
+  south_carolina[["deaths"]][["sex_male"]] = get_information("SC, deaths male: ")
+  south_carolina[["deaths"]][["sex_female"]] = get_information("SC, deaths female: ")
+  south_carolina[["deaths"]][["sex_unk"]] = get_information("SC, deaths unk: ")
+  
+  final_south_carolina = as_tibble(south_carolina) %>% 
+    standardize %>% 
+    mutate(
+      state_name = "South Carolina",
+      Link = "https://doh.sd.gov/news/coronavirus.aspx#SD",
+      platform = "pdf",
+      comments = "Demographic and age data manually entered",
+      last.update = Sys.time() %>% as_date) %>% 
+    select(
+      state_name, Link,
+      total.tested:hosp_gender,
+      platform, comments, last.update)
+  
+  return(final_south_carolina)
 }
 
 get_new_jersey = function() {
@@ -955,8 +1217,7 @@ get_new_hampshire = function() {
   second_page = pdf_text(url) %>% .[2] %>% 
     str_split("\n") %>% .[[1]] %>% 
     str_squish()
-  skeleton = skeleton_table(nh_cols)
-
+  
   cases = first_page %>% .[7] %>% 
     str_split(" ", simplify = TRUE) %>% .[1, 3] %>% 
     str_replace(",", "") %>% as.numeric()
@@ -965,12 +1226,8 @@ get_new_hampshire = function() {
     str_split(" ", simplify = TRUE) %>% .[1, 5] %>% 
     str_replace(",", "") %>% as.numeric()
   
-  recovered = first_page %>% .[7] %>% 
-    str_split(" ", simplify = TRUE) %>% .[1, 7] %>% 
-    str_replace(",", "") %>% as.numeric()
-  
   deaths = first_page %>% .[7] %>% 
-    str_split(" ", simplify = TRUE) %>% .[1, 8] %>% 
+    str_split(" ", simplify = TRUE) %>% .[1, 9] %>% 
     str_replace(",", "") %>% as.numeric()
   
   females = first_page %>% .[15] %>% 
@@ -1105,77 +1362,67 @@ get_new_hampshire = function() {
     str_split(" ", simplify = TRUE) %>% .[1, 7] %>% 
     str_replace(",", "") %>% as.numeric()
   
-  has_race_ethn = second_page %>% .[12] %>% 
-    str_split(" ", simplify = TRUE) %>% .[1, 1] %>% 
-    str_replace(",", "") %>% as.numeric()
-  
-  has_race_ethn_hosp = second_page %>% .[12] %>% 
+  white = second_page %>% .[10] %>% 
     str_split(" ", simplify = TRUE) %>% .[1, 2] %>% 
     str_replace(",", "") %>% as.numeric()
   
-  has_race_ethn_death = second_page %>% .[12] %>% 
-    str_split(" ", simplify = TRUE) %>% .[1, 3] %>% 
-    str_replace(",", "") %>% as.numeric()
-  
-  white = second_page %>% .[6] %>% 
-    str_split(" ", simplify = TRUE) %>% .[1, 2] %>% 
-    str_replace(",", "") %>% as.numeric()
-  
-  white_hosp = second_page %>% .[6] %>% 
+  white_hosp = second_page %>% .[10] %>% 
     str_split(" ", simplify = TRUE) %>% .[1, 4] %>% 
     str_replace(",", "") %>% as.numeric()
   
-  white_death = second_page %>% .[6] %>% 
+  white_death = second_page %>% .[10] %>% 
     str_split(" ", simplify = TRUE) %>% .[1, 6] %>% 
     str_replace(",", "") %>% as.numeric()
   
-  black = second_page %>% .[8] %>% 
+  hispanic = second_page %>% .[11] %>% 
+    str_split(" ", simplify = TRUE) %>% .[1, 2] %>% 
+    str_replace(",", "") %>% as.numeric()
+  
+  hispanic_hosp = second_page %>% .[11] %>% 
+    str_split(" ", simplify = TRUE) %>% .[1, 4] %>% 
+    str_replace(",", "") %>% as.numeric()
+  
+  hispanic_death = second_page %>% .[11] %>% 
+    str_split(" ", simplify = TRUE) %>% .[1, 6] %>% 
+    str_replace(",", "") %>% as.numeric()
+  
+  black = second_page %>% .[12] %>% 
     str_split(" ", simplify = TRUE) %>% .[1, 5] %>% 
     str_replace(",", "") %>% as.numeric()
   
-  black_hosp = second_page %>% .[8] %>% 
+  black_hosp = second_page %>% .[12] %>% 
     str_split(" ", simplify = TRUE) %>% .[1, 7] %>% 
     str_replace(",", "") %>% as.numeric()
   
-  black_death = second_page %>% .[8] %>% 
+  black_death = second_page %>% .[12] %>% 
     str_split(" ", simplify = TRUE) %>% .[1, 9] %>% 
     str_replace(",", "") %>% as.numeric()
   
-  other = second_page %>% .[9] %>% 
+  other = second_page %>% .[13] %>% 
     str_split(" ", simplify = TRUE) %>% .[1, 2] %>% 
     str_replace(",", "") %>% as.numeric()
   
-  other_hosp = second_page %>% .[9] %>% 
+  other_hosp = second_page %>% .[13] %>% 
     str_split(" ", simplify = TRUE) %>% .[1, 4] %>% 
     str_replace(",", "") %>% as.numeric()
   
-  other_death = second_page %>% .[9] %>% 
+  other_death = second_page %>% .[13] %>% 
     str_split(" ", simplify = TRUE) %>% .[1, 6] %>% 
     str_replace(",", "") %>% as.numeric()
   
-  asian = second_page %>% .[10] %>% 
+  asian = second_page %>% .[14] %>% 
     str_split(" ", simplify = TRUE) %>% .[1, 2] %>% 
     str_replace(",", "") %>% as.numeric()
   
-  asian_hosp = second_page %>% .[10] %>% 
+  asian_hosp = second_page %>% .[14] %>% 
     str_split(" ", simplify = TRUE) %>% .[1, 4] %>% 
     str_replace(",", "") %>% as.numeric()
   
-  asian_death = second_page %>% .[10] %>% 
+  asian_death = second_page %>% .[14] %>% 
     str_split(" ", simplify = TRUE) %>% .[1, 6] %>% 
     str_replace(",", "") %>% as.numeric()
   
-  hispanic = second_page %>% .[7] %>% 
-    str_split(" ", simplify = TRUE) %>% .[1, 2] %>% 
-    str_replace(",", "") %>% as.numeric()
-  
-  hispanic_hosp = second_page %>% .[7] %>% 
-    str_split(" ", simplify = TRUE) %>% .[1, 4] %>% 
-    str_replace(",", "") %>% as.numeric()
-  
-  hispanic_death = second_page %>% .[7] %>% 
-    str_split(" ", simplify = TRUE) %>% .[1, 6] %>% 
-    str_replace(",", "") %>% as.numeric()
+  skeleton = skeleton_table(nh_cols)
   
   skeleton[["cases"]][["total"]] = cases
   skeleton[["cases"]][["sex_male"]] = males
@@ -1240,8 +1487,6 @@ get_new_hampshire = function() {
   
   skeleton[["deaths"]][["ethnicity_hispanic"]] = hispanic_death
   
-  skeleton[["recovered"]][["total"]] = recovered
-  
   as_tibble(skeleton) %>% 
     standardize %>% 
     mutate(
@@ -1303,316 +1548,6 @@ get_guam = function() {
       state_name, Link,
       total.tested:hosp_gender,
       platform, comments, last.update)
-}
-
-compile = function() {
-  
-  # tn_date: Must be structured as YEAR-MM-DD ("2020-05-11")
-  
-  # Run the functions for all of the automated states
-  
-  "Running Oklahoma..." %>% print()
-  oklahoma = get_oklahoma()
-  
-  "Running Mississippi" %>% print()
-  mississippi = get_mississippi()
-  
-  "Running Florida" %>% print()
-  florida = get_florida()
-  
-  "Running Tennessee" %>% print()
-  tennessee = get_tennessee()
-  
-  "Running North Carolina" %>% print()
-  north_carolina = get_north_carolina()
-  
-  "Running New Jersey..." %>% print()
-  new_jersey = get_new_jersey()
-  
-  "Running South Carolina" %>% print()
-  south_carolina = get_south_carolina()
-  
-  "Running New Hampshire" %>% print()
-  new_hampshire = get_new_hampshire()
-  
-  "Running District of Columbia" %>% print()
-  dc = get_dc()
-  
-  # Manual entry for some extra items
-  "Starting manual entry for these states" %>% print()
-  browseURL("https://coronavirus.health.ok.gov/")
-  
-  oklahoma[["cases"]][["age_0_4"]] = get_information("OK, cases age_0_4: ") 
-  oklahoma[["cases"]][["age_5_17"]] = get_information("OK, cases age_5_17: ") 
-  oklahoma[["cases"]][["age_18_35"]] = get_information("OK, cases age_18_35: ") 
-  oklahoma[["cases"]][["age_36_49"]] = get_information("OK, cases age_36_49: ")
-  oklahoma[["cases"]][["age_50_64"]] = get_information("OK, cases age_50_64: ") 
-  oklahoma[["cases"]][["age_65+"]] = get_information("OK, cases age_age_65+: ")
-  oklahoma[["cases"]][["race_white"]] = get_information("OK, cases white: ") 
-  oklahoma[["cases"]][["race_AfrA"]] = get_information("OK, cases AfrA: ") 
-  oklahoma[["cases"]][["race_NatA"]] = get_information("OK, cases NatA: ") 
-  oklahoma[["cases"]][["race_asian"]] = get_information("OK, cases asian: ")
-  oklahoma[["cases"]][["race_other"]] = get_information("OK, cases race_other: ") 
-  oklahoma[["cases"]][["race_unk"]] = get_information("OK, cases race_unk: ")
-  
-  oklahoma[["deaths"]][["age_0_4"]] = get_information("OK, death age_0_4: ") 
-  oklahoma[["deaths"]][["age_5_17"]] = get_information("OK, death age_5_17: ") 
-  oklahoma[["deaths"]][["age_18_35"]] = get_information("OK, death age_18_35: ") 
-  oklahoma[["deaths"]][["age_36_49"]] = get_information("OK, death age_36_49: ")
-  oklahoma[["deaths"]][["age_50_64"]] = get_information("OK, death age_50_64: ") 
-  oklahoma[["deaths"]][["age_65+"]] = get_information("OK, deathage_65+: ")
-  oklahoma[["deaths"]][["race_white"]] = get_information("OK, death white: ") 
-  oklahoma[["deaths"]][["race_AfrA"]] = get_information("OK, death AfrA: ") 
-  oklahoma[["deaths"]][["race_NatA"]] = get_information("OK, death NatA: ") 
-  oklahoma[["deaths"]][["race_asian"]] = get_information("OK, death asian: ")
-  oklahoma[["deaths"]][["race_other"]] = get_information("OK, death race_other: ") 
-  oklahoma[["deaths"]][["race_unk"]] = get_information("OK, death race_unk: ")
-  oklahoma[["deaths"]][["sex_male"]] = get_information("OK, death sex_male: ") 
-  oklahoma[["deaths"]][["sex_female"]] = get_information("OK, death sex_female: ")
-  
-  final_oklahoma = as_tibble(oklahoma) %>% 
-    standardize %>% 
-    mutate(
-      state_name = "Oklahoma",
-      Link = "https://coronavirus.health.ok.gov",
-      platform = "pdf",
-      comments = "Demographic and age data available, but age and demo data manually entered.",
-      last.update = Sys.time() %>% as_date) %>% 
-    select(
-      state_name, Link,
-      total.tested:hosp_gender,
-      platform, comments, last.update)
-  
-  "Manual entry for Mississippi, go to: " %>% print()
-  browseURL("https://msdh.ms.gov/msdhsite/_static/14,0,420.html")
-  
-  mississippi[["cases"]][["age_0_17"]] = get_information("MS, cases age_0_17: ") 
-  mississippi[["cases"]][["age_18_29"]] = get_information("MS, cases age_18_29: ")
-  mississippi[["cases"]][["age_30_39"]] = get_information("MS, cases age_30_39: ")
-  mississippi[["cases"]][["age_40_49"]] = get_information("MS, cases age_40_49: ")
-  mississippi[["cases"]][["age_50_59"]] = get_information("MS, cases age_50_59: ")
-  mississippi[["cases"]][["age_60_69"]] = get_information("MS, cases age_60_69: ")
-  mississippi[["cases"]][["age_70_79"]] = get_information("MS, cases age_70_79: ")
-  mississippi[["cases"]][["age_80_89"]] = get_information("MS, cases age_80_89: ")
-  mississippi[["cases"]][["age_90+"]] = get_information("MS, cases age_90+: ")
-
-  mississippi[["deaths"]][["age_0_17"]] = get_information("MS, deaths age_0_17: ") 
-  mississippi[["deaths"]][["age_18_29"]] = get_information("MS, deaths age_18_29: ")
-  mississippi[["deaths"]][["age_30_39"]] = get_information("MS, deaths age_30_39: ")
-  mississippi[["deaths"]][["age_40_49"]] = get_information("MS, deaths age_40_49: ")
-  mississippi[["deaths"]][["age_50_59"]] = get_information("MS, deaths age_50_59: ")
-  mississippi[["deaths"]][["age_60_69"]] = get_information("MS, deaths age_60_69: ")
-  mississippi[["deaths"]][["age_70_79"]] = get_information("MS, deaths age_70_79: ")
-  mississippi[["deaths"]][["age_80_89"]] = get_information("MS, deaths age_80_89: ")
-  mississippi[["deaths"]][["age_90+"]] = get_information("MS, deaths age_90+: ")
-  
-  mississippi[["hospitalized"]][["age_0_17"]] = get_information(prompt = "MS, hosp age_0_17: ") 
-  mississippi[["hospitalized"]][["age_18_29"]] = get_information(prompt = "MS, hosp age_18_29: ")
-  mississippi[["hospitalized"]][["age_30_39"]] = get_information(prompt = "MS, hosp age_30_39: ")
-  mississippi[["hospitalized"]][["age_40_49"]] = get_information(prompt = "MS, hosp age_40_49: ")
-  mississippi[["hospitalized"]][["age_50_59"]] = get_information(prompt = "MS, hosp age_50_59: ")
-  mississippi[["hospitalized"]][["age_60_69"]] = get_information(prompt = "MS, hosp age_60_69: ")
-  mississippi[["hospitalized"]][["age_70_79"]] = get_information(prompt = "MS, hosp age_70_79: ")
-  mississippi[["hospitalized"]][["age_80_89"]] = get_information(prompt = "MS, hosp age_80_89: ")
-  mississippi[["hospitalized"]][["age_90+"]] = get_information(prompt = "MS, hosp age_90+: ")
-  
-  male_afra = get_information("MS, male cases AfrA: ")
-  male_white = get_information("MS, male cases white: ")
-  male_hispanic = get_information("MS, male cases hisp: ")
-  male_asian = get_information("MS, male cases Asian: ")
-  male_nata = get_information("MS, male cases NatA: ")
-  male_other = get_information("MS, male cases other_race: ")
-
-  female_afra = get_information("MS, female cases AfrA: ")
-  female_white = get_information("MS, female cases white: ")
-  female_hispanic = get_information("MS, female cases hisp: ")
-  female_asian = get_information("MS, female cases Asian: ")
-  female_nata = get_information("MS, female cases NatA: ")
-  female_other = get_information("MS, female cases other_race: ")
-
-  mississippi[["cases"]][["sex_male"]] = male_afra + male_white + male_hispanic + male_asian +
-    male_nata + male_other
-  mississippi[["cases"]][["sex_female"]] = female_afra + female_white + female_hispanic + female_asian +
-    female_nata + female_other
-
-  mississippi[["cases"]][["race_AfrA"]] = male_afra + female_afra
-  mississippi[["cases"]][["race_white"]] = male_white + female_white
-  mississippi[["cases"]][["race_asian"]] = male_asian + female_asian
-  mississippi[["cases"]][["race_NatA"]] = male_nata + female_nata
-  mississippi[["cases"]][["race_other"]] = male_other + female_other
-  mississippi[["cases"]][["ethnicity_hispanic"]] = male_hispanic + female_hispanic
-
-  male_afra = get_information("MS, male deaths AfrA: ")
-  male_white = get_information("MS, male deaths white: ")
-  male_hispanic = get_information("MS, male deaths hisp: ")
-  male_asian = get_information("MS, male deaths Asian: ")
-  male_nata = get_information("MS, male deaths NatA: ")
-  male_other = get_information("MS, male deaths other_race: ")
-
-  female_afra = get_information("MS, female deaths AfrA: ")
-  female_white = get_information("MS, female deaths white: ")
-  female_hispanic = get_information("MS, female deaths hisp: ")
-  female_asian = get_information("MS, female deaths Asian: ")
-  female_nata = get_information("MS, female deaths NatA: ")
-  female_other = get_information("MS, female deaths other_race: ")
-
-  mississippi[["deaths"]][["sex_male"]] = male_afra + male_white + male_hispanic + male_asian +
-    male_nata + male_other
-  mississippi[["deaths"]][["sex_female"]] = female_afra + female_white + female_hispanic + female_asian +
-    female_nata + female_other
-
-  mississippi[["deaths"]][["race_AfrA"]] = male_afra + female_afra
-  mississippi[["deaths"]][["race_white"]] = male_white + female_white
-  mississippi[["deaths"]][["race_asian"]] = male_asian + female_asian
-  mississippi[["deaths"]][["race_NatA"]] = male_nata + female_nata
-  mississippi[["deaths"]][["race_other"]] = male_other + female_other
-  mississippi[["deaths"]][["ethnicity_hispanic"]] = male_hispanic + female_hispanic
-  
-  final_mississippi = as_tibble(mississippi) %>% 
-    standardize %>% 
-    mutate(
-      state_name = "Mississippi",
-      Link = "https://msdh.ms.gov/msdhsite/_static/14,0,420.html",
-      platform = "pdf",
-      comments = "Age data manually entered",
-      last.update = Sys.time() %>% as_date) %>% 
-    select(
-      state_name, Link,
-      total.tested:hosp_gender,
-      platform, comments, last.update)
-  
-  "Manual entry for North Carolina, go to: " %>% print()
-  browseURL("https://covid19.ncdhhs.gov/dashboard#by-age")
-  
-  north_carolina[["cases"]][["age_0_17"]] = get_information("NC, case age_0_17: ") 
-  north_carolina[["cases"]][["age_18_24"]] = get_information("NC, case age_18_24: ")
-  north_carolina[["cases"]][["age_25_49"]] = get_information("NC, case age_25_49: ")
-  north_carolina[["cases"]][["age_50_64"]] = get_information("NC, case age_50_44: ")
-  north_carolina[["cases"]][["age_65+"]] = get_information("NC, case age_65+: ")
-  north_carolina[["cases"]][["age_unk"]] = get_information("NC, case age_unk: ")
-  north_carolina[["cases"]][["race_NatA"]] = get_information("NC, case race NatA: ")
-  north_carolina[["cases"]][["race_asian"]] = get_information("NC, case race asian: ")
-  north_carolina[["cases"]][["race_AfrA"]] = get_information("NC, case race AfrA: ")
-  north_carolina[["cases"]][["race_white"]] = get_information("NC, case race white: ")
-  north_carolina[["cases"]][["race_other"]] = get_information("NC, case race other: ")
-  north_carolina[["cases"]][["race_unk"]] = get_information("NC, case race unknown: ")
-  north_carolina[["cases"]][["ethnicity_hispanic"]] = get_information("NC, case hispanic: ")
-  north_carolina[["cases"]][["ethnicity_non_hispanic"]] = get_information("NC, case non_hispanic: ")
-  north_carolina[["cases"]][["ethnicity_unknown"]] = get_information("NC, case hisp unknown: ")
-  north_carolina[["cases"]][["sex_male"]] = get_information("NC, case sex male: ")
-  north_carolina[["cases"]][["sex_female"]] = get_information("NC, case sex female: ")
-  north_carolina[["cases"]][["sex_unk"]] = get_information("NC, case sex unknown: ")
-  
-  north_carolina[["deaths"]][["age_0_17"]] = get_information("NC, deaths age_0_17: ") 
-  north_carolina[["deaths"]][["age_18_24"]] = get_information("NC, deaths age_18_24: ")
-  north_carolina[["deaths"]][["age_25_49"]] = get_information("NC, deaths age_25_49: ")
-  north_carolina[["deaths"]][["age_50_64"]] = get_information("NC, deaths age_50_44: ")
-  north_carolina[["deaths"]][["age_65+"]] = get_information("NC, deaths age_65+: ")
-  north_carolina[["deaths"]][["age_unk"]] = get_information("NC, deaths age_unk: ")
-  north_carolina[["deaths"]][["race_NatA"]] = get_information("NC, deaths race NatA: ")
-  north_carolina[["deaths"]][["race_asian"]] = get_information("NC, deaths race asian: ")
-  north_carolina[["deaths"]][["race_AfrA"]] = get_information("NC, deaths race AfrA: ")
-  north_carolina[["deaths"]][["race_white"]] = get_information("NC, deaths race white: ")
-  north_carolina[["deaths"]][["race_other"]] = get_information("NC, deaths race other: ")
-  north_carolina[["deaths"]][["race_unk"]] = get_information("NC, deaths race unknown: ")
-  north_carolina[["deaths"]][["ethnicity_hispanic"]] = get_information("NC, deaths hispanic: ")
-  north_carolina[["deaths"]][["ethnicity_non_hispanic"]] = get_information("NC, deaths non_hispanic: ")
-  north_carolina[["deaths"]][["ethnicity_unknown"]] = get_information("NC, deaths hisp unknown: ")
-  north_carolina[["deaths"]][["sex_male"]] = get_information("NC, deaths sex male: ")
-  north_carolina[["deaths"]][["sex_female"]] = get_information("NC, deaths sex female: ")
-  north_carolina[["deaths"]][["sex_unk"]] = get_information("NC, deaths sex unknown: ")
-  
-  
-  final_north_carolina = as_tibble(north_carolina) %>% 
-    standardize %>% 
-    mutate(
-      state_name = "North Carolina",
-      Link = "https://covid19.ncdhhs.gov/dashboard#by-gender",
-      platform = "pdf",
-      comments = "Age data manually entered as percentages.",
-      last.update = Sys.time() %>% as_date) %>% 
-    select(
-      state_name, Link,
-      total.tested:hosp_gender,
-      platform, comments, last.update)
-  
-  "Manual entry for South Carolina, go to: " %>% print()
-  browseURL("https://scdhec.gov/sc-demographic-data-covid-19")
-  
-  south_carolina[["cases"]][["age_0_10"]] = get_information("SC, cases age_0_10: ")
-  south_carolina[["cases"]][["age_11_20"]] = get_information("SC, cases age_11_20: ")
-  south_carolina[["cases"]][["age_21_30"]] = get_information("SC, cases age_21_30: ")
-  south_carolina[["cases"]][["age_31_40"]] = get_information("SC, cases age_31_40: ")
-  south_carolina[["cases"]][["age_41_50"]] = get_information("SC, cases age_41_50: ")
-  south_carolina[["cases"]][["age_51_60"]] = get_information("SC, cases age_51_60: ")
-  south_carolina[["cases"]][["age_61_70"]] = get_information("SC, cases age_61_70: ")
-  south_carolina[["cases"]][["age_71_80"]] = get_information("SC, cases age_71_80: ")
-  south_carolina[["cases"]][["age_81+"]] = get_information("SC, cases age_81+: ") 
-  
-  south_carolina[["cases"]][["race_AfrA"]] = get_information("SC, cases race_Afra: ")
-  south_carolina[["cases"]][["race_white"]] = get_information("SC, cases race_white: ")
-  south_carolina[["cases"]][["race_asian"]] = get_information("SC, cases race_asian: ")
-  south_carolina[["cases"]][["race_other"]] = get_information("SC, cases race_other: ")
-  south_carolina[["cases"]][["race_unk"]] = get_information("SC, cases race_unk: ")
-  
-  south_carolina[["cases"]][["ethnicity_hispanic"]] = get_information("SC, cases ethnicity_hispanic: ")
-  south_carolina[["cases"]][["ethnicity_non_hispanic"]] = get_information("SC, cases ethnicity_non_hispanic: ")
-  south_carolina[["cases"]][["ethnicity_unk"]] = get_information("SC, cases ethnicity_unk: ")
-  
-  south_carolina[["cases"]][["sex_male"]] = get_information("SC, cases male: ")
-  south_carolina[["cases"]][["sex_female"]] = get_information("SC, cases female: ")
-  south_carolina[["cases"]][["sex_unk"]] = get_information("SC, cases unk: ")
-
-  south_carolina[["hospitalized"]][["total"]] = get_information("SC, Total hosp: ")
-
-  south_carolina[["deaths"]][["age_0_10"]] = get_information("SC, deaths age_0_10: ")
-  south_carolina[["deaths"]][["age_11_20"]] = get_information("SC, deaths age_11_20: ")
-  south_carolina[["deaths"]][["age_21_30"]] = get_information("SC, deaths age_21_30: ")
-  south_carolina[["deaths"]][["age_31_40"]] = get_information("SC, deaths age_31_40: ")
-  south_carolina[["deaths"]][["age_41_50"]] = get_information("SC, deaths age_41_50: ")
-  south_carolina[["deaths"]][["age_51_60"]] = get_information("SC, deaths age_51_60: ")
-  south_carolina[["deaths"]][["age_61_70"]] = get_information("SC, deaths age_61_70: ")
-  south_carolina[["deaths"]][["age_71_80"]] = get_information("SC, deaths age_71_80: ")
-  south_carolina[["deaths"]][["age_81+"]] = get_information("SC, deaths age_81+: ") 
-  
-  south_carolina[["deaths"]][["race_AfrA"]] = get_information("SC, deaths race_Afra: ")
-  south_carolina[["deaths"]][["race_white"]] = get_information("SC, deaths race_white: ")
-  south_carolina[["deaths"]][["race_asian"]] = get_information("SC, deaths race_asian: ")
-  south_carolina[["deaths"]][["race_other"]] = get_information("SC, deaths race_other: ")
-  south_carolina[["deaths"]][["race_unk"]] = get_information("SC, deaths race_unk: ")
-  
-  south_carolina[["deaths"]][["ethnicity_hispanic"]] = get_information("SC, deaths ethnicity_hispanic: ")
-  south_carolina[["deaths"]][["ethnicity_non_hispanic"]] = get_information("SC, deaths ethnicity_non_hispanic: ")
-  south_carolina[["deaths"]][["ethnicity_unk"]] = get_information("SC, deaths ethnicity_unk: ")
-  
-  south_carolina[["deaths"]][["sex_male"]] = get_information("SC, deaths male: ")
-  south_carolina[["deaths"]][["sex_female"]] = get_information("SC, deaths female: ")
-  south_carolina[["deaths"]][["sex_unk"]] = get_information("SC, deaths unk: ")
-  
-  final_south_carolina = as_tibble(south_carolina) %>% 
-    standardize %>% 
-    mutate(
-      state_name = "South Carolina",
-      Link = "https://doh.sd.gov/news/coronavirus.aspx#SD",
-      platform = "pdf",
-      comments = "Demographic and age data manually entered",
-      last.update = Sys.time() %>% as_date) %>% 
-    select(
-      state_name, Link,
-      total.tested:hosp_gender,
-      platform, comments, last.update)
-  
-  return(bind_rows(
-    final_oklahoma,
-    final_mississippi,
-    florida,
-    tennessee,
-    final_north_carolina,
-    new_jersey,
-    final_south_carolina,
-    new_hampshire,
-    dc
-  ))
 }
 
 #################################
