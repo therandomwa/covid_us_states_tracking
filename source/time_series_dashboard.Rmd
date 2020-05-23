@@ -61,8 +61,16 @@ cases2 = left_join(cases, pop, by = "state") %>%
                values_to = "val") %>%
   mutate(num_type = if_else(num_type == "new_cases", "Count", "Per 100k")) %>%
   arrange(state, num_type, date) %>%
-  mutate(roll_avg = (val + lag(val) + lag(lag(val)))/3) %>%
-  mutate(roll_avg = ifelse(num_type != lag(num_type) | num_type != lag(lag(num_type)), NA, roll_avg))
+  mutate(roll_avg3 = (val + lag(val) + lead(val))/3,
+         roll_avg5 = (val + lag(val) + lead(val) + lag(lag(val)) + lead(lead(val)))/5,
+         roll_avg7 = (val + lag(val) + lead(val) + lag(lag(val)) + lead(lead(val)) + lag(lag(lag(val))) + lead(lead(lead(val))))/7) %>%
+  mutate(roll_avg3 = ifelse(num_type != lag(num_type) | num_type != lead(num_type), NA, roll_avg3),
+         roll_avg5 = ifelse(num_type != lag(num_type) | num_type != lead(num_type) | num_type != lag(lag(num_type)) | num_type != lead(lead(num_type)), NA, roll_avg5),
+         roll_avg7 = ifelse(num_type != lag(num_type) | num_type != lead(num_type) | num_type != lag(lag(num_type)) | num_type != lead(lead(num_type)) | num_type != lag(lag(lag(num_type))) | num_type != lead(lead(lead(num_type))), NA, roll_avg7)) %>%
+  pivot_longer(roll_avg3:roll_avg7, 
+               names_to = "roll_avg_num",
+               values_to = "roll_avg_val") %>%
+  mutate(roll_avg_num = substring(roll_avg_num, 9))
 
 
 deaths2 = left_join(deaths, pop, by = "state") %>%
@@ -73,8 +81,16 @@ deaths2 = left_join(deaths, pop, by = "state") %>%
                values_to = "val") %>%
   mutate(num_type = if_else(num_type == "new_deaths", "Count", "Per 100k")) %>%
   arrange(state, num_type, date) %>%
-  mutate(roll_avg = (val + lag(val) + lag(lag(val)))/3) %>%
-  mutate(roll_avg = ifelse(num_type != lag(num_type) | num_type != lag(lag(num_type)), NA, roll_avg)) 
+  mutate(roll_avg3 = (val + lag(val) + lead(val))/3,
+         roll_avg5 = (val + lag(val) + lead(val) + lag(lag(val)) + lead(lead(val)))/5,
+         roll_avg7 = (val + lag(val) + lead(val) + lag(lag(val)) + lead(lead(val)) + lag(lag(lag(val))) + lead(lead(lead(val))))/7) %>%
+  mutate(roll_avg3 = ifelse(num_type != lag(num_type) | num_type != lead(num_type), NA, roll_avg3),
+         roll_avg5 = ifelse(num_type != lag(num_type) | num_type != lead(num_type) | num_type != lag(lag(num_type)) | num_type != lead(lead(num_type)), NA, roll_avg5),
+         roll_avg7 = ifelse(num_type != lag(num_type) | num_type != lead(num_type) | num_type != lag(lag(num_type)) | num_type != lead(lead(num_type)) | num_type != lag(lag(lag(num_type))) | num_type != lead(lead(lead(num_type))), NA, roll_avg7)) %>%
+  pivot_longer(roll_avg3:roll_avg7, 
+               names_to = "roll_avg_num",
+               values_to = "roll_avg_val") %>%
+  mutate(roll_avg_num = substring(roll_avg_num, 9))
 
 
 state_string = cases2 %>% distinct(state) %>% pull()
@@ -100,6 +116,7 @@ timelines = tibble(
 
 Column {.sidebar}
 -----------------------------------------------------------------------
+   
 ```{r}
 states = cases2 %>% distinct(state) %>% pull()
 
@@ -118,7 +135,15 @@ radioButtons(
 )
 ```
 
-
+```{r}
+radioButtons(
+  "roll_choice",
+  label = h3("Select Rolling Average"),
+  choices = c("3", "5", "7"), selected = "3"
+)
+```
+   
+*Note: There may be artificial spikes or negative values from changes in recording and classification of COVID-19 data. For example, some spikes are caused by the inclusion of probable death counts.*   
 
 Column {data-width=500}
 -----------------------------------------------------------------------
@@ -130,18 +155,22 @@ renderPlotly({
   cases2 %>%
     filter(state == input$state_choice1,
            num_type == input$count_choice,
+           roll_avg_num == input$roll_choice,
            date >= min(date[val != 0])) %>%
     mutate(max_val = max(val)) %>%
     plot_ly(
       x = ~date, y = ~val, type = "bar", showlegend = FALSE,
       color = I("#0077C8"),
       hoverinfo = "text",
-      text = ~paste0("Date: ", date, '\nCases: ', round(val, 2), '\n3 Day Avg: ', round(roll_avg, 2))) %>%
+      text = ~paste0("Date: ", date, '\nCases: ', 
+                     prettyNum(round(val, 2), big.mark = ","), 
+                     '\nRolling Avg: ', 
+                     prettyNum(round(roll_avg_val, 2), big.mark = ","))) %>%
     layout(
       xaxis = list(title = "Date"),
       yaxis = list(title = "No. Cases")
       ) %>%
-    add_lines(y = ~roll_avg, 
+    add_lines(y = ~roll_avg_val, 
               line = list(color = "#FF9800"))
 })
 ```
@@ -158,19 +187,22 @@ renderPlotly({
   deaths2 %>%
     filter(state == input$state_choice1,
            num_type == input$count_choice,
+           roll_avg_num == input$roll_choice,
            date >= min(date[val != 0])) %>%
     mutate(max_val = max(val)) %>%
     plot_ly(
       x = ~date, y = ~val, type = "bar", showlegend = FALSE,
       color = I("#0077C8"),
       hoverinfo = "text",
-      text = ~paste("Date: ", date, '\nDeaths: ', round(val, 2), '\n3 Day Avg: ', round(roll_avg, 2))
+      text = ~paste("Date: ", date, '\nDeaths: ', 
+                    prettyNum(round(val, 2), big.mark = ","), '\n3 Day Avg: ',
+                    prettyNum(round(roll_avg_val, 2), big.mark = ","))
     ) %>%
     layout(
       xaxis = list(title = "Date"),
       yaxis = list(title = "No. Deaths")
     ) %>%
-    add_lines(y = ~roll_avg, 
+    add_lines(y = ~roll_avg_val, 
               line = list(color = "#FF9800"))
 })
 ```
