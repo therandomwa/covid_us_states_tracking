@@ -78,8 +78,10 @@
 "Alaska","ASIAN","7","05/19/2020","race","hosp","count",NA
 "Alaska","BLACK","0","05/19/2020","race","hosp","count",NA
 "Alaska","MULTI","0","05/19/2020","race","hosp","count",NA
+"Alaska","NH/PI","4","05/19/2020","race","hosp","count",NA
+"Alaska","OTHER","4","05/19/2020","race","hosp","count",NA
+"Alaska","UNKNOWN","0","05/19/2020","race","hosp","count",NA
 "Alaska","WHITE","23","05/19/2020","race","hosp","count",NA
-"Alaska","NA","8","05/19/2020","race","hosp","count",NA
 "Alaska","0-10","0","05/19/2020","age","hosp","count",115416
 "Alaska","10-19","1","05/19/2020","age","hosp","count",96022
 "Alaska","20-29","3","05/19/2020","age","hosp","count",114672
@@ -142,8 +144,9 @@
 "Arizona","ASIAN","37","05/20/2020","race","hosp","count",NA
 "Arizona","BLACK","93","05/20/2020","race","hosp","count",NA
 "Arizona","MULTI","0","05/20/2020","race","hosp","count",NA
+"Arizona","OTHER","42","05/20/2020","race","hosp","count",NA
+"Arizona","UNKNOWN","242","05/20/2020","race","hosp","count",NA
 "Arizona","WHITE","713","05/20/2020","race","hosp","count",NA
-"Arizona","NA","284","05/20/2020","race","hosp","count",NA
 "Arizona","0-19","17","05/20/2020","age","hosp","count",1837877
 "Arizona","20-44","338","05/20/2020","age","hosp","count",2358452
 "Arizona","45-54","279","05/20/2020","age","hosp","count",850790
@@ -381,8 +384,9 @@
 "Florida","ASIAN","0","05/20/2020","race","hosp","count",NA
 "Florida","BLACK","2299","05/20/2020","race","hosp","count",NA
 "Florida","MULTI","0","05/20/2020","race","hosp","count",NA
+"Florida","OTHER","836","05/20/2020","race","hosp","count",NA
+"Florida","UNKNOWN","290","05/20/2020","race","hosp","count",NA
 "Florida","WHITE","5256","05/20/2020","race","hosp","count",NA
-"Florida","NA","1126","05/20/2020","race","hosp","count",NA
 "Florida","0-4","22","05/20/2020","age","hosp","count",1143183
 "Florida","5-14","17","05/20/2020","age","hosp","count",2363834
 "Florida","15-24","133","05/20/2020","age","hosp","count",2476245
@@ -726,8 +730,9 @@
 "Kansas","AI/AN","5","05/20/2020","race","hosp","count",NA
 "Kansas","ASIAN","26","05/20/2020","race","hosp","count",NA
 "Kansas","BLACK","162","05/20/2020","race","hosp","count",NA
+"Kansas","OTHER","30","05/20/2020","race","hosp","count",NA
+"Kansas","UNKNOWN","45","05/20/2020","race","hosp","count",NA
 "Kansas","WHITE","492","05/20/2020","race","hosp","count",NA
-"Kansas","NA","75","05/20/2020","race","hosp","count",NA
 "Kansas","0-9","5","05/20/2020","age","hosp","count",386956
 "Kansas","10-17","0","05/20/2020","age","hosp","count",319005
 "Kansas","18-24","16","05/20/2020","age","hosp","count",294735
@@ -919,10 +924,12 @@
 "Massachusetts","UNKNOWN","0","05/19/2020","age","death","count",NA
 "Massachusetts","FEMALE","3064","05/19/2020","gender","death","count",3551621
 "Massachusetts","MALE","2870","05/19/2020","gender","death","count",3350528
+"Massachusetts","HISPANIC","1125","05/19/2020","race","hosp","count",NA
 "Massachusetts","NH ASIAN","244","05/19/2020","race","hosp","count",NA
 "Massachusetts","NH BLACK","847","05/19/2020","race","hosp","count",NA
+"Massachusetts","NH OTHER","478","05/19/2020","race","hosp","count",NA
 "Massachusetts","NH WHITE","3265","05/19/2020","race","hosp","count",NA
-"Massachusetts","NA","4410","05/19/2020","race","hosp","count",NA
+"Massachusetts","UNKNOWN","2807","05/19/2020","race","hosp","count",NA
 "Massachusetts","0-19","63","05/19/2020","age","hosp","count",1574719
 "Massachusetts","20-29","206","05/19/2020","age","hosp","count",1001927
 "Massachusetts","30-39","406","05/19/2020","age","hosp","count",925134
@@ -1000,11 +1007,11 @@
 "Minnesota","UNKNOWN/OTHER","351","05/19/2020","gender","case","count",NA
 "Minnesota","ASIAN","17","05/19/2020","race","death","count",NA
 "Minnesota","BLACK","41","05/19/2020","race","death","count",NA
+"Minnesota","NH","10","05/19/2020","race","death","count",NA
 "Minnesota","OTHER","2","05/19/2020","race","death","count",NA
 "Minnesota","PI","0","05/19/2020","race","death","count",NA
-"Minnesota","UNKNOWN","210","05/19/2020","race","death","count",NA
+"Minnesota","UNKNOWN","214","05/19/2020","race","death","count",NA
 "Minnesota","WHITE","493","05/19/2020","race","death","count",NA
-"Minnesota","NA","14","05/19/2020","race","death","count",NA
 "Minnesota","","17670","05/19/2020","total","case","count",5611179
 "Minnesota","HISPANIC","2821","05/19/2020","eth","case","count",309283
 "Minnesota","NON HISPANIC","9425","05/19/2020","eth","case","count",5301896
@@ -1192,8 +1199,9 @@
 "New Hampshire","ASIAN","10","05/20/2020","race","hosp","count",NA
 "New Hampshire","BLACK","13","05/20/2020","race","hosp","count",NA
 "New Hampshire","MULTI","0","05/20/2020","race","hosp","count",NA
+"New Hampshire","OTHER","8","05/20/2020","race","hosp","count",NA
+"New Hampshire","UNKNOWN","0","05/20/2020","race","hosp","count",NA
 "New Hampshire","WHITE","220","05/20/2020","race","hosp","count",NA
-"New Hampshire","NA","8","05/20/2020","race","hosp","count",NA
 "New Hampshire","0-9","2","05/20/2020","age","hosp","count",133380
 "New Hampshire","10-19","4","05/20/2020","age","hosp","count",161245
 "New Hampshire","20-29","10","05/20/2020","age","hosp","count",175526
@@ -1552,10 +1560,12 @@
 "Rhode Island","FEMALE","274","05/20/2020","gender","death","count",542983
 "Rhode Island","MALE","264","05/20/2020","gender","death","count",514332
 "Rhode Island","PENDING","0","05/20/2020","gender","death","count",NA
+"Rhode Island","HISPANIC","364","05/20/2020","race","hosp","count",NA
 "Rhode Island","NH BLACK","132","05/20/2020","race","hosp","count",NA
 "Rhode Island","NH MULTI","39","05/20/2020","race","hosp","count",NA
+"Rhode Island","NH OTHER","36","05/20/2020","race","hosp","count",NA
 "Rhode Island","NH WHITE","563","05/20/2020","race","hosp","count",NA
-"Rhode Island","NA","752","05/20/2020","race","hosp","count",NA
+"Rhode Island","UNKNOWN","352","05/20/2020","race","hosp","count",NA
 "Rhode Island","0-9","5","05/20/2020","age","hosp","count",109253
 "Rhode Island","10-19","9","05/20/2020","age","hosp","count",130247
 "Rhode Island","20-29","49","05/20/2020","age","hosp","count",152985
@@ -1774,8 +1784,11 @@
 "Utah","AI/AN","34","05/20/2020","race","hosp","count",NA
 "Utah","ASIAN","12","05/20/2020","race","hosp","count",NA
 "Utah","BLACK","22","05/20/2020","race","hosp","count",NA
+"Utah","HISPANIC","222","05/20/2020","race","hosp","count",NA
 "Utah","NH WHITE","286","05/20/2020","race","hosp","count",NA
-"Utah","NA","335","05/20/2020","race","hosp","count",NA
+"Utah","NH/PI","33","05/20/2020","race","hosp","count",NA
+"Utah","OTHER","61","05/20/2020","race","hosp","count",NA
+"Utah","UNKNOWN","19","05/20/2020","race","hosp","count",NA
 "Utah","0-1","0","05/20/2020","age","hosp","count",100213
 "Utah","1-14","3","05/20/2020","age","hosp","count",728721
 "Utah","15-24","29","05/20/2020","age","hosp","count",509891
@@ -1868,8 +1881,9 @@
 "Virginia","MALE","552","05/20/2020","gender","death","count",4190648
 "Virginia","UNKNOWN/OTHER","3","05/20/2020","gender","death","count",NA
 "Virginia","BLACK","966","05/20/2020","race","hosp","count",NA
+"Virginia","OTHER","1103","05/20/2020","race","hosp","count",NA
+"Virginia","UNKNOWN","329","05/20/2020","race","hosp","count",NA
 "Virginia","WHITE","1581","05/20/2020","race","hosp","count",NA
-"Virginia","NA","1432","05/20/2020","race","hosp","count",NA
 "Virginia","0-9","26","05/20/2020","age","hosp","count",1025381
 "Virginia","10-19","31","05/20/2020","age","hosp","count",1070646
 "Virginia","20-29","166","05/20/2020","age","hosp","count",1182998
@@ -1977,9 +1991,9 @@
 "Wisconsin","AI","6","05/20/2020","race","death","count",NA
 "Wisconsin","ASIAN/PI","12","05/20/2020","race","death","count",NA
 "Wisconsin","BLACK","136","05/20/2020","race","death","count",NA
+"Wisconsin","MULTI/OTHERS","4","05/20/2020","race","death","count",NA
 "Wisconsin","UNKNOWN","7","05/20/2020","race","death","count",NA
 "Wisconsin","WHITE","316","05/20/2020","race","death","count",NA
-"Wisconsin","NA","4","05/20/2020","race","death","count",NA
 "Wisconsin","0-10","0","05/20/2020","age","death","count",757606
 "Wisconsin","10-19","0","05/20/2020","age","death","count",747766
 "Wisconsin","20-29","4","05/20/2020","age","death","count",770356
