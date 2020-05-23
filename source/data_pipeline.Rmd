@@ -1,15 +1,6 @@
 ---
-title: "data pipeline"
-author: "wa"
-date: "5/22/2020"
-output: pdf_document
+title: "Data Pipeline"
 ---
-
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE)
-```
-
-christian this markdown is for you - aijin
 
 ```{r}
 library(plyr)
@@ -20,7 +11,7 @@ library(stringr)
 library(tidyverse)
 ```
 
-# Compile files
+# Compile Files
 
 ```{r}
 load_object <- function(file) {
@@ -28,10 +19,14 @@ load_object <- function(file) {
   load(file = file, envir = tmp)
   tmp[[ls(tmp)[1]]]
 }
-# load Aijin's data
-df_aw = read.csv("../Data/raw_states/meta_2020-05-20_aw.csv")
-# load Chistian's data
-df_cbp = load_object("../Data/raw_states/meta_2020-05-20-cbp.rda")
+
+# Define where the datasets are currently
+aw_path = "../Data/raw_states/meta_2020-05-20_aw.csv"
+cp_path = "../Data/raw_states/meta_2020-05-20-cbp.rda"
+
+# Load both of the datasets
+df_aw = read_csv(aw_path)
+df_cbp = load_object(cp_path)
 file_date = Sys.Date() # change accordingly if editing later
 
 col_num = grep("age|gender|race", colnames(df_cbp))
@@ -62,7 +57,7 @@ meta$Link = NULL
 #           row.names = F)
 ```
 
-# data cleaning
+# Data Cleaning
 
 ```{r}
 df = meta
@@ -250,7 +245,7 @@ df = race_standard("hosp_race")
 ##                             Age                             ##
 #################################################################
 
-age_standard = function(age_var){
+age_standard = function(age_var) {
   
   age_name = df %>% 
     filter(!is.na(get(age_var))) %>%
@@ -387,7 +382,8 @@ df = gender_standard("hosp_gender")
 #           row.names = F)
 ```
 
-# data processing
+# Data Processing
+
 ```{r}
 full_data = df
 full_data = janitor::clean_names(full_data)
@@ -474,9 +470,11 @@ final[is.na(final)] = ""
 final = final[order(final$state_name),]
 ```
 
-# incorporate census data
+# Incorporating Census Data
+
 ```{r}
-census = read.csv("../Data/census.csv")
+census = read.csv("../data/census.csv")
+
 ##################################################################
 ##                  Population level data: Age                  ##
 ##################################################################
@@ -539,6 +537,7 @@ for (i in 1:nrow(gender_dat)){
 ##################################################################
 ##                 Population level data: Total                 ##
 ##################################################################
+
 tot_dat = final %>% 
   filter(str_detect(.$strata_type, "total"))# & 
            #!str_detect(.$data_type, "extra"))
@@ -550,6 +549,7 @@ for (i in 1:nrow(tot_dat)){
 ##################################################################
 ##               Population level data: Ethnicity               ##
 ##################################################################
+
 final[final$strata_type == "eth" & str_detect(final$category, "^NO") &
          str_detect(final$category, "HI"),]$category = "NON HISPANIC"
 final[final$strata_type == "eth" &
@@ -560,7 +560,7 @@ final[final$strata_type == "eth" & final$category != "NON HISPANIC" &
 eth_dat = final %>% filter(strata_type == "eth" & 
                              str_detect(category, "UNKNOWN", negate = TRUE))
 for (i in 1:nrow(eth_dat)){
-  if (eth_dat[i,]$category == "HISPANIC"){
+  if (eth_dat[i,]$category == "HISPANIC") {
     eth_dat$pop_est[i] = census[census$NAME == eth_dat[i,]$state_name, "ETH_HISPANIC"]
   }
   else{
@@ -576,8 +576,9 @@ for (i in 1:nrow(eth_dat)){
 new_pop = bind_rows(age_bound, gender_dat, eth_dat, tot_dat)
 final = full_join(final, new_pop)
 
-
-
-write.csv(final, "../Data/processed_states/processed_state_data_20200520.csv", row.names = F)
+# write.csv(final, "../Data/processed_states/processed_state_data_20200520.csv", row.names = F)
 ```
+
+# Finalize Data: Convert Into Long Format For Shiny
+
 

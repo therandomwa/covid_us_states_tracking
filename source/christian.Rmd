@@ -189,3 +189,15 @@ write_csv(census_race_sex, "../data/census_race_sex.csv")
 write_csv(census_age, "../data/census_age.csv")
 ```
 
+- ggiraph get new R version
+- switch hosp and death
+- ken is coming to meeting on Tuesday, look professional
+- say per 100000 instead of normalization
+
+TODO:
+- add courtney's plot
+- add lauren's plot
+- add gloria's plot
+- add in the normalization function
+  - add in associated totals into the dataset
+

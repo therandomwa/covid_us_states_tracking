@@ -5,6 +5,10 @@ title: "Example Manual Scraping Workflow"
 ```{r}
 # Step 1: Load in my R source files
 library(tidyverse)
+library(pdftools)
+library(rvest)
+library(lubridate)
+library(readxl)
 source("states.R")
 source("states_constants.R")
 ```
