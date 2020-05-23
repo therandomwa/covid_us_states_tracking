@@ -15,14 +15,14 @@ load_object <- function(file) {
 
 ### 0. load files ----
 
-file_date = Sys.Date()-2 # change accordingly if the editing date is not the scraping date
+file_date = Sys.Date()-1 # change accordingly if the editing date is not the scraping date
 file_date_name = file_date %>% format("%Y%m%d")
 
 # load Aijin's data
-df_aw = read.csv("../Data/raw_states/meta_2020-05-21_aw.csv")
+df_aw = read.csv("../Data/raw_states/meta_2020-05-22_aw.csv")
 
 # load Chistian's data
-df_cbp = load_object("../Data/raw_states/meta_2020-05-21-cbp.rda")
+df_cbp = load_object("../Data/raw_states/meta_2020-05-22-cbp.rda")
 
 ### 1. compile files ----
 col_num = grep("age|gender|race", colnames(df_cbp))
@@ -586,9 +586,9 @@ final = full_join(final, new_pop)
 
 ### 5. save file ----
 write.csv(final, 
-          paste0("../Data/processed_states/processed_state_data_", 
-                 file_date_name, ".csv"), 
-          row.names = F)
+          file = paste0("./data/processed_states/processed_state_data_", 
+                        file_date_name, 
+                        ".csv"), row.names = F)
 
 
 
