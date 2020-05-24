@@ -24,35 +24,33 @@ age_plot = function(type, state, unit) {
     else {
       ylabel = "Count"
     }
-    print(
-      ggplot(age_df) +
-        geom_bar(aes(x = category,
-                     y = count), stat = "identity") +
-        labs(title = state,
-             x = "Category",
-             y = ylabel) +
-        theme_bw() +
-        theme(
-          text = element_text(size = 5),
-          axis.text.x = element_text(angle = 30, hjust = 1)
-        )
-    )
+    p = ggplot(age_df) +
+      geom_bar(aes(x = category,
+                   y = count), stat = "identity") +
+      labs(title = state,
+           x = "Category",
+           y = ylabel) +
+      theme_bw() +
+      theme(
+        text = element_text(size = 5),
+        axis.text.x = element_text(angle = 30, hjust = 1)
+      )
+    print(ggplotly(p))
   }
   
   if (unit == "normalized") {
-    print(
-      ggplot(age_df[!is.na(age_df$pop_est), ]) +
-        geom_bar(aes(x = category,
-                     y = normalized), stat = "identity") +
-        labs(title = state,
-             x = "Category",
-             y = "Per 100,000") +
-        theme_bw() +
-        theme(
-          text = element_text(size = 5),
-          axis.text.x = element_text(angle = 30, hjust = 1)
-        )
-    )
+    p = ggplot(age_df[!is.na(age_df$pop_est), ]) +
+      geom_bar(aes(x = category,
+                   y = normalized), stat = "identity") +
+      labs(title = state,
+           x = "Category",
+           y = "Per 100,000") +
+      theme_bw() +
+      theme(
+        text = element_text(size = 5),
+        axis.text.x = element_text(angle = 30, hjust = 1)
+      )
+    ggplotly(p)
   }
 }
 
@@ -68,4 +66,4 @@ df = read.csv("../Data/processed_states/processed_state_data_20200522.csv")
 # type: test, case, hosp, death
 # state: state name
 # unit : raw, normalized
-age_plot("death", "Illinois", "normalized")
+age_plot("test", "Illinois", "raw")
