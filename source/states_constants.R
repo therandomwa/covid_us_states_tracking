@@ -24,6 +24,32 @@ default_cols = c(
   "race_multi", 
   "race_unk")
 
+dc_cols = c(
+  "total",
+  "age_0_19", 
+  "age_20_29", 
+  "age_30_39", 
+  "age_40_49",
+  "age_50_59", 
+  "age_60_69", 
+  "age_70_79", 
+  "age_80+", 
+  "age_unk",
+  "sex_male", 
+  "sex_female", 
+  "sex_unk",
+  "ethnicity_hispanic", 
+  "ethnicity_non_hispanic",
+  "ethnicity_unk",
+  "race_hispanic",
+  "race_white", 
+  "race_AfrA",
+  "race_NatA",
+  "race_asian",
+  "race_pac",
+  "race_multi_other",
+  "race_unk")
+
 az_cols = c(
   "total",
   "age_0_19", 
@@ -34,10 +60,7 @@ az_cols = c(
   "age_unk",
   "sex_male", 
   "sex_female", 
-  "sex_unk",
-  "ethnicity_hispanic", 
-  "ethnicity_non_hispanic",
-  "ethnicity_unk",
+  "race_hispanic", 
   "race_white", 
   "race_AfrA",
   "race_NatA",
@@ -153,16 +176,12 @@ nv_cols = c(
   "sex_male", 
   "sex_female", 
   "sex_unk",
-  "ethnicity_hispanic", 
-  "ethnicity_non_hispanic",
-  "ethnicity_unk",
+  "race_hispanic", 
   "race_white", 
   "race_AfrA",
   "race_NatA",
   "race_asian", 
-  "race_other",
-  "race_multi", 
-  "race_unk")
+  "race_other")
 
 pr_cols = c(
   "total",
@@ -214,16 +233,12 @@ sd_cols = c(
   "sex_male", 
   "sex_female", 
   "sex_unk",
-  "ethnicity_hispanic", 
-  "ethnicity_non_hispanic",
-  "ethnicity_unk",
-  "race_white", 
-  "race_AfrA",
-  "race_NatA",
-  "race_asian", 
-  "race_other",
-  "race_multi", 
-  "race_unk")
+  "race_hispanic", 
+  "race_nh_white", 
+  "race_nh_AfrA",
+  "race_nh_NatA",
+  "race_nh_asian", 
+  "race_other")
 
 vi_cols = c(
   "total",
@@ -285,15 +300,12 @@ wy_cols = c(
   "sex_male", 
   "sex_female", 
   "sex_unk",
-  "ethnicity_hispanic", 
-  "ethnicity_non_hispanic",
-  "ethnicity_unk",
+  "race_hispanic", 
   "race_white", 
   "race_AfrA",
   "race_NatA",
   "race_asian", 
   "race_other",
-  "race_multi", 
   "race_unk")
 
 ok_cols = c(
@@ -314,9 +326,8 @@ ok_cols = c(
   "race_white", 
   "race_AfrA",
   "race_NatA",
-  "race_asian", 
-  "race_other",
-  "race_multi", 
+  "race_asian_pac", 
+  "race_multi_other",
   "race_unk")
 
 ms_cols = c(
@@ -459,16 +470,11 @@ nj_cols = c(
   "sex_male", 
   "sex_female", 
   "sex_unk",
-  "ethnicity_hispanic", 
-  "ethnicity_non_hispanic",
-  "ethnicity_unk",
-  "race_white", 
-  "race_AfrA",
-  "race_NatA",
-  "race_asian", 
-  "race_other",
-  "race_multi", 
-  "race_unk")
+  "race_hispanic", 
+  "race_nh_white", 
+  "race_nh_AfrA",
+  "race_nh_asian", 
+  "race_nh_other")
 
 nh_cols = c(
   "total",
@@ -481,20 +487,15 @@ nh_cols = c(
   "age_60_69", 
   "age_70_79", 
   "age_80+", 
-  "age_unk",
   "sex_male", 
   "sex_female", 
   "sex_unk",
-  "ethnicity_hispanic", 
-  "ethnicity_non_hispanic",
-  "ethnicity_unk",
+  "race_hispanic", 
   "race_white", 
   "race_AfrA",
   "race_NatA",
   "race_asian", 
-  "race_other",
-  "race_multi", 
-  "race_unk")
+  "race_other")
 
 ny_cols = c(
   "total",
@@ -512,9 +513,7 @@ ny_cols = c(
   "sex_male", 
   "sex_female", 
   "sex_unk",
-  "ethnicity_hispanic", 
-  "ethnicity_non_hispanic",
-  "ethnicity_unk",
+  "race_hispanic", 
   "race_white", 
   "race_AfrA",
   "race_asian", 

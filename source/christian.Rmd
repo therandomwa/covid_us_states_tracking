@@ -13,8 +13,6 @@ library(lubridate)
 library(readxl)
 source("states.R")
 source("states_constants.R")
-
-
 ```
 
 # Automated States
@@ -46,23 +44,21 @@ mississippi = get_mississippi()
 ```
 
 ```{r}
-south_carolina
+dc
 ```
 
 # Compile The Automated States
 
 ```{r}
 # Get as much automated data as you can
-automated_data_20200522 = bind_rows(
+automated_data_20200523 = bind_rows(
   oklahoma,
   mississippi,
   florida,
   tennessee,
-  south_carolina,
   new_jersey,
   new_hampshire,
-  dc
-)
+  dc)
 ```
 
 # Manual States
@@ -97,18 +93,19 @@ kansas = get_kansas()
 iowa = get_iowa()
 north_carolina = get_north_carolina()
 hawaii = get_hawaii()
-idaho = get_idaho() # Co
+idaho = get_idaho()
 nevada = get_nevada() 
 new_york = get_new_york()
 south_dakota = get_south_dakota() # Gloria
 west_virginia = get_west_virginia() # Gloria 
 wyoming = get_wyoming() # Amy
 
-manual_data_20200521 = bind_rows(
+manual_data_20200523 = bind_rows(
   arizona,
   iowa,
   kansas,
   north_carolina,
+  south_carolina,
   hawaii,
   idaho,
   nevada,
@@ -120,12 +117,13 @@ manual_data_20200521 = bind_rows(
 ```
 
 ```{r}
+save(manual_data_20200523, file = "../data/raw_states/manual_2020-05-23-cbp.rda")
 
-load("../data/raw_states/manual_states_2020-05-21-cbp.rda")
-full_data_20200522 = bind_rows(automated_data_20200522, manual_data_20200521)
+# load("../data/raw_states/manual_states_2020-05-21-cbp.rda")
+full_data_20200523 = bind_rows(automated_data_20200523, manual_data_20200523)
 
 
-save(full_data_20200522, file = "../data/raw_states/meta_2020-05-22-cbp.rda")
+save(full_data_20200523, file = "../data/raw_states/meta_2020-05-23-cbp.rda")
 ```
 
 # Compile 
