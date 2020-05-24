@@ -15,7 +15,7 @@ load_object <- function(file) {
 
 ### 0. load files ----
 
-file_date = Sys.Date()-1 # change accordingly if the editing date is not the scraping date
+file_date = Sys.Date()-2 # change accordingly if the editing date is not the scraping date
 file_date_name = file_date %>% format("%Y%m%d")
 
 # load Aijin's data
@@ -388,9 +388,9 @@ df = gender_standard("death_gender")
 df = gender_standard("hosp_gender")
 
 # save raw file
-# write.csv(df, 
-#           file = paste0("../Data/raw_states/meta_final_", file_date, ".csv"), 
-#           row.names = F)
+write.csv(df,
+          file = paste0("../Data/raw_states/meta_final_", file_date_name, ".csv"),
+          row.names = F)
 
 
 
@@ -476,11 +476,15 @@ extra = rbind(extra("total_tested", "test"),
               extra("total_hosp", "hosp"))#,
 #extra("comments", "extra"),
 #agrc("comorbidities", "comorbidities"))
-final = bind_rows(agr, extra)
+final = bind_rows(agr, extra) %>% as.data.frame
 final = final[final$strata_type %in% c("age", "gender", "total", "race", "eth"),]
-final$metric = ifelse(str_detect(final$count, "0\\.|%"), "percent", "count")
+final$metric = ifelse(str_detect(final$count, "0\\.|%"), "Percent", "Count")
 final$category = toupper(final$category)
 final[is.na(final)] = ""
+final[grep("%", final$count), ] = final[grep("%", final$count), ] %>%
+  mutate(count = gsub("%|<", "", count) %>% as.numeric) %>%
+  mutate(count = count / 100)
+final$count = as.numeric(final$count)
 final = final[order(final$state_name),]
 
 
@@ -582,11 +586,29 @@ for (i in 1:nrow(eth_dat)){
 
 new_pop = bind_rows(age_bound, gender_dat, eth_dat, tot_dat)
 final = full_join(final, new_pop)
+final$count2 = NA
+
+for (i in 1:nrow(final)){
+  if (final$metric[i] == "Percent"){
+    final$count2[i] = final$count[i] *
+      final$count[final$state_name == final$state_name[i] & 
+                    final$strata_type == "total" &
+                    final$data_type == final$data_type[i]]
+    final$count2[i] = round(final$count2[i])
+  }
+  if(final$metric[i] == "Count"){
+    final$count2[i] = final$count[i]
+  }
+}
+
+final$normalized = final$count2 / final$pop_est * 100000
+
+### approx percentages and calculate normalized values
 
 
 ### 5. save file ----
 write.csv(final, 
-          file = paste0("./data/processed_states/processed_state_data_", 
+          file = paste0("../data/processed_states/processed_state_data_", 
                         file_date_name, 
                         ".csv"), row.names = F)
 
