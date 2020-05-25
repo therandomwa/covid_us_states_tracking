@@ -19,13 +19,13 @@ file_date = Sys.Date()-2 # change accordingly if the editing date is not the scr
 file_date_name = file_date %>% format("%Y%m%d")
 
 # load Aijin's data
-df_aw = read.csv("../Data/raw_states/meta_2020-05-22_aw.csv")
+df_aw = read.csv("../Data/raw_states/meta_2020-05-23_aw.csv")
 
 # load Chistian's data
-df_cbp = load_object("../Data/raw_states/meta_2020-05-22-cbp.rda")
+df_cbp = load_object("../Data/raw_states/meta_2020-05-23-cbp.rda")
 
 ### 1. compile files ----
-col_num = grep("age|gender|race", colnames(df_cbp))
+col_num = grep("age|gender|race|eth", colnames(df_cbp))
 df2_cbp = as.data.frame(df_cbp)
 df2_cbp[,col_num] = NA
 df2_cbp[,col_num] = 
@@ -36,11 +36,26 @@ df2_cbp[,col_num] =
              if (all(is.na(x[,2]))){
                return (NA)
              }
-             paste0(x[,1], ":", x[,2]) %>% 
-               sub(".*?_", "", .) %>% 
-               paste0(collapse = "; ")
+             if (str_detect(x[,1], "ethnicity")) {
+               paste0(x[,1], ":", x[,2]) %>% 
+                 sub("ethnicity", "eth", .) %>% 
+                 paste0(collapse = "; ")
+             } else{
+               paste0(x[,1], ":", x[,2]) %>% 
+                 sub(".*?_", "", .) %>% 
+                 paste0(collapse = "; ")}
            })})
 df2_cbp$last.update = df2_cbp$last.update %>% format("%m/%d/%Y")
+df2_cbp[!is.na(df2_cbp$positive_eth),]$total.case = 
+  paste0(df2_cbp[!is.na(df2_cbp$positive_eth),]$total.case, "; ", 
+         df2_cbp[!is.na(df2_cbp$positive_eth),]$positive_eth)
+df2_cbp[!is.na(df2_cbp$death_eth),]$total.death = 
+  paste0(df2_cbp[!is.na(df2_cbp$death_eth),]$total.death, "; ", 
+         df2_cbp[!is.na(df2_cbp$death_eth),]$death_eth)
+df2_cbp[!is.na(df2_cbp$hosp_eth),]$total_hosp = 
+  paste0(df2_cbp[!is.na(df2_cbp$hosp_eth),]$total_hosp, "; ", 
+         df2_cbp[!is.na(df2_cbp$hosp_eth),]$hosp_eth)
+df2_cbp[, c("positive_eth", "death_eth", "hosp_eth")] = NULL
 
 meta = rbind.fill(df_aw, df2_cbp)
 meta$X = NULL
