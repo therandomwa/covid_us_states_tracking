@@ -19,13 +19,13 @@ file_date = Sys.Date()-2 # change accordingly if the editing date is not the scr
 file_date_name = file_date %>% format("%Y%m%d")
 
 # load Aijin's data
-df_aw = read.csv("../Data/raw_states/meta_2020-05-21_aw.csv")
+df_aw = read.csv("../Data/raw_states/meta_2020-05-23_aw.csv")
 
 # load Chistian's data
-df_cbp = load_object("../Data/raw_states/meta_2020-05-21-cbp.rda")
+df_cbp = load_object("../Data/raw_states/meta_2020-05-23-cbp.rda")
 
 ### 1. compile files ----
-col_num = grep("age|gender|race", colnames(df_cbp))
+col_num = grep("age|gender|race|eth", colnames(df_cbp))
 df2_cbp = as.data.frame(df_cbp)
 df2_cbp[,col_num] = NA
 df2_cbp[,col_num] = 
@@ -36,11 +36,26 @@ df2_cbp[,col_num] =
              if (all(is.na(x[,2]))){
                return (NA)
              }
-             paste0(x[,1], ":", x[,2]) %>% 
-               sub(".*?_", "", .) %>% 
-               paste0(collapse = "; ")
+             if (str_detect(x[,1], "ethnicity")) {
+               paste0(x[,1], ":", x[,2]) %>% 
+                 sub("ethnicity", "eth", .) %>% 
+                 paste0(collapse = "; ")
+             } else{
+               paste0(x[,1], ":", x[,2]) %>% 
+                 sub(".*?_", "", .) %>% 
+                 paste0(collapse = "; ")}
            })})
 df2_cbp$last.update = df2_cbp$last.update %>% format("%m/%d/%Y")
+df2_cbp[!is.na(df2_cbp$positive_eth),]$total.case = 
+  paste0(df2_cbp[!is.na(df2_cbp$positive_eth),]$total.case, "; ", 
+         df2_cbp[!is.na(df2_cbp$positive_eth),]$positive_eth)
+df2_cbp[!is.na(df2_cbp$death_eth),]$total.death = 
+  paste0(df2_cbp[!is.na(df2_cbp$death_eth),]$total.death, "; ", 
+         df2_cbp[!is.na(df2_cbp$death_eth),]$death_eth)
+df2_cbp[!is.na(df2_cbp$hosp_eth),]$total_hosp = 
+  paste0(df2_cbp[!is.na(df2_cbp$hosp_eth),]$total_hosp, "; ", 
+         df2_cbp[!is.na(df2_cbp$hosp_eth),]$hosp_eth)
+df2_cbp[, c("positive_eth", "death_eth", "hosp_eth")] = NULL
 
 meta = rbind.fill(df_aw, df2_cbp)
 meta$X = NULL
@@ -388,9 +403,9 @@ df = gender_standard("death_gender")
 df = gender_standard("hosp_gender")
 
 # save raw file
-# write.csv(df, 
-#           file = paste0("../Data/raw_states/meta_final_", file_date, ".csv"), 
-#           row.names = F)
+write.csv(df,
+          file = paste0("../Data/raw_states/meta_final_", file_date_name, ".csv"),
+          row.names = F)
 
 
 
@@ -476,11 +491,15 @@ extra = rbind(extra("total_tested", "test"),
               extra("total_hosp", "hosp"))#,
 #extra("comments", "extra"),
 #agrc("comorbidities", "comorbidities"))
-final = bind_rows(agr, extra)
+final = bind_rows(agr, extra) %>% as.data.frame
 final = final[final$strata_type %in% c("age", "gender", "total", "race", "eth"),]
-final$metric = ifelse(str_detect(final$count, "0\\.|%"), "percent", "count")
+final$metric = ifelse(str_detect(final$count, "0\\.|%"), "Percent", "Count")
 final$category = toupper(final$category)
 final[is.na(final)] = ""
+final[grep("%", final$count), ] = final[grep("%", final$count), ] %>%
+  mutate(count = gsub("%|<", "", count) %>% as.numeric) %>%
+  mutate(count = count / 100)
+final$count = as.numeric(final$count)
 final = final[order(final$state_name),]
 
 
@@ -582,13 +601,31 @@ for (i in 1:nrow(eth_dat)){
 
 new_pop = bind_rows(age_bound, gender_dat, eth_dat, tot_dat)
 final = full_join(final, new_pop)
+final$count2 = NA
+
+for (i in 1:nrow(final)){
+  if (final$metric[i] == "Percent"){
+    final$count2[i] = final$count[i] *
+      final$count[final$state_name == final$state_name[i] & 
+                    final$strata_type == "total" &
+                    final$data_type == final$data_type[i]]
+    final$count2[i] = round(final$count2[i])
+  }
+  if(final$metric[i] == "Count"){
+    final$count2[i] = final$count[i]
+  }
+}
+
+final$normalized = final$count2 / final$pop_est * 100000
+
+### approx percentages and calculate normalized values
 
 
 ### 5. save file ----
 write.csv(final, 
-          paste0("../Data/processed_states/processed_state_data_", 
-                 file_date_name, ".csv"), 
-          row.names = F)
+          file = paste0("../data/processed_states/processed_state_data_", 
+                        file_date_name, 
+                        ".csv"), row.names = F)
 
 
 

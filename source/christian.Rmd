@@ -44,23 +44,21 @@ mississippi = get_mississippi()
 ```
 
 ```{r}
-south_carolina
+dc
 ```
 
 # Compile The Automated States
 
 ```{r}
 # Get as much automated data as you can
-automated_data_20200520 = bind_rows(
+automated_data_20200523 = bind_rows(
   oklahoma,
   mississippi,
   florida,
   tennessee,
-  south_carolina,
   new_jersey,
   new_hampshire,
-  dc
-)
+  dc)
 ```
 
 # Manual States
@@ -75,6 +73,7 @@ In addition to the information above, we need manual entry for:
 - Nevada: no race information
 - New York: no demographic information at all
 - South Dakota: have to calculate race counts from case total
+- South Carolina
 - West Virginia
 - Wyoming
 
@@ -94,18 +93,19 @@ kansas = get_kansas()
 iowa = get_iowa()
 north_carolina = get_north_carolina()
 hawaii = get_hawaii()
-idaho = get_idaho() # Co
+idaho = get_idaho()
 nevada = get_nevada() 
 new_york = get_new_york()
 south_dakota = get_south_dakota() # Gloria
 west_virginia = get_west_virginia() # Gloria 
 wyoming = get_wyoming() # Amy
 
-manual_data_20200521 = bind_rows(
+manual_data_20200523 = bind_rows(
   arizona,
   iowa,
   kansas,
   north_carolina,
+  south_carolina,
   hawaii,
   idaho,
   nevada,
@@ -117,10 +117,13 @@ manual_data_20200521 = bind_rows(
 ```
 
 ```{r}
-full_data_20200521 = bind_rows(automated_data_20200520, manual_data_20200521)
-save(manual_data_20200521, file = "../data/raw_states/manual_states_2020-05-21-cbp.rda")
+save(manual_data_20200523, file = "../data/raw_states/manual_2020-05-23-cbp.rda")
 
-save(full_data_20200521, file = "../data/raw_states/meta_2020-05-21-cbp.rda")
+# load("../data/raw_states/manual_states_2020-05-21-cbp.rda")
+full_data_20200523 = bind_rows(automated_data_20200523, manual_data_20200523)
+
+
+save(full_data_20200523, file = "../data/raw_states/meta_2020-05-23-cbp.rda")
 ```
 
 # Compile 
@@ -197,7 +200,6 @@ write_csv(census_age, "../data/census_age.csv")
 - say per 100000 instead of normalization
 
 TODO:
-- add courtney's plot
 - add lauren's plot
 - add gloria's plot
 - add in the normalization function
@@ -208,3 +210,40 @@ TODO:
 - add in shings info
 - add icons?
 
+```{r}
+tibble(
+  state = datasets::state.abb,
+  state_name = datasets::state.name
+)
+```
+
+# Looking At maps
+
+```{r}
+library(tidyverse)
+library(readxl)
+library(tidyverse)
+library(sp)
+library(ggiraph)
+library(sf)
+library(shiny)
+library(fiftystater)
+library(ggplot2)
+
+data = read_csv("../data/processed_states/processed_state_data_20200522.csv")
+
+test = quo("state_name")
+
+data %>% 
+  filter(strata_type == "total", data_type == "case") %>% 
+  ggplot(aes(map_id = tolower(test))) +
+  geom_map(aes(fill = as.numeric(count)), map = fifty_states) +
+  expand_limits(x = fifty_states$long, y = fifty_states$lat) 
+```
+
+bento chickene teriyaki and tempura
+gyuudon and karaage
+three caterpillar rolls
+bento mackerel and salmon
+dad cube streak
+soup and salad for dad
