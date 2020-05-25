@@ -29,14 +29,14 @@ idaho = get_idaho() # Courtney
 # Name your variable like manual_data_yearmonthday_initials
 # ie: manual_data_20200519_cbp = bind_rows(arizona, kansas, iowa)
 
-manual_data_20200523_cej = bind_rows(hawaii, idaho)
+manual_data_20200525_cej = bind_rows(hawaii, idaho)
 ```
 
 ```{r}
 # Step 4: save your data as an Rda with a similar name
 # ie: save(manual_data_20200519_cbp, file = "manual_data_20200519_cbp.rda")
 
-save(manual_data_20200523_cej, file = "manual_data_20200523_cej.rda")
+save(manual_data_20200525_cej, file = "manual_data_20200525_cej.rda")
 
 # Then place into the Sharepoint! 
 # As Aijin suggested, try doing this at least one day a week, like Friday
