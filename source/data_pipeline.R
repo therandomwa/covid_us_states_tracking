@@ -168,7 +168,7 @@ race_standard = function(race_var){
                                 grep("PACIFIC", race$original, invert = T))),]$new = "NH AI/AN"}, silent = TRUE)
   try({
     # UNKNOWN
-    race[Reduce(intersect, list(grep("MISS|BLANK|UNKNOWN|AVAIL|DISCLOSE|REPORT|UNK", race$original),
+    race[Reduce(intersect, list(grep("MISS|BLANK|UNKNOWN|AVAIL|DISCLOSE|REPORT|UNK|REFUSE", race$original),
                                 which(is.na(race$new)),
                                 grep("OTHER", race$original, invert = T))),]$new = "UNKNOWN" }, silent = TRUE)
   try({
@@ -274,7 +274,7 @@ df = race_standard("hosp_race")
 ### age
 
 age_standard = function(age_var){
-  
+  # browser()
   age_name = df %>% 
     filter(!is.na(get(age_var))) %>%
     select(state_name) %>% 
@@ -282,7 +282,7 @@ age_standard = function(age_var){
     as.vector
   
   # get it into a dataframe
-
+  
   age_df = df %>%
     filter(!is.na(get(age_var))) %>% 
     select(age_var) %>% 
@@ -314,8 +314,10 @@ age_standard = function(age_var){
       gsub("TO", "-",.) %>% 
       gsub("UNDER","<" ,.) %>% 
       gsub("ANDOVER|UP|ANDOLDER|PLUS", "+",.) %>% 
-      gsub("^(.*>=)([0-9]+)$", "\\2+", ., perl=T) %>% 
-      gsub("<", "0-",.)
+      gsub("^(.*>=)([0-9]+)$", "\\2+", ., perl=T) #%>% 
+      #gsub("<", "0-",.)
+    # deal with "<" in labels
+    x[grep("<",x[,1]),1] = paste0("0-",as.numeric(gsub("<", "", x[grep("<",x[,1]),1]) %>% gsub("<","",.))-1)
     # 20s, 30s, etc
     new_format = gsub("S", "", x[,1][grep("^([0-9]+)(S)$",x[,1])])
     upper_bound = as.numeric(new_format) + 9
@@ -407,10 +409,7 @@ df = gender_standard("positive_gender")
 df = gender_standard("death_gender")
 df = gender_standard("hosp_gender")
 
-# save raw file
-write.csv(df,
-          file = paste0("../Data/raw_states/meta_final_", file_date_name, ".csv"),
-          row.names = F)
+
 
 
 
@@ -507,7 +506,7 @@ final[grep("%", final$count), ] = final[grep("%", final$count), ] %>%
   mutate(count = count / 100)
 final$count = as.numeric(final$count)
 final = final[order(final$state_name),]
-final[final$category == "0-0-4",]$category = "0-4"
+#final[final$category == "0-0-4",]$category = "0-4"
 
 
 
@@ -519,13 +518,15 @@ census = read.csv("../Data/census.csv")
 ### age
 
 final$category = final$category %>% gsub("<", "0-", .)
+final$category[grep("<",final$category)] = 
+  paste0("0-", as.numeric(gsub("<", "", final$category[grep("<",final$category)]) %>% gsub("<","",.))-1)
 final = final %>% filter(category != ".") # georgia: age, death: cat = .
 # separating age lower and upper bound
 age_bound = final %>% 
   filter(str_detect(.$strata_type, "age") & 
-           str_detect(.$category, "[0-9]{1,2}")) %>%  
+           str_detect(.$category, "[0-9]{1,3}")) %>%  
   mutate(
-    lower = str_extract(.$category, "^[0-9]{1,2}"),
+    lower = str_extract(.$category, "^[0-9]{1,3}"),
     upper = sub('.*(\\-|\\+)', '', .$category)
   ) 
 
@@ -534,13 +535,9 @@ for (i in 1:nrow(age_bound)){
   if (age_bound[i,]$upper != ""){
     lower_col = which(age_bound[i,]$lower==gsub("AGE_", "", names(census)))
     upper_col = which(age_bound[i,]$upper==gsub("AGE_", "", names(census)))
-    if (length(lower_col) == 0){
+    if (length(lower_col) == 0 | length(upper_col) == 0){
       age_bound$pop_est[i] = NA
-    } else if (length(upper_col) == 0){
-      age_bound$pop_est[i] = census[census$NAME == age_bound[i,]$state_name,] %>% 
-        select(lower_col:ncol(census)) %>% sum
-    }
-    else{
+    } else {
       age_bound$pop_est[i] = census[census$NAME == age_bound[i,]$state_name,] %>% 
         select(lower_col:upper_col) %>% sum}
   }
@@ -638,7 +635,7 @@ for (i in 1:nrow(final)){
 }
 
 race_dat = final %>% filter(strata_type == "race" & 
-                             str_detect(category, "UNKNOWN|OTHER|PENDING", negate = TRUE))
+                              str_detect(category, "UNKNOWN|OTHER|PENDING", negate = TRUE))
 for (i in 1:nrow(race_dat)){
   if (race_dat[i,]$category == "HISPANIC"){
     race_dat$pop_est[i] = census[census$NAME == race_dat[i,]$state_name, "ETH_HISPANIC"]
@@ -715,6 +712,11 @@ final = final[!is.na(final$count),]
 
 
 ### 5. save file ----
+# save raw file
+write.csv(df,
+          file = paste0("../Data/raw_states/meta_final_", file_date_name, ".csv"),
+          row.names = F)
+# save processed file
 write.csv(final, 
           file = paste0("../data/processed_states/processed_state_data_", 
                         file_date_name, 
