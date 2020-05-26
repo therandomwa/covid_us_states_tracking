@@ -1597,18 +1597,36 @@ get_idaho = function() {
   skeleton[["cases"]][["age_80+"]] = get_information("ID: Cases age 80+?: ")
   skeleton[["cases"]][["sex_male"]] = get_information("ID: Cases sex male?: ")
   skeleton[["cases"]][["sex_female"]] = get_information("ID: Cases sex female?: ")
-  skeleton[["cases"]][["ethnicity_unk"]] = get_information("ID: Cases ethnicity unknown? (calc.): ")
-  skeleton[["cases"]][["ethnicity_hispanic"]] = get_information("ID: Cases hispanic %?: ")
-  skeleton[["cases"]][["ethnicity_non_hispanic"]] = get_information("ID: Cases not hispanic %?: ")
+  skeleton[["cases"]][["ethnicity_unk"]] = get_information("ID: Cases ethnicity unknown? (calc %): ")
   
-  skeleton[["cases"]][["race_unk"]] = get_information("ID: Cases race unknown? (calc.): ")
-  skeleton[["cases"]][["race_white"]] = get_information("ID: Cases race white %?: ")
-  skeleton[["cases"]][["race_other"]] = get_information("ID: Cases race other %?: ")
-  skeleton[["cases"]][["race_asian"]] = get_information("ID: Cases race asian %?: ")
-  skeleton[["cases"]][["race_AfrA"]] = get_information("ID: Cases race AfrA %?: ")
-  skeleton[["cases"]][["race_multi"]] = get_information("ID: Cases multirace %?: ")
-  skeleton[["cases"]][["race_NatA"]] = get_information("ID: Cases race NatA %?: ")
-  skeleton[["cases"]][["race_pac"]] = get_information("ID: Cases race Pacific Islander %?: ")
+  case_hisp = get_information("ID: Cases hispanic count?: ")
+  skeleton[["cases"]][["ethnicity_hispanic"]] = case_hisp / skeleton[["cases"]][["total"]]
+  
+  case_non_hisp = get_information("ID: Cases not hispanic count?: ")
+  skeleton[["cases"]][["ethnicity_non_hispanic"]] = case_non_hisp / skeleton[["cases"]][["total"]]
+  
+  skeleton[["cases"]][["race_unk"]] = get_information("ID: Cases race unknown? (calc. %): ")
+  
+  case_white = get_information("ID: Cases race white count?: ")
+  skeleton[["cases"]][["race_white"]] = case_white / skeleton[["cases"]][["total"]]
+    
+  case_race_other = get_information("ID: Cases race other count?: ")
+  skeleton[["cases"]][["race_other"]] = case_race_other / skeleton[["cases"]][["total"]]
+    
+  case_asian = get_information("ID: Cases race asian count?: ")
+  skeleton[["cases"]][["race_asian"]] = case_asian / skeleton[["cases"]][["total"]]
+    
+  case_afra = get_information("ID: Cases race AfrA count?: ")
+  skeleton[["cases"]][["race_AfrA"]] = case_afra / skeleton[["cases"]][["total"]]
+  
+  case_race_multi = get_information("ID: Cases multirace count?: ")   
+  skeleton[["cases"]][["race_multi"]] = case_race_multi / skeleton[["cases"]][["total"]]
+  
+  case_nata = get_information("ID: Cases race NatA count?: ")
+  skeleton[["cases"]][["race_NatA"]] = case_nata / skeleton[["cases"]][["total"]]
+    
+  case_pac = get_information("ID: Cases race Pacific Islander count?: ")
+  skeleton[["cases"]][["race_pac"]] = case_pact / skeleton[["cases"]][["total"]]
   
   skeleton[["hospitalized"]][["total"]] = get_information("ID: Total hospitalized?: ")
   
@@ -1624,9 +1642,9 @@ get_idaho = function() {
   skeleton[["deaths"]][["sex_female"]] = get_information("ID: Deaths sex female?: ")
   skeleton[["deaths"]][["ethnicity_hispanic"]] = get_information("ID: Deaths hispanic?: ")
   skeleton[["deaths"]][["ethnicity_non_hispanic"]] = get_information("ID: Deaths not hispanic?: ")
-  skeleton[["deaths"]][["race_white"]] = get_information("ID: Deaths race white %?: ")
-  skeleton[["deaths"]][["race_asian"]] = get_information("ID: Deaths race asian %?: ")
-  skeleton[["deaths"]][["race_AfrA"]] = get_information("ID: Deaths race AfrA %?: ")
+  skeleton[["deaths"]][["race_white"]] = get_information("ID: Deaths race white?: ")
+  skeleton[["deaths"]][["race_asian"]] = get_information("ID: Deaths race asian?: ")
+  skeleton[["deaths"]][["race_AfrA"]] = get_information("ID: Deaths race AfrA?: ")
 
   skeleton[["tested"]][["total"]] = get_information("ID: Total tested?: ")
   
