@@ -629,10 +629,10 @@ for (i in 1:nrow(final)){
       gsub("^ASIAN", "NH ASIAN", .) %>% 
       gsub("^BLACK", "NH BLACK", .) %>% 
       gsub("^WHITE", "NH WHITE", .) %>% 
-      gsub("^AI/AN", "AI/AN", .) %>% 
-      gsub("^MULTI", "MULTI", .) %>% 
-      gsub("^NH/PI", "NH/PI", .) %>% 
-      gsub("^ASIAN/PI", "ASIAN/PI", .) %>% 
+      gsub("^AI/AN", "NH AI/AN", .) %>% 
+      gsub("^MULTI", "NH MULTI", .) %>% 
+      gsub("^NH/PI", "NH NH/PI", .) %>% 
+      gsub("^ASIAN/PI", "NH ASIAN/PI", .) %>% 
       gsub("^AI/AN/NH/PI", "NH AI/AN/NH/PI", .)
   }
 }
