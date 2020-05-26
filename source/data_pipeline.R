@@ -15,7 +15,7 @@ load_object <- function(file) {
 
 ### 0. load files ----
 
-file_date = Sys.Date()-1 # change accordingly if the editing date is not the scraping date
+file_date = Sys.Date()-2 # change accordingly if the editing date is not the scraping date
 file_date_name = file_date %>% format("%Y%m%d")
 
 # load Aijin's data
@@ -282,15 +282,18 @@ age_standard = function(age_var){
     as.vector
   
   # get it into a dataframe
+
   age_df = df %>%
     filter(!is.na(get(age_var))) %>% 
     select(age_var) %>% 
     unlist %>% 
     as.character %>% 
     strsplit("; |:") %>%
-    lapply(function(x)
-      matrix(x, ncol = 2, byrow = TRUE) %>%
-        as.data.frame)
+    lapply(function(x){
+      dat = matrix(x, ncol = 2, byrow = TRUE) %>%
+        as.data.frame
+      dat$V2 = dat$V2 %>% gsub("<", "",.)
+      return (dat)})
   
   # convert % to decimal and clean up labels
   age_df = lapply(age_df, function(x) {
@@ -477,7 +480,8 @@ agrc = function(var, label){
     unnest(c(category, count)) %>% 
     .[,colSums(is.na(.)) < nrow(.)] %>% 
     mutate(strata_type = sub(".*?_", "", var),
-           data_type = label) %>% 
+           data_type = label,
+           count = gsub("<", "", count)) %>% 
     filter(!is.na(count))
 }
 agr = do.call(rbind, c(lapply(grep("positive_", names(final_data), value = TRUE),
@@ -503,7 +507,7 @@ final[grep("%", final$count), ] = final[grep("%", final$count), ] %>%
   mutate(count = count / 100)
 final$count = as.numeric(final$count)
 final = final[order(final$state_name),]
-
+final[final$category == "0-0-4",]$category = "0-4"
 
 
 
@@ -689,8 +693,9 @@ for (i in 1:nrow(race_dat)){
 
 new_pop = bind_rows(age_bound, gender_dat, race_dat, eth_dat, tot_dat)
 final = full_join(final, new_pop)
-final$count2 = NA
 
+### approx percentages and calculate normalized values
+final$count2 = NA
 for (i in 1:nrow(final)){
   if (final$metric[i] == "Percent"){
     final$count2[i] = final$count[i] *
@@ -705,8 +710,8 @@ for (i in 1:nrow(final)){
 }
 
 final$normalized = final$count2 / final$pop_est * 100000
+final = final[!is.na(final$count),]
 
-### approx percentages and calculate normalized values
 
 
 ### 5. save file ----
