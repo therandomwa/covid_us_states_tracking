@@ -5,7 +5,7 @@
 ###                                                                     ###
 ###########################################################################
 ###########################################################################
-
+library(plotly)
 age_plot = function(type, state, unit) {
   age_df = df %>%
     filter(strata_type == "age" &
@@ -62,8 +62,8 @@ age_plot = function(type, state, unit) {
 ############################################################################
 ############################################################################
 
-df = read.csv("../Data/processed_states/processed_state_data_20200522.csv")
+df = read.csv("../Data/processed_states/processed_state_data_20200525.csv")
 # type: test, case, hosp, death
 # state: state name
 # unit : raw, normalized
-age_plot("test", "Illinois", "raw")
+age_plot("death", "Pennsylvania", "normalized")
