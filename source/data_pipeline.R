@@ -15,16 +15,18 @@ load_object <- function(file) {
 
 ### 0. load files ----
 
-file_date = Sys.Date()-2 # change accordingly if the editing date is not the scraping date
+file_date = Sys.Date()-1 # change accordingly if the editing date is not the scraping date
 file_date_name = file_date %>% format("%Y%m%d")
 
 # load Aijin's data
-df_aw = read.csv("../Data/raw_states/meta_2020-05-23_aw.csv")
+df_aw = read.csv("../Data/raw_states/meta_2020-05-24_aw.csv")
 
 # load Chistian's data
 df_cbp = load_object("../Data/raw_states/meta_2020-05-23-cbp.rda")
 
 ### 1. compile files ----
+df_aw$last.update = df_aw$last.update %>% 
+  as.character %>% as.Date("%m/%d/%y") %>% format("%m/%d/%y")
 col_num = grep("age|gender|race|eth", colnames(df_cbp))
 df2_cbp = as.data.frame(df_cbp)
 df2_cbp[,col_num] = NA
@@ -36,7 +38,7 @@ df2_cbp[,col_num] =
              if (all(is.na(x[,2]))){
                return (NA)
              }
-             if (str_detect(x[,1], "ethnicity")) {
+             if (str_detect(x[,1][1], "ethnicity")) {
                paste0(x[,1], ":", x[,2]) %>% 
                  sub("ethnicity", "eth", .) %>% 
                  paste0(collapse = "; ")
@@ -45,7 +47,7 @@ df2_cbp[,col_num] =
                  sub(".*?_", "", .) %>% 
                  paste0(collapse = "; ")}
            })})
-df2_cbp$last.update = df2_cbp$last.update %>% format("%m/%d/%Y")
+df2_cbp$last.update = df2_cbp$last.update %>% format("%m/%d/%y")
 df2_cbp[!is.na(df2_cbp$positive_eth),]$total.case = 
   paste0(df2_cbp[!is.na(df2_cbp$positive_eth),]$total.case, "; ", 
          df2_cbp[!is.na(df2_cbp$positive_eth),]$positive_eth)
@@ -548,6 +550,7 @@ for (i in 1:nrow(age_bound)){
   }
 }
 age_bound = age_bound %>% select(-lower, -upper)
+age_bound[age_bound$state_name == "Georgia" & age_bound$category == "85",]$pop_est = NA
 
 ### gender
 
