@@ -1019,78 +1019,79 @@ get_new_jersey = function() {
     str_split("\n") %>% .[[1]] %>% 
     str_squish()
   skeleton = skeleton_table(nj_cols)
-  
+
+
   # This pdf has the potential to change a lot in terms 
   # of what appears on what row but this can be easily changed
   cases = data %>% .[9] %>% 
     str_split(" ", simplify = TRUE) %>% .[1, 5] %>% 
     str_replace(",", "") %>% .[[1]] %>% as.numeric()
   
-  deaths = data %>% .[12] %>% 
+  deaths = data %>% .[13] %>% 
     str_split(" ", simplify = TRUE) %>% .[1, 1] %>% 
     str_replace(",", "") %>% .[[1]] %>% as.numeric()
   
-  hospitalizations = data %>% .[14] %>% 
+  hospitalizations = data %>% .[15] %>% 
     str_split(" ", simplify = TRUE) %>% .[1, 1] %>% 
     str_replace(",", "") %>% .[[1]] %>% as.numeric()
   
-  between_0_and_4 = data %>% .[16] %>% 
+  between_0_and_4 = data %>% .[17] %>% 
     str_split(" ", simplify = TRUE) %>% .[1, 4] %>% 
     str_replace(",", "") %>% .[[1]] %>% as.numeric()
   
-  between_5_and_17 = data %>% .[17] %>% 
+  between_5_and_17 = data %>% .[18] %>% 
     str_split(" ", simplify = TRUE) %>% .[1, 4] %>% 
     str_replace(",", "") %>% .[[1]] %>% as.numeric()
   
-  between_18_and_29 = data %>% .[18] %>% 
+  between_18_and_29 = data %>% .[19] %>% 
     str_split(" ", simplify = TRUE) %>% .[1, 4] %>% 
     str_replace(",", "") %>% .[[1]] %>% as.numeric()
   
-  between_30_and_49 = data %>% .[19] %>% 
+  between_30_and_49 = data %>% .[20] %>% 
     str_split(" ", simplify = TRUE) %>% .[1, 4] %>% 
     str_replace(",", "") %>% .[[1]] %>% as.numeric()
   
-  between_50_and_64 = data %>% .[20] %>% 
+  between_50_and_64 = data %>% .[21] %>% 
     str_split(" ", simplify = TRUE) %>% .[1, 4] %>% 
     str_replace(",", "") %>% .[[1]] %>% as.numeric()
   
-  between_65_and_79 = data %>% .[21] %>% 
+  between_65_and_79 = data %>% .[22] %>% 
     str_split(" ", simplify = TRUE) %>% .[1, 4] %>% 
     str_replace(",", "") %>% .[[1]] %>% as.numeric()
   
-  older_than_80 = data %>% .[22] %>% 
+  older_than_80 = data %>% .[23] %>% 
     str_split(" ", simplify = TRUE) %>% .[1, 2] %>% 
     str_replace(",", "") %>% .[[1]] %>% as.numeric()
   
-  female = data %>% .[27] %>% 
+  female = data %>% .[28] %>% 
     str_split(" ", simplify = TRUE) %>% .[1, 2] %>% 
     str_replace(",", "") %>% .[[1]] %>% as.numeric()
   
-  male = data %>% .[28] %>% 
+  male = data %>% .[29] %>% 
     str_split(" ", simplify = TRUE) %>% .[1, 2] %>% 
     str_replace(",", "") %>% .[[1]] %>% as.numeric()
   
-  unknown_sex = data %>% .[29] %>% 
+  unknown_sex = data %>% .[30] %>% 
     str_split(" ", simplify = TRUE) %>% .[1, 2] %>% 
     str_replace(",", "") %>% .[[1]] %>% as.numeric()
   
-  white = data %>% .[31] %>% 
+  white = data %>% .[32] %>% 
     str_split(" ", simplify = TRUE) %>% .[1, 3] %>% 
     str_replace(",", "") %>% .[[1]] %>% as.numeric()
   
-  hispanic = data %>% .[33] %>% 
+  hispanic = data %>% .[34] %>% 
     str_split(" ", simplify = TRUE) %>% .[1, 1] %>% 
     str_replace(",", "") %>% .[[1]] %>% as.numeric()
   
-  black = data %>% .[35] %>% 
+  black = data %>% .[36] %>% 
     str_split(" ", simplify = TRUE) %>% .[1, 3] %>% 
     str_replace(",", "") %>% .[[1]] %>% as.numeric()
   
-  other_race = data %>% .[36] %>% 
+  other_race = data %>% .[37] %>% 
     str_split(" ", simplify = TRUE) %>% .[1, 3] %>% 
     str_replace(",", "") %>% .[[1]] %>% as.numeric()
   
-  asian = data %>% .[37] %>% 
+  asian = data %>% .[38] %>% 
     str_split(" ", simplify = TRUE) %>% .[1, 3] %>% 
     str_replace(",", "") %>% .[[1]] %>% as.numeric()
   
@@ -1524,6 +1525,7 @@ get_arizona = function() {
   skeleton[["deaths"]][["race_other"]] = get_information("AZ: Deaths race other?: ")
   skeleton[["deaths"]][["race_unk"]] = get_information("AZ: Deaths race unknown?: ")
   
+  skeleton[["hospitalized"]][["total"]] = get_information("AZ: Total hospitalized?: ")
   skeleton[["hospitalized"]][["age_0_19"]] = get_information("AZ: Hospitalized age <20?: ")
   skeleton[["hospitalized"]][["age_20_44"]] = get_information("AZ: Hospitalized age 20 - 44?: ")
   skeleton[["hospitalized"]][["age_45_54"]] = get_information("AZ: Hospitalized age 45 - 54?: ")
@@ -1639,7 +1641,7 @@ get_idaho = function() {
   skeleton[["cases"]][["race_NatA"]] = case_nata / skeleton[["cases"]][["total"]]
     
   case_pac = get_information("ID: Cases race Pacific Islander count?: ")
-  skeleton[["cases"]][["race_pac"]] = case_pact / skeleton[["cases"]][["total"]]
+  skeleton[["cases"]][["race_pac"]] = case_pac / skeleton[["cases"]][["total"]]
   
   skeleton[["hospitalized"]][["total"]] = get_information("ID: Total hospitalized?: ")
   
