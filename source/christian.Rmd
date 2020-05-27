@@ -112,9 +112,9 @@ manual_data_20200526 = bind_rows(
 
 ```{r}
 save(manual_data_20200526, file = "../data/raw_states/manual_2020-05-26-cbp.rda")
-load("../data/raw_states/manual_2020-05-23-cbp.rda")
-full_data_20200525 = bind_rows(automated_data_20200526, manual_data_20200526)
+# load("../data/raw_states/manual_2020-05-23-cbp.rda")
+full_data_20200526 = bind_rows(automated_data_20200526, manual_data_20200526)
 
 
-save(full_data_20200525, file = "../data/raw_states/meta_2020-05-25-cbp.rda")
+save(full_data_20200526, file = "../data/raw_states/meta_2020-05-26-cbp.rda")
 ```
