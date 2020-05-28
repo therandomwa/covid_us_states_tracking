@@ -1019,6 +1019,7 @@ get_new_jersey = function() {
     str_split("\n") %>% .[[1]] %>% 
     str_squish()
   skeleton = skeleton_table(nj_cols)
+  print(data)
 
 
   # This pdf has the potential to change a lot in terms 
