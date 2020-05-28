@@ -19,10 +19,10 @@ file_date = Sys.Date()-1 # change accordingly if the editing date is not the scr
 file_date_name = file_date %>% format("%Y%m%d")
 
 # load Aijin's data
-df_aw = read.csv("../Data/raw_states/meta_2020-05-25_aw.csv")
+df_aw = read.csv("../Data/raw_states/meta_2020-05-26_aw.csv")
 
 # load Chistian's data
-df_cbp = load_object("../Data/raw_states/meta_2020-05-25-cbp.rda")
+df_cbp = load_object("../Data/raw_states/meta_2020-05-26-cbp.rda")
 
 ### 1. compile files ----
 df_aw$last.update = df_aw$last.update %>% 
@@ -81,6 +81,7 @@ df[df == ""] = NA
 
 race_standard = function(race_var){
   
+  # browser()
   race_name = df %>% 
     filter(!is.na(get(race_var))) %>%
     select(state_name) %>% 
@@ -103,7 +104,8 @@ race_standard = function(race_var){
     x[, 2] = x[, 2] %>% as.character
     x[grep("%", x[, 2]), ] = x[grep("%", x[, 2]), ] %>%
       mutate(V2 = gsub("%|<", "", V2) %>% as.numeric) %>%
-      mutate(V2 = V2 / 100)
+      mutate(V2 = V2 / 100 )# %>% 
+      #mutate(V2 = format(.$V2, scientific=F))
     x[, 2] = x[, 2] %>% as.numeric
     x[, 1] = x[, 1] %>% toupper
     return (x)
@@ -236,7 +238,7 @@ race_standard = function(race_var){
                                 grep("ALASKA", race$original, invert = TRUE))),]$new = "NH/PI"}, silent = TRUE)
   
   try({
-    # AI/AN/H/PI
+    # AI/AN/NH/PI
     race[Reduce(intersect, list(which(is.na(race$new)),
                                 grep("HAWAIIAN", race$original))),]$new = "AI/AN/NH/PI"}, silent = TRUE)
   
@@ -249,7 +251,7 @@ race_standard = function(race_var){
                                 grep("NATIV", race$original))),]$new = "NH/PI"}, silent = TRUE)
   try({
     race[Reduce(intersect, list(which(is.na(race$new)),
-                                grep("PAC", race$original))),]$new = "MH/PI"}, silent = TRUE)
+                                grep("PAC", race$original))),]$new = "NH/PI"}, silent = TRUE)
   try({
     race[Reduce(intersect, list(which(is.na(race$new)),
                                 grep("M", race$original))),]$new =  "UNKNOWN"}, silent = TRUE)
@@ -261,6 +263,7 @@ race_standard = function(race_var){
              new_df = left_join(x, race, by = c("V1" = "original")) %>% 
                select(new, V2) %>% group_by(new) %>% 
                summarise(V2 = sum(V2, na.rm = T)) %>% 
+               mutate(V2 = format(V2, scientific = F)) %>% 
                as.data.frame
              return (paste(paste0(new_df$new, ":" ,new_df$V2), collapse = "; "))
            }) %>% unlist
