@@ -15,16 +15,18 @@ load_object <- function(file) {
 
 ### 0. load files ----
 
-file_date = Sys.Date()-2 # change accordingly if the editing date is not the scraping date
+file_date = Sys.Date()-1 # change accordingly if the editing date is not the scraping date
 file_date_name = file_date %>% format("%Y%m%d")
 
 # load Aijin's data
-df_aw = read.csv("../Data/raw_states/meta_2020-05-23_aw.csv")
+df_aw = read.csv("../Data/raw_states/meta_2020-05-26_aw.csv")
 
 # load Chistian's data
-df_cbp = load_object("../Data/raw_states/meta_2020-05-23-cbp.rda")
+df_cbp = load_object("../Data/raw_states/meta_2020-05-26-cbp.rda")
 
 ### 1. compile files ----
+df_aw$last.update = df_aw$last.update %>% 
+  as.character %>% as.Date("%m/%d/%y") %>% format("%m/%d/%y")
 col_num = grep("age|gender|race|eth", colnames(df_cbp))
 df2_cbp = as.data.frame(df_cbp)
 df2_cbp[,col_num] = NA
@@ -36,7 +38,7 @@ df2_cbp[,col_num] =
              if (all(is.na(x[,2]))){
                return (NA)
              }
-             if (str_detect(x[,1], "ethnicity")) {
+             if (str_detect(x[,1][1], "ethnicity")) {
                paste0(x[,1], ":", x[,2]) %>% 
                  sub("ethnicity", "eth", .) %>% 
                  paste0(collapse = "; ")
@@ -45,7 +47,7 @@ df2_cbp[,col_num] =
                  sub(".*?_", "", .) %>% 
                  paste0(collapse = "; ")}
            })})
-df2_cbp$last.update = df2_cbp$last.update %>% format("%m/%d/%Y")
+df2_cbp$last.update = df2_cbp$last.update %>% format("%m/%d/%y")
 df2_cbp[!is.na(df2_cbp$positive_eth),]$total.case = 
   paste0(df2_cbp[!is.na(df2_cbp$positive_eth),]$total.case, "; ", 
          df2_cbp[!is.na(df2_cbp$positive_eth),]$positive_eth)
@@ -79,6 +81,7 @@ df[df == ""] = NA
 
 race_standard = function(race_var){
   
+  # browser()
   race_name = df %>% 
     filter(!is.na(get(race_var))) %>%
     select(state_name) %>% 
@@ -101,7 +104,8 @@ race_standard = function(race_var){
     x[, 2] = x[, 2] %>% as.character
     x[grep("%", x[, 2]), ] = x[grep("%", x[, 2]), ] %>%
       mutate(V2 = gsub("%|<", "", V2) %>% as.numeric) %>%
-      mutate(V2 = V2 / 100)
+      mutate(V2 = V2 / 100 )# %>% 
+      #mutate(V2 = format(.$V2, scientific=F))
     x[, 2] = x[, 2] %>% as.numeric
     x[, 1] = x[, 1] %>% toupper
     return (x)
@@ -161,12 +165,12 @@ race_standard = function(race_var){
                    grep("NH|HISPANIC|PACIFIC", race$original, invert = TRUE)), ]$new = "AI/AN"}, silent = TRUE)
   try({
     # NH AI/AN
-    race[Reduce(intersect, list(grep("ALASKA|AI/AN|AIAN", race$original),
+    race[Reduce(intersect, list(grep("ALASKA|AI/AN|AIAN|NATA", race$original),
                                 grep("NH|HISPANIC", race$original),
                                 grep("PACIFIC", race$original, invert = T))),]$new = "NH AI/AN"}, silent = TRUE)
   try({
     # UNKNOWN
-    race[Reduce(intersect, list(grep("MISS|BLANK|UNKNOWN|AVAIL|DISCLOSE|REPORT|UNK", race$original),
+    race[Reduce(intersect, list(grep("MISS|BLANK|UNKNOWN|AVAIL|DISCLOSE|REPORT|UNK|REFUSE", race$original),
                                 which(is.na(race$new)),
                                 grep("OTHER", race$original, invert = T))),]$new = "UNKNOWN" }, silent = TRUE)
   try({
@@ -221,20 +225,20 @@ race_standard = function(race_var){
     # AMERICAN INDIAN
     race[Reduce(intersect, list(which(is.na(race$new)),
                                 grep("AMERI", race$original),
-                                grep("ALASKA", race$original, invert = TRUE))),]$new = "AI"}, silent = TRUE)
+                                grep("ALASKA", race$original, invert = TRUE))),]$new = "AI/AN"}, silent = TRUE)
   try({
     # PACIFIC ISLANDER
     race[Reduce(intersect, list(which(is.na(race$new)),
                                 grep("PAC", race$original),
-                                grep("ALASKA", race$original, invert = TRUE))),]$new = "PI"}, silent = TRUE)
+                                grep("ALASKA", race$original, invert = TRUE))),]$new = "NH/PI"}, silent = TRUE)
   try({
     # HAWAIIAN
     race[Reduce(intersect, list(which(is.na(race$new)),
                                 grep("HAWAIIAN", race$original),
-                                grep("ALASKA", race$original, invert = TRUE))),]$new = "NH"}, silent = TRUE)
+                                grep("ALASKA", race$original, invert = TRUE))),]$new = "NH/PI"}, silent = TRUE)
   
   try({
-    # AI/AN/H/PI
+    # AI/AN/NH/PI
     race[Reduce(intersect, list(which(is.na(race$new)),
                                 grep("HAWAIIAN", race$original))),]$new = "AI/AN/NH/PI"}, silent = TRUE)
   
@@ -244,10 +248,10 @@ race_standard = function(race_var){
                                 grep("MULTIPLE", race$original))),]$new = "MULTI/OTHERS"}, silent = TRUE)
   try({
     race[Reduce(intersect, list(which(is.na(race$new)),
-                                grep("NATIV", race$original))),]$new = "NH"}, silent = TRUE)
+                                grep("NATIV", race$original))),]$new = "NH/PI"}, silent = TRUE)
   try({
     race[Reduce(intersect, list(which(is.na(race$new)),
-                                grep("PAC", race$original))),]$new = "PI"}, silent = TRUE)
+                                grep("PAC", race$original))),]$new = "NH/PI"}, silent = TRUE)
   try({
     race[Reduce(intersect, list(which(is.na(race$new)),
                                 grep("M", race$original))),]$new =  "UNKNOWN"}, silent = TRUE)
@@ -259,6 +263,7 @@ race_standard = function(race_var){
              new_df = left_join(x, race, by = c("V1" = "original")) %>% 
                select(new, V2) %>% group_by(new) %>% 
                summarise(V2 = sum(V2, na.rm = T)) %>% 
+               mutate(V2 = format(V2, scientific = F)) %>% 
                as.data.frame
              return (paste(paste0(new_df$new, ":" ,new_df$V2), collapse = "; "))
            }) %>% unlist
@@ -272,7 +277,7 @@ df = race_standard("hosp_race")
 ### age
 
 age_standard = function(age_var){
-  
+  # browser()
   age_name = df %>% 
     filter(!is.na(get(age_var))) %>%
     select(state_name) %>% 
@@ -280,15 +285,18 @@ age_standard = function(age_var){
     as.vector
   
   # get it into a dataframe
+  
   age_df = df %>%
     filter(!is.na(get(age_var))) %>% 
     select(age_var) %>% 
     unlist %>% 
     as.character %>% 
     strsplit("; |:") %>%
-    lapply(function(x)
-      matrix(x, ncol = 2, byrow = TRUE) %>%
-        as.data.frame)
+    lapply(function(x){
+      dat = matrix(x, ncol = 2, byrow = TRUE) %>%
+        as.data.frame
+      dat$V2 = dat$V2 %>% gsub("<", "",.)
+      return (dat)})
   
   # convert % to decimal and clean up labels
   age_df = lapply(age_df, function(x) {
@@ -309,8 +317,10 @@ age_standard = function(age_var){
       gsub("TO", "-",.) %>% 
       gsub("UNDER","<" ,.) %>% 
       gsub("ANDOVER|UP|ANDOLDER|PLUS", "+",.) %>% 
-      gsub("^(.*>=)([0-9]+)$", "\\2+", ., perl=T) %>% 
-      gsub("<", "0-",.)
+      gsub("^(.*>=)([0-9]+)$", "\\2+", ., perl=T) #%>% 
+      #gsub("<", "0-",.)
+    # deal with "<" in labels
+    x[grep("<",x[,1]),1] = paste0("0-",as.numeric(gsub("<", "", x[grep("<",x[,1]),1]) %>% gsub("<","",.))-1)
     # 20s, 30s, etc
     new_format = gsub("S", "", x[,1][grep("^([0-9]+)(S)$",x[,1])])
     upper_bound = as.numeric(new_format) + 9
@@ -402,10 +412,7 @@ df = gender_standard("positive_gender")
 df = gender_standard("death_gender")
 df = gender_standard("hosp_gender")
 
-# save raw file
-write.csv(df,
-          file = paste0("../Data/raw_states/meta_final_", file_date_name, ".csv"),
-          row.names = F)
+
 
 
 
@@ -475,7 +482,8 @@ agrc = function(var, label){
     unnest(c(category, count)) %>% 
     .[,colSums(is.na(.)) < nrow(.)] %>% 
     mutate(strata_type = sub(".*?_", "", var),
-           data_type = label) %>% 
+           data_type = label,
+           count = gsub("<", "", count)) %>% 
     filter(!is.na(count))
 }
 agr = do.call(rbind, c(lapply(grep("positive_", names(final_data), value = TRUE),
@@ -501,7 +509,7 @@ final[grep("%", final$count), ] = final[grep("%", final$count), ] %>%
   mutate(count = count / 100)
 final$count = as.numeric(final$count)
 final = final[order(final$state_name),]
-
+#final[final$category == "0-0-4",]$category = "0-4"
 
 
 
@@ -513,13 +521,15 @@ census = read.csv("../Data/census.csv")
 ### age
 
 final$category = final$category %>% gsub("<", "0-", .)
+final$category[grep("<",final$category)] = 
+  paste0("0-", as.numeric(gsub("<", "", final$category[grep("<",final$category)]) %>% gsub("<","",.))-1)
 final = final %>% filter(category != ".") # georgia: age, death: cat = .
 # separating age lower and upper bound
 age_bound = final %>% 
   filter(str_detect(.$strata_type, "age") & 
-           str_detect(.$category, "[0-9]{1,2}")) %>%  
+           str_detect(.$category, "[0-9]{1,3}")) %>%  
   mutate(
-    lower = str_extract(.$category, "^[0-9]{1,2}"),
+    lower = str_extract(.$category, "^[0-9]{1,3}"),
     upper = sub('.*(\\-|\\+)', '', .$category)
   ) 
 
@@ -528,13 +538,9 @@ for (i in 1:nrow(age_bound)){
   if (age_bound[i,]$upper != ""){
     lower_col = which(age_bound[i,]$lower==gsub("AGE_", "", names(census)))
     upper_col = which(age_bound[i,]$upper==gsub("AGE_", "", names(census)))
-    if (length(lower_col) == 0){
+    if (length(lower_col) == 0 | length(upper_col) == 0){
       age_bound$pop_est[i] = NA
-    } else if (length(upper_col) == 0){
-      age_bound$pop_est[i] = census[census$NAME == age_bound[i,]$state_name,] %>% 
-        select(lower_col:ncol(census)) %>% sum
-    }
-    else{
+    } else {
       age_bound$pop_est[i] = census[census$NAME == age_bound[i,]$state_name,] %>% 
         select(lower_col:upper_col) %>% sum}
   }
@@ -548,6 +554,7 @@ for (i in 1:nrow(age_bound)){
   }
 }
 age_bound = age_bound %>% select(-lower, -upper)
+age_bound[age_bound$state_name == "Georgia" & age_bound$category == "85",]$pop_est = NA
 
 ### gender
 
@@ -596,13 +603,99 @@ for (i in 1:nrow(eth_dat)){
   }
 }
 
+### race
+# all: alabama, alaska, dc, fl, ga, hawaii, idaho, in, ia, ks, ky, me, mi, mn, 
+# miss, montana, nc, ok,pa,sc,tn,vt,va,wv,wi, la
+# nh:arizona, ca, co, ct, de, il, md, ma, nevada, nh, nj, nm, ri, sd,tx,wa,wy, ny
+# none: nebraska, nd,oh,or
+# ut ?
+all = c("Alabama", "Alaska", "District of Columbia", "Florida", "Georgia",
+        "Hawaii", "Idaho", "Indiana", "Iowa", "Kansas", "Kentucky", "Maine", 
+        "Michigan", "Minnesota", "Mississippi", "Montana", "North Carolina", "Oklahoma", 
+        "Pennsylvania", "South Carolina", "Tennessee", "Vermont", "Virginia", 
+        "West Virginia", "Wyoming", "Louisiana", "Arkansas", "Missouri")
+none = c("Nebraska", "North Dakota", "Ohio", "Oregon")
+nh = setdiff(state.name, c(all, none))
+final$category = final$category %>% 
+  gsub("\\*", "", .) %>% 
+  gsub("NON-HISPANIC", "NH", .) %>% 
+  gsub("HISPANIC/LATINO", "HISPANIC", .) %>% 
+  gsub("ANOTHER/MULTIPLE", "MULTI/OTHERS", .) %>% 
+  gsub("LEFT BLANK", "UNKNOWN", .) %>% 
+  gsub("ASIAN/PACIFIC ISLANDER", "ASIAN/PI", .)
+for (i in 1:nrow(final)){
+  if (final$state_name[i] %in% nh & final$strata_type[i] == "race"){
+    final$category[i] = final$category[i] %>% 
+      gsub("^ASIAN", "NH ASIAN", .) %>% 
+      gsub("^BLACK", "NH BLACK", .) %>% 
+      gsub("^WHITE", "NH WHITE", .) %>% 
+      gsub("^AI/AN", "NH AI/AN", .) %>% 
+      gsub("^MULTI", "NH MULTI", .) %>% 
+      gsub("^NH/PI", "NH NH/PI", .) %>% 
+      gsub("^ASIAN/PI", "NH ASIAN/PI", .) %>% 
+      gsub("^AI/AN/NH/PI", "NH AI/AN/NH/PI", .)
+  }
+}
 
+race_dat = final %>% filter(strata_type == "race" & 
+                              str_detect(category, "UNKNOWN|OTHER|PENDING", negate = TRUE))
+for (i in 1:nrow(race_dat)){
+  if (race_dat[i,]$category == "HISPANIC"){
+    race_dat$pop_est[i] = census[census$NAME == race_dat[i,]$state_name, "ETH_HISPANIC"]
+  }
+  if (race_dat[i,]$category == "ASIAN"){
+    race_dat$pop_est[i] = sum(census[census$NAME == race_dat[i,]$state_name, c("NH.ASIAN","HISPANIC.ASIAN")])
+  }
+  if (race_dat[i,]$category == "BLACK"){
+    race_dat$pop_est[i] = sum(census[census$NAME == race_dat[i,]$state_name, c("NH.BLACK","HISPANIC.BLACK")])
+  }
+  if (race_dat[i,]$category == "WHITE"){
+    race_dat$pop_est[i] = sum(census[census$NAME == race_dat[i,]$state_name, c("NH.WHITE","HISPANIC.WHITE")])
+  }
+  if (race_dat[i,]$category == "AI/AN"){
+    race_dat$pop_est[i] = sum(census[census$NAME == race_dat[i,]$state_name, c("NH.AI.AN","HISPANIC.AI.AN")])
+  }
+  if (race_dat[i,]$category == "MULTI"){
+    race_dat$pop_est[i] = sum(census[census$NAME == race_dat[i,]$state_name, c("NH.MULTI","HISPANIC.MULTI")])
+  }
+  if (race_dat[i,]$category == "NH/PI"){
+    race_dat$pop_est[i] = sum(census[census$NAME == race_dat[i,]$state_name, c("NH.NH.PI","HISPANIC.NH.PI")])
+  }
+  if (race_dat[i,]$category == "NH ASIAN"){
+    race_dat$pop_est[i] = census[census$NAME == race_dat[i,]$state_name, "NH.ASIAN"]
+  }
+  if (race_dat[i,]$category == "NH BLACK"){
+    race_dat$pop_est[i] = census[census$NAME == race_dat[i,]$state_name, "NH.BLACK"]
+  }
+  if (race_dat[i,]$category == "NH WHITE"){
+    race_dat$pop_est[i] = census[census$NAME == race_dat[i,]$state_name, "NH.WHITE"]
+  }
+  if (race_dat[i,]$category == "NH AI/AN"){
+    race_dat$pop_est[i] = census[census$NAME == race_dat[i,]$state_name, "NH.AI.AN"]
+  }
+  if (race_dat[i,]$category == "NH MULTI"){
+    race_dat$pop_est[i] = census[census$NAME == race_dat[i,]$state_name, "NH.MULTI"]
+  }
+  if (race_dat[i,]$category == "NH NH/PI"){
+    race_dat$pop_est[i] = census[census$NAME == race_dat[i,]$state_name, "NH.NH.PI"]
+  }
+  if (race_dat[i,]$category == "NH ASIAN/PI"){
+    race_dat$pop_est[i] = sum(census[census$NAME == race_dat[i,]$state_name, c("NH.ASIAN","NH.NH.PI")])
+  }
+  if (race_dat[i,]$category == "ASIAN/PI"){
+    race_dat$pop_est[i] = sum(census[census$NAME == race_dat[i,]$state_name, c("NH.ASIAN","NH.NH.PI","HISPANIC.ASIAN","HISPANIC.NH.PI")])
+  }
+  if (race_dat[i,]$category == "AI/AN/NH/PI"){
+    race_dat$pop_est[i] = sum(census[census$NAME == race_dat[i,]$state_name, c("NH.AI.AN","NH.NH.PI","HISPANIC.AI.AN","HISPANIC.NH.PI")])
+  }
+}
 ### aggregate
 
-new_pop = bind_rows(age_bound, gender_dat, eth_dat, tot_dat)
+new_pop = bind_rows(age_bound, gender_dat, race_dat, eth_dat, tot_dat)
 final = full_join(final, new_pop)
-final$count2 = NA
 
+### approx percentages and calculate normalized values
+final$count2 = NA
 for (i in 1:nrow(final)){
   if (final$metric[i] == "Percent"){
     final$count2[i] = final$count[i] *
@@ -617,11 +710,16 @@ for (i in 1:nrow(final)){
 }
 
 final$normalized = final$count2 / final$pop_est * 100000
+final = final[!is.na(final$count),]
 
-### approx percentages and calculate normalized values
 
 
 ### 5. save file ----
+# save raw file
+write.csv(df,
+          file = paste0("../Data/raw_states/meta_final_", file_date_name, ".csv"),
+          row.names = F)
+# save processed file
 write.csv(final, 
           file = paste0("../data/processed_states/processed_state_data_", 
                         file_date_name, 

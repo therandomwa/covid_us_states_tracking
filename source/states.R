@@ -315,17 +315,18 @@ get_mississippi = function() {
   
 }
 
-get_florida = function() {
+get_florida = function(path) {
   # Get pdf from: https://www.floridadisaster.org/covid19/covid-19-data-reports/
   url = "https://www.floridadisaster.org/covid19/covid-19-data-reports/"
-  
-  pdf_path = read_html(url) %>% 
-    html_nodes("body .l-surround #mainContent #text-page-wrap .row") %>% 
-    html_nodes("#mainContent .main-column p a") %>% html_attr("href") %>% .[1]
+  # 
+  # pdf_path = read_html(url) %>% 
+  #   html_nodes("body .l-surround #mainContent #text-page-wrap .row") %>% 
+  #   html_nodes("#mainContent .main-column p a") %>% html_attr("href") %>% .[1]
   # Index 1 gets the first pdf in the list, presumed to be the most recent
   
-  pdf_url = paste0("https://www.floridadisaster.org/", pdf_path)
-  data = pdf_text(pdf_url)
+  # Just download the pdf and read it in
+  #pdf_url = paste0("https://www.floridadisaster.org/", pdf_path)
+  data = pdf_text(path)
   
   # Demographic data is on
   demographic_data = data %>% .[3] %>% 
@@ -351,12 +352,23 @@ get_florida = function() {
     str_split(., " ", simplify = TRUE) %>% .[1, 2] %>% 
     str_replace(., ",", "") %>% as.numeric()
   
+  hosp = demographic_data %>% .[16] %>% 
+    str_split(., " ", simplify = TRUE) %>% .[1, 3] %>% 
+    str_replace(., ",", "") %>% as.numeric()
+  
   deaths = demographic_data %>% .[16] %>% 
     str_split(., " ", simplify = TRUE) %>% .[1, 4] %>% 
     str_replace(., ",", "") %>% as.numeric()
   
-  
   males = demographic_data %>% .[5] %>% 
+    str_split(., " ", simplify = TRUE) %>%  .[1, 10] %>% 
+    str_replace(., ",", "") %>% as.numeric()
+  
+  females = demographic_data %>% .[6] %>% 
+    str_split(., " ", simplify = TRUE) %>%  .[1, 10] %>% 
+    str_replace(., ",", "") %>% as.numeric()
+
+  sex_unk = demographic_data %>% .[7] %>% 
     str_split(., " ", simplify = TRUE) %>%  .[1, 10] %>% 
     str_replace(., ",", "") %>% as.numeric()
   
@@ -543,12 +555,13 @@ get_florida = function() {
   
   # Log all of the information
   skeleton[["tested"]][["total"]] = tested
-  skeleton[["negatives"]][["total"]] = negatives
-  
   skeleton[["cases"]][["total"]] = cases
+  skeleton[["hospitalized"]][["total"]] = hosp
+  skeleton[["death"]][["total"]] = deaths
   
   skeleton[["cases"]][["sex_male"]] = males
-  skeleton[["cases"]][["sex_female"]] = cases - males
+  skeleton[["cases"]][["sex_female"]] = females
+  skeleton[["cases"]][["sex_unk"]] = sex_unk
   
   skeleton[["cases"]][["age_0_4"]] = between_0_and_4_case
   skeleton[["cases"]][["age_5_14"]] = between_5_and_14_case
@@ -1006,7 +1019,9 @@ get_new_jersey = function() {
     str_split("\n") %>% .[[1]] %>% 
     str_squish()
   skeleton = skeleton_table(nj_cols)
-  
+  print(data)
+
+
   # This pdf has the potential to change a lot in terms 
   # of what appears on what row but this can be easily changed
   cases = data %>% .[9] %>% 
@@ -1073,11 +1088,11 @@ get_new_jersey = function() {
     str_split(" ", simplify = TRUE) %>% .[1, 3] %>% 
     str_replace(",", "") %>% .[[1]] %>% as.numeric()
   
-  asian = data %>% .[37] %>% 
+  other_race = data %>% .[37] %>% 
     str_split(" ", simplify = TRUE) %>% .[1, 3] %>% 
     str_replace(",", "") %>% .[[1]] %>% as.numeric()
   
-  other_race = data %>% .[38] %>% 
+  asian = data %>% .[38] %>% 
     str_split(" ", simplify = TRUE) %>% .[1, 3] %>% 
     str_replace(",", "") %>% .[[1]] %>% as.numeric()
   
@@ -1511,6 +1526,7 @@ get_arizona = function() {
   skeleton[["deaths"]][["race_other"]] = get_information("AZ: Deaths race other?: ")
   skeleton[["deaths"]][["race_unk"]] = get_information("AZ: Deaths race unknown?: ")
   
+  skeleton[["hospitalized"]][["total"]] = get_information("AZ: Total hospitalized?: ")
   skeleton[["hospitalized"]][["age_0_19"]] = get_information("AZ: Hospitalized age <20?: ")
   skeleton[["hospitalized"]][["age_20_44"]] = get_information("AZ: Hospitalized age 20 - 44?: ")
   skeleton[["hospitalized"]][["age_45_54"]] = get_information("AZ: Hospitalized age 45 - 54?: ")
@@ -1597,18 +1613,36 @@ get_idaho = function() {
   skeleton[["cases"]][["age_80+"]] = get_information("ID: Cases age 80+?: ")
   skeleton[["cases"]][["sex_male"]] = get_information("ID: Cases sex male?: ")
   skeleton[["cases"]][["sex_female"]] = get_information("ID: Cases sex female?: ")
-  skeleton[["cases"]][["ethnicity_unk"]] = get_information("ID: Cases ethnicity unknown? (calc.): ")
-  skeleton[["cases"]][["ethnicity_hispanic"]] = get_information("ID: Cases hispanic %?: ")
-  skeleton[["cases"]][["ethnicity_non_hispanic"]] = get_information("ID: Cases not hispanic %?: ")
+  skeleton[["cases"]][["ethnicity_unk"]] = get_information("ID: Cases ethnicity unknown? (calc %): ")
   
-  skeleton[["cases"]][["race_unk"]] = get_information("ID: Cases race unknown? (calc.): ")
-  skeleton[["cases"]][["race_white"]] = get_information("ID: Cases race white %?: ")
-  skeleton[["cases"]][["race_other"]] = get_information("ID: Cases race other %?: ")
-  skeleton[["cases"]][["race_asian"]] = get_information("ID: Cases race asian %?: ")
-  skeleton[["cases"]][["race_AfrA"]] = get_information("ID: Cases race AfrA %?: ")
-  skeleton[["cases"]][["race_multi"]] = get_information("ID: Cases multirace %?: ")
-  skeleton[["cases"]][["race_NatA"]] = get_information("ID: Cases race NatA %?: ")
-  skeleton[["cases"]][["race_pac"]] = get_information("ID: Cases race Pacific Islander %?: ")
+  case_hisp = get_information("ID: Cases hispanic count?: ")
+  skeleton[["cases"]][["ethnicity_hispanic"]] = case_hisp / skeleton[["cases"]][["total"]]
+  
+  case_non_hisp = get_information("ID: Cases not hispanic count?: ")
+  skeleton[["cases"]][["ethnicity_non_hispanic"]] = case_non_hisp / skeleton[["cases"]][["total"]]
+  
+  skeleton[["cases"]][["race_unk"]] = get_information("ID: Cases race unknown? (calc. %): ")
+  
+  case_white = get_information("ID: Cases race white count?: ")
+  skeleton[["cases"]][["race_white"]] = case_white / skeleton[["cases"]][["total"]]
+    
+  case_race_other = get_information("ID: Cases race other count?: ")
+  skeleton[["cases"]][["race_other"]] = case_race_other / skeleton[["cases"]][["total"]]
+    
+  case_asian = get_information("ID: Cases race asian count?: ")
+  skeleton[["cases"]][["race_asian"]] = case_asian / skeleton[["cases"]][["total"]]
+    
+  case_afra = get_information("ID: Cases race AfrA count?: ")
+  skeleton[["cases"]][["race_AfrA"]] = case_afra / skeleton[["cases"]][["total"]]
+  
+  case_race_multi = get_information("ID: Cases multirace count?: ")   
+  skeleton[["cases"]][["race_multi"]] = case_race_multi / skeleton[["cases"]][["total"]]
+  
+  case_nata = get_information("ID: Cases race NatA count?: ")
+  skeleton[["cases"]][["race_NatA"]] = case_nata / skeleton[["cases"]][["total"]]
+    
+  case_pac = get_information("ID: Cases race Pacific Islander count?: ")
+  skeleton[["cases"]][["race_pac"]] = case_pac / skeleton[["cases"]][["total"]]
   
   skeleton[["hospitalized"]][["total"]] = get_information("ID: Total hospitalized?: ")
   
@@ -1624,9 +1658,9 @@ get_idaho = function() {
   skeleton[["deaths"]][["sex_female"]] = get_information("ID: Deaths sex female?: ")
   skeleton[["deaths"]][["ethnicity_hispanic"]] = get_information("ID: Deaths hispanic?: ")
   skeleton[["deaths"]][["ethnicity_non_hispanic"]] = get_information("ID: Deaths not hispanic?: ")
-  skeleton[["deaths"]][["race_white"]] = get_information("ID: Deaths race white %?: ")
-  skeleton[["deaths"]][["race_asian"]] = get_information("ID: Deaths race asian %?: ")
-  skeleton[["deaths"]][["race_AfrA"]] = get_information("ID: Deaths race AfrA %?: ")
+  skeleton[["deaths"]][["race_white"]] = get_information("ID: Deaths race white?: ")
+  skeleton[["deaths"]][["race_asian"]] = get_information("ID: Deaths race asian?: ")
+  skeleton[["deaths"]][["race_AfrA"]] = get_information("ID: Deaths race AfrA?: ")
 
   skeleton[["tested"]][["total"]] = get_information("ID: Total tested?: ")
   

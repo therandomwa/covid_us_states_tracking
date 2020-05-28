@@ -32,7 +32,7 @@ source("states_constants.R")
 
 ```{r}
 # Check with these first to make sure all states have good data
-florida = get_florida()
+florida = get_florida("../pdfs/florida_20200527.pdf")
 tennessee = get_tennessee()
 new_jersey = get_new_jersey()
 new_hampshire = get_new_hampshire()
@@ -44,14 +44,14 @@ mississippi = get_mississippi()
 ```
 
 ```{r}
-dc
+
 ```
 
 # Compile The Automated States
 
 ```{r}
 # Get as much automated data as you can
-automated_data_20200523 = bind_rows(
+automated_data_20200527 = bind_rows(
   oklahoma,
   mississippi,
   florida,
@@ -77,12 +77,6 @@ In addition to the information above, we need manual entry for:
 - West Virginia
 - Wyoming
 
-add in count/prop
-label for approximation
-add in census counts for appropriate category and age
-prettify the shiny
-add in plots
-
 For each of these states, we'll collect sex, age, and race information.
 
 ```{r}
@@ -100,7 +94,7 @@ south_dakota = get_south_dakota() # Gloria
 west_virginia = get_west_virginia() # Gloria 
 wyoming = get_wyoming() # Amy
 
-manual_data_20200523 = bind_rows(
+manual_data_20200526 = bind_rows(
   arizona,
   iowa,
   kansas,
@@ -117,133 +111,10 @@ manual_data_20200523 = bind_rows(
 ```
 
 ```{r}
-save(manual_data_20200523, file = "../data/raw_states/manual_2020-05-23-cbp.rda")
+# save(manual_data_20200526, file = "../data/raw_states/manual_2020-05-26-cbp.rda")
+load("../manual_data/manual_2020-05-26-cbp.rda")
+full_data_20200527 = bind_rows(automated_data_20200527, manual_data_20200526)
 
-# load("../data/raw_states/manual_states_2020-05-21-cbp.rda")
-full_data_20200523 = bind_rows(automated_data_20200523, manual_data_20200523)
 
-
-save(full_data_20200523, file = "../data/raw_states/meta_2020-05-23-cbp.rda")
+save(full_data_20200526, file = "../data/raw_states/meta_2020-05-26-cbp.rda")
 ```
-
-# Compile 
-
-```{r}
-test = finalize_data("../data/raw_states/meta_final_2020-05-19.csv")
-census = read_xlsx("../data/census.xlsx")
-```
-
-```{r}
-totals_table = test %>% 
-  select(state_name, total_test, total_case, total_death, total_hosp) %>% 
-  pivot_longer(
-    total_case:total_hosp,
-    names_to = "total_type",
-    values_to = "data_type_total"
-  ) %>% 
-  separate(total_type, c("prefix", "data_type")) %>% 
-  select(state_name, data_type, data_type_total)
-
-strata_values = test %>% 
-  select(state_name, total_test, category, raw, strata_type, data_type)
-
-better_test = left_join(strata_values, totals_table, by = c("state_name", "data_type")) %>% 
-  distinct()
-```
-
-# Census Transformation
-
-```{r}
-census_race_sex = read_csv("../data/census.csv") %>% 
-  select(NAME, TOTAL_POP:FEMALE) %>% 
-  mutate(
-    `AI/AN/NH/PI` = `NH.AI/AN` + `NH.NH/PI`,
-    `ASIAN/PI` = `NH.ASIAN` + `NH.NH/PI`
-  ) %>% 
-  pivot_longer(
-    TOTAL_POP:`AI/AN/NH/PI`,
-    names_to = "category",
-    values_to = "pop_est") %>% 
-  mutate(
-    new_category = case_when(
-      category == "TOTAL_POP" ~ "TOTAL_POP",
-      category == "NH.WHITE" ~ "NH WHITE",
-      category == "ETH_HISPANIC" ~ "HISPANIC",
-      category == "ETH_NH" ~ "NH",
-      category == "NH.BLACK" ~ "BLACK",
-      category == "NH.AI/AN" ~ "AI/AN",
-      category == "NH.ASIAN" ~ "ASIAN",
-      category == "NH.NH/PI" ~ "NH/PI",
-      category == "AI/AN/NH/PI" ~ "AI/AN/NH/PI",
-      category == "NH.MULTI" ~ "MULTI",
-      category == "MALE" ~ "MALE",
-      category == "FEMALE" ~ "FEMALE"
-      )
-  )
-
-census_age = read_csv("../data/census.csv") %>% 
-  select(NAME, AGE_0:AGE_85) %>% 
-  pivot_longer(
-    AGE_0:AGE_85,
-    names_to = "age",
-    values_to = "pop_est") %>% 
-  separate(age, c("pre", "age")) %>% 
-  mutate( age = as.numeric(age) )
-
-write_csv(census_race_sex, "../data/census_race_sex.csv")
-write_csv(census_age, "../data/census_age.csv")
-```
-
-- ggiraph get new R version
-- switch hosp and death
-- ken is coming to meeting on Tuesday, look professional
-- say per 100000 instead of normalization
-
-TODO:
-- add lauren's plot
-- add gloria's plot
-- add in the normalization function
-  - add in associated totals into the dataset
-  - calculate normalized values
-  - add in the addition of these functions to the overall dataset
-- style each of the plots to match columbia's guidelines
-- add in shings info
-- add icons?
-
-```{r}
-tibble(
-  state = datasets::state.abb,
-  state_name = datasets::state.name
-)
-```
-
-# Looking At maps
-
-```{r}
-library(tidyverse)
-library(readxl)
-library(tidyverse)
-library(sp)
-library(ggiraph)
-library(sf)
-library(shiny)
-library(fiftystater)
-library(ggplot2)
-
-data = read_csv("../data/processed_states/processed_state_data_20200522.csv")
-
-test = quo("state_name")
-
-data %>% 
-  filter(strata_type == "total", data_type == "case") %>% 
-  ggplot(aes(map_id = tolower(test))) +
-  geom_map(aes(fill = as.numeric(count)), map = fifty_states) +
-  expand_limits(x = fifty_states$long, y = fifty_states$lat) 
-```
-
-bento chickene teriyaki and tempura
-gyuudon and karaage
-three caterpillar rolls
-bento mackerel and salmon
-dad cube streak
-soup and salad for dad

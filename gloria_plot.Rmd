@@ -1,0 +1,24 @@
+---
+title: "Gloria Plot"
+author: "Christian Pascual"
+date: "5/24/2020"
+output: html_document
+---
+
+```{r}
+library(tidyverse)
+library(RColorBrewer)# Set fixed color
+library(plotly)
+```
+
+```{r}
+cols <- brewer.pal(5, "Blues")
+var1 = "positive_gender"
+var2 = "death_gender"
+var3 = "hosp_gender"
+
+total1  = "total_case"
+total2 = "total_death"
+total3 = "total_hosp"
+```
+
