@@ -74,7 +74,10 @@ vis_dat = left_join(summ_dat, cat_dat, by = "event") %>%
                            "stay at home order", bar_type)) %>%
   arrange(state, bar_type, date) %>%
   mutate(date = as.Date(date, format = "%Y-%m-%d"),
-         end = if_else(lead(bar_type) == bar_type, lead(date), Sys.Date()))
+         end = if_else(lead(bar_type) == bar_type & lead(date) == date,
+                       Sys.Date(), 
+                       if_else(lead(bar_type) == bar_type,
+                               lead(date), Sys.Date()) ))
 ```
 
 Column {.sidebar}
