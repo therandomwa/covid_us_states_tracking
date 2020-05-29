@@ -15,14 +15,14 @@ load_object <- function(file) {
 
 ### 0. load files ----
 
-file_date = Sys.Date()-1 # change accordingly if the editing date is not the scraping date
+file_date = Sys.Date()-2 # change accordingly if the editing date is not the scraping date
 file_date_name = file_date %>% format("%Y%m%d")
 
 # load Aijin's data
-df_aw = read.csv("../Data/raw_states/meta_2020-05-26_aw.csv")
+df_aw = read.csv("../Data/raw_states/meta_2020-05-27_aw.csv")
 
 # load Chistian's data
-df_cbp = load_object("../Data/raw_states/meta_2020-05-26-cbp.rda")
+df_cbp = load_object("../Data/raw_states/meta_2020-05-27-cbp.rda")
 
 ### 1. compile files ----
 df_aw$last.update = df_aw$last.update %>% 
@@ -613,7 +613,7 @@ all = c("Alabama", "Alaska", "District of Columbia", "Florida", "Georgia",
         "Hawaii", "Idaho", "Indiana", "Iowa", "Kansas", "Kentucky", "Maine", 
         "Michigan", "Minnesota", "Mississippi", "Montana", "North Carolina", "Oklahoma", 
         "Pennsylvania", "South Carolina", "Tennessee", "Vermont", "Virginia", 
-        "West Virginia", "Wyoming", "Louisiana", "Arkansas", "Missouri")
+        "West Virginia", "Wyoming", "Louisiana", "Arkansas", "Missouri", "Wisconsin")
 none = c("Nebraska", "North Dakota", "Ohio", "Oregon")
 nh = setdiff(state.name, c(all, none))
 final$category = final$category %>% 
