@@ -1,22 +1,22 @@
 ---
-title: "Timeline Data Wide to Long"
-author: "Courtney Johnson"
-date: "May 21, 2020"
-output: html_document
+title: "Untitled"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
+runtime: shiny 
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+library(flexdashboard)
 library(tidyverse)
 library(vistime)
 library(plotly)
 library(readxl)
 ```
 
-
-### Read in data 
 ```{r}
-summ_dat = readxl::read_excel("./Data/Summary_stats_all.xlsx", 
+summ_dat = readxl::read_excel("../Data/Summary_stats_all.xlsx", 
                    sheet = "Summary_stats_all_locs", col_names = TRUE) %>%
   janitor::clean_names() %>%
   select(-check, -notes, -link, -nursing_exorder, -exorder_date, -funding, -nursing_novis,
@@ -52,7 +52,7 @@ summ_dat = readxl::read_excel("./Data/Summary_stats_all.xlsx",
 # excel data change:
 # as.Date(variable, origin = "1899-12-30")
 
-cat_dat = readxl::read_excel("./Data/Summary_stats_all.xlsx", 
+cat_dat = readxl::read_excel("../Data/Summary_stats_all.xlsx", 
                    sheet = "data_dictionary", col_names = TRUE) %>%
   mutate(category = ifelse(header == "bars_25_people_or_35_percent_cap",
                            "stay at home order",
@@ -75,21 +75,31 @@ vis_dat = left_join(summ_dat, cat_dat, by = "event") %>%
   arrange(state, bar_type, date) %>%
   mutate(date = as.Date(date, format = "%Y-%m-%d"),
          end = if_else(lead(bar_type) == bar_type, lead(date), Sys.Date()))
-
-# knitr::kable(count(dat, date))
-
-# head(dat)
-# tail(dat)
 ```
 
-### plot visual
+Column {.sidebar}
+-----------------------------------------------------------------------
+   
 ```{r}
-vis_dat %>%
-  filter(state == "Maryland") %>%
+states = vis_dat %>% distinct(state) %>% pull()
+
+selectInput(
+  "state_choice",
+  label = h3("Select State"),
+  choices = states, selected = "Alabama"
+)
+```
+
+Column {data-width=1000}
+-----------------------------------------------------------------------
+
+### Timeline
+
+```{r}
+renderPlotly({
+  vis_dat %>%
+  filter(state == input$state_choice) %>%
   vistime(events = "event", start = "date", groups = "bar_type", end = "end", background_lines = 0)
-
-
-vistime(vis_dat, events = "event", start = "date", )
-
+})
 ```
 
