@@ -1646,6 +1646,7 @@ get_idaho = function() {
   
   skeleton[["hospitalized"]][["total"]] = get_information("ID: Total hospitalized?: ")
   
+  skeleton[["deaths"]][["total"]] = get_information("ID: Total hospitalized?: ")
   skeleton[["deaths"]][["age_0_17"]] = get_information("ID: Deaths age <18")
   skeleton[["deaths"]][["age_18_29"]] = get_information("ID: Deaths age 18 - 29: ")
   skeleton[["deaths"]][["age_30_39"]] = get_information("ID: Deaths age 30 - 39?: ")

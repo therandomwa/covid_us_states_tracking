@@ -116,5 +116,5 @@ load("../manual_data/manual_2020-05-26-cbp.rda")
 full_data_20200527 = bind_rows(automated_data_20200527, manual_data_20200526)
 
 
-save(full_data_20200526, file = "../data/raw_states/meta_2020-05-26-cbp.rda")
+save(full_data_20200527, file = "../data/raw_states/meta_2020-05-27-cbp.rda")
 ```
