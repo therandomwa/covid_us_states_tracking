@@ -11,6 +11,7 @@ runtime: shiny
 library(flexdashboard)
 library(tidyverse)
 library(vistime)
+library(timevis)
 library(plotly)
 library(readxl)
 ```
