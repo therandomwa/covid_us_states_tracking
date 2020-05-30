@@ -32,7 +32,7 @@ source("states_constants.R")
 
 ```{r}
 # Check with these first to make sure all states have good data
-florida = get_florida("../pdfs/florida_20200527.pdf")
+florida = get_florida("../pdfs/florida_20200529.pdf")
 tennessee = get_tennessee()
 new_jersey = get_new_jersey()
 new_hampshire = get_new_hampshire()
@@ -41,17 +41,8 @@ dc = get_dc()
 # Some manual data entry
 oklahoma = get_oklahoma()
 mississippi = get_mississippi()
-```
 
-```{r}
-
-```
-
-# Compile The Automated States
-
-```{r}
-# Get as much automated data as you can
-automated_data_20200527 = bind_rows(
+automated_data_20200529 = bind_rows(
   oklahoma,
   mississippi,
   florida,
@@ -59,6 +50,25 @@ automated_data_20200527 = bind_rows(
   new_jersey,
   new_hampshire,
   dc)
+```
+
+```{r}
+
+```
+
+```{r}
+# All the states we do complete manual data entry for
+south_carolina = get_south_carolina()
+kansas = get_kansas()
+iowa = get_iowa()
+north_carolina = get_north_carolina()
+
+manual_data_20200529 = c(
+  south_carolina,
+  kansas,
+  iowa,
+  north_carolina
+)
 ```
 
 # Manual States
@@ -80,16 +90,10 @@ In addition to the information above, we need manual entry for:
 For each of these states, we'll collect sex, age, and race information.
 
 ```{r}
-# All the states we do complete manual data entry for
-south_carolina = get_south_carolina()
-arizona = get_arizona() 
-kansas = get_kansas()
-iowa = get_iowa()
-north_carolina = get_north_carolina()
-hawaii = get_hawaii()
-idaho = get_idaho()
-nevada = get_nevada() 
-new_york = get_new_york()
+hawaii = get_hawaii() # Courtney
+arizona = get_arizona() # Courtney
+nevada = get_nevada() # Lauren
+new_york = get_new_york() # Lauren
 south_dakota = get_south_dakota() # Gloria
 west_virginia = get_west_virginia() # Gloria 
 wyoming = get_wyoming() # Amy
@@ -111,10 +115,7 @@ manual_data_20200526 = bind_rows(
 ```
 
 ```{r}
-# save(manual_data_20200526, file = "../data/raw_states/manual_2020-05-26-cbp.rda")
-load("../manual_data/manual_2020-05-26-cbp.rda")
-full_data_20200527 = bind_rows(automated_data_20200527, manual_data_20200526)
+full_data_20200529 = bind_rows(automated_data_20200529, manual_data_20200529)
 
-
-save(full_data_20200527, file = "../data/raw_states/meta_2020-05-27-cbp.rda")
+save(full_data_20200529, file = "../data/raw_states/meta_2020-05-29-cbp.rda")
 ```

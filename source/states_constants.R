@@ -133,7 +133,7 @@ ia_cols = c(
   "race_asian", 
   "race_other",
   "race_pac",
-  "race_multi", 
+  "race_other", 
   "race_unk")
 
 ks_cols = c(
@@ -375,7 +375,8 @@ nc_cols = c(
   "race_white", 
   "race_AfrA",
   "race_NatA",
-  "race_asian", 
+  "race_asian",
+  "race_pac",
   "race_other",
   "race_multi", 
   "race_unk")

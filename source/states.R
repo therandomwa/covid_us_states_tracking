@@ -799,6 +799,7 @@ get_north_carolina = function() {
   north_carolina[["cases"]][["race_NatA"]] = get_information("NC, case race NatA: ")
   north_carolina[["cases"]][["race_asian"]] = get_information("NC, case race asian: ")
   north_carolina[["cases"]][["race_AfrA"]] = get_information("NC, case race AfrA: ")
+  north_carolina[["cases"]][["race_pac"]] = get_information("NC, case race Pac Island: ")
   north_carolina[["cases"]][["race_white"]] = get_information("NC, case race white: ")
   north_carolina[["cases"]][["race_other"]] = get_information("NC, case race other: ")
   north_carolina[["cases"]][["race_unk"]] = get_information("NC, case race unknown: ")
@@ -1019,7 +1020,7 @@ get_new_jersey = function() {
     str_split("\n") %>% .[[1]] %>% 
     str_squish()
   skeleton = skeleton_table(nj_cols)
-  print(data)
+  # return(data)
 
 
   # This pdf has the potential to change a lot in terms 
@@ -1028,63 +1029,63 @@ get_new_jersey = function() {
     str_split(" ", simplify = TRUE) %>% .[1, 5] %>% 
     str_replace(",", "") %>% .[[1]] %>% as.numeric()
   
-  deaths = data %>% .[13] %>% 
+  deaths = data %>% .[12] %>% 
     str_split(" ", simplify = TRUE) %>% .[1, 1] %>% 
     str_replace(",", "") %>% .[[1]] %>% as.numeric()
   
-  hospitalizations = data %>% .[15] %>% 
+  hospitalizations = data %>% .[14] %>% 
     str_split(" ", simplify = TRUE) %>% .[1, 1] %>% 
     str_replace(",", "") %>% .[[1]] %>% as.numeric()
   
-  between_0_and_4 = data %>% .[17] %>% 
+  between_0_and_4 = data %>% .[16] %>% 
     str_split(" ", simplify = TRUE) %>% .[1, 4] %>% 
     str_replace(",", "") %>% .[[1]] %>% as.numeric()
   
-  between_5_and_17 = data %>% .[18] %>% 
+  between_5_and_17 = data %>% .[17] %>% 
     str_split(" ", simplify = TRUE) %>% .[1, 4] %>% 
     str_replace(",", "") %>% .[[1]] %>% as.numeric()
   
-  between_18_and_29 = data %>% .[19] %>% 
+  between_18_and_29 = data %>% .[18] %>% 
     str_split(" ", simplify = TRUE) %>% .[1, 4] %>% 
     str_replace(",", "") %>% .[[1]] %>% as.numeric()
   
-  between_30_and_49 = data %>% .[20] %>% 
+  between_30_and_49 = data %>% .[19] %>% 
     str_split(" ", simplify = TRUE) %>% .[1, 4] %>% 
     str_replace(",", "") %>% .[[1]] %>% as.numeric()
   
-  between_50_and_64 = data %>% .[21] %>% 
+  between_50_and_64 = data %>% .[20] %>% 
     str_split(" ", simplify = TRUE) %>% .[1, 4] %>% 
     str_replace(",", "") %>% .[[1]] %>% as.numeric()
   
-  between_65_and_79 = data %>% .[22] %>% 
+  between_65_and_79 = data %>% .[21] %>% 
     str_split(" ", simplify = TRUE) %>% .[1, 4] %>% 
     str_replace(",", "") %>% .[[1]] %>% as.numeric()
   
-  older_than_80 = data %>% .[23] %>% 
+  older_than_80 = data %>% .[22] %>% 
     str_split(" ", simplify = TRUE) %>% .[1, 2] %>% 
     str_replace(",", "") %>% .[[1]] %>% as.numeric()
   
-  female = data %>% .[28] %>% 
+  female = data %>% .[27] %>% 
     str_split(" ", simplify = TRUE) %>% .[1, 2] %>% 
     str_replace(",", "") %>% .[[1]] %>% as.numeric()
   
-  male = data %>% .[29] %>% 
+  male = data %>% .[28] %>% 
     str_split(" ", simplify = TRUE) %>% .[1, 2] %>% 
     str_replace(",", "") %>% .[[1]] %>% as.numeric()
   
-  unknown_sex = data %>% .[30] %>% 
+  unknown_sex = data %>% .[29] %>% 
     str_split(" ", simplify = TRUE) %>% .[1, 2] %>% 
     str_replace(",", "") %>% .[[1]] %>% as.numeric()
   
-  white = data %>% .[32] %>% 
+  white = data %>% .[31] %>% 
     str_split(" ", simplify = TRUE) %>% .[1, 3] %>% 
     str_replace(",", "") %>% .[[1]] %>% as.numeric()
-  
-  hispanic = data %>% .[34] %>% 
+
+  hispanic = data %>% .[33] %>% 
     str_split(" ", simplify = TRUE) %>% .[1, 1] %>% 
     str_replace(",", "") %>% .[[1]] %>% as.numeric()
   
-  black = data %>% .[36] %>% 
+  black = data %>% .[35] %>% 
     str_split(" ", simplify = TRUE) %>% .[1, 3] %>% 
     str_replace(",", "") %>% .[[1]] %>% as.numeric()
   
@@ -1092,7 +1093,7 @@ get_new_jersey = function() {
     str_split(" ", simplify = TRUE) %>% .[1, 3] %>% 
     str_replace(",", "") %>% .[[1]] %>% as.numeric()
   
-  asian = data %>% .[38] %>% 
+  asian = data %>% .[36] %>% 
     str_split(" ", simplify = TRUE) %>% .[1, 3] %>% 
     str_replace(",", "") %>% .[[1]] %>% as.numeric()
   
@@ -1721,8 +1722,8 @@ get_iowa = function() {
   skeleton[["deaths"]][["race_NatA"]] = get_information("IA: Deaths race NatA %?: ")
   skeleton[["deaths"]][["race_asian"]] = get_information("IA: Deaths race asian %?: ")
   skeleton[["deaths"]][["race_AfrA"]] = get_information("IA: Deaths race AfrA %?: ")
-  skeleton[["deaths"]][["race_pac"]] = get_information("IA: Deaths race Pacific Islander %?: ")
   skeleton[["deaths"]][["race_unk"]] = get_information("IA: Deaths race pending %?: ")
+  skeleton[["deaths"]][["race_other"]] = get_information("IA: Deaths race other %?: ")
   skeleton[["deaths"]][["race_white"]] = get_information("IA: Deaths race white %?: ")
   
   skeleton[["deaths"]][["ethnicity_hispanic"]] = get_information("IA: Deaths ethnicity hispanic %?: ")
