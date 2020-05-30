@@ -15,14 +15,14 @@ load_object <- function(file) {
 
 ### 0. load files ----
 
-file_date = Sys.Date()-2 # change accordingly if the editing date is not the scraping date
+file_date = Sys.Date()-1 # change accordingly if the editing date is not the scraping date
 file_date_name = file_date %>% format("%Y%m%d")
 
 # load Aijin's data
-df_aw = read.csv("../Data/raw_states/meta_2020-05-27_aw.csv")
+df_aw = read.csv("../Data/raw_states/meta_2020-05-29_aw.csv")
 
 # load Chistian's data
-df_cbp = load_object("../Data/raw_states/meta_2020-05-27-cbp.rda")
+df_cbp = load_object("../Data/raw_states/meta_2020-05-29-cbp.rda")
 
 ### 1. compile files ----
 df_aw$last.update = df_aw$last.update %>% 
@@ -81,7 +81,6 @@ df[df == ""] = NA
 
 race_standard = function(race_var){
   
-  # browser()
   race_name = df %>% 
     filter(!is.na(get(race_var))) %>%
     select(state_name) %>% 
