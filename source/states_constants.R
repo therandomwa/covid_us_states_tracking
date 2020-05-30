@@ -132,8 +132,7 @@ ia_cols = c(
   "race_NatA",
   "race_asian", 
   "race_other",
-  "race_pac",
-  "race_other", 
+  "race_pac", 
   "race_unk")
 
 ks_cols = c(
