@@ -63,7 +63,7 @@ kansas = get_kansas()
 iowa = get_iowa()
 north_carolina = get_north_carolina()
 
-manual_data_20200529 = c(
+manual_data_20200529 = bind_rows(
   south_carolina,
   kansas,
   iowa,
