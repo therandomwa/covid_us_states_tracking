@@ -53,6 +53,7 @@ south_carolina = get_south_carolina()
 kansas = get_kansas()
 iowa = get_iowa()
 north_carolina = get_north_carolina()
+idaho = get_idaho()
 
 full_data_20200529 = bind_rows(
   oklahoma,
@@ -65,7 +66,8 @@ full_data_20200529 = bind_rows(
   south_carolina,
   kansas,
   iowa,
-  north_carolina
+  north_carolina,
+  idaho
 )
 save(full_data_20200529, file ="../data/raw_states/meta_2020-05-29-cbp.rda")
 ```
@@ -104,7 +106,6 @@ manual_data_20200526 = bind_rows(
   north_carolina,
   south_carolina,
   hawaii,
-  idaho,
   nevada,
   new_york,
   south_dakota,
