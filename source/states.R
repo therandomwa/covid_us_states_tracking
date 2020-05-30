@@ -1719,10 +1719,8 @@ get_iowa = function() {
   skeleton[["deaths"]][["sex_female"]] = get_information("IA: Deaths sex female %?: ")
   skeleton[["deaths"]][["sex_unk"]] = get_information("IA: Deaths sex unknown/pending %?: ")
   
-  skeleton[["deaths"]][["race_NatA"]] = get_information("IA: Deaths race NatA %?: ")
   skeleton[["deaths"]][["race_asian"]] = get_information("IA: Deaths race asian %?: ")
   skeleton[["deaths"]][["race_AfrA"]] = get_information("IA: Deaths race AfrA %?: ")
-  skeleton[["deaths"]][["race_unk"]] = get_information("IA: Deaths race pending %?: ")
   skeleton[["deaths"]][["race_other"]] = get_information("IA: Deaths race other %?: ")
   skeleton[["deaths"]][["race_white"]] = get_information("IA: Deaths race white %?: ")
   

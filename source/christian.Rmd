@@ -41,15 +41,6 @@ dc = get_dc()
 # Some manual data entry
 oklahoma = get_oklahoma()
 mississippi = get_mississippi()
-
-automated_data_20200529 = bind_rows(
-  oklahoma,
-  mississippi,
-  florida,
-  tennessee,
-  new_jersey,
-  new_hampshire,
-  dc)
 ```
 
 ```{r}
@@ -63,12 +54,20 @@ kansas = get_kansas()
 iowa = get_iowa()
 north_carolina = get_north_carolina()
 
-manual_data_20200529 = bind_rows(
+full_data_20200529 = bind_rows(
+  oklahoma,
+  mississippi,
+  florida,
+  tennessee,
+  new_jersey,
+  new_hampshire,
+  dc,
   south_carolina,
   kansas,
   iowa,
   north_carolina
 )
+save(full_data_20200529, file ="../data/raw_states/meta_2020-05-29-cbp.rda")
 ```
 
 # Manual States
@@ -117,5 +116,5 @@ manual_data_20200526 = bind_rows(
 ```{r}
 full_data_20200529 = bind_rows(automated_data_20200529, manual_data_20200529)
 
-save(full_data_20200529, file = "../data/raw_states/meta_2020-05-29-cbp.rda")
+save(full_data_20200529, file ="../data/raw_states/meta_2020-05-29-cbp.rda")
 ```
