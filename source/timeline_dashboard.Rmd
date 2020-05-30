@@ -10,8 +10,8 @@ runtime: shiny
 ```{r setup, include=FALSE}
 library(flexdashboard)
 library(tidyverse)
-library(vistime)
 library(timevis)
+library(timelineS)
 library(plotly)
 library(readxl)
 ```
@@ -78,7 +78,10 @@ vis_dat = left_join(summ_dat, cat_dat, by = "event") %>%
          end = if_else(lead(bar_type) == bar_type & lead(date) == date,
                        Sys.Date(), 
                        if_else(lead(bar_type) == bar_type,
-                               lead(date), Sys.Date()) ))
+                               lead(date), Sys.Date()))) %>%
+  rename(start = date,
+         content = event,
+         group = bar_type)
 ```
 
 Column {.sidebar}
@@ -101,9 +104,10 @@ Column {data-width=1000}
 
 ```{r}
 renderPlotly({
-  vis_dat %>%
+  ggplotly(vis_dat %>%
   filter(state == input$state_choice) %>%
-  vistime(events = "event", start = "date", groups = "bar_type", end = "end", background_lines = 0)
+  timelineG(start = "start", end = "end", names = "group", phase = "content") +
+    theme_classic())
 })
 ```
 
