@@ -1,0 +1,2192 @@
+"state_name","category","count","last_update","strata_type","data_type","metric","pop_est","count2","normalized"
+"Alabama","ASIAN",85,"05/30/20","race","case","Count",73167,85,116.172591468832
+"Alabama","BLACK",7350,"05/30/20","race","case","Count",1310802,7350,560.725418484256
+"Alabama","OTHER",746,"05/30/20","race","case","Count",NA,746,NA
+"Alabama","UNKNOWN",2441,"05/30/20","race","case","Count",NA,2441,NA
+"Alabama","WHITE",6738,"05/30/20","race","case","Count",3379955,6738,199.351766517602
+"Alabama","5-24",2131,"05/30/20","age","case","Count",1249295,2131,170.576204979608
+"Alabama","65+",3850,"05/30/20","age","case","Count",826894,3850,465.59776706567
+"Alabama","0-4",211,"05/30/20","age","case","Count",293203,211,71.9637930034822
+"Alabama","50-64",4098,"05/30/20","age","case","Count",969671,4098,422.617568226749
+"Alabama","25-49",7067,"05/30/20","age","case","Count",1548808,7067,456.286382818271
+"Alabama","UNKNOWN",3,"05/30/20","age","case","Count",NA,3,NA
+"Alabama","FEMALE",10037,"05/30/20","gender","case","Count",2523756,10037,397.700887090511
+"Alabama","MALE",7204,"05/30/20","gender","case","Count",2364115,7204,304.722908995544
+"Alabama","UNKNOWN/OTHER",119,"05/30/20","gender","case","Count",NA,119,NA
+"Alabama","ASIAN",3,"05/30/20","race","death","Count",73167,3,4.10020911066464
+"Alabama","BLACK",273,"05/30/20","race","death","Count",1310802,273,20.8269441151295
+"Alabama","OTHER",7,"05/30/20","race","death","Count",NA,7,NA
+"Alabama","UNKNOWN",23,"05/30/20","race","death","Count",NA,23,NA
+"Alabama","WHITE",312,"05/30/20","race","death","Count",3379955,312,9.23089212726205
+"Alabama","65+",501,"05/30/20","age","death","Count",826894,501,60.5881769610131
+"Alabama","50-64",95,"05/30/20","age","death","Count",969671,95,9.79713737958545
+"Alabama","25-49",22,"05/30/20","age","death","Count",1548808,22,1.42044720843384
+"Alabama","FEMALE",286,"05/30/20","gender","death","Count",2523756,286,11.33231580232
+"Alabama","MALE",330,"05/30/20","gender","death","Count",2364115,330,13.9587118223944
+"Alabama","",17360,"05/30/20","total","case","Count",4887871,17360,355.16485602832
+"Alabama","UNKNOWN",3475,"05/30/20","eth","case","Count",NA,3475,NA
+"Alabama","NON HISPANIC",12333,"05/30/20","eth","case","Count",4670690,12333,264.050921812409
+"Alabama","HISPANIC",1552,"05/30/20","eth","case","Count",217181,1552,714.611314986118
+"Alabama","",618,"05/30/20","total","death","Count",4887871,618,12.6435415337271
+"Alabama","UNKNOWN",73,"05/30/20","eth","death","Count",NA,73,NA
+"Alabama","NON HISPANIC",533,"05/30/20","eth","death","Count",4670690,533,11.4115901504917
+"Alabama","HISPANIC",12,"05/30/20","eth","death","Count",217181,12,5.52534521896483
+"Alabama","",1826,"05/30/20","total","hosp","Count",4887871,1826,37.3577780592
+"Alaska","AI/AN",40,"05/29/20","race","case","Count",113516,40,35.2373233729166
+"Alaska","ASIAN",46,"05/29/20","race","case","Count",49025,46,93.8296787353391
+"Alaska","BLACK",11,"05/29/20","race","case","Count",27942,11,39.3672607544199
+"Alaska","MULTI",16,"05/29/20","race","case","Count",54855,16,29.1678060340899
+"Alaska","NH/PI",14,"05/29/20","race","case","Count",10221,14,136.972898933568
+"Alaska","OTHER",12,"05/29/20","race","case","Count",NA,12,NA
+"Alaska","UNKNOWN",24,"05/29/20","race","case","Count",NA,24,NA
+"Alaska","WHITE",271,"05/29/20","race","case","Count",481879,271,56.2381842744755
+"Alaska","0-9",11,"05/29/20","age","case","Count",105171,11,10.4591569919464
+"Alaska","10-19",31,"05/29/20","age","case","Count",96022,31,32.2842681885401
+"Alaska","20-29",75,"05/29/20","age","case","Count",114672,75,65.4039347007116
+"Alaska","30-39",85,"05/29/20","age","case","Count",108865,85,78.0783539245855
+"Alaska","40-49",61,"05/29/20","age","case","Count",86536,61,70.4908939632061
+"Alaska","50-59",76,"05/29/20","age","case","Count",93805,76,81.0191354405415
+"Alaska","60-69",58,"05/29/20","age","case","Count",80434,58,72.1088097073377
+"Alaska","70-79",28,"05/29/20","age","case","Count",37370,28,74.9264115600749
+"Alaska","80+",9,"05/29/20","age","case","Count",14563,9,61.8004532033235
+"Alaska","UNKNOWN",0,"05/29/20","age","case","Count",NA,0,NA
+"Alaska","FEMALE",212,"05/29/20","gender","case","Count",352865,212,60.0796338543069
+"Alaska","MALE",222,"05/29/20","gender","case","Count",384573,222,57.7263614450312
+"Alaska","UNKNOWN/OTHER",0,"05/29/20","gender","case","Count",NA,0,NA
+"Alaska","AI/AN",2,"05/29/20","race","death","Count",113516,2,1.76186616864583
+"Alaska","ASIAN",2,"05/29/20","race","death","Count",49025,2,4.07955124936257
+"Alaska","BLACK",0,"05/29/20","race","death","Count",27942,0,0
+"Alaska","MULTI",0,"05/29/20","race","death","Count",54855,0,0
+"Alaska","NH/PI",1,"05/29/20","race","death","Count",10221,1,9.78377849525487
+"Alaska","OTHER",0,"05/29/20","race","death","Count",NA,0,NA
+"Alaska","UNKNOWN",0,"05/29/20","race","death","Count",NA,0,NA
+"Alaska","WHITE",5,"05/29/20","race","death","Count",481879,5,1.03760487591283
+"Alaska","0-9",0,"05/29/20","age","death","Count",105171,0,0
+"Alaska","10-19",0,"05/29/20","age","death","Count",96022,0,0
+"Alaska","20-29",0,"05/29/20","age","death","Count",114672,0,0
+"Alaska","30-39",2,"05/29/20","age","death","Count",108865,2,1.83713773940201
+"Alaska","40-49",0,"05/29/20","age","death","Count",86536,0,0
+"Alaska","50-59",1,"05/29/20","age","death","Count",93805,1,1.0660412557966
+"Alaska","60-69",1,"05/29/20","age","death","Count",80434,1,1.24325533978168
+"Alaska","70-79",5,"05/29/20","age","death","Count",37370,5,13.3797163500134
+"Alaska","80+",1,"05/29/20","age","death","Count",14563,1,6.8667170225915
+"Alaska","UNKNOWN",0,"05/29/20","age","death","Count",NA,0,NA
+"Alaska","FEMALE",5,"05/29/20","gender","death","Count",352865,5,1.41697249656384
+"Alaska","MALE",5,"05/29/20","gender","death","Count",384573,5,1.30014327578899
+"Alaska","UNKNOWN/OTHER",0,"05/29/20","gender","death","Count",NA,0,NA
+"Alaska","AI/AN",7,"05/29/20","race","hosp","Count",113516,7,6.1665315902604
+"Alaska","ASIAN",7,"05/29/20","race","hosp","Count",49025,7,14.278429372769
+"Alaska","BLACK",0,"05/29/20","race","hosp","Count",27942,0,0
+"Alaska","MULTI",0,"05/29/20","race","hosp","Count",54855,0,0
+"Alaska","NH/PI",4,"05/29/20","race","hosp","Count",10221,4,39.1351139810195
+"Alaska","OTHER",4,"05/29/20","race","hosp","Count",NA,4,NA
+"Alaska","UNKNOWN",0,"05/29/20","race","hosp","Count",NA,0,NA
+"Alaska","WHITE",25,"05/29/20","race","hosp","Count",481879,25,5.18802437956416
+"Alaska","0-9",0,"05/29/20","age","hosp","Count",105171,0,0
+"Alaska","10-19",1,"05/29/20","age","hosp","Count",96022,1,1.04142800608194
+"Alaska","20-29",3,"05/29/20","age","hosp","Count",114672,3,2.61615738802846
+"Alaska","30-39",5,"05/29/20","age","hosp","Count",108865,5,4.59284434850503
+"Alaska","40-49",2,"05/29/20","age","hosp","Count",86536,2,2.31117685125266
+"Alaska","50-59",9,"05/29/20","age","hosp","Count",93805,9,9.59437130216939
+"Alaska","60-69",9,"05/29/20","age","hosp","Count",80434,9,11.1892980580352
+"Alaska","70-79",15,"05/29/20","age","hosp","Count",37370,15,40.1391490500401
+"Alaska","80+",3,"05/29/20","age","hosp","Count",14563,3,20.6001510677745
+"Alaska","UNKNOWN",0,"05/29/20","age","hosp","Count",NA,0,NA
+"Alaska","FEMALE",20,"05/29/20","gender","hosp","Count",352865,20,5.66788998625537
+"Alaska","MALE",27,"05/29/20","gender","hosp","Count",384573,27,7.02077368926056
+"Alaska","UNKNOWN/OTHER",0,"05/29/20","gender","hosp","Count",NA,0,NA
+"Alaska","",51695,"05/29/20","total","test","Count",737438,51695,7010.08084747464
+"Alaska","",434,"05/29/20","total","case","Count",737438,434,58.8524052191506
+"Alaska","HISPANIC",40,"05/29/20","eth","case","Count",53288,40,75.0638042335986
+"Alaska","NON HISPANIC",361,"05/29/20","eth","case","Count",684150,361,52.7662062413213
+"Alaska","UNKNOWN",33,"05/29/20","eth","case","Count",NA,33,NA
+"Alaska","",10,"05/29/20","total","death","Count",737438,10,1.35604620320624
+"Alaska","HISPANIC",0,"05/29/20","eth","death","Count",53288,0,0
+"Alaska","NON HISPANIC",10,"05/29/20","eth","death","Count",684150,10,1.46166776291749
+"Alaska","UNKNOWN",0,"05/29/20","eth","death","Count",NA,0,NA
+"Alaska","",47,"05/29/20","total","hosp","Count",737438,47,6.37341715506931
+"Alaska","HISPANIC",4,"05/29/20","eth","hosp","Count",53288,4,7.50638042335986
+"Alaska","NON HISPANIC",41,"05/29/20","eth","hosp","Count",684150,41,5.9928378279617
+"Alaska","UNKNOWN",2,"05/29/20","eth","hosp","Count",NA,2,NA
+"Arizona","NH AI/AN",2835,"05/29/20","race","case","Count",283832,2835,998.830293976719
+"Arizona","NH ASIAN",197,"05/29/20","race","case","Count",244348,197,80.622718417994
+"Arizona","NH BLACK",719,"05/29/20","race","case","Count",313875,719,229.072082835524
+"Arizona","HISPANIC",4448,"05/29/20","race","case","Count",2266343,4448,196.263319365162
+"Arizona","NH MULTI",0,"05/29/20","race","case","Count",146845,0,0
+"Arizona","OTHER",512,"05/29/20","race","case","Count",NA,512,NA
+"Arizona","UNKNOWN",4950,"05/29/20","race","case","Count",NA,4950,NA
+"Arizona","NH WHITE",4804,"05/29/20","race","case","Count",3902867,4804,123.089000983123
+"Arizona","0-19",1673,"05/29/20","age","case","Count",1837877,1673,91.0289426332665
+"Arizona","20-44",7335,"05/29/20","age","case","Count",2358452,7335,311.009085620568
+"Arizona","45-54",3022,"05/29/20","age","case","Count",850790,3022,355.199285370068
+"Arizona","55-64",2713,"05/29/20","age","case","Count",866277,2713,313.179271757186
+"Arizona","65+",3709,"05/29/20","age","case","Count",1258250,3709,294.774488376714
+"Arizona","UNKNOWN",13,"05/29/20","age","case","Count",NA,13,NA
+"Arizona","FEMALE",9756,"05/29/20","gender","case","Count",3606307,9756,270.526053383697
+"Arizona","MALE",8679,"05/29/20","gender","case","Count",3565339,8679,243.427062615925
+"Arizona","NH AI/AN",169,"05/29/20","race","death","Count",283832,169,59.5422644381183
+"Arizona","NH ASIAN",12,"05/29/20","race","death","Count",244348,12,4.91102853307578
+"Arizona","NH BLACK",28,"05/29/20","race","death","Count",313875,28,8.92074870569494
+"Arizona","HISPANIC",138,"05/29/20","race","death","Count",2266343,138,6.08910478246232
+"Arizona","NH MULTI",0,"05/29/20","race","death","Count",146845,0,0
+"Arizona","OTHER",12,"05/29/20","race","death","Count",NA,12,NA
+"Arizona","UNKNOWN",91,"05/29/20","race","death","Count",NA,91,NA
+"Arizona","NH WHITE",435,"05/29/20","race","death","Count",3902867,435,11.1456526702037
+"Arizona","0-19",2,"05/29/20","age","death","Count",1837877,2,0.108821210559793
+"Arizona","20-44",41,"05/29/20","age","death","Count",2358452,41,1.73842842678163
+"Arizona","45-54",44,"05/29/20","age","death","Count",850790,44,5.17166398288649
+"Arizona","55-64",108,"05/29/20","age","death","Count",866277,108,12.4671438812297
+"Arizona","65+",690,"05/29/20","age","death","Count",1258250,690,54.8380687462746
+"Arizona","FEMALE",398,"05/29/20","gender","death","Count",3606307,398,11.036220709995
+"Arizona","MALE",486,"05/29/20","gender","death","Count",3565339,486,13.631242358721
+"Arizona","NH AI/AN",591,"05/29/20","race","hosp","Count",283832,591,208.221764987739
+"Arizona","NH ASIAN",53,"05/29/20","race","hosp","Count",244348,53,21.6903760210847
+"Arizona","NH BLACK",153,"05/29/20","race","hosp","Count",313875,153,48.7455197132616
+"Arizona","HISPANIC",786,"05/29/20","race","hosp","Count",2266343,786,34.6814228914158
+"Arizona","NH MULTI",0,"05/29/20","race","hosp","Count",146845,0,0
+"Arizona","OTHER",51,"05/29/20","race","hosp","Count",NA,51,NA
+"Arizona","UNKNOWN",162,"05/29/20","race","hosp","Count",NA,162,NA
+"Arizona","NH WHITE",1115,"05/29/20","race","hosp","Count",3902867,1115,28.5687419017866
+"Arizona","0-19",26,"05/29/20","age","hosp","Count",1837877,26,1.4146757372773
+"Arizona","20-44",584,"05/29/20","age","hosp","Count",2358452,584,24.7620049083043
+"Arizona","45-54",487,"05/29/20","age","hosp","Count",850790,487,57.2409172651301
+"Arizona","55-64",565,"05/29/20","age","hosp","Count",866277,565,65.2216323416182
+"Arizona","65+",1249,"05/29/20","age","hosp","Count",1258250,1249,99.2648519769521
+"Arizona","UNKNOWN",0,"05/29/20","age","hosp","Count",NA,0,NA
+"Arizona","FEMALE",1439,"05/29/20","gender","hosp","Count",3606307,1439,39.9023155821177
+"Arizona","MALE",1472,"05/29/20","gender","hosp","Count",3565339,1472,41.2863966091303
+"Arizona","",297495,"05/29/20","total","test","Count",7171646,297495,4148.21088492098
+"Arizona","",18465,"05/29/20","total","case","Count",7171646,18465,257.472273450195
+"Arizona","",885,"05/29/20","total","death","Count",7171646,885,12.3402633091483
+"Arizona","",2911,"05/29/20","total","hosp","Count",7171646,2911,40.5904028168708
+"Arkansas","ASIAN",73,"05/30/20","race","case","Count",50301,73,145.126339436592
+"Arkansas","BLACK",2340,"05/30/20","race","case","Count",472287,2340,495.461446112216
+"Arkansas","MULTI",137,"05/30/20","race","case","Count",64918,137,211.035460118919
+"Arkansas","OTHER",516,"05/30/20","race","case","Count",NA,516,NA
+"Arkansas","UNKNOWN",434,"05/30/20","race","case","Count",NA,434,NA
+"Arkansas","WHITE",3369,"05/30/20","race","case","Count",2385213,3369,141.245247279803
+"Arkansas","NA",281,"05/30/20","race","case","Count",73167,281,384.052920032255
+"Arkansas","0-17",461,"05/30/20","age","case","Count",703180,461,65.5593162490401
+"Arkansas","18-24",689,"05/30/20","age","case","Count",280578,689,245.564513254781
+"Arkansas","25-44",2737,"05/30/20","age","case","Count",765106,2737,357.728210208782
+"Arkansas","45-64",2161,"05/30/20","age","case","Count",753134,2161,286.934330411321
+"Arkansas","65+",965,"05/30/20","age","case","Count",511827,965,188.540268489157
+"Arkansas","FEMALE",2877,"05/30/20","gender","case","Count",1533682,2877,187.587778952873
+"Arkansas","MALE",4115,"05/30/20","gender","case","Count",1480143,4115,278.0136784081
+"Arkansas","UNKNOWN/OTHER",21,"05/30/20","gender","case","Count",NA,21,NA
+"Arkansas","ASIAN",73,"05/30/20","race","death","Count",50301,73,145.126339436592
+"Arkansas","BLACK",2340,"05/30/20","race","death","Count",472287,2340,495.461446112216
+"Arkansas","MULTI",137,"05/30/20","race","death","Count",64918,137,211.035460118919
+"Arkansas","OTHER",516,"05/30/20","race","death","Count",NA,516,NA
+"Arkansas","UNKNOWN",434,"05/30/20","race","death","Count",NA,434,NA
+"Arkansas","WHITE",3369,"05/30/20","race","death","Count",2385213,3369,141.245247279803
+"Arkansas","NA",281,"05/30/20","race","death","Count",73167,281,384.052920032255
+"Arkansas","0-17",0,"05/30/20","age","death","Count",703180,0,0
+"Arkansas","18-24",0,"05/30/20","age","death","Count",280578,0,0
+"Arkansas","25-44",5,"05/30/20","age","death","Count",765106,5,0.653504220330255
+"Arkansas","45-64",30,"05/30/20","age","death","Count",753134,30,3.98335488770923
+"Arkansas","65+",98,"05/30/20","age","death","Count",511827,98,19.1470946237694
+"Arkansas","",126497,"05/30/20","total","test","Count",3013825,126497,4197.22445729264
+"Arkansas","",7013,"05/30/20","total","case","Count",3013825,7013,232.694333612602
+"Arkansas","NON HISPANIC",6092,"05/30/20","eth","case","Count",2780638,6092,219.086411104214
+"Arkansas","HISPANIC",921,"05/30/20","eth","case","Count",233187,921,394.961983300956
+"Arkansas","",133,"05/30/20","total","death","Count",3013825,133,4.41299677320349
+"Arkansas","NON HISPANIC",5,"05/30/20","eth","death","Count",2780638,5,0.179814848247057
+"Arkansas","HISPANIC",128,"05/30/20","eth","death","Count",233187,128,54.8915677117507
+"Arkansas","",702,"05/30/20","total","hosp","Count",3013825,702,23.2926596600665
+"California","NH AI/AN",155,"05/29/20","race","case","Count",163273,155,94.9330262811365
+"California","NH ASIAN",7090,"05/29/20","race","case","Count",5818319,7090,121.856501852167
+"California","NH BLACK",4045,"05/29/20","race","case","Count",2223274,4045,181.938888324156
+"California","HISPANIC",41386,"05/29/20","race","case","Count",15540142,41386,266.316742794242
+"California","NH MULTI",599,"05/29/20","race","case","Count",1097938,599,54.5568146835249
+"California","NH NH/PI",608,"05/29/20","race","case","Count",145491,608,417.89526499921
+"California","OTHER",6529,"05/29/20","race","case","Count",NA,6529,NA
+"California","PENDING",31109,"05/29/20","race","case","Count",NA,31109,NA
+"California","NH WHITE",15357,"05/29/20","race","case","Count",14568608,15357,105.41158084561
+"California","0-4",1269,"05/29/20","age","case","Count",2441300,1269,51.9805021914554
+"California","5-17",4592,"05/29/20","age","case","Count",6548655,4592,70.1212691766477
+"California","18-34",28753,"05/29/20","age","case","Count",9789194,28753,293.721832461385
+"California","35-49",26799,"05/29/20","age","case","Count",7823754,26799,342.533775985288
+"California","50-59",17845,"05/29/20","age","case","Count",5022701,17845,355.286926297225
+"California","60-64",7378,"05/29/20","age","case","Count",2262416,7378,326.11155508094
+"California","65-69",5418,"05/29/20","age","case","Count",1853102,5418,292.374623739006
+"California","70-74",4056,"05/29/20","age","case","Count",1432312,4056,283.178525349226
+"California","75-79",3177,"05/29/20","age","case","Count",976718,3177,325.273006128688
+"California","80+",7422,"05/29/20","age","case","Count",1406893,7422,527.545449440718
+"California","UNKNOWN",169,"05/29/20","age","case","Count",NA,169,NA
+"California","FEMALE",0.49,"05/29/20","gender","case","Percent",19893468,52370,263.252239378272
+"California","MALE",0.5,"05/29/20","gender","case","Percent",19663577,53439,271.766423779356
+"California","UNKNOWN/OTHER",0.01,"05/29/20","gender","case","Percent",NA,1069,NA
+"California","NH AI/AN",14,"05/29/20","race","death","Count",163273,14,8.57459592216717
+"California","NH ASIAN",577,"05/29/20","race","death","Count",5818319,577,9.91695367682659
+"California","NH BLACK",389,"05/29/20","race","death","Count",2223274,389,17.4967188029905
+"California","HISPANIC",1506,"05/29/20","race","death","Count",15540142,1506,9.69103113729591
+"California","NH MULTI",24,"05/29/20","race","death","Count",1097938,24,2.18591578030818
+"California","NH NH/PI",29,"05/29/20","race","death","Count",145491,29,19.9325044160807
+"California","OTHER",36,"05/29/20","race","death","Count",NA,36,NA
+"California","PENDING",93,"05/29/20","race","death","Count",NA,93,NA
+"California","NH WHITE",1317,"05/29/20","race","death","Count",14568608,1317,9.03998515163563
+"California","0-4",0,"05/29/20","age","death","Count",2441300,0,0
+"California","5-17",0,"05/29/20","age","death","Count",6548655,0,0
+"California","18-34",42,"05/29/20","age","death","Count",9789194,42,0.429044515820199
+"California","35-49",186,"05/29/20","age","death","Count",7823754,186,2.37737536226216
+"California","50-59",351,"05/29/20","age","death","Count",5022701,351,6.98827184815501
+"California","60-64",267,"05/29/20","age","death","Count",2262416,267,11.8015431291151
+"California","65-69",372,"05/29/20","age","death","Count",1853102,372,20.0744481415486
+"California","70-74",427,"05/29/20","age","death","Count",1432312,427,29.8119404152168
+"California","75-79",489,"05/29/20","age","death","Count",976718,489,50.0656279499303
+"California","80+",1851,"05/29/20","age","death","Count",1406893,1851,131.566508611529
+"California","UNKNOWN",0,"05/29/20","age","death","Count",NA,0,NA
+"California","FEMALE",0.44,"05/29/20","gender","death","Percent",19893468,1753,8.81193766717799
+"California","MALE",0.56,"05/29/20","gender","death","Percent",19663577,2232,11.3509357936249
+"California","UNKNOWN/OTHER",0,"05/29/20","gender","death","Count",NA,0,NA
+"California","",1888595,"05/29/20","total","test","Count",39557045,1888595,4774.35814530635
+"California","",106878,"05/29/20","total","case","Count",39557045,106878,270.187017255713
+"California","",3985,"05/29/20","total","death","Count",39557045,3985,10.0740588686541
+"Colorado","HISPANIC",0.3686,"05/30/20","race","case","Percent",1235117,8724,706.329845674539
+"Colorado","NH AI/AN",0.0049,"05/30/20","race","case","Percent",36614,116,316.818703228273
+"Colorado","NH ASIAN",0.0261,"05/30/20","race","case","Percent",187668,618,329.304942771277
+"Colorado","NH BLACK",0.0588,"05/30/20","race","case","Percent",229085,1392,607.634720736844
+"Colorado","NH MULTI",0.0064,"05/30/20","race","case","Percent",131155,151,115.130951927109
+"Colorado","NH NH/PI",0.0041,"05/30/20","race","case","Percent",7596,97,1276.9878883623
+"Colorado","NH WHITE",0.3424,"05/30/20","race","case","Percent",3868329,8104,209.496141615669
+"Colorado","OTHER",0.0089,"05/30/20","race","case","Percent",NA,211,NA
+"Colorado","UNKNOWN",0.1796,"05/30/20","race","case","Percent",NA,4251,NA
+"Colorado","0-9",568,"05/30/20","age","case","Count",684807,568,82.9430773926084
+"Colorado","10-19",1193,"05/30/20","age","case","Count",728742,1193,163.706771395089
+"Colorado","20-29",4192,"05/30/20","age","case","Count",832421,4192,503.591331790044
+"Colorado","30-39",4522,"05/30/20","age","case","Count",855573,4522,528.534677929294
+"Colorado","40-49",4494,"05/30/20","age","case","Count",732602,4494,613.429938766206
+"Colorado","50-59",4181,"05/30/20","age","case","Count",709866,4181,588.984399872652
+"Colorado","60-69",2964,"05/30/20","age","case","Count",631401,2964,469.432262539971
+"Colorado","70-79",1897,"05/30/20","age","case","Count",346828,1897,546.956993091677
+"Colorado","80+",2037,"05/30/20","age","case","Count",173324,2037,1175.25559068565
+"Colorado","UNKNOWN",50,"05/30/20","age","case","Count",NA,50,NA
+"Colorado","FEMALE",0.5025,"05/30/20","gender","case","Percent",2827696,11893,420.589766368096
+"Colorado","MALE",0.477,"05/30/20","gender","case","Percent",2867868,11289,393.637364062781
+"Colorado","UNKNOWN/OTHER",0.0205,"05/30/20","gender","case","Percent",NA,485,NA
+"Colorado","HISPANIC",0.1927,"05/30/20","race","death","Percent",1235117,219,17.7311137325452
+"Colorado","NH AI/AN",0.0055,"05/30/20","race","death","Percent",36614,6,16.3871743049107
+"Colorado","NH ASIAN",0.0374,"05/30/20","race","death","Percent",187668,43,22.9128034614319
+"Colorado","NH BLACK",0.0679,"05/30/20","race","death","Percent",229085,77,33.6119780867364
+"Colorado","NH MULTI",0.0069,"05/30/20","race","death","Percent",131155,8,6.09965308223095
+"Colorado","NH NH/PI",0.0042,"05/30/20","race","death","Percent",7596,5,65.8241179568194
+"Colorado","NH WHITE",0.6362,"05/30/20","race","death","Percent",3868329,724,18.7160916250919
+"Colorado","OTHER",0.0049,"05/30/20","race","death","Percent",NA,6,NA
+"Colorado","UNKNOWN",0.0444,"05/30/20","race","death","Percent",NA,51,NA
+"Colorado","10-19",3,"05/30/20","age","death","Count",728742,3,0.411668327062252
+"Colorado","20-29",9,"05/30/20","age","death","Count",832421,9,1.08118367989275
+"Colorado","30-39",8,"05/30/20","age","death","Count",855573,8,0.935045869843953
+"Colorado","40-49",36,"05/30/20","age","death","Count",732602,36,4.91399149879471
+"Colorado","50-59",74,"05/30/20","age","death","Count",709866,74,10.4245026526133
+"Colorado","60-69",180,"05/30/20","age","death","Count",631401,180,28.5080321380549
+"Colorado","70-79",342,"05/30/20","age","death","Count",346828,342,98.6079555283887
+"Colorado","80+",791,"05/30/20","age","death","Count",173324,791,456.370727654566
+"Colorado","FEMALE",0.4428,"05/30/20","gender","death","Percent",2827696,504,17.8236981627445
+"Colorado","MALE",0.553,"05/30/20","gender","death","Percent",2867868,629,21.9326691465577
+"Colorado","UNKNOWN/OTHER",0.0042,"05/30/20","gender","death","Percent",NA,5,NA
+"Colorado","0-9",38,"05/30/20","age","hosp","Count",684807,38,5.54900869880127
+"Colorado","10-19",37,"05/30/20","age","hosp","Count",728742,37,5.07724270043445
+"Colorado","20-29",193,"05/30/20","age","hosp","Count",832421,193,23.1853833577
+"Colorado","30-39",354,"05/30/20","age","hosp","Count",855573,354,41.3757797405949
+"Colorado","40-49",534,"05/30/20","age","hosp","Count",732602,534,72.8908738987882
+"Colorado","50-59",767,"05/30/20","age","hosp","Count",709866,767,108.048561277762
+"Colorado","60-69",759,"05/30/20","age","hosp","Count",631401,759,120.208868848798
+"Colorado","70-79",553,"05/30/20","age","hosp","Count",346828,553,159.44502750643
+"Colorado","80+",365,"05/30/20","age","hosp","Count",173324,365,210.588262444901
+"Colorado","",23667,"05/30/20","total","case","Count",5695564,23667,415.533913761657
+"Colorado","",1138,"05/30/20","total","death","Count",5695564,1138,19.98046198761
+"Connecticut","HISPANIC",7359,"05/29/20","race","case","Count",589809,7359,1247.69204946008
+"Connecticut","NH AI/AN",40,"05/29/20","race","case","Count",7758,40,515.59680329982
+"Connecticut","NH ASIAN/PI",599,"05/29/20","race","case","Count",170839,599,350.622515936057
+"Connecticut","NH BLACK",5285,"05/29/20","race","case","Count",364858,5285,1448.50873490509
+"Connecticut","NH MULTI",97,"05/29/20","race","case","Count",63050,97,153.846153846154
+"Connecticut","NH OTHER",223,"05/29/20","race","case","Count",NA,223,NA
+"Connecticut","NH WHITE",14059,"05/29/20","race","case","Count",2376351,14059,591.621355599404
+"Connecticut","UNKNOWN",13897,"05/29/20","race","case","Count",NA,13897,NA
+"Connecticut","0-9",501,"05/29/20","age","case","Count",379145,501,132.139418955808
+"Connecticut","10-19",1072,"05/29/20","age","case","Count",459801,1072,233.144338529059
+"Connecticut","20-29",4751,"05/29/20","age","case","Count",466039,4751,1019.44257883997
+"Connecticut","30-39",5855,"05/29/20","age","case","Count",440343,5855,1329.64529923264
+"Connecticut","40-49",5933,"05/29/20","age","case","Count",440436,5933,1347.07426277598
+"Connecticut","50-59",7257,"05/29/20","age","case","Count",529442,7257,1370.68838513
+"Connecticut","60-69",6122,"05/29/20","age","case","Count",432658,6122,1414.97441397131
+"Connecticut","70-79",4076,"05/29/20","age","case","Count",260636,4076,1563.86684878528
+"Connecticut","80+",6333,"05/29/20","age","case","Count",164165,6333,3857.70413912832
+"Connecticut","FEMALE",22967,"05/29/20","gender","case","Count",1829270,22967,1255.52816150705
+"Connecticut","MALE",18846,"05/29/20","gender","case","Count",1743395,18846,1080.9942669332
+"Connecticut","HISPANIC",332,"05/29/20","race","death","Count",589809,332,56.2894089442514
+"Connecticut","NH AI/AN",2,"05/29/20","race","death","Count",7758,2,25.779840164991
+"Connecticut","NH ASIAN/PI",37,"05/29/20","race","death","Count",170839,37,21.6578181796897
+"Connecticut","NH BLACK",566,"05/29/20","race","death","Count",364858,566,155.12884464641
+"Connecticut","NH MULTI",24,"05/29/20","race","death","Count",63050,24,38.0650277557494
+"Connecticut","NH OTHER",13,"05/29/20","race","death","Count",NA,13,NA
+"Connecticut","NH WHITE",2791,"05/29/20","race","death","Count",2376351,2791,117.448979548897
+"Connecticut","UNKNOWN",61,"05/29/20","race","death","Count",NA,61,NA
+"Connecticut","0-9",1,"05/29/20","age","death","Count",379145,1,0.263751335241135
+"Connecticut","10-19",1,"05/29/20","age","death","Count",459801,1,0.217485390418899
+"Connecticut","20-29",4,"05/29/20","age","death","Count",466039,4,0.858297266966928
+"Connecticut","30-39",19,"05/29/20","age","death","Count",440343,19,4.31481822125025
+"Connecticut","40-49",52,"05/29/20","age","death","Count",440436,52,11.8064826671753
+"Connecticut","50-59",157,"05/29/20","age","death","Count",529442,157,29.6538619905485
+"Connecticut","60-69",492,"05/29/20","age","death","Count",432658,492,113.715683056825
+"Connecticut","70-79",837,"05/29/20","age","death","Count",260636,837,321.137525130834
+"Connecticut","80+",2348,"05/29/20","age","death","Count",164165,2348,1430.26832759723
+"Connecticut","FEMALE",2021,"05/29/20","gender","death","Count",1829270,2021,110.481230217518
+"Connecticut","MALE",1885,"05/29/20","gender","death","Count",1743395,1885,108.122370432403
+"Connecticut","",246935,"05/29/20","total","test","Count",3572665,246935,6911.78713929238
+"Connecticut","",42022,"05/29/20","total","case","Count",3572665,42022,1176.20879651465
+"Connecticut","",3912,"05/29/20","total","death","Count",3572665,3912,109.498091760632
+"Delaware","NH ASIAN/PI",140,"05/30/20","race","case","Count",39264,140,356.560717196414
+"Delaware","HISPANIC",2604,"05/30/20","race","case","Count",91974,2604,2831.23491421489
+"Delaware","NH MULTI",479,"05/30/20","race","case","Count",22359,479,2142.31405697929
+"Delaware","NH BLACK",2514,"05/30/20","race","case","Count",211504,2514,1188.63000226946
+"Delaware","NH WHITE",2716,"05/30/20","race","case","Count",599061,2716,453.376200420324
+"Delaware","UNKNOWN",969,"05/30/20","race","case","Count",NA,969,NA
+"Delaware","0-4",110,"05/30/20","age","case","Count",54811,110,200.689642589991
+"Delaware","5-17",435,"05/30/20","age","case","Count",148805,435,292.328886798159
+"Delaware","18-34",2467,"05/30/20","age","case","Count",212871,2467,1158.91784226128
+"Delaware","35-49",2408,"05/30/20","age","case","Count",169900,2408,1417.30429664509
+"Delaware","50-64",2188,"05/30/20","age","case","Count",199698,2188,1095.65443820168
+"Delaware","65+",1814,"05/30/20","age","case","Count",181086,1814,1001.73398274853
+"Delaware","FEMALE",5176,"05/30/20","gender","case","Count",499244,5176,1036.76759260001
+"Delaware","MALE",4203,"05/30/20","gender","case","Count",467927,4203,898.2170295794
+"Delaware","UNKNOWN/OTHER",43,"05/30/20","gender","case","Count",NA,43,NA
+"Delaware","NH ASIAN/PI",1,"05/30/20","race","death","Count",39264,1,2.54686226568867
+"Delaware","HISPANIC",23,"05/30/20","race","death","Count",91974,23,25.0070672146476
+"Delaware","NH MULTI",4,"05/30/20","race","death","Count",22359,4,17.8898877409544
+"Delaware","NH BLACK",95,"05/30/20","race","death","Count",211504,95,44.9164082003177
+"Delaware","NH WHITE",217,"05/30/20","race","death","Count",599061,217,36.2233562191496
+"Delaware","UNKNOWN",21,"05/30/20","race","death","Count",NA,21,NA
+"Delaware","0-4",0,"05/30/20","age","death","Count",54811,0,0
+"Delaware","5-17",0,"05/30/20","age","death","Count",148805,0,0
+"Delaware","18-34",8,"05/30/20","age","death","Count",212871,8,3.758144604009
+"Delaware","35-49",10,"05/30/20","age","death","Count",169900,10,5.88581518540318
+"Delaware","50-64",56,"05/30/20","age","death","Count",199698,56,28.0423439393484
+"Delaware","65+",287,"05/30/20","age","death","Count",181086,287,158.48823211071
+"Delaware","FEMALE",190,"05/30/20","gender","death","Count",499244,190,38.0575430050236
+"Delaware","MALE",171,"05/30/20","gender","death","Count",467927,171,36.5441618030163
+"Delaware","",59329,"05/30/20","total","test","Count",967171,59329,6134.28235544697
+"Delaware","NH WHITE",3,"05/30/20","race","test","Count",599061,3,0.500783726532023
+"Delaware","NH BLACK",2,"05/30/20","race","test","Count",211504,2,0.945608593690899
+"Delaware","HISPANIC",5,"05/30/20","race","test","Count",91974,5,5.436318959706
+"Delaware","NH MULTI/OTHERS",4,"05/30/20","race","test","Count",NA,4,NA
+"Delaware","NH ASIAN/PI",6,"05/30/20","race","test","Count",39264,6,15.281173594132
+"Delaware","UNKNOWN",1,"05/30/20","race","test","Count",NA,1,NA
+"Delaware","",9422,"05/30/20","total","case","Count",967171,9422,974.181401220673
+"Delaware","",361,"05/30/20","total","death","Count",967171,361,37.3253540480432
+"Delaware","",174,"05/30/20","total","hosp","Count",967171,174,17.9906138624917
+"District of Columbia","AI/AN",26,"05/30/20","race","case","Count",4296,26,605.214152700186
+"District of Columbia","ASIAN",106,"05/30/20","race","case","Count",31025,106,341.659951651894
+"District of Columbia","BLACK",4055,"05/30/20","race","case","Count",326181,4055,1243.17480172052
+"District of Columbia","HISPANIC",0,"05/30/20","race","case","Count",79249,0,0
+"District of Columbia","MULTI",2169,"05/30/20","race","case","Count",19604,2169,11064.0685574373
+"District of Columbia","NH/PI",22,"05/30/20","race","case","Count",975,22,2256.41025641026
+"District of Columbia","UNKNOWN",58,"05/30/20","race","case","Count",NA,58,NA
+"District of Columbia","WHITE",1342,"05/30/20","race","case","Count",320374,1342,418.885427656427
+"District of Columbia","AI/AN",0,"05/30/20","race","death","Count",4296,0,0
+"District of Columbia","ASIAN",7,"05/30/20","race","death","Count",31025,7,22.5624496373892
+"District of Columbia","BLACK",346,"05/30/20","race","death","Count",326181,346,106.076074326831
+"District of Columbia","HISPANIC",52,"05/30/20","race","death","Count",79249,52,65.6159699176015
+"District of Columbia","MULTI",0,"05/30/20","race","death","Count",19604,0,0
+"District of Columbia","NH/PI",0,"05/30/20","race","death","Count",975,0,0
+"District of Columbia","UNKNOWN",3,"05/30/20","race","death","Count",NA,3,NA
+"District of Columbia","WHITE",53,"05/30/20","race","death","Count",320374,53,16.5431651757009
+"District of Columbia","",45629,"05/30/20","total","test","Count",702455,45629,6495.64740801902
+"District of Columbia","",37881,"05/30/20","total","case","Count",702455,37881,5392.65860446577
+"District of Columbia","HISPANIC",2309,"05/30/20","eth","case","Count",79249,2309,2913.60143345657
+"District of Columbia","NON HISPANIC",4883,"05/30/20","eth","case","Count",623206,4883,783.529041761472
+"District of Columbia","UNKNOWN",1525,"05/30/20","eth","case","Count",NA,1525,NA
+"District of Columbia","",8717,"05/30/20","total","death","Count",702455,8717,1240.93358293414
+"Florida","AI/AN",0,"05/30/20","race","case","Count",106984,0,0
+"Florida","ASIAN",0,"05/30/20","race","case","Count",631737,0,0
+"Florida","BLACK",11249,"05/30/20","race","case","Count",3600121,11249,312.461720036632
+"Florida","MULTI",0,"05/30/20","race","case","Count",464005,0,0
+"Florida","OTHER",5287,"05/30/20","race","case","Count",NA,5287,NA
+"Florida","UNKNOWN",7651,"05/30/20","race","case","Count",NA,7651,NA
+"Florida","WHITE",29842,"05/30/20","race","case","Count",16472125,29842,181.16666793143
+"Florida","0-4",447,"05/30/20","age","case","Count",1143183,447,39.1013512272313
+"Florida","5-14",970,"05/30/20","age","case","Count",2363834,970,41.0350303786137
+"Florida","15-24",4560,"05/30/20","age","case","Count",2476245,4560,184.149791317095
+"Florida","25-34",8329,"05/30/20","age","case","Count",2788255,8329,298.717298095045
+"Florida","35-44",8295,"05/30/20","age","case","Count",2568764,8295,322.917948087096
+"Florida","45-54",9264,"05/30/20","age","case","Count",2746372,9264,337.317741369341
+"Florida","55-64",8766,"05/30/20","age","case","Count",2854601,8766,307.083196565825
+"Florida","65-74",6152,"05/30/20","age","case","Count",2397902,6152,256.557607441839
+"Florida","75-84",4260,"05/30/20","age","case","Count",1388750,4260,306.750675067507
+"Florida","85+",2965,"05/30/20","age","case","Count",571419,2965,518.883691301829
+"Florida","UNKNOWN",21,"05/30/20","age","case","Count",NA,21,NA
+"Florida","FEMALE",27319,"05/30/20","gender","case","Count",10887548,27319,250.919674475832
+"Florida","MALE",26641,"05/30/20","gender","case","Count",10411777,26641,255.873709166072
+"Florida","UNKNOWN/OTHER",69,"05/30/20","gender","case","Count",NA,69,NA
+"Florida","AI/AN",0,"05/30/20","race","death","Count",106984,0,0
+"Florida","ASIAN",0,"05/30/20","race","death","Count",631737,0,0
+"Florida","BLACK",535,"05/30/20","race","death","Count",3600121,535,14.8606116294425
+"Florida","MULTI",0,"05/30/20","race","death","Count",464005,0,0
+"Florida","OTHER",144,"05/30/20","race","death","Count",NA,144,NA
+"Florida","UNKNOWN",91,"05/30/20","race","death","Count",NA,91,NA
+"Florida","WHITE",1677,"05/30/20","race","death","Count",16472125,1677,10.1808358059449
+"Florida","0-4",0,"05/30/20","age","death","Count",1143183,0,0
+"Florida","5-14",0,"05/30/20","age","death","Count",2363834,0,0
+"Florida","15-24",1,"05/30/20","age","death","Count",2476245,1,0.0403837261660296
+"Florida","25-34",13,"05/30/20","age","death","Count",2788255,13,0.466241430572168
+"Florida","35-44",39,"05/30/20","age","death","Count",2568764,39,1.51823990059032
+"Florida","45-54",90,"05/30/20","age","death","Count",2746372,90,3.27705059620474
+"Florida","55-64",223,"05/30/20","age","death","Count",2854601,223,7.81194990122963
+"Florida","65-74",519,"05/30/20","age","death","Count",2397902,519,21.6439203937442
+"Florida","75-84",715,"05/30/20","age","death","Count",1388750,715,51.4851485148515
+"Florida","85+",847,"05/30/20","age","death","Count",571419,847,148.227482810337
+"Florida","UNKNOWN",0,"05/30/20","age","death","Count",NA,0,NA
+"Florida","AI/AN",0,"05/30/20","race","hosp","Count",106984,0,0
+"Florida","ASIAN",0,"05/30/20","race","hosp","Count",631737,0,0
+"Florida","BLACK",2666,"05/30/20","race","hosp","Count",3600121,2666,74.0530665497076
+"Florida","MULTI",0,"05/30/20","race","hosp","Count",464005,0,0
+"Florida","OTHER",1003,"05/30/20","race","hosp","Count",NA,1003,NA
+"Florida","UNKNOWN",304,"05/30/20","race","hosp","Count",NA,304,NA
+"Florida","WHITE",6140,"05/30/20","race","hosp","Count",16472125,6140,37.2750935292198
+"Florida","0-4",33,"05/30/20","age","hosp","Count",1143183,33,2.88667693623855
+"Florida","5-14",27,"05/30/20","age","hosp","Count",2363834,27,1.14221218579646
+"Florida","15-24",170,"05/30/20","age","hosp","Count",2476245,170,6.86523344822503
+"Florida","25-34",505,"05/30/20","age","hosp","Count",2788255,505,18.1116863414573
+"Florida","35-44",833,"05/30/20","age","hosp","Count",2568764,833,32.4280471074805
+"Florida","45-54",1275,"05/30/20","age","hosp","Count",2746372,1275,46.4248834462338
+"Florida","55-64",1761,"05/30/20","age","hosp","Count",2854601,1761,61.6898824038806
+"Florida","65-74",2089,"05/30/20","age","hosp","Count",2397902,2089,87.117822162874
+"Florida","75-84",1956,"05/30/20","age","hosp","Count",1388750,1956,140.846084608461
+"Florida","85+",1463,"05/30/20","age","hosp","Count",571419,1463,256.029288490582
+"Florida","UNKNOWN",1,"05/30/20","age","hosp","Count",NA,1,NA
+"Florida","",995886,"05/30/20","total","test","Count",21299325,995886,4675.66929937921
+"Florida","",54029,"05/30/20","total","case","Count",21299325,54029,253.665315684887
+"Florida","HISPANIC",19329,"05/30/20","eth","case","Count",5562417,19329,347.492825510924
+"Florida","NON HISPANIC",25957,"05/30/20","eth","case","Count",15736908,25957,164.943456490945
+"Florida","UNKNOWN",8743,"05/30/20","eth","case","Count",NA,8743,NA
+"Florida","",2447,"05/30/20","total","death","Count",21299325,2447,11.4886269870055
+"Florida","HISPANIC",543,"05/30/20","eth","death","Count",5562417,543,9.7619434141669
+"Florida","NON HISPANIC",1726,"05/30/20","eth","death","Count",15736908,1726,10.9678470510217
+"Florida","UNKNOWN",178,"05/30/20","eth","death","Count",NA,178,NA
+"Florida","",10113,"05/30/20","total","hosp","Count",21299325,10113,47.4803778992996
+"Florida","HISPANIC",3298,"05/30/20","eth","hosp","Count",5562417,3298,59.2907723387153
+"Florida","NON HISPANIC",6308,"05/30/20","eth","hosp","Count",15736908,6308,40.0841130926101
+"Florida","UNKNOWN",507,"05/30/20","eth","hosp","Count",NA,507,NA
+"Georgia","AI/AN",52,"05/30/20","race","case","Count",54882,52,94.748733646733
+"Georgia","ASIAN",678,"05/30/20","race","case","Count",453488,678,149.507814980771
+"Georgia","BLACK",15120,"05/30/20","race","case","Count",3411145,15120,443.252925337387
+"Georgia","NH/PI",36,"05/30/20","race","case","Count",12432,36,289.57528957529
+"Georgia","OTHER",2969,"05/30/20","race","case","Count",NA,2969,NA
+"Georgia","UNKNOWN",12861,"05/30/20","race","case","Count",NA,12861,NA
+"Georgia","WHITE",14615,"05/30/20","race","case","Count",6360528,14615,229.77652169757
+"Georgia","AI/AN",4,"05/30/20","race","death","Count",54882,4,7.28836412667177
+"Georgia","ASIAN",30,"05/30/20","race","death","Count",453488,30,6.61539004339696
+"Georgia","BLACK",978,"05/30/20","race","death","Count",3411145,978,28.6707249325373
+"Georgia","NH/PI",3,"05/30/20","race","death","Count",12432,3,24.1312741312741
+"Georgia","OTHER",31,"05/30/20","race","death","Count",NA,31,NA
+"Georgia","UNKNOWN",30,"05/30/20","race","death","Count",NA,30,NA
+"Georgia","WHITE",928,"05/30/20","race","death","Count",6360528,928,14.5899837246216
+"Georgia","17",1,"05/30/20","age","death","Count",147607,1,0.677474645511392
+"Georgia","22",1,"05/30/20","age","death","Count",140714,1,0.710661341444348
+"Georgia","23",1,"05/30/20","age","death","Count",144723,1,0.690975173262025
+"Georgia","25",1,"05/30/20","age","death","Count",151681,1,0.659278353913806
+"Georgia","26",2,"05/30/20","age","death","Count",154891,2,1.29123060733032
+"Georgia","27",1,"05/30/20","age","death","Count",156809,1,0.63771849830048
+"Georgia","28",1,"05/30/20","age","death","Count",155506,1,0.643062004038429
+"Georgia","29",2,"05/30/20","age","death","Count",148858,2,1.34356232113827
+"Georgia","30",2,"05/30/20","age","death","Count",143683,2,1.39195311901895
+"Georgia","31",4,"05/30/20","age","death","Count",141169,4,2.83348327182313
+"Georgia","32",4,"05/30/20","age","death","Count",140521,4,2.84654962603454
+"Georgia","33",6,"05/30/20","age","death","Count",142289,6,4.21677009466649
+"Georgia","34",5,"05/30/20","age","death","Count",137839,5,3.6274203962594
+"Georgia","35",2,"05/30/20","age","death","Count",140403,2,1.42447098708717
+"Georgia","36",3,"05/30/20","age","death","Count",141413,3,2.12144569452596
+"Georgia","37",2,"05/30/20","age","death","Count",141109,2,1.41734403900531
+"Georgia","38",3,"05/30/20","age","death","Count",145328,3,2.06429593746559
+"Georgia","39",2,"05/30/20","age","death","Count",136975,2,1.46012045993794
+"Georgia","40",2,"05/30/20","age","death","Count",134336,2,1.48880419247261
+"Georgia","42",3,"05/30/20","age","death","Count",130391,3,2.3007722925662
+"Georgia","43",4,"05/30/20","age","death","Count",135761,4,2.94635425490384
+"Georgia","44",8,"05/30/20","age","death","Count",132959,8,6.01689242548455
+"Georgia","45",10,"05/30/20","age","death","Count",137175,10,7.28995808274102
+"Georgia","46",8,"05/30/20","age","death","Count",142926,8,5.59730210038761
+"Georgia","47",6,"05/30/20","age","death","Count",149567,6,4.01158009453957
+"Georgia","48",15,"05/30/20","age","death","Count",149582,15,10.0279445387814
+"Georgia","49",14,"05/30/20","age","death","Count",139169,14,10.0597115736982
+"Georgia","50",12,"05/30/20","age","death","Count",134781,12,8.90333207202796
+"Georgia","51",8,"05/30/20","age","death","Count",134798,8,5.93480615439398
+"Georgia","52",8,"05/30/20","age","death","Count",137264,8,5.82818510315888
+"Georgia","53",17,"05/30/20","age","death","Count",142905,17,11.8960148350303
+"Georgia","54",16,"05/30/20","age","death","Count",143271,16,11.1676473256975
+"Georgia","55",13,"05/30/20","age","death","Count",140264,13,9.26823703872697
+"Georgia","56",20,"05/30/20","age","death","Count",138103,20,14.4819446355257
+"Georgia","57",18,"05/30/20","age","death","Count",137452,18,13.0954806041382
+"Georgia","58",27,"05/30/20","age","death","Count",136339,27,19.8035778463976
+"Georgia","59",19,"05/30/20","age","death","Count",130189,19,14.5941669419075
+"Georgia","60",25,"05/30/20","age","death","Count",126936,25,19.6949643915044
+"Georgia","61",29,"05/30/20","age","death","Count",125884,29,23.0370817578088
+"Georgia","62",31,"05/30/20","age","death","Count",120188,31,25.7929244184112
+"Georgia","63",45,"05/30/20","age","death","Count",117971,45,38.1449678310771
+"Georgia","64",41,"05/30/20","age","death","Count",112356,41,36.4911531204386
+"Georgia","65",48,"05/30/20","age","death","Count",107197,48,44.7773725010961
+"Georgia","66",45,"05/30/20","age","death","Count",102310,45,43.9839702863845
+"Georgia","67",42,"05/30/20","age","death","Count",99429,42,42.2411972362188
+"Georgia","68",52,"05/30/20","age","death","Count",97488,52,53.3398982438864
+"Georgia","69",38,"05/30/20","age","death","Count",94552,38,40.1895253405533
+"Georgia","70",50,"05/30/20","age","death","Count",93829,50,53.2884289505377
+"Georgia","71",56,"05/30/20","age","death","Count",96027,56,58.3169316962938
+"Georgia","72",40,"05/30/20","age","death","Count",70265,40,56.9273464740625
+"Georgia","73",62,"05/30/20","age","death","Count",68781,62,90.1411727075791
+"Georgia","74",55,"05/30/20","age","death","Count",65541,55,83.9169374895104
+"Georgia","75",63,"05/30/20","age","death","Count",65574,63,96.0746637386769
+"Georgia","76",46,"05/30/20","age","death","Count",55438,46,82.975576319492
+"Georgia","77",49,"05/30/20","age","death","Count",50152,49,97.7029829318871
+"Georgia","78",60,"05/30/20","age","death","Count",46449,60,129.173932700381
+"Georgia","79",62,"05/30/20","age","death","Count",42127,62,147.174021411446
+"Georgia","80",50,"05/30/20","age","death","Count",38400,50,130.208333333333
+"Georgia","81",62,"05/30/20","age","death","Count",34216,62,181.201776946458
+"Georgia","82",52,"05/30/20","age","death","Count",31601,52,164.551754691307
+"Georgia","83",67,"05/30/20","age","death","Count",29416,67,227.767201522981
+"Georgia","84",54,"05/30/20","age","death","Count",24984,54,216.138328530259
+"Georgia","85",73,"05/30/20","age","death","Count",NA,73,NA
+"Georgia","86",35,"05/30/20","age","death","Count",NA,35,NA
+"Georgia","87",49,"05/30/20","age","death","Count",NA,49,NA
+"Georgia","88",46,"05/30/20","age","death","Count",NA,46,NA
+"Georgia","89",49,"05/30/20","age","death","Count",NA,49,NA
+"Georgia","90+",257,"05/30/20","age","death","Count",NA,257,NA
+"Georgia","FEMALE",960,"05/30/20","gender","death","Count",5404059,960,17.7644248517642
+"Georgia","MALE",1044,"05/30/20","gender","death","Count",5115416,1044,20.4088973409005
+"Georgia","",46331,"05/30/20","total","case","Count",10519475,46331,440.430724917356
+"Georgia","HISPANIC",5844,"05/30/20","eth","case","Count",1026737,5844,569.181786572413
+"Georgia","NON HISPANIC",23461,"05/30/20","eth","case","Count",9492738,23461,247.146818968352
+"Georgia","UNKNOWN",17026,"05/30/20","eth","case","Count",NA,17026,NA
+"Georgia","",2004,"05/30/20","total","death","Count",10519475,2004,19.0503803659403
+"Georgia","HISPANIC",80,"05/30/20","eth","death","Count",1026737,80,7.79167401194269
+"Georgia","NON HISPANIC",1878,"05/30/20","eth","death","Count",9492738,1878,19.7835440101686
+"Georgia","UNKNOWN",46,"05/30/20","eth","death","Count",NA,46,NA
+"Georgia","",7927,"05/30/20","total","hosp","Count",10519475,7927,75.3554716371302
+"Hawaii","AI/AN",0,"05/29/20","race","case","Count",5629,0,0
+"Hawaii","ASIAN",33,"05/29/20","race","case","Count",534651,33,6.17225068315593
+"Hawaii","BLACK",1,"05/29/20","race","case","Count",31138,1,3.21151005202646
+"Hawaii","MULTI",19,"05/29/20","race","case","Count",340718,19,5.57645912455462
+"Hawaii","NH/PI",17,"05/29/20","race","case","Count",144806,17,11.7398450340456
+"Hawaii","OTHER",2,"05/29/20","race","case","Count",NA,2,NA
+"Hawaii","UNKNOWN",0,"05/29/20","race","case","Count",NA,0,NA
+"Hawaii","WHITE",27,"05/29/20","race","case","Count",363549,27,7.42678428492445
+"Hawaii","0-19",34,"05/29/20","age","case","Count",333706,34,10.1886091349871
+"Hawaii","20-39",214,"05/29/20","age","case","Count",390753,214,54.7660542593403
+"Hawaii","40-59",226,"05/29/20","age","case","Count",345145,226,65.4797259122977
+"Hawaii","60+",169,"05/29/20","age","case","Count",350887,169,48.1636538258756
+"Hawaii","",647,"05/29/20","total","case","Count",1420491,647,45.5476310655963
+"Hawaii","",17,"05/29/20","total","death","Count",1420491,17,1.19676928611304
+"Hawaii","",83,"05/29/20","total","hosp","Count",1420491,83,5.84305004396367
+"Idaho","AI/AN",0.011976048,"05/30/20","race","case","Percent",30449,34,111.662123550856
+"Idaho","ASIAN",0.015498415,"05/30/20","race","case","Percent",27819,44,158.165282720443
+"Idaho","BLACK",0.016202888,"05/30/20","race","case","Percent",15775,46,291.600633914422
+"Idaho","MULTI",0.047199718,"05/30/20","race","case","Percent",44094,134,303.896221708169
+"Idaho","NH/PI",0.002465657,"05/30/20","race","case","Percent",3883,7,180.272984805563
+"Idaho","OTHER",0.108488905,"05/30/20","race","case","Percent",NA,308,NA
+"Idaho","UNKNOWN",803,"05/30/20","race","case","Count",NA,803,NA
+"Idaho","WHITE",0.514265586,"05/30/20","race","case","Percent",1632188,1460,89.4504799692192
+"Idaho","0-17",145,"05/30/20","age","case","Count",446972,145,32.4405108149951
+"Idaho","18-29",621,"05/30/20","age","case","Count",281944,621,220.25650483784
+"Idaho","30-39",477,"05/30/20","age","case","Count",227589,477,209.588336870411
+"Idaho","40-49",472,"05/30/20","age","case","Count",206318,472,228.773059064163
+"Idaho","50-59",445,"05/30/20","age","case","Count",206861,445,215.120298171236
+"Idaho","60-69",320,"05/30/20","age","case","Count",200787,320,159.372867765343
+"Idaho","70-79",185,"05/30/20","age","case","Count",123864,185,149.357359684816
+"Idaho","80+",171,"05/30/20","age","case","Count",59873,171,285.604529587627
+"Idaho","FEMALE",1552,"05/30/20","gender","case","Count",875131,1552,177.344877509767
+"Idaho","MALE",1280,"05/30/20","gender","case","Count",879077,1280,145.607267622745
+"Idaho","AI/AN",0,"05/30/20","race","death","Count",30449,0,0
+"Idaho","ASIAN",2,"05/30/20","race","death","Count",27819,2,7.1893310327474
+"Idaho","BLACK",1,"05/30/20","race","death","Count",15775,1,6.3391442155309
+"Idaho","MULTI",0,"05/30/20","race","death","Count",44094,0,0
+"Idaho","NH/PI",0,"05/30/20","race","death","Count",3883,0,0
+"Idaho","OTHER",0,"05/30/20","race","death","Count",NA,0,NA
+"Idaho","UNKNOWN",0,"05/30/20","race","death","Count",NA,0,NA
+"Idaho","WHITE",79,"05/30/20","race","death","Count",1632188,79,4.84012871066323
+"Idaho","0-17",0,"05/30/20","age","death","Count",446972,0,0
+"Idaho","18-29",0,"05/30/20","age","death","Count",281944,0,0
+"Idaho","30-39",0,"05/30/20","age","death","Count",227589,0,0
+"Idaho","40-49",0,"05/30/20","age","death","Count",206318,0,0
+"Idaho","50-59",2,"05/30/20","age","death","Count",206861,2,0.966832800769599
+"Idaho","60-69",9,"05/30/20","age","death","Count",200787,9,4.48236190590028
+"Idaho","70-79",17,"05/30/20","age","death","Count",123864,17,13.7247303494155
+"Idaho","80+",54,"05/30/20","age","death","Count",59873,54,90.1909040803033
+"Idaho","FEMALE",43,"05/30/20","gender","death","Count",875131,43,4.91355008564432
+"Idaho","MALE",39,"05/30/20","gender","death","Count",879077,39,4.43647143538052
+"Idaho","",46436,"05/30/20","total","test","Count",1754208,46436,2647.12052390594
+"Idaho","",2839,"05/30/20","total","case","Count",1754208,2839,161.83941699046
+"Idaho","HISPANIC",0.212398731947869,"05/30/20","eth","case","Percent",222908,603,270.51519012328
+"Idaho","NON HISPANIC",0.474462839027827,"05/30/20","eth","case","Percent",1531300,1347,87.9644746293999
+"Idaho","UNKNOWN",888,"05/30/20","eth","case","Count",NA,888,NA
+"Idaho","",82,"05/30/20","total","death","Count",1754208,82,4.67447417866068
+"Idaho","HISPANIC",4,"05/30/20","eth","death","Count",222908,4,1.79446228937499
+"Idaho","NON HISPANIC",78,"05/30/20","eth","death","Count",1531300,78,5.09371122575589
+"Idaho","",242,"05/30/20","total","hosp","Count",1754208,242,13.7953994053157
+"Illinois","NH AI/AN",190,"05/30/20","race","case","Count",19233,190,987.885405292986
+"Illinois","NH ASIAN",3452,"05/30/20","race","case","Count",732320,3452,471.378632291894
+"Illinois","NH BLACK",19810,"05/30/20","race","case","Count",1791197,19810,1105.96433558118
+"Illinois","HISPANIC",37341,"05/30/20","race","case","Count",2214142,37341,1686.477199746
+"Illinois","NH NH/PI",291,"05/30/20","race","case","Count",3625,291,8027.58620689655
+"Illinois","OTHER",4376,"05/30/20","race","case","Count",NA,4376,NA
+"Illinois","UNKNOWN",30240,"05/30/20","race","case","Count",NA,30240,NA
+"Illinois","NH WHITE",23217,"05/30/20","race","case","Count",7773275,23217,298.677198478119
+"Illinois","0-19",7672,"05/30/20","age","case","Count",3186074,7672,240.7979224588
+"Illinois","20-29",18735,"05/30/20","age","case","Count",1751282,18735,1069.78773264386
+"Illinois","30-39",19695,"05/30/20","age","case","Count",1720522,19695,1144.71073313797
+"Illinois","40-49",21429,"05/30/20","age","case","Count",1603097,21429,1336.72510147546
+"Illinois","50-59",20756,"05/30/20","age","case","Count",1689555,20756,1228.48915838786
+"Illinois","60-69",14449,"05/30/20","age","case","Count",1447163,14449,998.436250788612
+"Illinois","70-79",7965,"05/30/20","age","case","Count",841100,7965,946.974200451789
+"Illinois","80+",8155,"05/30/20","age","case","Count",502287,8155,1623.57377355974
+"Illinois","UNKNOWN",61,"05/30/20","age","case","Count",NA,61,NA
+"Illinois","FEMALE",60106,"05/30/20","gender","case","Count",6480179,60106,927.536106641499
+"Illinois","MALE",56371,"05/30/20","gender","case","Count",6260901,56371,900.36561830318
+"Illinois","UNKNOWN/OTHER",2440,"05/30/20","gender","case","Count",NA,2440,NA
+"Illinois","NH AI/AN",8,"05/30/20","race","death","Count",19233,8,41.5951749597047
+"Illinois","NH ASIAN",257,"05/30/20","race","death","Count",732320,257,35.0939480008739
+"Illinois","NH BLACK",1577,"05/30/20","race","death","Count",1791197,1577,88.0416838572195
+"Illinois","HISPANIC",1034,"05/30/20","race","death","Count",2214142,1034,46.6998051615479
+"Illinois","NH NH/PI",3,"05/30/20","race","death","Count",3625,3,82.7586206896552
+"Illinois","OTHER",38,"05/30/20","race","death","Count",NA,38,NA
+"Illinois","UNKNOWN",123,"05/30/20","race","death","Count",NA,123,NA
+"Illinois","NH WHITE",2290,"05/30/20","race","death","Count",7773275,2290,29.4599123278155
+"Illinois","0-19",3,"05/30/20","age","death","Count",3186074,3,0.0941597715558396
+"Illinois","20-29",20,"05/30/20","age","death","Count",1751282,20,1.14202053124511
+"Illinois","30-39",83,"05/30/20","age","death","Count",1720522,83,4.82411733183301
+"Illinois","40-49",174,"05/30/20","age","death","Count",1603097,174,10.8539907441658
+"Illinois","50-59",446,"05/30/20","age","death","Count",1689555,446,26.3974833610033
+"Illinois","60-69",942,"05/30/20","age","death","Count",1447163,942,65.0928748178332
+"Illinois","70-79",1299,"05/30/20","age","death","Count",841100,1299,154.440613482345
+"Illinois","80+",2363,"05/30/20","age","death","Count",502287,2363,470.448170070099
+"Illinois","UNKNOWN",0,"05/30/20","age","death","Count",NA,0,NA
+"Illinois","FEMALE",2376,"05/30/20","gender","death","Count",6480179,2376,36.6656538345623
+"Illinois","MALE",2944,"05/30/20","gender","death","Count",6260901,2944,47.0219861326668
+"Illinois","UNKNOWN/OTHER",10,"05/30/20","gender","death","Count",NA,10,NA
+"Illinois","",877105,"05/30/20","total","test","Count",12741080,877105,6884.07105206152
+"Illinois","UNKNOWN",32304,"05/30/20","age","test","Count",NA,32304,NA
+"Illinois","0-20",55737,"05/30/20","age","test","Count",3349922,55737,1663.82978469349
+"Illinois","20-29",121060,"05/30/20","age","test","Count",1751282,121060,6912.65027562666
+"Illinois","30-39",136223,"05/30/20","age","test","Count",1720522,136223,7917.53897944926
+"Illinois","40-49",133172,"05/30/20","age","test","Count",1603097,133172,8307.17043323018
+"Illinois","50-59",142938,"05/30/20","age","test","Count",1689555,142938,8460.09748128945
+"Illinois","60-69",121788,"05/30/20","age","test","Count",1447163,121788,8415.63804491961
+"Illinois","70-79",73287,"05/30/20","age","test","Count",841100,73287,8713.23267150161
+"Illinois","80+",60596,"05/30/20","age","test","Count",502287,60596,12064.0191762877
+"Illinois","MALE",364279,"05/30/20","gender","test","Count",6260901,364279,5818.31592609434
+"Illinois","FEMALE",450926,"05/30/20","gender","test","Count",6480179,450926,6958.54234890734
+"Illinois","UNKNOWN/OTHER",61900,"05/30/20","gender","test","Count",NA,61900,NA
+"Illinois","NH WHITE",215222,"05/30/20","race","test","Count",7773275,215222,2768.74290437428
+"Illinois","NH BLACK",76996,"05/30/20","race","test","Count",1791197,76996,4298.57799002566
+"Illinois","UNKNOWN",458289,"05/30/20","race","test","Count",NA,458289,NA
+"Illinois","OTHER",30642,"05/30/20","race","test","Count",NA,30642,NA
+"Illinois","NH ASIAN",13587,"05/30/20","race","test","Count",732320,13587,1855.33646493336
+"Illinois","HISPANIC",80760,"05/30/20","race","test","Count",2214142,80760,3647.46253853637
+"Illinois","NH NH/PI",972,"05/30/20","race","test","Count",3625,972,26813.7931034483
+"Illinois","NH AI/AN",637,"05/30/20","race","test","Count",19233,637,3312.01580616648
+"Illinois","",118917,"05/30/20","total","case","Count",12741080,118917,933.335321652482
+"Illinois","",5330,"05/30/20","total","death","Count",12741080,5330,41.8331883953323
+"Indiana","ASIAN",476,"05/28/20","race","case","Count",165368,476,287.842871655943
+"Indiana","BLACK",4489,"05/28/20","race","case","Count",658729,4489,681.463849321952
+"Indiana","OTHER",5813,"05/28/20","race","case","Count",NA,5813,NA
+"Indiana","UNKNOWN",8159,"05/28/20","race","case","Count",NA,8159,NA
+"Indiana","WHITE",14621,"05/28/20","race","case","Count",5694468,14621,256.757962289015
+"Indiana","0-19",1524,"05/28/20","age","case","Count",1752893,1524,86.941986761314
+"Indiana","20-29",4770,"05/28/20","age","case","Count",930073,4770,512.862968820727
+"Indiana","30-39",5444,"05/28/20","age","case","Count",844497,5444,644.644089913878
+"Indiana","40-49",5764,"05/28/20","age","case","Count",815370,5764,706.918331555
+"Indiana","50-59",5587,"05/28/20","age","case","Count",871660,5587,640.960925131359
+"Indiana","60-69",4312,"05/28/20","age","case","Count",772889,4312,557.906762808114
+"Indiana","70-79",2765,"05/28/20","age","case","Count",450969,2765,613.124183702206
+"Indiana","80+",3368,"05/28/20","age","case","Count",253527,3368,1328.45811294261
+"Indiana","UNKNOWN",24,"05/28/20","age","case","Count",NA,24,NA
+"Indiana","FEMALE",17285,"05/28/20","gender","case","Count",3391576,17285,509.645073558723
+"Indiana","MALE",15460,"05/28/20","gender","case","Count",3300302,15460,468.441978946169
+"Indiana","UNKNOWN/OTHER",813,"05/28/20","gender","case","Count",NA,813,NA
+"Indiana","ASIAN",9,"05/28/20","race","death","Count",165368,9,5.4424072371922
+"Indiana","BLACK",294,"05/28/20","race","death","Count",658729,294,44.6314038094573
+"Indiana","OTHER",237,"05/28/20","race","death","Count",NA,237,NA
+"Indiana","UNKNOWN",142,"05/28/20","race","death","Count",NA,142,NA
+"Indiana","WHITE",1264,"05/28/20","race","death","Count",5694468,1264,22.1969813510235
+"Indiana","0-19",2,"05/28/20","age","death","Count",1752893,2,0.114097095487289
+"Indiana","20-29",4,"05/28/20","age","death","Count",930073,4,0.430073768403125
+"Indiana","30-39",14,"05/28/20","age","death","Count",844497,14,1.65779156113047
+"Indiana","40-49",37,"05/28/20","age","death","Count",815370,37,4.53781718728921
+"Indiana","50-59",105,"05/28/20","age","death","Count",871660,105,12.045981231214
+"Indiana","60-69",311,"05/28/20","age","death","Count",772889,311,40.2386371134794
+"Indiana","70-79",479,"05/28/20","age","death","Count",450969,479,106.215726579876
+"Indiana","80+",994,"05/28/20","age","death","Count",253527,994,392.068694853014
+"Indiana","UNKNOWN",0,"05/28/20","age","death","Count",NA,0,NA
+"Indiana","FEMALE",924,"05/28/20","gender","death","Count",3391576,924,27.2439715341776
+"Indiana","MALE",973,"05/28/20","gender","death","Count",3300302,973,29.4821504213857
+"Indiana","UNKNOWN/OTHER",49,"05/28/20","gender","death","Count",NA,49,NA
+"Indiana","",248713,"05/28/20","total","test","Count",6691878,248713,3716.63978333138
+"Indiana","",33558,"05/28/20","total","case","Count",6691878,33558,501.473577372451
+"Indiana","HISPANIC",3829,"05/28/20","eth","case","Count",475237,3829,805.703259636771
+"Indiana","NON HISPANIC",11546,"05/28/20","eth","case","Count",6216641,11546,185.727308364758
+"Indiana","UNKNOWN",18183,"05/28/20","eth","case","Count",NA,18183,NA
+"Indiana","",1946,"05/28/20","total","death","Count",6691878,1946,29.0800280578935
+"Indiana","HISPANIC",36,"05/28/20","eth","death","Count",475237,36,7.57516775840265
+"Indiana","NON HISPANIC",1088,"05/28/20","eth","death","Count",6216641,1088,17.5014127404172
+"Indiana","UNKNOWN",822,"05/28/20","eth","death","Count",NA,822,NA
+"Iowa","AI/AN",0,"05/30/20","race","case","Percent",16681,0,0
+"Iowa","ASIAN",0.09,"05/30/20","race","case","Percent",85708,1740,2030.14887758436
+"Iowa","BLACK",0.12,"05/30/20","race","case","Percent",124819,2320,1858.69138512566
+"Iowa","NH/PI",0,"05/30/20","race","case","Percent",4232,0,0
+"Iowa","OTHER",0.21,"05/30/20","race","case","Percent",NA,4061,NA
+"Iowa","UNKNOWN",0,"05/30/20","race","case","Percent",NA,0,NA
+"Iowa","WHITE",0.58,"05/30/20","race","case","Percent",2864126,11215,391.567968727633
+"Iowa","0-17",0.03,"05/30/20","age","case","Percent",730767,580,79.3686633359197
+"Iowa","18-40",0.43,"05/30/20","age","case","Percent",956272,8314,869.417906202419
+"Iowa","41-60",0.36,"05/30/20","age","case","Percent",767902,6961,906.495880984813
+"Iowa","61-80",0.14,"05/30/20","age","case","Percent",570390,2707,474.587562895563
+"Iowa","80+",0.05,"05/30/20","age","case","Percent",146270,967,661.106173514733
+"Iowa","FEMALE",0.47,"05/30/20","gender","case","Percent",1585338,9088,573.253148539933
+"Iowa","MALE",0.51,"05/30/20","gender","case","Percent",1570807,9861,627.766492000609
+"Iowa","UNKNOWN/OTHER",0.02,"05/30/20","gender","case","Percent",NA,387,NA
+"Iowa","AI/AN",0,"05/30/20","race","death","Percent",16681,0,0
+"Iowa","ASIAN",0.05,"05/30/20","race","death","Percent",85708,27,31.5023101694124
+"Iowa","BLACK",0.05,"05/30/20","race","death","Percent",124819,27,21.6313221544797
+"Iowa","NH/PI",0,"05/30/20","race","death","Percent",4232,0,0
+"Iowa","OTHER",0.13,"05/30/20","race","death","Percent",NA,69,NA
+"Iowa","UNKNOWN",0,"05/30/20","race","death","Percent",NA,0,NA
+"Iowa","WHITE",0.77,"05/30/20","race","death","Percent",2864126,410,14.3150126775149
+"Iowa","0-17",0,"05/30/20","age","death","Count",730767,0,0
+"Iowa","18-40",0.02,"05/30/20","age","death","Percent",956272,11,1.15030033295966
+"Iowa","41-60",0.11,"05/30/20","age","death","Percent",767902,59,7.68327208419824
+"Iowa","61-80",0.4,"05/30/20","age","death","Percent",570390,213,37.3428706674381
+"Iowa","80+",0.47,"05/30/20","age","death","Percent",146270,251,171.60046489369
+"Iowa","FEMALE",0.48,"05/30/20","gender","death","Percent",1585338,256,16.1479760152094
+"Iowa","MALE",0.52,"05/30/20","gender","death","Percent",1570807,277,17.6342478738636
+"Iowa","UNKNOWN/OTHER",0,"05/30/20","gender","death","Count",NA,0,NA
+"Iowa","",154109,"05/30/20","total","test","Count",3156145,154109,4882.82382463417
+"Iowa","",19336,"05/30/20","total","case","Count",3156145,19336,612.646123673025
+"Iowa","HISPANIC",0.26,"05/30/20","eth","case","Percent",194432,5027,2585.4797564187
+"Iowa","NON HISPANIC",0.57,"05/30/20","eth","case","Percent",2961713,11022,372.149495916721
+"Iowa","UNKNOWN",0.16,"05/30/20","eth","case","Percent",NA,3094,NA
+"Iowa","",533,"05/30/20","total","death","Count",3156145,533,16.8876905211896
+"Iowa","HISPANIC",0.06,"05/30/20","eth","death","Percent",194432,32,16.4581961816985
+"Iowa","NON HISPANIC",0.79,"05/30/20","eth","death","Percent",2961713,421,14.2147466685665
+"Iowa","UNKNOWN",0.15,"05/30/20","eth","death","Percent",NA,80,NA
+"Kansas","AI/AN",51,"05/30/20","race","case","Count",34817,51,146.480167734153
+"Kansas","ASIAN",601,"05/30/20","race","case","Count",91229,601,658.781747032194
+"Kansas","BLACK",959,"05/30/20","race","case","Count",178618,959,536.899976486132
+"Kansas","OTHER",250,"05/30/20","race","case","Count",NA,250,NA
+"Kansas","UNKNOWN",1858,"05/30/20","race","case","Count",NA,1858,NA
+"Kansas","WHITE",6000,"05/30/20","race","case","Count",2515351,6000,238.535297857039
+"Kansas","0-9",225,"05/30/20","age","case","Count",386956,225,58.1461458150281
+"Kansas","10-17",324,"05/30/20","age","case","Count",319005,324,101.565806178587
+"Kansas","18-24",1227,"05/30/20","age","case","Count",294735,1227,416.306173342155
+"Kansas","25-34",1825,"05/30/20","age","case","Count",382884,1825,476.645668139698
+"Kansas","35-44",1752,"05/30/20","age","case","Count",356322,1752,491.690100527051
+"Kansas","45-54",1828,"05/30/20","age","case","Count",335937,1828,544.149647106452
+"Kansas","55-64",1359,"05/30/20","age","case","Count",373425,1359,363.928499698735
+"Kansas","65-74",585,"05/30/20","age","case","Count",262857,585,222.554468779603
+"Kansas","75-84",305,"05/30/20","age","case","Count",133848,305,227.870420178112
+"Kansas","85+",271,"05/30/20","age","case","Count",65536,271,413.51318359375
+"Kansas","UNKNOWN",18,"05/30/20","age","case","Count",NA,18,NA
+"Kansas","FEMALE",4180,"05/30/20","gender","case","Count",1461099,4180,286.086021549532
+"Kansas","MALE",5358,"05/30/20","gender","case","Count",1450406,5358,369.413805513766
+"Kansas","UNKNOWN/OTHER",181,"05/30/20","gender","case","Count",NA,181,NA
+"Kansas","AI/AN",1,"05/30/20","race","death","Count",34817,1,2.87216015165006
+"Kansas","ASIAN",4,"05/30/20","race","death","Count",91229,4,4.38457069572175
+"Kansas","BLACK",59,"05/30/20","race","death","Count",178618,59,33.0313854146838
+"Kansas","OTHER",1,"05/30/20","race","death","Count",NA,1,NA
+"Kansas","UNKNOWN",5,"05/30/20","race","death","Count",NA,5,NA
+"Kansas","WHITE",138,"05/30/20","race","death","Count",2515351,138,5.48631185071189
+"Kansas","0-9",0,"05/30/20","age","death","Count",386956,0,0
+"Kansas","10-17",0,"05/30/20","age","death","Count",319005,0,0
+"Kansas","18-24",0,"05/30/20","age","death","Count",294735,0,0
+"Kansas","25-34",0,"05/30/20","age","death","Count",382884,0,0
+"Kansas","35-44",8,"05/30/20","age","death","Count",356322,8,2.24516027637923
+"Kansas","45-54",6,"05/30/20","age","death","Count",335937,6,1.78604916993365
+"Kansas","55-64",31,"05/30/20","age","death","Count",373425,31,8.30153310571065
+"Kansas","65-74",41,"05/30/20","age","death","Count",262857,41,15.5978345640405
+"Kansas","75-84",46,"05/30/20","age","death","Count",133848,46,34.3673420596498
+"Kansas","85+",76,"05/30/20","age","death","Count",65536,76,115.966796875
+"Kansas","UNKNOWN",0,"05/30/20","age","death","Count",NA,0,NA
+"Kansas","FEMALE",101,"05/30/20","gender","death","Count",1461099,101,6.91260482691453
+"Kansas","MALE",107,"05/30/20","gender","death","Count",1450406,107,7.37724471630702
+"Kansas","UNKNOWN/OTHER",0,"05/30/20","gender","death","Count",NA,0,NA
+"Kansas","AI/AN",5,"05/30/20","race","hosp","Count",34817,5,14.3608007582503
+"Kansas","ASIAN",33,"05/30/20","race","hosp","Count",91229,33,36.1727082397045
+"Kansas","BLACK",169,"05/30/20","race","hosp","Count",178618,169,94.6153243234164
+"Kansas","OTHER",36,"05/30/20","race","hosp","Count",NA,36,NA
+"Kansas","UNKNOWN",45,"05/30/20","race","hosp","Count",NA,45,NA
+"Kansas","WHITE",553,"05/30/20","race","hosp","Count",2515351,553,21.9850032858237
+"Kansas","0-9",7,"05/30/20","age","hosp","Count",386956,7,1.80899120313421
+"Kansas","10-17",0,"05/30/20","age","hosp","Count",319005,0,0
+"Kansas","18-24",19,"05/30/20","age","hosp","Count",294735,19,6.44646886185896
+"Kansas","25-34",36,"05/30/20","age","hosp","Count",382884,36,9.4023255085091
+"Kansas","35-44",123,"05/30/20","age","hosp","Count",356322,123,34.5193392493307
+"Kansas","45-54",94,"05/30/20","age","hosp","Count",335937,94,27.9814369956272
+"Kansas","55-64",188,"05/30/20","age","hosp","Count",373425,188,50.3447814152775
+"Kansas","65-74",163,"05/30/20","age","hosp","Count",262857,163,62.0109032667953
+"Kansas","75-84",118,"05/30/20","age","hosp","Count",133848,118,88.1597035443189
+"Kansas","85+",93,"05/30/20","age","hosp","Count",65536,93,141.90673828125
+"Kansas","UNKNOWN",0,"05/30/20","age","hosp","Count",NA,0,NA
+"Kansas","",9719,"05/30/20","total","case","Count",2911505,9719,333.813611860533
+"Kansas","HISPANIC",4183,"05/30/20","eth","case","Count",351180,4183,1191.12705734951
+"Kansas","NON HISPANIC",3832,"05/30/20","eth","case","Count",2560325,3832,149.668499116323
+"Kansas","UNKNOWN",1704,"05/30/20","eth","case","Count",NA,1704,NA
+"Kansas","",208,"05/30/20","total","death","Count",2911505,208,7.14407153688556
+"Kansas","HISPANIC",21,"05/30/20","eth","death","Count",351180,21,5.97983939859901
+"Kansas","NON HISPANIC",178,"05/30/20","eth","death","Count",2560325,178,6.95224239110269
+"Kansas","UNKNOWN",9,"05/30/20","eth","death","Count",NA,9,NA
+"Kansas","",842,"05/30/20","total","hosp","Count",2911505,842,28.9197511252771
+"Kansas","HISPANIC",205,"05/30/20","eth","hosp","Count",351180,205,58.3746227006094
+"Kansas","NON HISPANIC",579,"05/30/20","eth","hosp","Count",2560325,579,22.6143165418453
+"Kansas","UNKNOWN",57,"05/30/20","eth","hosp","Count",NA,57,NA
+"Kentucky","AI/AN",9e-04,"05/30/20","race","case","Percent",13412,9,67.1040858932299
+"Kentucky","ASIAN",0.0528,"05/30/20","race","case","Percent",72806,512,703.238744059556
+"Kentucky","BLACK",0.1472,"05/30/20","race","case","Percent",375972,1428,379.815518176886
+"Kentucky","MULTI",0.0555,"05/30/20","race","case","Percent",88218,539,610.986420004988
+"Kentucky","NH/PI",0.0013,"05/30/20","race","case","Percent",4058,13,320.354854608181
+"Kentucky","WHITE",0.7423,"05/30/20","race","case","Percent",3913936,7203,184.034690398617
+"Kentucky","0-9",168,"05/30/20","age","case","Count",552138,168,30.427175814742
+"Kentucky","10-19",376,"05/30/20","age","case","Count",572893,376,65.6318020991704
+"Kentucky","20-29",1448,"05/30/20","age","case","Count",611856,1448,236.656991187469
+"Kentucky","30-39",1598,"05/30/20","age","case","Count",557826,1598,286.4692574387
+"Kentucky","40-49",1638,"05/30/20","age","case","Count",554536,1638,295.382085202764
+"Kentucky","50-59",1514,"05/30/20","age","case","Count",599063,1514,252.728010242662
+"Kentucky","60-69",1185,"05/30/20","age","case","Count",534523,1185,221.692986082919
+"Kentucky","70-79",811,"05/30/20","age","case","Count",321045,811,252.612562101886
+"Kentucky","80+",866,"05/30/20","age","case","Count",164522,866,526.373372558077
+"Kentucky","UNKNOWN",100,"05/30/20","age","case","Count",NA,100,NA
+"Kentucky","FEMALE",4965,"05/30/20","gender","case","Count",2266891,4965,219.022440867249
+"Kentucky","MALE",4639,"05/30/20","gender","case","Count",2201511,4639,210.718910784457
+"Kentucky","UNKNOWN/OTHER",100,"05/30/20","gender","case","Count",NA,100,NA
+"Kentucky","AI/AN",0,"05/30/20","race","death","Percent",13412,0,0
+"Kentucky","ASIAN",0.018,"05/30/20","race","death","Percent",72806,8,10.9881053759306
+"Kentucky","BLACK",0.1754,"05/30/20","race","death","Percent",375972,76,20.2142712755205
+"Kentucky","MULTI",0.018,"05/30/20","race","death","Percent",88218,8,9.06844408170668
+"Kentucky","WHITE",0.7886,"05/30/20","race","death","Percent",3913936,340,8.68690750180892
+"Kentucky","0-9",0,"05/30/20","age","death","Count",552138,0,0
+"Kentucky","10-19",0,"05/30/20","age","death","Count",572893,0,0
+"Kentucky","20-29",0,"05/30/20","age","death","Count",611856,0,0
+"Kentucky","30-39",2,"05/30/20","age","death","Count",557826,2,0.358534740223654
+"Kentucky","40-49",6,"05/30/20","age","death","Count",554536,6,1.08198566008339
+"Kentucky","50-59",27,"05/30/20","age","death","Count",599063,27,4.50703849177799
+"Kentucky","60-69",69,"05/30/20","age","death","Count",534523,69,12.9087055187522
+"Kentucky","70-79",112,"05/30/20","age","death","Count",321045,112,34.886075160803
+"Kentucky","80+",215,"05/30/20","age","death","Count",164522,215,130.681610969961
+"Kentucky","UNKNOWN",0,"05/30/20","age","death","Count",NA,0,NA
+"Kentucky","FEMALE",237,"05/30/20","gender","death","Count",2266891,237,10.4548476305213
+"Kentucky","MALE",194,"05/30/20","gender","death","Count",2201511,194,8.81212948742932
+"Kentucky","UNKNOWN/OTHER",0,"05/30/20","gender","death","Count",NA,0,NA
+"Kentucky","0-9",21,"05/30/20","age","hosp","Count",552138,21,3.80339697684275
+"Kentucky","10-19",47,"05/30/20","age","hosp","Count",572893,47,8.20397526239629
+"Kentucky","20-29",195,"05/30/20","age","hosp","Count",611856,195,31.8702439789754
+"Kentucky","30-39",219,"05/30/20","age","hosp","Count",557826,219,39.2595540544901
+"Kentucky","40-49",257,"05/30/20","age","hosp","Count",554536,257,46.3450524402383
+"Kentucky","50-59",343,"05/30/20","age","hosp","Count",599063,343,57.2560815807352
+"Kentucky","60-69",302,"05/30/20","age","hosp","Count",534523,302,56.4989719806257
+"Kentucky","70-79",242,"05/30/20","age","hosp","Count",321045,242,75.3788409724493
+"Kentucky","80+",250,"05/30/20","age","hosp","Count",164522,250,151.955361592978
+"Kentucky","UNKNOWN",2,"05/30/20","age","hosp","Count",NA,2,NA
+"Kentucky","FEMALE",1050,"05/30/20","gender","hosp","Count",2266891,1050,46.318945198512
+"Kentucky","MALE",828,"05/30/20","gender","hosp","Count",2201511,828,37.6105320391313
+"Kentucky","UNKNOWN/OTHER",0,"05/30/20","gender","hosp","Count",NA,0,NA
+"Kentucky","",9704,"05/30/20","total","case","Count",4468402,9704,217.16935942648
+"Kentucky","NON HISPANIC",0.8466,"05/30/20","eth","case","Percent",4296469,8215,191.203520844675
+"Kentucky","HISPANIC",0.1534,"05/30/20","eth","case","Percent",171933,1489,866.035025271472
+"Kentucky","",431,"05/30/20","total","death","Count",4468402,431,9.64550638013321
+"Kentucky","NON HISPANIC",0.9727,"05/30/20","eth","death","Percent",4296469,419,9.75219418550442
+"Kentucky","HISPANIC",0.0273,"05/30/20","eth","death","Percent",171933,12,6.97946293032751
+"Kentucky","",1878,"05/30/20","total","hosp","Count",4468402,1878,42.0284477538055
+"Louisiana","0-17",974,"05/30/20","age","case","Count",1095916,974,88.8754247588319
+"Louisiana","18-29",5532,"05/30/20","age","case","Count",769168,5532,719.218688244961
+"Louisiana","30-39",6296,"05/30/20","age","case","Count",637050,6296,988.305470528216
+"Louisiana","40-49",6541,"05/30/20","age","case","Count",545285,6541,1199.55619538407
+"Louisiana","50-59",7246,"05/30/20","age","case","Count",600193,7246,1207.27832547197
+"Louisiana","60-69",6036,"05/30/20","age","case","Count",536818,6036,1124.40342909515
+"Louisiana","70+",6952,"05/30/20","age","case","Count",475548,6952,1461.89238520612
+"Louisiana","FEMALE",0.55,"05/30/20","gender","case","Percent",2385219,21767,912.57867726192
+"Louisiana","MALE",0.4,"05/30/20","gender","case","Percent",2274759,15831,695.941855818572
+"Louisiana","UNKNOWN/OTHER",0.05,"05/30/20","gender","case","Percent",NA,1979,NA
+"Louisiana","AI/AN",2,"05/30/20","race","death","Count",36500,2,5.47945205479452
+"Louisiana","ASIAN",21,"05/30/20","race","death","Count",84271,21,24.9196046089402
+"Louisiana","BLACK",1411,"05/30/20","race","death","Count",1526090,1411,92.4585050685084
+"Louisiana","NH/PI",5,"05/30/20","race","death","Count",2889,5,173.07026652821
+"Louisiana","OTHER",19,"05/30/20","race","death","Count",NA,19,NA
+"Louisiana","UNKNOWN",11,"05/30/20","race","death","Count",NA,11,NA
+"Louisiana","WHITE",1113,"05/30/20","race","death","Count",2930432,1113,37.9807482309775
+"Louisiana","0-17",2,"05/30/20","age","death","Count",1095916,2,0.182495738724501
+"Louisiana","18-29",10,"05/30/20","age","death","Count",769168,10,1.30010608865683
+"Louisiana","30-39",45,"05/30/20","age","death","Count",637050,45,7.06380974805745
+"Louisiana","40-49",100,"05/30/20","age","death","Count",545285,100,18.3390337163135
+"Louisiana","50-59",235,"05/30/20","age","death","Count",600193,235,39.1540721068056
+"Louisiana","60-69",489,"05/30/20","age","death","Count",536818,489,91.0923255181458
+"Louisiana","70+",1799,"05/30/20","age","death","Count",475548,1799,378.300402903598
+"Louisiana","FEMALE",0.46,"05/30/20","gender","death","Percent",2385219,1233,51.6933665210616
+"Louisiana","MALE",0.54,"05/30/20","gender","death","Percent",2274759,1447,63.6111341904791
+"Louisiana","UNKNOWN/OTHER",0,"05/30/20","gender","death","Count",NA,0,NA
+"Louisiana","",368819,"05/30/20","total","test","Count",4659978,368819,7914.60818055364
+"Louisiana","",39577,"05/30/20","total","case","Count",4659978,39577,849.295855044809
+"Louisiana","",2680,"05/30/20","total","death","Count",4659978,2680,57.511001124898
+"Louisiana","HISPANIC",0.0193,"05/30/20","eth","death","Percent",243811,52,21.32799586565
+"Louisiana","NON HISPANIC",0.845,"05/30/20","eth","death","Percent",4416167,2265,51.2888212787243
+"Louisiana","UNKNOWN",0.136,"05/30/20","eth","death","Percent",NA,364,NA
+"Maine","AI/AN",3,"05/30/20","race","case","Count",9657,3,31.0655483069276
+"Maine","ASIAN/PI",29,"05/30/20","race","case","Count",17129,29,169.303520345613
+"Maine","BLACK",350,"05/30/20","race","case","Count",21877,350,1599.85372765919
+"Maine","MULTI",10,"05/30/20","race","case","Count",24093,10,41.5058315693355
+"Maine","OTHER",49,"05/30/20","race","case","Count",NA,49,NA
+"Maine","UNKNOWN",393,"05/30/20","race","case","Count",NA,393,NA
+"Maine","WHITE",1303,"05/30/20","race","case","Count",1265648,1303,102.951215503837
+"Maine","0-19",108,"05/30/20","age","case","Count",282504,108,38.2295471922521
+"Maine","20-29",301,"05/30/20","age","case","Count",155665,301,193.363954646195
+"Maine","30-39",313,"05/30/20","age","case","Count",157862,313,198.274442234357
+"Maine","40-49",359,"05/30/20","age","case","Count",159930,359,224.473207028075
+"Maine","50-59",416,"05/30/20","age","case","Count",201615,416,206.333854127917
+"Maine","60-69",308,"05/30/20","age","case","Count",196556,308,156.698345509677
+"Maine","70-79",233,"05/30/20","age","case","Count",119225,233,195.428811071503
+"Maine","80+",244,"05/30/20","age","case","Count",65047,244,375.113379556321
+"Maine","FEMALE",1179,"05/30/20","gender","case","Count",683031,1179,172.612956073736
+"Maine","MALE",1103,"05/30/20","gender","case","Count",655373,1103,168.301104866999
+"Maine","UNKNOWN/OTHER",0,"05/30/20","gender","case","Count",NA,0,NA
+"Maine","",2282,"05/30/20","total","case","Count",1338404,2282,170.501582481822
+"Maine","",89,"05/30/20","total","death","Count",1338404,89,6.64971114850225
+"Maine","",272,"05/30/20","total","hosp","Count",1338404,272,20.3227127235125
+"Maryland","HISPANIC",12978,"05/30/20","race","case","Count",628433,12978,2065.13661758692
+"Maryland","NH ASIAN",977,"05/30/20","race","case","Count",397998,977,245.47862049558
+"Maryland","NH BLACK",14911,"05/30/20","race","case","Count",1801327,14911,827.778632086234
+"Maryland","NH OTHER",2530,"05/30/20","race","case","Count",NA,2530,NA
+"Maryland","NH WHITE",10054,"05/30/20","race","case","Count",3050812,10054,329.551607899799
+"Maryland","UNKNOWN",10565,"05/30/20","race","case","Count",NA,10565,NA
+"Maryland","0-9",1253,"05/30/20","age","case","Count",734948,1253,170.48825223009
+"Maryland","10-19",2264,"05/30/20","age","case","Count",760010,2264,297.890817226089
+"Maryland","20-29",7187,"05/30/20","age","case","Count",794984,7187,904.043351815886
+"Maryland","30-39",9671,"05/30/20","age","case","Count",823580,9671,1174.26358095146
+"Maryland","40-49",9403,"05/30/20","age","case","Count",763740,9403,1231.17814963207
+"Maryland","50-59",8484,"05/30/20","age","case","Count",853899,8484,993.560128305573
+"Maryland","60-69",6116,"05/30/20","age","case","Count",687699,6116,889.342575748983
+"Maryland","70-79",3932,"05/30/20","age","case","Count",401024,3932,980.489945738908
+"Maryland","80+",3705,"05/30/20","age","case","Count",222834,3705,1662.67266216107
+"Maryland","FEMALE",27091,"05/30/20","gender","case","Count",3113797,27091,870.031026428505
+"Maryland","MALE",24924,"05/30/20","gender","case","Count",2928921,24924,850.961838847821
+"Maryland","HISPANIC",222,"05/30/20","race","death","Count",628433,222,35.3259615583523
+"Maryland","NH ASIAN",92,"05/30/20","race","death","Count",397998,92,23.1156940487138
+"Maryland","NH BLACK",986,"05/30/20","race","death","Count",1801327,986,54.7374241323202
+"Maryland","NH OTHER",30,"05/30/20","race","death","Count",NA,30,NA
+"Maryland","UNKNOWN",57,"05/30/20","race","death","Count",NA,57,NA
+"Maryland","10-19",1,"05/30/20","age","death","Count",760010,1,0.131577216089262
+"Maryland","20-29",12,"05/30/20","age","death","Count",794984,12,1.50946434142071
+"Maryland","30-39",30,"05/30/20","age","death","Count",823580,30,3.6426333810923
+"Maryland","40-49",68,"05/30/20","age","death","Count",763740,68,8.90355356534946
+"Maryland","50-59",165,"05/30/20","age","death","Count",853899,165,19.3231283793517
+"Maryland","60-69",381,"05/30/20","age","death","Count",687699,381,55.4021454153634
+"Maryland","70-79",590,"05/30/20","age","death","Count",401024,590,147.12336418768
+"Maryland","UNKNOWN",50,"05/30/20","age","death","Count",NA,50,NA
+"Maryland","",293946,"05/30/20","total","test","Count",6042718,293946,4864.46661916045
+"Maryland","",52015,"05/30/20","total","case","Count",6042718,52015,860.788142024831
+"Maryland","",339361,"05/30/20","total","death","Count",6042718,339361,5616.03238807437
+"Maryland","",492,"05/30/20","total","hosp","Count",6042718,492,8.14203145008587
+"Massachusetts","HISPANIC",17298,"05/29/20","race","case","Count",847223,17298,2041.72927316657
+"Massachusetts","NH ASIAN",1792,"05/29/20","race","case","Count",485158,1792,369.364207124277
+"Massachusetts","NH BLACK",8508,"05/29/20","race","case","Count",500276,8508,1700.66123499828
+"Massachusetts","NH OTHER",4355,"05/29/20","race","case","Count",NA,4355,NA
+"Massachusetts","NH WHITE",24783,"05/29/20","race","case","Count",4928183,24783,502.883111280567
+"Massachusetts","UNKNOWN",38776,"05/29/20","race","case","Count",NA,38776,NA
+"Massachusetts","0-19",4521,"05/29/20","age","case","Count",1574719,4521,287.098841126576
+"Massachusetts","20-29",12580,"05/29/20","age","case","Count",1001927,12580,1255.58049638347
+"Massachusetts","30-39",14270,"05/29/20","age","case","Count",925134,14270,1542.47925165435
+"Massachusetts","40-49",13689,"05/29/20","age","case","Count",844364,13689,1621.22023203263
+"Massachusetts","50-59",15241,"05/29/20","age","case","Count",970212,15241,1570.89378403895
+"Massachusetts","60-69",12441,"05/29/20","age","case","Count",813943,12441,1528.485409912
+"Massachusetts","70-79",8647,"05/29/20","age","case","Count",479916,8647,1801.77364372098
+"Massachusetts","80+",13882,"05/29/20","age","case","Count",291934,13882,4755.18439099248
+"Massachusetts","UNKNOWN",241,"05/29/20","age","case","Count",NA,241,NA
+"Massachusetts","FEMALE",52134,"05/29/20","gender","case","Count",3551621,52134,1467.89311134268
+"Massachusetts","MALE",42043,"05/29/20","gender","case","Count",3350528,42043,1254.81715120721
+"Massachusetts","UNKNOWN/OTHER",1335,"05/29/20","gender","case","Count",NA,1335,NA
+"Massachusetts","HISPANIC",421,"05/29/20","race","death","Count",847223,421,49.6917576600258
+"Massachusetts","NH ASIAN",124,"05/29/20","race","death","Count",485158,124,25.5586839751174
+"Massachusetts","NH BLACK",340,"05/29/20","race","death","Count",500276,340,67.9624847084409
+"Massachusetts","NH OTHER",218,"05/29/20","race","death","Count",NA,218,NA
+"Massachusetts","NH WHITE",2807,"05/29/20","race","death","Count",4928183,2807,56.958112148027
+"Massachusetts","UNKNOWN",2808,"05/29/20","race","death","Count",NA,2808,NA
+"Massachusetts","0-19",0,"05/29/20","age","death","Count",1574719,0,0
+"Massachusetts","20-29",9,"05/29/20","age","death","Count",1001927,9,0.898269035568459
+"Massachusetts","30-39",20,"05/29/20","age","death","Count",925134,20,2.16184898620092
+"Massachusetts","40-49",61,"05/29/20","age","death","Count",844364,61,7.22437242705753
+"Massachusetts","50-59",238,"05/29/20","age","death","Count",970212,238,24.5307211207447
+"Massachusetts","60-69",686,"05/29/20","age","death","Count",813943,686,84.2810860219942
+"Massachusetts","70-79",1497,"05/29/20","age","death","Count",479916,1497,311.929587677844
+"Massachusetts","80+",4207,"05/29/20","age","death","Count",291934,4207,1441.07914802661
+"Massachusetts","UNKNOWN",0,"05/29/20","age","death","Count",NA,0,NA
+"Massachusetts","FEMALE",3502,"05/29/20","gender","death","Count",3551621,3502,98.6028633122735
+"Massachusetts","MALE",3209,"05/29/20","gender","death","Count",3350528,3209,95.7759493429095
+"Massachusetts","HISPANIC",1266,"05/29/20","race","hosp","Count",847223,1266,149.429371015659
+"Massachusetts","NH ASIAN",285,"05/29/20","race","hosp","Count",485158,285,58.7437494589391
+"Massachusetts","NH BLACK",956,"05/29/20","race","hosp","Count",500276,956,191.094515827263
+"Massachusetts","NH OTHER",555,"05/29/20","race","hosp","Count",NA,555,NA
+"Massachusetts","NH WHITE",3716,"05/29/20","race","hosp","Count",4928183,3716,75.4030440833873
+"Massachusetts","UNKNOWN",2947,"05/29/20","race","hosp","Count",NA,2947,NA
+"Massachusetts","0-19",77,"05/29/20","age","hosp","Count",1574719,77,4.88976128439423
+"Massachusetts","20-29",237,"05/29/20","age","hosp","Count",1001927,237,23.6544179366361
+"Massachusetts","30-39",449,"05/29/20","age","hosp","Count",925134,449,48.5335097402106
+"Massachusetts","40-49",700,"05/29/20","age","hosp","Count",844364,700,82.9026344088568
+"Massachusetts","50-59",1303,"05/29/20","age","hosp","Count",970212,1303,134.300544623237
+"Massachusetts","60-69",1858,"05/29/20","age","hosp","Count",813943,1858,228.271512870066
+"Massachusetts","70-79",2093,"05/29/20","age","hosp","Count",479916,2093,436.117987314447
+"Massachusetts","80+",3008,"05/29/20","age","hosp","Count",291934,3008,1030.36987812314
+"Massachusetts","UNKNOWN",0,"05/29/20","age","hosp","Count",NA,0,NA
+"Massachusetts","",571745,"05/29/20","total","test","Count",6902149,571745,8283.57950545547
+"Massachusetts","",95512,"05/29/20","total","case","Count",6902149,95512,1383.80090027034
+"Massachusetts","",6718,"05/29/20","total","death","Count",6902149,6718,97.3320048581971
+"Massachusetts","",9648,"05/29/20","total","hosp","Count",6902149,9648,139.782551782061
+"Michigan","AI/AN",0.01,"05/30/20","race","case","Percent",73499,569,774.160192655682
+"Michigan","ASIAN/PI",0.02,"05/30/20","race","case","Percent",341478,1138,333.257193728439
+"Michigan","BLACK",0.31,"05/30/20","race","case","Percent",1408392,17634,1252.06618611864
+"Michigan","MULTI",0.08,"05/30/20","race","case","Percent",248619,4551,1830.51174688982
+"Michigan","OTHER",0.05,"05/30/20","race","case","Percent",NA,2844,NA
+"Michigan","UNKNOWN",0.16,"05/30/20","race","case","Percent",NA,9101,NA
+"Michigan","WHITE",0.37,"05/30/20","race","case","Percent",7923927,21047,265.613249592027
+"Michigan","0-19",0.03,"05/30/20","age","case","Percent",2431980,1707,70.1897219549503
+"Michigan","20-29",0.12,"05/30/20","age","case","Percent",1389081,6826,491.404028994709
+"Michigan","30-39",0.14,"05/30/20","age","case","Percent",1201887,7964,662.624689342675
+"Michigan","40-49",0.16,"05/30/20","age","case","Percent",1193411,9101,762.603998119675
+"Michigan","50-59",0.18,"05/30/20","age","case","Percent",1376426,10239,743.883071084098
+"Michigan","60-69",0.16,"05/30/20","age","case","Percent",1258482,9101,723.172838387836
+"Michigan","70-79",0.11,"05/30/20","age","case","Percent",734848,6257,851.468603030831
+"Michigan","80+",0.11,"05/30/20","age","case","Percent",409800,6257,1526.84236212787
+"Michigan","UNKNOWN",0.01,"05/30/20","age","case","Percent",NA,569,NA
+"Michigan","FEMALE",0.52,"05/30/20","gender","case","Percent",5073772,29580,582.998211192777
+"Michigan","MALE",0.47,"05/30/20","gender","case","Percent",4922143,26735,543.157726218031
+"Michigan","UNKNOWN/OTHER",0.01,"05/30/20","gender","case","Percent",NA,569,NA
+"Michigan","AI/AN",0.01,"05/30/20","race","death","Percent",73499,55,74.8309500809535
+"Michigan","ASIAN/PI",0.01,"05/30/20","race","death","Percent",341478,55,16.1064548814272
+"Michigan","BLACK",0.4,"05/30/20","race","death","Percent",1408392,2185,155.141466296315
+"Michigan","MULTI",0.02,"05/30/20","race","death","Percent",248619,109,43.8421842256626
+"Michigan","OTHER",0.02,"05/30/20","race","death","Percent",NA,109,NA
+"Michigan","UNKNOWN",0.04,"05/30/20","race","death","Percent",NA,219,NA
+"Michigan","WHITE",0.51,"05/30/20","race","death","Percent",7923927,2786,35.1593345067414
+"Michigan","0-19",0.01,"05/30/20","age","death","Percent",2431980,55,2.26153175601773
+"Michigan","20-29",0.01,"05/30/20","age","death","Percent",1389081,55,3.95945232855391
+"Michigan","30-39",0.01,"05/30/20","age","death","Percent",1201887,55,4.57613735733892
+"Michigan","40-49",0.03,"05/30/20","age","death","Percent",1193411,164,13.742122370248
+"Michigan","50-59",0.08,"05/30/20","age","death","Percent",1376426,437,31.7488916948677
+"Michigan","60-69",0.18,"05/30/20","age","death","Percent",1258482,983,78.1099769404727
+"Michigan","70-79",0.27,"05/30/20","age","death","Percent",734848,1475,200.721781919526
+"Michigan","80+",0.42,"05/30/20","age","death","Percent",409800,2294,559.785261102977
+"Michigan","UNKNOWN",0.01,"05/30/20","age","death","Percent",NA,55,NA
+"Michigan","FEMALE",0.47,"05/30/20","gender","death","Percent",5073772,2568,50.6132321278922
+"Michigan","MALE",0.53,"05/30/20","gender","death","Percent",4922143,2895,58.8158450496054
+"Michigan","UNKNOWN/OTHER",0.01,"05/30/20","gender","death","Percent",NA,55,NA
+"Michigan","",939830,"05/30/20","total","test","Count",9995915,939830,9402.14077450639
+"Michigan","",56884,"05/30/20","total","case","Count",9995915,56884,569.072466102403
+"Michigan","",5463,"05/30/20","total","death","Count",9995915,5463,54.6523254749565
+"Minnesota","AI/AN",199,"05/29/20","race","case","Count",76616,199,259.736869583377
+"Minnesota","ASIAN",1354,"05/29/20","race","case","Count",288975,1354,468.552642962194
+"Minnesota","BLACK",5471,"05/29/20","race","case","Count",380414,5471,1438.16999374366
+"Minnesota","MULTI",472,"05/29/20","race","case","Count",142853,472,330.409581877874
+"Minnesota","NH/PI",47,"05/29/20","race","case","Count",4145,47,1133.89626055489
+"Minnesota","OTHER",2875,"05/29/20","race","case","Count",NA,2875,NA
+"Minnesota","UNKNOWN",5420,"05/29/20","race","case","Count",NA,5420,NA
+"Minnesota","WHITE",8352,"05/29/20","race","case","Count",4718176,8352,177.017559328012
+"Minnesota","0-5",437,"05/29/20","age","case","Count",427480,437,102.227004772153
+"Minnesota","6-19",1648,"05/29/20","age","case","Count",1016706,1648,162.092089551945
+"Minnesota","20-29",4448,"05/29/20","age","case","Count",736599,4448,603.856372327413
+"Minnesota","30-39",4835,"05/29/20","age","case","Count",768081,4835,629.490900048302
+"Minnesota","40-49",3871,"05/29/20","age","case","Count",663497,3871,583.423888879678
+"Minnesota","50-59",3512,"05/29/20","age","case","Count",749491,3512,468.584679469133
+"Minnesota","60-69",2199,"05/29/20","age","case","Count",654005,2199,336.235961498765
+"Minnesota","70+",2522,"05/29/20","age","case","Count",595320,2522,423.637707451455
+"Minnesota","UNKNOWN",11,"05/29/20","age","case","Count",NA,11,NA
+"Minnesota","FEMALE",12055,"05/29/20","gender","case","Count",2816378,12055,428.032032631983
+"Minnesota","MALE",11646,"05/29/20","gender","case","Count",2794801,11646,416.702298303171
+"Minnesota","UNKNOWN/OTHER",480,"05/29/20","gender","case","Count",NA,480,NA
+"Minnesota","ASIAN",25,"05/29/20","race","death","Count",288975,25,8.65126741067566
+"Minnesota","BLACK",62,"05/29/20","race","death","Count",380414,62,16.2980331954134
+"Minnesota","NH/PI",11,"05/29/20","race","death","Count",4145,11,265.379975874548
+"Minnesota","OTHER",6,"05/29/20","race","death","Count",NA,6,NA
+"Minnesota","UNKNOWN",295,"05/29/20","race","death","Count",NA,295,NA
+"Minnesota","WHITE",627,"05/29/20","race","death","Count",4718176,627,13.2890337282882
+"Minnesota","",24190,"05/29/20","total","case","Count",5611179,24190,431.103694963215
+"Minnesota","HISPANIC",4762,"05/29/20","eth","case","Count",309283,4762,1539.69018665753
+"Minnesota","NON HISPANIC",13492,"05/29/20","eth","case","Count",5301896,13492,254.475002904621
+"Minnesota","UNKNOWN",5936,"05/29/20","eth","case","Count",NA,5936,NA
+"Minnesota","",1026,"05/29/20","total","death","Count",5611179,1026,18.2849272853352
+"Minnesota","HISPANIC",25,"05/29/20","eth","death","Count",309283,25,8.0832118157157
+"Minnesota","UNKNOWN",336,"05/29/20","eth","death","Count",NA,336,NA
+"Minnesota","NON HISPANIC",665,"05/29/20","eth","death","Count",5301896,665,12.5426828440241
+"Minnesota","",2051,"05/29/20","total","hosp","Count",5611179,2051,36.5520330041155
+"Mississippi","AI/AN",191,"05/30/20","race","case","Count",18423,191,1036.74754383108
+"Mississippi","ASIAN",49,"05/30/20","race","case","Count",32152,49,152.401094799701
+"Mississippi","BLACK",7537,"05/30/20","race","case","Count",1128912,7537,667.633969698258
+"Mississippi","MULTI",0,"05/30/20","race","case","Count",38930,0,0
+"Mississippi","NH/PI",0,"05/30/20","race","case","Count",1812,0,0
+"Mississippi","OTHER",179,"05/30/20","race","case","Count",NA,179,NA
+"Mississippi","UNKNOWN",703,"05/30/20","race","case","Count",NA,703,NA
+"Mississippi","WHITE",3866,"05/30/20","race","case","Count",1766301,3866,218.875491776317
+"Mississippi","0-17",935,"05/30/20","age","case","Count",706141,935,132.409816169858
+"Mississippi","18-29",2681,"05/30/20","age","case","Count",501335,2681,534.77215833724
+"Mississippi","30-39",2402,"05/30/20","age","case","Count",374764,2402,640.936696160784
+"Mississippi","40-49",2554,"05/30/20","age","case","Count",359462,2554,710.506256572322
+"Mississippi","50-59",2355,"05/30/20","age","case","Count",383158,2355,614.628952025013
+"Mississippi","60-69",1946,"05/30/20","age","case","Count",344606,1946,564.702878069447
+"Mississippi","70-79",1188,"05/30/20","age","case","Count",208582,1188,569.560172977534
+"Mississippi","80-89",828,"05/30/20","age","case","Count",NA,828,NA
+"Mississippi","90+",338,"05/30/20","age","case","Count",NA,338,NA
+"Mississippi","FEMALE",7574,"05/30/20","gender","case","Count",1538795,7574,492.203314931489
+"Mississippi","MALE",5110,"05/30/20","gender","case","Count",1447735,5110,352.965149008624
+"Mississippi","UNKNOWN/OTHER",0,"05/30/20","gender","case","Count",NA,0,NA
+"Mississippi","AI/AN",28,"05/30/20","race","death","Count",18423,28,151.983933127069
+"Mississippi","ASIAN",0,"05/30/20","race","death","Count",32152,0,0
+"Mississippi","BLACK",373,"05/30/20","race","death","Count",1128912,373,33.0406621596723
+"Mississippi","MULTI",0,"05/30/20","race","death","Count",38930,0,0
+"Mississippi","NH/PI",0,"05/30/20","race","death","Count",1812,0,0
+"Mississippi","OTHER",8,"05/30/20","race","death","Count",NA,8,NA
+"Mississippi","UNKNOWN",2,"05/30/20","race","death","Count",NA,2,NA
+"Mississippi","WHITE",312,"05/30/20","race","death","Count",1766301,312,17.6640334801373
+"Mississippi","0-17",0,"05/30/20","age","death","Count",706141,0,0
+"Mississippi","18-29",2,"05/30/20","age","death","Count",501335,2,0.398934843966609
+"Mississippi","30-39",12,"05/30/20","age","death","Count",374764,12,3.2020151348582
+"Mississippi","40-49",26,"05/30/20","age","death","Count",359462,26,7.23303158609255
+"Mississippi","50-59",53,"05/30/20","age","death","Count",383158,53,13.8324137823039
+"Mississippi","60-69",165,"05/30/20","age","death","Count",344606,165,47.8807681816335
+"Mississippi","70-79",200,"05/30/20","age","death","Count",208582,200,95.8855510063189
+"Mississippi","80-89",170,"05/30/20","age","death","Count",NA,170,NA
+"Mississippi","90+",95,"05/30/20","age","death","Count",NA,95,NA
+"Mississippi","FEMALE",367,"05/30/20","gender","death","Count",1538795,367,23.8498305492285
+"Mississippi","MALE",354,"05/30/20","gender","death","Count",1447735,354,24.4519887962921
+"Mississippi","UNKNOWN/OTHER",0,"05/30/20","gender","death","Count",NA,0,NA
+"Mississippi","0-17",26,"05/30/20","age","hosp","Count",706141,26,3.68198419295863
+"Mississippi","18-29",86,"05/30/20","age","hosp","Count",501335,86,17.1541982905642
+"Mississippi","30-39",138,"05/30/20","age","hosp","Count",374764,138,36.8231740508693
+"Mississippi","40-49",264,"05/30/20","age","hosp","Count",359462,264,73.4430899510936
+"Mississippi","50-59",358,"05/30/20","age","hosp","Count",383158,358,93.4340402653736
+"Mississippi","60-69",520,"05/30/20","age","hosp","Count",344606,520,150.896966390603
+"Mississippi","70-79",449,"05/30/20","age","hosp","Count",208582,449,215.263062009186
+"Mississippi","80-89",279,"05/30/20","age","hosp","Count",NA,279,NA
+"Mississippi","90+",120,"05/30/20","age","hosp","Count",NA,120,NA
+"Mississippi","",15229,"05/30/20","total","case","Count",2986530,15229,509.922887096396
+"Mississippi","HISPANIC",862,"05/30/20","eth","case","Count",100168,862,860.554268828368
+"Mississippi","NON HISPANIC",11881,"05/30/20","eth","case","Count",2886362,11881,411.625430212842
+"Mississippi","UNKNOWN",2485,"05/30/20","eth","case","Count",NA,2485,NA
+"Mississippi","",723,"05/30/20","total","death","Count",2986530,723,24.2086970497534
+"Mississippi","HISPANIC",0,"05/30/20","eth","death","Count",100168,0,0
+"Mississippi","NON HISPANIC",679,"05/30/20","eth","death","Count",2886362,679,23.5244227854995
+"Mississippi","UNKNOWN",35,"05/30/20","eth","death","Count",NA,35,NA
+"Missouri","BLACK",3760,"05/30/20","race","case","Count",724529,3760,518.957833295838
+"Missouri","MULTI",279,"05/30/20","race","case","Count",143702,279,194.151786335611
+"Missouri","OTHER",374,"05/30/20","race","case","Count",NA,374,NA
+"Missouri","UNKNOWN",1956,"05/30/20","race","case","Count",NA,1956,NA
+"Missouri","WHITE",4949,"05/30/20","race","case","Count",5082571,4949,97.3719796536044
+"Missouri","0-19",525,"05/30/20","age","case","Count",1533987,525,34.2245403644229
+"Missouri","20-24",810,"05/30/20","age","case","Count",409228,810,197.933670227844
+"Missouri","25-29",979,"05/30/20","age","case","Count",426568,979,229.506198308359
+"Missouri","30-34",925,"05/30/20","age","case","Count",396937,925,233.034461388079
+"Missouri","35-39",890,"05/30/20","age","case","Count",394342,890,225.692419270582
+"Missouri","40-44",897,"05/30/20","age","case","Count",350197,897,256.141543188548
+"Missouri","45-49",1031,"05/30/20","age","case","Count",369939,1031,278.69459559549
+"Missouri","50-54",1067,"05/30/20","age","case","Count",381749,1067,279.503024238439
+"Missouri","55-59",1098,"05/30/20","age","case","Count",430286,1098,255.179113426884
+"Missouri","60-64",835,"05/30/20","age","case","Count",399255,835,209.139522360396
+"Missouri","65-69",1144,"05/30/20","age","case","Count",332509,1144,344.050837721686
+"Missouri","70-74",698,"05/30/20","age","case","Count",260068,698,268.39134380239
+"Missouri","75-79",543,"05/30/20","age","case","Count",185960,543,291.998279199828
+"Missouri","80+",1509,"05/30/20","age","case","Count",255427,1509,590.775446605097
+"Missouri","FEMALE",7023,"05/30/20","gender","case","Count",3118889,7023,225.176336830198
+"Missouri","MALE",5861,"05/30/20","gender","case","Count",3007563,5861,194.875385819017
+"Missouri","UNKNOWN/OTHER",78,"05/30/20","gender","case","Count",NA,78,NA
+"Missouri","BLACK",246,"05/30/20","race","death","Count",724529,246,33.9530922847809
+"Missouri","MULTI",4,"05/30/20","race","death","Count",143702,4,2.78353815534926
+"Missouri","OTHER",6,"05/30/20","race","death","Count",NA,6,NA
+"Missouri","UNKNOWN",18,"05/30/20","race","death","Count",NA,18,NA
+"Missouri","WHITE",382,"05/30/20","race","death","Count",5082571,382,7.51588123412344
+"Missouri","0-19",0,"05/30/20","age","death","Count",1533987,0,0
+"Missouri","80+",380,"05/30/20","age","death","Count",255427,380,148.770490198765
+"Missouri","20-29",2,"05/30/20","age","death","Count",835796,2,0.239292841793931
+"Missouri","30-39",3,"05/30/20","age","death","Count",791279,3,0.379133023876534
+"Missouri","40-49",15,"05/30/20","age","death","Count",720136,15,2.08293988913205
+"Missouri","50-59",48,"05/30/20","age","death","Count",812035,48,5.91107526153429
+"Missouri","60-69",125,"05/30/20","age","death","Count",731764,125,17.082010046955
+"Missouri","70-79",198,"05/30/20","age","death","Count",446028,198,44.3918319029299
+"Missouri","",185434,"05/30/20","total","test","Count",6126452,185434,3026.77634624412
+"Missouri","0-14",7381,"05/30/20","age","test","Count",1142600,7381,645.982846140382
+"Missouri","15-17",1977,"05/30/20","age","test","Count",234230,1977,844.042180762498
+"Missouri","18-24",12792,"05/30/20","age","test","Count",566385,12792,2258.53438915226
+"Missouri","25-49",68142,"05/30/20","age","test","Count",1937983,68142,3516.12991445229
+"Missouri","50-64",46903,"05/30/20","age","test","Count",1211290,46903,3872.15282880235
+"Missouri","65-74",25067,"05/30/20","age","test","Count",592577,25067,4230.16755628382
+"Missouri","75-84",13905,"05/30/20","age","test","Count",309503,13905,4492.68666216483
+"Missouri","85+",8151,"05/30/20","age","test","Count",131884,8151,6180.43128810166
+"Missouri","UNKNOWN",1116,"05/30/20","age","test","Count",NA,1116,NA
+"Missouri","",12962,"05/30/20","total","case","Count",6126452,12962,211.574333725295
+"Missouri","HISPANIC",914,"05/30/20","eth","case","Count",263265,914,347.178698269804
+"Missouri","NON HISPANIC",7709,"05/30/20","eth","case","Count",5863187,7709,131.481393992721
+"Missouri","UNKNOWN",7,"05/30/20","eth","case","Count",NA,7,NA
+"Missouri","UNKNOWN",2864,"05/30/20","eth","case","Count",NA,2864,NA
+"Missouri","",771,"05/30/20","total","death","Count",6126452,771,12.5847717406421
+"Missouri","HISPANIC",14,"05/30/20","eth","death","Count",263265,14,5.31783564089416
+"Missouri","NON HISPANIC",574,"05/30/20","eth","death","Count",5863187,574,9.78989754207055
+"Missouri","UNKNOWN",0,"05/30/20","eth","death","Count",NA,0,NA
+"Missouri","UNKNOWN",81,"05/30/20","eth","death","Count",NA,81,NA
+"Montana","AI/AN/NH/PI",52,"05/30/20","race","case","Count",71496,52,72.7313416135168
+"Montana","ASIAN",1,"05/30/20","race","case","Count",9852,1,10.1502233049127
+"Montana","BLACK",2,"05/30/20","race","case","Count",6237,2,32.0666987333654
+"Montana","OTHER",4,"05/30/20","race","case","Count",NA,4,NA
+"Montana","PENDING",5,"05/30/20","race","case","Count",NA,5,NA
+"Montana","WHITE",441,"05/30/20","race","case","Count",945132,441,46.6601490585442
+"Montana","0-9",7,"05/30/20","age","case","Count",126062,7,5.55282321397408
+"Montana","10-19",28,"05/30/20","age","case","Count",129304,28,21.654395842356
+"Montana","20-29",98,"05/30/20","age","case","Count",143633,98,68.2294458794288
+"Montana","30-39",80,"05/30/20","age","case","Count",133737,80,59.8188982854408
+"Montana","40-49",70,"05/30/20","age","case","Count",117888,70,59.3783930510315
+"Montana","50-59",87,"05/30/20","age","case","Count",135915,87,64.0105948570798
+"Montana","60-69",80,"05/30/20","age","case","Count",145586,80,54.9503386314618
+"Montana","70-79",37,"05/30/20","age","case","Count",85539,37,43.2551233940074
+"Montana","80+",15,"05/30/20","age","case","Count",44641,15,33.6013978181492
+"Montana","FEMALE",256,"05/30/20","gender","case","Count",527453,256,48.5351301442972
+"Montana","MALE",249,"05/30/20","gender","case","Count",534852,249,46.5549348230912
+"Montana","",505,"05/30/20","total","case","Count",1062305,505,47.5381364109178
+"Montana","",17,"05/30/20","total","death","Count",1062305,17,1.60029370096159
+"Montana","",67,"05/30/20","total","hosp","Count",1062305,67,6.30703988026038
+"Nebraska","",101290,"05/30/20","total","test","Count",1929268,101290,5250.17778763759
+"Nebraska","",13905,"05/30/20","total","case","Count",1929268,13905,720.739679505388
+"Nebraska","",168,"05/30/20","total","death","Count",1929268,168,8.70796592282669
+"Nebraska","",796,"05/30/20","total","hosp","Count",1929268,796,41.2591718724407
+"Nevada","NH AI/AN",44,"05/29/20","race","case","Count",26067,44,168.795795450186
+"Nevada","NH ASIAN",654,"05/29/20","race","case","Count",250856,654,260.707338074433
+"Nevada","NH BLACK",670,"05/29/20","race","case","Count",276929,670,241.939269632288
+"Nevada","HISPANIC",2334,"05/29/20","race","case","Count",881148,2334,264.881722480219
+"Nevada","OTHER",0,"05/29/20","race","case","Count",NA,0,NA
+"Nevada","NH WHITE",2008,"05/29/20","race","case","Count",1476377,2008,136.00862110423
+"Nevada","0-9",136,"05/29/20","age","case","Count",377602,136,36.0167583858136
+"Nevada","10-19",380,"05/29/20","age","case","Count",378120,380,100.497196657146
+"Nevada","20-29",1212,"05/29/20","age","case","Count",409528,1212,295.950460041804
+"Nevada","30-39",1368,"05/29/20","age","case","Count",428746,1368,319.070032140242
+"Nevada","40-49",1311,"05/29/20","age","case","Count",393940,1311,332.79179570493
+"Nevada","50-59",1408,"05/29/20","age","case","Count",387995,1408,362.891274372092
+"Nevada","60-69",1055,"05/29/20","age","case","Count",342707,1055,307.843142976362
+"Nevada","70+",1094,"05/29/20","age","case","Count",315754,1094,346.472253716501
+"Nevada","UNKNOWN",386,"05/29/20","age","case","Count",NA,386,NA
+"Nevada","FEMALE",4142,"05/29/20","gender","case","Count",1512837,4142,273.790236489457
+"Nevada","MALE",3887,"05/29/20","gender","case","Count",1521555,3887,255.46233951451
+"Nevada","UNKNOWN/OTHER",321,"05/29/20","gender","case","Count",NA,321,NA
+"Nevada","NH AI/AN",3,"05/29/20","race","death","Count",26067,3,11.50880423524
+"Nevada","NH ASIAN",62,"05/29/20","race","death","Count",250856,62,24.7153745575151
+"Nevada","NH BLACK",52,"05/29/20","race","death","Count",276929,52,18.7773761505657
+"Nevada","HISPANIC",65,"05/29/20","race","death","Count",881148,65,7.37674034327945
+"Nevada","OTHER",0,"05/29/20","race","death","Count",NA,0,NA
+"Nevada","NH WHITE",193,"05/29/20","race","death","Count",1476377,193,13.0725417694803
+"Nevada","0-9",0,"05/29/20","age","death","Count",377602,0,0
+"Nevada","10-19",1,"05/29/20","age","death","Count",378120,1,0.264466306992489
+"Nevada","20-29",3,"05/29/20","age","death","Count",409528,3,0.732550643667832
+"Nevada","30-39",5,"05/29/20","age","death","Count",428746,5,1.16619163793948
+"Nevada","40-49",23,"05/29/20","age","death","Count",393940,23,5.83845255622684
+"Nevada","50-59",36,"05/29/20","age","death","Count",387995,36,9.27847008337736
+"Nevada","60-69",87,"05/29/20","age","death","Count",342707,87,25.3861170037379
+"Nevada","70+",253,"05/29/20","age","death","Count",315754,253,80.1256674499769
+"Nevada","UNKNOWN",2,"05/29/20","age","death","Count",NA,2,NA
+"Nevada","FEMALE",171,"05/29/20","gender","death","Count",1512837,171,11.3032666440601
+"Nevada","MALE",237,"05/29/20","gender","death","Count",1521555,237,15.5761704309079
+"Nevada","UNKNOWN/OTHER",2,"05/29/20","gender","death","Count",NA,2,NA
+"Nevada","",155449,"05/29/20","total","test","Count",3034392,155449,5122.90435777579
+"Nevada","",8350,"05/29/20","total","case","Count",3034392,8350,275.178684889757
+"Nevada","",410,"05/29/20","total","death","Count",3034392,410,13.5117677610539
+"New Hampshire","NH AI/AN",0,"05/30/20","race","case","Count",2903,0,0
+"New Hampshire","NH ASIAN",80,"05/30/20","race","case","Count",39954,80,200.230264804525
+"New Hampshire","NH BLACK",150,"05/30/20","race","case","Count",19146,150,783.453462864306
+"New Hampshire","HISPANIC",233,"05/30/20","race","case","Count",52663,233,442.435865788124
+"New Hampshire","OTHER",253,"05/30/20","race","case","Count",NA,253,NA
+"New Hampshire","NH WHITE",1981,"05/30/20","race","case","Count",1220322,1981,162.334203595444
+"New Hampshire","0-9",40,"05/30/20","age","case","Count",133380,40,29.9895036737142
+"New Hampshire","10-19",151,"05/30/20","age","case","Count",161245,151,93.6463146144066
+"New Hampshire","20-29",550,"05/30/20","age","case","Count",175526,550,313.343892072969
+"New Hampshire","30-39",502,"05/30/20","age","case","Count",163078,502,307.828155851801
+"New Hampshire","40-49",489,"05/30/20","age","case","Count",164695,489,296.912474574213
+"New Hampshire","50-59",654,"05/30/20","age","case","Count",211295,654,309.519865590762
+"New Hampshire","60-69",496,"05/30/20","age","case","Count",184473,496,268.874035766752
+"New Hampshire","70-79",298,"05/30/20","age","case","Count",105569,298,282.279835936686
+"New Hampshire","80+",448,"05/30/20","age","case","Count",57197,448,783.257863174642
+"New Hampshire","FEMALE",2006,"05/30/20","gender","case","Count",684192,2006,293.192554136851
+"New Hampshire","MALE",1617,"05/30/20","gender","case","Count",672266,1617,240.529790291343
+"New Hampshire","UNKNOWN/OTHER",0,"05/30/20","gender","case","Count",NA,0,NA
+"New Hampshire","NH AI/AN",0,"05/30/20","race","death","Count",2903,0,0
+"New Hampshire","NH ASIAN",0,"05/30/20","race","death","Count",39954,0,0
+"New Hampshire","NH BLACK",0,"05/30/20","race","death","Count",19146,0,0
+"New Hampshire","HISPANIC",4,"05/30/20","race","death","Count",52663,4,7.59546550709227
+"New Hampshire","OTHER",10,"05/30/20","race","death","Count",NA,10,NA
+"New Hampshire","NH WHITE",88,"05/30/20","race","death","Count",1220322,88,7.21121146713736
+"New Hampshire","0-9",0,"05/30/20","age","death","Count",133380,0,0
+"New Hampshire","10-19",0,"05/30/20","age","death","Count",161245,0,0
+"New Hampshire","20-29",1,"05/30/20","age","death","Count",175526,1,0.569716167405399
+"New Hampshire","30-39",0,"05/30/20","age","death","Count",163078,0,0
+"New Hampshire","40-49",5,"05/30/20","age","death","Count",164695,5,3.03591487294696
+"New Hampshire","50-59",2,"05/30/20","age","death","Count",211295,2,0.946543931470219
+"New Hampshire","60-69",11,"05/30/20","age","death","Count",184473,11,5.96293224482716
+"New Hampshire","70-79",45,"05/30/20","age","death","Count",105569,45,42.6261497219828
+"New Hampshire","80+",108,"05/30/20","age","death","Count",57197,108,188.821092015315
+"New Hampshire","FEMALE",80,"05/30/20","gender","death","Count",684192,80,11.6926242925962
+"New Hampshire","MALE",92,"05/30/20","gender","death","Count",672266,92,13.685059187881
+"New Hampshire","UNKNOWN/OTHER",0,"05/30/20","gender","death","Count",NA,0,NA
+"New Hampshire","NH AI/AN",0,"05/30/20","race","hosp","Count",2903,0,0
+"New Hampshire","NH ASIAN",11,"05/30/20","race","hosp","Count",39954,11,27.5316614106222
+"New Hampshire","NH BLACK",16,"05/30/20","race","hosp","Count",19146,16,83.5683693721926
+"New Hampshire","HISPANIC",29,"05/30/20","race","hosp","Count",52663,29,55.0671249264189
+"New Hampshire","OTHER",11,"05/30/20","race","hosp","Count",NA,11,NA
+"New Hampshire","NH WHITE",244,"05/30/20","race","hosp","Count",1220322,244,19.9947227043354
+"New Hampshire","0-9",2,"05/30/20","age","hosp","Count",133380,2,1.49947518368571
+"New Hampshire","10-19",4,"05/30/20","age","hosp","Count",161245,4,2.48069707587832
+"New Hampshire","20-29",12,"05/30/20","age","hosp","Count",175526,12,6.83659400886478
+"New Hampshire","30-39",12,"05/30/20","age","hosp","Count",163078,12,7.35844197255301
+"New Hampshire","40-49",32,"05/30/20","age","hosp","Count",164695,32,19.4298551868606
+"New Hampshire","50-59",58,"05/30/20","age","hosp","Count",211295,58,27.4497740126364
+"New Hampshire","60-69",103,"05/30/20","age","hosp","Count",184473,103,55.8347292015634
+"New Hampshire","70-79",84,"05/30/20","age","hosp","Count",105569,84,79.5688128143678
+"New Hampshire","80+",61,"05/30/20","age","hosp","Count",57197,61,106.648950119762
+"New Hampshire","FEMALE",149,"05/30/20","gender","hosp","Count",684192,149,21.7775127449605
+"New Hampshire","MALE",219,"05/30/20","gender","hosp","Count",672266,219,32.5763908928906
+"New Hampshire","UNKNOWN/OTHER",0,"05/30/20","gender","hosp","Count",NA,0,NA
+"New Hampshire","",3652,"05/30/20","total","case","Count",1356458,3652,269.230599104432
+"New Hampshire","",172,"05/30/20","total","death","Count",1356458,172,12.6800829808221
+"New Hampshire","",368,"05/30/20","total","hosp","Count",1356458,368,27.129479865945
+"New Jersey","HISPANIC",26611,"05/30/20","race","case","Count",1839359,26611,1446.75400506372
+"New Jersey","NH ASIAN",4472,"05/30/20","race","case","Count",873183,4472,512.149228741283
+"New Jersey","NH BLACK",15301,"05/30/20","race","case","Count",1150141,15301,1330.3586255946
+"New Jersey","NH OTHER",10581,"05/30/20","race","case","Count",NA,10581,NA
+"New Jersey","NH WHITE",31403,"05/30/20","race","case","Count",4892895,31403,641.808172871071
+"New Jersey","0-4",735,"05/30/20","age","case","Count",518628,735,141.720076818066
+"New Jersey","5-17",3023,"05/30/20","age","case","Count",1435015,3023,210.659818886911
+"New Jersey","18-29",20180,"05/30/20","age","case","Count",1349059,20180,1495.85748288251
+"New Jersey","30-49",50861,"05/30/20","age","case","Count",2314426,50861,2197.56432048378
+"New Jersey","50-64",45507,"05/30/20","age","case","Count",1852865,45507,2456.03430363248
+"New Jersey","65-79",23069,"05/30/20","age","case","Count",1063733,23069,2168.68330680725
+"New Jersey","80+",15920,"05/30/20","age","case","Count",374794,15920,4247.66671825056
+"New Jersey","FEMALE",79991,"05/30/20","gender","case","Count",4556326,79991,1755.60308898002
+"New Jersey","MALE",78693,"05/30/20","gender","case","Count",4352194,78693,1808.12252394999
+"New Jersey","UNKNOWN/OTHER",917,"05/30/20","gender","case","Count",NA,917,NA
+"New Jersey","",159608,"05/30/20","total","case","Count",8908520,159608,1791.63317812611
+"New Jersey","",11634,"05/30/20","total","death","Count",8908520,11634,130.594082967766
+"New Jersey","",17121,"05/30/20","total","hosp","Count",8908520,17121,192.186805440185
+"New Mexico","NH AI/AN",0.5783,"05/30/20","race","case","Percent",184643,4409,2387.85115059872
+"New Mexico","NH ASIAN",0.0065,"05/30/20","race","case","Percent",32311,50,154.746061712729
+"New Mexico","NH BLACK",0.025,"05/30/20","race","case","Percent",38590,191,494.946877429386
+"New Mexico","HISPANIC",0.2393,"05/30/20","race","case","Percent",1029233,1824,177.219346834002
+"New Mexico","UNKNOWN",0.0264,"05/30/20","race","case","Percent",NA,201,NA
+"New Mexico","NH WHITE",0.1194,"05/30/20","race","case","Percent",777525,910,117.038037362143
+"New Mexico","0-9",306,"05/30/20","age","case","Count",259068,306,118.115707073046
+"New Mexico","10-19",634,"05/30/20","age","case","Count",278993,634,227.245844877828
+"New Mexico","20-29",1209,"05/30/20","age","case","Count",287234,1209,420.911173468322
+"New Mexico","30-39",1282,"05/30/20","age","case","Count",271742,1282,471.771018098049
+"New Mexico","40-49",1151,"05/30/20","age","case","Count",236473,1151,486.736329306094
+"New Mexico","50-59",1089,"05/30/20","age","case","Count",260846,1089,417.487713056746
+"New Mexico","60-69",884,"05/30/20","age","case","Count",256556,884,344.564149737289
+"New Mexico","70-79",415,"05/30/20","age","case","Count",161107,415,257.592779953695
+"New Mexico","80-89",314,"05/30/20","age","case","Count",NA,314,NA
+"New Mexico","90+",143,"05/30/20","age","case","Count",NA,143,NA
+"New Mexico","FEMALE",0.5195,"05/30/20","gender","case","Percent",1058143,3961,374.335037891854
+"New Mexico","MALE",0.4805,"05/30/20","gender","case","Percent",1037285,3663,353.133420419653
+"New Mexico","",194447,"05/30/20","total","test","Count",2095428,194447,9279.58393225632
+"New Mexico","",7624,"05/30/20","total","case","Count",2095428,7624,363.839750160826
+"New Mexico","",351,"05/30/20","total","death","Count",2095428,351,16.7507544997967
+"New Mexico","",1317,"05/30/20","total","hosp","Count",2095428,1317,62.8511215847073
+"New York","FEMALE",51,"05/29/20","gender","case","Count",10053779,51,0.507271942221925
+"New York","MALE",48,"05/29/20","gender","case","Count",9488430,48,0.505879265589776
+"New York","UNKNOWN/OTHER",0.6,"05/29/20","gender","case","Percent",NA,220970,NA
+"New York","NH ASIAN",7,"05/29/20","race","death","Count",1710183,7,0.409312921482672
+"New York","NH BLACK",28,"05/29/20","race","death","Count",2833908,28,0.988034897392576
+"New York","HISPANIC",34,"05/29/20","race","death","Count",3754130,34,0.905669222962444
+"New York","OTHER",4,"05/29/20","race","death","Count",NA,4,NA
+"New York","NH WHITE",27,"05/29/20","race","death","Count",10830524,27,0.249295417285443
+"New York","0-9",4,"05/29/20","age","death","Count",2259768,4,0.17700932131086
+"New York","10-19",10,"05/29/20","age","death","Count",2306162,10,0.43362088179408
+"New York","20-29",88,"05/29/20","age","death","Count",2787915,88,3.1564807391904
+"New York","30-39",316,"05/29/20","age","death","Count",2666279,316,11.851722944223
+"New York","40-49",834,"05/29/20","age","death","Count",2398815,834,34.7671662883549
+"New York","50-59",2276,"05/29/20","age","death","Count",2673808,2276,85.122043168395
+"New York","60-69",4654,"05/29/20","age","death","Count",2252991,4654,206.569844264802
+"New York","70-79",6187,"05/29/20","age","death","Count",1351628,6187,457.744290588831
+"New York","80-89",6115,"05/29/20","age","death","Count",NA,6115,NA
+"New York","90+",3287,"05/29/20","age","death","Count",NA,3287,NA
+"New York","UNKNOWN",9,"05/29/20","age","death","Count",NA,9,NA
+"New York","",1944130,"05/29/20","total","test","Count",19542209,1944130,9948.36356524485
+"New York","",368284,"05/29/20","total","case","Count",19542209,368284,1884.55665375393
+"New York","",23780,"05/29/20","total","death","Count",19542209,23780,121.685322268327
+"North Carolina","AI/AN",202,"05/30/20","race","case","Count",163078,202,123.867106537976
+"North Carolina","ASIAN",599,"05/30/20","race","case","Count",329284,599,181.909840745375
+"North Carolina","BLACK",6108,"05/30/20","race","case","Count",2306797,6108,264.782726871935
+"North Carolina","MULTI",0,"05/30/20","race","case","Count",237061,0,0
+"North Carolina","NH/PI",73,"05/30/20","race","case","Count",12989,73,562.014011856186
+"North Carolina","OTHER",2485,"05/30/20","race","case","Count",NA,2485,NA
+"North Carolina","UNKNOWN",7352,"05/30/20","race","case","Count",NA,7352,NA
+"North Carolina","WHITE",10854,"05/30/20","race","case","Count",7334411,10854,147.987343496294
+"North Carolina","0-17",1738,"05/30/20","age","case","Count",2300645,1738,75.5440322170522
+"North Carolina","18-24",2668,"05/30/20","age","case","Count",983834,2668,271.183959895673
+"North Carolina","25-49",12170,"05/30/20","age","case","Count",3386347,12170,359.384315901471
+"North Carolina","50-64",6237,"05/30/20","age","case","Count",2023529,6237,308.223899929282
+"North Carolina","65-74",2266,"05/30/20","age","case","Count",1010458,2266,224.254743888415
+"North Carolina","75+",2586,"05/30/20","age","case","Count",678807,2586,380.962482708634
+"North Carolina","UNKNOWN",8,"05/30/20","age","case","Count",NA,8,NA
+"North Carolina","FEMALE",13911,"05/30/20","gender","case","Count",5332759,13911,260.859341290315
+"North Carolina","MALE",13373,"05/30/20","gender","case","Count",5050861,13373,264.766739769714
+"North Carolina","UNKNOWN/OTHER",389,"05/30/20","gender","case","Count",NA,389,NA
+"North Carolina","AI/AN",4,"05/30/20","race","death","Count",163078,4,2.452813990851
+"North Carolina","ASIAN",11,"05/30/20","race","death","Count",329284,11,3.34058138263627
+"North Carolina","BLACK",288,"05/30/20","race","death","Count",2306797,288,12.4848437031954
+"North Carolina","MULTI",0,"05/30/20","race","death","Count",237061,0,0
+"North Carolina","NH/PI",0,"05/30/20","race","death","Count",12989,0,0
+"North Carolina","OTHER",37,"05/30/20","race","death","Count",NA,37,NA
+"North Carolina","UNKNOWN",44,"05/30/20","race","death","Count",NA,44,NA
+"North Carolina","WHITE",492,"05/30/20","race","death","Count",7334411,492,6.70810512255176
+"North Carolina","0-17",0,"05/30/20","age","death","Count",2300645,0,0
+"North Carolina","18-24",1,"05/30/20","age","death","Count",983834,1,0.101643163379188
+"North Carolina","25-49",37,"05/30/20","age","death","Count",3386347,37,1.09262281744901
+"North Carolina","50-64",108,"05/30/20","age","death","Count",2023529,108,5.33721038838583
+"North Carolina","65-74",183,"05/30/20","age","death","Count",1010458,183,18.110599351977
+"North Carolina","75+",548,"05/30/20","age","death","Count",678807,548,80.729868725573
+"North Carolina","UNKNOWN",0,"05/30/20","age","death","Count",NA,0,NA
+"North Carolina","FEMALE",414,"05/30/20","gender","death","Count",5332759,414,7.76333601424703
+"North Carolina","MALE",462,"05/30/20","gender","death","Count",5050861,462,9.14695534088148
+"North Carolina","UNKNOWN/OTHER",1,"05/30/20","gender","death","Count",NA,1,NA
+"North Carolina","",404157,"05/30/20","total","test","Count",10383620,404157,3892.25530210081
+"North Carolina","",27673,"05/30/20","total","case","Count",10383620,27673,266.506285861771
+"North Carolina","HISPANIC",7099,"05/30/20","eth","case","Count",997349,7099,711.786947197019
+"North Carolina","NON HISPANIC",12045,"05/30/20","eth","case","Count",9386271,12045,128.325721684362
+"North Carolina","UNKNOWN",8529,"05/30/20","eth","case","Count",NA,8529,NA
+"North Carolina","",877,"05/30/20","total","death","Count",10383620,877,8.44599474942265
+"North Carolina","HISPANIC",47,"05/30/20","eth","death","Count",997349,47,4.71249281846174
+"North Carolina","NON HISPANIC",691,"05/30/20","eth","death","Count",9386271,691,7.36181599700243
+"North Carolina","UNKNOWN",139,"05/30/20","eth","death","Count",NA,139,NA
+"North Carolina","",638,"05/30/20","total","hosp","Count",10383620,638,6.1442926455321
+"North Dakota","0-9",137,"05/30/20","age","case","Count",104901,137,130.59932698449
+"North Dakota","10-19",188,"05/30/20","age","case","Count",94930,188,198.040661540082
+"North Dakota","20-29",537,"05/30/20","age","case","Count",124732,537,430.523041400763
+"North Dakota","30-39",555,"05/30/20","age","case","Count",103542,555,536.014370979892
+"North Dakota","40-49",381,"05/30/20","age","case","Count",79719,381,477.928724645317
+"North Dakota","50-59",280,"05/30/20","age","case","Count",89268,280,313.662230586548
+"North Dakota","60-69",197,"05/30/20","age","case","Count",83625,197,235.575485799701
+"North Dakota","70-79",100,"05/30/20","age","case","Count",45907,100,217.831703226088
+"North Dakota","80+",179,"05/30/20","age","case","Count",33453,179,535.079066152512
+"North Dakota","FEMALE",1352,"05/30/20","gender","case","Count",370727,1352,364.68884111489
+"North Dakota","MALE",1202,"05/30/20","gender","case","Count",389350,1202,308.719660973417
+"North Dakota","0-9",0,"05/30/20","age","death","Count",104901,0,0
+"North Dakota","10-19",0,"05/30/20","age","death","Count",94930,0,0
+"North Dakota","20-29",0,"05/30/20","age","death","Count",124732,0,0
+"North Dakota","30-39",0,"05/30/20","age","death","Count",103542,0,0
+"North Dakota","40-49",3,"05/30/20","age","death","Count",79719,3,3.76321830429383
+"North Dakota","50-59",2,"05/30/20","age","death","Count",89268,2,2.24044450418963
+"North Dakota","60-69",4,"05/30/20","age","death","Count",83625,4,4.78325859491779
+"North Dakota","70-79",13,"05/30/20","age","death","Count",45907,13,28.3181214193914
+"North Dakota","80+",38,"05/30/20","age","death","Count",33453,38,113.592203987684
+"North Dakota","0-9",3,"05/30/20","age","hosp","Count",104901,3,2.85983927703263
+"North Dakota","10-19",1,"05/30/20","age","hosp","Count",94930,1,1.05340777414937
+"North Dakota","20-29",6,"05/30/20","age","hosp","Count",124732,6,4.81031331174037
+"North Dakota","30-39",24,"05/30/20","age","hosp","Count",103542,24,23.1789998261575
+"North Dakota","40-49",19,"05/30/20","age","hosp","Count",79719,19,23.8337159271943
+"North Dakota","50-59",36,"05/30/20","age","hosp","Count",89268,36,40.3280010754134
+"North Dakota","60-69",33,"05/30/20","age","hosp","Count",83625,33,39.4618834080717
+"North Dakota","70-79",21,"05/30/20","age","hosp","Count",45907,21,45.7446576774784
+"North Dakota","80+",22,"05/30/20","age","hosp","Count",33453,22,65.7639075718172
+"North Dakota","",70981,"05/30/20","total","test","Count",760077,70981,9338.65910953759
+"North Dakota","",2554,"05/30/20","total","case","Count",760077,2554,336.018587590468
+"North Dakota","",60,"05/30/20","total","death","Count",760077,60,7.89393706163981
+"North Dakota","",165,"05/30/20","total","hosp","Count",760077,165,21.7083269195095
+"Ohio","0-19",1543,"05/30/20","age","case","Count",2902621,1543,53.1588519479464
+"Ohio","20-29",4897,"05/30/20","age","case","Count",1565788,4897,312.749874184756
+"Ohio","30-39",5691,"05/30/20","age","case","Count",1462599,5691,389.101865924973
+"Ohio","40-49",5525,"05/30/20","age","case","Count",1399513,5525,394.780184249807
+"Ohio","50-59",5801,"05/30/20","age","case","Count",1573753,5801,368.609305272174
+"Ohio","60-69",4692,"05/30/20","age","case","Count",1445153,4692,324.67150537002
+"Ohio","70-79",3102,"05/30/20","age","case","Count",845187,3102,367.019369677953
+"Ohio","80+",3760,"05/30/20","age","case","Count",494828,3760,759.859991754711
+"Ohio","UNKNOWN",23,"05/30/20","age","case","Count",NA,23,NA
+"Ohio","FEMALE",16456,"05/30/20","gender","case","Count",5958724,16456,276.166508131607
+"Ohio","MALE",18347,"05/30/20","gender","case","Count",5730718,18347,320.151855317257
+"Ohio","UNKNOWN/OTHER",231,"05/30/20","gender","case","Count",NA,231,NA
+"Ohio","0-19",0,"05/30/20","age","death","Count",2902621,0,0
+"Ohio","20-29",7,"05/30/20","age","death","Count",1565788,7,0.447059244291053
+"Ohio","30-39",17,"05/30/20","age","death","Count",1462599,17,1.16231448264357
+"Ohio","40-49",34,"05/30/20","age","death","Count",1399513,34,2.42941651846035
+"Ohio","50-59",117,"05/30/20","age","death","Count",1573753,117,7.43445763089888
+"Ohio","60-69",305,"05/30/20","age","death","Count",1445153,305,21.1050317855618
+"Ohio","70-79",527,"05/30/20","age","death","Count",845187,527,62.3530650613415
+"Ohio","80+",1142,"05/30/20","age","death","Count",494828,1142,230.787263453159
+"Ohio","UNKNOWN",0,"05/30/20","age","death","Count",NA,0,NA
+"Ohio","FEMALE",1025,"05/30/20","gender","death","Count",5958724,1025,17.2016693506865
+"Ohio","MALE",1123,"05/30/20","gender","death","Count",5730718,1123,19.5961483360375
+"Ohio","UNKNOWN/OTHER",1,"05/30/20","gender","death","Count",NA,1,NA
+"Ohio","0-19",77,"05/30/20","age","hosp","Count",2902621,77,2.6527748541749
+"Ohio","20-29",225,"05/30/20","age","hosp","Count",1565788,225,14.369761423641
+"Ohio","30-39",371,"05/30/20","age","hosp","Count",1462599,371,25.365804297692
+"Ohio","40-49",588,"05/30/20","age","hosp","Count",1399513,588,42.0146150839614
+"Ohio","50-59",1094,"05/30/20","age","hosp","Count",1573753,1094,69.5153559675502
+"Ohio","60-69",1346,"05/30/20","age","hosp","Count",1445153,1346,93.1389271585777
+"Ohio","70-79",1160,"05/30/20","age","hosp","Count",845187,1160,137.247733341852
+"Ohio","80+",1149,"05/30/20","age","hosp","Count",494828,1149,232.201896416533
+"Ohio","UNKNOWN",1,"05/30/20","age","hosp","Count",NA,1,NA
+"Ohio","FEMALE",2818,"05/30/20","gender","hosp","Count",5958724,2818,47.2920041270581
+"Ohio","MALE",3177,"05/30/20","gender","hosp","Count",5730718,3177,55.438079486724
+"Ohio","UNKNOWN/OTHER",16,"05/30/20","gender","hosp","Count",NA,16,NA
+"Ohio","",35034,"05/30/20","total","case","Count",11689442,35034,299.706350397222
+"Ohio","",2149,"05/30/20","total","death","Count",11689442,2149,18.3841110636419
+"Ohio","",6011,"05/30/20","total","hosp","Count",11689442,6011,51.4224716628903
+"Oklahoma","AI/AN",615,"05/30/20","race","case","Count",367043,615,167.555300060211
+"Oklahoma","ASIAN",167,"05/30/20","race","case","Count",92179,167,181.169246791569
+"Oklahoma","BLACK",615,"05/30/20","race","case","Count",306890,615,200.397536576624
+"Oklahoma","MULTI",262,"05/30/20","race","case","Count",245034,262,106.923937086282
+"Oklahoma","UNKNOWN",805,"05/30/20","race","case","Count",NA,805,NA
+"Oklahoma","WHITE",4169,"05/30/20","race","case","Count",2924365,4169,142.560863640483
+"Oklahoma","0-4",88,"05/30/20","age","case","Count",260429,88,33.7903996866708
+"Oklahoma","5-17",245,"05/30/20","age","case","Count",696057,245,35.1982668086091
+"Oklahoma","18-35",1674,"05/30/20","age","case","Count",976714,1674,171.391011084104
+"Oklahoma","36-49",1429,"05/30/20","age","case","Count",668890,1429,213.637518874553
+"Oklahoma","50-64",1400,"05/30/20","age","case","Count",721436,1400,194.057407725703
+"Oklahoma","65+",1582,"05/30/20","age","case","Count",619553,1582,255.345386109017
+"Oklahoma","FEMALE",322,"05/30/20","gender","case","Count",1990033,322,16.1806362005052
+"Oklahoma","MALE",309,"05/30/20","gender","case","Count",1953046,309,15.8214399456029
+"Oklahoma","UNKNOWN/OTHER",0,"05/30/20","gender","case","Count",NA,0,NA
+"Oklahoma","AI/AN",22,"05/30/20","race","death","Count",367043,22,5.99384813223519
+"Oklahoma","ASIAN",2,"05/30/20","race","death","Count",92179,2,2.16969157834214
+"Oklahoma","BLACK",27,"05/30/20","race","death","Count",306890,27,8.79794063019323
+"Oklahoma","MULTI",8,"05/30/20","race","death","Count",245034,8,3.2648530408025
+"Oklahoma","UNKNOWN",20,"05/30/20","race","death","Count",NA,20,NA
+"Oklahoma","WHITE",255,"05/30/20","race","death","Count",2924365,255,8.71984174342122
+"Oklahoma","0-4",0,"05/30/20","age","death","Count",260429,0,0
+"Oklahoma","5-17",0,"05/30/20","age","death","Count",696057,0,0
+"Oklahoma","18-35",4,"05/30/20","age","death","Count",976714,4,0.409536466150787
+"Oklahoma","36-49",7,"05/30/20","age","death","Count",668890,7,1.04650988951846
+"Oklahoma","50-64",54,"05/30/20","age","death","Count",721436,54,7.48507144084853
+"Oklahoma","65+",269,"05/30/20","age","death","Count",619553,269,43.4184000400289
+"Oklahoma","FEMALE",161,"05/30/20","gender","death","Count",1990033,161,8.09031810025261
+"Oklahoma","MALE",173,"05/30/20","gender","death","Count",1953046,173,8.85795828669678
+"Oklahoma","UNKNOWN/OTHER",0,"05/30/20","gender","death","Count",NA,0,NA
+"Oklahoma","",6418,"05/30/20","total","case","Count",3943079,6418,162.766203771215
+"Oklahoma","",334,"05/30/20","total","death","Count",3943079,334,8.47053787154658
+"Oregon","0-9",57,"05/30/20","age","case","Count",476789,57,11.954973793439
+"Oregon","10-19",165,"05/30/20","age","case","Count",496049,165,33.2628429852696
+"Oregon","20-29",669,"05/30/20","age","case","Count",568517,669,117.674581410934
+"Oregon","30-39",721,"05/30/20","age","case","Count",588089,721,122.600490742048
+"Oregon","40-49",719,"05/30/20","age","case","Count",529727,719,135.730291263236
+"Oregon","50-59",721,"05/30/20","age","case","Count",518395,721,139.083131588846
+"Oregon","60-69",550,"05/30/20","age","case","Count",527724,550,104.221145902025
+"Oregon","70-79",347,"05/30/20","age","case","Count",322750,347,107.513555383424
+"Oregon","80+",235,"05/30/20","age","case","Count",162673,235,144.46158858569
+"Oregon","UNKNOWN",1,"05/30/20","age","case","Count",NA,1,NA
+"Oregon","FEMALE",2168,"05/30/20","gender","case","Count",2113219,2168,102.592301129225
+"Oregon","MALE",2015,"05/30/20","gender","case","Count",2077494,2015,96.9918565348444
+"Oregon","UNKNOWN/OTHER",2,"05/30/20","gender","case","Count",NA,2,NA
+"Oregon","0-9",0,"05/30/20","age","death","Count",476789,0,0
+"Oregon","10-19",0,"05/30/20","age","death","Count",496049,0,0
+"Oregon","20-29",0,"05/30/20","age","death","Count",568517,0,0
+"Oregon","30-39",0,"05/30/20","age","death","Count",588089,0,0
+"Oregon","40-49",3,"05/30/20","age","death","Count",529727,3,0.566329448942569
+"Oregon","50-59",6,"05/30/20","age","death","Count",518395,6,1.15741857078097
+"Oregon","60-69",30,"05/30/20","age","death","Count",527724,30,5.68478977647407
+"Oregon","70-79",44,"05/30/20","age","death","Count",322750,44,13.6328427575523
+"Oregon","80+",70,"05/30/20","age","death","Count",162673,70,43.0311114936099
+"Oregon","UNKNOWN",0,"05/30/20","age","death","Count",NA,0,NA
+"Oregon","FEMALE",65,"05/30/20","gender","death","Count",2113219,65,3.07587618699245
+"Oregon","MALE",88,"05/30/20","gender","death","Count",2077494,88,4.23587264271281
+"Oregon","UNKNOWN/OTHER",0,"05/30/20","gender","death","Count",NA,0,NA
+"Oregon","0-9",6,"05/30/20","age","hosp","Count",476789,6,1.25841829404621
+"Oregon","10-19",4,"05/30/20","age","hosp","Count",496049,4,0.806371951158051
+"Oregon","20-29",37,"05/30/20","age","hosp","Count",568517,37,6.50816070583641
+"Oregon","30-39",53,"05/30/20","age","hosp","Count",588089,53,9.01224134442236
+"Oregon","40-49",95,"05/30/20","age","hosp","Count",529727,95,17.9337658831813
+"Oregon","50-59",132,"05/30/20","age","hosp","Count",518395,132,25.4632085571813
+"Oregon","60-69",175,"05/30/20","age","hosp","Count",527724,175,33.1612736960987
+"Oregon","70-79",159,"05/30/20","age","hosp","Count",322750,159,49.2641363284276
+"Oregon","80+",116,"05/30/20","age","hosp","Count",162673,116,71.3086990465535
+"Oregon","UNKNOWN",1,"05/30/20","age","hosp","Count",NA,1,NA
+"Oregon","",126693,"05/30/20","total","test","Count",4190713,126693,3023.18483752049
+"Oregon","",4185,"05/30/20","total","case","Count",4190713,4185,99.8636747493804
+"Oregon","",153,"05/30/20","total","death","Count",4190713,153,3.650930044601
+"Oregon","",778,"05/30/20","total","hosp","Count",4190713,778,18.5648599653567
+"Pennsylvania","ASIAN",1028,"05/30/20","race","case","Count",474071,1028,216.845156105309
+"Pennsylvania","BLACK",8724,"05/30/20","race","case","Count",1531457,8724,569.653604378053
+"Pennsylvania","OTHER",427,"05/30/20","race","case","Count",NA,427,NA
+"Pennsylvania","UNKNOWN",41602,"05/30/20","race","case","Count",NA,41602,NA
+"Pennsylvania","WHITE",19634,"05/30/20","race","case","Count",10476085,19634,187.417341497325
+"Pennsylvania","0-4",0.01,"05/30/20","age","case","Percent",702997,714,101.565156039073
+"Pennsylvania","5-12",0.01,"05/30/20","age","case","Percent",1176944,714,60.6655881673215
+"Pennsylvania","13-18",0.02,"05/30/20","age","case","Percent",939224,1428,152.040407826035
+"Pennsylvania","19-24",0.06,"05/30/20","age","case","Percent",990028,4285,432.816041566501
+"Pennsylvania","25-49",0.37,"05/30/20","age","case","Percent",3997244,26424,661.055467216912
+"Pennsylvania","50-64",0.25,"05/30/20","age","case","Percent",2664993,17854,669.945474528451
+"Pennsylvania","65+",0.28,"05/30/20","age","case","Percent",2335630,19996,856.128753269996
+"Pennsylvania","FEMALE",39119,"05/30/20","gender","case","Count",6532400,39119,598.845753474986
+"Pennsylvania","MALE",31585,"05/30/20","gender","case","Count",6274660,31585,503.373887987556
+"Pennsylvania","UNKNOWN/OTHER",711,"05/30/20","gender","case","Count",NA,711,NA
+"Pennsylvania","ASIAN",133,"05/30/20","race","death","Count",474071,133,28.0548694182939
+"Pennsylvania","BLACK",1116,"05/30/20","race","death","Count",1531457,1116,72.8717815779353
+"Pennsylvania","MULTI",257,"05/30/20","race","death","Count",265828,257,96.6790556299562
+"Pennsylvania","WHITE",3958,"05/30/20","race","death","Count",10476085,3958,37.7812894798009
+"Pennsylvania","25-29",6,"05/30/20","age","death","Count",870748,6,0.689062736865316
+"Pennsylvania","30-34",9,"05/30/20","age","death","Count",830358,9,1.08386984890854
+"Pennsylvania","35-39",7,"05/30/20","age","death","Count",782766,7,0.894264697240299
+"Pennsylvania","40-44",25,"05/30/20","age","death","Count",715779,25,3.4926981652158
+"Pennsylvania","45-49",57,"05/30/20","age","death","Count",797593,57,7.14650203800685
+"Pennsylvania","50-54",97,"05/30/20","age","death","Count",855188,97,11.3425352086325
+"Pennsylvania","55-59",173,"05/30/20","age","death","Count",921795,173,18.7677303521933
+"Pennsylvania","60-64",298,"05/30/20","age","death","Count",888010,298,33.5581806511188
+"Pennsylvania","65-69",430,"05/30/20","age","death","Count",737898,430,58.2736367357006
+"Pennsylvania","70-74",536,"05/30/20","age","death","Count",572852,536,93.5669247903472
+"Pennsylvania","75-79",620,"05/30/20","age","death","Count",407338,620,152.207748847395
+"Pennsylvania","80-84",780,"05/30/20","age","death","Count",283299,780,275.327480859445
+"Pennsylvania","85-89",967,"05/30/20","age","death","Count",NA,967,NA
+"Pennsylvania","90-94",917,"05/30/20","age","death","Count",NA,917,NA
+"Pennsylvania","95-99",448,"05/30/20","age","death","Count",NA,448,NA
+"Pennsylvania","100-104",82,"05/30/20","age","death","Count",NA,82,NA
+"Pennsylvania","FEMALE",2839,"05/30/20","gender","death","Count",6532400,2839,43.4602902455453
+"Pennsylvania","MALE",2625,"05/30/20","gender","death","Count",6274660,2625,41.8349360762177
+"Pennsylvania","0-4",0.01,"05/30/20","age","hosp","Percent",702997,14,1.99147364782496
+"Pennsylvania","5-12",0.01,"05/30/20","age","hosp","Percent",1176944,14,1.18952133661415
+"Pennsylvania","13-18",0.01,"05/30/20","age","hosp","Percent",939224,14,1.49059223358858
+"Pennsylvania","19-24",0.01,"05/30/20","age","hosp","Percent",990028,14,1.4141014193538
+"Pennsylvania","25-49",0.16,"05/30/20","age","hosp","Percent",3997244,216,5.40372316526086
+"Pennsylvania","50-64",0.26,"05/30/20","age","hosp","Percent",2664993,352,13.2082898529189
+"Pennsylvania","65+",0.56,"05/30/20","age","hosp","Percent",2335630,757,32.4109555023698
+"Pennsylvania","",447146,"05/30/20","total","test","Count",12807060,447146,3491.40239836465
+"Pennsylvania","",71415,"05/30/20","total","case","Count",12807060,71415,557.622124047205
+"Pennsylvania","",5537,"05/30/20","total","death","Count",12807060,5537,43.2339662654817
+"Pennsylvania","HISPANIC",304,"05/30/20","eth","death","Count",976143,304,31.142978026785
+"Pennsylvania","NON HISPANIC",5160,"05/30/20","eth","death","Count",11830917,5160,43.6145397689799
+"Pennsylvania","",1352,"05/30/20","total","hosp","Count",12807060,1352,10.5566773326587
+"Rhode Island","HISPANIC",4874,"05/30/20","race","case","Count",168342,4874,2895.2964797852
+"Rhode Island","NH BLACK",1377,"05/30/20","race","case","Count",63323,1377,2174.56532381599
+"Rhode Island","NH MULTI",285,"05/30/20","race","case","Count",22143,285,1287.08847039697
+"Rhode Island","NH OTHER",410,"05/30/20","race","case","Count",NA,410,NA
+"Rhode Island","NH WHITE",4003,"05/30/20","race","case","Count",761439,4003,525.715126228102
+"Rhode Island","UNKNOWN",3353,"05/30/20","race","case","Count",NA,3353,NA
+"Rhode Island","0-9",340,"05/30/20","age","case","Count",109253,340,311.204268990325
+"Rhode Island","10-19",686,"05/30/20","age","case","Count",130247,686,526.691593664345
+"Rhode Island","20-29",2125,"05/30/20","age","case","Count",152985,2125,1389.02506781711
+"Rhode Island","30-39",2255,"05/30/20","age","case","Count",135267,2255,1667.07326990323
+"Rhode Island","40-49",2192,"05/30/20","age","case","Count",124924,2192,1754.66683743716
+"Rhode Island","50-59",2285,"05/30/20","age","case","Count",150201,2285,1521.29479830361
+"Rhode Island","60-69",1627,"05/30/20","age","case","Count",129909,1627,1252.41515214496
+"Rhode Island","70-79",1102,"05/30/20","age","case","Count",75611,1102,1457.45989340175
+"Rhode Island","80-89",995,"05/30/20","age","case","Count",NA,995,NA
+"Rhode Island","90-99",647,"05/30/20","age","case","Count",NA,647,NA
+"Rhode Island","100+",46,"05/30/20","age","case","Count",NA,46,NA
+"Rhode Island","PENDING",5,"05/30/20","age","case","Count",NA,5,NA
+"Rhode Island","FEMALE",7898,"05/30/20","gender","case","Count",542983,7898,1454.55750916695
+"Rhode Island","MALE",6244,"05/30/20","gender","case","Count",514332,6244,1214.00185094453
+"Rhode Island","PENDING",160,"05/30/20","gender","case","Count",NA,160,NA
+"Rhode Island","HISPANIC",68,"05/30/20","race","death","Count",168342,68,40.3939599149351
+"Rhode Island","NH BLACK",36,"05/30/20","race","death","Count",63323,36,56.8513810147971
+"Rhode Island","NH MULTI",0,"05/30/20","race","death","Count",22143,0,0
+"Rhode Island","NH OTHER",7,"05/30/20","race","death","Count",NA,7,NA
+"Rhode Island","NH WHITE",502,"05/30/20","race","death","Count",761439,502,65.9278024897595
+"Rhode Island","UNKNOWN",98,"05/30/20","race","death","Count",NA,98,NA
+"Rhode Island","0-9",0,"05/30/20","age","death","Count",109253,0,0
+"Rhode Island","10-19",0,"05/30/20","age","death","Count",130247,0,0
+"Rhode Island","20-29",5,"05/30/20","age","death","Count",152985,5,3.26829427721672
+"Rhode Island","30-39",8,"05/30/20","age","death","Count",135267,8,5.91422889544383
+"Rhode Island","40-49",9,"05/30/20","age","death","Count",124924,9,7.20438026320002
+"Rhode Island","50-59",35,"05/30/20","age","death","Count",150201,35,23.3021085079327
+"Rhode Island","60-69",73,"05/30/20","age","death","Count",129909,73,56.1931813808127
+"Rhode Island","70-79",181,"05/30/20","age","death","Count",75611,181,239.383158535134
+"Rhode Island","80-89",224,"05/30/20","age","death","Count",NA,224,NA
+"Rhode Island","90-99",169,"05/30/20","age","death","Count",NA,169,NA
+"Rhode Island","100+",11,"05/30/20","age","death","Count",NA,11,NA
+"Rhode Island","PENDING",0,"05/30/20","age","death","Count",NA,0,NA
+"Rhode Island","FEMALE",379,"05/30/20","gender","death","Count",542983,379,69.7996069858541
+"Rhode Island","MALE",332,"05/30/20","gender","death","Count",514332,332,64.5497460784085
+"Rhode Island","PENDING",0,"05/30/20","gender","death","Count",NA,0,NA
+"Rhode Island","HISPANIC",426,"05/30/20","race","hosp","Count",168342,426,253.056278290623
+"Rhode Island","NH BLACK",150,"05/30/20","race","hosp","Count",63323,150,236.880754228321
+"Rhode Island","NH MULTI",51,"05/30/20","race","hosp","Count",22143,51,230.321094702615
+"Rhode Island","NH OTHER",40,"05/30/20","race","hosp","Count",NA,40,NA
+"Rhode Island","NH WHITE",642,"05/30/20","race","hosp","Count",761439,642,84.3140422279395
+"Rhode Island","UNKNOWN",373,"05/30/20","race","hosp","Count",NA,373,NA
+"Rhode Island","0-9",7,"05/30/20","age","hosp","Count",109253,7,6.40714671450669
+"Rhode Island","10-19",12,"05/30/20","age","hosp","Count",130247,12,9.21326402911391
+"Rhode Island","20-29",60,"05/30/20","age","hosp","Count",152985,60,39.2195313266006
+"Rhode Island","30-39",118,"05/30/20","age","hosp","Count",135267,118,87.2348762077964
+"Rhode Island","40-49",192,"05/30/20","age","hosp","Count",124924,192,153.693445614934
+"Rhode Island","50-59",284,"05/30/20","age","hosp","Count",150201,284,189.079966178654
+"Rhode Island","60-69",356,"05/30/20","age","hosp","Count",129909,356,274.037980432457
+"Rhode Island","70-79",323,"05/30/20","age","hosp","Count",75611,323,427.186520479824
+"Rhode Island","80-89",228,"05/30/20","age","hosp","Count",NA,228,NA
+"Rhode Island","90-99",93,"05/30/20","age","hosp","Count",NA,93,NA
+"Rhode Island","100+",5,"05/30/20","age","hosp","Count",NA,5,NA
+"Rhode Island","PENDING",6,"05/30/20","age","hosp","Count",NA,6,NA
+"Rhode Island","FEMALE",746,"05/30/20","gender","hosp","Count",542983,746,137.389200030204
+"Rhode Island","MALE",908,"05/30/20","gender","hosp","Count",514332,908,176.539666985527
+"Rhode Island","PENDING",28,"05/30/20","gender","hosp","Count",NA,28,NA
+"Rhode Island","",150317,"05/30/20","total","test","Count",1057315,150317,14216.8606328294
+"Rhode Island","",14819,"05/30/20","total","case","Count",1057315,14819,1401.56906882055
+"Rhode Island","",711,"05/30/20","total","death","Count",1057315,711,67.2458065950072
+"Rhode Island","",1682,"05/30/20","total","hosp","Count",1057315,1682,159.082203506051
+"South Carolina","ASIAN",0.02,"05/30/20","race","case","Percent",89962,432,480.202752273182
+"South Carolina","BLACK",0.44,"05/30/20","race","case","Percent",1380145,9508,688.913121447384
+"South Carolina","OTHER",0.06,"05/30/20","race","case","Percent",NA,1297,NA
+"South Carolina","UNKNOWN",0.07,"05/30/20","race","case","Percent",NA,1513,NA
+"South Carolina","WHITE",0.42,"05/30/20","race","case","Percent",3483455,9076,260.54592351559
+"South Carolina","0-10",0.02,"05/30/20","age","case","Percent",663289,432,65.1299810489847
+"South Carolina","11-20",0.06,"05/30/20","age","case","Percent",645669,1297,200.876919907878
+"South Carolina","21-30",0.14,"05/30/20","age","case","Percent",685828,3025,441.072688779111
+"South Carolina","31-40",0.14,"05/30/20","age","case","Percent",629336,3025,480.66533616383
+"South Carolina","41-50",0.15,"05/30/20","age","case","Percent",617634,3242,524.906336114916
+"South Carolina","51-60",0.17,"05/30/20","age","case","Percent",676471,3674,543.112712887914
+"South Carolina","61-70",0.14,"05/30/20","age","case","Percent",626330,3025,482.972235083742
+"South Carolina","71-80",0.1,"05/30/20","age","case","Percent",376610,2161,573.803138525265
+"South Carolina","81+",0.07,"05/30/20","age","case","Percent",162960,1513,928.448699067256
+"South Carolina","FEMALE",0.553,"05/30/20","gender","case","Percent",2620801,11950,455.967469487382
+"South Carolina","MALE",0.42,"05/30/20","gender","case","Percent",2463326,9076,368.444939890213
+"South Carolina","UNKNOWN/OTHER",0.026,"05/30/20","gender","case","Percent",NA,562,NA
+"South Carolina","ASIAN",0.01,"05/30/20","race","death","Percent",89962,5,5.55790222538405
+"South Carolina","BLACK",0.5,"05/30/20","race","death","Percent",1380145,242,17.5343895025523
+"South Carolina","OTHER",0.01,"05/30/20","race","death","Percent",NA,5,NA
+"South Carolina","UNKNOWN",0.06,"05/30/20","race","death","Percent",NA,29,NA
+"South Carolina","WHITE",0.42,"05/30/20","race","death","Percent",3483455,203,5.82754765024954
+"South Carolina","0-10",0,"05/30/20","age","death","Count",663289,0,0
+"South Carolina","11-20",0.002,"05/30/20","age","death","Percent",645669,1,0.154878118664517
+"South Carolina","21-30",0.006,"05/30/20","age","death","Percent",685828,3,0.437427459946226
+"South Carolina","31-40",0.004,"05/30/20","age","death","Percent",629336,2,0.317795263579392
+"South Carolina","41-50",0.025,"05/30/20","age","death","Percent",617634,12,1.94289822127668
+"South Carolina","51-60",0.087,"05/30/20","age","death","Percent",676471,42,6.20869187297016
+"South Carolina","61-70",0.211,"05/30/20","age","death","Percent",626330,102,16.2853447862948
+"South Carolina","71-80",0.315,"05/30/20","age","death","Percent",376610,152,40.3600541674411
+"South Carolina","81+",0.35,"05/30/20","age","death","Percent",162960,169,103.706431026019
+"South Carolina","FEMALE",0.47,"05/30/20","gender","death","Percent",2620801,227,8.66147410658039
+"South Carolina","MALE",0.52,"05/30/20","gender","death","Percent",2463326,251,10.1894755302384
+"South Carolina","UNKNOWN/OTHER",0.01,"05/30/20","gender","death","Percent",NA,5,NA
+"South Carolina","",199735,"05/30/20","total","test","Count",5084127,199735,3928.59973796878
+"South Carolina","",21610,"05/30/20","total","case","Count",5084127,21610,425.048390805344
+"South Carolina","HISPANIC",0.11,"05/30/20","eth","case","Percent",296046,2377,802.915763090871
+"South Carolina","NON HISPANIC",0.71,"05/30/20","eth","case","Percent",4788081,15343,320.441529706787
+"South Carolina","UNKNOWN",0.18,"05/30/20","eth","case","Percent",NA,3890,NA
+"South Carolina","",483,"05/30/20","total","death","Count",5084127,483,9.50015607399264
+"South Carolina","HISPANIC",0.02,"05/30/20","eth","death","Percent",296046,10,3.37785344169487
+"South Carolina","NON HISPANIC",0.86,"05/30/20","eth","death","Percent",4788081,415,8.66735546036084
+"South Carolina","UNKNOWN",0.12,"05/30/20","eth","death","Percent",NA,58,NA
+"South Carolina","",1634,"05/30/20","total","hosp","Count",5084127,1634,32.1392443579793
+"South Dakota","HISPANIC",855,"05/29/20","race","case","Count",36402,855,2348.77204549201
+"South Dakota","NH AI/AN",461,"05/29/20","race","case","Count",73084,461,630.781019101308
+"South Dakota","NH ASIAN",569,"05/29/20","race","case","Count",14776,569,3850.8391987006
+"South Dakota","NH BLACK",904,"05/29/20","race","case","Count",20162,904,4483.68217438746
+"South Dakota","NH WHITE",1498,"05/29/20","race","case","Count",718383,1498,208.523865403274
+"South Dakota","OTHER",579,"05/29/20","race","case","Count",NA,579,NA
+"South Dakota","0-19",464,"05/29/20","age","case","Count",241450,464,192.172292400083
+"South Dakota","20-29",937,"05/29/20","age","case","Count",118339,937,791.793069064298
+"South Dakota","30-39",1091,"05/29/20","age","case","Count",113348,1091,962.522497088612
+"South Dakota","40-49",848,"05/29/20","age","case","Count",95143,848,891.289953018089
+"South Dakota","50-59",808,"05/29/20","age","case","Count",109151,808,740.258907385182
+"South Dakota","60-69",451,"05/29/20","age","case","Count",108110,451,417.167699565258
+"South Dakota","70-79",131,"05/29/20","age","case","Count",58556,131,223.717467040098
+"South Dakota","80+",136,"05/29/20","age","case","Count",38138,136,356.599716817872
+"South Dakota","FEMALE",2284,"05/29/20","gender","case","Count",436704,2284,523.008719865172
+"South Dakota","MALE",2582,"05/29/20","gender","case","Count",445531,2582,579.533186242933
+"South Dakota","UNKNOWN/OTHER",0,"05/29/20","gender","case","Count",NA,0,NA
+"South Dakota","0-19",0,"05/29/20","age","death","Count",241450,0,0
+"South Dakota","20-29",0,"05/29/20","age","death","Count",118339,0,0
+"South Dakota","30-39",3,"05/29/20","age","death","Count",113348,3,2.64671630730141
+"South Dakota","40-49",3,"05/29/20","age","death","Count",95143,3,3.15314841869607
+"South Dakota","50-59",8,"05/29/20","age","death","Count",109151,8,7.32929611272457
+"South Dakota","60-69",9,"05/29/20","age","death","Count",108110,9,8.32485431504949
+"South Dakota","70-79",6,"05/29/20","age","death","Count",58556,6,10.2466015438213
+"South Dakota","80+",30,"05/29/20","age","death","Count",38138,30,78.6617022392364
+"South Dakota","0-19",13,"05/29/20","age","hosp","Count",241450,13,5.38413750258853
+"South Dakota","20-29",29,"05/29/20","age","hosp","Count",118339,29,24.5058687330466
+"South Dakota","30-39",50,"05/29/20","age","hosp","Count",113348,50,44.1119384550235
+"South Dakota","40-49",52,"05/29/20","age","hosp","Count",95143,52,54.6545725907318
+"South Dakota","50-59",92,"05/29/20","age","hosp","Count",109151,92,84.2869052963326
+"South Dakota","60-69",95,"05/29/20","age","hosp","Count",108110,95,87.8734622144112
+"South Dakota","70-79",48,"05/29/20","age","hosp","Count",58556,48,81.9728123505704
+"South Dakota","80+",39,"05/29/20","age","hosp","Count",38138,39,102.260212911007
+"South Dakota","",40682,"05/29/20","total","test","Count",882235,40682,4611.2430361525
+"South Dakota","",4866,"05/29/20","total","case","Count",882235,4866,551.553724347821
+"South Dakota","",59,"05/29/20","total","death","Count",882235,59,6.68756057059627
+"South Dakota","",418,"05/29/20","total","hosp","Count",882235,418,47.3796664154109
+"Tennessee","AI/AN",0,"05/30/20","race","case","Count",31826,0,0
+"Tennessee","ASIAN",410,"05/30/20","race","case","Count",128526,410,319.001602788541
+"Tennessee","BLACK",5124,"05/30/20","race","case","Count",1155631,5124,443.394128402578
+"Tennessee","MULTI",0,"05/30/20","race","case","Count",132259,0,0
+"Tennessee","OTHER",2713,"05/30/20","race","case","Count",NA,2713,NA
+"Tennessee","UNKNOWN",4497,"05/30/20","race","case","Count",NA,4497,NA
+"Tennessee","WHITE",9822,"05/30/20","race","case","Count",5315272,9822,184.788285528944
+"Tennessee","0-10",775,"05/30/20","age","case","Count",905909,775,85.5494315654221
+"Tennessee","11-20",1783,"05/30/20","age","case","Count",853071,1783,209.009566612861
+"Tennessee","21-30",4597,"05/30/20","age","case","Count",944293,4597,486.819239367442
+"Tennessee","31-40",4580,"05/30/20","age","case","Count",863432,4580,530.441308638086
+"Tennessee","41-50",3860,"05/30/20","age","case","Count",851338,3860,453.403935922043
+"Tennessee","51-60",3235,"05/30/20","age","case","Count",901492,3235,358.849551632183
+"Tennessee","61-70",1895,"05/30/20","age","case","Count",777258,1895,243.805789068752
+"Tennessee","71-80",916,"05/30/20","age","case","Count",457149,916,200.372307497118
+"Tennessee","81+",598,"05/30/20","age","case","Count",216068,598,276.76472221708
+"Tennessee","UNKNOWN",327,"05/30/20","age","case","Count",NA,327,NA
+"Tennessee","FEMALE",9508,"05/30/20","gender","case","Count",3467086,9508,274.236058753662
+"Tennessee","MALE",12280,"05/30/20","gender","case","Count",3302924,12280,371.791782069463
+"Tennessee","UNKNOWN/OTHER",778,"05/30/20","gender","case","Count",NA,778,NA
+"Tennessee","AI/AN",0,"05/30/20","race","death","Count",31826,0,0
+"Tennessee","ASIAN",7,"05/30/20","race","death","Count",128526,7,5.44636882809704
+"Tennessee","BLACK",126,"05/30/20","race","death","Count",1155631,126,10.9031343049814
+"Tennessee","MULTI",0,"05/30/20","race","death","Count",132259,0,0
+"Tennessee","OTHER",18,"05/30/20","race","death","Count",NA,18,NA
+"Tennessee","UNKNOWN",10,"05/30/20","race","death","Count",NA,10,NA
+"Tennessee","WHITE",203,"05/30/20","race","death","Count",5315272,203,3.81918366548316
+"Tennessee","0-10",1,"05/30/20","age","death","Count",905909,1,0.110386363310222
+"Tennessee","11-20",1,"05/30/20","age","death","Count",853071,1,0.117223537079563
+"Tennessee","21-30",1,"05/30/20","age","death","Count",944293,1,0.105899334210886
+"Tennessee","31-40",5,"05/30/20","age","death","Count",863432,5,0.579084398076513
+"Tennessee","41-50",18,"05/30/20","age","death","Count",851338,18,2.11431887217533
+"Tennessee","51-60",31,"05/30/20","age","death","Count",901492,31,3.43874377143668
+"Tennessee","61-70",78,"05/30/20","age","death","Count",777258,78,10.0352778614051
+"Tennessee","71-80",102,"05/30/20","age","death","Count",457149,102,22.3122001798101
+"Tennessee","81+",127,"05/30/20","age","death","Count",216068,127,58.777792176537
+"Tennessee","UNKNOWN",0,"05/30/20","age","death","Count",NA,0,NA
+"Tennessee","FEMALE",166,"05/30/20","gender","death","Count",3467086,166,4.78788238884181
+"Tennessee","MALE",198,"05/30/20","gender","death","Count",3302924,198,5.99468834281382
+"Tennessee","UNKNOWN/OTHER",0,"05/30/20","gender","death","Count",NA,0,NA
+"Tennessee","",427046,"05/30/20","total","test","Count",6770010,427046,6307.90796468543
+"Tennessee","",22566,"05/30/20","total","case","Count",6770010,22566,333.322993614485
+"Tennessee","HISPANIC",4798,"05/30/20","eth","case","Count",380772,4798,1260.0716439234
+"Tennessee","NON HISPANIC",11130,"05/30/20","eth","case","Count",6389238,11130,174.199176803243
+"Tennessee","UNKNOWN",6638,"05/30/20","eth","case","Count",NA,6638,NA
+"Tennessee","",364,"05/30/20","total","death","Count",6770010,364,5.37665380110221
+"Tennessee","HISPANIC",23,"05/30/20","eth","death","Count",380772,23,6.04036011051233
+"Tennessee","NON HISPANIC",320,"05/30/20","eth","death","Count",6389238,320,5.00842197457662
+"Tennessee","UNKNOWN",21,"05/30/20","eth","death","Count",NA,21,NA
+"Texas","NH ASIAN",498,"05/30/20","race","case","Count",1433736,498,34.734428095549
+"Texas","NH BLACK",2360,"05/30/20","race","case","Count",3441644,2360,68.5718801828428
+"Texas","HISPANIC",5923,"05/30/20","race","case","Count",11368849,5923,52.098501792046
+"Texas","OTHER",96,"05/30/20","race","case","Count",NA,96,NA
+"Texas","PENDING",47413,"05/30/20","race","case","Count",NA,47413,NA
+"Texas","UNKNOWN",1941,"05/30/20","race","case","Count",NA,1941,NA
+"Texas","NH WHITE",4107,"05/30/20","race","case","Count",11912849,4107,34.4753803225408
+"Texas","0-0",38,"05/30/20","age","case","Count",390665,38,9.72700395479503
+"Texas","1-9",170,"05/30/20","age","case","Count",3681208,170,4.61804929251485
+"Texas","10-19",441,"05/30/20","age","case","Count",4123762,441,10.6941186227527
+"Texas","20-29",2309,"05/30/20","age","case","Count",4158350,2309,55.5268315557853
+"Texas","30-39",2732,"05/30/20","age","case","Count",4107348,2732,66.5149385929802
+"Texas","40-49",2798,"05/30/20","age","case","Count",3698312,2798,75.6561371782586
+"Texas","50-59",2747,"05/30/20","age","case","Count",3418491,2747,80.3570932320723
+"Texas","60-64",1159,"05/30/20","age","case","Count",1521389,1159,76.1803851611915
+"Texas","65-69",841,"05/30/20","age","case","Count",1226455,841,68.5716149389908
+"Texas","70-74",551,"05/30/20","age","case","Count",940074,551,58.6124071083766
+"Texas","75-79",365,"05/30/20","age","case","Count",627316,365,58.1843919173112
+"Texas","80+",651,"05/30/20","age","case","Count",808475,651,80.5219703763258
+"Texas","UNKNOWN",123,"05/30/20","age","case","Count",NA,123,NA
+"Texas","PENDING",47413,"05/30/20","age","case","Count",NA,47413,NA
+"Texas","FEMALE",6722,"05/30/20","gender","case","Count",14441739,6722,46.5456410754965
+"Texas","MALE",7921,"05/30/20","gender","case","Count",14260106,7921,55.5465716734504
+"Texas","PENDING",47413,"05/30/20","gender","case","Count",NA,47413,NA
+"Texas","UNKNOWN/OTHER",282,"05/30/20","gender","case","Count",NA,282,NA
+"Texas","NH ASIAN",6,"05/30/20","race","death","Count",1433736,6,0.418487085488542
+"Texas","NH BLACK",67,"05/30/20","race","death","Count",3441644,67,1.94674405603834
+"Texas","HISPANIC",122,"05/30/20","race","death","Count",11368849,122,1.07310775259659
+"Texas","OTHER",1,"05/30/20","race","death","Count",NA,1,NA
+"Texas","PENDING",1154,"05/30/20","race","death","Count",NA,1154,NA
+"Texas","UNKNOWN",115,"05/30/20","race","death","Count",NA,115,NA
+"Texas","NH WHITE",183,"05/30/20","race","death","Count",11912849,183,1.53615646433527
+"Texas","0-0",0,"05/30/20","age","death","Count",390665,0,0
+"Texas","1-9",0,"05/30/20","age","death","Count",3681208,0,0
+"Texas","10-19",2,"05/30/20","age","death","Count",4123762,2,0.0484994041848196
+"Texas","20-29",11,"05/30/20","age","death","Count",4158350,11,0.264527997883776
+"Texas","30-39",9,"05/30/20","age","death","Count",4107348,9,0.219119490240418
+"Texas","40-49",21,"05/30/20","age","death","Count",3698312,21,0.567826619279282
+"Texas","50-59",54,"05/30/20","age","death","Count",3418491,54,1.57964435184998
+"Texas","60-64",45,"05/30/20","age","death","Count",1521389,45,2.95782341005489
+"Texas","65-69",58,"05/30/20","age","death","Count",1226455,58,4.7290768923442
+"Texas","70-74",47,"05/30/20","age","death","Count",940074,47,4.99960641396316
+"Texas","75-79",45,"05/30/20","age","death","Count",627316,45,7.17341818158631
+"Texas","80+",199,"05/30/20","age","death","Count",808475,199,24.6142428646526
+"Texas","UNKNOWN",3,"05/30/20","age","death","Count",NA,3,NA
+"Texas","PENDING",1154,"05/30/20","age","death","Count",NA,1154,NA
+"Texas","FEMALE",192,"05/30/20","gender","death","Count",14441739,192,1.32947978079371
+"Texas","MALE",271,"05/30/20","gender","death","Count",14260106,271,1.90040663091845
+"Texas","PENDING",1154,"05/30/20","gender","death","Count",NA,1154,NA
+"Texas","UNKNOWN/OTHER",31,"05/30/20","gender","death","Count",NA,31,NA
+"Texas","",1054793,"05/30/20","total","test","Count",28701845,1054793,3675.00068375395
+"Texas","",62338,"05/30/20","total","case","Count",28701845,62338,217.191612594939
+"Texas","",1648,"05/30/20","total","death","Count",28701845,1648,5.74179116359941
+"Utah","NH AI/AN",333,"05/30/20","race","case","Count",29910,333,1113.34002006018
+"Utah","NH ASIAN",232,"05/30/20","race","case","Count",81356,232,285.166429027976
+"Utah","NH BLACK",310,"05/30/20","race","case","Count",36307,310,853.829839975762
+"Utah","HISPANIC",3752,"05/30/20","race","case","Count",450218,3752,833.374054347005
+"Utah","NH WHITE",3580,"05/30/20","race","case","Count",2466025,3580,145.172899707018
+"Utah","NH NH/PI",371,"05/30/20","race","case","Count",30824,371,1203.60757851025
+"Utah","OTHER",1085,"05/30/20","race","case","Count",NA,1085,NA
+"Utah","UNKNOWN",919,"05/30/20","race","case","Count",NA,919,NA
+"Utah","0-1",42,"05/30/20","age","case","Count",100213,42,41.9107301447916
+"Utah","1-14",528,"05/30/20","age","case","Count",728721,528,72.4557135035219
+"Utah","15-24",1668,"05/30/20","age","case","Count",509891,1668,327.128739279572
+"Utah","25-44",3748,"05/30/20","age","case","Count",899522,3748,416.66574024871
+"Utah","45-64",2648,"05/30/20","age","case","Count",622333,2648,425.495675144979
+"Utah","65-84",776,"05/30/20","age","case","Count",312702,776,248.159589641256
+"Utah","85+",118,"05/30/20","age","case","Count",37776,118,312.367640830157
+"Utah","UNKNOWN",5,"05/30/20","age","case","Count",NA,5,NA
+"Utah","FEMALE",4515,"05/30/20","gender","case","Count",1568962,4515,287.769875879722
+"Utah","MALE",5005,"05/30/20","gender","case","Count",1592143,5005,314.356185342648
+"Utah","FEMALE",0.5,"05/30/20","gender","death","Percent",1568962,56,3.5692387706012
+"Utah","MALE",0.5,"05/30/20","gender","death","Percent",1592143,56,3.51727200383383
+"Utah","NH AI/AN",42,"05/30/20","race","hosp","Count",29910,42,140.421263791374
+"Utah","NH ASIAN",14,"05/30/20","race","hosp","Count",81356,14,17.2083189930675
+"Utah","NH BLACK",26,"05/30/20","race","hosp","Count",36307,26,71.6115349657091
+"Utah","HISPANIC",273,"05/30/20","race","hosp","Count",450218,273,60.6372912677858
+"Utah","NH WHITE",328,"05/30/20","race","hosp","Count",2466025,328,13.3007572915927
+"Utah","NH NH/PI",54,"05/30/20","race","hosp","Count",30824,54,175.188165066182
+"Utah","OTHER",74,"05/30/20","race","hosp","Count",NA,74,NA
+"Utah","UNKNOWN",23,"05/30/20","race","hosp","Count",NA,23,NA
+"Utah","0-1",1,"05/30/20","age","hosp","Count",100213,1,0.997874527256943
+"Utah","1-14",5,"05/30/20","age","hosp","Count",728721,5,0.686133650601533
+"Utah","15-24",34,"05/30/20","age","hosp","Count",509891,34,6.66809180785697
+"Utah","25-44",191,"05/30/20","age","hosp","Count",899522,191,21.2334995697715
+"Utah","45-64",301,"05/30/20","age","hosp","Count",622333,301,48.3663890553771
+"Utah","65-84",199,"05/30/20","age","hosp","Count",312702,199,63.6388638384148
+"Utah","85+",32,"05/30/20","age","hosp","Count",37776,32,84.7098686997035
+"Utah","UNKNOWN",0,"05/30/20","age","hosp","Count",NA,0,NA
+"Utah","",210105,"05/30/20","total","test","Count",3161105,210105,6646.56820953432
+"Utah","",9533,"05/30/20","total","case","Count",3161105,9533,301.571760507797
+"Utah","",112,"05/30/20","total","death","Count",3161105,112,3.54306484599531
+"Utah","",763,"05/30/20","total","hosp","Count",3161105,763,24.137129263343
+"Vermont","AI/AN",1,"05/29/20","race","case","Count",2457,1,40.7000407000407
+"Vermont","ASIAN",11,"05/29/20","race","case","Count",12581,11,87.4334313647564
+"Vermont","BLACK",33,"05/29/20","race","case","Count",8753,33,377.013595338741
+"Vermont","OTHER",12,"05/29/20","race","case","Count",NA,12,NA
+"Vermont","UNKNOWN",29,"05/29/20","race","case","Count",NA,29,NA
+"Vermont","WHITE",891,"05/29/20","race","case","Count",589986,891,151.020532690606
+"Vermont","0-9",2,"05/29/20","age","case","Count",60953,2,3.28121667514314
+"Vermont","10-19",30,"05/29/20","age","case","Count",76046,30,39.4498066959472
+"Vermont","20-29",141,"05/29/20","age","case","Count",83726,141,168.406468719394
+"Vermont","30-39",143,"05/29/20","age","case","Count",73162,143,195.456657827834
+"Vermont","40-49",134,"05/29/20","age","case","Count",72529,134,184.753684733003
+"Vermont","50-59",198,"05/29/20","age","case","Count",90884,198,217.860129395713
+"Vermont","60-69",148,"05/29/20","age","case","Count",89128,148,166.053316578404
+"Vermont","70-79",96,"05/29/20","age","case","Count",52267,96,183.672298008304
+"Vermont","80+",85,"05/29/20","age","case","Count",27604,85,307.926387480075
+"Vermont","FEMALE",513,"05/29/20","gender","case","Count",317047,513,161.80566288279
+"Vermont","MALE",460,"05/29/20","gender","case","Count",309252,460,148.746006493087
+"Vermont","UNKNOWN/OTHER",4,"05/29/20","gender","case","Count",NA,4,NA
+"Vermont","AI/AN",0,"05/29/20","race","death","Count",2457,0,0
+"Vermont","ASIAN",2,"05/29/20","race","death","Count",12581,2,15.8969875208648
+"Vermont","BLACK",0,"05/29/20","race","death","Count",8753,0,0
+"Vermont","OTHER",2,"05/29/20","race","death","Count",NA,2,NA
+"Vermont","UNKNOWN",0,"05/29/20","race","death","Count",NA,0,NA
+"Vermont","WHITE",51,"05/29/20","race","death","Count",589986,51,8.64427291495053
+"Vermont","0-9",0,"05/29/20","age","death","Count",60953,0,0
+"Vermont","10-19",0,"05/29/20","age","death","Count",76046,0,0
+"Vermont","20-29",0,"05/29/20","age","death","Count",83726,0,0
+"Vermont","30-39",1,"05/29/20","age","death","Count",73162,1,1.36682977501982
+"Vermont","40-49",2,"05/29/20","age","death","Count",72529,2,2.75751768258214
+"Vermont","50-59",1,"05/29/20","age","death","Count",90884,1,1.10030368381673
+"Vermont","60-69",10,"05/29/20","age","death","Count",89128,10,11.21981868773
+"Vermont","70-79",18,"05/29/20","age","death","Count",52267,18,34.4385558765569
+"Vermont","80+",23,"05/29/20","age","death","Count",27604,23,83.3212577887263
+"Vermont","FEMALE",24,"05/29/20","gender","death","Count",317047,24,7.56985557346387
+"Vermont","MALE",31,"05/29/20","gender","death","Count",309252,31,10.0241873940993
+"Vermont","UNKNOWN/OTHER",0,"05/29/20","gender","death","Count",NA,0,NA
+"Vermont","",32667,"05/29/20","total","test","Count",626299,32667,5215.87931642873
+"Vermont","",977,"05/29/20","total","case","Count",626299,977,155.995778374227
+"Vermont","HISPANIC",27,"05/29/20","eth","case","Count",12534,27,215.414073719483
+"Vermont","NON HISPANIC",847,"05/29/20","eth","case","Count",613765,847,138.000700593876
+"Vermont","UNKNOWN",103,"05/29/20","eth","case","Count",NA,103,NA
+"Vermont","",55,"05/29/20","total","death","Count",626299,55,8.78174801492578
+"Vermont","HISPANIC",0,"05/29/20","eth","death","Count",12534,0,0
+"Vermont","NON HISPANIC",55,"05/29/20","eth","death","Count",613765,55,8.96108445414776
+"Vermont","UNKNOWN",0,"05/29/20","eth","death","Count",NA,0,NA
+"Virginia","BLACK",6147,"05/30/20","race","case","Count",1691267,6147,363.455326687034
+"Virginia","OTHER",9648,"05/30/20","race","case","Count",NA,9648,NA
+"Virginia","UNKNOWN",14347,"05/30/20","race","case","Count",NA,14347,NA
+"Virginia","WHITE",13469,"05/30/20","race","case","Count",5918670,13469,227.568017814813
+"Virginia","0-9",1219,"05/30/20","age","case","Count",1025381,1219,118.882639721235
+"Virginia","10-19",2326,"05/30/20","age","case","Count",1070646,2326,217.252014204508
+"Virginia","20-29",6815,"05/30/20","age","case","Count",1182998,6815,576.078742314019
+"Virginia","30-39",7989,"05/30/20","age","case","Count",1164754,7989,685.895905916614
+"Virginia","40-49",8054,"05/30/20","age","case","Count",1084330,8054,742.76281205906
+"Virginia","50-59",7015,"05/30/20","age","case","Count",1150345,7015,609.817054883535
+"Virginia","60-69",4690,"05/30/20","age","case","Count",956632,4690,490.261668018632
+"Virginia","70-79",2431,"05/30/20","age","case","Count",581429,2431,418.107799920541
+"Virginia","80+",2665,"05/30/20","age","case","Count",301170,2665,884.882292393001
+"Virginia","UNKNOWN",407,"05/30/20","age","case","Count",NA,407,NA
+"Virginia","FEMALE",21812,"05/30/20","gender","case","Count",4327037,21812,504.086283523806
+"Virginia","MALE",21412,"05/30/20","gender","case","Count",4190648,21412,510.94723298163
+"Virginia","UNKNOWN/OTHER",387,"05/30/20","gender","case","Count",NA,387,NA
+"Virginia","BLACK",279,"05/30/20","race","death","Count",1691267,279,16.4965082390894
+"Virginia","OTHER",165,"05/30/20","race","death","Count",NA,165,NA
+"Virginia","UNKNOWN",176,"05/30/20","race","death","Count",NA,176,NA
+"Virginia","WHITE",750,"05/30/20","race","death","Count",5918670,750,12.6717657852186
+"Virginia","0-9",0,"05/30/20","age","death","Count",1025381,0,0
+"Virginia","10-19",0,"05/30/20","age","death","Count",1070646,0,0
+"Virginia","20-29",3,"05/30/20","age","death","Count",1182998,3,0.253592990013508
+"Virginia","30-39",9,"05/30/20","age","death","Count",1164754,9,0.772695350262802
+"Virginia","40-49",31,"05/30/20","age","death","Count",1084330,31,2.8589082659338
+"Virginia","50-59",79,"05/30/20","age","death","Count",1150345,79,6.86750496590153
+"Virginia","60-69",197,"05/30/20","age","death","Count",956632,197,20.5930807248764
+"Virginia","70-79",338,"05/30/20","age","death","Count",581429,338,58.1326352830698
+"Virginia","80+",712,"05/30/20","age","death","Count",301170,712,236.41132914965
+"Virginia","UNKNOWN",1,"05/30/20","age","death","Count",NA,1,NA
+"Virginia","FEMALE",667,"05/30/20","gender","death","Count",4327037,667,15.4147052590491
+"Virginia","MALE",687,"05/30/20","gender","death","Count",4190648,687,16.3936460423304
+"Virginia","UNKNOWN/OTHER",16,"05/30/20","gender","death","Count",NA,16,NA
+"Virginia","BLACK",1096,"05/30/20","race","hosp","Count",1691267,1096,64.8034875628745
+"Virginia","OTHER",1300,"05/30/20","race","hosp","Count",NA,1300,NA
+"Virginia","UNKNOWN",364,"05/30/20","race","hosp","Count",NA,364,NA
+"Virginia","WHITE",1841,"05/30/20","race","hosp","Count",5918670,1841,31.1049610807834
+"Virginia","0-9",32,"05/30/20","age","hosp","Count",1025381,32,3.12079119858862
+"Virginia","10-19",34,"05/30/20","age","hosp","Count",1070646,34,3.17565283016048
+"Virginia","20-29",181,"05/30/20","age","hosp","Count",1182998,181,15.3001103974817
+"Virginia","30-39",400,"05/30/20","age","hosp","Count",1164754,400,34.3420155672357
+"Virginia","40-49",618,"05/30/20","age","hosp","Count",1084330,618,56.9937196240997
+"Virginia","50-59",834,"05/30/20","age","hosp","Count",1150345,834,72.4999891336947
+"Virginia","60-69",911,"05/30/20","age","hosp","Count",956632,911,95.2299316769667
+"Virginia","70-79",791,"05/30/20","age","hosp","Count",581429,791,136.044125766001
+"Virginia","80+",797,"05/30/20","age","hosp","Count",301170,797,264.634591758807
+"Virginia","UNKNOWN",3,"05/30/20","age","hosp","Count",NA,3,NA
+"Virginia","FEMALE",2079,"05/30/20","gender","hosp","Count",4327037,2079,48.0467349828532
+"Virginia","MALE",2508,"05/30/20","gender","hosp","Count",4190648,2508,59.8475462506037
+"Virginia","UNKNOWN/OTHER",14,"05/30/20","gender","hosp","Count",NA,14,NA
+"Virginia","",43611,"05/30/20","total","case","Count",8517685,43611,512.00531599842
+"Virginia","HISPANIC",13771,"05/30/20","eth","case","Count",820874,13771,1677.60216549678
+"Virginia","NON HISPANIC",14384,"05/30/20","eth","case","Count",7696811,14384,186.882593323391
+"Virginia","UNKNOWN",15456,"05/30/20","eth","case","Count",NA,15456,NA
+"Virginia","",1370,"05/30/20","total","death","Count",8517685,1370,16.084182497944
+"Virginia","HISPANIC",125,"05/30/20","eth","death","Count",820874,125,15.2276719691451
+"Virginia","NON HISPANIC",971,"05/30/20","eth","death","Count",7696811,971,12.6156144408379
+"Virginia","UNKNOWN",274,"05/30/20","eth","death","Count",NA,274,NA
+"Virginia","",4601,"05/30/20","total","hosp","Count",8517685,4601,54.0170245788615
+"Virginia","HISPANIC",1472,"05/30/20","eth","hosp","Count",820874,1472,179.321065108653
+"Virginia","NON HISPANIC",2621,"05/30/20","eth","hosp","Count",7696811,2621,34.0530643145583
+"Virginia","UNKNOWN",508,"05/30/20","eth","hosp","Count",NA,508,NA
+"Washington","HISPANIC",5885,"05/30/20","race","case","Count",970358,5885,606.477197075718
+"Washington","NH AI/AN",201,"05/30/20","race","case","Count",95666,201,210.105993769991
+"Washington","NH ASIAN",1136,"05/30/20","race","case","Count",687325,1136,165.278434510603
+"Washington","NH BLACK",1029,"05/30/20","race","case","Count",295631,1029,348.069045533114
+"Washington","NH MULTI",270,"05/30/20","race","case","Count",308353,270,87.561982533006
+"Washington","NH NH/PI",370,"05/30/20","race","case","Count",53310,370,694.053648471206
+"Washington","NH OTHER",284,"05/30/20","race","case","Count",NA,284,NA
+"Washington","NH WHITE",5952,"05/30/20","race","case","Count",5124948,5952,116.137763739261
+"Washington","UNKNOWN",6222,"05/30/20","race","case","Count",NA,6222,NA
+"Washington","0-19",0.06,"05/30/20","age","case","Percent",1839468,1281,69.6397001741808
+"Washington","20-39",0.32,"05/30/20","age","case","Percent",2170764,6832,314.727902250083
+"Washington","40-59",0.34,"05/30/20","age","case","Percent",1891932,7259,383.681865944442
+"Washington","60-79",0.2,"05/30/20","age","case","Percent",1376095,4270,310.298344227688
+"Washington","80+",0.08,"05/30/20","age","case","Percent",257332,1708,663.734008984502
+"Washington","UNKNOWN",0,"05/30/20","age","case","Count",NA,0,NA
+"Washington","FEMALE",0.52,"05/30/20","gender","case","Percent",3765680,11101,294.794034543562
+"Washington","MALE",0.46,"05/30/20","gender","case","Percent",3769911,9821,260.510128753703
+"Washington","UNKNOWN/OTHER",0.02,"05/30/20","gender","case","Percent",NA,427,NA
+"Washington","HISPANIC",91,"05/30/20","race","death","Count",970358,91,9.37798214679531
+"Washington","NH AI/AN",9,"05/30/20","race","death","Count",95666,9,9.40773106432797
+"Washington","NH ASIAN",96,"05/30/20","race","death","Count",687325,96,13.9671916487833
+"Washington","NH BLACK",33,"05/30/20","race","death","Count",295631,33,11.1625641424614
+"Washington","NH MULTI",13,"05/30/20","race","death","Count",308353,13,4.21594730714473
+"Washington","NH NH/PI",9,"05/30/20","race","death","Count",53310,9,16.8823860438942
+"Washington","NH OTHER",23,"05/30/20","race","death","Count",NA,23,NA
+"Washington","NH WHITE",721,"05/30/20","race","death","Count",5124948,721,14.0684354260765
+"Washington","UNKNOWN",123,"05/30/20","race","death","Count",NA,123,NA
+"Washington","0-19",0,"05/30/20","age","death","Count",1839468,0,0
+"Washington","20-39",0.01,"05/30/20","age","death","Percent",2170764,11,0.506734034653237
+"Washington","40-59",0.09,"05/30/20","age","death","Percent",1891932,101,5.33845825325646
+"Washington","60-79",0.38,"05/30/20","age","death","Percent",1376095,425,30.8844956198518
+"Washington","80+",0.51,"05/30/20","age","death","Percent",257332,570,221.503738361339
+"Washington","UNKNOWN",0,"05/30/20","age","death","Count",NA,0,NA
+"Washington","FEMALE",0.45,"05/30/20","gender","death","Percent",3765680,503,13.3574812517261
+"Washington","MALE",0.54,"05/30/20","gender","death","Percent",3769911,604,16.0215983878665
+"Washington","UNKNOWN/OTHER",0.01,"05/30/20","gender","death","Percent",NA,11,NA
+"Washington","HISPANIC",614,"05/30/20","race","hosp","Count",970358,614,63.2756158036519
+"Washington","NH AI/AN",31,"05/30/20","race","hosp","Count",95666,31,32.4044069993519
+"Washington","NH ASIAN",220,"05/30/20","race","hosp","Count",687325,220,32.0081475284618
+"Washington","NH BLACK",156,"05/30/20","race","hosp","Count",295631,156,52.7684850370902
+"Washington","NH MULTI",28,"05/30/20","race","hosp","Count",308353,28,9.08050189231173
+"Washington","NH NH/PI",57,"05/30/20","race","hosp","Count",53310,57,106.921778277997
+"Washington","NH OTHER",44,"05/30/20","race","hosp","Count",NA,44,NA
+"Washington","NH WHITE",1350,"05/30/20","race","hosp","Count",5124948,1350,26.3417306868284
+"Washington","UNKNOWN",980,"05/30/20","race","hosp","Count",NA,980,NA
+"Washington","",354354,"05/30/20","total","test","Count",7535591,354354,4702.40489432083
+"Washington","",21349,"05/30/20","total","case","Count",7535591,21349,283.308900390162
+"Washington","",1118,"05/30/20","total","death","Count",7535591,1118,14.8362616813996
+"West Virginia","AI/AN",0,"05/29/20","race","case","Percent",4526,0,0
+"West Virginia","ASIAN",0,"05/29/20","race","case","Percent",15338,0,0
+"West Virginia","BLACK",0.069,"05/29/20","race","case","Percent",65231,135,206.956815011268
+"West Virginia","MULTI",0,"05/29/20","race","case","Percent",32216,0,0
+"West Virginia","OTHER",0.151,"05/29/20","race","case","Percent",NA,295,NA
+"West Virginia","UNKNOWN",0,"05/29/20","race","case","Percent",NA,0,NA
+"West Virginia","WHITE",0.78,"05/29/20","race","case","Percent",1687993,1522,90.1662506894282
+"West Virginia","0-9",0.0159,"05/29/20","age","case","Percent",196300,31,15.7921548650025
+"West Virginia","10-19",0.0379,"05/29/20","age","case","Percent",211615,74,34.9691657018642
+"West Virginia","20-29",0.1558,"05/29/20","age","case","Percent",226708,304,134.093194770365
+"West Virginia","30-39",0.1379,"05/29/20","age","case","Percent",210978,269,127.501445648361
+"West Virginia","40-49",0.1574,"05/29/20","age","case","Percent",224018,307,137.042559080074
+"West Virginia","50-59",0.1666,"05/29/20","age","case","Percent",245723,325,132.262751146616
+"West Virginia","60-69",0.1389,"05/29/20","age","case","Percent",250312,271,108.264885422992
+"West Virginia","70+",0.1896,"05/29/20","age","case","Percent",240178,370,154.052411128413
+"West Virginia","FEMALE",0.525,"05/29/20","gender","case","Percent",911492,1024,112.343278931686
+"West Virginia","MALE",0.467,"05/29/20","gender","case","Percent",894340,911,101.862826218217
+"West Virginia","UNKNOWN/OTHER",0.008,"05/29/20","gender","case","Percent",NA,16,NA
+"West Virginia","",93377,"05/29/20","total","test","Count",1805832,93377,5170.85753270515
+"West Virginia","",1951,"05/29/20","total","case","Count",1805832,1951,108.038843037448
+"West Virginia","",74,"05/29/20","total","death","Count",1805832,74,4.09783412853466
+"Wisconsin","AI/AN",204,"","race","case","Count",67571,204,301.904663243107
+"Wisconsin","ASIAN",680,"","race","case","Count",176147,680,386.041204221474
+"Wisconsin","BLACK",3509,"","race","case","Count",389047,3509,901.947579598352
+"Wisconsin","MULTI",2309,"","race","case","Count",114034,2309,2024.83469842328
+"Wisconsin","UNKNOWN",2037,"","race","case","Count",NA,2037,NA
+"Wisconsin","WHITE",9491,"","race","case","Count",5063526,9491,187.438555662596
+"Wisconsin","0-9",463,"","age","case","Count",684181,463,67.6721510828275
+"Wisconsin","10-19",1190,"","age","case","Count",747766,1190,159.140693746439
+"Wisconsin","20-29",3180,"","age","case","Count",770356,3180,412.796161774556
+"Wisconsin","30-39",3336,"","age","case","Count",734739,3336,454.038781118193
+"Wisconsin","40-49",3060,"","age","case","Count",685263,3060,446.543881692139
+"Wisconsin","50-59",2822,"","age","case","Count",810970,2822,347.978346917888
+"Wisconsin","60-69",2013,"","age","case","Count",724001,2013,278.038290002362
+"Wisconsin","70-79",1102,"","age","case","Count",411562,1102,267.760386041471
+"Wisconsin","80-89",710,"","age","case","Count",NA,710,NA
+"Wisconsin","90+",354,"","age","case","Count",NA,354,NA
+"Wisconsin","FEMALE",9223,"","gender","case","Count",2921295,9223,315.716146435057
+"Wisconsin","MALE",8952,"","gender","case","Count",2892273,8952,309.514350823729
+"Wisconsin","OTHER",55,"","gender","case","Count",NA,55,NA
+"Wisconsin","AI/AN",9,"","race","death","Count",67571,9,13.3193233783724
+"Wisconsin","ASIAN",16,"","race","death","Count",176147,16,9.08332245226998
+"Wisconsin","BLACK",148,"","race","death","Count",389047,148,38.0416761985056
+"Wisconsin","MULTI",7,"","race","death","Count",114034,7,6.13852009049933
+"Wisconsin","UNKNOWN",14,"","race","death","Count",NA,14,NA
+"Wisconsin","WHITE",394,"","race","death","Count",5063526,394,7.78113907186415
+"Wisconsin","0-9",0,"","age","death","Count",684181,0,0
+"Wisconsin","10-19",0,"","age","death","Count",747766,0,0
+"Wisconsin","20-29",6,"","age","death","Count",770356,6,0.778860682593502
+"Wisconsin","30-39",8,"","age","death","Count",734739,8,1.08882201707001
+"Wisconsin","40-49",16,"","age","death","Count",685263,16,2.3348699696321
+"Wisconsin","50-59",49,"","age","death","Count",810970,49,6.04214705846086
+"Wisconsin","60-69",93,"","age","death","Count",724001,93,12.8452861252954
+"Wisconsin","70-79",153,"","age","death","Count",411562,153,37.1754437970464
+"Wisconsin","80-89",146,"","age","death","Count",NA,146,NA
+"Wisconsin","90+",117,"","age","death","Count",NA,117,NA
+"Wisconsin","FEMALE",262,"","gender","death","Count",2921295,262,8.96862521587173
+"Wisconsin","MALE",326,"","gender","death","Count",2892273,326,11.2714117927319
+"Wisconsin","OTHER",0,"","gender","death","Count",NA,0,NA
+"Wisconsin","0-9",15,"","age","hosp","Count",684181,15,2.19240230289938
+"Wisconsin","10-19",34,"","age","hosp","Count",747766,34,4.54687696418398
+"Wisconsin","20-29",125,"","age","hosp","Count",770356,125,16.226264220698
+"Wisconsin","30-39",187,"","age","hosp","Count",734739,187,25.4512146490114
+"Wisconsin","40-49",299,"","age","hosp","Count",685263,299,43.6328825574998
+"Wisconsin","50-59",447,"","age","hosp","Count",810970,447,55.119178268
+"Wisconsin","60-69",550,"","age","hosp","Count",724001,550,75.9667459022847
+"Wisconsin","70-79",473,"","age","hosp","Count",411562,473,114.928005986947
+"Wisconsin","80-89",313,"","age","hosp","Count",NA,313,NA
+"Wisconsin","90+",120,"","age","hosp","Count",NA,120,NA
+"Wisconsin","",261138,"","total","test","Count",5813568,261138,4491.87142904323
+"Wisconsin","",18230,"","total","case","Count",5813568,18230,313.576791395577
+"Wisconsin","HISPANIC",6113,"","eth","case","Count",403955,6113,1513.28737111807
+"Wisconsin","NON HISPANIC",9931,"","eth","case","Count",5409613,9931,183.580599943101
+"Wisconsin","UNKNOWN",2186,"","eth","case","Count",NA,2186,NA
+"Wisconsin","",588,"","total","death","Count",5813568,588,10.114270616599
+"Wisconsin","HISPANIC",55,"","eth","death","Count",403955,55,13.6153779505143
+"Wisconsin","NON HISPANIC",513,"","eth","death","Count",5409613,513,9.4831182933049
+"Wisconsin","UNKNOWN",20,"","eth","death","Count",NA,20,NA
+"Wisconsin","",2563,"","total","hosp","Count",5813568,2563,44.0865231128285
+"Wyoming","AI/AN",31,"05/29/20","race","case","Count",15860,31,195.460277427491
+"Wyoming","ASIAN",0.7,"05/29/20","race","case","Percent",6213,467,7516.49766618381
+"Wyoming","BLACK",1,"05/29/20","race","case","Count",7557,1,13.2327643244674
+"Wyoming","HISPANIC",11,"05/29/20","race","case","Count",58227,11,18.8915795077885
+"Wyoming","OTHER",2,"05/29/20","race","case","Count",NA,2,NA
+"Wyoming","UNKNOWN",8,"05/29/20","race","case","Count",NA,8,NA
+"Wyoming","WHITE",47,"05/29/20","race","case","Count",534943,47,8.78598280564471
+"Wyoming","0-18",13,"05/29/20","age","case","Count",141919,13,9.16015473615231
+"Wyoming","19-29",18,"05/29/20","age","case","Count",84102,18,21.4025825782978
+"Wyoming","30-39",15,"05/29/20","age","case","Count",78057,15,19.216726238518
+"Wyoming","40-49",15,"05/29/20","age","case","Count",66095,15,22.6946062485816
+"Wyoming","50-59",13,"05/29/20","age","case","Count",71734,13,18.1225081551287
+"Wyoming","60-69",13,"05/29/20","age","case","Count",74038,13,17.558551014344
+"Wyoming","70-79",5,"05/29/20","age","case","Count",40788,5,12.2585074041385
+"Wyoming","80+",3,"05/29/20","age","case","Count",21004,3,14.2829937154828
+"Wyoming","FEMALE",50,"05/29/20","gender","case","Count",283203,50,17.6551802064244
+"Wyoming","MALE",48,"05/29/20","gender","case","Count",294534,48,16.2969300657989
+"Wyoming","UNKNOWN/OTHER",0,"05/29/20","gender","case","Count",NA,0,NA
+"Wyoming","",21935,"05/29/20","total","test","Count",577737,21935,3796.71026782082
+"Wyoming","",667,"05/29/20","total","case","Count",577737,667,115.450455830248
+"Wyoming","",15,"05/29/20","total","death","Count",577737,15,2.59633708763676

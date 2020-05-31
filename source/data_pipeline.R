@@ -24,6 +24,12 @@ df_aw = read.csv("../Data/raw_states/meta_2020-05-29_aw.csv")
 # load Chistian's data
 df_cbp = load_object("../Data/raw_states/meta_2020-05-29-cbp.rda")
 
+# load manual data
+df_lef = load_object("../manual_data/manual_data_20200529_lef.rda")
+df_as = load_object("../manual_data/manual_data_20200529_as.rda")
+df_cej = load_object("../manual_data/manual_data_20200529_cej.rda")
+df_gl = load_object("../manual_data/manual_data_20200529_gl.rda")
+df_cbp = rbind(df_cbp, df_lef, df_as, df_cej, df_gl)
 ### 1. compile files ----
 df_aw$last.update = df_aw$last.update %>% 
   as.character %>% as.Date("%m/%d/%y") %>% format("%m/%d/%y")
