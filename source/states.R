@@ -864,7 +864,7 @@ get_dc = function() {
   
   # Get the link for the most recent xlsx file
   most_recent = data[str_detect(data, "xlsx")] %>% .[1]
-  data_url = paste0("https://coronavirus.dc.gov", most_recent)
+  data_url = paste0(most_recent)
   
   # Download temporarily and extract data
   temp = tempfile(fileext = ".xlsx")
