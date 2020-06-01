@@ -9,7 +9,8 @@ load_object <- function(file) {
   load(file = file, envir = tmp)
   tmp[[ls(tmp)[1]]]
 }
-
+oldw <- getOption("warn")
+options(warn = -1)
 
 # command + option + o to see the pipeline structure
 
@@ -19,10 +20,10 @@ file_date = Sys.Date()-1 # change accordingly if the editing date is not the scr
 file_date_name = file_date %>% format("%Y%m%d")
 
 # load Aijin's data
-df_aw = read.csv("../Data/raw_states/meta_2020-05-29_aw.csv")
+df_aw = read.csv("../Data/raw_states/meta_2020-05-30_aw.csv")
 
 # load Chistian's data
-df_cbp = load_object("../Data/raw_states/meta_2020-05-29-cbp.rda")
+df_cbp = load_object("../Data/raw_states/meta_2020-05-30-cbp.rda")
 
 # load manual data
 df_lef = load_object("../manual_data/manual_data_20200529_lef.rda")
