@@ -108,13 +108,15 @@ get_oklahoma = function() {
   
   # Race and ethnicity are mixed together
   oklahoma[["cases"]][["race_white"]] = get_information("OK, cases white: ") 
+  oklahoma[["cases"]][["race_unk"]] = get_information("OK, cases race_unk: ")
   oklahoma[["cases"]][["race_AfrA"]] = get_information("OK, cases AfrA: ") 
   oklahoma[["cases"]][["race_NatA"]] = get_information("OK, cases NatA: ") 
+  oklahoma[["cases"]][["race_multi_other"]] = get_information("OK, cases multi/other: ")
   oklahoma[["cases"]][["race_asian_pac"]] = get_information("OK, cases asian: ")
-  oklahoma[["cases"]][["race_multi_other"]] = get_information("OK, cases multi/other: ") 
-  oklahoma[["cases"]][["race_unk"]] = get_information("OK, cases race_unk: ")
+   
   oklahoma[["cases"]][["sex_male"]] = get_information("OK, cases sex_male: ") 
   oklahoma[["cases"]][["sex_female"]] = get_information("OK, cases sex_female: ")
+  oklahoma[["cases"]][["sex_unk"]] = get_information("OK, cases sex_unk: ")
   
   oklahoma[["deaths"]][["age_0_4"]] = get_information("OK, death age_0_4: ") 
   oklahoma[["deaths"]][["age_5_17"]] = get_information("OK, death age_5_17: ") 
@@ -122,12 +124,14 @@ get_oklahoma = function() {
   oklahoma[["deaths"]][["age_36_49"]] = get_information("OK, death age_36_49: ")
   oklahoma[["deaths"]][["age_50_64"]] = get_information("OK, death age_50_64: ") 
   oklahoma[["deaths"]][["age_65+"]] = get_information("OK, deathage_65+: ")
+  
   oklahoma[["deaths"]][["race_white"]] = get_information("OK, death white: ") 
   oklahoma[["deaths"]][["race_AfrA"]] = get_information("OK, death AfrA: ") 
   oklahoma[["deaths"]][["race_NatA"]] = get_information("OK, death NatA: ") 
-  oklahoma[["deaths"]][["race_asian_pac"]] = get_information("OK, death asian: ")
-  oklahoma[["deaths"]][["race_multi_other"]] = get_information("OK, death multi/other: ") 
   oklahoma[["deaths"]][["race_unk"]] = get_information("OK, death race_unk: ")
+  oklahoma[["deaths"]][["race_multi_other"]] = get_information("OK, death multi/other: ") 
+  oklahoma[["deaths"]][["race_asian_pac"]] = get_information("OK, death asian: ")
+  
   oklahoma[["deaths"]][["sex_male"]] = get_information("OK, death sex_male: ") 
   oklahoma[["deaths"]][["sex_female"]] = get_information("OK, death sex_female: ")
   
@@ -274,29 +278,20 @@ get_mississippi = function() {
   
   male_afra = get_information("MS, male deaths AfrA: ")
   male_white = get_information("MS, male deaths white: ")
-  male_hispanic = get_information("MS, male deaths hisp: ")
-  male_asian = get_information("MS, male deaths Asian: ")
-  male_nata = get_information("MS, male deaths NatA: ")
   male_other = get_information("MS, male deaths other_race: ")
-  
+  male_nata = get_information("MS, male deaths NatA: ")
+
   female_afra = get_information("MS, female deaths AfrA: ")
   female_white = get_information("MS, female deaths white: ")
-  female_hispanic = get_information("MS, female deaths hisp: ")
-  female_asian = get_information("MS, female deaths Asian: ")
-  female_nata = get_information("MS, female deaths NatA: ")
   female_other = get_information("MS, female deaths other_race: ")
   
-  mississippi[["deaths"]][["sex_male"]] = male_afra + male_white + male_hispanic + male_asian +
-    male_nata + male_other
-  mississippi[["deaths"]][["sex_female"]] = female_afra + female_white + female_hispanic + female_asian +
-    female_nata + female_other
+  mississippi[["deaths"]][["sex_male"]] = male_afra + male_white + male_nata + male_other
+  mississippi[["deaths"]][["sex_female"]] = female_afra + female_white + female_other
   
   mississippi[["deaths"]][["race_AfrA"]] = male_afra + female_afra
   mississippi[["deaths"]][["race_white"]] = male_white + female_white
-  mississippi[["deaths"]][["race_asian"]] = male_asian + female_asian
-  mississippi[["deaths"]][["race_NatA"]] = male_nata + female_nata
+  mississippi[["deaths"]][["race_NatA"]] = male_nata
   mississippi[["deaths"]][["race_other"]] = male_other + female_other
-  mississippi[["deaths"]][["ethnicity_hispanic"]] = male_hispanic + female_hispanic
   
   final_mississippi = as_tibble(mississippi) %>% 
     standardize %>% 
@@ -792,43 +787,53 @@ get_north_carolina = function() {
   north_carolina[["cases"]][["age_0_17"]] = get_information("NC, case age_0_17: ") 
   north_carolina[["cases"]][["age_18_24"]] = get_information("NC, case age_18_24: ")
   north_carolina[["cases"]][["age_25_49"]] = get_information("NC, case age_25_49: ")
-  north_carolina[["cases"]][["age_50_64"]] = get_information("NC, case age_50_44: ")
+  north_carolina[["cases"]][["age_50_64"]] = get_information("NC, case age_50_64: ")
   north_carolina[["cases"]][["age_65_74"]] = get_information("NC, deaths age_65_74: ")
-  north_carolina[["cases"]][["age_75+"]] = get_information("NC, deaths age_65+: ")
-  north_carolina[["cases"]][["age_unk"]] = get_information("NC, case age_unk: ")
+  north_carolina[["cases"]][["age_75+"]] = get_information("NC, deaths age_75+: ")
+  
+  
   north_carolina[["cases"]][["race_NatA"]] = get_information("NC, case race NatA: ")
   north_carolina[["cases"]][["race_asian"]] = get_information("NC, case race asian: ")
   north_carolina[["cases"]][["race_AfrA"]] = get_information("NC, case race AfrA: ")
   north_carolina[["cases"]][["race_pac"]] = get_information("NC, case race Pac Island: ")
   north_carolina[["cases"]][["race_white"]] = get_information("NC, case race white: ")
   north_carolina[["cases"]][["race_other"]] = get_information("NC, case race other: ")
-  north_carolina[["cases"]][["race_unk"]] = get_information("NC, case race unknown: ")
+  
   north_carolina[["cases"]][["ethnicity_hispanic"]] = get_information("NC, case hispanic: ")
   north_carolina[["cases"]][["ethnicity_non_hispanic"]] = get_information("NC, case non_hispanic: ")
-  north_carolina[["cases"]][["ethnicity_unk"]] = get_information("NC, case hisp unknown: ")
+  
   north_carolina[["cases"]][["sex_male"]] = get_information("NC, case sex male: ")
   north_carolina[["cases"]][["sex_female"]] = get_information("NC, case sex female: ")
+  
+  north_carolina[["cases"]][["race_unk"]] = get_information("NC, case race unknown: ")
+  north_carolina[["cases"]][["ethnicity_unk"]] = get_information("NC, case hisp unknown: ")
+  north_carolina[["cases"]][["age_unk"]] = get_information("NC, case age_unk: ")
   north_carolina[["cases"]][["sex_unk"]] = get_information("NC, case sex unknown: ")
   
   north_carolina[["deaths"]][["total"]] = get_information("NC, Total deaths: ") 
   north_carolina[["deaths"]][["age_0_17"]] = get_information("NC, deaths age_0_17: ") 
   north_carolina[["deaths"]][["age_18_24"]] = get_information("NC, deaths age_18_24: ")
   north_carolina[["deaths"]][["age_25_49"]] = get_information("NC, deaths age_25_49: ")
-  north_carolina[["deaths"]][["age_50_64"]] = get_information("NC, deaths age_50_44: ")
+  north_carolina[["deaths"]][["age_50_64"]] = get_information("NC, deaths age_50_64: ")
   north_carolina[["deaths"]][["age_65_74"]] = get_information("NC, deaths age_65_74: ")
-  north_carolina[["deaths"]][["age_75+"]] = get_information("NC, deaths age_65+: ")
-  north_carolina[["deaths"]][["age_unk"]] = get_information("NC, deaths age_unk: ")
+  north_carolina[["deaths"]][["age_75+"]] = get_information("NC, deaths age_75+: ")
+  
   north_carolina[["deaths"]][["race_NatA"]] = get_information("NC, deaths race NatA: ")
   north_carolina[["deaths"]][["race_asian"]] = get_information("NC, deaths race asian: ")
   north_carolina[["deaths"]][["race_AfrA"]] = get_information("NC, deaths race AfrA: ")
+  north_carolina[["deaths"]][["race_pac"]] = get_information("NC, deaths race Pac Island: ")
   north_carolina[["deaths"]][["race_white"]] = get_information("NC, deaths race white: ")
   north_carolina[["deaths"]][["race_other"]] = get_information("NC, deaths race other: ")
-  north_carolina[["deaths"]][["race_unk"]] = get_information("NC, deaths race unknown: ")
+  
   north_carolina[["deaths"]][["ethnicity_hispanic"]] = get_information("NC, deaths hispanic: ")
   north_carolina[["deaths"]][["ethnicity_non_hispanic"]] = get_information("NC, deaths non_hispanic: ")
-  north_carolina[["deaths"]][["ethnicity_unk"]] = get_information("NC, deaths hisp unknown: ")
+  
   north_carolina[["deaths"]][["sex_male"]] = get_information("NC, deaths sex male: ")
   north_carolina[["deaths"]][["sex_female"]] = get_information("NC, deaths sex female: ")
+  
+  north_carolina[["deaths"]][["race_unk"]] = get_information("NC, deaths race unknown: ")
+  north_carolina[["deaths"]][["ethnicity_unk"]] = get_information("NC, deaths hisp unknown: ")
+  north_carolina[["deaths"]][["age_unk"]] = get_information("NC, deaths age_unk: ")
   north_carolina[["deaths"]][["sex_unk"]] = get_information("NC, deaths sex unknown: ")
   
   north_carolina[["hospitalized"]][["total"]] = get_information("NC, Total hosp: ")
@@ -946,56 +951,56 @@ get_south_carolina = function() {
   
   browseURL("https://scdhec.gov/sc-demographic-data-covid-19")
   
-  south_carolina[["cases"]][["age_0_10"]] = get_information("SC, cases age_0_10: ")
-  south_carolina[["cases"]][["age_11_20"]] = get_information("SC, cases age_11_20: ")
-  south_carolina[["cases"]][["age_21_30"]] = get_information("SC, cases age_21_30: ")
-  south_carolina[["cases"]][["age_31_40"]] = get_information("SC, cases age_31_40: ")
-  south_carolina[["cases"]][["age_41_50"]] = get_information("SC, cases age_41_50: ")
-  south_carolina[["cases"]][["age_51_60"]] = get_information("SC, cases age_51_60: ")
-  south_carolina[["cases"]][["age_61_70"]] = get_information("SC, cases age_61_70: ")
-  south_carolina[["cases"]][["age_71_80"]] = get_information("SC, cases age_71_80: ")
-  south_carolina[["cases"]][["age_81+"]] = get_information("SC, cases age_81+: ") 
+  south_carolina[["cases"]][["age_0_10"]] = get_information2("SC, cases age_0_10 (enter as whole %):")
+  south_carolina[["cases"]][["age_11_20"]] = get_information2("SC, cases age_11_20 (enter as whole %): ")
+  south_carolina[["cases"]][["age_21_30"]] = get_information2("SC, cases age_21_30 (enter as whole %): ")
+  south_carolina[["cases"]][["age_31_40"]] = get_information2("SC, cases age_31_40 (enter as whole %): ")
+  south_carolina[["cases"]][["age_41_50"]] = get_information2("SC, cases age_41_50 (enter as whole %): ")
+  south_carolina[["cases"]][["age_51_60"]] = get_information2("SC, cases age_51_60 (enter as whole %): ")
+  south_carolina[["cases"]][["age_61_70"]] = get_information2("SC, cases age_61_70 (enter as whole %): ")
+  south_carolina[["cases"]][["age_71_80"]] = get_information2("SC, cases age_71_80 (enter as whole %): ")
+  south_carolina[["cases"]][["age_81+"]] = get_information2("SC, cases age_81+ (enter as whole %): ") 
   
-  south_carolina[["cases"]][["race_AfrA"]] = get_information("SC, cases race_Afra: ")
-  south_carolina[["cases"]][["race_white"]] = get_information("SC, cases race_white: ")
-  south_carolina[["cases"]][["race_asian"]] = get_information("SC, cases race_asian: ")
-  south_carolina[["cases"]][["race_unk"]] = get_information("SC, cases race_unk: ")
-  south_carolina[["cases"]][["race_other"]] = get_information("SC, cases race_other: ")
+  south_carolina[["cases"]][["race_AfrA"]] = get_information2("SC, cases race_Afra (enter as whole %): ")
+  south_carolina[["cases"]][["race_white"]] = get_information2("SC, cases race_white (enter as whole %): ")
+  south_carolina[["cases"]][["race_asian"]] = get_information2("SC, cases race_asian (enter as whole %): ")
+  south_carolina[["cases"]][["race_unk"]] = get_information2("SC, cases race_unk (enter as whole %): ")
+  south_carolina[["cases"]][["race_other"]] = get_information2("SC, cases race_other (enter as whole %): ")
   
-  south_carolina[["cases"]][["ethnicity_hispanic"]] = get_information("SC, cases ethnicity_hispanic: ")
-  south_carolina[["cases"]][["ethnicity_non_hispanic"]] = get_information("SC, cases ethnicity_non_hispanic: ")
-  south_carolina[["cases"]][["ethnicity_unk"]] = get_information("SC, cases ethnicity_unk: ")
+  south_carolina[["cases"]][["ethnicity_non_hispanic"]] = get_information2("SC, cases ethnicity_non_hispanic (enter as whole %): ")
+  south_carolina[["cases"]][["ethnicity_hispanic"]] = get_information2("SC, cases ethnicity_hispanic (enter as whole %): ")
+  south_carolina[["cases"]][["ethnicity_unk"]] = get_information2("SC, cases ethnicity_unk (enter as whole %): ")
   
-  south_carolina[["cases"]][["sex_male"]] = get_information("SC, cases male: ")
-  south_carolina[["cases"]][["sex_female"]] = get_information("SC, cases female: ")
-  south_carolina[["cases"]][["sex_unk"]] = get_information("SC, cases unk: ")
+  south_carolina[["cases"]][["sex_female"]] = get_information2("SC, cases female (enter as whole %): ")
+  south_carolina[["cases"]][["sex_male"]] = get_information2("SC, cases male (enter as whole %): ")
+  south_carolina[["cases"]][["sex_unk"]] = get_information2("SC, cases unk (enter as whole %): ")
   
-  south_carolina[["hospitalized"]][["total"]] = get_information("SC, Total hosp: ")
+  south_carolina[["hospitalized"]][["total"]] = get_information("SC, Total hosp (calc.): ")
   
-  south_carolina[["deaths"]][["total"]] = get_information("SC, Total deaths: ")
-  south_carolina[["deaths"]][["age_0_10"]] = get_information("SC, deaths age_0_10: ")
-  south_carolina[["deaths"]][["age_11_20"]] = get_information("SC, deaths age_11_20: ")
-  south_carolina[["deaths"]][["age_21_30"]] = get_information("SC, deaths age_21_30: ")
-  south_carolina[["deaths"]][["age_31_40"]] = get_information("SC, deaths age_31_40: ")
-  south_carolina[["deaths"]][["age_41_50"]] = get_information("SC, deaths age_41_50: ")
-  south_carolina[["deaths"]][["age_51_60"]] = get_information("SC, deaths age_51_60: ")
-  south_carolina[["deaths"]][["age_61_70"]] = get_information("SC, deaths age_61_70: ")
-  south_carolina[["deaths"]][["age_71_80"]] = get_information("SC, deaths age_71_80: ")
-  south_carolina[["deaths"]][["age_81+"]] = get_information("SC, deaths age_81+: ") 
+  south_carolina[["deaths"]][["total"]] = get_information2("SC, Total deaths: ")
+  south_carolina[["deaths"]][["age_0_10"]] = get_information2("SC, deaths age_0_10 (enter as whole %): ")
+  south_carolina[["deaths"]][["age_11_20"]] = get_information2("SC, deaths age_11_20 (enter as whole %): ")
+  south_carolina[["deaths"]][["age_21_30"]] = get_information2("SC, deaths age_21_30 (enter as whole %): ")
+  south_carolina[["deaths"]][["age_31_40"]] = get_information2("SC, deaths age_31_40 (enter as whole %): ")
+  south_carolina[["deaths"]][["age_41_50"]] = get_information2("SC, deaths age_41_50 (enter as whole %): ")
+  south_carolina[["deaths"]][["age_51_60"]] = get_information2("SC, deaths age_51_60 (enter as whole %): ")
+  south_carolina[["deaths"]][["age_61_70"]] = get_information2("SC, deaths age_61_70 (enter as whole %): ")
+  south_carolina[["deaths"]][["age_71_80"]] = get_information2("SC, deaths age_71_80 (enter as whole %): ")
+  south_carolina[["deaths"]][["age_81+"]] = get_information2("SC, deaths age_81+ (enter as whole %): ") 
   
-  south_carolina[["deaths"]][["race_AfrA"]] = get_information("SC, deaths race_Afra: ")
-  south_carolina[["deaths"]][["race_white"]] = get_information("SC, deaths race_white: ")
-  south_carolina[["deaths"]][["race_asian"]] = get_information("SC, deaths race_asian: ")
-  south_carolina[["deaths"]][["race_unk"]] = get_information("SC, deaths race_unk: ")
-  south_carolina[["deaths"]][["race_other"]] = get_information("SC, deaths race_other: ")
+  south_carolina[["deaths"]][["race_AfrA"]] = get_information2("SC, deaths race_Afra (enter as whole %): ")
+  south_carolina[["deaths"]][["race_white"]] = get_information2("SC, deaths race_white (enter as whole %): ")
+  south_carolina[["deaths"]][["race_asian"]] = get_information2("SC, deaths race_asian (enter as whole %): ")
+  south_carolina[["deaths"]][["race_unk"]] = get_information2("SC, deaths race_unk (enter as whole %): ")
+  south_carolina[["deaths"]][["race_other"]] = get_information2("SC, deaths race_other (enter as whole %): ")
   
-  south_carolina[["deaths"]][["ethnicity_hispanic"]] = get_information("SC, deaths ethnicity_hispanic: ")
-  south_carolina[["deaths"]][["ethnicity_non_hispanic"]] = get_information("SC, deaths ethnicity_non_hispanic: ")
-  south_carolina[["deaths"]][["ethnicity_unk"]] = get_information("SC, deaths ethnicity_unk: ")
+  south_carolina[["deaths"]][["ethnicity_hispanic"]] = get_information2("SC, deaths ethnicity_hispanic (enter as whole %): ")
+  south_carolina[["deaths"]][["ethnicity_non_hispanic"]] = get_information2("SC, deaths ethnicity_non_hispanic (enter as whole %): ")
+  south_carolina[["deaths"]][["ethnicity_unk"]] = get_information2("SC, deaths ethnicity_unk (enter as whole %): ")
   
-  south_carolina[["deaths"]][["sex_male"]] = get_information("SC, deaths male: ")
-  south_carolina[["deaths"]][["sex_female"]] = get_information("SC, deaths female: ")
-  south_carolina[["deaths"]][["sex_unk"]] = get_information("SC, deaths unk: ")
+  south_carolina[["deaths"]][["sex_female"]] = get_information2("SC, deaths female (enter as whole %): ")
+  south_carolina[["deaths"]][["sex_male"]] = get_information2("SC, deaths male (enter as whole %): ")
+  south_carolina[["deaths"]][["sex_unk"]] = get_information2("SC, deaths unk (enter as whole %): ")
   
   final_south_carolina = as_tibble(south_carolina) %>% 
     standardize %>% 
@@ -1612,38 +1617,40 @@ get_idaho = function() {
   skeleton[["cases"]][["age_60_69"]] = get_information("ID: Cases age 60 - 69?: ")
   skeleton[["cases"]][["age_70_79"]] = get_information("ID: Cases age 70 - 79?: ")
   skeleton[["cases"]][["age_80+"]] = get_information("ID: Cases age 80+?: ")
-  skeleton[["cases"]][["sex_male"]] = get_information("ID: Cases sex male?: ")
+  
   skeleton[["cases"]][["sex_female"]] = get_information("ID: Cases sex female?: ")
-  skeleton[["cases"]][["ethnicity_unk"]] = get_information("ID: Cases ethnicity unknown? (calc %): ")
+  skeleton[["cases"]][["sex_male"]] = get_information("ID: Cases sex male?: ")
   
-  case_hisp = get_information("ID: Cases hispanic count?: ")
-  skeleton[["cases"]][["ethnicity_hispanic"]] = case_hisp / skeleton[["cases"]][["total"]]
+  skeleton[["cases"]][["ethnicity_unk"]] = get_information("ID: Cases ethnicity unknown? (calc #): ")
   
-  case_non_hisp = get_information("ID: Cases not hispanic count?: ")
-  skeleton[["cases"]][["ethnicity_non_hispanic"]] = case_non_hisp / skeleton[["cases"]][["total"]]
+  case_hisp = get_information2("ID: Cases hispanic (whole %)?: ")
+  skeleton[["cases"]][["ethnicity_hispanic"]] = ((skeleton[["cases"]][["total"]] - skeleton[["cases"]][["ethnicity_unk"]]) * case_hisp) %>% floor
   
-  skeleton[["cases"]][["race_unk"]] = get_information("ID: Cases race unknown? (calc. %): ")
+  case_non_hisp = get_information2("ID: Cases not hispanic (whole %)?: ")
+  skeleton[["cases"]][["ethnicity_non_hispanic"]] = ((skeleton[["cases"]][["total"]] - skeleton[["cases"]][["ethnicity_unk"]]) * case_non_hisp) %>% floor
   
-  case_white = get_information("ID: Cases race white count?: ")
-  skeleton[["cases"]][["race_white"]] = case_white / skeleton[["cases"]][["total"]]
+  skeleton[["cases"]][["race_unk"]] = get_information2("ID: Cases race unknown? (calc. #): ")
+  
+  case_white = get_information("ID: Cases race white (whole %)?: ")
+  skeleton[["cases"]][["race_white"]] = ((skeleton[["cases"]][["total"]] - skeleton[["cases"]][["race_unk"]]) * case_white) %>% floor
     
-  case_race_other = get_information("ID: Cases race other count?: ")
-  skeleton[["cases"]][["race_other"]] = case_race_other / skeleton[["cases"]][["total"]]
+  case_race_other = get_information("ID: Cases race other (whole %)?: ")
+  skeleton[["cases"]][["race_other"]] = ((skeleton[["cases"]][["total"]] - skeleton[["cases"]][["race_unk"]]) * case_race_other) %>% floor
     
-  case_asian = get_information("ID: Cases race asian count?: ")
-  skeleton[["cases"]][["race_asian"]] = case_asian / skeleton[["cases"]][["total"]]
-    
-  case_afra = get_information("ID: Cases race AfrA count?: ")
-  skeleton[["cases"]][["race_AfrA"]] = case_afra / skeleton[["cases"]][["total"]]
+  case_asian = get_information("ID: Cases asian (whole %)?: ")
+  skeleton[["cases"]][["race_asian"]] = ((skeleton[["cases"]][["total"]] - skeleton[["cases"]][["race_unk"]]) * case_asian) %>% floor
   
-  case_race_multi = get_information("ID: Cases multirace count?: ")   
-  skeleton[["cases"]][["race_multi"]] = case_race_multi / skeleton[["cases"]][["total"]]
+  case_afra = get_information("ID: Cases AfrA (whole %)?: ")
+  skeleton[["cases"]][["race_AfrA"]] = ((skeleton[["cases"]][["total"]] - skeleton[["cases"]][["race_unk"]]) * case_afra) %>% floor
   
-  case_nata = get_information("ID: Cases race NatA count?: ")
-  skeleton[["cases"]][["race_NatA"]] = case_nata / skeleton[["cases"]][["total"]]
+  case_race_multi = get_information("ID: Cases race_multi (whole %)?: ")
+  skeleton[["cases"]][["race_multi"]] = ((skeleton[["cases"]][["total"]] - skeleton[["cases"]][["race_unk"]]) * case_race_multi) %>% floor
+  
+  case_nata = get_information("ID: Cases NatA (whole %)?: ")
+  skeleton[["cases"]][["race_NatA"]] = ((skeleton[["cases"]][["total"]] - skeleton[["cases"]][["race_unk"]]) * case_nata) %>% floor
     
-  case_pac = get_information("ID: Cases race Pacific Islander count?: ")
-  skeleton[["cases"]][["race_pac"]] = case_pac / skeleton[["cases"]][["total"]]
+  case_pac = get_information("ID: Cases pac (whole %)?: ")
+  skeleton[["cases"]][["race_pac"]] = ((skeleton[["cases"]][["total"]] - skeleton[["cases"]][["race_unk"]]) * case_pac) %>% floor
   
   skeleton[["hospitalized"]][["total"]] = get_information("ID: Total hospitalized?: ")
   
@@ -1690,43 +1697,44 @@ get_iowa = function() {
   skeleton[["tested"]][["total"]] = get_information("IA: Total tested?: ")
   skeleton[["cases"]][["total"]] = get_information("IA: Total cases?: ")
   
-  skeleton[["cases"]][["age_0_17"]] = get_information("IA: Cases age 0-17 %?: ")
-  skeleton[["cases"]][["age_18_40"]] = get_information("IA: Cases age 18-40 %?: ")
-  skeleton[["cases"]][["age_41_60"]] = get_information("IA: Cases age 41-60 %?: ")
-  skeleton[["cases"]][["age_61_80"]] = get_information("IA: Cases age 61-80 %?: ")
-  skeleton[["cases"]][["age_80+"]] = get_information("IA: Cases age 80+ %?: ")
-  skeleton[["cases"]][["sex_male"]] = get_information("IA: Cases sex male %?: ")
-  skeleton[["cases"]][["sex_female"]] = get_information("IA: Cases sex female %?: ")
-  skeleton[["cases"]][["sex_unk"]] = get_information("IA: Cases sex unknown/pending %?: ")
+  skeleton[["cases"]][["age_0_17"]] = get_information2("IA: Cases age 0-17 (whole %)?: ")
+  skeleton[["cases"]][["age_18_40"]] = get_information2("IA: Cases age 18-40 (whole %)?: ")
+  skeleton[["cases"]][["age_41_60"]] = get_information2("IA: Cases age 41-60 (whole %)?: ")
+  skeleton[["cases"]][["age_61_80"]] = get_information2("IA: Cases age 61-80 (whole %)?: ")
+  skeleton[["cases"]][["age_80+"]] = get_information2("IA: Cases age 80+ (whole %)?: ")
   
-  skeleton[["cases"]][["race_asian"]] = get_information("IA: Cases race asian %?: ")
-  skeleton[["cases"]][["race_AfrA"]] = get_information("IA: Cases race AfrA %?: ")
-  skeleton[["cases"]][["race_other"]] = get_information("IA: Cases race other %?: ")
-  skeleton[["cases"]][["race_white"]] = get_information("IA: Cases race white %?: ")
+  skeleton[["cases"]][["sex_female"]] = get_information2("IA: Cases sex female (whole %)?: ")
+  skeleton[["cases"]][["sex_male"]] = get_information2("IA: Cases sex male (whole %)?: ")
+  skeleton[["cases"]][["sex_unk"]] = get_information2("IA: Cases sex unknown/pending (whole %)?: ")
   
-  skeleton[["cases"]][["ethnicity_hispanic"]] = get_information("IA: Cases ethnicity hispanic %?: ")
-  skeleton[["cases"]][["ethnicity_non_hispanic"]] = get_information("IA: Cases ethnicity not hispanic %?: ")
-  skeleton[["cases"]][["ethnicity_unk"]] = get_information("IA: Cases ethnicity pending %?: ")
+  skeleton[["cases"]][["race_asian"]] = get_information2("IA: Cases race asian (whole %)?: ")
+  skeleton[["cases"]][["race_AfrA"]] = get_information2("IA: Cases race AfrA (whole %)?: ")
+  skeleton[["cases"]][["race_other"]] = get_information2("IA: Cases race other (whole %)?: ")
+  skeleton[["cases"]][["race_white"]] = get_information2("IA: Cases race white (whole %)?: ")
+  
+  skeleton[["cases"]][["ethnicity_hispanic"]] = get_information2("IA: Cases ethnicity hispanic (whole %)?: ")
+  skeleton[["cases"]][["ethnicity_non_hispanic"]] = get_information2("IA: Cases ethnicity not hispanic (whole %)?: ")
+  skeleton[["cases"]][["ethnicity_unk"]] = get_information2("IA: Cases ethnicity pending (whole %)?: ")
   
   skeleton[["deaths"]][["total"]] = get_information("IA: Total deaths?: ")
   
-  skeleton[["deaths"]][["age_0_17"]] = get_information("IA: Deaths age 0-17 %?: ")
-  skeleton[["deaths"]][["age_18_40"]] = get_information("IA: Deaths age 18-40 %?: ")
-  skeleton[["deaths"]][["age_41_60"]] = get_information("IA: Deaths age 41-60 %?: ")
-  skeleton[["deaths"]][["age_61_80"]] = get_information("IA: Deaths age 61-80 %?: ")
-  skeleton[["deaths"]][["age_80+"]] = get_information("IA: Deaths age 80+ %?: ")
-  skeleton[["deaths"]][["sex_male"]] = get_information("IA: Deaths sex male %?: ")
-  skeleton[["deaths"]][["sex_female"]] = get_information("IA: Deaths sex female %?: ")
-  skeleton[["deaths"]][["sex_unk"]] = get_information("IA: Deaths sex unknown/pending %?: ")
+  skeleton[["deaths"]][["age_0_17"]] = get_information2("IA: Deaths age 0-17 (whole %, CHECK)?: ")
+  skeleton[["deaths"]][["age_18_40"]] = get_information2("IA: Deaths age 18-40 (whole %)?: ")
+  skeleton[["deaths"]][["age_41_60"]] = get_information2("IA: Deaths age 41-60 (whole %)?: ")
+  skeleton[["deaths"]][["age_61_80"]] = get_information2("IA: Deaths age 61-80 (whole %)?: ")
+  skeleton[["deaths"]][["age_80+"]] = get_information2("IA: Deaths age 80+ (whole %)?: ")
   
-  skeleton[["deaths"]][["race_asian"]] = get_information("IA: Deaths race asian %?: ")
-  skeleton[["deaths"]][["race_AfrA"]] = get_information("IA: Deaths race AfrA %?: ")
-  skeleton[["deaths"]][["race_other"]] = get_information("IA: Deaths race other %?: ")
-  skeleton[["deaths"]][["race_white"]] = get_information("IA: Deaths race white %?: ")
+  skeleton[["deaths"]][["sex_female"]] = get_information2("IA: Deaths sex female (whole %)?: ")
+  skeleton[["deaths"]][["sex_male"]] = get_information2("IA: Deaths sex male (whole %)?: ")
   
-  skeleton[["deaths"]][["ethnicity_hispanic"]] = get_information("IA: Deaths ethnicity hispanic %?: ")
-  skeleton[["deaths"]][["ethnicity_non_hispanic"]] = get_information("IA: Deaths ethnicity not hispanic %?: ")
-  skeleton[["deaths"]][["ethnicity_unk"]] = get_information("IA: Deaths ethnicity pending %?: ")
+  skeleton[["deaths"]][["race_asian"]] = get_information2("IA: Deaths race asian (whole %)?: ")
+  skeleton[["deaths"]][["race_AfrA"]] = get_information2("IA: Deaths race AfrA (whole %)?: ")
+  skeleton[["deaths"]][["race_other"]] = get_information2("IA: Deaths race other (whole %)?: ")
+  skeleton[["deaths"]][["race_white"]] = get_information2("IA: Deaths race white (whole %)?: ")
+  
+  skeleton[["deaths"]][["ethnicity_hispanic"]] = get_information2("IA: Deaths ethnicity hispanic (whole %)?: ")
+  skeleton[["deaths"]][["ethnicity_non_hispanic"]] = get_information2("IA: Deaths ethnicity not hispanic (whole %)?: ")
+  skeleton[["deaths"]][["ethnicity_unk"]] = get_information2("IA: Deaths ethnicity pending (whole %)?: ")
   
   full_skeleton = as_tibble(skeleton) %>% 
     standardize %>% 
@@ -1756,6 +1764,7 @@ get_kansas = function() {
   skeleton[["cases"]][["sex_female"]] = get_information("KS: Cases sex female?: ")
   skeleton[["cases"]][["sex_male"]] = get_information("KS: Cases sex male?: ")
   skeleton[["cases"]][["sex_unk"]] = get_information("KS: Cases sex unknown?: ")
+  
   skeleton[["cases"]][["age_0_9"]] = get_information("KS: Cases age 0 - 9?: ")
   skeleton[["cases"]][["age_10_17"]] = get_information("KS: Cases age 10 - 17?: ")
   skeleton[["cases"]][["age_18_24"]] = get_information("KS: Cases age 18 - 24?: ")
@@ -1767,19 +1776,18 @@ get_kansas = function() {
   skeleton[["cases"]][["age_75_84"]] = get_information("KS: Cases age 75 - 84?: ")
   skeleton[["cases"]][["age_85+"]] = get_information("KS: Cases age 85+?: ")
   skeleton[["cases"]][["age_unk"]] = get_information("KS: Cases age not reported?: ")
+  
   skeleton[["cases"]][["race_white"]] = get_information("KS: Cases race white?: ")
   skeleton[["cases"]][["race_AfrA"]] = get_information("KS: Cases race AfrA?: ")
   skeleton[["cases"]][["race_NatA"]] = get_information("KS: Cases race NatA?: ")
   skeleton[["cases"]][["race_asian"]] = get_information("KS: Cases race asian?: ")
   skeleton[["cases"]][["race_other"]] = get_information("KS: Cases race other?: ")
   skeleton[["cases"]][["race_unk"]] = get_information("KS: Cases race not reported/missing?: ")
+  
   skeleton[["cases"]][["ethnicity_hispanic"]] = get_information("KS: Cases ethnicity hispanic?: ")
   skeleton[["cases"]][["ethnicity_non_hispanic"]] = get_information("KS: Cases ethnicity not hispanic?: ")
   skeleton[["cases"]][["ethnicity_unk"]] = get_information("KS: Cases ethnicity unknown/missing?: ")
   
-  skeleton[["deaths"]][["sex_female"]] = get_information("KS: Deaths sex female?: ")
-  skeleton[["deaths"]][["sex_male"]] = get_information("KS: Deaths sex male?: ")
-  skeleton[["deaths"]][["sex_unk"]] = get_information("KS: Deaths sex unknown?: ")
   skeleton[["deaths"]][["age_0_9"]] = get_information("KS: Deaths age 0 - 9?: ")
   skeleton[["deaths"]][["age_10_17"]] = get_information("KS: Deaths age 10 - 17?: ")
   skeleton[["deaths"]][["age_18_24"]] = get_information("KS: Deaths age 18 - 24?: ")
@@ -1790,19 +1798,23 @@ get_kansas = function() {
   skeleton[["deaths"]][["age_65_74"]] = get_information("KS: Deaths age 65 - 74?: ")
   skeleton[["deaths"]][["age_75_84"]] = get_information("KS: Deaths age 75 - 84?: ")
   skeleton[["deaths"]][["age_85+"]] = get_information("KS: Deaths age 85+?: ")
-  skeleton[["deaths"]][["age_unk"]] = get_information("KS: Deaths age not reported?: ")
+  
+  skeleton[["deaths"]][["sex_female"]] = get_information("KS: Deaths sex female?: ")
+  skeleton[["deaths"]][["sex_male"]] = get_information("KS: Deaths sex male?: ")
+  
   skeleton[["deaths"]][["race_white"]] = get_information("KS: Deaths race white?: ")
   skeleton[["deaths"]][["race_AfrA"]] = get_information("KS: Deaths race AfrA?: ")
   skeleton[["deaths"]][["race_NatA"]] = get_information("KS: Deaths race NatA?: ")
   skeleton[["deaths"]][["race_asian"]] = get_information("KS: Deaths race asian?: ")
   skeleton[["deaths"]][["race_other"]] = get_information("KS: Deaths race other?: ")
   skeleton[["deaths"]][["race_unk"]] = get_information("KS: Deaths race not reported/missing?: ")
+  
   skeleton[["deaths"]][["ethnicity_hispanic"]] = get_information("KS: Deaths ethnicity hispanic?: ")
   skeleton[["deaths"]][["ethnicity_non_hispanic"]] = get_information("KS: Deaths ethnicity not hispanic?: ")
   skeleton[["deaths"]][["ethnicity_unk"]] = get_information("KS: Deaths ethnicity unknown/missing?: ")
   
   skeleton[["hospitalized"]][["age_0_9"]] = get_information("KS: Hospitalized age 0 - 9?: ")
-  skeleton[["hospitalized"]][["age_10_17"]] = get_information("KS: Hospitalized age 10 - 17?: ")
+  skeleton[["hospitalized"]][["age_10_17"]] = get_information("KS: Hospitalized age 10 - 17? (CHECK): ")
   skeleton[["hospitalized"]][["age_18_24"]] = get_information("KS: Hospitalized age 18 - 24?: ")
   skeleton[["hospitalized"]][["age_25_34"]] = get_information("KS: Hospitalized age 25 - 34?: ")
   skeleton[["hospitalized"]][["age_45_54"]] = get_information("KS: Hospitalized age 35 - 44?: ")
@@ -1812,12 +1824,14 @@ get_kansas = function() {
   skeleton[["hospitalized"]][["age_75_84"]] = get_information("KS: Hospitalized age 75 - 84?: ")
   skeleton[["hospitalized"]][["age_85+"]] = get_information("KS: Hospitalized age 85+?: ")
   skeleton[["hospitalized"]][["age_unk"]] = get_information("KS: Hospitalized age not reported?: ")
+  
   skeleton[["hospitalized"]][["race_white"]] = get_information("KS: Hospitalized race white?: ")
   skeleton[["hospitalized"]][["race_AfrA"]] = get_information("KS: Hospitalized race AfrA?: ")
   skeleton[["hospitalized"]][["race_NatA"]] = get_information("KS: Hospitalized race NatA?: ")
   skeleton[["hospitalized"]][["race_asian"]] = get_information("KS: Hospitalized race asian?: ")
   skeleton[["hospitalized"]][["race_other"]] = get_information("KS: Hospitalized race other?: ")
   skeleton[["hospitalized"]][["race_unk"]] = get_information("KS: Hospitalized race not reported/missing?: ")
+  
   skeleton[["hospitalized"]][["ethnicity_hispanic"]] = get_information("KS: Hospitalized ethnicity hispanic?: ")
   skeleton[["hospitalized"]][["ethnicity_non_hispanic"]] = get_information("KS: Hospitalized ethnicity not hispanic?: ")
   skeleton[["hospitalized"]][["ethnicity_unk"]] = get_information("KS: Hospitalized ethnicity unknown/missing?: ")
@@ -2109,6 +2123,33 @@ get_information = function(prompt) {
         processed_answer = answer
       } else {
         processed_answer = answer %>% floor
+      }
+    } else if (is.na(answer)) {
+      answered = TRUE
+      processed_answer = NA
+    }
+  }
+  
+  return(processed_answer)
+}
+
+get_information2 = function(prompt) {
+  # Keep asking for information until it is given to prevent typos
+  # 05/31: Adjusted this gathering function to let me enter solid percents
+  # without the decimal
+  answered = FALSE
+  
+  while (!answered) {
+    answer = readline(prompt = prompt)
+    
+    if (answer != "") {
+      answered = TRUE
+      answer = eval(parse(text = answer)) 
+      
+      if (answer > 0 & answer < 1) {
+        processed_answer = answer / 100 # Return the percentage
+      } else {
+        processed_answer = answer %>% floor # Return the count, no decimal
       }
     } else if (is.na(answer)) {
       answered = TRUE
