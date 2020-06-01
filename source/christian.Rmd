@@ -115,8 +115,3 @@ manual_data_20200526 = bind_rows(
   )
 ```
 
-```{r}
-full_data_20200529 = bind_rows(automated_data_20200529, manual_data_20200529)
-
-save(full_data_20200529, file ="../data/raw_states/meta_2020-05-29-cbp.rda")
-```
