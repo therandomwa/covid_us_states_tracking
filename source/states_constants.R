@@ -26,14 +26,16 @@ default_cols = c(
 
 dc_cols = c(
   "total",
-  "age_0_19", 
-  "age_20_29", 
-  "age_30_39", 
-  "age_40_49",
-  "age_50_59", 
-  "age_60_69", 
-  "age_70_79", 
-  "age_80+", 
+  "age_0_4",
+  "age_5_14",
+  "age_15_19",
+  "age_20_24", 
+  "age_25_34", 
+  "age_35_44", 
+  "age_45_54",
+  "age_55_64", 
+  "age_64_74", 
+  "age_75+", 
   "age_unk",
   "sex_male", 
   "sex_female", 
@@ -487,6 +489,7 @@ nh_cols = c(
   "age_60_69", 
   "age_70_79", 
   "age_80+", 
+  "age_unk",
   "sex_male", 
   "sex_female", 
   "sex_unk",
@@ -495,7 +498,8 @@ nh_cols = c(
   "race_AfrA",
   "race_NatA",
   "race_asian", 
-  "race_other")
+  "race_other",
+  "race_unk")
 
 ny_cols = c(
   "total",
