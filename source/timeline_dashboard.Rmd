@@ -40,6 +40,7 @@ summ_dat = readxl::read_excel("../Data/Summary_stats_all.xlsx",
                                                    origin = "1899-12-30"),
          all_non_ess_business_end_date = as.Date(as.numeric(all_non_ess_business_end_date),
                                                  origin = "1899-12-30")) %>%
+  # combine events of the same group with the same date
   pivot_longer(c(religious_25_capacity:outdoor, elective_surgery:stay_home_start_date, 
                  stay_home_end_date:any_gathering_restrict_start_date, 
                  any_gathering_restrict_end_date:office_50),
@@ -81,10 +82,32 @@ vis_dat = left_join(summ_dat, cat_dat, by = "event") %>%
                                lead(date), Sys.Date()))) %>%
   rename(start = date,
          content = event,
-         group = bar_type)
+         group = bar_type,
+         title = description)
+
+# try to combine what has the same start date
+
+# function to put all dates of the same group into one line
+# coalesce_by_column <- function(df) {
+#   return(dplyr::coalesce(!!! as.list(df)))
+# }
+# 
+# vis_dat2 = vis_dat %>%
+#   select(state, content, start, group) %>%
+#   mutate(row = row_number()) %>%
+#   pivot_wider(names_from = content,
+#               values_from = start) %>%
+#   select(-row) %>%
+#   group_by(state, group) %>%
+#   summarise_all(coalesce_by_column)
+
+group_dat = tibble(
+  id = c("education", "gathering restrictions", "stay at home order"),
+  content = c("Education", "Gathering Restrictions", "Stay at Home Order")
+)
 ```
 
-Column {.sidebar}
+Inputs {.sidebar}
 -----------------------------------------------------------------------
    
 ```{r}
@@ -97,10 +120,10 @@ selectInput(
 )
 ```
 
-Column {data-width=1000}
+Column 
 -----------------------------------------------------------------------
 
-### Timeline
+### Timeline 1
 
 ```{r}
 renderPlotly({
@@ -110,4 +133,5 @@ renderPlotly({
     theme_classic())
 })
 ```
+
 
