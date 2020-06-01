@@ -123,7 +123,7 @@ selectInput(
 Column 
 -----------------------------------------------------------------------
 
-### Timeline 1
+### Timeline 1-timelineG
 
 ```{r}
 renderPlotly({
@@ -134,4 +134,24 @@ renderPlotly({
 })
 ```
 
+### Timeline 2-ggplot
+
+```{r}
+renderPlotly({
+  ggplotly(
+  vis_dat %>%
+  filter(state == input$state_choice) %>%
+  ggplot(aes(x = start, 
+             xend = end,
+             y = content,
+             yend = content,
+             color = group)) +
+  geom_segment(size = 3) +
+  xlab("Date") +
+  ylab("Event") +
+  # this doesn't work: theme(axis.text.y = element_blank()) +
+  theme_classic()
+)
+})
+```
 
