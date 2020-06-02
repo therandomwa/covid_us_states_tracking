@@ -24,6 +24,35 @@ default_cols = c(
   "race_multi", 
   "race_unk")
 
+mn_cols = c(
+  "total",
+  "age_0_5", 
+  "age_6_19", 
+  "age_20_29", 
+  "age_30_39",
+  "age_40_49", 
+  "age_50_59", 
+  "age_60_69", 
+  "age_70_79", 
+  "age_80_89", 
+  "age_90_99", 
+  "age_100+", 
+  "age_unk",
+  "sex_male", 
+  "sex_female", 
+  "sex_unk",
+  "ethnicity_hispanic", 
+  "ethnicity_non_hispanic",
+  "ethnicity_unk",
+  "race_white", 
+  "race_AfrA",
+  "race_NatA",
+  "race_asian", 
+  "race_pac",
+  "race_other",
+  "race_multi", 
+  "race_unk")
+
 dc_cols = c(
   "total",
   "age_0_4",

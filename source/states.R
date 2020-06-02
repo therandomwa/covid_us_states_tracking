@@ -947,6 +947,7 @@ get_dc = function() {
       platform, comments, last.update)
 }
 
+get_south_carolina = function() {
   
   url = "https://scdhec.gov/infectious-diseases/viruses/coronavirus-disease-2019-covid-19/sc-testing-data-projections-covid-19"
   html = read_html(url) %>% 
@@ -1257,7 +1258,7 @@ get_new_hampshire = function() {
     standardize %>% 
     mutate(
       state_name = "New Hampshire",
-      Link = url,
+      Link = "https://www.nh.gov/covid19/dashboard/summary.htm",
       platform = "pdf",
       comments = "Race/ethnicity combined",
       last.update = Sys.time() %>% as_date) %>% 
@@ -1314,6 +1315,186 @@ get_guam = function() {
       state_name, Link,
       total.tested:hosp_gender,
       platform, comments, last.update)
+}
+
+get_minnesota = function() {
+  
+  query = "https://services2.arcgis.com/V12PKGiMAH7dktkU/ArcGIS/rest/services/MyMapService/FeatureServer/0/query?where=ObjectID+%3C+10000&objectIds=&time=&resultType=none&outFields=*&returnIdsOnly=false&returnUniqueIdsOnly=false&returnCountOnly=false&returnDistinctValues=false&cacheHint=false&orderByFields=&groupByFieldsForStatistics=&outStatistics=&having=&resultOffset=&resultRecordCount=&sqlFormat=none&f=pjson&token="
+  df = fromJSON(query)$features
+  df = df[,1]
+  # df = data.frame(X = colnames(df),
+  # y = df[1,] %>% unlist %>% as.vector)
+  date = df$Date %>% strsplit(" ") %>% unlist
+  date = date[2] %>% as.Date("%m/%d/%Y") %>% format("%m/%d/%Y")
+  
+  gender = df[,c("Male", "Female", "SexMsng", "GenderOther")]
+  race = df[,grep("Race", colnames(df))] %>% select(1:2,4:9)
+  drace = df[,c(57:63,108)]
+  eth = df[,grep("Ethn", colnames(df))]
+  deth = df[,64:66]
+  age = df[,grep("Age", colnames(df))][c("Age05","Age619","Age2029","Age3039",
+                                         "Age4049","Age5059","Age6069",
+                                         "Age70_79","Age80_89","Age90_99",
+                                         "Age100_up")]
+  
+  url = "https://www.health.state.mn.us/diseases/coronavirus/situation.html"
+  
+  total_tests = read_html(url) %>% 
+    html_nodes("body #container #content .site-wrap #body #accordion p") %>% 
+    html_text() %>% .[4] %>% 
+    str_split(" ", simplify = TRUE) %>% .[1, 6] %>% 
+    str_split(":", simplify = TRUE) %>% .[1, 2] %>% 
+    str_trim %>% str_replace(",", "") %>% as.numeric
+  
+  death_age_table = read_html(url) %>% 
+    html_nodes("body #container #content .site-wrap #body #accordion .panel") %>% 
+    html_nodes("#ageg .panel-body #agetable") %>% 
+    html_table() %>% .[[1]] %>% 
+    dplyr::select(`Age Group`, `Number of Deaths`)
+  colnames(death_age_table) = c("X", "death_age")
+  
+  pdf_url = read_html(url) %>% 
+    html_nodes("body #container #content .site-wrap #body #accordion .well ul") %>% 
+    html_nodes("li a") %>% .[[1]] %>% 
+    html_attr("href")
+  
+  pdf_data = pdf_text(paste0("https://www.health.state.mn.us/", pdf_url))
+  
+  death_by_gender = pdf_data %>% .[9] %>% 
+    str_split("\n") %>% .[[1]] %>% 
+    str_squish %>% .[31:34] %>% 
+    str_split(" ", simplify = TRUE) %>% .[,1] %>% 
+    str_replace(",", "") %>% as.numeric
+  
+  hosp_by_age = pdf_data %>% .[8] %>% 
+    str_split("\n") %>% .[[1]] %>% 
+    str_squish %>% .[75:86] %>% 
+    str_split(" ", simplify = TRUE) %>% .[,1] %>% as.numeric
+  
+  hosp_by_gender = pdf_data %>% .[9] %>% 
+    str_split("\n") %>% .[[1]] %>% 
+    str_squish %>% .[26:29] %>% 
+    str_split(" ", simplify = TRUE) %>% .[,1] %>% 
+    str_replace(",", "") %>% as.numeric
+  
+  hosp_by_race = pdf_data %>% .[10] %>% 
+    str_split("\n") %>% .[[1]] %>% 
+    str_squish %>% .[69:79] %>% 
+    str_split(" ", simplify = TRUE) %>% .[,1] %>% 
+    str_replace(",", "") %>% as.numeric
+  
+  minnesota = skeleton_table(mn_cols)
+  
+  minnesota[["cases"]][["total"]] = df$TotalCases %>% unname %>% as.numeric
+  minnesota[["deaths"]][["total"]] = df$OutcmDied %>% unname %>% as.numeric
+  minnesota[["hospitalized"]][["total"]] = df[,grep("EvrHospYes", colnames(df))]  %>% unlist()
+  
+  minnesota[["cases"]][["sex_male"]] = gender[1]
+  minnesota[["cases"]][["sex_female"]] = gender[2]
+  minnesota[["cases"]][["sex_unk"]] = gender[3]
+  
+  minnesota[["cases"]][["race_white"]] = race[1]
+  minnesota[["cases"]][["race_AfrA"]] = race[2]
+  minnesota[["cases"]][["race_NatA"]] = race[3]
+  minnesota[["cases"]][["race_other"]] = race[4]
+  minnesota[["cases"]][["race_unk"]] = race[5]
+  minnesota[["cases"]][["race_asian"]] = race[6]
+  minnesota[["cases"]][["race_pac"]] = race[7]
+  minnesota[["cases"]][["race_multi"]] = race[8]
+  
+  minnesota[["cases"]][["ethnicity_hispanic"]] = eth[1]
+  minnesota[["cases"]][["ethnicity_non_hispanic"]] = eth[2]
+  minnesota[["cases"]][["ethnicity_unk"]] = eth[3]
+  
+  minnesota[["cases"]][["age_0_5"]] = age[1]
+  minnesota[["cases"]][["age_6_19"]] = age[2]
+  minnesota[["cases"]][["age_20_29"]] = age[3]
+  minnesota[["cases"]][["age_30_39"]] = age[4]
+  minnesota[["cases"]][["age_40_49"]] = age[5]
+  minnesota[["cases"]][["age_50_59"]] = age[6]
+  minnesota[["cases"]][["age_60_69"]] = age[7]
+  minnesota[["cases"]][["age_70_79"]] = age[8]
+  minnesota[["cases"]][["age_80_89"]] = age[9]
+  minnesota[["cases"]][["age_90_99"]] = age[10]
+  minnesota[["cases"]][["age_100+"]] = age[11]
+  
+  minnesota[["deaths"]][["race_white"]] = drace[1]
+  minnesota[["deaths"]][["race_AfrA"]] = drace[2]
+  minnesota[["deaths"]][["race_NatA"]] = drace[3]
+  minnesota[["deaths"]][["race_other"]] = drace[4]
+  minnesota[["deaths"]][["race_unk"]] = drace[5]
+  minnesota[["deaths"]][["race_asian"]] = drace[6]
+  minnesota[["deaths"]][["race_pac"]] = drace[7]
+  minnesota[["deaths"]][["race_multi"]] = drace[8]
+  
+  minnesota[["deaths"]][["ethnicity_hispanic"]] = deth[1]
+  minnesota[["deaths"]][["ethnicity_non_hispanic"]] = deth[2]
+  minnesota[["deaths"]][["ethnicity_unk"]] = deth[3]
+  
+  minnesota[["deaths"]][["age_0_5"]] = death_age_table$death_age[1]
+  minnesota[["deaths"]][["age_6_19"]] = death_age_table$death_age[2]
+  minnesota[["deaths"]][["age_20_29"]] = death_age_table$death_age[3]
+  minnesota[["deaths"]][["age_30_39"]] = death_age_table$death_age[4]
+  minnesota[["deaths"]][["age_40_49"]] = death_age_table$death_age[5]
+  minnesota[["deaths"]][["age_50_59"]] = death_age_table$death_age[6]
+  minnesota[["deaths"]][["age_60_69"]] = death_age_table$death_age[7]
+  minnesota[["deaths"]][["age_70_79"]] = death_age_table$death_age[8]
+  minnesota[["deaths"]][["age_80_89"]] = death_age_table$death_age[9]
+  minnesota[["deaths"]][["age_90_99"]] = death_age_table$death_age[10]
+  minnesota[["deaths"]][["age_100+"]] = death_age_table$death_age[11]
+  minnesota[["deaths"]][["age_unk"]] = death_age_table$death_age[12]
+  
+  minnesota[["deaths"]][["sex_male"]] = death_by_gender[1]
+  minnesota[["deaths"]][["sex_female"]] = death_by_gender[2]
+  minnesota[["deaths"]][["sex_unk"]] = death_by_gender[4]
+  
+  minnesota[["hospitalized"]][["age_0_5"]] = hosp_by_age[1]
+  minnesota[["hospitalized"]][["age_6_19"]] = hosp_by_age[2]
+  minnesota[["hospitalized"]][["age_20_29"]] = hosp_by_age[3]
+  minnesota[["hospitalized"]][["age_30_39"]] = hosp_by_age[4]
+  minnesota[["hospitalized"]][["age_40_49"]] = hosp_by_age[5]
+  minnesota[["hospitalized"]][["age_50_59"]] = hosp_by_age[6]
+  minnesota[["hospitalized"]][["age_60_69"]] = hosp_by_age[7]
+  minnesota[["hospitalized"]][["age_70_79"]] = hosp_by_age[8]
+  minnesota[["hospitalized"]][["age_80_89"]] = hosp_by_age[9]
+  minnesota[["hospitalized"]][["age_90_99"]] = hosp_by_age[10]
+  minnesota[["hospitalized"]][["age_100+"]] = hosp_by_age[11]
+  minnesota[["hospitalized"]][["age_unk"]] = hosp_by_age[12]
+  
+  minnesota[["hospitalized"]][["sex_male"]] = hosp_by_gender[1]
+  minnesota[["hospitalized"]][["sex_female"]] = hosp_by_gender[2]
+  minnesota[["hospitalized"]][["sex_unk"]] = hosp_by_gender[4]
+  
+  minnesota[["hospitalized"]][["race_white"]] = hosp_by_race[1]
+  minnesota[["hospitalized"]][["race_AfrA"]] = hosp_by_race[2]
+  minnesota[["hospitalized"]][["race_asian"]] = hosp_by_race[3]
+  minnesota[["hospitalized"]][["race_NatA"]] = hosp_by_race[4]
+  minnesota[["hospitalized"]][["race_pac"]] = hosp_by_race[5]
+  minnesota[["hospitalized"]][["race_multi"]] = hosp_by_race[6]
+  minnesota[["hospitalized"]][["race_other"]] = hosp_by_race[7]
+  minnesota[["hospitalized"]][["race_unk"]] = hosp_by_race[8]
+  
+  minnesota[["hospitalized"]][["ethnicity_hispanic"]] = hosp_by_race[9]
+  minnesota[["hospitalized"]][["ethnicity_non_hispanic"]] = hosp_by_race[10]
+  minnesota[["hospitalized"]][["ethnicity_unk"]] = hosp_by_race[11]
+  
+  minnesota[["tested"]][["total"]] = unlist(total_tests)
+  
+  full_skeleton = as_tibble(minnesota) %>% 
+    standardize %>% 
+    mutate(
+      state_name = "Minnesota",
+      Link = "https://www.health.state.mn.us/diseases/coronavirus/situation.html",
+      platform = "manual",
+      comments = "",
+      last.update = as_date(date)) %>% 
+    select(
+      state_name, Link,
+      total.tested:hosp_gender,
+      platform, comments, last.update)
+  
+  return(full_skeleton)
+  
 }
 
 #################################
