@@ -619,8 +619,9 @@ all = c("Alabama", "Alaska", "District of Columbia", "Florida", "Georgia",
         "Hawaii", "Idaho", "Indiana", "Iowa", "Kansas", "Kentucky", "Maine", 
         "Michigan", "Minnesota", "Mississippi", "Montana", "North Carolina", "Oklahoma", 
         "Pennsylvania", "South Carolina", "Tennessee", "Vermont", "Virginia", 
-        "West Virginia", "Wyoming", "Louisiana", "Arkansas", "Missouri", "Wisconsin","Nebraska")
-none = c("North Dakota", "Ohio", "Oregon")
+        "West Virginia", "Wyoming", "Louisiana", "Arkansas", "Missouri", "Wisconsin",
+        "Nebraska", "Oregon", "Ohio")
+none = c("North Dakota" )
 nh = setdiff(state.name, c(all, none))
 final$category = final$category %>% 
   gsub("\\*", "", .) %>% 
