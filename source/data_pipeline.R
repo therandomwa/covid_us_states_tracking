@@ -20,7 +20,7 @@ file_date = Sys.Date()-1 # change accordingly if the editing date is not the scr
 file_date_name = file_date %>% format("%Y%m%d")
 
 # load Aijin's data
-df_aw = read.csv("../Data/raw_states/meta_2020-05-30_aw.csv")
+df_aw = read.csv("../Data/raw_states/meta_2020-05-31_aw.csv")
 
 # load Chistian's data
 df_cbp = load_object("../Data/raw_states/meta_2020-05-30-cbp.rda")
@@ -87,7 +87,7 @@ df[df == ""] = NA
 ### race
 
 race_standard = function(race_var){
-  
+  # browser()
   race_name = df %>% 
     filter(!is.na(get(race_var))) %>%
     select(state_name) %>% 
@@ -254,7 +254,7 @@ race_standard = function(race_var){
                                 grep("MULTIPLE", race$original))),]$new = "MULTI/OTHERS"}, silent = TRUE)
   try({
     race[Reduce(intersect, list(which(is.na(race$new)),
-                                grep("NATIV", race$original))),]$new = "NH/PI"}, silent = TRUE)
+                                grep("NATIV", race$original))),]$new = "AI/AN"}, silent = TRUE)
   try({
     race[Reduce(intersect, list(which(is.na(race$new)),
                                 grep("PAC", race$original))),]$new = "NH/PI"}, silent = TRUE)
@@ -619,8 +619,8 @@ all = c("Alabama", "Alaska", "District of Columbia", "Florida", "Georgia",
         "Hawaii", "Idaho", "Indiana", "Iowa", "Kansas", "Kentucky", "Maine", 
         "Michigan", "Minnesota", "Mississippi", "Montana", "North Carolina", "Oklahoma", 
         "Pennsylvania", "South Carolina", "Tennessee", "Vermont", "Virginia", 
-        "West Virginia", "Wyoming", "Louisiana", "Arkansas", "Missouri", "Wisconsin")
-none = c("Nebraska", "North Dakota", "Ohio", "Oregon")
+        "West Virginia", "Wyoming", "Louisiana", "Arkansas", "Missouri", "Wisconsin","Nebraska")
+none = c("North Dakota", "Ohio", "Oregon")
 nh = setdiff(state.name, c(all, none))
 final$category = final$category %>% 
   gsub("\\*", "", .) %>% 
