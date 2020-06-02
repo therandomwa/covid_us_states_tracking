@@ -22,7 +22,8 @@ summ_dat = readxl::read_excel("../Data/Summary_stats_all.xlsx",
   janitor::clean_names() %>%
   select(-check, -notes, -link, -nursing_exorder, -exorder_date, -funding, -nursing_novis,
          -covid_reg, -testing, -nursing_notes, -phase_opening, -phase_number, -phase_total,
-         -reopening_type, -x91) %>% 
+         -reopening_type, -x91, -any_business_start_date, -any_business_end_date,
+         -all_non_ess_business_start_date, -all_non_ess_business_end_date) %>% 
   # outdoor type needs to be manipulated differently
   rename(state = location_name) %>%
   select(-close_contact_75, -gather_no_restrict, -summer_school) %>%
@@ -110,8 +111,10 @@ renderPlotly({
   ggplotly(vis_dat %>%
   filter(state == input$state_choice) %>%
   timelineG(start = "start", end = "end", names = "group", phase = "title") +
-    theme_classic()) %>%
-    layout(showlegend = FALSE)
+    theme_classic() +
+    theme(legend.position = 'none')) 
+#  %>%
+ #   layout(showlegend = FALSE)
 })
 ```
 
