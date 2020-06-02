@@ -22,58 +22,38 @@ summ_dat = readxl::read_excel("../Data/Summary_stats_all.xlsx",
   janitor::clean_names() %>%
   select(-check, -notes, -link, -nursing_exorder, -exorder_date, -funding, -nursing_novis,
          -covid_reg, -testing, -nursing_notes, -phase_opening, -phase_number, -phase_total,
-         -reopening_type, -x88, -gathering_change_dates, -gathering_limit_78) %>% 
+         -reopening_type, -x91) %>% 
   # outdoor type needs to be manipulated differently
-  mutate(gathering_limit_76 = ifelse(gathering_limit_76 == "Not specified", NA, gathering_limit_76),
-         elective_surgery = ifelse(elective_surgery == "*", NA, elective_surgery),
-         religious = ifelse(religious == "N/A", NA, religious),
-         all_non_ess_business_start_date = ifelse(all_non_ess_business_start_date == "NA", NA,
-                                                  all_non_ess_business_start_date),
-         all_non_ess_business_end_date = ifelse(all_non_ess_business_end_date == "NA", NA,
-                                                all_non_ess_business_end_date)) %>%
-  rename(state = location_name,
-         gathering_limit = gathering_limit_76) %>%
+  rename(state = location_name) %>%
   select(-close_contact_75, -gather_no_restrict, -summer_school) %>%
-  mutate(religious = as.Date(as.numeric(religious), origin = "1899-12-30"),
-         elective_surgery = as.Date(as.numeric(elective_surgery), origin = "1899-12-30"),
-         all_non_ess_business_start_date = as.Date(as.numeric(all_non_ess_business_start_date), 
-                                                   origin = "1899-12-30"),
-         all_non_ess_business_end_date = as.Date(as.numeric(all_non_ess_business_end_date),
-                                                 origin = "1899-12-30")) %>%
+  mutate(religious_25_capacity = as.Date(as.numeric(religious_25_capacity), origin = "1899-12-30")) %>%
   # combine events of the same group with the same date
-  pivot_longer(c(religious_25_capacity:outdoor, elective_surgery:stay_home_start_date, 
-                 stay_home_end_date:any_gathering_restrict_start_date, 
+  pivot_longer(c(religious_25_capacity:outdoor, 
+                 elective_surgery:stay_home_start_date, 
+                 stay_home_end_date:any_gathering_restrict_start_date,
+                 religious_gatherings,
                  any_gathering_restrict_end_date:office_50),
                names_to = "event",
                values_to = "date",
                values_drop_na = TRUE) %>%
   mutate(outdoor_type = ifelse(event == "outdoor", outdoor_type, NA),
          religion_essential = ifelse(event == "stay_home_start_date", religion_essential, NA),
-         gathering_limit = ifelse(event == "any_gathering_restrict_start_date", gathering_limit, NA))
+         gathering_limit = ifelse(event == "any_gathering_restrict_start_date", gathering_limit, NA),
+         religious_limit_capacity = ifelse(event == "religious_gatherings", religious_limit_capacity, NA),
+         event = ifelse(event == "bar_33", "bars_33", 
+                        ifelse(event == "religious_gatherings", "religious_gathering", event)))
 
 # excel data change:
 # as.Date(variable, origin = "1899-12-30")
 
 cat_dat = readxl::read_excel("../Data/Summary_stats_all.xlsx", 
                    sheet = "data_dictionary", col_names = TRUE) %>%
-  mutate(category = ifelse(header == "bars_25_people_or_35_percent_cap",
-                           "stay at home order",
-                           ifelse(header == "rest_outdoor",
-                                  "stay at home order",
-                                  ifelse(str_detect(header, "business") == TRUE,
-                                         "stay at home order",
-                                         category)))) %>%
   filter(is.na(category) == FALSE) %>%
   rename(bar_type = category,
          event = header)
 
 # join the description and bar type to the summ data
 vis_dat = left_join(summ_dat, cat_dat, by = "event") %>%
-  mutate(bar_type = ifelse(event %in% c("close_contact_cdc", "all_non_ess_business_end_date",
-                                        "all_non_ess_business_start_date", "bar_33", "bars_gen",
-                                        "close_contact_cdc", "elective_surg_neg_covid", "gyms_cdc", 
-                                        "rest_cdc", "retail_25", "retail_30", "retail_75"),
-                           "stay at home order", bar_type)) %>%
   arrange(state, bar_type, date) %>%
   mutate(date = as.Date(date, format = "%Y-%m-%d"),
          end = if_else(lead(bar_type) == bar_type & lead(date) == date,
@@ -120,7 +100,7 @@ selectInput(
 )
 ```
 
-Column 
+Column {.tabset}
 -----------------------------------------------------------------------
 
 ### Timeline 1-timelineG
@@ -129,8 +109,9 @@ Column
 renderPlotly({
   ggplotly(vis_dat %>%
   filter(state == input$state_choice) %>%
-  timelineG(start = "start", end = "end", names = "group", phase = "content") +
-    theme_classic())
+  timelineG(start = "start", end = "end", names = "group", phase = "title") +
+    theme_classic()) %>%
+    layout(showlegend = FALSE)
 })
 ```
 
@@ -143,8 +124,8 @@ renderPlotly({
   filter(state == input$state_choice) %>%
   ggplot(aes(x = start, 
              xend = end,
-             y = content,
-             yend = content,
+             y = title,
+             yend = title,
              color = group)) +
   geom_segment(size = 3) +
   xlab("Date") +
