@@ -32,7 +32,7 @@ summ_dat = readxl::read_excel("../Data/Summary_stats_all.xlsx",
   pivot_longer(c(religious_25_capacity:outdoor, 
                  elective_surgery:stay_home_start_date, 
                  stay_home_end_date:any_gathering_restrict_start_date,
-                 religious_gatherings,
+                 religious_gathering,
                  any_gathering_restrict_end_date:office_50),
                names_to = "event",
                values_to = "date",
@@ -40,9 +40,7 @@ summ_dat = readxl::read_excel("../Data/Summary_stats_all.xlsx",
   mutate(outdoor_type = ifelse(event == "outdoor", outdoor_type, NA),
          religion_essential = ifelse(event == "stay_home_start_date", religion_essential, NA),
          gathering_limit = ifelse(event == "any_gathering_restrict_start_date", gathering_limit, NA),
-         religious_limit_capacity = ifelse(event == "religious_gatherings", religious_limit_capacity, NA),
-         event = ifelse(event == "bar_33", "bars_33", 
-                        ifelse(event == "religious_gatherings", "religious_gathering", event)))
+         religious_limit_capacity = ifelse(event == "religious_gathering", religious_limit_capacity, NA))
 
 # excel data change:
 # as.Date(variable, origin = "1899-12-30")
@@ -56,15 +54,26 @@ cat_dat = readxl::read_excel("../Data/Summary_stats_all.xlsx",
 # join the description and bar type to the summ data
 vis_dat = left_join(summ_dat, cat_dat, by = "event") %>%
   arrange(state, bar_type, date) %>%
-  mutate(date = as.Date(date, format = "%Y-%m-%d"),
-         end = if_else(lead(bar_type) == bar_type & lead(date) == date,
-                       Sys.Date(), 
-                       if_else(lead(bar_type) == bar_type,
-                               lead(date), Sys.Date()))) %>%
+  mutate(date = as.Date(date, format = "%Y-%m-%d")
+#         ,
+#         end = if_else(lead(bar_type) == bar_type & lead(date) == date,
+#                       Sys.Date(), 
+#                       if_else(lead(bar_type) == bar_type,
+#                               lead(date), Sys.Date()))
+) %>%
   rename(start = date,
          content = event,
          group = bar_type,
-         title = description)
+         title = description) %>%
+  mutate(
+    title = if_else(is.na(outdoor_type) == FALSE, str_c(title, ": ", outdoor_type), 
+                    if_else(religion_essential %in% "yes", str_c(title, "; religion declared essential"), 
+                            if_else(is.na(gathering_limit) == FALSE, str_c(title, ": ", gathering_limit), 
+                                    if_else(is.na(religious_limit_capacity) == FALSE, str_c(title, ": ", religious_limit_capacity), title))))
+  ) %>%
+  select(-outdoor_type, -religion_essential, -gathering_limit, -religious_limit_capacity)
+
+# write.csv(vis_dat, "C:/Users/court/Documents/Covid State Project/timeline_dat.csv")
 
 # try to combine what has the same start date
 
