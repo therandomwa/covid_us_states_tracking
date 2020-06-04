@@ -14,6 +14,7 @@ library(timevis)
 library(timelineS)
 library(plotly)
 library(readxl)
+library(plyr)
 ```
 
 ```{r}
@@ -25,7 +26,7 @@ summ_dat = readxl::read_excel("../Data/Summary_stats_all.xlsx",
          -reopening_type, -x91, -any_business_start_date, -any_business_end_date,
          -all_non_ess_business_start_date, -all_non_ess_business_end_date) %>% 
   # outdoor type needs to be manipulated differently
-  rename(state = location_name) %>%
+  dplyr::rename(state = location_name) %>%
   select(-close_contact_75, -gather_no_restrict, -summer_school) %>%
   mutate(religious_25_capacity = as.Date(as.numeric(religious_25_capacity), origin = "1899-12-30")) %>%
   # combine events of the same group with the same date
@@ -48,7 +49,7 @@ summ_dat = readxl::read_excel("../Data/Summary_stats_all.xlsx",
 cat_dat = readxl::read_excel("../Data/Summary_stats_all.xlsx", 
                    sheet = "data_dictionary", col_names = TRUE) %>%
   filter(is.na(category) == FALSE) %>%
-  rename(bar_type = category,
+  dplyr::rename(bar_type = category,
          event = header)
 
 # join the description and bar type to the summ data
@@ -61,7 +62,7 @@ vis_dat = left_join(summ_dat, cat_dat, by = "event") %>%
 #                       if_else(lead(bar_type) == bar_type,
 #                               lead(date), Sys.Date()))
 ) %>%
-  rename(start = date,
+  dplyr::rename(start = date,
          content = event,
          group = bar_type,
          title = description) %>%
@@ -91,6 +92,18 @@ vis_dat = left_join(summ_dat, cat_dat, by = "event") %>%
 #   group_by(state, group) %>%
 #   summarise_all(coalesce_by_column)
 
+vis_dat2 = plyr::ddply(vis_dat, .(state, group, start), summarize,
+              title = paste(title, collapse = ",\n")) %>%
+  mutate(
+    end = if_else(lead(group) == group & lead(start) == start,
+                       Sys.Date(), 
+                       if_else(lead(group) == group,
+                               lead(start), Sys.Date())),
+    group = if_else(group == "education", "Education",
+                    if_else(group == "stay at home order", "Stay at Home Order",
+                            if_else(group == "gathering restrictions", "Gathering Restrictions", group)))
+  )
+
 group_dat = tibble(
   id = c("education", "gathering restrictions", "stay at home order"),
   content = c("Education", "Gathering Restrictions", "Stay at Home Order")
@@ -117,34 +130,18 @@ Column {.tabset}
 
 ```{r}
 renderPlotly({
-  ggplotly(vis_dat %>%
+  ggplotly(vis_dat2 %>%
   filter(state == input$state_choice) %>%
   timelineG(start = "start", end = "end", names = "group", phase = "title") +
+    geom_point(aes(text = sprintf("Event(s): ", title, "\n", "Start Date: ", start))) +
     theme_classic() +
-    theme(legend.position = 'none')) 
-#  %>%
- #   layout(showlegend = FALSE)
+    theme(legend.position = "none") +
+    labs(
+      x = "Date",
+      y = "Event Group"
+    )) 
 })
 ```
 
-### Timeline 2-ggplot
 
-```{r}
-renderPlotly({
-  ggplotly(
-  vis_dat %>%
-  filter(state == input$state_choice) %>%
-  ggplot(aes(x = start, 
-             xend = end,
-             y = title,
-             yend = title,
-             color = group)) +
-  geom_segment(size = 3) +
-  xlab("Date") +
-  ylab("Event") +
-  # this doesn't work: theme(axis.text.y = element_blank()) +
-  theme_classic()
-)
-})
-```
 
