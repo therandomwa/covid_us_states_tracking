@@ -132,7 +132,8 @@ Column {.tabset}
 renderPlotly({
   ggplotly(vis_dat2 %>%
   filter(state == input$state_choice) %>%
-  timelineG(start = "start", end = "end", names = "group", phase = "title") +
+  timelineG(start = "start", end = "end", names = "group", phase = "title", width = 6) +
+    scale_color_brewer(palette = "RdYlBu") +
     geom_point(aes(text = sprintf("Event(s): ", title, "\n", "Start Date: ", start))) +
     theme_classic() +
     theme(legend.position = "none") +
