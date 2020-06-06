@@ -20,16 +20,16 @@ file_date = Sys.Date()-1 # change accordingly if the editing date is not the scr
 file_date_name = file_date %>% format("%Y%m%d")
 
 # load Aijin's data
-df_aw = read.csv("../Data/raw_states/meta_2020-05-31_aw.csv")
+df_aw = read.csv("../Data/raw_states/meta_2020-06-02_aw.csv")
 
 # load Chistian's data
-df_cbp = load_object("../Data/raw_states/meta_2020-05-30-cbp.rda")
+df_cbp = load_object("../Data/raw_states/meta_2020-06-01-cbp.rda")
 
 # load manual data
 df_lef = load_object("../manual_data/manual_data_20200529_lef.rda")
 df_as = load_object("../manual_data/manual_data_20200529_as.rda")
 df_cej = load_object("../manual_data/manual_data_20200529_cej.rda")
-df_gl = load_object("../manual_data/manual_data_20200529_gl.rda")
+df_gl = load_object("../manual_data/manual_data_20200602_gl.rda")
 df_cbp = rbind(df_cbp, df_lef, df_as, df_cej, df_gl)
 ### 1. compile files ----
 df_aw$last.update = df_aw$last.update %>% 
@@ -87,7 +87,7 @@ df[df == ""] = NA
 ### race
 
 race_standard = function(race_var){
-  # browser()
+  browser()
   race_name = df %>% 
     filter(!is.na(get(race_var))) %>%
     select(state_name) %>% 

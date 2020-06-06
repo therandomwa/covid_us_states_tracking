@@ -14,6 +14,7 @@ library(timevis)
 library(timelineS)
 library(plotly)
 library(readxl)
+library(plyr)
 ```
 
 ```{r}
@@ -22,16 +23,17 @@ summ_dat = readxl::read_excel("../Data/Summary_stats_all.xlsx",
   janitor::clean_names() %>%
   select(-check, -notes, -link, -nursing_exorder, -exorder_date, -funding, -nursing_novis,
          -covid_reg, -testing, -nursing_notes, -phase_opening, -phase_number, -phase_total,
-         -reopening_type, -x91) %>% 
+         -reopening_type, -x91, -any_business_start_date, -any_business_end_date,
+         -all_non_ess_business_start_date, -all_non_ess_business_end_date) %>% 
   # outdoor type needs to be manipulated differently
-  rename(state = location_name) %>%
+  dplyr::rename(state = location_name) %>%
   select(-close_contact_75, -gather_no_restrict, -summer_school) %>%
   mutate(religious_25_capacity = as.Date(as.numeric(religious_25_capacity), origin = "1899-12-30")) %>%
   # combine events of the same group with the same date
   pivot_longer(c(religious_25_capacity:outdoor, 
                  elective_surgery:stay_home_start_date, 
                  stay_home_end_date:any_gathering_restrict_start_date,
-                 religious_gatherings,
+                 religious_gathering,
                  any_gathering_restrict_end_date:office_50),
                names_to = "event",
                values_to = "date",
@@ -39,9 +41,7 @@ summ_dat = readxl::read_excel("../Data/Summary_stats_all.xlsx",
   mutate(outdoor_type = ifelse(event == "outdoor", outdoor_type, NA),
          religion_essential = ifelse(event == "stay_home_start_date", religion_essential, NA),
          gathering_limit = ifelse(event == "any_gathering_restrict_start_date", gathering_limit, NA),
-         religious_limit_capacity = ifelse(event == "religious_gatherings", religious_limit_capacity, NA),
-         event = ifelse(event == "bar_33", "bars_33", 
-                        ifelse(event == "religious_gatherings", "religious_gathering", event)))
+         religious_limit_capacity = ifelse(event == "religious_gathering", religious_limit_capacity, NA))
 
 # excel data change:
 # as.Date(variable, origin = "1899-12-30")
@@ -49,21 +49,32 @@ summ_dat = readxl::read_excel("../Data/Summary_stats_all.xlsx",
 cat_dat = readxl::read_excel("../Data/Summary_stats_all.xlsx", 
                    sheet = "data_dictionary", col_names = TRUE) %>%
   filter(is.na(category) == FALSE) %>%
-  rename(bar_type = category,
+  dplyr::rename(bar_type = category,
          event = header)
 
 # join the description and bar type to the summ data
 vis_dat = left_join(summ_dat, cat_dat, by = "event") %>%
   arrange(state, bar_type, date) %>%
-  mutate(date = as.Date(date, format = "%Y-%m-%d"),
-         end = if_else(lead(bar_type) == bar_type & lead(date) == date,
-                       Sys.Date(), 
-                       if_else(lead(bar_type) == bar_type,
-                               lead(date), Sys.Date()))) %>%
-  rename(start = date,
+  mutate(date = as.Date(date, format = "%Y-%m-%d")
+#         ,
+#         end = if_else(lead(bar_type) == bar_type & lead(date) == date,
+#                       Sys.Date(), 
+#                       if_else(lead(bar_type) == bar_type,
+#                               lead(date), Sys.Date()))
+) %>%
+  dplyr::rename(start = date,
          content = event,
          group = bar_type,
-         title = description)
+         title = description) %>%
+  mutate(
+    title = if_else(is.na(outdoor_type) == FALSE, str_c(title, ": ", outdoor_type), 
+                    if_else(religion_essential %in% "yes", str_c(title, "; religion declared essential"), 
+                            if_else(is.na(gathering_limit) == FALSE, str_c(title, ": ", gathering_limit), 
+                                    if_else(is.na(religious_limit_capacity) == FALSE, str_c(title, ": ", religious_limit_capacity), title))))
+  ) %>%
+  select(-outdoor_type, -religion_essential, -gathering_limit, -religious_limit_capacity)
+
+# write.csv(vis_dat, "C:/Users/court/Documents/Covid State Project/timeline_dat.csv")
 
 # try to combine what has the same start date
 
@@ -80,6 +91,18 @@ vis_dat = left_join(summ_dat, cat_dat, by = "event") %>%
 #   select(-row) %>%
 #   group_by(state, group) %>%
 #   summarise_all(coalesce_by_column)
+
+vis_dat2 = plyr::ddply(vis_dat, .(state, group, start), summarize,
+              title = paste(title, collapse = ",\n")) %>%
+  mutate(
+    end = if_else(lead(group) == group & lead(start) == start,
+                       Sys.Date(), 
+                       if_else(lead(group) == group,
+                               lead(start), Sys.Date())),
+    group = if_else(group == "education", "Education",
+                    if_else(group == "stay at home order", "Stay at Home Order",
+                            if_else(group == "gathering restrictions", "Gathering Restrictions", group)))
+  )
 
 group_dat = tibble(
   id = c("education", "gathering restrictions", "stay at home order"),
@@ -107,32 +130,19 @@ Column {.tabset}
 
 ```{r}
 renderPlotly({
-  ggplotly(vis_dat %>%
+  ggplotly(vis_dat2 %>%
   filter(state == input$state_choice) %>%
-  timelineG(start = "start", end = "end", names = "group", phase = "title") +
-    theme_classic()) %>%
-    layout(showlegend = FALSE)
+  timelineG(start = "start", end = "end", names = "group", phase = "title", width = 6) +
+    scale_color_brewer(palette = "RdYlBu") +
+    geom_point(aes(text = sprintf("Event(s): ", title, "\n", "Start Date: ", start))) +
+    theme_classic() +
+    theme(legend.position = "none") +
+    labs(
+      x = "Date",
+      y = "Event Group"
+    )) 
 })
 ```
 
-### Timeline 2-ggplot
 
-```{r}
-renderPlotly({
-  ggplotly(
-  vis_dat %>%
-  filter(state == input$state_choice) %>%
-  ggplot(aes(x = start, 
-             xend = end,
-             y = title,
-             yend = title,
-             color = group)) +
-  geom_segment(size = 3) +
-  xlab("Date") +
-  ylab("Event") +
-  # this doesn't work: theme(axis.text.y = element_blank()) +
-  theme_classic()
-)
-})
-```
 
