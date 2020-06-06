@@ -87,7 +87,7 @@ df[df == ""] = NA
 ### race
 
 race_standard = function(race_var){
-  # browser()
+  browser()
   race_name = df %>% 
     filter(!is.na(get(race_var))) %>%
     select(state_name) %>% 
