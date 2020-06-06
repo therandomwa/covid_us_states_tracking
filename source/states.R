@@ -158,22 +158,12 @@ get_mississippi = function() {
   # Extract pdf locations from the site to account for updates
   site_url = "https://msdh.ms.gov/msdhsite/_static/14,0,420.html"
   
-  # Need to extract the paths for the demo cases and deaths data
-  # since I presume they will change over time
-  demo_path = read_html(site_url) %>% 
-    html_nodes("body #pageContainer #pageContent #article .msdh .links") %>% 
-    .[[6]] %>% 
-    html_nodes("li") %>% .[[1]] %>% 
-    html_nodes("a") %>% html_attr("href")
+  paths = read_html(site_url) %>% 
+    html_nodes("body #pageContainer #pageContent #article .msdh .links li a") %>% 
+    html_attr("href")
   
-  demo_death_path = read_html(site_url) %>% 
-    html_nodes("body #pageContainer #pageContent #article .msdh .links") %>% 
-    .[[6]] %>% 
-    html_nodes("li") %>% .[[2]] %>% 
-    html_nodes("a") %>% html_attr("href")
-  
-  demo_url = paste0("https://msdh.ms.gov/msdhsite/_static/", demo_path)
-  demo_death_url = paste0("https://msdh.ms.gov/msdhsite/_static/", demo_death_path)
+  demo_url = paste0("https://msdh.ms.gov/msdhsite/_static/", paths[20])
+  demo_death_url = paste0("https://msdh.ms.gov/msdhsite/_static/", paths[21])
   
   summary_vals = read_html(site_url) %>% 
     html_nodes("body #pageContainer #pageContent #article .msdh #msdhTotalCovid-19Cases") %>% 
@@ -1046,7 +1036,6 @@ get_new_jersey = function() {
     str_split("\n") %>% .[[1]] %>% 
     str_squish()
   skeleton = skeleton_table(nj_cols)
-  # return(data)
 
 
   # This pdf has the potential to change a lot in terms 
@@ -1059,67 +1048,67 @@ get_new_jersey = function() {
     str_split(" ", simplify = TRUE) %>% .[1, 1] %>% 
     str_replace(",", "") %>% .[[1]] %>% as.numeric()
   
-  hospitalizations = data %>% .[14] %>% 
-    str_split(" ", simplify = TRUE) %>% .[1, 1] %>% 
+  hospitalizations = data %>% .[13] %>% 
+    str_split(" ", simplify = TRUE) %>% .[1, 6] %>% 
     str_replace(",", "") %>% .[[1]] %>% as.numeric()
   
-  between_0_and_4 = data %>% .[16] %>% 
+  between_0_and_4 = data %>% .[18] %>% 
     str_split(" ", simplify = TRUE) %>% .[1, 4] %>% 
     str_replace(",", "") %>% .[[1]] %>% as.numeric()
   
-  between_5_and_17 = data %>% .[17] %>% 
+  between_5_and_17 = data %>% .[19] %>% 
     str_split(" ", simplify = TRUE) %>% .[1, 4] %>% 
     str_replace(",", "") %>% .[[1]] %>% as.numeric()
   
-  between_18_and_29 = data %>% .[18] %>% 
+  between_18_and_29 = data %>% .[20] %>% 
     str_split(" ", simplify = TRUE) %>% .[1, 4] %>% 
     str_replace(",", "") %>% .[[1]] %>% as.numeric()
   
-  between_30_and_49 = data %>% .[19] %>% 
+  between_30_and_49 = data %>% .[21] %>% 
     str_split(" ", simplify = TRUE) %>% .[1, 4] %>% 
     str_replace(",", "") %>% .[[1]] %>% as.numeric()
   
-  between_50_and_64 = data %>% .[20] %>% 
+  between_50_and_64 = data %>% .[22] %>% 
     str_split(" ", simplify = TRUE) %>% .[1, 4] %>% 
     str_replace(",", "") %>% .[[1]] %>% as.numeric()
   
-  between_65_and_79 = data %>% .[21] %>% 
+  between_65_and_79 = data %>% .[23] %>% 
     str_split(" ", simplify = TRUE) %>% .[1, 4] %>% 
     str_replace(",", "") %>% .[[1]] %>% as.numeric()
   
-  older_than_80 = data %>% .[22] %>% 
+  older_than_80 = data %>% .[24] %>% 
     str_split(" ", simplify = TRUE) %>% .[1, 2] %>% 
     str_replace(",", "") %>% .[[1]] %>% as.numeric()
   
-  female = data %>% .[27] %>% 
+  female = data %>% .[29] %>% 
     str_split(" ", simplify = TRUE) %>% .[1, 2] %>% 
     str_replace(",", "") %>% .[[1]] %>% as.numeric()
   
-  male = data %>% .[28] %>% 
+  male = data %>% .[30] %>% 
     str_split(" ", simplify = TRUE) %>% .[1, 2] %>% 
     str_replace(",", "") %>% .[[1]] %>% as.numeric()
   
-  unknown_sex = data %>% .[29] %>% 
+  unknown_sex = data %>% .[31] %>% 
     str_split(" ", simplify = TRUE) %>% .[1, 2] %>% 
     str_replace(",", "") %>% .[[1]] %>% as.numeric()
   
-  white = data %>% .[31] %>% 
+  white = data %>% .[35] %>% 
     str_split(" ", simplify = TRUE) %>% .[1, 3] %>% 
     str_replace(",", "") %>% .[[1]] %>% as.numeric()
 
-  hispanic = data %>% .[33] %>% 
+  hispanic = data %>% .[37] %>% 
     str_split(" ", simplify = TRUE) %>% .[1, 1] %>% 
     str_replace(",", "") %>% .[[1]] %>% as.numeric()
   
-  black = data %>% .[35] %>% 
+  black = data %>% .[39] %>% 
     str_split(" ", simplify = TRUE) %>% .[1, 3] %>% 
     str_replace(",", "") %>% .[[1]] %>% as.numeric()
   
-  other_race = data %>% .[37] %>% 
+  other_race = data %>% .[40] %>% 
     str_split(" ", simplify = TRUE) %>% .[1, 3] %>% 
     str_replace(",", "") %>% .[[1]] %>% as.numeric()
   
-  asian = data %>% .[36] %>% 
+  asian = data %>% .[41] %>% 
     str_split(" ", simplify = TRUE) %>% .[1, 3] %>% 
     str_replace(",", "") %>% .[[1]] %>% as.numeric()
   
@@ -1327,15 +1316,15 @@ get_minnesota = function() {
   date = df$Date %>% strsplit(" ") %>% unlist
   date = date[2] %>% as.Date("%m/%d/%Y") %>% format("%m/%d/%Y")
   
-  gender = df[,c("Male", "Female", "SexMsng", "GenderOther")]
-  race = df[,grep("Race", colnames(df))] %>% select(1:2,4:9)
-  drace = df[,c(57:63,108)]
-  eth = df[,grep("Ethn", colnames(df))]
-  deth = df[,64:66]
+  gender = df[,c("Male", "Female", "SexMsng", "GenderOther")] %>% unlist()
+  race = df[,grep("Race", colnames(df))] %>% select(1:2,4:9) %>% unlist()
+  drace = df[,c(57:63,108)] %>% unlist()
+  eth = df[,grep("Ethn", colnames(df))] %>% unlist()
+  deth = df[,64:66] %>% unlist()
   age = df[,grep("Age", colnames(df))][c("Age05","Age619","Age2029","Age3039",
                                          "Age4049","Age5059","Age6069",
                                          "Age70_79","Age80_89","Age90_99",
-                                         "Age100_up")]
+                                         "Age100_up")] %>% unlist()
   
   url = "https://www.health.state.mn.us/diseases/coronavirus/situation.html"
   
@@ -1618,7 +1607,7 @@ get_idaho = function() {
   
   skeleton[["cases"]][["total"]] = get_information("ID: Total cases?: ")
   
-  skeleton[["cases"]][["age_0_17"]] = get_information("ID: Cases age <18")
+  skeleton[["cases"]][["age_0_17"]] = get_information("ID: Cases age <18: ")
   skeleton[["cases"]][["age_18_29"]] = get_information("ID: Cases age 18 - 29: ")
   skeleton[["cases"]][["age_30_39"]] = get_information("ID: Cases age 30 - 39?: ")
   skeleton[["cases"]][["age_40_49"]] = get_information("ID: Cases age 40 - 49?: ")
@@ -1664,7 +1653,7 @@ get_idaho = function() {
   skeleton[["hospitalized"]][["total"]] = get_information("ID: Total hospitalized?: ")
   
   skeleton[["deaths"]][["total"]] = get_information("ID: Total deaths?: ")
-  skeleton[["deaths"]][["age_0_17"]] = get_information("ID: Deaths age <18")
+  skeleton[["deaths"]][["age_0_17"]] = get_information("ID: Deaths age <18: ")
   skeleton[["deaths"]][["age_18_29"]] = get_information("ID: Deaths age 18 - 29: ")
   skeleton[["deaths"]][["age_30_39"]] = get_information("ID: Deaths age 30 - 39?: ")
   skeleton[["deaths"]][["age_40_49"]] = get_information("ID: Deaths age 40 - 49?: ")
