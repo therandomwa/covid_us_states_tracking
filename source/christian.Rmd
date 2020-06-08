@@ -54,9 +54,8 @@ minnesota = get_minnesota()
 ```
 
 ```{r}
-new_jersey
-```
 
+```
 
 ```{r}
 full_data_20200605 = bind_rows(
@@ -68,27 +67,15 @@ full_data_20200605 = bind_rows(
   tennessee,
   kansas,
   iowa,
+  new_hampshire,
   north_carolina,
   south_carolina,
   idaho,
   minnesota
 )
 
-full_data_20200531 = bind_rows(
-  oklahoma,
-  mississippi,
-  florida,
-  tennessee,
-  new_jersey,
-  new_hampshire,
-  dc,
-  south_carolina,
-  kansas,
-  iowa,
-  north_carolina,
-  idaho)
 
-save(full_data_20200601, file ="../data/raw_states/meta_2020-06-01-cbp.rda")
+save(full_data_20200605, file ="../data/raw_states/meta_2020-06-05-cbp.rda")
 ```
 
 # Manual States

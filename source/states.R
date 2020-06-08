@@ -1176,9 +1176,17 @@ get_new_hampshire = function() {
   skeleton[["hospitalized"]][["total"]] = get_information("NH, total hosp: ")
   skeleton[["deaths"]][["total"]] = get_information("NH, total death: ")
   
-  skeleton[["cases"]][["sex_male"]] = get_information("NH, Cases male: ")
   skeleton[["cases"]][["sex_female"]] = get_information("NH, Cases female: ")
+  skeleton[["cases"]][["sex_male"]] = get_information("NH, Cases male: ")
   skeleton[["cases"]][["sex_unk"]] = get_information("NH, Cases sex unk: ")
+  
+  skeleton[["hospitalized"]][["sex_female"]] = get_information("NH, hospitalized female: ")
+  skeleton[["hospitalized"]][["sex_male"]] = get_information("NH, hospitalized male: ")
+  skeleton[["hospitalized"]][["sex_unk"]] = get_information("NH, hospitalized sex unk: ")
+  
+  skeleton[["deaths"]][["sex_female"]] = get_information("NH, deaths female: ")
+  skeleton[["deaths"]][["sex_male"]] = get_information("NH, deaths male: ")
+  skeleton[["deaths"]][["sex_unk"]] = get_information("NH, deaths sex unk: ")
   
   skeleton[["cases"]][["age_0_9"]] = get_information("NH, Cases ages 0-9: ")
   skeleton[["cases"]][["age_10_19"]] = get_information("NH, Cases ages 10-19: ")
@@ -1191,10 +1199,6 @@ get_new_hampshire = function() {
   skeleton[["cases"]][["age_80+"]] = get_information("NH, Cases ages 80+: ")
   skeleton[["cases"]][["age_unk"]] = get_information("NH, Cases ages unk: ")
   
-  skeleton[["hospitalized"]][["sex_male"]] = get_information("NH, hospitalized male: ")
-  skeleton[["hospitalized"]][["sex_female"]] = get_information("NH, hospitalized female: ")
-  skeleton[["hospitalized"]][["sex_unk"]] = get_information("NH, hospitalized sex unk: ")
-  
   skeleton[["hospitalized"]][["age_0_9"]] = get_information("NH, hospitalized ages 0-9: ")
   skeleton[["hospitalized"]][["age_10_19"]] = get_information("NH, hospitalized ages 10-19: ")
   skeleton[["hospitalized"]][["age_20_29"]] = get_information("NH, hospitalized ages 20-29: ")
@@ -1206,10 +1210,6 @@ get_new_hampshire = function() {
   skeleton[["hospitalized"]][["age_80+"]] = get_information("NH, hospitalized ages 80+: ")
   skeleton[["hospitalized"]][["age_unk"]] = get_information("NH, hospitalized ages unk: ")
 
-  skeleton[["deaths"]][["sex_male"]] = get_information("NH, deaths male: ")
-  skeleton[["deaths"]][["sex_female"]] = get_information("NH, deaths female: ")
-  skeleton[["deaths"]][["sex_unk"]] = get_information("NH, deaths sex unk: ")
-  
   skeleton[["deaths"]][["age_0_9"]] = get_information("NH, deaths ages 0-9: ")
   skeleton[["deaths"]][["age_10_19"]] = get_information("NH, deaths ages 10-19: ")
   skeleton[["deaths"]][["age_20_29"]] = get_information("NH, deaths ages 20-29: ")
