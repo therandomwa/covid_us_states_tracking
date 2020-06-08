@@ -732,5 +732,194 @@ write.csv(final,
                         file_date_name, 
                         ".csv"), row.names = F)
 
-
-
+#### age label
+race_standard = function(race_var){
+  browser()
+  race_name = df %>% 
+    filter(!is.na(get(race_var))) %>%
+    select(state_name) %>% 
+    unlist %>% 
+    as.vector
+  
+  # get it into a dataframe
+  race_df = df %>%
+    filter(!is.na(get(race_var))) %>% 
+    select(race_var) %>% 
+    unlist %>% 
+    as.character %>% 
+    strsplit("; |:") %>%
+    lapply(function(x)
+      matrix(x, ncol = 2, byrow = TRUE) %>%
+        as.data.frame)
+  
+  # convert % to decimal
+  race_df = lapply(race_df, function(x) {
+    x[, 2] = x[, 2] %>% as.character
+    x[grep("%", x[, 2]), ] = x[grep("%", x[, 2]), ] %>%
+      mutate(V2 = gsub("%|<", "", V2) %>% as.numeric) %>%
+      mutate(V2 = V2 / 100 )# %>% 
+    #mutate(V2 = format(.$V2, scientific=F))
+    x[, 2] = x[, 2] %>% as.numeric
+    x[, 1] = x[, 1] %>% toupper
+    return (x)
+  })
+  
+  test = do.call(rbind.fill, 
+                 lapply(race_df, 
+                        function(x) {
+                          dat = data.frame(cat = x[,1] %>% trimws, val = 1) 
+                          rownames(dat) = dat$cat; dat$cat = NULL 
+                          dat = dat %>% t %>% as.data.frame
+                          return (dat)}))
+  
+  test = test[,order(colnames(test))]
+  race = data.frame(original = colnames(test),
+                    count = colSums(test, na.rm = T) %>% as.vector)
+  race$original = as.character(race$original)
+  race$new = NA
+  
+  # dictionary 
+  try({
+    # black
+    race[intersect(grep("AFR|BLACK|BLK", race$original),
+                   grep("NH|HISPANIC", race$original, invert = TRUE)), ]$new = "BLACK"}, silent = TRUE)
+  try({
+    # NH black
+    race[intersect(grep("AFR|BLACK|BLK", race$original),
+                   grep("NH|HISPANIC", race$original)), ]$new = "NH BLACK"}, silent = TRUE)
+  try({
+    # white
+    race[intersect(grep("WHITE|WHT|CAUCASIAN", race$original),
+                   grep("NH|HISPANIC", race$original, invert = TRUE)), ]$new = "WHITE"}, silent = TRUE)
+  try({
+    # NH white
+    race[intersect(grep("WHITE|WHT|CAUCASIAN", race$original),
+                   grep("NH|HISPANIC", race$original)), ]$new = "NH WHITE"}, silent = TRUE)
+  try({
+    # Multi
+    race[intersect(grep("MULT|TWO", race$original),
+                   grep("NH|HISPANIC|(OR OTHER)", race$original, invert = TRUE)), ]$new = "MULTI"}, silent = TRUE)
+  try({
+    # NH Multi
+    race[intersect(grep("MULT", race$original),
+                   grep("NH|HISPANIC", race$original)), ]$new = "NH MULTI"}, silent = TRUE)
+  try({
+    # ASIAN/
+    race[intersect(grep("ASIAN", race$original),
+                   grep("NH|HISPANIC|CAUCASIAN|PACIFIC", race$original, invert = TRUE)), ]$new = "ASIAN"}, silent = TRUE)
+  try({
+    # NH ASIAN/
+    race[Reduce(intersect, list(grep("ASIAN", race$original),
+                                grep("NH|HISPANIC", race$original),
+                                grep("PACIFIC", race$original, invert = T))),]$new = "NH ASIAN"}, silent = TRUE)
+  try({
+    # AI/AN
+    race[intersect(grep("ALASKA|AI/AN|AIAN|NATA", race$original),
+                   grep("NH|HISPANIC|PACIFIC", race$original, invert = TRUE)), ]$new = "AI/AN"}, silent = TRUE)
+  try({
+    # NH AI/AN
+    race[Reduce(intersect, list(grep("ALASKA|AI/AN|AIAN|NATA", race$original),
+                                grep("NH|HISPANIC", race$original),
+                                grep("PACIFIC", race$original, invert = T))),]$new = "NH AI/AN"}, silent = TRUE)
+  try({
+    # UNKNOWN
+    race[Reduce(intersect, list(grep("MISS|BLANK|UNKNOWN|AVAIL|DISCLOSE|REPORT|UNK|REFUSE", race$original),
+                                which(is.na(race$new)),
+                                grep("OTHER", race$original, invert = T))),]$new = "UNKNOWN" }, silent = TRUE)
+  try({
+    # PENDING
+    race[Reduce(intersect, list(grep("PEND|UNDER", race$original),
+                                which(is.na(race$new)))),]$new = "PENDING"}, silent = TRUE)
+  
+  try({
+    # NH/PI
+    race[Reduce(intersect, list(which(is.na(race$new)),
+                                grep("PACIFIC|PI", race$original),
+                                grep("NATIVE|NH", race$original),
+                                grep("INDIAN|ASIAN|HISPANIC", race$original, invert = TRUE))),]$new = "NH/PI"}, silent = TRUE)
+  
+  try({
+    # NH NH/PI
+    race[Reduce(intersect, list(which(is.na(race$new)),
+                                grep("PACIFIC|PI", race$original),
+                                grep("NATIVE|NH", race$original),
+                                grep("INDIAN|ASIAN", race$original, invert = TRUE))),]$new = "NH NH/PI"}, silent = TRUE)
+  
+  try({
+    # OTHER
+    race[Reduce(intersect, list(which(is.na(race$new)),
+                                grep("OTHER", race$original),
+                                grep("MULT|NH|HISPANIC", race$original, invert = T))),]$new = "OTHER"}, silent = TRUE)
+  
+  try({
+    # NH OTHER
+    race[Reduce(intersect, list(which(is.na(race$new)),
+                                grep("OTHER", race$original),
+                                grep("NH|HISPANIC", race$original))),]$new = "NH OTHER"}, silent = TRUE)
+  try({
+    # HISPANIC
+    race[Reduce(intersect, list(which(is.na(race$new)),
+                                grep("HISPANIC|LATINO", race$original))),]$new = "HISPANIC"}, silent = TRUE)
+  
+  try({
+    # random ones
+    # ASIAN/PACIFIC ISLANDER
+    race[Reduce(intersect, list(which(is.na(race$new)),
+                                grep("ASIAN", race$original),
+                                grep("NH", race$original, invert = TRUE))),]$new = "ASIAN/PI"}, silent = TRUE)
+  
+  try({
+    # NH ASIAN/PACIFIC ISLANDER
+    race[Reduce(intersect, list(which(is.na(race$new)),
+                                grep("ASIAN", race$original),
+                                grep("NH", race$original))),]$new = "NH ASIAN/PI"}, silent = TRUE)
+  
+  try({
+    # AMERICAN INDIAN
+    race[Reduce(intersect, list(which(is.na(race$new)),
+                                grep("AMERI", race$original),
+                                grep("ALASKA", race$original, invert = TRUE))),]$new = "AI/AN"}, silent = TRUE)
+  try({
+    # PACIFIC ISLANDER
+    race[Reduce(intersect, list(which(is.na(race$new)),
+                                grep("PAC", race$original),
+                                grep("ALASKA", race$original, invert = TRUE))),]$new = "NH/PI"}, silent = TRUE)
+  try({
+    # HAWAIIAN
+    race[Reduce(intersect, list(which(is.na(race$new)),
+                                grep("HAWAIIAN", race$original),
+                                grep("ALASKA", race$original, invert = TRUE))),]$new = "NH/PI"}, silent = TRUE)
+  
+  try({
+    # AI/AN/NH/PI
+    race[Reduce(intersect, list(which(is.na(race$new)),
+                                grep("HAWAIIAN", race$original))),]$new = "AI/AN/NH/PI"}, silent = TRUE)
+  
+  # THE REST OF UNKNOWN/OTHER
+  try({
+    race[Reduce(intersect, list(which(is.na(race$new)),
+                                grep("MULTIPLE", race$original))),]$new = "MULTI/OTHERS"}, silent = TRUE)
+  try({
+    race[Reduce(intersect, list(which(is.na(race$new)),
+                                grep("NATIV", race$original))),]$new = "AI/AN"}, silent = TRUE)
+  try({
+    race[Reduce(intersect, list(which(is.na(race$new)),
+                                grep("PAC", race$original))),]$new = "NH/PI"}, silent = TRUE)
+  try({
+    race[Reduce(intersect, list(which(is.na(race$new)),
+                                grep("M", race$original))),]$new =  "UNKNOWN"}, silent = TRUE)
+  
+  df[,race_var] = as.character(df[,race_var])
+  df[df$state_name %in% race_name, race_var] = 
+    lapply(race_df, 
+           function(x) {
+             new_df = left_join(x, race, by = c("V1" = "original")) %>% 
+               select(new, V2) %>% group_by(new) %>% 
+               summarise(V2 = sum(V2, na.rm = T)) %>% 
+               mutate(V2 = format(V2, scientific = F)) %>% 
+               as.data.frame
+             return (paste(paste0(new_df$new, ":" ,new_df$V2), collapse = "; "))
+           }) %>% unlist
+  return (df)
+}
+race_standard("positive_age")
