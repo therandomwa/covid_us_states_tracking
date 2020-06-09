@@ -37,8 +37,8 @@
 "Alaska","AI/AN",59,"06/03/20","race","case","Count",113516,59,51.975051975052
 "Alaska","ASIAN",51,"06/03/20","race","case","Count",49025,51,104.028556858746
 "Alaska","BLACK",15,"06/03/20","race","case","Count",27942,15,53.6826283014816
+"Alaska","HN/PI",16,"06/03/20","race","case","Count",10221,16,156.540455924078
 "Alaska","MULTI",19,"06/03/20","race","case","Count",54855,19,34.6367696654817
-"Alaska","NH/PI",16,"06/03/20","race","case","Count",10221,16,156.540455924078
 "Alaska","OTHER",12,"06/03/20","race","case","Count",NA,12,NA
 "Alaska","UNKNOWN",34,"06/03/20","race","case","Count",NA,34,NA
 "Alaska","WHITE",318,"06/03/20","race","case","Count",481879,318,65.9916701080562
@@ -58,8 +58,8 @@
 "Alaska","AI/AN",2,"06/03/20","race","death","Count",113516,2,1.76186616864583
 "Alaska","ASIAN",2,"06/03/20","race","death","Count",49025,2,4.07955124936257
 "Alaska","BLACK",0,"06/03/20","race","death","Count",27942,0,0
+"Alaska","HN/PI",1,"06/03/20","race","death","Count",10221,1,9.78377849525487
 "Alaska","MULTI",0,"06/03/20","race","death","Count",54855,0,0
-"Alaska","NH/PI",1,"06/03/20","race","death","Count",10221,1,9.78377849525487
 "Alaska","OTHER",0,"06/03/20","race","death","Count",NA,0,NA
 "Alaska","UNKNOWN",0,"06/03/20","race","death","Count",NA,0,NA
 "Alaska","WHITE",5,"06/03/20","race","death","Count",481879,5,1.03760487591283
@@ -79,8 +79,8 @@
 "Alaska","AI/AN",7,"06/03/20","race","hosp","Count",113516,7,6.1665315902604
 "Alaska","ASIAN",7,"06/03/20","race","hosp","Count",49025,7,14.278429372769
 "Alaska","BLACK",0,"06/03/20","race","hosp","Count",27942,0,0
+"Alaska","HN/PI",4,"06/03/20","race","hosp","Count",10221,4,39.1351139810195
 "Alaska","MULTI",0,"06/03/20","race","hosp","Count",54855,0,0
-"Alaska","NH/PI",4,"06/03/20","race","hosp","Count",10221,4,39.1351139810195
 "Alaska","OTHER",4,"06/03/20","race","hosp","Count",NA,4,NA
 "Alaska","UNKNOWN",0,"06/03/20","race","hosp","Count",NA,0,NA
 "Alaska","WHITE",26,"06/03/20","race","hosp","Count",481879,26,5.39554535474673
@@ -200,8 +200,8 @@
 "California","NH ASIAN",7471,"06/04/20","race","case","Count",5818319,7471,128.40478495593
 "California","NH BLACK",4382,"06/04/20","race","case","Count",2223274,4382,197.096714125205
 "California","HISPANIC",43855,"06/04/20","race","case","Count",15540142,43855,282.204628503395
+"California","NH HN/PI",653,"06/04/20","race","case","Count",145491,653,448.825013231059
 "California","NH MULTI",621,"06/04/20","race","case","Count",1097938,621,56.5605708154741
-"California","NH NH/PI",653,"06/04/20","race","case","Count",145491,653,448.825013231059
 "California","OTHER",8204,"06/04/20","race","case","Count",NA,8204,NA
 "California","PENDING",40969,"06/04/20","race","case","Count",NA,40969,NA
 "California","NH WHITE",16571,"06/04/20","race","case","Count",14568608,16571,113.744566399206
@@ -218,8 +218,8 @@
 "California","NH ASIAN",644,"06/04/20","race","death","Count",5818319,644,11.0684890257822
 "California","NH BLACK",431,"06/04/20","race","death","Count",2223274,431,19.3858246891746
 "California","HISPANIC",1692,"06/04/20","race","death","Count",15540142,1692,10.8879313972807
+"California","NH HN/PI",19,"06/04/20","race","death","Count",145491,19,13.0592270312253
 "California","NH MULTI",28,"06/04/20","race","death","Count",1097938,28,2.55023507702621
-"California","NH NH/PI",19,"06/04/20","race","death","Count",145491,19,13.0592270312253
 "California","OTHER",33,"06/04/20","race","death","Count",NA,33,NA
 "California","PENDING",76,"06/04/20","race","death","Count",NA,76,NA
 "California","NH WHITE",1432,"06/04/20","race","death","Count",14568608,1432,9.82935363488399
@@ -239,8 +239,8 @@
 "Colorado","NH AI/AN",0.0052,"06/05/20","race","case","Percent",36614,131,357.78663899055
 "Colorado","NH ASIAN",0.0266,"06/05/20","race","case","Percent",187668,668,355.947737493872
 "Colorado","NH BLACK",0.058,"06/05/20","race","case","Percent",229085,1456,635.571949276469
+"Colorado","NH HN/PI",0.0042,"06/05/20","race","case","Percent",7596,105,1382.30647709321
 "Colorado","NH MULTI",0.0062,"06/05/20","race","case","Percent",131155,156,118.943235103503
-"Colorado","NH NH/PI",0.0042,"06/05/20","race","case","Percent",7596,105,1382.30647709321
 "Colorado","NH WHITE",0.3409,"06/05/20","race","case","Percent",3868329,8556,221.18077340371
 "Colorado","OTHER",0.0091,"06/05/20","race","case","Percent",NA,228,NA
 "Colorado","UNKNOWN",0.1713,"06/05/20","race","case","Percent",NA,4299,NA
@@ -261,8 +261,8 @@
 "Colorado","NH AI/AN",0.0052,"06/05/20","race","death","Percent",36614,6,16.3871743049107
 "Colorado","NH ASIAN",0.0367,"06/05/20","race","death","Percent",187668,44,23.4456593558838
 "Colorado","NH BLACK",0.0689,"06/05/20","race","death","Percent",229085,83,36.2310932623262
+"Colorado","NH HN/PI",0.0039,"06/05/20","race","death","Percent",7596,5,65.8241179568194
 "Colorado","NH MULTI",0.0066,"06/05/20","race","death","Percent",131155,8,6.09965308223095
-"Colorado","NH NH/PI",0.0039,"06/05/20","race","death","Percent",7596,5,65.8241179568194
 "Colorado","NH WHITE",0.622,"06/05/20","race","death","Percent",3868329,750,19.388216462457
 "Colorado","OTHER",0.0059,"06/05/20","race","death","Percent",NA,7,NA
 "Colorado","UNKNOWN",0.0512,"06/05/20","race","death","Percent",NA,62,NA
@@ -373,8 +373,8 @@
 "District of Columbia","ASIAN",108,"06/06/20","race","case","Count",31025,108,348.106365834005
 "District of Columbia","BLACK",4223,"06/06/20","race","case","Count",326181,4223,1294.67994763643
 "District of Columbia","HISPANIC",0,"06/06/20","race","case","Count",79249,0,0
+"District of Columbia","HN/PI",22,"06/06/20","race","case","Count",975,22,2256.41025641026
 "District of Columbia","MULTI",2335,"06/06/20","race","case","Count",19604,2335,11910.8345235666
-"District of Columbia","NH/PI",22,"06/06/20","race","case","Count",975,22,2256.41025641026
 "District of Columbia","UNKNOWN",58,"06/06/20","race","case","Count",NA,58,NA
 "District of Columbia","WHITE",1366,"06/06/20","race","case","Count",320374,1366,426.376672264291
 "District of Columbia","0-4",114,"06/06/20","age","case","Count",45617,114,249.906832978933
@@ -394,8 +394,8 @@
 "District of Columbia","ASIAN",7,"06/06/20","race","death","Count",31025,7,22.5624496373892
 "District of Columbia","BLACK",357,"06/06/20","race","death","Count",326181,357,109.448435071325
 "District of Columbia","HISPANIC",57,"06/06/20","race","death","Count",79249,57,71.9251977942939
+"District of Columbia","HN/PI",0,"06/06/20","race","death","Count",975,0,0
 "District of Columbia","MULTI",0,"06/06/20","race","death","Count",19604,0,0
-"District of Columbia","NH/PI",0,"06/06/20","race","death","Count",975,0,0
 "District of Columbia","UNKNOWN",5,"06/06/20","race","death","Count",NA,5,NA
 "District of Columbia","WHITE",53,"06/06/20","race","death","Count",320374,53,16.5431651757009
 "District of Columbia","",51861,"06/06/20","total","test","Count",702455,51861,7382.82167540981
@@ -477,14 +477,14 @@
 "Georgia","AI/AN",55,"06/05/20","race","case","Count",54882,55,100.215006741737
 "Georgia","ASIAN",752,"06/05/20","race","case","Count",453488,752,165.825777087817
 "Georgia","BLACK",16137,"06/05/20","race","case","Count",3411145,16137,473.066961386866
-"Georgia","NH/PI",47,"06/05/20","race","case","Count",12432,47,378.056628056628
+"Georgia","HN/PI",47,"06/05/20","race","case","Count",12432,47,378.056628056628
 "Georgia","OTHER",3341,"06/05/20","race","case","Count",NA,3341,NA
 "Georgia","UNKNOWN",13907,"06/05/20","race","case","Count",NA,13907,NA
 "Georgia","WHITE",16382,"06/05/20","race","case","Count",6360528,16382,257.557234242189
 "Georgia","AI/AN",4,"06/05/20","race","death","Count",54882,4,7.28836412667177
 "Georgia","ASIAN",32,"06/05/20","race","death","Count",453488,32,7.05641604629009
 "Georgia","BLACK",1058,"06/05/20","race","death","Count",3411145,1058,31.015978505751
-"Georgia","NH/PI",5,"06/05/20","race","death","Count",12432,5,40.2187902187902
+"Georgia","HN/PI",5,"06/05/20","race","death","Count",12432,5,40.2187902187902
 "Georgia","OTHER",40,"06/05/20","race","death","Count",NA,40,NA
 "Georgia","UNKNOWN",11,"06/05/20","race","death","Count",NA,11,NA
 "Georgia","WHITE",1024,"06/05/20","race","death","Count",6360528,1024,16.0992923857894
@@ -570,8 +570,8 @@
 "Hawaii","AI/AN",0,"06/05/20","race","case","Count",5629,0,0
 "Hawaii","ASIAN",37,"06/05/20","race","case","Count",534651,37,6.92040228111422
 "Hawaii","BLACK",1,"06/05/20","race","case","Count",31138,1,3.21151005202646
+"Hawaii","HN/PI",18,"06/05/20","race","case","Count",144806,18,12.4304241536953
 "Hawaii","MULTI",9,"06/05/20","race","case","Count",340718,9,2.64148063794692
-"Hawaii","NH/PI",18,"06/05/20","race","case","Count",144806,18,12.4304241536953
 "Hawaii","OTHER",2,"06/05/20","race","case","Count",NA,2,NA
 "Hawaii","UNKNOWN",0,"06/05/20","race","case","Count",NA,0,NA
 "Hawaii","WHITE",33,"06/05/20","race","case","Count",363549,33,9.07718079268544
@@ -585,8 +585,8 @@
 "Idaho","AI/AN",6204,"06/06/20","race","case","Count",30449,6204,20375.0533679267
 "Idaho","ASIAN",6204,"06/06/20","race","case","Count",27819,6204,22301.3048635824
 "Idaho","BLACK",6204,"06/06/20","race","case","Count",15775,6204,39328.0507131537
+"Idaho","HN/PI",1644,"06/06/20","race","case","Count",3883,1644,42338.3981457636
 "Idaho","MULTI",15512,"06/06/20","race","case","Count",44094,15512,35179.3894860979
-"Idaho","NH/PI",1644,"06/06/20","race","case","Count",3883,1644,42338.3981457636
 "Idaho","OTHER",46536,"06/06/20","race","case","Count",NA,46536,NA
 "Idaho","UNKNOWN",8.54,"06/06/20","race","case","Count",NA,8.54,NA
 "Idaho","WHITE",220274,"06/06/20","race","case","Count",1632188,220274,13495.6267292738
@@ -603,8 +603,8 @@
 "Idaho","AI/AN",0,"06/06/20","race","death","Count",30449,0,0
 "Idaho","ASIAN",2,"06/06/20","race","death","Count",27819,2,7.1893310327474
 "Idaho","BLACK",1,"06/06/20","race","death","Count",15775,1,6.3391442155309
+"Idaho","HN/PI",0,"06/06/20","race","death","Count",3883,0,0
 "Idaho","MULTI",0,"06/06/20","race","death","Count",44094,0,0
-"Idaho","NH/PI",0,"06/06/20","race","death","Count",3883,0,0
 "Idaho","OTHER",0,"06/06/20","race","death","Count",NA,0,NA
 "Idaho","UNKNOWN",0,"06/06/20","race","death","Count",NA,0,NA
 "Idaho","WHITE",80,"06/06/20","race","death","Count",1632188,80,4.90139616269694
@@ -631,7 +631,7 @@
 "Illinois","NH ASIAN",3614,"06/05/20","race","case","Count",732320,3614,493.500109241861
 "Illinois","NH BLACK",20903,"06/05/20","race","case","Count",1791197,20903,1166.98498266801
 "Illinois","HISPANIC",40156,"06/05/20","race","case","Count",2214142,40156,1813.61448362391
-"Illinois","NH NH/PI",308,"06/05/20","race","case","Count",3625,308,8496.55172413793
+"Illinois","NH HN/PI",308,"06/05/20","race","case","Count",3625,308,8496.55172413793
 "Illinois","OTHER",4562,"06/05/20","race","case","Count",NA,4562,NA
 "Illinois","UNKNOWN",31522,"06/05/20","race","case","Count",NA,31522,NA
 "Illinois","NH WHITE",24655,"06/05/20","race","case","Count",7773275,24655,317.176479669123
@@ -651,7 +651,7 @@
 "Illinois","NH ASIAN",271,"06/05/20","race","death","Count",732320,271,37.005680576797
 "Illinois","NH BLACK",1676,"06/05/20","race","death","Count",1791197,1676,93.568714105707
 "Illinois","HISPANIC",1150,"06/05/20","race","death","Count",2214142,1150,51.9388548701935
-"Illinois","NH NH/PI",5,"06/05/20","race","death","Count",3625,5,137.931034482759
+"Illinois","NH HN/PI",5,"06/05/20","race","death","Count",3625,5,137.931034482759
 "Illinois","OTHER",46,"06/05/20","race","death","Count",NA,46,NA
 "Illinois","UNKNOWN",121,"06/05/20","race","death","Count",NA,121,NA
 "Illinois","NH WHITE",2517,"06/05/20","race","death","Count",7773275,2517,32.3801743795247
@@ -686,7 +686,7 @@
 "Illinois","OTHER",34139,"06/05/20","race","test","Count",NA,34139,NA
 "Illinois","NH ASIAN",15162,"06/05/20","race","test","Count",732320,15162,2070.40637972471
 "Illinois","HISPANIC",92818,"06/05/20","race","test","Count",2214142,92818,4192.05272290576
-"Illinois","NH NH/PI",1091,"06/05/20","race","test","Count",3625,1091,30096.5517241379
+"Illinois","NH/PI",1091,"06/05/20","race","test","Count",73167,1091,1491.10937991171
 "Illinois","NH AI/AN",739,"06/05/20","race","test","Count",19233,739,3842.35428690272
 "Illinois","",125915,"06/05/20","total","case","Count",12741080,125915,988.26002191337
 "Illinois","",5795,"06/05/20","total","death","Count",12741080,5795,45.4828005161258
@@ -736,7 +736,7 @@
 "Iowa","AI/AN",0,"06/06/20","race","case","Percent",16681,0,0
 "Iowa","ASIAN",0.09,"06/06/20","race","case","Percent",85708,1923,2243.66453539926
 "Iowa","BLACK",0.11,"06/06/20","race","case","Percent",124819,2350,1882.72618751953
-"Iowa","NH/PI",0,"06/06/20","race","case","Percent",4232,0,0
+"Iowa","HN/PI",0,"06/06/20","race","case","Percent",4232,0,0
 "Iowa","OTHER",0.21,"06/06/20","race","case","Percent",NA,4486,NA
 "Iowa","UNKNOWN",0,"06/06/20","race","case","Percent",NA,0,NA
 "Iowa","WHITE",0.59,"06/06/20","race","case","Percent",2864126,12605,440.099353170915
@@ -751,7 +751,7 @@
 "Iowa","AI/AN",0,"06/06/20","race","death","Percent",16681,0,0
 "Iowa","ASIAN",0.05,"06/06/20","race","death","Percent",85708,30,35.0025668549027
 "Iowa","BLACK",0.05,"06/06/20","race","death","Percent",124819,30,24.0348023938663
-"Iowa","NH/PI",0,"06/06/20","race","death","Percent",4232,0,0
+"Iowa","HN/PI",0,"06/06/20","race","death","Percent",4232,0,0
 "Iowa","OTHER",0.12,"06/06/20","race","death","Percent",NA,72,NA
 "Iowa","UNKNOWN",0,"06/06/20","race","death","Percent",NA,0,NA
 "Iowa","WHITE",0.78,"06/06/20","race","death","Percent",2864126,466,16.270233921273
@@ -845,8 +845,8 @@
 "Kentucky","AI/AN",0.002,"06/05/20","race","case","Percent",13412,22,164.032209961229
 "Kentucky","ASIAN",0.0535,"06/05/20","race","case","Percent",72806,587,806.252231958905
 "Kentucky","BLACK",0.1526,"06/05/20","race","case","Percent",375972,1675,445.511899822327
+"Kentucky","HN/PI",0.0023,"06/05/20","race","case","Percent",4058,25,616.067028092657
 "Kentucky","MULTI",0.0576,"06/05/20","race","case","Percent",88218,632,716.407082454828
-"Kentucky","NH/PI",0.0023,"06/05/20","race","case","Percent",4058,25,616.067028092657
 "Kentucky","WHITE",0.732,"06/05/20","race","case","Percent",3913936,8036,205.317613778048
 "Kentucky","0-9",222,"06/05/20","age","case","Count",552138,222,40.2073394694805
 "Kentucky","10-19",466,"06/05/20","age","case","Count",572893,466,81.3415419633335
@@ -913,7 +913,7 @@
 "Louisiana","AI/AN",2,"06/05/20","race","death","Count",36500,2,5.47945205479452
 "Louisiana","ASIAN",21,"06/05/20","race","death","Count",84271,21,24.9196046089402
 "Louisiana","BLACK",1448,"06/05/20","race","death","Count",1526090,1448,94.8830016578314
-"Louisiana","NH/PI",5,"06/05/20","race","death","Count",2889,5,173.07026652821
+"Louisiana","HN/PI",5,"06/05/20","race","death","Count",2889,5,173.07026652821
 "Louisiana","OTHER",18,"06/05/20","race","death","Count",NA,18,NA
 "Louisiana","UNKNOWN",3,"06/05/20","race","death","Count",NA,3,NA
 "Louisiana","WHITE",1168,"06/05/20","race","death","Count",2930432,1168,39.8576046125622
@@ -1084,8 +1084,8 @@
 "Minnesota","AI/AN",221,"","race","case","Count",76616,221,288.451498381539
 "Minnesota","ASIAN",1737,"","race","case","Count",288975,1737,601.090059693745
 "Minnesota","BLACK",5994,"","race","case","Count",380414,5994,1575.65178989207
+"Minnesota","HN/PI",65,"","race","case","Count",4145,65,1568.15440289505
 "Minnesota","MULTI",524,"","race","case","Count",142853,524,366.810637508488
-"Minnesota","NH/PI",65,"","race","case","Count",4145,65,1568.15440289505
 "Minnesota","OTHER",3377,"","race","case","Count",NA,3377,NA
 "Minnesota","UNKNOWN",5683,"","race","case","Count",NA,5683,NA
 "Minnesota","WHITE",9379,"","race","case","Count",4718176,9379,198.784445514538
@@ -1106,8 +1106,8 @@
 "Minnesota","AI/AN",35,"","race","death","Count",76616,35,45.6823639970763
 "Minnesota","ASIAN",10,"","race","death","Count",288975,10,3.46050696427027
 "Minnesota","BLACK",71,"","race","death","Count",380414,71,18.6638767237799
+"Minnesota","HN/PI",324,"","race","death","Count",4145,324,7816.64656212304
 "Minnesota","MULTI",6,"","race","death","Count",142853,6,4.2001218035323
-"Minnesota","NH/PI",324,"","race","death","Count",4145,324,7816.64656212304
 "Minnesota","OTHER",1,"","race","death","Count",NA,1,NA
 "Minnesota","UNKNOWN",13,"","race","death","Count",NA,13,NA
 "Minnesota","WHITE",688,"","race","death","Count",4718176,688,14.5819062281695
@@ -1129,8 +1129,8 @@
 "Minnesota","AI/AN",6,"","race","hosp","Count",76616,6,7.8312623994988
 "Minnesota","ASIAN",72,"","race","hosp","Count",288975,72,24.9156501427459
 "Minnesota","BLACK",292,"","race","hosp","Count",380414,292,76.7584789203342
+"Minnesota","HN/PI",60,"","race","hosp","Count",4145,60,1447.5271411339
 "Minnesota","MULTI",207,"","race","hosp","Count",142853,207,144.904202221864
-"Minnesota","NH/PI",60,"","race","hosp","Count",4145,60,1447.5271411339
 "Minnesota","OTHER",571,"","race","hosp","Count",NA,571,NA
 "Minnesota","UNKNOWN",451,"","race","hosp","Count",NA,451,NA
 "Minnesota","WHITE",663,"","race","hosp","Count",4718176,663,14.0520404495296
@@ -1163,8 +1163,8 @@
 "Mississippi","AI/AN",247,"06/06/20","race","case","Count",18423,247,1340.71541008522
 "Mississippi","ASIAN",52,"06/06/20","race","case","Count",32152,52,161.731774073153
 "Mississippi","BLACK",8439,"06/06/20","race","case","Count",1128912,8439,747.533908754624
+"Mississippi","HN/PI",0,"06/06/20","race","case","Count",1812,0,0
 "Mississippi","MULTI",0,"06/06/20","race","case","Count",38930,0,0
-"Mississippi","NH/PI",0,"06/06/20","race","case","Count",1812,0,0
 "Mississippi","OTHER",212,"06/06/20","race","case","Count",NA,212,NA
 "Mississippi","UNKNOWN",666,"06/06/20","race","case","Count",NA,666,NA
 "Mississippi","WHITE",4256,"06/06/20","race","case","Count",1766301,4256,240.955533626488
@@ -1183,8 +1183,8 @@
 "Mississippi","AI/AN",16,"06/06/20","race","death","Count",18423,16,86.8479617868968
 "Mississippi","ASIAN",0,"06/06/20","race","death","Count",32152,0,0
 "Mississippi","BLACK",412,"06/06/20","race","death","Count",1128912,412,36.4953158439276
+"Mississippi","HN/PI",0,"06/06/20","race","death","Count",1812,0,0
 "Mississippi","MULTI",0,"06/06/20","race","death","Count",38930,0,0
-"Mississippi","NH/PI",0,"06/06/20","race","death","Count",1812,0,0
 "Mississippi","OTHER",11,"06/06/20","race","death","Count",NA,11,NA
 "Mississippi","UNKNOWN",2,"06/06/20","race","death","Count",NA,2,NA
 "Mississippi","WHITE",343,"06/06/20","race","death","Count",1766301,343,19.4191137297663
@@ -1273,7 +1273,7 @@
 "Missouri","NON HISPANIC",574,"06/05/20","eth","death","Count",5863187,574,9.78989754207055
 "Missouri","UNKNOWN",0,"06/05/20","eth","death","Count",NA,0,NA
 "Missouri","UNKNOWN",81,"06/05/20","eth","death","Count",NA,81,NA
-"Montana","AI/AN/NH/PI",65,"06/05/20","race","case","Count",71496,65,90.914177016896
+"Montana","AI/AN/HN/PI",65,"06/05/20","race","case","Count",71496,65,90.914177016896
 "Montana","ASIAN",1,"06/05/20","race","case","Count",9852,1,10.1502233049127
 "Montana","BLACK",2,"06/05/20","race","case","Count",6237,2,32.0666987333654
 "Montana","OTHER",4,"06/05/20","race","case","Count",NA,4,NA
@@ -1525,8 +1525,8 @@
 "North Carolina","AI/AN",223,"06/06/20","race","case","Count",163078,223,136.744379989943
 "North Carolina","ASIAN",647,"06/06/20","race","case","Count",329284,647,196.486923142333
 "North Carolina","BLACK",6840,"06/06/20","race","case","Count",2306797,6840,296.51503795089
+"North Carolina","HN/PI",93,"06/06/20","race","case","Count",12989,93,715.990453460621
 "North Carolina","MULTI",0,"06/06/20","race","case","Count",237061,0,0
-"North Carolina","NH/PI",93,"06/06/20","race","case","Count",12989,93,715.990453460621
 "North Carolina","OTHER",3345,"06/06/20","race","case","Count",NA,3345,NA
 "North Carolina","UNKNOWN",9040,"06/06/20","race","case","Count",NA,9040,NA
 "North Carolina","WHITE",13067,"06/06/20","race","case","Count",7334411,13067,178.160182187772
@@ -1543,8 +1543,8 @@
 "North Carolina","AI/AN",6,"06/06/20","race","death","Count",163078,6,3.67922098627651
 "North Carolina","ASIAN",12,"06/06/20","race","death","Count",329284,12,3.64427059923956
 "North Carolina","BLACK",321,"06/06/20","race","death","Count",2306797,321,13.9153987108532
+"North Carolina","HN/PI",3,"06/06/20","race","death","Count",12989,3,23.0964662406652
 "North Carolina","MULTI",0,"06/06/20","race","death","Count",237061,0,0
-"North Carolina","NH/PI",3,"06/06/20","race","death","Count",12989,3,23.0964662406652
 "North Carolina","OTHER",40,"06/06/20","race","death","Count",NA,40,NA
 "North Carolina","UNKNOWN",21,"06/06/20","race","death","Count",NA,21,NA
 "North Carolina","WHITE",563,"06/06/20","race","death","Count",7334411,563,7.67614468292001
@@ -1604,8 +1604,8 @@
 "Ohio","AI/AN",42,"06/05/20","race","case","Count",33566,42,125.126616218793
 "Ohio","ASIAN",1072,"06/05/20","race","case","Count",287222,1072,373.230462847553
 "Ohio","BLACK",9350,"06/05/20","race","case","Count",1517999,9350,615.942434744687
+"Ohio","HN/PI",98,"06/05/20","race","case","Count",6994,98,1401.20102945382
 "Ohio","MULTI",1497,"06/05/20","race","case","Count",272139,1497,550.086536659575
-"Ohio","NH/PI",98,"06/05/20","race","case","Count",6994,98,1401.20102945382
 "Ohio","OTHER",2815,"06/05/20","race","case","Count",NA,2815,NA
 "Ohio","UNKNOWN",3609,"06/05/20","race","case","Count",NA,3609,NA
 "Ohio","WHITE",19275,"06/05/20","race","case","Count",9571522,19275,201.378631319032
@@ -1624,8 +1624,8 @@
 "Ohio","AI/AN",1,"06/05/20","race","death","Count",33566,1,2.9792051480665
 "Ohio","ASIAN",21,"06/05/20","race","death","Count",287222,21,7.31141764906588
 "Ohio","BLACK",409,"06/05/20","race","death","Count",1517999,409,26.9433642578157
+"Ohio","HN/PI",1,"06/05/20","race","death","Count",6994,1,14.2979696883043
 "Ohio","MULTI",31,"06/05/20","race","death","Count",272139,31,11.3912375660967
-"Ohio","NH/PI",1,"06/05/20","race","death","Count",6994,1,14.2979696883043
 "Ohio","OTHER",18,"06/05/20","race","death","Count",NA,18,NA
 "Ohio","UNKNOWN",35,"06/05/20","race","death","Count",NA,35,NA
 "Ohio","WHITE",1839,"06/05/20","race","death","Count",9571522,1839,19.2132452916057
@@ -1644,8 +1644,8 @@
 "Ohio","AI/AN",5,"06/05/20","race","hosp","Count",33566,5,14.8960257403325
 "Ohio","ASIAN",136,"06/05/20","race","hosp","Count",287222,136,47.3501333463314
 "Ohio","BLACK",1989,"06/05/20","race","hosp","Count",1517999,1989,131.027754300233
+"Ohio","HN/PI",21,"06/05/20","race","hosp","Count",6994,21,300.257363454389
 "Ohio","MULTI",222,"06/05/20","race","hosp","Count",272139,222,81.5759593443057
-"Ohio","NH/PI",21,"06/05/20","race","hosp","Count",6994,21,300.257363454389
 "Ohio","OTHER",284,"06/05/20","race","hosp","Count",NA,284,NA
 "Ohio","UNKNOWN",178,"06/05/20","race","hosp","Count",NA,178,NA
 "Ohio","WHITE",3545,"06/05/20","race","hosp","Count",9571522,3545,37.036951907962
@@ -1711,8 +1711,8 @@
 "Oregon","AI/AN",88,"06/05/20","race","case","Count",76023,88,115.754442734436
 "Oregon","ASIAN",149,"06/05/20","race","case","Count",202394,149,73.6187831655089
 "Oregon","BLACK",116,"06/05/20","race","case","Count",92958,116,124.787538458228
+"Oregon","HN/PI",72,"06/05/20","race","case","Count",18999,72,378.967314069162
 "Oregon","MULTI",76,"06/05/20","race","case","Count",164413,76,46.2250551963653
-"Oregon","NH/PI",72,"06/05/20","race","case","Count",18999,72,378.967314069162
 "Oregon","OTHER",1267,"06/05/20","race","case","Count",NA,1267,NA
 "Oregon","UNKNOWN",469,"06/05/20","race","case","Count",NA,469,NA
 "Oregon","WHITE",2065,"06/05/20","race","case","Count",3635926,2065,56.7943351982411
@@ -1732,8 +1732,8 @@
 "Oregon","AI/AN",3,"06/05/20","race","death","Count",76023,3,3.94617418412849
 "Oregon","ASIAN",7,"06/05/20","race","death","Count",202394,7,3.45860055139975
 "Oregon","BLACK",6,"06/05/20","race","death","Count",92958,6,6.45452785128768
+"Oregon","HN/PI",2,"06/05/20","race","death","Count",18999,2,10.5268698352545
 "Oregon","MULTI",2,"06/05/20","race","death","Count",164413,2,1.21644882095698
-"Oregon","NH/PI",2,"06/05/20","race","death","Count",18999,2,10.5268698352545
 "Oregon","OTHER",11,"06/05/20","race","death","Count",NA,11,NA
 "Oregon","UNKNOWN",8,"06/05/20","race","death","Count",NA,8,NA
 "Oregon","WHITE",122,"06/05/20","race","death","Count",3635926,122,3.35540382285008
@@ -1753,8 +1753,8 @@
 "Oregon","AI/AN",12,"06/05/20","race","hosp","Count",76023,12,15.7846967365139
 "Oregon","ASIAN",38,"06/05/20","race","hosp","Count",202394,38,18.77526013617
 "Oregon","BLACK",30,"06/05/20","race","hosp","Count",92958,30,32.2726392564384
+"Oregon","HN/PI",18,"06/05/20","race","hosp","Count",18999,18,94.7418285172904
 "Oregon","MULTI",15,"06/05/20","race","hosp","Count",164413,15,9.12336615717735
-"Oregon","NH/PI",18,"06/05/20","race","hosp","Count",18999,18,94.7418285172904
 "Oregon","OTHER",179,"06/05/20","race","hosp","Count",NA,179,NA
 "Oregon","UNKNOWN",38,"06/05/20","race","hosp","Count",NA,38,NA
 "Oregon","WHITE",489,"06/05/20","race","hosp","Count",3635926,489,13.4491186014237
@@ -2088,8 +2088,8 @@
 "Utah","NH ASIAN",268,"06/05/20","race","case","Count",81356,268,329.416392153007
 "Utah","NH BLACK",371,"06/05/20","race","case","Count",36307,371,1021.84151816454
 "Utah","HISPANIC",4538,"06/05/20","race","case","Count",450218,4538,1007.95614568942
+"Utah","NH HN/PI",448,"06/05/20","race","case","Count",30824,448,1453.41292499351
 "Utah","NH WHITE",4081,"06/05/20","race","case","Count",2466025,4081,165.48899544814
-"Utah","NH NH/PI",448,"06/05/20","race","case","Count",30824,448,1453.41292499351
 "Utah","OTHER",1296,"06/05/20","race","case","Count",NA,1296,NA
 "Utah","UNKNOWN",1188,"06/05/20","race","case","Count",NA,1188,NA
 "Utah","0-1",49,"06/05/20","age","case","Count",100213,49,48.8958518355902
@@ -2108,8 +2108,8 @@
 "Utah","NH ASIAN",15,"06/05/20","race","hosp","Count",81356,15,18.4374846354295
 "Utah","NH BLACK",26,"06/05/20","race","hosp","Count",36307,26,71.6115349657091
 "Utah","HISPANIC",313,"06/05/20","race","hosp","Count",450218,313,69.5218760689266
+"Utah","NH HN/PI",62,"06/05/20","race","hosp","Count",30824,62,201.141967298209
 "Utah","NH WHITE",380,"06/05/20","race","hosp","Count",2466025,380,15.4094139353818
-"Utah","NH NH/PI",62,"06/05/20","race","hosp","Count",30824,62,201.141967298209
 "Utah","OTHER",84,"06/05/20","race","hosp","Count",NA,84,NA
 "Utah","UNKNOWN",25,"06/05/20","race","hosp","Count",NA,25,NA
 "Utah","0-1",2,"06/05/20","age","hosp","Count",100213,2,1.99574905451389
@@ -2236,8 +2236,8 @@
 "Washington","NH AI/AN",226,"06/05/20","race","case","Count",95666,226,236.238580059791
 "Washington","NH ASIAN",1188,"06/05/20","race","case","Count",687325,1188,172.843996653694
 "Washington","NH BLACK",1074,"06/05/20","race","case","Count",295631,1074,363.290723909198
+"Washington","NH HN/PI",424,"06/05/20","race","case","Count",53310,424,795.347964734571
 "Washington","NH MULTI",296,"06/05/20","race","case","Count",308353,296,95.9938771472955
-"Washington","NH NH/PI",424,"06/05/20","race","case","Count",53310,424,795.347964734571
 "Washington","NH OTHER",313,"06/05/20","race","case","Count",NA,313,NA
 "Washington","NH WHITE",6267,"06/05/20","race","case","Count",5124948,6267,122.284167566188
 "Washington","UNKNOWN",6528,"06/05/20","race","case","Count",NA,6528,NA
@@ -2254,8 +2254,8 @@
 "Washington","NH AI/AN",12,"06/05/20","race","death","Count",95666,12,12.543641419104
 "Washington","NH ASIAN",105,"06/05/20","race","death","Count",687325,105,15.2766158658568
 "Washington","NH BLACK",34,"06/05/20","race","death","Count",295631,34,11.5008236619299
+"Washington","NH HN/PI",9,"06/05/20","race","death","Count",53310,9,16.8823860438942
 "Washington","NH MULTI",15,"06/05/20","race","death","Count",308353,15,4.864554585167
-"Washington","NH NH/PI",9,"06/05/20","race","death","Count",53310,9,16.8823860438942
 "Washington","NH OTHER",23,"06/05/20","race","death","Count",NA,23,NA
 "Washington","NH WHITE",771,"06/05/20","race","death","Count",5124948,771,15.0440550811442
 "Washington","UNKNOWN",62,"06/05/20","race","death","Count",NA,62,NA
@@ -2272,8 +2272,8 @@
 "Washington","NH AI/AN",33,"06/05/20","race","hosp","Count",95666,33,34.4950139025359
 "Washington","NH ASIAN",227,"06/05/20","race","hosp","Count",687325,227,33.0265885861856
 "Washington","NH BLACK",159,"06/05/20","race","hosp","Count",295631,159,53.7832635954957
+"Washington","NH HN/PI",64,"06/05/20","race","hosp","Count",53310,64,120.052522978803
 "Washington","NH MULTI",32,"06/05/20","race","hosp","Count",308353,32,10.3777164483563
-"Washington","NH NH/PI",64,"06/05/20","race","hosp","Count",53310,64,120.052522978803
 "Washington","NH OTHER",47,"06/05/20","race","hosp","Count",NA,47,NA
 "Washington","NH WHITE",1402,"06/05/20","race","hosp","Count",5124948,1402,27.3563751280989
 "Washington","UNKNOWN",1001,"06/05/20","race","hosp","Count",NA,1001,NA

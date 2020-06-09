@@ -185,18 +185,18 @@ race_standard = function(race_var){
                                 which(is.na(race$new)))),]$new = "PENDING"}, silent = TRUE)
   
   try({
-    # NH/PI
+    # HN/PI
     race[Reduce(intersect, list(which(is.na(race$new)),
                                 grep("PACIFIC|PI", race$original),
                                 grep("NATIVE|NH", race$original),
-                                grep("INDIAN|ASIAN|HISPANIC", race$original, invert = TRUE))),]$new = "NH/PI"}, silent = TRUE)
+                                grep("INDIAN|ASIAN|HISPANIC", race$original, invert = TRUE))),]$new = "HN/PI"}, silent = TRUE)
   
   try({
-    # NH NH/PI
+    # NH HN/PI
     race[Reduce(intersect, list(which(is.na(race$new)),
                                 grep("PACIFIC|PI", race$original),
                                 grep("NATIVE|NH", race$original),
-                                grep("INDIAN|ASIAN", race$original, invert = TRUE))),]$new = "NH NH/PI"}, silent = TRUE)
+                                grep("INDIAN|ASIAN", race$original, invert = TRUE))),]$new = "NH HN/PI"}, silent = TRUE)
   
   try({
     # OTHER
@@ -236,17 +236,17 @@ race_standard = function(race_var){
     # PACIFIC ISLANDER
     race[Reduce(intersect, list(which(is.na(race$new)),
                                 grep("PAC", race$original),
-                                grep("ALASKA", race$original, invert = TRUE))),]$new = "NH/PI"}, silent = TRUE)
+                                grep("ALASKA", race$original, invert = TRUE))),]$new = "HN/PI"}, silent = TRUE)
   try({
     # HAWAIIAN
     race[Reduce(intersect, list(which(is.na(race$new)),
                                 grep("HAWAIIAN", race$original),
-                                grep("ALASKA", race$original, invert = TRUE))),]$new = "NH/PI"}, silent = TRUE)
+                                grep("ALASKA", race$original, invert = TRUE))),]$new = "HN/PI"}, silent = TRUE)
   
   try({
-    # AI/AN/NH/PI
+    # AI/AN/HN/PI
     race[Reduce(intersect, list(which(is.na(race$new)),
-                                grep("HAWAIIAN", race$original))),]$new = "AI/AN/NH/PI"}, silent = TRUE)
+                                grep("HAWAIIAN", race$original))),]$new = "AI/AN/HN/PI"}, silent = TRUE)
   
   # THE REST OF UNKNOWN/OTHER
   try({
@@ -257,7 +257,7 @@ race_standard = function(race_var){
                                 grep("NATIV", race$original))),]$new = "AI/AN"}, silent = TRUE)
   try({
     race[Reduce(intersect, list(which(is.na(race$new)),
-                                grep("PAC", race$original))),]$new = "NH/PI"}, silent = TRUE)
+                                grep("PAC", race$original))),]$new = "HN/PI"}, silent = TRUE)
   try({
     race[Reduce(intersect, list(which(is.na(race$new)),
                                 grep("M", race$original))),]$new =  "UNKNOWN"}, silent = TRUE)
@@ -641,9 +641,9 @@ for (i in 1:nrow(final)){
       gsub("^WHITE", "NH WHITE", .) %>% 
       gsub("^AI/AN", "NH AI/AN", .) %>% 
       gsub("^MULTI", "NH MULTI", .) %>% 
-      gsub("^NH/PI", "NH NH/PI", .) %>% 
+      gsub("^HN/PI", "NH HN/PI", .) %>% 
       gsub("^ASIAN/PI", "NH ASIAN/PI", .) %>% 
-      gsub("^AI/AN/NH/PI", "NH AI/AN/NH/PI", .)
+      gsub("^AI/AN/HN/PI", "NH AI/AN/HN/PI", .)
   }
 }
 
@@ -668,7 +668,7 @@ for (i in 1:nrow(race_dat)){
   if (race_dat[i,]$category == "MULTI"){
     race_dat$pop_est[i] = sum(census[census$NAME == race_dat[i,]$state_name, c("NH.MULTI","HISPANIC.MULTI")])
   }
-  if (race_dat[i,]$category == "NH/PI"){
+  if (race_dat[i,]$category == "HN/PI"){
     race_dat$pop_est[i] = sum(census[census$NAME == race_dat[i,]$state_name, c("NH.NH.PI","HISPANIC.NH.PI")])
   }
   if (race_dat[i,]$category == "NH ASIAN"){
@@ -686,7 +686,7 @@ for (i in 1:nrow(race_dat)){
   if (race_dat[i,]$category == "NH MULTI"){
     race_dat$pop_est[i] = census[census$NAME == race_dat[i,]$state_name, "NH.MULTI"]
   }
-  if (race_dat[i,]$category == "NH NH/PI"){
+  if (race_dat[i,]$category == "NH HN/PI"){
     race_dat$pop_est[i] = census[census$NAME == race_dat[i,]$state_name, "NH.NH.PI"]
   }
   if (race_dat[i,]$category == "NH ASIAN/PI"){
@@ -695,7 +695,7 @@ for (i in 1:nrow(race_dat)){
   if (race_dat[i,]$category == "ASIAN/PI"){
     race_dat$pop_est[i] = sum(census[census$NAME == race_dat[i,]$state_name, c("NH.ASIAN","NH.NH.PI","HISPANIC.ASIAN","HISPANIC.NH.PI")])
   }
-  if (race_dat[i,]$category == "AI/AN/NH/PI"){
+  if (race_dat[i,]$category == "AI/AN/HN/PI"){
     race_dat$pop_est[i] = sum(census[census$NAME == race_dat[i,]$state_name, c("NH.AI.AN","NH.NH.PI","HISPANIC.AI.AN","HISPANIC.NH.PI")])
   }
 }
