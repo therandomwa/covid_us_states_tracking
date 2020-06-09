@@ -11,6 +11,7 @@ runtime: shiny
 library(flexdashboard)
 library(tidyverse)
 library(timevis)
+library(vistime)
 library(timelineS)
 library(plotly)
 library(readxl)
@@ -25,9 +26,8 @@ summ_dat = readxl::read_excel("../Data/Summary_stats_all.xlsx",
          -covid_reg, -testing, -nursing_notes, -phase_opening, -phase_number, -phase_total,
          -reopening_type, -x91, -any_business_start_date, -any_business_end_date,
          -all_non_ess_business_start_date, -all_non_ess_business_end_date) %>% 
-  # outdoor type needs to be manipulated differently
   dplyr::rename(state = location_name) %>%
-  select(-close_contact_75, -gather_no_restrict, -summer_school) %>%
+  # select(-close_contact_75, -gather_no_restrict, -summer_school) %>%
   mutate(religious_25_capacity = as.Date(as.numeric(religious_25_capacity), origin = "1899-12-30")) %>%
   # combine events of the same group with the same date
   pivot_longer(c(religious_25_capacity:outdoor, 
@@ -78,19 +78,8 @@ vis_dat = left_join(summ_dat, cat_dat, by = "event") %>%
 
 # try to combine what has the same start date
 
-# function to put all dates of the same group into one line
-# coalesce_by_column <- function(df) {
-#   return(dplyr::coalesce(!!! as.list(df)))
-# }
-# 
-# vis_dat2 = vis_dat %>%
-#   select(state, content, start, group) %>%
-#   mutate(row = row_number()) %>%
-#   pivot_wider(names_from = content,
-#               values_from = start) %>%
-#   select(-row) %>%
-#   group_by(state, group) %>%
-#   summarise_all(coalesce_by_column)
+
+# combine events that happen on the same day and create end dates as necessary
 
 vis_dat2 = plyr::ddply(vis_dat, .(state, group, start), summarize,
               title = paste(title, collapse = ",\n")) %>%
@@ -133,7 +122,7 @@ renderPlotly({
   ggplotly(vis_dat2 %>%
   filter(state == input$state_choice) %>%
   timelineG(start = "start", end = "end", names = "group", phase = "title", width = 6) +
-    scale_color_brewer(palette = "RdYlBu") +
+    scale_fill_manual(values = colorRampPalette(c("#1D4F91", "#71B2C9"))(nrow(.))) +
     geom_point(aes(text = sprintf("Event(s): ", title, "\n", "Start Date: ", start))) +
     theme_classic() +
     theme(legend.position = "none") +
@@ -145,4 +134,16 @@ renderPlotly({
 ```
 
 
+### Timeline 2-Vistime
+
+```{r}
+renderPlotly({
+  vis_dat2 %>%
+    filter(state == input$state_choice) %>%
+    group_by(group) %>%
+    mutate(color = colorRampPalette(c("#AE2573", "#D14124", "#FF9800"))(nrow(.))) %>%
+    vistime(events = "title", start = "start", end = "end", groups = "group",
+            tooltips = "title", show_labels = FALSE, background_lines = 0)
+})
+```
 
