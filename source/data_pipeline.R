@@ -352,7 +352,7 @@ age_standard = function(age_var){
            function(x) {
              return (paste(paste0(x$V1, ":" , x$V2), collapse = "; "))
            }) %>% unlist
-  df[,age_var] = gsub("‐", "-", df[,age_var])
+  # df[,age_var] = gsub("‐", "-", df[,age_var])
   # final$category = gsub("‐", "-", final$category)
   return (df)
 }
@@ -736,69 +736,69 @@ write.csv(final,
                         ".csv"), row.names = F)
 
 # #### age label
-# race_standard = function(race_var){
-#   browser()
-#   race_name = df %>% 
-#     filter(!is.na(get(race_var))) %>%
-#     select(state_name) %>% 
-#     unlist %>% 
-#     as.vector
-#   
-#   # get it into a dataframe
-#   race_df = df %>%
-#     filter(!is.na(get(race_var))) %>% 
-#     select(race_var) %>% 
-#     unlist %>% 
-#     as.character %>% 
-#     strsplit("; |:") %>%
-#     lapply(function(x)
-#       matrix(x, ncol = 2, byrow = TRUE) %>%
-#         as.data.frame)
-#   
-#   # convert % to decimal
-#   race_df = lapply(race_df, function(x) {
-#     x[, 2] = x[, 2] %>% as.character
-#     x[grep("%", x[, 2]), ] = x[grep("%", x[, 2]), ] %>%
-#       mutate(V2 = gsub("%|<", "", V2) %>% as.numeric) %>%
-#       mutate(V2 = V2 / 100 )# %>% 
-#     #mutate(V2 = format(.$V2, scientific=F))
-#     x[, 2] = x[, 2] %>% as.numeric
-#     x[, 1] = x[, 1] %>% toupper
-#     return (x)
-#   })
-#   
-#   test = do.call(rbind.fill, 
-#                  lapply(race_df, 
-#                         function(x) {
-#                           dat = data.frame(cat = x[,1] %>% trimws, val = 1) 
-#                           rownames(dat) = dat$cat; dat$cat = NULL 
-#                           dat = dat %>% t %>% as.data.frame
-#                           return (dat)}))
-#   
-#   test = test[,order(colnames(test))]
-#   race = data.frame(original = colnames(test),
-#                     count = colSums(test, na.rm = T) %>% as.vector)
-#   race$original = as.character(race$original)
-#   race$new = NA
-#   
-#   # dictionary 
-#   try({
-#     # black
-#     race[intersect(grep("AFR|BLACK|BLK", race$original),
-#                    grep("NH|HISPANIC", race$original, invert = TRUE)), ]$new = "BLACK"}, silent = TRUE)
-#   
-#   
-#   df[,race_var] = as.character(df[,race_var])
-#   df[df$state_name %in% race_name, race_var] = 
-#     lapply(race_df, 
-#            function(x) {
-#              new_df = left_join(x, race, by = c("V1" = "original")) %>% 
-#                select(new, V2) %>% group_by(new) %>% 
-#                summarise(V2 = sum(V2, na.rm = T)) %>% 
-#                mutate(V2 = format(V2, scientific = F)) %>% 
-#                as.data.frame
-#              return (paste(paste0(new_df$new, ":" ,new_df$V2), collapse = "; "))
-#            }) %>% unlist
-#   return (df)
-# }
-# race_standard("positive_age")
+race_standard = function(race_var){
+  browser()
+  race_name = df %>%
+    filter(!is.na(get(race_var))) %>%
+    select(state_name) %>%
+    unlist %>%
+    as.vector
+
+  # get it into a dataframe
+  race_df = df %>%
+    filter(!is.na(get(race_var))) %>%
+    select(race_var) %>%
+    unlist %>%
+    as.character %>%
+    strsplit("; |:") %>%
+    lapply(function(x)
+      matrix(x, ncol = 2, byrow = TRUE) %>%
+        as.data.frame)
+
+  # convert % to decimal
+  race_df = lapply(race_df, function(x) {
+    x[, 2] = x[, 2] %>% as.character
+    x[grep("%", x[, 2]), ] = x[grep("%", x[, 2]), ] %>%
+      mutate(V2 = gsub("%|<", "", V2) %>% as.numeric) %>%
+      mutate(V2 = V2 / 100 )# %>%
+    #mutate(V2 = format(.$V2, scientific=F))
+    x[, 2] = x[, 2] %>% as.numeric
+    x[, 1] = x[, 1] %>% toupper
+    return (x)
+  })
+
+  test = do.call(rbind.fill,
+                 lapply(race_df,
+                        function(x) {
+                          dat = data.frame(cat = x[,1] %>% trimws, val = 1)
+                          rownames(dat) = dat$cat; dat$cat = NULL
+                          dat = dat %>% t %>% as.data.frame
+                          return (dat)}))
+
+  test = test[,order(colnames(test))]
+  race = data.frame(original = colnames(test),
+                    count = colSums(test, na.rm = T) %>% as.vector)
+  race$original = as.character(race$original)
+  race$new = NA
+
+  # dictionary
+  try({
+    # black
+    race[intersect(grep("AFR|BLACK|BLK", race$original),
+                   grep("NH|HISPANIC", race$original, invert = TRUE)), ]$new = "BLACK"}, silent = TRUE)
+
+
+  df[,race_var] = as.character(df[,race_var])
+  df[df$state_name %in% race_name, race_var] =
+    lapply(race_df,
+           function(x) {
+             new_df = left_join(x, race, by = c("V1" = "original")) %>%
+               select(new, V2) %>% group_by(new) %>%
+               summarise(V2 = sum(V2, na.rm = T)) %>%
+               mutate(V2 = format(V2, scientific = F)) %>%
+               as.data.frame
+             return (paste(paste0(new_df$new, ":" ,new_df$V2), collapse = "; "))
+           }) %>% unlist
+  return (df)
+}
+race_standard("positive_age")
