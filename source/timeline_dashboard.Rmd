@@ -24,13 +24,13 @@ summ_dat = readxl::read_excel("../Data/Summary_stats_all.xlsx",
   janitor::clean_names() %>%
   select(-check, -notes, -link, -nursing_exorder, -exorder_date, -funding, -nursing_novis,
          -covid_reg, -testing, -nursing_notes, -phase_opening, -phase_number, -phase_total,
-         -reopening_type, -x91, -any_business_start_date, -any_business_end_date,
-         -all_non_ess_business_start_date, -all_non_ess_business_end_date) %>% 
+         -reopening_type, -any_business_start_date, -any_business_end_date,
+         -all_non_ess_business_start_date, -all_non_ess_business_end_date, -office_33) %>% 
   dplyr::rename(state = location_name) %>%
   # select(-close_contact_75, -gather_no_restrict, -summer_school) %>%
   mutate(religious_25_capacity = as.Date(as.numeric(religious_25_capacity), origin = "1899-12-30")) %>%
   # combine events of the same group with the same date
-  pivot_longer(c(religious_25_capacity:outdoor, 
+  pivot_longer(c(end_or_state_ph_order:outdoor, 
                  elective_surgery:stay_home_start_date, 
                  stay_home_end_date:any_gathering_restrict_start_date,
                  religious_gathering,
@@ -50,7 +50,8 @@ cat_dat = readxl::read_excel("../Data/Summary_stats_all.xlsx",
                    sheet = "data_dictionary", col_names = TRUE) %>%
   filter(is.na(category) == FALSE) %>%
   dplyr::rename(bar_type = category,
-         event = header)
+         event = header) %>%
+  mutate(bar_type = ifelse(bar_type == "?", "stay at home order", bar_type))
 
 # join the description and bar type to the summ data
 vis_dat = left_join(summ_dat, cat_dat, by = "event") %>%
@@ -74,15 +75,13 @@ vis_dat = left_join(summ_dat, cat_dat, by = "event") %>%
   ) %>%
   select(-outdoor_type, -religion_essential, -gathering_limit, -religious_limit_capacity)
 
-# write.csv(vis_dat, "C:/Users/court/Documents/Covid State Project/timeline_dat.csv")
-
-# try to combine what has the same start date
 
 
 # combine events that happen on the same day and create end dates as necessary
 
 vis_dat2 = plyr::ddply(vis_dat, .(state, group, start), summarize,
               title = paste(title, collapse = ",\n")) %>%
+  filter(start <= Sys.Date()) %>%
   mutate(
     end = if_else(lead(group) == group & lead(start) == start,
                        Sys.Date(), 
@@ -91,7 +90,10 @@ vis_dat2 = plyr::ddply(vis_dat, .(state, group, start), summarize,
     group = if_else(group == "education", "Education",
                     if_else(group == "stay at home order", "Stay at Home Order",
                             if_else(group == "gathering restrictions", "Gathering Restrictions", group)))
-  )
+  ) 
+
+# write.csv(vis_dat2, "C:/Users/court/Documents/Covid State Project/timeline_dat.csv")
+
 
 group_dat = tibble(
   id = c("education", "gathering restrictions", "stay at home order"),
@@ -115,7 +117,24 @@ selectInput(
 Column {.tabset}
 -----------------------------------------------------------------------
 
-### Timeline 1-timelineG
+
+
+### Timeline 1-Vistime
+
+```{r}
+renderPlotly({
+  vis_dat2 %>%
+    filter(state == input$state_choice) %>%
+    group_by(group) %>%
+    mutate(color = colorRampPalette(c("#AE2573", "#D14124", "#FF9800"))(nrow(.)),
+           tooltip = str_c(title, "\n", start)) %>%
+    vistime(events = "title", start = "start", end = "end", groups = "group",
+            tooltips = "tooltip", show_labels = FALSE, background_lines = 0)
+})
+```
+
+
+### Timeline 2-timelineG
 
 ```{r}
 renderPlotly({
@@ -132,18 +151,3 @@ renderPlotly({
     )) 
 })
 ```
-
-
-### Timeline 2-Vistime
-
-```{r}
-renderPlotly({
-  vis_dat2 %>%
-    filter(state == input$state_choice) %>%
-    group_by(group) %>%
-    mutate(color = colorRampPalette(c("#AE2573", "#D14124", "#FF9800"))(nrow(.))) %>%
-    vistime(events = "title", start = "start", end = "end", groups = "group",
-            tooltips = "title", show_labels = FALSE, background_lines = 0)
-})
-```
-
