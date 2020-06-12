@@ -14,22 +14,22 @@ options(warn = -1)
 
 # command + option + o to see the pipeline structure
 
-### 0. load files ----
+### 0. load files 
 
-file_date = Sys.Date()-4 # change accordingly if the editing date is not the scraping date
+file_date = Sys.Date()-2 # change accordingly if the editing date is not the scraping date
 file_date_name = file_date %>% format("%Y%m%d")
 
 # load Aijin's data
-df_aw = read.csv("../Data/raw_states/meta_2020-06-05_aw.csv")
+df_aw = read.csv("../Data/raw_states/meta_2020-06-09_aw.csv")
 
 # load Chistian's data
-df_cbp = load_object("../Data/raw_states/meta_2020-06-05-cbp.rda")
+df_cbp = load_object("../Data/raw_states/meta_2020-06-09-cbp.rda")
 
 # load manual data
-df_lef = load_object("../manual_data/manual_data_20200604_lef.rda")
-df_as = load_object("../manual_data/manual_data_20200605_as.rda")
-df_cej = load_object("../manual_data/manual_data_20200605_cej.rda")
-df_gl = load_object("../manual_data/manual_data_20200605_gl.rda")
+df_lef = load_object("../manual_data/manual_data_20200609_lef.rda")
+df_as = load_object("../manual_data/manual_data_20200609_as.rda")
+df_cej = load_object("../manual_data/manual_data_20200609_cej.rda")
+df_gl = load_object("../manual_data/manual_data_20200609_gl.rda")
 df_cbp = rbind(df_cbp, df_lef, df_as, df_cej, df_gl)
 ### 1. compile files ----
 df_aw$last.update = df_aw$last.update %>% 
@@ -111,7 +111,7 @@ race_standard = function(race_var){
     x[grep("%", x[, 2]), ] = x[grep("%", x[, 2]), ] %>%
       mutate(V2 = gsub("%|<", "", V2) %>% as.numeric) %>%
       mutate(V2 = V2 / 100 )# %>% 
-      #mutate(V2 = format(.$V2, scientific=F))
+    #mutate(V2 = format(.$V2, scientific=F))
     x[, 2] = x[, 2] %>% as.numeric
     x[, 1] = x[, 1] %>% toupper
     return (x)
@@ -324,7 +324,7 @@ age_standard = function(age_var){
       gsub("UNDER","<" ,.) %>% 
       gsub("ANDOVER|UP|ANDOLDER|PLUS", "+",.) %>% 
       gsub("^(.*>=)([0-9]+)$", "\\2+", ., perl=T) #%>% 
-      #gsub("<", "0-",.)
+    #gsub("<", "0-",.)
     # deal with "<" in labels
     x[grep("<",x[,1]),1] = paste0("0-",as.numeric(gsub("<", "", x[grep("<",x[,1]),1]) %>% gsub("<","",.))-1)
     # 20s, 30s, etc
@@ -707,6 +707,9 @@ final = full_join(final, new_pop)
 ### approx percentages and calculate normalized values
 final$count2 = NA
 for (i in 1:nrow(final)){
+  if (final$state_name[i]== "Pennsylvania" & final$data_type[i]== "hosp" & final$strata_type[i]=="age"){
+    final$count2[i] = NA
+  } else{
   if (final$metric[i] == "Percent"){
     final$count2[i] = final$count[i] *
       final$count[final$state_name == final$state_name[i] & 
@@ -716,6 +719,7 @@ for (i in 1:nrow(final)){
   }
   if(final$metric[i] == "Count"){
     final$count2[i] = final$count[i]
+  }
   }
 }
 
@@ -743,7 +747,7 @@ race_standard = function(race_var){
     select(state_name) %>%
     unlist %>%
     as.vector
-
+  
   # get it into a dataframe
   race_df = df %>%
     filter(!is.na(get(race_var))) %>%
@@ -754,7 +758,7 @@ race_standard = function(race_var){
     lapply(function(x)
       matrix(x, ncol = 2, byrow = TRUE) %>%
         as.data.frame)
-
+  
   # convert % to decimal
   race_df = lapply(race_df, function(x) {
     x[, 2] = x[, 2] %>% as.character
@@ -766,7 +770,7 @@ race_standard = function(race_var){
     x[, 1] = x[, 1] %>% toupper
     return (x)
   })
-
+  
   test = do.call(rbind.fill,
                  lapply(race_df,
                         function(x) {
@@ -774,20 +778,20 @@ race_standard = function(race_var){
                           rownames(dat) = dat$cat; dat$cat = NULL
                           dat = dat %>% t %>% as.data.frame
                           return (dat)}))
-
+  
   test = test[,order(colnames(test))]
   race = data.frame(original = colnames(test),
                     count = colSums(test, na.rm = T) %>% as.vector)
   race$original = as.character(race$original)
   race$new = NA
-
+  
   # dictionary
   try({
     # black
     race[intersect(grep("AFR|BLACK|BLK", race$original),
                    grep("NH|HISPANIC", race$original, invert = TRUE)), ]$new = "BLACK"}, silent = TRUE)
-
-
+  
+  
   df[,race_var] = as.character(df[,race_var])
   df[df$state_name %in% race_name, race_var] =
     lapply(race_df,
