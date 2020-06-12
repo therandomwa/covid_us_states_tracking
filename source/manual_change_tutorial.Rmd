@@ -1,0 +1,205 @@
+---
+title: "Manual Scraping Function Change Tutorial"
+author: "Christian Pascual"
+output: html_document
+---
+
+# Purpose Of Notebook
+
+The purpose of this notebook is to give a deeper understanding of how the manual scraping functions work, so that scrapers can adjust their function to changing data on each site. 
+
+# How are the manual scraping functions structured?
+
+Each state has a vector associated with it in the form of `[state]_cols`. These vectors are contained in the file `states_constants.R`. Here is the example for New Hampshire:
+
+```{r}
+source("./states_constants.R")
+source("./states.R")
+
+nh_cols = c(
+  "total",
+  "age_0_9", 
+  "age_10_19",
+  "age_20_29", 
+  "age_30_39", 
+  "age_40_49",
+  "age_50_59", 
+  "age_60_69", 
+  "age_70_79", 
+  "age_80+", 
+  "age_unk",
+  "sex_male", 
+  "sex_female", 
+  "sex_unk",
+  "race_hispanic", 
+  "race_white", 
+  "race_AfrA",
+  "race_NatA",
+  "race_asian", 
+  "race_other",
+  "race_unk")
+```
+
+The vector describes all of the different data that is/should be available for a state. Notice that each piece of information is preceded by a suffix that details what demographic it stands for (ie `sex_`, `age_`, `race_`). States that separate ethinicity will have an `ethnicity_` prefix. If race and ethnicity are combined, then Hispanic will be coded with `race_`.
+
+This vector is fed into a function called `skeleton_table()`. `skeleton_table()` creates a list full of `NA` values, based on what it sees in the `cols` variable that you give it. Using New Hampshire as an example:
+
+```{r}
+example = skeleton_table(nh_cols)
+
+example
+```
+
+This structure is necesary for quickly putting information in the correct spots. You can access *and* assign different parts of the list like the following:
+
+```{r}
+example[["tested"]][["total"]] = NA # Or some other number
+```
+
+# Asking For User Input
+
+There are two main functions that simplify the process of getting user input: `get_information()` and `get_information2()`. Sorry for the terrible naming, I didn't want to sift through all my code...
+
+Both of these functions ask for data. It takes in one input: a string that you will see when the function is run. This string is designed to make it clear what you should be entering.
+
+There is one key difference between the two: one should be used for entering whole **numbers** (ie counts), and the other should be used for entering **percents without the need of a leading decimal**.
+
+- `get_information()` should be used with counts
+- `get_information2()` should be used with percentages
+
+You can look at the both of these functions in `states.R`, but it essentially just uses the `readline()` function to ask for user input, and store it to a variable. There is some extra processing to prevent users from accidentally skipping the input and converting it to a number. 
+
+The following is the beginning of New Hampshire's manual scraping function (shortened for readability):
+
+```{r}
+get_new_hampshire = function() {
+  
+  # Open a tab straight to where all New Hampshire's information is stored
+  browseURL("https://www.nh.gov/covid19/dashboard/summary.htm")
+  
+  # Initialize the list of lists for the state
+  skeleton = skeleton_table(nh_cols)
+  
+  # Start entering data for the state.
+  skeleton[["cases"]][["total"]] = get_information("NH, total cases: ")
+  skeleton[["hospitalized"]][["total"]] = get_information("NH, total hosp: ")
+  skeleton[["deaths"]][["total"]] = get_information("NH, total death: ")
+  
+  
+  as_tibble(skeleton) %>% 
+    standardize %>% 
+    mutate(
+      state_name = "New Hampshire",
+      Link = "https://www.nh.gov/covid19/dashboard/summary.htm",
+      platform = "pdf",
+      comments = "Race/ethnicity combined",
+      last.update = Sys.time() %>% as_date) %>% 
+    select(
+      state_name, Link,
+      total.tested:hosp_gender,
+      platform, comments, last.update)
+}
+```
+
+You can run `get_new_hampshire()` and you will get the same experience that you've been having with manual scraping in general. What's returned is a tibble that takes the `skeleton` and converts it into a form that Aijin and I have agreed to standardize around. 
+
+# So my state added new information...
+
+Most of the time, a state will add new information in the form of a new demographic split. For example, they changed their age categories or *finally* added race.
+
+In this case, you will need to add more elements to a state's particular `_cols` variable. Let's say that all of a sudden, New Hampshire started to log information for Pacific Islanders. I code this group as `race_pac`, so this needs to be added to `nh_cols`.
+
+```{r}
+nh_cols = c(
+  "total",
+  "age_0_9", 
+  "age_10_19",
+  "age_20_29", 
+  "age_30_39", 
+  "age_40_49",
+  "age_50_59", 
+  "age_60_69", 
+  "age_70_79", 
+  "age_80+", 
+  "age_unk",
+  "sex_male", 
+  "sex_female", 
+  "sex_unk",
+  "race_hispanic", 
+  "race_white", 
+  "race_AfrA",
+  "race_NatA",
+  "race_asian",
+  "race_pac", # NEW THING ADDED HERE
+  "race_other",
+  "race_unk")
+```
+
+Now when `nh_cols` is passed into `skeleton_table`, it will have slots ready for Pacific Islanders. 
+
+Let's say that this new information for New Hampshire was **deaths of Pacific Islanders**, and it was a **count**. I would use `get_information()` to log this.
+
+```{r, eval = FALSE }
+get_new_hampshire = function() {
+  
+  # Open a tab straight to where all New Hampshire's information is stored
+  browseURL("https://www.nh.gov/covid19/dashboard/summary.htm")
+  
+  # Initialize the list of lists for the state
+  skeleton = skeleton_table(nh_cols)
+  
+  # Start entering data for the state.
+  skeleton[["cases"]][["total"]] = get_information("NH, total cases: ")
+  skeleton[["hospitalized"]][["total"]] = get_information("NH, total hosp: ")
+  skeleton[["deaths"]][["total"]] = get_information("NH, total death: ")
+  
+  # NEW STUFF HERE
+  skeleton[["deaths"]][["race_pac"]] = get_information("NH, deaths race_pac: ")
+  
+  as_tibble(skeleton) %>% 
+    standardize %>% 
+    mutate(
+      state_name = "New Hampshire",
+      Link = "https://www.nh.gov/covid19/dashboard/summary.htm",
+      platform = "pdf",
+      comments = "Race/ethnicity combined",
+      last.update = Sys.time() %>% as_date) %>% 
+    select(
+      state_name, Link,
+      total.tested:hosp_gender,
+      platform, comments, last.update)
+}
+```
+
+Notice the new line added to `get_new_hampshire()`. This new prompt will appear after `NH, total death: "`.
+
+```{r, eval = FALSE }
+# Try this code out to see what is returned in the variable
+get_information("NH, deaths race_pac:")
+```
+
+Let's say that Pacific Islanders is provided as a percent. Then you would use `get_information2()`. Then you would put the following inside `get_new_hampshire()`. Let's say that the percentage of Pacific Islander deaths was 5%, then:
+
+```{r, eval = FALSE }
+# You would just need to type out "5" for this prompt
+skeleton[["deaths"]][["race_pac"]] = get_information2("NH, deaths race_pac (enter as %): ")
+
+# Try this code out to see what is returned in the variable
+get_information2("NH, deaths race_pac (enter as %): ")
+```
+
+When I have to write a percentage, I usually try to adjust the prompt to remind myself that it's expecting a percentage. I mean, you *could* use `get_information()` to log a decimal instead, but I find that it's actually just faster to write whole numbers. 
+
+The example we've worked with is just for a specific race, but it should be tunable to each of the demographics. 
+
+# Summary:
+
+1. Realize that a state added a new piece of information.
+2. Take note if it's a count or a percentage. 
+3. Add the necessary demographic string to the `_cols` variable for a state
+4. Add the necessary prompt with `get_information()` or `get_information2()` to the manual scraping function.
+5. Run as usual. 
+
+Finally, I recommend just taking the functions you use and altering it in a separate file/Rmd from my own `states.R` and `states_constants.R` files. This way we don't run into issues with git conflicts.
+
+If you have any questions, feel free to ping me on Slack or through email. 

@@ -988,7 +988,7 @@ get_south_carolina = function() {
   
   south_carolina[["hospitalized"]][["total"]] = get_information("SC, Total hosp (calc.): ")
   
-  south_carolina[["deaths"]][["total"]] = get_information2("SC, Total deaths: ")
+  south_carolina[["deaths"]][["total"]] = get_information("SC, Total deaths: ")
   south_carolina[["deaths"]][["age_0_10"]] = get_information2("SC, deaths age_0_10 (enter as whole %): ")
   south_carolina[["deaths"]][["age_11_20"]] = get_information2("SC, deaths age_11_20 (enter as whole %): ")
   south_carolina[["deaths"]][["age_21_30"]] = get_information2("SC, deaths age_21_30 (enter as whole %): ")
@@ -1036,7 +1036,7 @@ get_new_jersey = function() {
     str_split("\n") %>% .[[1]] %>% 
     str_squish()
   skeleton = skeleton_table(nj_cols)
-
+  View(data)
 
   # This pdf has the potential to change a lot in terms 
   # of what appears on what row but this can be easily changed
@@ -1048,67 +1048,67 @@ get_new_jersey = function() {
     str_split(" ", simplify = TRUE) %>% .[1, 1] %>% 
     str_replace(",", "") %>% .[[1]] %>% as.numeric()
   
-  hospitalizations = data %>% .[13] %>% 
-    str_split(" ", simplify = TRUE) %>% .[1, 6] %>% 
-    str_replace(",", "") %>% .[[1]] %>% as.numeric()
-  
-  between_0_and_4 = data %>% .[18] %>% 
-    str_split(" ", simplify = TRUE) %>% .[1, 4] %>% 
-    str_replace(",", "") %>% .[[1]] %>% as.numeric()
-  
-  between_5_and_17 = data %>% .[19] %>% 
-    str_split(" ", simplify = TRUE) %>% .[1, 4] %>% 
-    str_replace(",", "") %>% .[[1]] %>% as.numeric()
-  
-  between_18_and_29 = data %>% .[20] %>% 
-    str_split(" ", simplify = TRUE) %>% .[1, 4] %>% 
-    str_replace(",", "") %>% .[[1]] %>% as.numeric()
-  
-  between_30_and_49 = data %>% .[21] %>% 
-    str_split(" ", simplify = TRUE) %>% .[1, 4] %>% 
-    str_replace(",", "") %>% .[[1]] %>% as.numeric()
-  
-  between_50_and_64 = data %>% .[22] %>% 
-    str_split(" ", simplify = TRUE) %>% .[1, 4] %>% 
-    str_replace(",", "") %>% .[[1]] %>% as.numeric()
-  
-  between_65_and_79 = data %>% .[23] %>% 
-    str_split(" ", simplify = TRUE) %>% .[1, 4] %>% 
-    str_replace(",", "") %>% .[[1]] %>% as.numeric()
-  
-  older_than_80 = data %>% .[24] %>% 
-    str_split(" ", simplify = TRUE) %>% .[1, 2] %>% 
-    str_replace(",", "") %>% .[[1]] %>% as.numeric()
-  
-  female = data %>% .[29] %>% 
-    str_split(" ", simplify = TRUE) %>% .[1, 2] %>% 
-    str_replace(",", "") %>% .[[1]] %>% as.numeric()
-  
-  male = data %>% .[30] %>% 
-    str_split(" ", simplify = TRUE) %>% .[1, 2] %>% 
-    str_replace(",", "") %>% .[[1]] %>% as.numeric()
-  
-  unknown_sex = data %>% .[31] %>% 
-    str_split(" ", simplify = TRUE) %>% .[1, 2] %>% 
-    str_replace(",", "") %>% .[[1]] %>% as.numeric()
-  
-  white = data %>% .[35] %>% 
-    str_split(" ", simplify = TRUE) %>% .[1, 3] %>% 
-    str_replace(",", "") %>% .[[1]] %>% as.numeric()
-
-  hispanic = data %>% .[37] %>% 
+  hospitalizations = data %>% .[14] %>% 
     str_split(" ", simplify = TRUE) %>% .[1, 1] %>% 
     str_replace(",", "") %>% .[[1]] %>% as.numeric()
   
-  black = data %>% .[39] %>% 
+  between_0_and_4 = data %>% .[16] %>% 
+    str_split(" ", simplify = TRUE) %>% .[1, 4] %>% 
+    str_replace(",", "") %>% .[[1]] %>% as.numeric()
+  
+  between_5_and_17 = data %>% .[17] %>% 
+    str_split(" ", simplify = TRUE) %>% .[1, 4] %>% 
+    str_replace(",", "") %>% .[[1]] %>% as.numeric()
+  
+  between_18_and_29 = data %>% .[18] %>% 
+    str_split(" ", simplify = TRUE) %>% .[1, 4] %>% 
+    str_replace(",", "") %>% .[[1]] %>% as.numeric()
+  
+  between_30_and_49 = data %>% .[19] %>% 
+    str_split(" ", simplify = TRUE) %>% .[1, 4] %>% 
+    str_replace(",", "") %>% .[[1]] %>% as.numeric()
+  
+  between_50_and_64 = data %>% .[20] %>% 
+    str_split(" ", simplify = TRUE) %>% .[1, 4] %>% 
+    str_replace(",", "") %>% .[[1]] %>% as.numeric()
+  
+  between_65_and_79 = data %>% .[21] %>% 
+    str_split(" ", simplify = TRUE) %>% .[1, 4] %>% 
+    str_replace(",", "") %>% .[[1]] %>% as.numeric()
+  
+  older_than_80 = data %>% .[22] %>% 
+    str_split(" ", simplify = TRUE) %>% .[1, 2] %>% 
+    str_replace(",", "") %>% .[[1]] %>% as.numeric()
+  
+  female = data %>% .[27] %>% 
+    str_split(" ", simplify = TRUE) %>% .[1, 2] %>% 
+    str_replace(",", "") %>% .[[1]] %>% as.numeric()
+  
+  male = data %>% .[28] %>% 
+    str_split(" ", simplify = TRUE) %>% .[1, 2] %>% 
+    str_replace(",", "") %>% .[[1]] %>% as.numeric()
+  
+  unknown_sex = data %>% .[29] %>% 
+    str_split(" ", simplify = TRUE) %>% .[1, 2] %>% 
+    str_replace(",", "") %>% .[[1]] %>% as.numeric()
+  
+  white = data %>% .[31] %>% 
+    str_split(" ", simplify = TRUE) %>% .[1, 3] %>% 
+    str_replace(",", "") %>% .[[1]] %>% as.numeric()
+
+  hispanic = data %>% .[33] %>% 
+    str_split(" ", simplify = TRUE) %>% .[1, 1] %>% 
+    str_replace(",", "") %>% .[[1]] %>% as.numeric()
+  
+  black = data %>% .[35] %>% 
     str_split(" ", simplify = TRUE) %>% .[1, 3] %>% 
     str_replace(",", "") %>% .[[1]] %>% as.numeric()
   
-  other_race = data %>% .[40] %>% 
+  other_race = data %>% .[37] %>% 
     str_split(" ", simplify = TRUE) %>% .[1, 3] %>% 
     str_replace(",", "") %>% .[[1]] %>% as.numeric()
   
-  asian = data %>% .[41] %>% 
+  asian = data %>% .[36] %>% 
     str_split(" ", simplify = TRUE) %>% .[1, 3] %>% 
     str_replace(",", "") %>% .[[1]] %>% as.numeric()
   
