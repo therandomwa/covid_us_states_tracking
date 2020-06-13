@@ -786,7 +786,6 @@ get_north_carolina = function() {
   north_carolina[["cases"]][["age_65_74"]] = get_information("NC, deaths age_65_74: ")
   north_carolina[["cases"]][["age_75+"]] = get_information("NC, deaths age_75+: ")
   
-  
   north_carolina[["cases"]][["race_NatA"]] = get_information("NC, case race NatA: ")
   north_carolina[["cases"]][["race_asian"]] = get_information("NC, case race asian: ")
   north_carolina[["cases"]][["race_AfrA"]] = get_information("NC, case race AfrA: ")
@@ -830,8 +829,6 @@ get_north_carolina = function() {
   north_carolina[["deaths"]][["ethnicity_unk"]] = get_information("NC, deaths hisp unknown: ")
   north_carolina[["deaths"]][["age_unk"]] = get_information("NC, deaths age_unk: ")
   north_carolina[["deaths"]][["sex_unk"]] = get_information("NC, deaths sex unknown: ")
-  
-  north_carolina[["hospitalized"]][["total"]] = get_information("NC, Total hosp: ")
   
   final_north_carolina = as_tibble(north_carolina) %>% 
     standardize %>% 
@@ -938,31 +935,17 @@ get_dc = function() {
 }
 
 get_south_carolina = function() {
-  
-  url = "https://scdhec.gov/infectious-diseases/viruses/coronavirus-disease-2019-covid-19/sc-testing-data-projections-covid-19"
-  html = read_html(url) %>% 
-    html_nodes("body") %>% 
-    html_nodes("div") %>% .[[2]] %>% 
-    html_nodes(".l-container--page") %>% 
-    html_nodes("main") %>% 
-    html_nodes("article .l-constrain") %>% .[[1]] %>% 
-    html_nodes("div section") %>% .[[1]] %>% 
-    html_nodes(".l-constrain .resize") %>% .[[1]] %>% 
-    html_nodes("table") %>% 
-    html_table() %>% .[[1]] %>% 
-    pull(X2) %>% 
-    str_replace(",", "") %>% 
-    str_replace_all("\\*", "") %>% 
-    as.numeric()
 
   south_carolina = skeleton_table(sc_cols)
-
-  south_carolina[["tested"]][["total"]] = html[7]
-  south_carolina[["cases"]][["total"]] = html[6]
+  
+  browseURL("https://scdhec.gov/infectious-diseases/viruses/coronavirus-disease-2019-covid-19/sc-testing-data-projections-covid-19")
+  south_carolina[["tested"]][["total"]] = get_information("SC, tested total: ")
+  
   
   browseURL("https://scdhec.gov/sc-demographic-data-covid-19")
   
-  south_carolina[["cases"]][["age_0_10"]] = get_information2("SC, cases age_0_10 (enter as whole %):")
+  south_carolina[["cases"]][["total"]] = get_information("SC, cases total: ")
+  south_carolina[["cases"]][["age_0_10"]] = get_information2("SC, cases age_0_10 (enter as whole %): ")
   south_carolina[["cases"]][["age_11_20"]] = get_information2("SC, cases age_11_20 (enter as whole %): ")
   south_carolina[["cases"]][["age_21_30"]] = get_information2("SC, cases age_21_30 (enter as whole %): ")
   south_carolina[["cases"]][["age_31_40"]] = get_information2("SC, cases age_31_40 (enter as whole %): ")
@@ -1031,112 +1014,50 @@ get_south_carolina = function() {
 
 get_new_jersey = function() {
   
-  url = "https://www.nj.gov/health/cd/documents/topics/NCOV/COVID_Confirmed_Case_Summary.pdf"
-  data = pdf_text(url) %>% .[1] %>% 
-    str_split("\n") %>% .[[1]] %>% 
-    str_squish()
+  browseURL("https://www.nj.gov/health/cd/documents/topics/NCOV/COVID_Confirmed_Case_Summary.pdf")
+  
   skeleton = skeleton_table(nj_cols)
-  View(data)
+  
+  skeleton[["cases"]][["total"]] = get_information("NJ, Cases total: ")
+  skeleton[["cases"]][["race_nh_asian"]] = get_information2("NJ, Cases race_nh_asian (whole %): ")
+  skeleton[["cases"]][["race_nh_AfrA"]] = get_information2("NJ, Cases race_nh_AfrA (whole %): ")
+  skeleton[["cases"]][["race_hispanic"]] = get_information2("NJ, Cases race_hispanic (whole %): ")
+  skeleton[["cases"]][["race_nh_other"]] = get_information2("NJ, Cases race_nh_other (whole %): ")
+  skeleton[["cases"]][["race_nh_white"]] = get_information2("NJ, Cases race_nh_white (whole %): ")
+  skeleton[["cases"]][["age_0_4"]] = get_information2("NJ, Cases age 0-4 (whole %): ")
+  skeleton[["cases"]][["age_5_17"]] = get_information2("NJ, Cases age 5-17 (whole %): ")
+  skeleton[["cases"]][["age_18_29"]] = get_information2("NJ, Cases age 18-29 (whole %): ")
+  skeleton[["cases"]][["age_30_49"]] = get_information2("NJ, Cases age 30-49 (whole %): ")
+  skeleton[["cases"]][["age_50_64"]] = get_information2("NJ, Cases age 50-64 (whole %): ")
+  skeleton[["cases"]][["age_65_79"]] = get_information2("NJ, Cases age 65-79 (whole %): ")
+  skeleton[["cases"]][["age_80+"]] = get_information2("NJ, Cases age 80+ (whole %): ")
+  skeleton[["cases"]][["sex_male"]] = get_information2("NJ, Cases sex male (whole %): ")
+  skeleton[["cases"]][["sex_female"]] = get_information2("NJ, Cases sex female (whole %): ")
+  skeleton[["cases"]][["sex_unk"]] = get_information2("NJ, Cases sex unknown (whole %): ")
 
-  # This pdf has the potential to change a lot in terms 
-  # of what appears on what row but this can be easily changed
-  cases = data %>% .[9] %>% 
-    str_split(" ", simplify = TRUE) %>% .[1, 5] %>% 
-    str_replace(",", "") %>% .[[1]] %>% as.numeric()
+  skeleton[["hospitalized"]][["total"]] = get_information("NJ, Hosp. total: ")
+  skeleton[["hospitalized"]][["race_nh_asian"]] = get_information2("NJ, Hosp. race_nh_asian (whole %): ")
+  skeleton[["hospitalized"]][["race_nh_AfrA"]] = get_information2("NJ, Hosp. race_nh_AfrA (whole %): ")
+  skeleton[["hospitalized"]][["race_hispanic"]] = get_information2("NJ, Hosp. race_hispanic (whole %): ")
+  skeleton[["hospitalized"]][["race_nh_other"]] = get_information2("NJ, Hosp. race_nh_other (whole %): ")
+  skeleton[["hospitalized"]][["race_nh_white"]] = get_information2("NJ, Hosp. race_nh_white (whole %): ")
+  skeleton[["hospitalized"]][["age_0_4"]] = get_information2("NJ, Hosp. age 0-4 (whole %): ")
+  skeleton[["hospitalized"]][["age_5_17"]] = get_information2("NJ, Hosp. age 5-17 (whole %): ")
+  skeleton[["hospitalized"]][["age_18_29"]] = get_information2("NJ, Hosp. age 18-29 (whole %): ")
+  skeleton[["hospitalized"]][["age_30_49"]] = get_information2("NJ, Hosp. age 30-49 (whole %): ")
+  skeleton[["hospitalized"]][["age_50_64"]] = get_information2("NJ, Hosp. age 50-64 (whole %): ")
+  skeleton[["hospitalized"]][["age_65_79"]] = get_information2("NJ, Hosp. age 65-79 (whole %): ")
+  skeleton[["hospitalized"]][["age_80+"]] = get_information2("NJ, Hosp. age 80+ (whole %): ")
+  skeleton[["hospitalized"]][["sex_male"]] = get_information2("NJ, Hosp. sex male (whole %): ")
+  skeleton[["hospitalized"]][["sex_female"]] = get_information2("NJ, Hosp. sex female (whole %): ")
+  skeleton[["hospitalized"]][["sex_unk"]] = get_information2("NJ, Hosp. sex unknown (whole %): ")
   
-  deaths = data %>% .[12] %>% 
-    str_split(" ", simplify = TRUE) %>% .[1, 1] %>% 
-    str_replace(",", "") %>% .[[1]] %>% as.numeric()
-  
-  hospitalizations = data %>% .[14] %>% 
-    str_split(" ", simplify = TRUE) %>% .[1, 1] %>% 
-    str_replace(",", "") %>% .[[1]] %>% as.numeric()
-  
-  between_0_and_4 = data %>% .[16] %>% 
-    str_split(" ", simplify = TRUE) %>% .[1, 4] %>% 
-    str_replace(",", "") %>% .[[1]] %>% as.numeric()
-  
-  between_5_and_17 = data %>% .[17] %>% 
-    str_split(" ", simplify = TRUE) %>% .[1, 4] %>% 
-    str_replace(",", "") %>% .[[1]] %>% as.numeric()
-  
-  between_18_and_29 = data %>% .[18] %>% 
-    str_split(" ", simplify = TRUE) %>% .[1, 4] %>% 
-    str_replace(",", "") %>% .[[1]] %>% as.numeric()
-  
-  between_30_and_49 = data %>% .[19] %>% 
-    str_split(" ", simplify = TRUE) %>% .[1, 4] %>% 
-    str_replace(",", "") %>% .[[1]] %>% as.numeric()
-  
-  between_50_and_64 = data %>% .[20] %>% 
-    str_split(" ", simplify = TRUE) %>% .[1, 4] %>% 
-    str_replace(",", "") %>% .[[1]] %>% as.numeric()
-  
-  between_65_and_79 = data %>% .[21] %>% 
-    str_split(" ", simplify = TRUE) %>% .[1, 4] %>% 
-    str_replace(",", "") %>% .[[1]] %>% as.numeric()
-  
-  older_than_80 = data %>% .[22] %>% 
-    str_split(" ", simplify = TRUE) %>% .[1, 2] %>% 
-    str_replace(",", "") %>% .[[1]] %>% as.numeric()
-  
-  female = data %>% .[27] %>% 
-    str_split(" ", simplify = TRUE) %>% .[1, 2] %>% 
-    str_replace(",", "") %>% .[[1]] %>% as.numeric()
-  
-  male = data %>% .[28] %>% 
-    str_split(" ", simplify = TRUE) %>% .[1, 2] %>% 
-    str_replace(",", "") %>% .[[1]] %>% as.numeric()
-  
-  unknown_sex = data %>% .[29] %>% 
-    str_split(" ", simplify = TRUE) %>% .[1, 2] %>% 
-    str_replace(",", "") %>% .[[1]] %>% as.numeric()
-  
-  white = data %>% .[31] %>% 
-    str_split(" ", simplify = TRUE) %>% .[1, 3] %>% 
-    str_replace(",", "") %>% .[[1]] %>% as.numeric()
-
-  hispanic = data %>% .[33] %>% 
-    str_split(" ", simplify = TRUE) %>% .[1, 1] %>% 
-    str_replace(",", "") %>% .[[1]] %>% as.numeric()
-  
-  black = data %>% .[35] %>% 
-    str_split(" ", simplify = TRUE) %>% .[1, 3] %>% 
-    str_replace(",", "") %>% .[[1]] %>% as.numeric()
-  
-  other_race = data %>% .[37] %>% 
-    str_split(" ", simplify = TRUE) %>% .[1, 3] %>% 
-    str_replace(",", "") %>% .[[1]] %>% as.numeric()
-  
-  asian = data %>% .[36] %>% 
-    str_split(" ", simplify = TRUE) %>% .[1, 3] %>% 
-    str_replace(",", "") %>% .[[1]] %>% as.numeric()
-  
-  skeleton[["deaths"]][["total"]] = deaths
-  skeleton[["hospitalized"]][["total"]] = hospitalizations
-  
-  skeleton[["cases"]][["total"]] = cases
-  skeleton[["cases"]][["sex_male"]] = male
-  skeleton[["cases"]][["sex_female"]] = female
-  skeleton[["cases"]][["sex_unk"]] = unknown_sex
-  
-  skeleton[["cases"]][["age_0_4"]] = between_0_and_4
-  skeleton[["cases"]][["age_5_17"]] = between_5_and_17
-  skeleton[["cases"]][["age_18_29"]] = between_18_and_29
-  skeleton[["cases"]][["age_30_49"]] = between_30_and_49
-  skeleton[["cases"]][["age_50_64"]] = between_50_and_64
-  skeleton[["cases"]][["age_65_79"]] = between_65_and_79
-  skeleton[["cases"]][["age_80+"]] = older_than_80
-  
-  skeleton[["cases"]][["race_hispanic"]] = hispanic
-  skeleton[["cases"]][["race_nh_white"]] = white
-  skeleton[["cases"]][["race_nh_AfrA"]] = black
-  skeleton[["cases"]][["race_nh_asian"]] = asian
-  skeleton[["cases"]][["race_nh_other"]] = other_race
-  
-  browseURL("https://covid19.nj.gov/#live-updates")
-  skeleton[["tested"]][["total"]] = get_information("NJ: Total tested?: ")
-  
+  skeleton[["deaths"]][["total"]] = get_information("NJ, Deaths total: ")
+  skeleton[["deaths"]][["race_nh_asian"]] = get_information2("NJ, Deaths race_nh_asian (whole %): ")
+  skeleton[["deaths"]][["race_nh_AfrA"]] = get_information2("NJ, Deaths race_nh_AfrA (whole %): ")
+  skeleton[["deaths"]][["race_hispanic"]] = get_information2("NJ, Deaths race_hispanic (whole %): ")
+  skeleton[["deaths"]][["race_nh_other"]] = get_information2("NJ, Deaths race_nh_other (whole %): ")
+  skeleton[["deaths"]][["race_nh_white"]] = get_information2("NJ, Deaths race_nh_white (whole %): ")
   skeleton[["deaths"]][["age_0_4"]] = get_information2("NJ, Deaths age 0-4 (whole %): ")
   skeleton[["deaths"]][["age_5_17"]] = get_information2("NJ, Deaths age 5-17 (whole %): ")
   skeleton[["deaths"]][["age_18_29"]] = get_information2("NJ, Deaths age 18-29 (whole %): ")
@@ -1144,18 +1065,18 @@ get_new_jersey = function() {
   skeleton[["deaths"]][["age_50_64"]] = get_information2("NJ, Deaths age 50-64 (whole %): ")
   skeleton[["deaths"]][["age_65_79"]] = get_information2("NJ, Deaths age 65-79 (whole %): ")
   skeleton[["deaths"]][["age_80+"]] = get_information2("NJ, Deaths age 80+ (whole %): ")
+  skeleton[["deaths"]][["sex_male"]] = get_information2("NJ, Deaths sex male (whole %): ")
+  skeleton[["deaths"]][["sex_female"]] = get_information2("NJ, Deaths sex female (whole %): ")
+  skeleton[["deaths"]][["sex_unk"]] = get_information2("NJ, Deaths sex unknown (whole %): ")
   
-  skeleton[["deaths"]][["race_hispanic"]] = get_information("NJ, Deaths race hispanic: ")
-  skeleton[["deaths"]][["race_nh_white"]] = get_information("NJ, Deaths race white: ")
-  skeleton[["deaths"]][["race_nh_AfrA"]] = get_information("NJ, Deaths race afra: ")
-  skeleton[["deaths"]][["race_nh_asian"]] = get_information("NJ, Deaths race asian: ")
-  skeleton[["deaths"]][["race_nh_other"]] = get_information("NJ, Deaths race other: ")
+  browseURL("https://covid19.nj.gov/#live-updates")
+  skeleton[["tested"]][["total"]] = get_information("NJ: Total tested?: ")
   
   as_tibble(skeleton) %>% 
     standardize %>% 
     mutate(
       state_name = "New Jersey",
-      Link = url,
+      Link = "https://www.nj.gov/health/cd/documents/topics/NCOV/COVID_Confirmed_Case_Summary.pdf",
       platform = "pdf",
       comments = "Site combined race and ethnicity, so calculation needed",
       last.update = Sys.time() %>% as_date) %>% 
@@ -1349,28 +1270,35 @@ get_minnesota = function() {
   
   pdf_data = pdf_text(paste0("https://www.health.state.mn.us/", pdf_url))
   
+  browseURL(paste0("https://www.health.state.mn.us/", pdf_url))
+  
   death_by_gender = pdf_data %>% .[9] %>% 
     str_split("\n") %>% .[[1]] %>% 
-    str_squish %>% .[31:34] %>% 
+    str_squish %>% .[33:36] %>% 
     str_split(" ", simplify = TRUE) %>% .[,1] %>% 
     str_replace(",", "") %>% as.numeric
   
   hosp_by_age = pdf_data %>% .[8] %>% 
     str_split("\n") %>% .[[1]] %>% 
-    str_squish %>% .[75:86] %>% 
+    str_squish %>% .[80:91] %>% 
     str_split(" ", simplify = TRUE) %>% .[,1] %>% as.numeric
   
   hosp_by_gender = pdf_data %>% .[9] %>% 
     str_split("\n") %>% .[[1]] %>% 
-    str_squish %>% .[26:29] %>% 
-    str_split(" ", simplify = TRUE) %>% .[,1] %>% 
+    str_squish%>% .[29:31] %>%
+    str_split(" ", simplify = TRUE) %>% .[,1] %>%
     str_replace(",", "") %>% as.numeric
   
   hosp_by_race = pdf_data %>% .[10] %>% 
     str_split("\n") %>% .[[1]] %>% 
-    str_squish %>% .[69:79] %>% 
-    str_split(" ", simplify = TRUE) %>% .[,1] %>% 
+    str_squish %>% .[70:80] %>%
+    str_split(" ", simplify = TRUE) %>% .[,1] %>%
     str_replace(",", "") %>% as.numeric
+  
+  #View(death_by_gender)
+  #View(hosp_by_age)
+  #View(hosp_by_gender)
+  # View(hosp_by_race)
   
   minnesota = skeleton_table(mn_cols)
   
@@ -1485,10 +1413,6 @@ get_minnesota = function() {
   return(full_skeleton)
   
 }
-
-#################################
-# FUNCTIONS FOR MANUAL DATA ENTRY
-#################################
 
 get_arizona = function() {
   browseURL("https://www.azdhs.gov/preparedness/epidemiology-disease-control/infectious-disease-epidemiology/covid-19/dashboards/index.php")
@@ -1733,9 +1657,6 @@ get_iowa = function() {
   skeleton[["deaths"]][["ethnicity_hispanic"]] = get_information2("IA: Deaths ethnicity hispanic (whole %)?: ")
   skeleton[["deaths"]][["ethnicity_non_hispanic"]] = get_information2("IA: Deaths ethnicity not hispanic (whole %)?: ")
   skeleton[["deaths"]][["ethnicity_unk"]] = get_information2("IA: Deaths ethnicity pending (whole %)?: ")
-  
-  browseURL("https://coronavirus.iowa.gov/pages/rmcc-data")
-  skeleton[["hospitalized"]][["total"]] = get_information("IA: Total hospitalizations?: ")
   
   full_skeleton = as_tibble(skeleton) %>% 
     standardize %>% 
