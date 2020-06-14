@@ -19,17 +19,20 @@ library(plyr)
 ```
 
 ```{r}
+# read in the sheet with policy dates and information (when you run this inside the document you need to use one . and when you knit, you need to use two ..)
+
 summ_dat = readxl::read_excel("../Data/Summary_stats_all.xlsx", 
                    sheet = "Summary_stats_all_locs", col_names = TRUE) %>%
   janitor::clean_names() %>%
+  # remove unnecessart columns: office_33 needs to be dealt with because there is a cell that has a date and a word (should only be a date)
   select(-check, -notes, -link, -nursing_exorder, -exorder_date, -funding, -nursing_novis,
          -covid_reg, -testing, -nursing_notes, -phase_opening, -phase_number, -phase_total,
          -reopening_type, -any_business_start_date, -any_business_end_date,
          -all_non_ess_business_start_date, -all_non_ess_business_end_date, -office_33) %>% 
   dplyr::rename(state = location_name) %>%
-  # select(-close_contact_75, -gather_no_restrict, -summer_school) %>%
+  # transform the column that has a weird excel date into a normal date variable
   mutate(religious_25_capacity = as.Date(as.numeric(religious_25_capacity), origin = "1899-12-30")) %>%
-  # combine events of the same group with the same date
+  # change the data from wide to long by selecting all the variables with dates (this section does not select the variables that include characters)
   pivot_longer(c(end_or_state_ph_order:outdoor, 
                  elective_surgery:stay_home_start_date, 
                  stay_home_end_date:any_gathering_restrict_start_date,
@@ -38,50 +41,55 @@ summ_dat = readxl::read_excel("../Data/Summary_stats_all.xlsx",
                names_to = "event",
                values_to = "date",
                values_drop_na = TRUE) %>%
+  # only keep the character variables for the row/event they belong to 
   mutate(outdoor_type = ifelse(event == "outdoor", outdoor_type, NA),
          religion_essential = ifelse(event == "stay_home_start_date", religion_essential, NA),
          gathering_limit = ifelse(event == "any_gathering_restrict_start_date", gathering_limit, NA),
          religious_limit_capacity = ifelse(event == "religious_gathering", religious_limit_capacity, NA))
 
-# excel data change:
-# as.Date(variable, origin = "1899-12-30")
 
+# read in the sheet with event definitions and categories; same issue with running locally with one . and knitting with two ..
 cat_dat = readxl::read_excel("../Data/Summary_stats_all.xlsx", 
                    sheet = "data_dictionary", col_names = TRUE) %>%
+  # don't include rows with an empty category
   filter(is.na(category) == FALSE) %>%
+  # give names that make sense; category with equate to bar groups in the visualization
   dplyr::rename(bar_type = category,
          event = header) %>%
+  # one event has "?" in the data dictionary, but I believe it will fall into the stay at home order category
   mutate(bar_type = ifelse(bar_type == "?", "stay at home order", bar_type))
+
 
 # join the description and bar type to the summ data
 vis_dat = left_join(summ_dat, cat_dat, by = "event") %>%
+  # order data by state, event type, and date
   arrange(state, bar_type, date) %>%
-  mutate(date = as.Date(date, format = "%Y-%m-%d")
-#         ,
-#         end = if_else(lead(bar_type) == bar_type & lead(date) == date,
-#                       Sys.Date(), 
-#                       if_else(lead(bar_type) == bar_type,
-#                               lead(date), Sys.Date()))
-) %>%
+  # give dates a consistent format
+  mutate(date = as.Date(date, format = "%Y-%m-%d")) %>%
+  # rename for ease of plotting
   dplyr::rename(start = date,
          content = event,
          group = bar_type,
          title = description) %>%
+  # combine title strings to include the character additions where necessary
   mutate(
     title = if_else(is.na(outdoor_type) == FALSE, str_c(title, ": ", outdoor_type), 
                     if_else(religion_essential %in% "yes", str_c(title, "; religion declared essential"), 
                             if_else(is.na(gathering_limit) == FALSE, str_c(title, ": ", gathering_limit), 
                                     if_else(is.na(religious_limit_capacity) == FALSE, str_c(title, ": ", religious_limit_capacity), title))))
   ) %>%
+  # now that we've combined this information into title strings, we can delete this variables
   select(-outdoor_type, -religion_essential, -gathering_limit, -religious_limit_capacity)
 
 
 
 # combine events that happen on the same day and create end dates as necessary
-
+# group events by state, event group, and start date; if these are all equal, combine the titles into one string with new lines inbetween
 vis_dat2 = plyr::ddply(vis_dat, .(state, group, start), summarize,
               title = paste(title, collapse = ",\n")) %>%
+  # only include events that started before or on today so that the plot doesn't show future information
   filter(start <= Sys.Date()) %>%
+  # create end dates for events within the same group so that the visual doesn't overlap the events; add capitalization so that the visual looks nicer
   mutate(
     end = if_else(lead(group) == group & lead(start) == start,
                        Sys.Date(), 
@@ -92,13 +100,10 @@ vis_dat2 = plyr::ddply(vis_dat, .(state, group, start), summarize,
                             if_else(group == "gathering restrictions", "Gathering Restrictions", group)))
   ) 
 
+# this is where we can write out the data if we want to export it (change to your chosen directory)
 # write.csv(vis_dat2, "C:/Users/court/Documents/Covid State Project/timeline_dat.csv")
 
 
-group_dat = tibble(
-  id = c("education", "gathering restrictions", "stay at home order"),
-  content = c("Education", "Gathering Restrictions", "Stay at Home Order")
-)
 ```
 
 Inputs {.sidebar}
@@ -126,17 +131,26 @@ renderPlotly({
   vis_dat2 %>%
     filter(state == input$state_choice) %>%
     group_by(group) %>%
+    # create progressive color palette and modify the hovertext with tooltop
     mutate(color = colorRampPalette(c("#AE2573", "#D14124", "#FF9800"))(nrow(.)),
            tooltip = str_c(title, "\n", start)) %>%
     vistime(events = "title", start = "start", end = "end", groups = "group",
             tooltips = "tooltip", show_labels = FALSE, background_lines = 0)
 })
+
+# to combine this with the time series graphs use the code below:
+
+# subplot(
+#   time_series_plot, vistime_timeline_plot,
+#   nrows = 2, shareX = TRUE, titleY = TRUE
+# )
 ```
 
 
 ### Timeline 2-timelineG
 
 ```{r}
+# can probably delete this chunk since I think the timeline we're using is the one above
 renderPlotly({
   ggplotly(vis_dat2 %>%
   filter(state == input$state_choice) %>%
