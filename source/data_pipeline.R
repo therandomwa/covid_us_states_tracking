@@ -16,20 +16,20 @@ options(warn = -1)
 
 ### 0. load files 
 
-file_date = Sys.Date()-2 # change accordingly if the editing date is not the scraping date
+file_date = Sys.Date()-1 # change accordingly if the editing date is not the scraping date
 file_date_name = file_date %>% format("%Y%m%d")
 
 # load Aijin's data
-df_aw = read.csv("../Data/raw_states/meta_2020-06-09_aw.csv")
+df_aw = read.csv("../Data/raw_states/meta_2020-06-12_aw.csv")
 
 # load Chistian's data
-df_cbp = load_object("../Data/raw_states/meta_2020-06-09-cbp.rda")
+df_cbp = load_object("../Data/raw_states/meta_2020-06-12-cbp.rda")
 
 # load manual data
-df_lef = load_object("../manual_data/manual_data_20200609_lef.rda")
-df_as = load_object("../manual_data/manual_data_20200609_as.rda")
-df_cej = load_object("../manual_data/manual_data_20200609_cej.rda")
-df_gl = load_object("../manual_data/manual_data_20200609_gl.rda")
+df_lef = load_object("../manual_data/manual_data_20200612_lef.rda")
+df_as = load_object("../manual_data/manual_data_20200612_as.rda")
+df_cej = load_object("../manual_data/manual_data_20200612_cej.rda")
+df_gl = load_object("../manual_data/manual_data_20200612_gl.rda")
 df_cbp = rbind(df_cbp, df_lef, df_as, df_cej, df_gl)
 ### 1. compile files ----
 df_aw$last.update = df_aw$last.update %>% 
@@ -73,7 +73,7 @@ meta[meta == ""] = NA
 meta$positivity.rate = NULL
 meta$county.details = NULL
 meta$Link = NULL
-
+# meta$positive_race = gsub("")
 
 
 
@@ -365,6 +365,7 @@ df = age_standard("hosp_age")
 ### gender 
 
 gender_standard = function(gen_var){
+  # browser()
   gender_name = df %>% 
     filter(!is.na(get(gen_var))) %>%
     select(state_name) %>% 
@@ -396,9 +397,10 @@ gender_standard = function(gen_var){
     x[, 1] = x[, 1] %>% 
       toupper
     # PENDING
-    x[,1][grep("PEND", x[,1])] = "PENDING"
+    #x[,1][grep("PEND", x[,1])] = "PENDING"
     # UNKNOWN
-    x[,1][grep("UNK|U|NOT|NEITHER|BINARY|MISS", x[,1])] = "UNKNOWN/OTHER"
+    x[,1][grep("UNK|NOT|PEND|U|MISS", x[,1])] = "UNKNOWN"
+    x[,1][grep("NEITHER|BINARY|OTHER", x[,1])] = "OTHER"
     x[,1][x[,1] == "F"] = "FEMALE"
     x[,1][x[,1] == "M"] = "MALE"
     x[,1][x[,1] == "MALE TO FEMALE"] = "FEMALE" 
@@ -509,7 +511,9 @@ extra = rbind(extra("total_tested", "test"),
 #agrc("comorbidities", "comorbidities"))
 final = bind_rows(agr, extra) %>% as.data.frame
 final = final[final$strata_type %in% c("age", "gender", "total", "race", "eth"),]
-final$metric = ifelse(str_detect(final$count, "0\\.|%"), "Percent", "Count")
+final$count = trimws(final$count)
+final$metric = ifelse(final$count == 0, NA, 
+                      ifelse(str_detect(final$count, "0\\.|%"), "Percent", "Count"))
 final$category = toupper(final$category)
 final[is.na(final)] = ""
 final[grep("%", final$count), ] = final[grep("%", final$count), ] %>%
@@ -618,14 +622,56 @@ for (i in 1:nrow(eth_dat)){
 # nh:arizona, ca, co, ct, de, il, md, ma, nevada, nh, nj, nm, ri, sd,tx,wa,wy, ny
 # none: nebraska, nd,oh,or
 # ut ?
-all = c("Alabama", "Alaska", "District of Columbia", "Florida", "Georgia",
-        "Hawaii", "Idaho", "Indiana", "Iowa", "Kansas", "Kentucky", "Maine", 
-        "Michigan", "Minnesota", "Mississippi", "Montana", "North Carolina", "Oklahoma", 
-        "Pennsylvania", "South Carolina", "Tennessee", "Vermont", "Virginia", 
-        "West Virginia", "Wyoming", "Louisiana", "Arkansas", "Missouri", "Wisconsin",
-        "Nebraska", "Oregon", "Ohio")
-none = c("North Dakota" )
-nh = setdiff(state.name, c(all, none))
+# all = c("Alabama", "Alaska", "District of Columbia", "Florida", "Georgia",
+#         "Hawaii", "Idaho", "Indiana", "Iowa", "Kansas", "Kentucky", "Maine", 
+#         "Michigan", "Minnesota", "Mississippi", "Montana", "North Carolina", "Oklahoma", 
+#         "Pennsylvania", "South Carolina", "Tennessee", "Vermont", "Virginia", 
+#         "West Virginia", "Wyoming","Wisconsin", "Louisiana", "Arkansas", "Missouri", 
+#         "Nebraska", "Oregon", "Ohio")
+# none = c("North Dakota" )
+all_case = c("Alabama","Alaska","Arkansas", "District of Columbia",
+             "Florida","Georgia","Hawaii","Idaho","Indiana","Iowa",
+             "Kansas","Kentucky","Maine","Michigan","Minnesota","Mississippi",
+             "Missouri","Montana","North Carolina","Ohio","Oklahoma","Oregon",
+             "Pennsylvania","South Carolina","Tennessee","Vermont","Virginia",
+             "West Virginia", "Wisconsin")
+nh_case = c("Arizona","California","Colorado","Connecticut",
+            "Delaware","Illinois","Maryland","Massachusetts",
+            "Nevada","New Hampshire","New Jersey","New Mexico",
+            "Rhode Island","South Dakota","Texas",
+            "Utah","Washington","Wyoming")
+none_case = setdiff(state.name, c(all_case, nh_case))
+
+all_hosp = c("Alaska","Florida","Kansas","Minnesota","Nebraska","Ohio","Oregon","Virginia")
+nh_hosp = c("Arizona","Massachusetts",
+            "New Hampshire","Rhode Island","Utah","Washington")
+none_hosp = setdiff(state.name, c(all_hosp, nh_hosp))
+
+all_death = c("Alabama","Alaska","Arkansas",
+              "Florida","Georgia","Indiana","Iowa",
+              "Kansas","Kentucky","Louisiana","Minnesota",
+              "Michigan","Mississippi","Missouri",
+              "North Carolina","Ohio","Oregon",
+              "Pennsylvania","South Carolina","Tennessee",
+              "Vermont","Virginia","Wisconsin","Idaho","Oklahoma")
+nh_death = c("Arizona",
+             "California",
+             "Colorado",
+             "Connecticut",
+             "Delaware",
+             "District of Columbia",
+             "Illinois",
+             "Maryland",
+             "Massachusetts",
+             "Nevada",
+             "New Hampshire",
+             "New Jersey",
+             "New York",
+             "Rhode Island",
+             "Texas",
+             "Washington")
+none_death = setdiff(state.name, c(all_death, nh_death))
+
 final$category = final$category %>% 
   gsub("\\*", "", .) %>% 
   gsub("NON-HISPANIC", "NH", .) %>% 
@@ -634,7 +680,15 @@ final$category = final$category %>%
   gsub("LEFT BLANK", "UNKNOWN", .) %>% 
   gsub("ASIAN/PACIFIC ISLANDER", "ASIAN/PI", .)
 for (i in 1:nrow(final)){
-  if (final$state_name[i] %in% nh & final$strata_type[i] == "race"){
+  if ((final$state_name[i] %in% nh_case & 
+       final$strata_type[i] == "race" &
+       final$data_type == "case")|
+      (final$state_name[i] %in% nh_death & 
+       final$strata_type[i] == "race" &
+       final$data_type == "death")|
+      (final$state_name[i] %in% nh_hosp & 
+       final$strata_type[i] == "race" &
+       final$data_type == "hosp")){
     final$category[i] = final$category[i] %>% 
       gsub("^ASIAN", "NH ASIAN", .) %>% 
       gsub("^BLACK", "NH BLACK", .) %>% 
@@ -710,22 +764,24 @@ for (i in 1:nrow(final)){
   if (final$state_name[i]== "Pennsylvania" & final$data_type[i]== "hosp" & final$strata_type[i]=="age"){
     final$count2[i] = NA
   } else{
-  if (final$metric[i] == "Percent"){
-    final$count2[i] = final$count[i] *
-      final$count[final$state_name == final$state_name[i] & 
-                    final$strata_type == "total" &
-                    final$data_type == final$data_type[i]]
-    final$count2[i] = round(final$count2[i])
-  }
-  if(final$metric[i] == "Count"){
-    final$count2[i] = final$count[i]
-  }
+    if (final$metric[i] == "Percent"){
+      final$count2[i] = final$count[i] *
+        final$count[final$state_name == final$state_name[i] & 
+                      final$strata_type == "total" &
+                      final$data_type == final$data_type[i]]
+      final$count2[i] = round(final$count2[i])
+    }
+    else if(final$metric[i] == "Count"){
+      final$count2[i] = final$count[i]
+    }
+    else (final$count2[i] = 0)
   }
 }
 
 final$normalized = final$count2 / final$pop_est * 100000
 final = final[!is.na(final$count),]
-
+final = final[final$category != "PENDING",]
+final = final[final$data_type!="test",]
 
 
 ### 5. save file ----
@@ -739,7 +795,7 @@ write.csv(final,
                         file_date_name, 
                         ".csv"), row.names = F)
 
-# #### age label
+# #### age label ----
 race_standard = function(race_var){
   browser()
   race_name = df %>%
