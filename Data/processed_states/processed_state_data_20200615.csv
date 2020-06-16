@@ -253,9 +253,9 @@
 "Colorado","70-79",2025,"06/14/20","age","case","Count",346828,2025,583.862894575986
 "Colorado","80+",2171,"06/14/20","age","case","Count",173324,2171,1252.5674459394
 "Colorado","UNKNOWN",38,"06/14/20","age","case","Count",NA,38,NA
-"Colorado","FEMALE",0.5038,"06/14/20","gender","case","Percent",2827696,14676,519.009115548489
-"Colorado","FEMALE TO MALE",0,"06/14/20","gender","case",NA,2827696,0,0
+"Colorado","FEMALE",0.5036,"06/14/20","gender","case","Percent",2827696,14670,518.796928665599
 "Colorado","MALE",0.4783,"06/14/20","gender","case","Percent",2867868,13933,485.831286516674
+"Colorado","OTHER",2e-04,"06/14/20","gender","case","Count",NA,2e-04,NA
 "Colorado","UNKNOWN",0.0178,"06/14/20","gender","case","Percent",NA,519,NA
 "Colorado","HISPANIC",0.2095,"06/14/20","race","death","Percent",1235117,335,27.1229365315189
 "Colorado","NH AI/AN",0.0056,"06/14/20","race","death","Percent",36614,9,24.580761457366
@@ -1204,9 +1204,9 @@
 "Missouri","70-74",786,"06/15/20","age","case","Count",260068,786,302.22864789209
 "Missouri","75-79",627,"06/15/20","age","case","Count",185960,627,337.169283716928
 "Missouri","80+",1734,"06/15/20","age","case","Count",255427,1734,678.863236854365
+"Missouri","FEMALE",8738,"06/15/20","gender","case","Count",3118889,8738,280.163866043325
 "Missouri","MALE",7336,"06/15/20","gender","case","Count",3007563,7336,243.918415009095
 "Missouri","UNKNOWN",113,"06/15/20","gender","case","Count",NA,113,NA
-"Missouri","WOMEN",8738,"06/15/20","gender","case","Count",NA,8738,NA
 "Missouri","BLACK",246,"06/15/20","race","death","Count",724529,246,33.9530922847809
 "Missouri","MULTI",4,"06/15/20","race","death","Count",143702,4,2.78353815534926
 "Missouri","OTHER",6,"06/15/20","race","death","Count",NA,6,NA
