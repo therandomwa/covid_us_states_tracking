@@ -16,7 +16,7 @@ options(warn = -1)
 
 ### 0. load files 
 
-file_date = Sys.Date()-1 # change accordingly if the editing date is not the scraping date
+file_date = Sys.Date()-2 # change accordingly if the editing date is not the scraping date
 file_date_name = file_date %>% format("%Y%m%d")
 
 # load Aijin's data
@@ -65,7 +65,7 @@ df2_cbp[!is.na(df2_cbp$hosp_eth),]$total_hosp =
   paste0(df2_cbp[!is.na(df2_cbp$hosp_eth),]$total_hosp, "; ", 
          df2_cbp[!is.na(df2_cbp$hosp_eth),]$hosp_eth)
 df2_cbp[, c("positive_eth", "death_eth", "hosp_eth")] = NULL
-
+df2_cbp[df2_cbp$state_name == "Minnesota",]$last.update = file_date %>% format("%m/%d/%Y")
 meta = rbind.fill(df_aw, df2_cbp)
 meta$X = NULL
 meta = meta[order(meta$state_name), ]
@@ -167,7 +167,7 @@ race_standard = function(race_var){
                                 grep("PACIFIC", race$original, invert = T))),]$new = "NH ASIAN"}, silent = TRUE)
   try({
     # AI/AN
-    race[intersect(grep("ALASKA|AI/AN|AIAN|NATA", race$original),
+    race[intersect(grep("ALASKA|AI/AN|AIAN|NATA|NA", race$original),
                    grep("NH|HISPANIC|PACIFIC", race$original, invert = TRUE)), ]$new = "AI/AN"}, silent = TRUE)
   try({
     # NH AI/AN
@@ -512,14 +512,14 @@ extra = rbind(extra("total_tested", "test"),
 final = bind_rows(agr, extra) %>% as.data.frame
 final = final[final$strata_type %in% c("age", "gender", "total", "race", "eth"),]
 final$count = trimws(final$count)
-final$metric = ifelse(final$count == 0, NA, 
-                      ifelse(str_detect(final$count, "0\\.|%"), "Percent", "Count"))
 final$category = toupper(final$category)
 final[is.na(final)] = ""
 final[grep("%", final$count), ] = final[grep("%", final$count), ] %>%
   mutate(count = gsub("%|<", "", count) %>% as.numeric) %>%
   mutate(count = count / 100)
 final$count = as.numeric(final$count)
+final$metric = ifelse(final$count == 0, NA, 
+                      ifelse(str_detect(final$count, "0\\.|%"), "Percent", "Count"))
 final = final[order(final$state_name),]
 # final$category = gsub("‐", "-", final$category)
 #final[final$category == "0-0-4",]$category = "0-4"
@@ -763,17 +763,18 @@ final$count2 = NA
 for (i in 1:nrow(final)){
   if (final$state_name[i]== "Pennsylvania" & final$data_type[i]== "hosp" & final$strata_type[i]=="age"){
     final$count2[i] = NA
-  } else{
-    if (final$metric[i] == "Percent"){
-      final$count2[i] = final$count[i] *
-        final$count[final$state_name == final$state_name[i] & 
-                      final$strata_type == "total" &
-                      final$data_type == final$data_type[i]]
-      final$count2[i] = round(final$count2[i])
-    }
-    else if(final$metric[i] == "Count"){
-      final$count2[i] = final$count[i]
-    }
+  } else {
+    if (!is.na(final$metric[i])){
+      if (final$metric[i] == "Percent"){
+        final$count2[i] = final$count[i] *
+          final$count[final$state_name == final$state_name[i] & 
+                        final$strata_type == "total" &
+                        final$data_type == final$data_type[i]]
+        final$count2[i] = round(final$count2[i])
+      }
+      else if(final$metric[i] == "Count"){
+        final$count2[i] = final$count[i]
+      }}
     else (final$count2[i] = 0)
   }
 }
@@ -781,7 +782,7 @@ for (i in 1:nrow(final)){
 final$normalized = final$count2 / final$pop_est * 100000
 final = final[!is.na(final$count),]
 final = final[final$category != "PENDING",]
-final = final[final$data_type!="test",]
+final = final[final$data_type!="test" & final$,]
 
 
 ### 5. save file ----
@@ -796,69 +797,69 @@ write.csv(final,
                         ".csv"), row.names = F)
 
 # #### age label ----
-race_standard = function(race_var){
-  browser()
-  race_name = df %>%
-    filter(!is.na(get(race_var))) %>%
-    select(state_name) %>%
-    unlist %>%
-    as.vector
-  
-  # get it into a dataframe
-  race_df = df %>%
-    filter(!is.na(get(race_var))) %>%
-    select(race_var) %>%
-    unlist %>%
-    as.character %>%
-    strsplit("; |:") %>%
-    lapply(function(x)
-      matrix(x, ncol = 2, byrow = TRUE) %>%
-        as.data.frame)
-  
-  # convert % to decimal
-  race_df = lapply(race_df, function(x) {
-    x[, 2] = x[, 2] %>% as.character
-    x[grep("%", x[, 2]), ] = x[grep("%", x[, 2]), ] %>%
-      mutate(V2 = gsub("%|<", "", V2) %>% as.numeric) %>%
-      mutate(V2 = V2 / 100 )# %>%
-    #mutate(V2 = format(.$V2, scientific=F))
-    x[, 2] = x[, 2] %>% as.numeric
-    x[, 1] = x[, 1] %>% toupper
-    return (x)
-  })
-  
-  test = do.call(rbind.fill,
-                 lapply(race_df,
-                        function(x) {
-                          dat = data.frame(cat = x[,1] %>% trimws, val = 1)
-                          rownames(dat) = dat$cat; dat$cat = NULL
-                          dat = dat %>% t %>% as.data.frame
-                          return (dat)}))
-  
-  test = test[,order(colnames(test))]
-  race = data.frame(original = colnames(test),
-                    count = colSums(test, na.rm = T) %>% as.vector)
-  race$original = as.character(race$original)
-  race$new = NA
-  
-  # dictionary
-  try({
-    # black
-    race[intersect(grep("AFR|BLACK|BLK", race$original),
-                   grep("NH|HISPANIC", race$original, invert = TRUE)), ]$new = "BLACK"}, silent = TRUE)
-  
-  
-  df[,race_var] = as.character(df[,race_var])
-  df[df$state_name %in% race_name, race_var] =
-    lapply(race_df,
-           function(x) {
-             new_df = left_join(x, race, by = c("V1" = "original")) %>%
-               select(new, V2) %>% group_by(new) %>%
-               summarise(V2 = sum(V2, na.rm = T)) %>%
-               mutate(V2 = format(V2, scientific = F)) %>%
-               as.data.frame
-             return (paste(paste0(new_df$new, ":" ,new_df$V2), collapse = "; "))
-           }) %>% unlist
-  return (df)
-}
-race_standard("positive_age")
+# race_standard = function(race_var){
+#   browser()
+#   race_name = df %>%
+#     filter(!is.na(get(race_var))) %>%
+#     select(state_name) %>%
+#     unlist %>%
+#     as.vector
+#   
+#   # get it into a dataframe
+#   race_df = df %>%
+#     filter(!is.na(get(race_var))) %>%
+#     select(race_var) %>%
+#     unlist %>%
+#     as.character %>%
+#     strsplit("; |:") %>%
+#     lapply(function(x)
+#       matrix(x, ncol = 2, byrow = TRUE) %>%
+#         as.data.frame)
+#   
+#   # convert % to decimal
+#   race_df = lapply(race_df, function(x) {
+#     x[, 2] = x[, 2] %>% as.character
+#     x[grep("%", x[, 2]), ] = x[grep("%", x[, 2]), ] %>%
+#       mutate(V2 = gsub("%|<", "", V2) %>% as.numeric) %>%
+#       mutate(V2 = V2 / 100 )# %>%
+#     #mutate(V2 = format(.$V2, scientific=F))
+#     x[, 2] = x[, 2] %>% as.numeric
+#     x[, 1] = x[, 1] %>% toupper
+#     return (x)
+#   })
+#   
+#   test = do.call(rbind.fill,
+#                  lapply(race_df,
+#                         function(x) {
+#                           dat = data.frame(cat = x[,1] %>% trimws, val = 1)
+#                           rownames(dat) = dat$cat; dat$cat = NULL
+#                           dat = dat %>% t %>% as.data.frame
+#                           return (dat)}))
+#   
+#   test = test[,order(colnames(test))]
+#   race = data.frame(original = colnames(test),
+#                     count = colSums(test, na.rm = T) %>% as.vector)
+#   race$original = as.character(race$original)
+#   race$new = NA
+#   
+#   # dictionary
+#   try({
+#     # black
+#     race[intersect(grep("AFR|BLACK|BLK", race$original),
+#                    grep("NH|HISPANIC", race$original, invert = TRUE)), ]$new = "BLACK"}, silent = TRUE)
+#   
+#   
+#   df[,race_var] = as.character(df[,race_var])
+#   df[df$state_name %in% race_name, race_var] =
+#     lapply(race_df,
+#            function(x) {
+#              new_df = left_join(x, race, by = c("V1" = "original")) %>%
+#                select(new, V2) %>% group_by(new) %>%
+#                summarise(V2 = sum(V2, na.rm = T)) %>%
+#                mutate(V2 = format(V2, scientific = F)) %>%
+#                as.data.frame
+#              return (paste(paste0(new_df$new, ":" ,new_df$V2), collapse = "; "))
+#            }) %>% unlist
+#   return (df)
+# }
+# race_standard("positive_age")
