@@ -253,9 +253,9 @@
 "Colorado","70-79",2025,"06/14/20","age","case","Count",346828,2025,583.862894575986
 "Colorado","80+",2171,"06/14/20","age","case","Count",173324,2171,1252.5674459394
 "Colorado","UNKNOWN",38,"06/14/20","age","case","Count",NA,38,NA
-"Colorado","FEMALE",0.5038,"06/14/20","gender","case","Percent",2827696,14676,519.009115548489
-"Colorado","FEMALE TO MALE",0,"06/14/20","gender","case",NA,2827696,0,0
+"Colorado","FEMALE",0.5036,"06/14/20","gender","case","Percent",2827696,14670,518.796928665599
 "Colorado","MALE",0.4783,"06/14/20","gender","case","Percent",2867868,13933,485.831286516674
+"Colorado","OTHER",2e-04,"06/14/20","gender","case","Count",NA,2e-04,NA
 "Colorado","UNKNOWN",0.0178,"06/14/20","gender","case","Percent",NA,519,NA
 "Colorado","HISPANIC",0.2095,"06/14/20","race","death","Percent",1235117,335,27.1229365315189
 "Colorado","NH AI/AN",0.0056,"06/14/20","race","death","Percent",36614,9,24.580761457366
@@ -363,39 +363,39 @@
 "Delaware","",84686,"06/15/20","total","test","Count",967171,84686,8756.05244574124
 "Delaware","",10340,"06/15/20","total","case","Count",967171,10340,1069.0973984952
 "Delaware","",423,"06/15/20","total","death","Count",967171,423,43.7358026657127
-"District of Columbia","AI/AN",25,"","race","case","Count",4296,25,581.936685288641
-"District of Columbia","ASIAN",157,"","race","case","Count",31025,157,506.043513295729
-"District of Columbia","BLACK",491,"","race","case","Count",326181,491,150.52992050426
-"District of Columbia","HN/PI",29,"","race","case","Count",975,29,2974.35897435897
-"District of Columbia","MULTI",2380,"","race","case","Count",19604,2380,12140.3795143848
-"District of Columbia","UNKNOWN",328,"","race","case","Count",NA,328,NA
-"District of Columbia","WHITE",1969,"","race","case","Count",320374,1969,614.594193036888
-"District of Columbia","  0-4",122,"","age","case","Count",NA,122,NA
-"District of Columbia","  5-14",233,"","age","case","Count",NA,233,NA
-"District of Columbia","  15-19",213,"","age","case","Count",NA,213,NA
-"District of Columbia","  20-24",558,"","age","case","Count",NA,558,NA
-"District of Columbia","  25-34",1851,"","age","case","Count",NA,1851,NA
-"District of Columbia","  35-44",1764,"","age","case","Count",NA,1764,NA
-"District of Columbia","  45-54",1500,"","age","case","Count",NA,1500,NA
-"District of Columbia","  55-64",1588,"","age","case","Count",NA,1588,NA
-"District of Columbia","  65-74",1019,"","age","case","Count",NA,1019,NA
-"District of Columbia","  75+",909,"","age","case","Count",NA,909,NA
-"District of Columbia","UNKNOWN",10,"","age","case","Count",NA,10,NA
-"District of Columbia","FEMALE",4912,"","gender","case","Count",369148,4912,1330.63161658738
-"District of Columbia","MALE",4868,"","gender","case","Count",333307,4868,1460.51538071508
-"District of Columbia","UNKNOWN",19,"","gender","case","Count",NA,19,NA
-"District of Columbia","ASIAN",7,"","race","death","Count",31025,7,22.5624496373892
-"District of Columbia","BLACK",382,"","race","death","Count",326181,382,117.112891308813
-"District of Columbia","HISPANIC",66,"","race","death","Count",79249,66,83.2818079723403
-"District of Columbia","NH WHITE",55,"","race","death","Count",260268,55,21.1320638726236
-"District of Columbia","OTHER",5,"","race","death","Count",NA,5,NA
-"District of Columbia","",65846,"","total","test","Count",702455,65846,9373.69653572115
-"District of Columbia","",9799,"","total","case","Count",702455,9799,1394.96480201579
-"District of Columbia","UNKNOWN",1040,"","eth","case","Count",NA,1040,NA
-"District of Columbia","HISPANIC",2840,"","eth","case","Count",79249,2840,3583.64143396131
-"District of Columbia","NON HISPANIC",5900,"","eth","case","Count",623206,5900,946.717457790843
-"District of Columbia","UNKNOWN",19,"","eth","case","Count",NA,19,NA
-"District of Columbia","",515,"","total","death","Count",702455,515,73.3143048309144
+"District of Columbia","AI/AN",25,"06/14/20","race","case","Count",4296,25,581.936685288641
+"District of Columbia","ASIAN",157,"06/14/20","race","case","Count",31025,157,506.043513295729
+"District of Columbia","BLACK",491,"06/14/20","race","case","Count",326181,491,150.52992050426
+"District of Columbia","HN/PI",29,"06/14/20","race","case","Count",975,29,2974.35897435897
+"District of Columbia","MULTI",2380,"06/14/20","race","case","Count",19604,2380,12140.3795143848
+"District of Columbia","UNKNOWN",328,"06/14/20","race","case","Count",NA,328,NA
+"District of Columbia","WHITE",1969,"06/14/20","race","case","Count",320374,1969,614.594193036888
+"District of Columbia","0-4",122,"06/14/20","age","case","Count",45617,122,267.44415459149
+"District of Columbia","5-14",233,"06/14/20","age","case","Count",66195,233,351.990331596042
+"District of Columbia","15-19",213,"06/14/20","age","case","Count",36900,213,577.235772357724
+"District of Columbia","20-24",558,"06/14/20","age","case","Count",52924,558,1054.34207542892
+"District of Columbia","25-34",1851,"06/14/20","age","case","Count",164087,1851,1128.06011445148
+"District of Columbia","35-44",1764,"06/14/20","age","case","Count",105674,1764,1669.28478149781
+"District of Columbia","45-54",1500,"06/14/20","age","case","Count",75453,1500,1987.99252514811
+"District of Columbia","55-64",1588,"06/14/20","age","case","Count",70302,1588,2258.82620693579
+"District of Columbia","65-74",1019,"06/14/20","age","case","Count",49104,1019,2075.18735744542
+"District of Columbia","75+",909,"06/14/20","age","case","Count",36199,909,2511.11909168762
+"District of Columbia","UNKNOWN",10,"06/14/20","age","case","Count",NA,10,NA
+"District of Columbia","FEMALE",4912,"06/14/20","gender","case","Count",369148,4912,1330.63161658738
+"District of Columbia","MALE",4868,"06/14/20","gender","case","Count",333307,4868,1460.51538071508
+"District of Columbia","UNKNOWN",19,"06/14/20","gender","case","Count",NA,19,NA
+"District of Columbia","ASIAN",7,"06/14/20","race","death","Count",31025,7,22.5624496373892
+"District of Columbia","BLACK",382,"06/14/20","race","death","Count",326181,382,117.112891308813
+"District of Columbia","HISPANIC",66,"06/14/20","race","death","Count",79249,66,83.2818079723403
+"District of Columbia","NH WHITE",55,"06/14/20","race","death","Count",260268,55,21.1320638726236
+"District of Columbia","OTHER",5,"06/14/20","race","death","Count",NA,5,NA
+"District of Columbia","",65846,"06/14/20","total","test","Count",702455,65846,9373.69653572115
+"District of Columbia","",9799,"06/14/20","total","case","Count",702455,9799,1394.96480201579
+"District of Columbia","UNKNOWN",1040,"06/14/20","eth","case","Count",NA,1040,NA
+"District of Columbia","HISPANIC",2840,"06/14/20","eth","case","Count",79249,2840,3583.64143396131
+"District of Columbia","NON HISPANIC",5900,"06/14/20","eth","case","Count",623206,5900,946.717457790843
+"District of Columbia","UNKNOWN",19,"06/14/20","eth","case","Count",NA,19,NA
+"District of Columbia","",515,"06/14/20","total","death","Count",702455,515,73.3143048309144
 "Florida","AI/AN",0,"06/15/20","race","case",NA,106984,0,0
 "Florida","ASIAN",0,"06/15/20","race","case",NA,631737,0,0
 "Florida","BLACK",14942,"06/15/20","race","case","Count",3600121,14942,415.041605546036
@@ -1204,9 +1204,9 @@
 "Missouri","70-74",786,"06/15/20","age","case","Count",260068,786,302.22864789209
 "Missouri","75-79",627,"06/15/20","age","case","Count",185960,627,337.169283716928
 "Missouri","80+",1734,"06/15/20","age","case","Count",255427,1734,678.863236854365
+"Missouri","FEMALE",8738,"06/15/20","gender","case","Count",3118889,8738,280.163866043325
 "Missouri","MALE",7336,"06/15/20","gender","case","Count",3007563,7336,243.918415009095
 "Missouri","UNKNOWN",113,"06/15/20","gender","case","Count",NA,113,NA
-"Missouri","WOMEN",8738,"06/15/20","gender","case","Count",NA,8738,NA
 "Missouri","BLACK",246,"06/15/20","race","death","Count",724529,246,33.9530922847809
 "Missouri","MULTI",4,"06/15/20","race","death","Count",143702,4,2.78353815534926
 "Missouri","OTHER",6,"06/15/20","race","death","Count",NA,6,NA
