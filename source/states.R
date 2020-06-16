@@ -1527,25 +1527,25 @@ get_idaho = function() {
   
   skeleton[["cases"]][["race_unk"]] = get_information2("ID: Cases race unknown? (calc. #): ")
   
-  case_white = get_information("ID: Cases race white (whole %)?: ")
+  case_white = get_information2("ID: Cases race white (whole %)?: ")
   skeleton[["cases"]][["race_white"]] = ((skeleton[["cases"]][["total"]] - skeleton[["cases"]][["race_unk"]]) * case_white) %>% floor
     
-  case_race_other = get_information("ID: Cases race other (whole %)?: ")
+  case_race_other = get_information2("ID: Cases race other (whole %)?: ")
   skeleton[["cases"]][["race_other"]] = ((skeleton[["cases"]][["total"]] - skeleton[["cases"]][["race_unk"]]) * case_race_other) %>% floor
     
-  case_asian = get_information("ID: Cases asian (whole %)?: ")
+  case_asian = get_information2("ID: Cases asian (whole %)?: ")
   skeleton[["cases"]][["race_asian"]] = ((skeleton[["cases"]][["total"]] - skeleton[["cases"]][["race_unk"]]) * case_asian) %>% floor
   
-  case_afra = get_information("ID: Cases AfrA (whole %)?: ")
+  case_afra = get_information2("ID: Cases AfrA (whole %)?: ")
   skeleton[["cases"]][["race_AfrA"]] = ((skeleton[["cases"]][["total"]] - skeleton[["cases"]][["race_unk"]]) * case_afra) %>% floor
   
-  case_race_multi = get_information("ID: Cases race_multi (whole %)?: ")
+  case_race_multi = get_information2("ID: Cases race_multi (whole %)?: ")
   skeleton[["cases"]][["race_multi"]] = ((skeleton[["cases"]][["total"]] - skeleton[["cases"]][["race_unk"]]) * case_race_multi) %>% floor
   
-  case_nata = get_information("ID: Cases NatA (whole %)?: ")
+  case_nata = get_information2("ID: Cases NatA (whole %)?: ")
   skeleton[["cases"]][["race_NatA"]] = ((skeleton[["cases"]][["total"]] - skeleton[["cases"]][["race_unk"]]) * case_nata) %>% floor
     
-  case_pac = get_information("ID: Cases pac (whole %)?: ")
+  case_pac = get_information2("ID: Cases pac (whole %)?: ")
   skeleton[["cases"]][["race_pac"]] = ((skeleton[["cases"]][["total"]] - skeleton[["cases"]][["race_unk"]]) * case_pac) %>% floor
   
   skeleton[["hospitalized"]][["total"]] = get_information("ID: Total hospitalized?: ")

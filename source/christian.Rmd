@@ -52,11 +52,7 @@ minnesota = get_minnesota()
 ```
 
 ```{r}
-full_data_20200615 = full_data_20200615 %>% filter(state_name != "Minnesota")
 
-full_data_20200615 = bind_rows(
-  full_data_20200615, minnesota
-)
 ```
 
 ```{r}
