@@ -155,60 +155,30 @@ get_mississippi = function() {
   
   mississippi = skeleton_table(ms_cols)
   
-  # Extract pdf locations from the site to account for updates
-  site_url = "https://msdh.ms.gov/msdhsite/_static/14,0,420.html"
-  
-  paths = read_html(site_url) %>% 
-    html_nodes("body #pageContainer #pageContent #article .msdh .links li a") %>% 
-    html_attr("href")
-  
-  demo_url = paste0("https://msdh.ms.gov/msdhsite/_static/", paths[20])
-  demo_death_url = paste0("https://msdh.ms.gov/msdhsite/_static/", paths[21])
-  
-  summary_vals = read_html(site_url) %>% 
-    html_nodes("body #pageContainer #pageContent #article .msdh #msdhTotalCovid-19Cases") %>% 
-    html_table(fill = TRUE) %>% .[[1]] %>%
-    tail(1) %>% unlist() %>% .[-1] %>%
-    str_replace(",", "") %>% as.numeric()
-  
-  mississippi[["cases"]][["total"]] = summary_vals[1]
-  mississippi[["deaths"]][["total"]] = summary_vals[2]
-  
-  demo = pdf_text(demo_url) %>% tail(1) %>% #only want the last page
-    str_split("\n") %>% .[[1]] %>% 
-    str_squish() %>% .[17] %>% # 17 assumed to be the subtotal row
-    str_split(" ") %>% .[[1]] %>% .[-1] %>% 
-    as.numeric()
-  
-  mississippi[["cases"]][["race_AfrA"]] = demo[2] + demo[8] + demo[14]
-  mississippi[["cases"]][["race_white"]] = demo[3] + demo[9] + demo[15]
-  mississippi[["cases"]][["race_NatA"]] = demo[4] + demo[10] + demo[16]
-  mississippi[["cases"]][["race_asian"]] = demo[5] + demo[11] + demo[17]
-  mississippi[["cases"]][["race_other"]] = demo[6] + demo[12] + demo[18]
-  mississippi[["cases"]][["race_unk"]] = demo[7] + demo[13] + demo[19]
-  
-  mississippi[["cases"]][["ethnicity_non_hispanic"]] = demo[2:7] %>% sum()
-  mississippi[["cases"]][["ethnicity_hispanic"]] = demo[8:13] %>% sum()
-  mississippi[["cases"]][["ethnicity_unk"]] = demo[14:19] %>% sum()
-  
-  demo_death = pdf_text(demo_death_url) %>% tail(1) %>% #only want the last page
-    str_split("\n") %>% .[[1]] %>% 
-    str_squish() %>% .[17] %>% # 17 assumed to be the subtotal row
-    str_split(" ") %>% .[[1]] %>% .[-1] %>% 
-    as.numeric()
-  
-  mississippi[["deaths"]][["race_AfrA"]] = demo_death[2] + demo_death[8] + demo_death[14]
-  mississippi[["deaths"]][["race_white"]] = demo_death[3] + demo_death[9] + demo_death[15]
-  mississippi[["deaths"]][["race_NatA"]] = demo_death[4] + demo[10] + demo_death[16]
-  mississippi[["deaths"]][["race_asian"]] = demo_death[5] + demo_death[11] + demo_death[17]
-  mississippi[["deaths"]][["race_other"]] = demo_death[6] + demo_death[12] + demo_death[18]
-  mississippi[["deaths"]][["race_unk"]] = demo_death[7] + demo_death[13] + demo_death[19]
-  
-  mississippi[["deaths"]][["ethnicity_non_hispanic"]] = demo_death[2:7] %>% sum()
-  mississippi[["deaths"]][["ethnicity_hispanic"]] = demo_death[8:13] %>% sum()
-  mississippi[["deaths"]][["ethnicity_unk"]] = demo_death[14:19] %>% sum()
-  
   browseURL("https://msdh.ms.gov/msdhsite/_static/14,0,420.html")
+  
+  mississippi[["cases"]][["total"]] = get_information("MS, cases total: ") 
+  mississippi[["deaths"]][["total"]] = get_information("MS, deaths total: ") 
+  
+  mississippi[["cases"]][["race_NatA"]] = get_information("MS, cases race_NatA (calc.): ") 
+  mississippi[["cases"]][["race_asian"]] = get_information("MS, cases race_asian (calc.): ") 
+  mississippi[["cases"]][["race_AfrA"]] = get_information("MS, cases race_AfrA (calc.): ") 
+  mississippi[["cases"]][["race_white"]] = get_information("MS, cases race_white (calc.): ") 
+  mississippi[["cases"]][["race_other"]] = get_information("MS, cases race_other (calc.): ") 
+  mississippi[["cases"]][["race_unk"]] = get_information("MS, cases race_unk (calc.): ") 
+  mississippi[["cases"]][["ethnicity_non_hispanic"]] = get_information("MS, cases non-hispanic (calc.): ") 
+  mississippi[["cases"]][["ethnicity_hispanic"]] = get_information("MS, cases hispanic (calc.): ") 
+  mississippi[["cases"]][["ethnicity_unk"]] = get_information("MS, cases eth unk (calc.): ") 
+  
+  mississippi[["deaths"]][["race_NatA"]] = get_information("MS, deaths race_NatA (calc.): ") 
+  mississippi[["deaths"]][["race_asian"]] = get_information("MS, deaths race_asian (calc.): ") 
+  mississippi[["deaths"]][["race_AfrA"]] = get_information("MS, deaths race_AfrA (calc.): ") 
+  mississippi[["deaths"]][["race_white"]] = get_information("MS, deaths race_white (calc.): ") 
+  mississippi[["deaths"]][["race_other"]] = get_information("MS, deaths race_other (calc.): ") 
+  mississippi[["deaths"]][["race_unk"]] = get_information("MS, deaths race_unk (calc.): ") 
+  mississippi[["deaths"]][["ethnicity_non_hispanic"]] = get_information("MS, deaths non-hispanic (calc.): ") 
+  mississippi[["deaths"]][["ethnicity_hispanic"]] = get_information("MS, deaths hispanic (calc.): ") 
+  mississippi[["deaths"]][["ethnicity_unk"]] = get_information("MS, deaths eth unk (calc.): ")
   
   mississippi[["cases"]][["age_0_17"]] = get_information("MS, cases age_0_17: ") 
   mississippi[["cases"]][["age_18_29"]] = get_information("MS, cases age_18_29: ")
@@ -1230,15 +1200,18 @@ get_guam = function() {
 get_minnesota = function() {
   
   query = "https://services2.arcgis.com/V12PKGiMAH7dktkU/ArcGIS/rest/services/MyMapService/FeatureServer/0/query?where=ObjectID+%3C+10000&objectIds=&time=&resultType=none&outFields=*&returnIdsOnly=false&returnUniqueIdsOnly=false&returnCountOnly=false&returnDistinctValues=false&cacheHint=false&orderByFields=&groupByFieldsForStatistics=&outStatistics=&having=&resultOffset=&resultRecordCount=&sqlFormat=none&f=pjson&token="
-  df = fromJSON(query)$features
-  df = df[,1]
+  df = fromJSON(query)$features %>% .[,1]
+
   # df = data.frame(X = colnames(df),
   # y = df[1,] %>% unlist %>% as.vector)
   date = df$Date %>% strsplit(" ") %>% unlist
   date = date[2] %>% as.Date("%m/%d/%Y") %>% format("%m/%d/%Y")
   
-  gender = df[,c("Male", "Female", "SexMsng", "GenderOther")] %>% unlist()
-  race = df[,grep("Race", colnames(df))] %>% select(1:2,4:9) %>% unlist()
+  gender = df[,c("Male", "Female", "SexMsng", "GenderOther")]
+  
+  race = df[,grep("Race", colnames(df))] %>% select(1:2, 4:9) 
+  
+  
   drace = df[,c(57:63,108)] %>% unlist()
   eth = df[,grep("Ethn", colnames(df))] %>% unlist()
   deth = df[,64:66] %>% unlist()
@@ -1306,9 +1279,11 @@ get_minnesota = function() {
   minnesota[["deaths"]][["total"]] = df$OutcmDied %>% unname %>% as.numeric
   minnesota[["hospitalized"]][["total"]] = df[,grep("EvrHospYes", colnames(df))]  %>% unlist()
   
-  minnesota[["cases"]][["sex_male"]] = gender[1]
-  minnesota[["cases"]][["sex_female"]] = gender[2]
-  minnesota[["cases"]][["sex_unk"]] = gender[3]
+  minnesota[["cases"]][["sex_male"]] = gender$Male
+  minnesota[["cases"]][["sex_female"]] = gender$Female
+  minnesota[["cases"]][["sex_other"]] = gender$GenderOther
+  minnesota[["cases"]][["sex_unk"]] = gender$SexMsng
+  
   
   minnesota[["cases"]][["race_white"]] = race[1]
   minnesota[["cases"]][["race_AfrA"]] = race[2]

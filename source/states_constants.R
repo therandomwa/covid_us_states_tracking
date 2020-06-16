@@ -40,6 +40,7 @@ mn_cols = c(
   "age_unk",
   "sex_male", 
   "sex_female", 
+  "sex_other",
   "sex_unk",
   "ethnicity_hispanic", 
   "ethnicity_non_hispanic",
