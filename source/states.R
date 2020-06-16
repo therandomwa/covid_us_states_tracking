@@ -1202,23 +1202,24 @@ get_minnesota = function() {
   query = "https://services2.arcgis.com/V12PKGiMAH7dktkU/ArcGIS/rest/services/MyMapService/FeatureServer/0/query?where=ObjectID+%3C+10000&objectIds=&time=&resultType=none&outFields=*&returnIdsOnly=false&returnUniqueIdsOnly=false&returnCountOnly=false&returnDistinctValues=false&cacheHint=false&orderByFields=&groupByFieldsForStatistics=&outStatistics=&having=&resultOffset=&resultRecordCount=&sqlFormat=none&f=pjson&token="
   df = fromJSON(query)$features %>% .[,1]
 
-  # df = data.frame(X = colnames(df),
-  # y = df[1,] %>% unlist %>% as.vector)
   date = df$Date %>% strsplit(" ") %>% unlist
   date = date[2] %>% as.Date("%m/%d/%Y") %>% format("%m/%d/%Y")
   
-  gender = df[,c("Male", "Female", "SexMsng", "GenderOther")]
+  gender = df %>% 
+    select("Male", "Female", "SexMsng", "GenderOther")
+  race = df[,grep("Race", colnames(df))] %>% 
+    select(RaceWht:RaceMultip)
   
-  race = df[,grep("Race", colnames(df))] %>% select(1:2, 4:9) 
-  
-  
-  drace = df[,c(57:63,108)] %>% unlist()
-  eth = df[,grep("Ethn", colnames(df))] %>% unlist()
-  deth = df[,64:66] %>% unlist()
-  age = df[,grep("Age", colnames(df))][c("Age05","Age619","Age2029","Age3039",
+  drace = df %>% 
+    select(DeathWht, DeathBlk, DeathAsian, 
+           DeathPacif, DeathNativ, DeathOther, DeathUnkno)
+  eth = df %>% select(EthnHisp, EthnNonHis, EthnUnk)
+  deth = df %>% select(DeathHisp, DeathNonHi, DeathHispU)
+  age = df[,grep("Age", colnames(df))] %>% 
+    select(c("Age05","Age619","Age2029","Age3039",
                                          "Age4049","Age5059","Age6069",
                                          "Age70_79","Age80_89","Age90_99",
-                                         "Age100_up")] %>% unlist()
+                                         "Age100_up"))
   
   url = "https://www.health.state.mn.us/diseases/coronavirus/situation.html"
   
@@ -1275,53 +1276,51 @@ get_minnesota = function() {
   
   minnesota = skeleton_table(mn_cols)
   
-  minnesota[["cases"]][["total"]] = df$TotalCases %>% unname %>% as.numeric
-  minnesota[["deaths"]][["total"]] = df$OutcmDied %>% unname %>% as.numeric
-  minnesota[["hospitalized"]][["total"]] = df[,grep("EvrHospYes", colnames(df))]  %>% unlist()
+  minnesota[["cases"]][["total"]] = df %>% pull(TotalCases)
+  minnesota[["deaths"]][["total"]] = df %>% pull(OutcmDied)
+  minnesota[["hospitalized"]][["total"]] = df %>% pull(EvrHospYes)
   
-  minnesota[["cases"]][["sex_male"]] = gender$Male
-  minnesota[["cases"]][["sex_female"]] = gender$Female
-  minnesota[["cases"]][["sex_other"]] = gender$GenderOther
-  minnesota[["cases"]][["sex_unk"]] = gender$SexMsng
+  minnesota[["cases"]][["sex_male"]] = gender %>% pull(Male)
+  minnesota[["cases"]][["sex_female"]] = gender %>% pull(Female)
+  minnesota[["cases"]][["sex_other"]] = gender %>% pull(GenderOther)
+  minnesota[["cases"]][["sex_unk"]] = gender %>% pull(SexMsng)
   
+  minnesota[["cases"]][["race_white"]] = race %>% pull(RaceWht)
+  minnesota[["cases"]][["race_AfrA"]] = race %>% pull(RaceBlk)
+  minnesota[["cases"]][["race_NatA"]] = race %>% pull(RaceAmerIn)
+  minnesota[["cases"]][["race_other"]] = race %>% pull(RaceOther)
+  minnesota[["cases"]][["race_unk"]] = race %>% pull(RaceUnk)
+  minnesota[["cases"]][["race_asian"]] = race %>% pull(RaceAsnPac)
+  minnesota[["cases"]][["race_pac"]] = race %>% pull(RacePacifi)
+  minnesota[["cases"]][["race_multi"]] = race %>% pull(RaceMultip)
   
-  minnesota[["cases"]][["race_white"]] = race[1]
-  minnesota[["cases"]][["race_AfrA"]] = race[2]
-  minnesota[["cases"]][["race_NatA"]] = race[3]
-  minnesota[["cases"]][["race_other"]] = race[4]
-  minnesota[["cases"]][["race_unk"]] = race[5]
-  minnesota[["cases"]][["race_asian"]] = race[6]
-  minnesota[["cases"]][["race_pac"]] = race[7]
-  minnesota[["cases"]][["race_multi"]] = race[8]
+  minnesota[["cases"]][["ethnicity_hispanic"]] = eth %>% pull(EthnHisp)
+  minnesota[["cases"]][["ethnicity_non_hispanic"]] = eth %>% pull(EthnNonHis)
+  minnesota[["cases"]][["ethnicity_unk"]] = eth %>% pull(EthnUnk)
   
-  minnesota[["cases"]][["ethnicity_hispanic"]] = eth[1]
-  minnesota[["cases"]][["ethnicity_non_hispanic"]] = eth[2]
-  minnesota[["cases"]][["ethnicity_unk"]] = eth[3]
+  minnesota[["cases"]][["age_0_5"]] = age %>% pull(Age05)
+  minnesota[["cases"]][["age_6_19"]] = age %>% pull(Age619)
+  minnesota[["cases"]][["age_20_29"]] = age %>% pull(Age2029)
+  minnesota[["cases"]][["age_30_39"]] = age %>% pull(Age3039)
+  minnesota[["cases"]][["age_40_49"]] = age %>% pull(Age4049)
+  minnesota[["cases"]][["age_50_59"]] = age %>% pull(Age5059)
+  minnesota[["cases"]][["age_60_69"]] = age %>% pull(Age6069)
+  minnesota[["cases"]][["age_70_79"]] = age %>% pull(Age70_79)
+  minnesota[["cases"]][["age_80_89"]] = age %>% pull(Age80_89)
+  minnesota[["cases"]][["age_90_99"]] = age %>% pull(Age90_99)
+  minnesota[["cases"]][["age_100+"]] = age %>% pull(Age100_up)
   
-  minnesota[["cases"]][["age_0_5"]] = age[1]
-  minnesota[["cases"]][["age_6_19"]] = age[2]
-  minnesota[["cases"]][["age_20_29"]] = age[3]
-  minnesota[["cases"]][["age_30_39"]] = age[4]
-  minnesota[["cases"]][["age_40_49"]] = age[5]
-  minnesota[["cases"]][["age_50_59"]] = age[6]
-  minnesota[["cases"]][["age_60_69"]] = age[7]
-  minnesota[["cases"]][["age_70_79"]] = age[8]
-  minnesota[["cases"]][["age_80_89"]] = age[9]
-  minnesota[["cases"]][["age_90_99"]] = age[10]
-  minnesota[["cases"]][["age_100+"]] = age[11]
+  minnesota[["deaths"]][["race_white"]] = drace %>% pull(DeathWht)
+  minnesota[["deaths"]][["race_AfrA"]] = drace %>% pull(DeathBlk)
+  minnesota[["deaths"]][["race_NatA"]] = drace %>% pull(DeathNativ)
+  minnesota[["deaths"]][["race_other"]] = drace %>% pull(DeathOther)
+  minnesota[["deaths"]][["race_unk"]] = drace %>% pull(DeathUnkno)
+  minnesota[["deaths"]][["race_asian"]] = drace %>% pull(DeathAsian)
+  minnesota[["deaths"]][["race_pac"]] = drace %>% pull(DeathPacif)
   
-  minnesota[["deaths"]][["race_white"]] = drace[1]
-  minnesota[["deaths"]][["race_AfrA"]] = drace[2]
-  minnesota[["deaths"]][["race_NatA"]] = drace[3]
-  minnesota[["deaths"]][["race_other"]] = drace[4]
-  minnesota[["deaths"]][["race_unk"]] = drace[5]
-  minnesota[["deaths"]][["race_asian"]] = drace[6]
-  minnesota[["deaths"]][["race_pac"]] = drace[7]
-  minnesota[["deaths"]][["race_multi"]] = drace[8]
-  
-  minnesota[["deaths"]][["ethnicity_hispanic"]] = deth[1]
-  minnesota[["deaths"]][["ethnicity_non_hispanic"]] = deth[2]
-  minnesota[["deaths"]][["ethnicity_unk"]] = deth[3]
+  minnesota[["deaths"]][["ethnicity_hispanic"]] = deth %>% pull(DeathHisp)
+  minnesota[["deaths"]][["ethnicity_non_hispanic"]] = deth %>% pull(DeathNonHi)
+  minnesota[["deaths"]][["ethnicity_unk"]] = deth %>% pull(DeathHispU)
   
   minnesota[["deaths"]][["age_0_5"]] = death_age_table$death_age[1]
   minnesota[["deaths"]][["age_6_19"]] = death_age_table$death_age[2]
