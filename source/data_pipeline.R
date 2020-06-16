@@ -23,7 +23,7 @@ file_date_name = file_date %>% format("%Y%m%d")
 df_aw = read.csv("../Data/raw_states/meta_2020-06-15_aw.csv")
 
 # load Chistian's data
-df_cbp = load_object("../Data/raw_states/meta_2020-06-12-cbp.rda")
+df_cbp = load_object("../Data/raw_states/meta_2020-06-15-cbp.rda")
 
 # load manual data
 df_lef = load_object("../manual_data/manual_data_20200615_lef.rda")
@@ -782,7 +782,10 @@ for (i in 1:nrow(final)){
 final$normalized = final$count2 / final$pop_est * 100000
 final = final[!is.na(final$count),]
 final = final[final$category != "PENDING",]
-final = final[final$data_type!="test" & final$,]
+final = final[final$data_type == "case" | 
+                final$data_type == "death"|
+                final$data_type == "hosp"|
+  (final$data_type =="test" & final$strata_type == "total"),]
 
 
 ### 5. save file ----
