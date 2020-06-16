@@ -15,7 +15,7 @@ options(warn = -1)
 # command + option + o to see the pipeline structure
 
 ### 0. load files 
-
+setwd("~/OneDrive - cumc.columbia.edu/Side/covid_us_states_tracking/source")
 file_date = Sys.Date()-1 # change accordingly if the editing date is not the scraping date
 file_date_name = file_date %>% format("%Y%m%d")
 
@@ -104,7 +104,7 @@ race_standard = function(race_var){
     lapply(function(x)
       matrix(x, ncol = 2, byrow = TRUE) %>%
         as.data.frame)
-  
+  # browser()
   # convert % to decimal
   race_df = lapply(race_df, function(x) {
     x[, 2] = x[, 2] %>% as.character
@@ -257,7 +257,7 @@ race_standard = function(race_var){
                                 grep("NATIV", race$original))),]$new = "AI/AN"}, silent = TRUE)
   try({
     race[Reduce(intersect, list(which(is.na(race$new)),
-                                grep("PAC", race$original))),]$new = "HN/PI"}, silent = TRUE)
+                                grep("PAC|PI", race$original))),]$new = "HN/PI"}, silent = TRUE)
   try({
     race[Reduce(intersect, list(which(is.na(race$new)),
                                 grep("M", race$original))),]$new =  "UNKNOWN"}, silent = TRUE)
