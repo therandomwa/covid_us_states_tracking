@@ -16,20 +16,20 @@ options(warn = -1)
 
 ### 0. load files 
 
-file_date = Sys.Date()-2 # change accordingly if the editing date is not the scraping date
+file_date = Sys.Date()-1 # change accordingly if the editing date is not the scraping date
 file_date_name = file_date %>% format("%Y%m%d")
 
 # load Aijin's data
-df_aw = read.csv("../Data/raw_states/meta_2020-06-12_aw.csv")
+df_aw = read.csv("../Data/raw_states/meta_2020-06-15_aw.csv")
 
 # load Chistian's data
 df_cbp = load_object("../Data/raw_states/meta_2020-06-12-cbp.rda")
 
 # load manual data
-df_lef = load_object("../manual_data/manual_data_20200612_lef.rda")
-df_as = load_object("../manual_data/manual_data_20200612_as.rda")
-df_cej = load_object("../manual_data/manual_data_20200612_cej.rda")
-df_gl = load_object("../manual_data/manual_data_20200612_gl.rda")
+df_lef = load_object("../manual_data/manual_data_20200615_lef.rda")
+df_as = load_object("../manual_data/manual_data_20200615_as.rda")
+df_cej = load_object("../manual_data/manual_data_20200615_cej.rda")
+df_gl = load_object("../manual_data/manual_data_20200615_gl.rda")
 df_cbp = rbind(df_cbp, df_lef, df_as, df_cej, df_gl)
 ### 1. compile files ----
 df_aw$last.update = df_aw$last.update %>% 
@@ -633,18 +633,18 @@ all_case = c("Alabama","Alaska","Arkansas", "District of Columbia",
              "Florida","Georgia","Hawaii","Idaho","Indiana","Iowa",
              "Kansas","Kentucky","Maine","Michigan","Minnesota","Mississippi",
              "Missouri","Montana","North Carolina","Ohio","Oklahoma","Oregon",
-             "Pennsylvania","South Carolina","Tennessee","Vermont","Virginia",
+             "Pennsylvania","South Carolina","Tennessee","Vermont",
              "West Virginia", "Wisconsin")
 nh_case = c("Arizona","California","Colorado","Connecticut",
             "Delaware","Illinois","Maryland","Massachusetts",
             "Nevada","New Hampshire","New Jersey","New Mexico",
             "Rhode Island","South Dakota","Texas",
-            "Utah","Washington","Wyoming")
+            "Utah","Washington","Wyoming","Virginia")
 none_case = setdiff(state.name, c(all_case, nh_case))
 
-all_hosp = c("Alaska","Florida","Kansas","Minnesota","Nebraska","Ohio","Oregon","Virginia")
+all_hosp = c("Alaska","Florida","Kansas","Minnesota","Nebraska","Ohio","Oregon")
 nh_hosp = c("Arizona","Massachusetts",
-            "New Hampshire","Rhode Island","Utah","Washington")
+            "New Hampshire","Rhode Island","Utah","Washington","Virginia")
 none_hosp = setdiff(state.name, c(all_hosp, nh_hosp))
 
 all_death = c("Alabama","Alaska","Arkansas",
@@ -653,7 +653,7 @@ all_death = c("Alabama","Alaska","Arkansas",
               "Michigan","Mississippi","Missouri",
               "North Carolina","Ohio","Oregon",
               "Pennsylvania","South Carolina","Tennessee",
-              "Vermont","Virginia","Wisconsin","Idaho","Oklahoma")
+              "Vermont","Wisconsin","Idaho","Oklahoma")
 nh_death = c("Arizona",
              "California",
              "Colorado",
@@ -668,7 +668,7 @@ nh_death = c("Arizona",
              "New Jersey",
              "New York",
              "Rhode Island",
-             "Texas",
+             "Texas","Virginia",
              "Washington")
 none_death = setdiff(state.name, c(all_death, nh_death))
 
