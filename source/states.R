@@ -1211,11 +1211,10 @@ get_minnesota = function() {
            DeathPacif, DeathNativ, DeathOther, DeathUnkno)
   eth = df %>% select(EthnHisp, EthnNonHis, EthnUnk)
   deth = df %>% select(DeathHisp, DeathNonHi, DeathHispU)
-  age = df[,grep("Age", colnames(df))] %>% 
-    select(c("Age05","Age619","Age2029","Age3039",
-                                         "Age4049","Age5059","Age6069",
-                                         "Age70_79","Age80_89","Age90_99",
-                                         "Age100_up"))
+  age = df %>% 
+    select(Age05, Age619, Age2029, Age3039,
+           Age4049, Age5059, Age6069, Age70_79,
+           Age80_89, Age90_99, Age100_up)
   
   url = "https://www.health.state.mn.us/diseases/coronavirus/situation.html"
   
@@ -1242,6 +1241,7 @@ get_minnesota = function() {
   
   browseURL(paste0("https://www.health.state.mn.us/", pdf_url))
   
+  # CHECK THE INDICES AND MAKE SURE THEY WORK OUT
   death_by_gender = pdf_data %>% .[9] %>% 
     str_split("\n") %>% .[[1]] %>% 
     str_squish %>% .[33:36] %>% 
@@ -1255,7 +1255,7 @@ get_minnesota = function() {
   
   hosp_by_gender = pdf_data %>% .[9] %>% 
     str_split("\n") %>% .[[1]] %>% 
-    str_squish%>% .[29:31] %>%
+    str_squish %>% .[29:31] %>%
     str_split(" ", simplify = TRUE) %>% .[,1] %>%
     str_replace(",", "") %>% as.numeric
   
@@ -1265,10 +1265,10 @@ get_minnesota = function() {
     str_split(" ", simplify = TRUE) %>% .[,1] %>%
     str_replace(",", "") %>% as.numeric
   
-  #View(death_by_gender)
-  #View(hosp_by_age)
-  #View(hosp_by_gender)
-  # View(hosp_by_race)
+  View(death_by_gender)
+  View(hosp_by_age)
+  View(hosp_by_gender)
+  View(hosp_by_race)
   
   minnesota = skeleton_table(mn_cols)
   

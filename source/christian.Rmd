@@ -44,7 +44,7 @@ idaho = get_idaho()
 
 minnesota = get_minnesota()
 
-north_carolina = get_north_carolina() 
+north_carolina = get_north_carolina() # Given away
 new_hampshire = get_new_hampshire() # Given away
 kansas = get_kansas() # Given away
 iowa = get_iowa() # Given away
