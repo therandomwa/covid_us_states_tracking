@@ -154,31 +154,40 @@ get_oklahoma = function() {
 get_mississippi = function() {
   
   mississippi = skeleton_table(ms_cols)
-  
   browseURL("https://msdh.ms.gov/msdhsite/_static/14,0,420.html")
   
-  mississippi[["cases"]][["total"]] = get_information("MS, cases total: ") 
-  mississippi[["deaths"]][["total"]] = get_information("MS, deaths total: ") 
+  # cases by race and ethnicity
+  rc = pdf_text("https://msdh.ms.gov/msdhsite/_static/resources/8573.pdf") %>% 
+    .[2] %>% str_split("\n") %>% .[[1]] %>% .[17] %>% str_squish %>% 
+    str_split(" ", simplify = TRUE) %>% c() %>% .[2:20] %>% as.numeric
   
-  mississippi[["cases"]][["race_NatA"]] = get_information("MS, cases race_NatA (calc.): ") 
-  mississippi[["cases"]][["race_asian"]] = get_information("MS, cases race_asian (calc.): ") 
-  mississippi[["cases"]][["race_AfrA"]] = get_information("MS, cases race_AfrA (calc.): ") 
-  mississippi[["cases"]][["race_white"]] = get_information("MS, cases race_white (calc.): ") 
-  mississippi[["cases"]][["race_other"]] = get_information("MS, cases race_other (calc.): ") 
-  mississippi[["cases"]][["race_unk"]] = get_information("MS, cases race_unk (calc.): ") 
-  mississippi[["cases"]][["ethnicity_non_hispanic"]] = get_information("MS, cases non-hispanic (calc.): ") 
-  mississippi[["cases"]][["ethnicity_hispanic"]] = get_information("MS, cases hispanic (calc.): ") 
-  mississippi[["cases"]][["ethnicity_unk"]] = get_information("MS, cases eth unk (calc.): ") 
+  # cases by race and ethnicity
+  dc = pdf_text("https://msdh.ms.gov/msdhsite/_static/resources/8629.pdf") %>% 
+    .[2] %>% str_split("\n") %>% .[[1]] %>% .[17] %>% str_squish %>% 
+    str_split(" ", simplify = TRUE) %>% c() %>% .[2:20] %>% as.numeric
   
-  mississippi[["deaths"]][["race_NatA"]] = get_information("MS, deaths race_NatA (calc.): ") 
-  mississippi[["deaths"]][["race_asian"]] = get_information("MS, deaths race_asian (calc.): ") 
-  mississippi[["deaths"]][["race_AfrA"]] = get_information("MS, deaths race_AfrA (calc.): ") 
-  mississippi[["deaths"]][["race_white"]] = get_information("MS, deaths race_white (calc.): ") 
-  mississippi[["deaths"]][["race_other"]] = get_information("MS, deaths race_other (calc.): ") 
-  mississippi[["deaths"]][["race_unk"]] = get_information("MS, deaths race_unk (calc.): ") 
-  mississippi[["deaths"]][["ethnicity_non_hispanic"]] = get_information("MS, deaths non-hispanic (calc.): ") 
-  mississippi[["deaths"]][["ethnicity_hispanic"]] = get_information("MS, deaths hispanic (calc.): ") 
-  mississippi[["deaths"]][["ethnicity_unk"]] = get_information("MS, deaths eth unk (calc.): ")
+  mississippi[["cases"]][["total"]] = rc[1]
+  mississippi[["deaths"]][["total"]] = dc[1]
+  
+  mississippi[["cases"]][["race_AfrA"]] = rc[2] + rc[8] + rc[14]
+  mississippi[["cases"]][["race_white"]] = rc[3] + rc[9] + rc[15]
+  mississippi[["cases"]][["race_NatA"]] = rc[4] + rc[10] + rc[16]
+  mississippi[["cases"]][["race_asian"]] = rc[5] + rc[11] + rc[17]
+  mississippi[["cases"]][["race_other"]] = rc[6] + rc[12] + rc[18]
+  mississippi[["cases"]][["race_unk"]] = rc[7] + rc[13] + rc[19]
+  mississippi[["cases"]][["ethnicity_non_hispanic"]] = rc[2:7] %>% sum
+  mississippi[["cases"]][["ethnicity_hispanic"]] = rc[8:13] %>% sum
+  mississippi[["cases"]][["ethnicity_unk"]] = rc[14:19] %>% sum
+  
+  mississippi[["deaths"]][["race_AfrA"]] = dc[2] + dc[8] + dc[14]
+  mississippi[["deaths"]][["race_white"]] = dc[3] + dc[9] + dc[15]
+  mississippi[["deaths"]][["race_NatA"]] = dc[4] + dc[10] + dc[16]
+  mississippi[["deaths"]][["race_asian"]] = dc[5] + dc[11] + dc[17]
+  mississippi[["deaths"]][["race_other"]] = dc[6] + dc[12] + dc[18]
+  mississippi[["deaths"]][["race_unk"]] = dc[7] + dc[13] + dc[19]
+  mississippi[["deaths"]][["ethnicity_non_hispanic"]] = dc[2:7] %>% sum
+  mississippi[["deaths"]][["ethnicity_hispanic"]] = dc[8:13] %>% sum
+  mississippi[["deaths"]][["ethnicity_unk"]] = dc[14:19] %>% sum
   
   mississippi[["cases"]][["age_0_17"]] = get_information("MS, cases age_0_17: ") 
   mississippi[["cases"]][["age_18_29"]] = get_information("MS, cases age_18_29: ")
@@ -210,48 +219,31 @@ get_mississippi = function() {
   mississippi[["hospitalized"]][["age_80_89"]] = get_information(prompt = "MS, hosp age_80_89: ")
   mississippi[["hospitalized"]][["age_90+"]] = get_information(prompt = "MS, hosp age_90+: ")
   
-  male_afra = get_information("MS, male cases AfrA: ")
-  male_white = get_information("MS, male cases white: ")
-  male_hispanic = get_information("MS, male cases hisp: ")
-  male_asian = get_information("MS, male cases Asian: ")
-  male_nata = get_information("MS, male cases NatA: ")
-  male_other = get_information("MS, male cases other_race: ")
-  
-  female_afra = get_information("MS, female cases AfrA: ")
-  female_white = get_information("MS, female cases white: ")
-  female_hispanic = get_information("MS, female cases hisp: ")
-  female_asian = get_information("MS, female cases Asian: ")
-  female_nata = get_information("MS, female cases NatA: ")
-  female_other = get_information("MS, female cases other_race: ")
-  
-  mississippi[["cases"]][["sex_male"]] = male_afra + male_white + male_hispanic + male_asian +
-    male_nata + male_other
-  mississippi[["cases"]][["sex_female"]] = female_afra + female_white + female_hispanic + female_asian +
-    female_nata + female_other
-  
-  mississippi[["cases"]][["race_AfrA"]] = male_afra + female_afra
-  mississippi[["cases"]][["race_white"]] = male_white + female_white
-  mississippi[["cases"]][["race_asian"]] = male_asian + female_asian
-  mississippi[["cases"]][["race_NatA"]] = male_nata + female_nata
-  mississippi[["cases"]][["race_other"]] = male_other + female_other
-  mississippi[["cases"]][["ethnicity_hispanic"]] = male_hispanic + female_hispanic
-  
   male_afra = get_information("MS, male deaths AfrA: ")
   male_white = get_information("MS, male deaths white: ")
-  male_other = get_information("MS, male deaths other_race: ")
   male_nata = get_information("MS, male deaths NatA: ")
+  male_other = get_information("MS, male deaths other_race: ")
 
   female_afra = get_information("MS, female deaths AfrA: ")
   female_white = get_information("MS, female deaths white: ")
+  female_nata = get_information("MS, female deaths NatA: ")
   female_other = get_information("MS, female deaths other_race: ")
   
   mississippi[["deaths"]][["sex_male"]] = male_afra + male_white + male_nata + male_other
-  mississippi[["deaths"]][["sex_female"]] = female_afra + female_white + female_other
+  mississippi[["deaths"]][["sex_female"]] = female_afra + female_white + female_nata + female_other
   
   mississippi[["deaths"]][["race_AfrA"]] = male_afra + female_afra
   mississippi[["deaths"]][["race_white"]] = male_white + female_white
-  mississippi[["deaths"]][["race_NatA"]] = male_nata
+  mississippi[["deaths"]][["race_NatA"]] = male_nata + female_nata
   mississippi[["deaths"]][["race_other"]] = male_other + female_other
+  mississippi[["deaths"]][["race_unk"]] = dc[1] - (
+    male_afra + male_white + male_nata + male_other +
+      female_afra + female_white + female_nata + female_other
+  )
+  
+  mississippi[["cases"]][["sex_male"]] = get_information2("MS, gender male (whole %): ")
+  mississippi[["cases"]][["sex_female"]] = get_information2("MS, gender female (whole %): ")
+  mississippi[["cases"]][["sex_unk"]] = get_information2("MS, gender unk (whole %): ")
   
   mississippi[["tested"]][["total"]] = get_information("MS, total tested: ")
   
@@ -1130,9 +1122,13 @@ get_new_hampshire = function() {
   skeleton[["deaths"]][["race_other"]] = get_information("NH, deaths race other: ")
   skeleton[["deaths"]][["race_asian"]] = get_information("NH, deaths race asian: ")
   
-  skeleton[["cases"]][["race_unk"]] = get_information("NH, cases race unk (calc.): ")
-  skeleton[["hospitalized"]][["race_unk"]] = get_information("NH, hospitalized race unk (calc.): ")
-  skeleton[["deaths"]][["race_unk"]] = get_information("NH, deaths race unk (calc.): ")
+  race_case_known = get_information("NH, cases race known: ")
+  race_hosp_known = get_information("NH, hospitalized race known: ")
+  race_death_known = get_information("NH, death race known: ")
+  
+  skeleton[["cases"]][["race_unk"]] = skeleton[["cases"]][["total"]] - race_case_known
+  skeleton[["hospitalized"]][["race_unk"]] = skeleton[["hospitalized"]][["total"]] - race_hosp_known
+  skeleton[["deaths"]][["race_unk"]] = skeleton[["deaths"]][["total"]] - race_death_known
   
   as_tibble(skeleton) %>% 
     standardize %>% 
@@ -2377,7 +2373,6 @@ finalize_data = function(data_path) {
     ) 
   
   hosp_age_data = final_hosp_data %>% 
-    select(state_name, total_test, total_case, total_death, total_hosp, hosp_by_age) %>% 
     unnest_wider(hosp_by_age) %>% 
     unnest(c(category, raw)) %>% 
     select(-`...1`) %>% 

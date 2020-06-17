@@ -38,21 +38,24 @@ florida = get_florida("../pdfs/florida_20200615.pdf")
 oklahoma = get_oklahoma()
 new_jersey = get_new_jersey()
 mississippi = get_mississippi()
-tennessee = get_tennessee(date = "2020/06/15")
-new_hampshire = get_new_hampshire()
+tennessee = get_tennessee()
 south_carolina = get_south_carolina()
-kansas = get_kansas()
-iowa = get_iowa()
-north_carolina = get_north_carolina()
 idaho = get_idaho()
-arizona = get_arizona()
-hawaii = get_hawaii()
 
 minnesota = get_minnesota()
+
+north_carolina = get_north_carolina() 
+new_hampshire = get_new_hampshire() # Given away
+kansas = get_kansas() # Given away
+iowa = get_iowa() # Given away
+arizona = get_arizona() # Given away
+hawaii = get_hawaii() # Given away
 ```
 
 ```{r}
-
+full_data_20200615 = bind_rows(
+  full_data_20200615, idaho
+)
 ```
 
 ```{r}
