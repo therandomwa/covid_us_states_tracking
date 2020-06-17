@@ -2380,25 +2380,39 @@
 "Wisconsin","NON HISPANIC",605,"06/15/20","eth","death","Count",5409613,605,11.183794478459
 "Wisconsin","UNKNOWN",12,"06/15/20","eth","death","Count",NA,12,NA
 "Wisconsin","",3061,"06/15/20","total","hosp","Count",5813568,3061,52.6526910840296
-"Wyoming","NH AI/AN",0.31,"06/15/20","race","case","Percent",12262,334,2723.86233893329
-"Wyoming","NH ASIAN",0.01,"06/15/20","race","case","Percent",5762,11,190.905935439084
-"Wyoming","NH BLACK",0.01,"06/15/20","race","case","Percent",6598,11,166.717187026372
-"Wyoming","HISPANIC",0.12,"06/15/20","race","case","Percent",58227,129,221.546705136792
-"Wyoming","NH HN/PI",0.01,"06/15/20","race","case","Percent",394,11,2791.87817258883
-"Wyoming","OTHER",0.03,"06/15/20","race","case","Percent",NA,32,NA
-"Wyoming","UNKNOWN",0.06,"06/15/20","race","case","Percent",NA,65,NA
-"Wyoming","NH WHITE",0.5,"06/15/20","race","case","Percent",484253,540,111.511957592416
-"Wyoming","0-18",0.14,"06/15/20","age","case","Percent",141919,151,106.398720396846
-"Wyoming","19-29",0.2,"06/15/20","age","case","Percent",84102,216,256.830990939573
-"Wyoming","30-39",0.15,"06/15/20","age","case","Percent",78057,162,207.540643375994
-"Wyoming","40-49",0.16,"06/15/20","age","case","Percent",66095,173,261.744458733641
-"Wyoming","50-59",0.13,"06/15/20","age","case","Percent",71734,140,195.165472439847
-"Wyoming","60-69",0.13,"06/15/20","age","case","Percent",74038,140,189.092087846781
-"Wyoming","70-79",0.05,"06/15/20","age","case","Percent",40788,54,132.391879964696
-"Wyoming","80+",0.03,"06/15/20","age","case","Percent",21004,32,152.35193296515
-"Wyoming","FEMALE",0.52,"06/15/20","gender","case","Percent",283203,561,198.091121916081
-"Wyoming","MALE",0.48,"06/15/20","gender","case","Percent",294534,518,175.871036960079
-"Wyoming","UNKNOWN",0,"06/15/20","gender","case",NA,NA,0,NA
-"Wyoming","",31388,"06/15/20","total","test","Count",577737,31388,5432.92190044951
-"Wyoming","",1079,"06/15/20","total","case","Count",577737,1079,186.763181170671
-"Wyoming","",18,"06/15/20","total","death","Count",577737,18,3.11560450516411
+"Wyoming","NH AI/AN",272,"06/16/20","race","case","Count",12262,272,2218.23519817322
+"Wyoming","NH ASIAN",5,"06/16/20","race","case","Count",5762,5,86.7754251995835
+"Wyoming","NH BLACK",9,"06/16/20","race","case","Count",6598,9,136.404971203395
+"Wyoming","HISPANIC",105,"06/16/20","race","case","Count",58227,105,180.328713483436
+"Wyoming","NH HN/PI",4,"06/16/20","race","case","Count",394,4,1015.22842639594
+"Wyoming","OTHER",28,"06/16/20","race","case","Count",NA,28,NA
+"Wyoming","UNKNOWN",55,"06/16/20","race","case","Count",NA,55,NA
+"Wyoming","NH WHITE",435,"06/16/20","race","case","Count",484253,435,89.8290769494458
+"Wyoming","0-18",123,"06/16/20","age","case","Count",141919,123,86.6691563497488
+"Wyoming","19-29",176,"06/16/20","age","case","Count",84102,176,209.269696321134
+"Wyoming","30-39",133,"06/16/20","age","case","Count",78057,133,170.388305981526
+"Wyoming","40-49",140,"06/16/20","age","case","Count",66095,140,211.816324986761
+"Wyoming","50-59",112,"06/16/20","age","case","Count",71734,112,156.132377951878
+"Wyoming","60-69",108,"06/16/20","age","case","Count",74038,108,145.871039196089
+"Wyoming","70-79",47,"06/16/20","age","case","Count",40788,47,115.229969598902
+"Wyoming","80+",28,"06/16/20","age","case","Count",21004,28,133.307941344506
+"Wyoming","FEMALE",450,"06/16/20","gender","case","Count",283203,450,158.896621857819
+"Wyoming","MALE",416,"06/16/20","gender","case","Count",294534,416,141.240060570257
+"Wyoming","UNKNOWN",0,"06/16/20","gender","case",NA,NA,0,NA
+"Wyoming","NH AI/AN",0.5,"06/16/20","race","death","Percent",12262,9,73.3974881748491
+"Wyoming","NH ASIAN",0,"06/16/20","race","death",NA,5762,0,0
+"Wyoming","NH BLACK",0,"06/16/20","race","death",NA,6598,0,0
+"Wyoming","HISPANIC",0.06,"06/16/20","race","death","Percent",58227,1,1.71741631888986
+"Wyoming","NH HN/PI",0,"06/16/20","race","death",NA,394,0,0
+"Wyoming","OTHER",0,"06/16/20","race","death",NA,NA,0,NA
+"Wyoming","UNKNOWN",0.06,"06/16/20","race","death","Percent",NA,1,NA
+"Wyoming","NH WHITE",0.44,"06/16/20","race","death","Percent",484253,8,1.65202900136912
+"Wyoming","0-18",0,"06/16/20","age","death",NA,141919,0,0
+"Wyoming","19-64",0.28,"06/16/20","age","death","Percent",340443,5,1.46867463863261
+"Wyoming","65+",0.72,"06/16/20","age","death","Percent",95375,13,13.6304062909567
+"Wyoming","FEMALE",0.44,"06/16/20","gender","death","Percent",283203,8,2.8248288330279
+"Wyoming","MALE",0.56,"06/16/20","gender","death","Percent",294534,10,3.39519376370809
+"Wyoming","UNKNOWN",0,"06/16/20","gender","death",NA,NA,0,NA
+"Wyoming","",34190,"06/16/20","total","test","Count",577737,34190,5917.91766842006
+"Wyoming","",1089,"06/16/20","total","case","Count",577737,1089,188.494072562429
+"Wyoming","",18,"06/16/20","total","death","Count",577737,18,3.11560450516411

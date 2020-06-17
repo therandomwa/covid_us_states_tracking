@@ -16,7 +16,7 @@ options(warn = -1)
 
 ### 0. load files 
 setwd("~/OneDrive - cumc.columbia.edu/Side/covid_us_states_tracking/source")
-file_date = Sys.Date()-1 # change accordingly if the editing date is not the scraping date
+file_date = Sys.Date()-2 # change accordingly if the editing date is not the scraping date
 file_date_name = file_date %>% format("%Y%m%d")
 
 # load Aijin's data
@@ -27,7 +27,7 @@ df_cbp = load_object("../Data/raw_states/meta_2020-06-15-cbp.rda")
 
 # load manual data
 df_lef = load_object("../manual_data/manual_data_20200615_lef.rda")
-df_as = load_object("../manual_data/manual_data_20200615_as.rda")
+df_as = load_object("../manual_data/manual_data_20200616_as.rda")
 df_cej = load_object("../manual_data/manual_data_20200615_cej.rda")
 df_gl = load_object("../manual_data/manual_data_20200615_gl.rda")
 df_cbp = rbind(df_cbp, df_lef, df_as, df_cej, df_gl)
@@ -403,7 +403,9 @@ gender_standard = function(gen_var){
     x[,1][grep("NEITHER|BINARY|OTHER", x[,1])] = "OTHER"
     x[,1][x[,1] == "F"] = "FEMALE"
     x[,1][x[,1] == "M"] = "MALE"
-    x[,1][x[,1] == "MALE TO FEMALE"] = "FEMALE" 
+    x[,1][x[,1] == "MALE TO FEMALE"] = "OTHER"
+    x[,1][x[,1] == "FEMALE TO MALE"] = "OTHER"
+    x[,1][x[,1] == "WOMEN"] = "FEMALE"
     x %>% 
       group_by(V1) %>% 
       summarise(V2 = sum(V2, na.rm = TRUE)) %>% 
