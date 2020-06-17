@@ -197,43 +197,43 @@
 "Arkansas","HISPANIC",11,"06/15/20","eth","death","Count",233187,11,4.71724410022857
 "Arkansas","NON HISPANIC",171,"06/15/20","eth","death","Count",2780638,171,6.14966781004935
 "Arkansas","",1026,"06/15/20","total","hosp","Count",3013825,1026,34.0431179647126
-"California","NH AI/AN",206,"06/14/20","race","case","Count",163273,206,126.169054283317
-"California","NH ASIAN",8397,"06/14/20","race","case","Count",5818319,8397,144.320034704182
-"California","NH BLACK",4999,"06/14/20","race","case","Count",2223274,4999,224.84857916748
-"California","HISPANIC",60377,"06/14/20","race","case","Count",15540142,60377,388.522833317739
-"California","NH HN/PI",747,"06/14/20","race","case","Count",145491,747,513.4338206487
-"California","NH MULTI",789,"06/14/20","race","case","Count",1097938,789,71.8619812776313
-"California","OTHER",12444,"06/14/20","race","case","Count",NA,12444,NA
-"California","NH WHITE",19240,"06/14/20","race","case","Count",14568608,19240,132.064779284335
-"California","0-17",10451,"06/14/20","age","case","Count",8989955,10451,116.25197234024
-"California","18-34",43836,"06/14/20","age","case","Count",9789194,43836,447.799890368911
-"California","35-49",38107,"06/14/20","age","case","Count",7823754,38107,487.067972740452
-"California","50-64",33871,"06/14/20","age","case","Count",7285117,33871,464.934193918917
-"California","65-79",15952,"06/14/20","age","case","Count",4262132,15952,374.272781790897
-"California","80+",9029,"06/14/20","age","case","Count",1406893,9029,641.768777014315
-"California","FEMALE",0.49,"06/14/20","gender","case","Percent",19893468,74211,373.04204576095
-"California","MALE",0.51,"06/14/20","gender","case","Percent",19663577,77241,392.812558976426
-"California","UNKNOWN",0.01,"06/14/20","gender","case","Percent",NA,1515,NA
-"California","NH AI/AN",14,"06/14/20","race","death","Count",163273,14,8.57459592216717
-"California","NH ASIAN",724,"06/14/20","race","death","Count",5818319,724,12.4434566066247
-"California","NH BLACK",471,"06/14/20","race","death","Count",2223274,471,21.1849731522071
-"California","HISPANIC",1992,"06/14/20","race","death","Count",15540142,1992,12.8184156875787
-"California","NH HN/PI",23,"06/14/20","race","death","Count",145491,23,15.8085379851675
-"California","NH MULTI",36,"06/14/20","race","death","Count",1097938,36,3.27887367046227
-"California","OTHER",36,"06/14/20","race","death","Count",NA,36,NA
-"California","NH WHITE",1639,"06/14/20","race","death","Count",14568608,1639,11.250216904731
-"California","0-17",0,"06/14/20","age","death",NA,8989955,0,0
-"California","18-34",56,"06/14/20","age","death","Count",9789194,56,0.572059354426932
-"California","35-49",251,"06/14/20","age","death","Count",7823754,251,3.208178580257
-"California","50-64",798,"06/14/20","age","death","Count",7285117,798,10.9538391765019
-"California","65-79",1585,"06/14/20","age","death","Count",4262132,1585,37.1879613301512
-"California","80+",2289,"06/14/20","age","death","Count",1406893,2289,162.698940146834
-"California","FEMALE",0.44,"06/14/20","gender","death","Percent",19893468,2191,11.0136653900667
-"California","MALE",0.56,"06/14/20","gender","death","Percent",19663577,2789,14.1835841973208
-"California","UNKNOWN",0,"06/14/20","gender","death",NA,NA,0,NA
-"California","",2868182,"06/14/20","total","test","Count",39557045,2868182,7250.74888682913
-"California","",151452,"06/14/20","total","case","Count",39557045,151452,382.869852892197
-"California","",4980,"06/14/20","total","death","Count",39557045,4980,12.589413592446
+"California","NH AI/AN",209,"06/15/20","race","case","Count",163273,209,128.00646769521
+"California","NH ASIAN",8538,"06/15/20","race","case","Count",5818319,8538,146.743415065417
+"California","NH BLACK",5128,"06/15/20","race","case","Count",2223274,5128,230.65083296076
+"California","HISPANIC",63202,"06/15/20","race","case","Count",15540142,63202,406.701560384712
+"California","NH HN/PI",767,"06/15/20","race","case","Count",145491,767,527.180375418411
+"California","NH MULTI",803,"06/15/20","race","case","Count",1097938,803,73.1370988161444
+"California","OTHER",13325,"06/15/20","race","case","Count",NA,13325,NA
+"California","NH WHITE",19766,"06/15/20","race","case","Count",14568608,19766,135.675282085976
+"California","0-17",11064,"06/15/20","age","case","Count",8989955,11064,123.07069390225
+"California","18-34",45832,"06/15/20","age","case","Count",9789194,45832,468.189720215985
+"California","35-49",39493,"06/15/20","age","case","Count",7823754,39493,504.783253665696
+"California","50-64",34922,"06/15/20","age","case","Count",7285117,34922,479.360866819297
+"California","65-79",16339,"06/15/20","age","case","Count",4262132,16339,383.352744588858
+"California","80+",9164,"06/15/20","age","case","Count",1406893,9164,651.364389473826
+"California","FEMALE",77199,"06/15/20","gender","case","Count",19893468,77199,388.062051322575
+"California","MALE",79128,"06/15/20","gender","case","Count",19663577,79128,402.408981844961
+"California","UNKNOWN",688,"06/15/20","gender","case","Count",NA,688,NA
+"California","NH AI/AN",14,"06/15/20","race","death","Count",163273,14,8.57459592216717
+"California","NH ASIAN",734,"06/15/20","race","death","Count",5818319,734,12.61532755423
+"California","NH BLACK",479,"06/15/20","race","death","Count",2223274,479,21.5448028448135
+"California","HISPANIC",2029,"06/15/20","race","death","Count",15540142,2029,13.0565087500487
+"California","NH HN/PI",23,"06/15/20","race","death","Count",145491,23,15.8085379851675
+"California","NH MULTI",36,"06/15/20","race","death","Count",1097938,36,3.27887367046227
+"California","OTHER",40,"06/15/20","race","death","Count",NA,40,NA
+"California","NH WHITE",1660,"06/15/20","race","death","Count",14568608,1660,11.394362453846
+"California","0-17",0,"06/15/20","age","death",NA,8989955,0,0
+"California","18-34",56,"06/15/20","age","death","Count",9789194,56,0.572059354426932
+"California","35-49",256,"06/15/20","age","death","Count",7823754,256,3.27208652010275
+"California","50-64",812,"06/15/20","age","death","Count",7285117,812,11.1460117936335
+"California","65-79",1613,"06/15/20","age","death","Count",4262132,1613,37.8449095429236
+"California","80+",2326,"06/15/20","age","death","Count",1406893,2326,165.328848746849
+"California","FEMALE",2226,"06/15/20","gender","death","Count",19893468,2226,11.1896025368729
+"California","MALE",2833,"06/15/20","gender","death","Count",19663577,2833,14.4073481645786
+"California","UNKNOWN",5,"06/15/20","gender","death","Count",NA,5,NA
+"California","",2997988,"06/15/20","total","test","Count",39557045,2997988,7578.89776650404
+"California","",157015,"06/15/20","total","case","Count",39557045,157015,396.933087393156
+"California","",5064,"06/15/20","total","death","Count",39557045,5064,12.8017651470174
 "Colorado","HISPANIC",0.3859,"06/14/20","race","case","Percent",1235117,11241,910.116207614339
 "Colorado","NH AI/AN",0.0055,"06/14/20","race","case","Percent",36614,160,436.991314797618
 "Colorado","NH ASIAN",0.0268,"06/14/20","race","case","Percent",187668,781,416.160453566937
