@@ -363,39 +363,39 @@
 "Delaware","",84686,"06/15/20","total","test","Count",967171,84686,8756.05244574124
 "Delaware","",10340,"06/15/20","total","case","Count",967171,10340,1069.0973984952
 "Delaware","",423,"06/15/20","total","death","Count",967171,423,43.7358026657127
-"District of Columbia","AI/AN",25,"06/14/20","race","case","Count",4296,25,581.936685288641
-"District of Columbia","ASIAN",157,"06/14/20","race","case","Count",31025,157,506.043513295729
-"District of Columbia","BLACK",491,"06/14/20","race","case","Count",326181,491,150.52992050426
-"District of Columbia","HN/PI",29,"06/14/20","race","case","Count",975,29,2974.35897435897
-"District of Columbia","MULTI",2380,"06/14/20","race","case","Count",19604,2380,12140.3795143848
-"District of Columbia","UNKNOWN",328,"06/14/20","race","case","Count",NA,328,NA
-"District of Columbia","WHITE",1969,"06/14/20","race","case","Count",320374,1969,614.594193036888
-"District of Columbia","0-4",122,"06/14/20","age","case","Count",45617,122,267.44415459149
-"District of Columbia","5-14",233,"06/14/20","age","case","Count",66195,233,351.990331596042
-"District of Columbia","15-19",213,"06/14/20","age","case","Count",36900,213,577.235772357724
-"District of Columbia","20-24",558,"06/14/20","age","case","Count",52924,558,1054.34207542892
-"District of Columbia","25-34",1851,"06/14/20","age","case","Count",164087,1851,1128.06011445148
-"District of Columbia","35-44",1764,"06/14/20","age","case","Count",105674,1764,1669.28478149781
-"District of Columbia","45-54",1500,"06/14/20","age","case","Count",75453,1500,1987.99252514811
-"District of Columbia","55-64",1588,"06/14/20","age","case","Count",70302,1588,2258.82620693579
-"District of Columbia","65-74",1019,"06/14/20","age","case","Count",49104,1019,2075.18735744542
-"District of Columbia","75+",909,"06/14/20","age","case","Count",36199,909,2511.11909168762
-"District of Columbia","UNKNOWN",10,"06/14/20","age","case","Count",NA,10,NA
-"District of Columbia","FEMALE",4912,"06/14/20","gender","case","Count",369148,4912,1330.63161658738
-"District of Columbia","MALE",4868,"06/14/20","gender","case","Count",333307,4868,1460.51538071508
-"District of Columbia","UNKNOWN",19,"06/14/20","gender","case","Count",NA,19,NA
-"District of Columbia","ASIAN",7,"06/14/20","race","death","Count",31025,7,22.5624496373892
-"District of Columbia","BLACK",382,"06/14/20","race","death","Count",326181,382,117.112891308813
-"District of Columbia","HISPANIC",66,"06/14/20","race","death","Count",79249,66,83.2818079723403
-"District of Columbia","NH WHITE",55,"06/14/20","race","death","Count",260268,55,21.1320638726236
-"District of Columbia","OTHER",5,"06/14/20","race","death","Count",NA,5,NA
-"District of Columbia","",65846,"06/14/20","total","test","Count",702455,65846,9373.69653572115
-"District of Columbia","",9799,"06/14/20","total","case","Count",702455,9799,1394.96480201579
-"District of Columbia","UNKNOWN",1040,"06/14/20","eth","case","Count",NA,1040,NA
-"District of Columbia","HISPANIC",2840,"06/14/20","eth","case","Count",79249,2840,3583.64143396131
-"District of Columbia","NON HISPANIC",5900,"06/14/20","eth","case","Count",623206,5900,946.717457790843
-"District of Columbia","UNKNOWN",19,"06/14/20","eth","case","Count",NA,19,NA
-"District of Columbia","",515,"06/14/20","total","death","Count",702455,515,73.3143048309144
+"District of Columbia","AI/AN",25,"06/16/20","race","case","Count",4296,25,581.936685288641
+"District of Columbia","ASIAN",159,"06/16/20","race","case","Count",31025,159,512.48992747784
+"District of Columbia","BLACK",4932,"06/16/20","race","case","Count",326181,4932,1512.04392653159
+"District of Columbia","HN/PI",29,"06/16/20","race","case","Count",975,29,2974.35897435897
+"District of Columbia","MULTI",2438,"06/16/20","race","case","Count",19604,2438,12436.2375025505
+"District of Columbia","UNKNOWN",275,"06/16/20","race","case","Count",NA,275,NA
+"District of Columbia","WHITE",1989,"06/16/20","race","case","Count",320374,1989,620.836896876775
+"District of Columbia","0-4",123,"06/16/20","age","case","Count",45617,123,269.63631979306
+"District of Columbia","5-14",236,"06/16/20","age","case","Count",66195,236,356.522395951356
+"District of Columbia","15-19",217,"06/16/20","age","case","Count",36900,217,588.075880758808
+"District of Columbia","20-24",561,"06/16/20","age","case","Count",52924,561,1060.01058121079
+"District of Columbia","25-34",1870,"06/16/20","age","case","Count",164087,1870,1139.63933766843
+"District of Columbia","35-44",1777,"06/16/20","age","case","Count",105674,1777,1681.58676684899
+"District of Columbia","45-54",1511,"06/16/20","age","case","Count",75453,1511,2002.57113699919
+"District of Columbia","55-64",1597,"06/16/20","age","case","Count",70302,1597,2271.62811868795
+"District of Columbia","65-74",1028,"06/16/20","age","case","Count",49104,1028,2093.51580319322
+"District of Columbia","75+",914,"06/16/20","age","case","Count",36199,914,2524.93162794552
+"District of Columbia","UNKNOWN",13,"06/16/20","age","case","Count",NA,13,NA
+"District of Columbia","FEMALE",4937,"06/16/20","gender","case","Count",369148,4937,1337.40396805617
+"District of Columbia","MALE",4891,"06/16/20","gender","case","Count",333307,4891,1467.41592585814
+"District of Columbia","UNKNOWN",19,"06/16/20","gender","case","Count",NA,19,NA
+"District of Columbia","ASIAN",7,"06/16/20","race","death","Count",31025,7,22.5624496373892
+"District of Columbia","BLACK",388,"06/16/20","race","death","Count",326181,388,118.95236080581
+"District of Columbia","HISPANIC",67,"06/16/20","race","death","Count",79249,67,84.5436535476788
+"District of Columbia","NH WHITE",56,"06/16/20","race","death","Count",260268,56,21.5162832157622
+"District of Columbia","OTHER",5,"06/16/20","race","death","Count",NA,5,NA
+"District of Columbia","",70086,"06/16/20","total","test","Count",702455,70086,9977.29391918344
+"District of Columbia","",9847,"06/16/20","total","case","Count",702455,9847,1401.79797994178
+"District of Columbia","UNKNOWN",1051,"06/16/20","eth","case","Count",NA,1051,NA
+"District of Columbia","HISPANIC",2856,"06/16/20","eth","case","Count",79249,2856,3603.83096316673
+"District of Columbia","NON HISPANIC",5920,"06/16/20","eth","case","Count",623206,5920,949.926669512168
+"District of Columbia","UNKNOWN",20,"06/16/20","eth","case","Count",NA,20,NA
+"District of Columbia","",523,"06/16/20","total","death","Count",702455,523,74.4531678185791
 "Florida","AI/AN",0,"06/15/20","race","case",NA,106984,0,0
 "Florida","ASIAN",0,"06/15/20","race","case",NA,631737,0,0
 "Florida","BLACK",14942,"06/15/20","race","case","Count",3600121,14942,415.041605546036
@@ -1765,70 +1765,70 @@
 "Oregon","HISPANIC",218,"06/12/20","eth","hosp","Count",556396,218,39.1807273955959
 "Oregon","NON HISPANIC",612,"06/12/20","eth","hosp","Count",3634317,612,16.8394776790247
 "Oregon","UNKNOWN",45,"06/12/20","eth","hosp","Count",NA,45,NA
-"Pennsylvania","ASIAN",1174,"06/09/20","race","case","Count",474071,1174,247.64223080509
-"Pennsylvania","BLACK",9965,"06/09/20","race","case","Count",1531457,9965,650.68754787108
-"Pennsylvania","OTHER",537,"06/09/20","race","case","Count",NA,537,NA
-"Pennsylvania","UNKNOWN",44675,"06/09/20","race","case","Count",NA,44675,NA
-"Pennsylvania","WHITE",22770,"06/09/20","race","case","Count",10476085,22770,217.352188341351
-"Pennsylvania","0-9",1125,"06/09/20","age","case","Count",1428611,1125,78.7478186854224
-"Pennsylvania","20-29",10342,"06/09/20","age","case","Count",1685797,10342,613.478372544262
-"Pennsylvania","30-39",11736,"06/09/20","age","case","Count",1613124,11736,727.532415362985
-"Pennsylvania","40-49",11351,"06/09/20","age","case","Count",1513372,11351,750.046915100848
-"Pennsylvania","50-59",13419,"06/09/20","age","case","Count",1776983,13419,755.156352086655
-"Pennsylvania","60-69",11018,"06/09/20","age","case","Count",1625908,11018,677.652118078022
-"Pennsylvania","70-79",7146,"06/09/20","age","case","Count",980190,7146,729.042328528143
-"Pennsylvania","80-89",6315,"06/09/20","age","case","Count",NA,6315,NA
-"Pennsylvania","90-99",3822,"06/09/20","age","case","Count",NA,3822,NA
-"Pennsylvania","100+",192,"06/09/20","age","case","Count",NA,192,NA
-"Pennsylvania","NOTREPORTED",114,"06/09/20","age","case","Count",NA,114,NA
-"Pennsylvania","10-19",2541,"06/09/20","age","case","Count",1565533,2541,162.308938872576
-"Pennsylvania","FEMALE",0.55,"06/09/20","gender","case","Percent",6532400,42040,643.561325087257
-"Pennsylvania","MALE",0.44,"06/09/20","gender","case","Percent",6274660,33632,535.997169567753
-"Pennsylvania","OTHER",0,"06/09/20","gender","case",NA,NA,0,NA
-"Pennsylvania","UNKNOWN",0.01,"06/09/20","gender","case","Percent",NA,764,NA
-"Pennsylvania","ASIAN",142,"06/09/20","race","death","Count",474071,142,29.9533192285544
-"Pennsylvania","BLACK",1216,"06/09/20","race","death","Count",1531457,1216,79.4015111100083
-"Pennsylvania","MULTI",283,"06/09/20","race","death","Count",265828,283,106.459816121703
-"Pennsylvania","WHITE",4245,"06/09/20","race","death","Count",10476085,4245,40.5208625168658
-"Pennsylvania","0-4",0,"06/09/20","age","death",NA,702997,0,0
-"Pennsylvania","5-9",0,"06/09/20","age","death",NA,725614,0,0
-"Pennsylvania","10-14",0,"06/09/20","age","death",NA,755233,0,0
-"Pennsylvania","15-19",0,"06/09/20","age","death",NA,810300,0,0
-"Pennsylvania","20-24",0,"06/09/20","age","death",NA,815049,0,0
-"Pennsylvania","25-29",6,"06/09/20","age","death","Count",870748,6,0.689062736865316
-"Pennsylvania","30-34",10,"06/09/20","age","death","Count",830358,10,1.2042998321206
-"Pennsylvania","35-39",7,"06/09/20","age","death","Count",782766,7,0.894264697240299
-"Pennsylvania","40-44",29,"06/09/20","age","death","Count",715779,29,4.05152987165033
-"Pennsylvania","45-49",64,"06/09/20","age","death","Count",797593,64,8.02414263916559
-"Pennsylvania","50-54",109,"06/09/20","age","death","Count",855188,109,12.7457354406283
-"Pennsylvania","55-59",185,"06/09/20","age","death","Count",921795,185,20.0695382378945
-"Pennsylvania","60-64",321,"06/09/20","age","death","Count",888010,321,36.1482415738562
-"Pennsylvania","65-69",471,"06/09/20","age","death","Count",737898,471,63.8299602384069
-"Pennsylvania","70-74",583,"06/09/20","age","death","Count",572852,583,101.771487225322
-"Pennsylvania","75-79",665,"06/09/20","age","death","Count",407338,665,163.255085457286
-"Pennsylvania","80-84",828,"06/09/20","age","death","Count",283299,828,292.270710450796
-"Pennsylvania","85-89",1045,"06/09/20","age","death","Count",NA,1045,NA
-"Pennsylvania","90-94",974,"06/09/20","age","death","Count",NA,974,NA
-"Pennsylvania","95-99",487,"06/09/20","age","death","Count",NA,487,NA
-"Pennsylvania","100-104",90,"06/09/20","age","death","Count",NA,90,NA
-"Pennsylvania","105-109",8,"06/09/20","age","death","Count",NA,8,NA
-"Pennsylvania","FEMALE",3047,"06/09/20","gender","death","Count",6532400,3047,46.6444185904109
-"Pennsylvania","MALE",2839,"06/09/20","gender","death","Count",6274660,2839,45.245479436336
-"Pennsylvania","0-4",0.01,"06/09/20","age","hosp","Percent",702997,NA,NA
-"Pennsylvania","5-12",0.01,"06/09/20","age","hosp","Percent",1176944,NA,NA
-"Pennsylvania","13-18",0.01,"06/09/20","age","hosp","Percent",939224,NA,NA
-"Pennsylvania","19-24",0.01,"06/09/20","age","hosp","Percent",990028,NA,NA
-"Pennsylvania","25-49",0.16,"06/09/20","age","hosp","Percent",3997244,NA,NA
-"Pennsylvania","50-64",0.26,"06/09/20","age","hosp","Percent",2664993,NA,NA
-"Pennsylvania","65+",0.56,"06/09/20","age","hosp","Percent",2335630,NA,NA
-"Pennsylvania","",535684,"06/09/20","total","test","Count",12807060,535684,4182.72421617452
-"Pennsylvania","",76436,"06/09/20","total","case","Count",12807060,76436,596.827062573299
-"Pennsylvania","HISPANIC",6273,"06/09/20","eth","case","Count",976143,6273,642.631253822442
-"Pennsylvania","NON HISPANIC",15675,"06/09/20","eth","case","Count",11830917,15675,132.491843193558
-"Pennsylvania","UNKNOWN",57173,"06/09/20","eth","case","Count",NA,57173,NA
-"Pennsylvania","",6243,"06/09/20","total","death","Count",12807060,6243,48.7465507306126
-"Pennsylvania","HISPANIC",336,"06/09/20","eth","death","Count",976143,336,34.4211862401308
-"Pennsylvania","NON HISPANIC",5550,"06/09/20","eth","death","Count",11830917,5550,46.9109875422167
+"Pennsylvania","ASIAN",1180,"06/16/20","race","case","Count",474071,1180,248.907864011931
+"Pennsylvania","BLACK",10086,"06/16/20","race","case","Count",1531457,10086,658.588520604888
+"Pennsylvania","OTHER",545,"06/16/20","race","case","Count",NA,545,NA
+"Pennsylvania","UNKNOWN",44886,"06/16/20","race","case","Count",NA,44886,NA
+"Pennsylvania","WHITE",23119,"06/16/20","race","case","Count",10476085,23119,220.683585518827
+"Pennsylvania","0-9",1153,"06/16/20","age","case","Count",1428611,1153,80.7077643949263
+"Pennsylvania","20-29",10441,"06/16/20","age","case","Count",1685797,10441,619.350965744986
+"Pennsylvania","30-39",11846,"06/16/20","age","case","Count",1613124,11846,734.351481969148
+"Pennsylvania","40-49",11451,"06/16/20","age","case","Count",1513372,11451,756.654675783614
+"Pennsylvania","50-59",13496,"06/16/20","age","case","Count",1776983,13496,759.48953929216
+"Pennsylvania","60-69",11107,"06/16/20","age","case","Count",1625908,11107,683.125982527917
+"Pennsylvania","70-79",7210,"06/16/20","age","case","Count",980190,7210,735.57167487936
+"Pennsylvania","80-89",6368,"06/16/20","age","case","Count",NA,6368,NA
+"Pennsylvania","90-99",3850,"06/16/20","age","case","Count",NA,3850,NA
+"Pennsylvania","100+",192,"06/16/20","age","case","Count",NA,192,NA
+"Pennsylvania","NOTREPORTED",114,"06/16/20","age","case","Count",NA,114,NA
+"Pennsylvania","10-19",2590,"06/16/20","age","case","Count",1565533,2590,165.438863313645
+"Pennsylvania","FEMALE",0.55,"06/16/20","gender","case","Percent",6532400,43900,672.034780478844
+"Pennsylvania","MALE",0.44,"06/16/20","gender","case","Percent",6274660,35120,559.711601903529
+"Pennsylvania","OTHER",0,"06/16/20","gender","case",NA,NA,0,NA
+"Pennsylvania","UNKNOWN",0.01,"06/16/20","gender","case","Percent",NA,798,NA
+"Pennsylvania","ASIAN",142,"06/16/20","race","death","Count",474071,142,29.9533192285544
+"Pennsylvania","BLACK",1216,"06/16/20","race","death","Count",1531457,1216,79.4015111100083
+"Pennsylvania","MULTI",283,"06/16/20","race","death","Count",265828,283,106.459816121703
+"Pennsylvania","WHITE",4245,"06/16/20","race","death","Count",10476085,4245,40.5208625168658
+"Pennsylvania","0-4",0,"06/16/20","age","death",NA,702997,0,0
+"Pennsylvania","5-9",0,"06/16/20","age","death",NA,725614,0,0
+"Pennsylvania","10-14",0,"06/16/20","age","death",NA,755233,0,0
+"Pennsylvania","15-19",0,"06/16/20","age","death",NA,810300,0,0
+"Pennsylvania","20-24",0,"06/16/20","age","death",NA,815049,0,0
+"Pennsylvania","25-29",6,"06/16/20","age","death","Count",870748,6,0.689062736865316
+"Pennsylvania","30-34",10,"06/16/20","age","death","Count",830358,10,1.2042998321206
+"Pennsylvania","35-39",7,"06/16/20","age","death","Count",782766,7,0.894264697240299
+"Pennsylvania","40-44",29,"06/16/20","age","death","Count",715779,29,4.05152987165033
+"Pennsylvania","45-49",64,"06/16/20","age","death","Count",797593,64,8.02414263916559
+"Pennsylvania","50-54",109,"06/16/20","age","death","Count",855188,109,12.7457354406283
+"Pennsylvania","55-59",185,"06/16/20","age","death","Count",921795,185,20.0695382378945
+"Pennsylvania","60-64",321,"06/16/20","age","death","Count",888010,321,36.1482415738562
+"Pennsylvania","65-69",471,"06/16/20","age","death","Count",737898,471,63.8299602384069
+"Pennsylvania","70-74",583,"06/16/20","age","death","Count",572852,583,101.771487225322
+"Pennsylvania","75-79",665,"06/16/20","age","death","Count",407338,665,163.255085457286
+"Pennsylvania","80-84",828,"06/16/20","age","death","Count",283299,828,292.270710450796
+"Pennsylvania","85-89",1045,"06/16/20","age","death","Count",NA,1045,NA
+"Pennsylvania","90-94",974,"06/16/20","age","death","Count",NA,974,NA
+"Pennsylvania","95-99",487,"06/16/20","age","death","Count",NA,487,NA
+"Pennsylvania","100-104",90,"06/16/20","age","death","Count",NA,90,NA
+"Pennsylvania","105-109",8,"06/16/20","age","death","Count",NA,8,NA
+"Pennsylvania","FEMALE",3047,"06/16/20","gender","death","Count",6532400,3047,46.6444185904109
+"Pennsylvania","MALE",2839,"06/16/20","gender","death","Count",6274660,2839,45.245479436336
+"Pennsylvania","0-4",0.01,"06/16/20","age","hosp","Percent",702997,NA,NA
+"Pennsylvania","5-12",0.01,"06/16/20","age","hosp","Percent",1176944,NA,NA
+"Pennsylvania","13-18",0.01,"06/16/20","age","hosp","Percent",939224,NA,NA
+"Pennsylvania","19-24",0.01,"06/16/20","age","hosp","Percent",990028,NA,NA
+"Pennsylvania","25-49",0.16,"06/16/20","age","hosp","Percent",3997244,NA,NA
+"Pennsylvania","50-64",0.26,"06/16/20","age","hosp","Percent",2664993,NA,NA
+"Pennsylvania","65+",0.56,"06/16/20","age","hosp","Percent",2335630,NA,NA
+"Pennsylvania","",612831,"06/16/20","total","test","Count",12807060,612831,4785.10290417941
+"Pennsylvania","",79818,"06/16/20","total","case","Count",12807060,79818,623.234372291533
+"Pennsylvania","HISPANIC",6373,"06/16/20","eth","case","Count",976143,6373,652.875654489148
+"Pennsylvania","NON HISPANIC",15929,"06/16/20","eth","case","Count",11830917,15929,134.638760461256
+"Pennsylvania","UNKNOWN",57516,"06/16/20","eth","case","Count",NA,57516,NA
+"Pennsylvania","",6319,"06/16/20","total","death","Count",12807060,6319,49.33997342091
+"Pennsylvania","HISPANIC",336,"06/16/20","eth","death","Count",976143,336,34.4211862401308
+"Pennsylvania","NON HISPANIC",5550,"06/16/20","eth","death","Count",11830917,5550,46.9109875422167
 "Rhode Island","HISPANIC",5529,"06/15/20","race","case","Count",168342,5529,3284.38535837759
 "Rhode Island","NH BLACK",1496,"06/15/20","race","case","Count",63323,1496,2362.49072217046
 "Rhode Island","NH MULTI",327,"06/15/20","race","case","Count",22143,327,1476.76466603441
