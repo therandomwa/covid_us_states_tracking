@@ -605,29 +605,27 @@ get_tennessee = function(date = "today") {
   case_temp = tempfile(fileext = ".xlsx")
   demo_temp = tempfile(fileext = ".xlsx")
   
-  age_url = paste0("https://www.tn.gov", xlsx_paths[1])
-  case_url = paste0("https://www.tn.gov", xlsx_paths[3])
-  demo_url = paste0("https://www.tn.gov", xlsx_paths[5])
-  
-  
+  age_url = "https://www.tn.gov/content/dam/tn/health/documents/cedep/novel-coronavirus/datasets/Public-Dataset-Age.XLSX"
+  case_url = "https://www.tn.gov/content/dam/tn/health/documents/cedep/novel-coronavirus/datasets/Public-Dataset-County-New.XLSX"
+  demo_url = "https://www.tn.gov/content/dam/tn/health/documents/cedep/novel-coronavirus/datasets/Public-Dataset-RaceEthSex.XLSX"
+
   download.file(age_url, destfile = age_temp, mode = 'wb')
   download.file(case_url, destfile = case_temp, mode = 'wb')
   download.file(demo_url, destfile = demo_temp, mode = 'wb')
   
-  age_data = read_excel(age_temp, sheet = 1) %>% 
+  age_data = read_excel(age_temp, sheet = 1) %>%
     filter(DATE == as_date(date_str))
-  case_data = read_excel(case_temp, sheet = 1) %>% 
+  case_data = read_excel(case_temp, sheet = 1) %>%
     filter(DATE == as_date(date_str))
-  demo_data = read_excel(demo_temp, sheet = 1) %>% 
+  demo_data = read_excel(demo_temp, sheet = 1) %>%
     filter(Date == as_date(date_str))
   
   skeleton = skeleton_table(tn_cols)
   
-  tests = case_data %>% pull(TOTAL_TESTS)
-  cases = case_data %>% pull(TOTAL_CASES)
-  negatives = case_data %>% pull(NEG_TESTS)
-  deaths = case_data %>% pull(TOTAL_DEATHS)
-  recovered = case_data %>% pull(TOTAL_RECOVERED)
+  tests = case_data %>% pull(TOTAL_TESTS) %>% sum
+  cases = case_data %>% pull(TOTAL_CASES) %>% sum
+  negatives = case_data %>% pull(NEG_TESTS) %>% sum
+  deaths = case_data %>% pull(TOTAL_DEATHS) %>% sum
   
   ar_cases = age_data %>% pull(AR_CASECOUNT)
   ar_deaths = age_data %>% pull(AR_TOTALDEATHS)
@@ -713,10 +711,9 @@ get_tennessee = function(date = "today") {
   skeleton[["deaths"]][["ethnicity_unk"]] = ethnicity_deaths %>% 
     filter(Cat_Detail == "Pending") %>% pull(CAT_DEATHCOUNT)
   
-  skeleton[["recovered"]][["total"]] = recovered
-  
   browseURL("https://www.tn.gov/content/tn/health/cedep/ncov/data.html")
   skeleton[["tested"]][["total"]] = get_information("TN: Total tested: ")
+  skeleton[["hospitalized"]][["total"]] = get_information("TN: Total hospitalized: ")
   
   as_tibble(skeleton) %>% 
     standardize %>% 
@@ -981,55 +978,55 @@ get_new_jersey = function() {
   skeleton = skeleton_table(nj_cols)
   
   skeleton[["cases"]][["total"]] = get_information("NJ, Cases total: ")
-  skeleton[["cases"]][["race_nh_asian"]] = get_information2("NJ, Cases race_nh_asian (whole %): ")
-  skeleton[["cases"]][["race_nh_AfrA"]] = get_information2("NJ, Cases race_nh_AfrA (whole %): ")
-  skeleton[["cases"]][["race_hispanic"]] = get_information2("NJ, Cases race_hispanic (whole %): ")
-  skeleton[["cases"]][["race_nh_other"]] = get_information2("NJ, Cases race_nh_other (whole %): ")
-  skeleton[["cases"]][["race_nh_white"]] = get_information2("NJ, Cases race_nh_white (whole %): ")
-  skeleton[["cases"]][["age_0_4"]] = get_information2("NJ, Cases age 0-4 (whole %): ")
-  skeleton[["cases"]][["age_5_17"]] = get_information2("NJ, Cases age 5-17 (whole %): ")
-  skeleton[["cases"]][["age_18_29"]] = get_information2("NJ, Cases age 18-29 (whole %): ")
-  skeleton[["cases"]][["age_30_49"]] = get_information2("NJ, Cases age 30-49 (whole %): ")
-  skeleton[["cases"]][["age_50_64"]] = get_information2("NJ, Cases age 50-64 (whole %): ")
-  skeleton[["cases"]][["age_65_79"]] = get_information2("NJ, Cases age 65-79 (whole %): ")
-  skeleton[["cases"]][["age_80+"]] = get_information2("NJ, Cases age 80+ (whole %): ")
-  skeleton[["cases"]][["sex_male"]] = get_information2("NJ, Cases sex male (whole %): ")
-  skeleton[["cases"]][["sex_female"]] = get_information2("NJ, Cases sex female (whole %): ")
-  skeleton[["cases"]][["sex_unk"]] = get_information2("NJ, Cases sex unknown (whole %): ")
+  skeleton[["cases"]][["race_nh_asian"]] = get_information("NJ, Cases race_nh_asian: ")
+  skeleton[["cases"]][["race_nh_AfrA"]] = get_information("NJ, Cases race_nh_AfrA: ")
+  skeleton[["cases"]][["race_hispanic"]] = get_information("NJ, Cases race_hispanic: ")
+  skeleton[["cases"]][["race_nh_other"]] = get_information("NJ, Cases race_nh_other: ")
+  skeleton[["cases"]][["race_nh_white"]] = get_information("NJ, Cases race_nh_white: ")
+  skeleton[["cases"]][["age_0_4"]] = get_information("NJ, Cases age 0-4: ")
+  skeleton[["cases"]][["age_5_17"]] = get_information("NJ, Cases age 5-17: ")
+  skeleton[["cases"]][["age_18_29"]] = get_information("NJ, Cases age 18-29: ")
+  skeleton[["cases"]][["age_30_49"]] = get_information("NJ, Cases age 30-49: ")
+  skeleton[["cases"]][["age_50_64"]] = get_information("NJ, Cases age 50-64: ")
+  skeleton[["cases"]][["age_65_79"]] = get_information("NJ, Cases age 65-79: ")
+  skeleton[["cases"]][["age_80+"]] = get_information("NJ, Cases age 80+: ")
+  skeleton[["cases"]][["sex_male"]] = get_information("NJ, Cases sex male: ")
+  skeleton[["cases"]][["sex_female"]] = get_information("NJ, Cases sex female: ")
+  skeleton[["cases"]][["sex_unk"]] = get_information("NJ, Cases sex unknown: ")
 
   skeleton[["hospitalized"]][["total"]] = get_information("NJ, Hosp. total: ")
-  skeleton[["hospitalized"]][["race_nh_asian"]] = get_information2("NJ, Hosp. race_nh_asian (whole %): ")
-  skeleton[["hospitalized"]][["race_nh_AfrA"]] = get_information2("NJ, Hosp. race_nh_AfrA (whole %): ")
-  skeleton[["hospitalized"]][["race_hispanic"]] = get_information2("NJ, Hosp. race_hispanic (whole %): ")
-  skeleton[["hospitalized"]][["race_nh_other"]] = get_information2("NJ, Hosp. race_nh_other (whole %): ")
-  skeleton[["hospitalized"]][["race_nh_white"]] = get_information2("NJ, Hosp. race_nh_white (whole %): ")
-  skeleton[["hospitalized"]][["age_0_4"]] = get_information2("NJ, Hosp. age 0-4 (whole %): ")
-  skeleton[["hospitalized"]][["age_5_17"]] = get_information2("NJ, Hosp. age 5-17 (whole %): ")
-  skeleton[["hospitalized"]][["age_18_29"]] = get_information2("NJ, Hosp. age 18-29 (whole %): ")
-  skeleton[["hospitalized"]][["age_30_49"]] = get_information2("NJ, Hosp. age 30-49 (whole %): ")
-  skeleton[["hospitalized"]][["age_50_64"]] = get_information2("NJ, Hosp. age 50-64 (whole %): ")
-  skeleton[["hospitalized"]][["age_65_79"]] = get_information2("NJ, Hosp. age 65-79 (whole %): ")
-  skeleton[["hospitalized"]][["age_80+"]] = get_information2("NJ, Hosp. age 80+ (whole %): ")
-  skeleton[["hospitalized"]][["sex_male"]] = get_information2("NJ, Hosp. sex male (whole %): ")
-  skeleton[["hospitalized"]][["sex_female"]] = get_information2("NJ, Hosp. sex female (whole %): ")
-  skeleton[["hospitalized"]][["sex_unk"]] = get_information2("NJ, Hosp. sex unknown (whole %): ")
+  skeleton[["hospitalized"]][["race_nh_asian"]] = get_information("NJ, Hosp. race_nh_asian: ")
+  skeleton[["hospitalized"]][["race_nh_AfrA"]] = get_information("NJ, Hosp. race_nh_AfrA: ")
+  skeleton[["hospitalized"]][["race_hispanic"]] = get_information("NJ, Hosp. race_hispanic: ")
+  skeleton[["hospitalized"]][["race_nh_other"]] = get_information("NJ, Hosp. race_nh_other: ")
+  skeleton[["hospitalized"]][["race_nh_white"]] = get_information("NJ, Hosp. race_nh_white: ")
+  skeleton[["hospitalized"]][["age_0_4"]] = get_information("NJ, Hosp. age 0-4: ")
+  skeleton[["hospitalized"]][["age_5_17"]] = get_information("NJ, Hosp. age 5-17: ")
+  skeleton[["hospitalized"]][["age_18_29"]] = get_information("NJ, Hosp. age 18-29: ")
+  skeleton[["hospitalized"]][["age_30_49"]] = get_information("NJ, Hosp. age 30-49: ")
+  skeleton[["hospitalized"]][["age_50_64"]] = get_information("NJ, Hosp. age 50-64: ")
+  skeleton[["hospitalized"]][["age_65_79"]] = get_information("NJ, Hosp. age 65-79: ")
+  skeleton[["hospitalized"]][["age_80+"]] = get_information("NJ, Hosp. age 80+: ")
+  skeleton[["hospitalized"]][["sex_male"]] = get_information("NJ, Hosp. sex male: ")
+  skeleton[["hospitalized"]][["sex_female"]] = get_information("NJ, Hosp. sex female: ")
+  skeleton[["hospitalized"]][["sex_unk"]] = get_information("NJ, Hosp. sex unknown: ")
   
   skeleton[["deaths"]][["total"]] = get_information("NJ, Deaths total: ")
-  skeleton[["deaths"]][["race_nh_asian"]] = get_information2("NJ, Deaths race_nh_asian (whole %): ")
-  skeleton[["deaths"]][["race_nh_AfrA"]] = get_information2("NJ, Deaths race_nh_AfrA (whole %): ")
-  skeleton[["deaths"]][["race_hispanic"]] = get_information2("NJ, Deaths race_hispanic (whole %): ")
-  skeleton[["deaths"]][["race_nh_other"]] = get_information2("NJ, Deaths race_nh_other (whole %): ")
-  skeleton[["deaths"]][["race_nh_white"]] = get_information2("NJ, Deaths race_nh_white (whole %): ")
-  skeleton[["deaths"]][["age_0_4"]] = get_information2("NJ, Deaths age 0-4 (whole %): ")
-  skeleton[["deaths"]][["age_5_17"]] = get_information2("NJ, Deaths age 5-17 (whole %): ")
-  skeleton[["deaths"]][["age_18_29"]] = get_information2("NJ, Deaths age 18-29 (whole %): ")
-  skeleton[["deaths"]][["age_30_49"]] = get_information2("NJ, Deaths age 30-49 (whole %): ")
-  skeleton[["deaths"]][["age_50_64"]] = get_information2("NJ, Deaths age 50-64 (whole %): ")
-  skeleton[["deaths"]][["age_65_79"]] = get_information2("NJ, Deaths age 65-79 (whole %): ")
-  skeleton[["deaths"]][["age_80+"]] = get_information2("NJ, Deaths age 80+ (whole %): ")
-  skeleton[["deaths"]][["sex_male"]] = get_information2("NJ, Deaths sex male (whole %): ")
-  skeleton[["deaths"]][["sex_female"]] = get_information2("NJ, Deaths sex female (whole %): ")
-  skeleton[["deaths"]][["sex_unk"]] = get_information2("NJ, Deaths sex unknown (whole %): ")
+  skeleton[["deaths"]][["race_nh_asian"]] = get_information("NJ, Deaths race_nh_asian: ")
+  skeleton[["deaths"]][["race_nh_AfrA"]] = get_information("NJ, Deaths race_nh_AfrA: ")
+  skeleton[["deaths"]][["race_hispanic"]] = get_information("NJ, Deaths race_hispanic: ")
+  skeleton[["deaths"]][["race_nh_other"]] = get_information("NJ, Deaths race_nh_other: ")
+  skeleton[["deaths"]][["race_nh_white"]] = get_information("NJ, Deaths race_nh_white: ")
+  skeleton[["deaths"]][["age_0_4"]] = get_information("NJ, Deaths age 0-4: ")
+  skeleton[["deaths"]][["age_5_17"]] = get_information("NJ, Deaths age 5-17: ")
+  skeleton[["deaths"]][["age_18_29"]] = get_information("NJ, Deaths age 18-29: ")
+  skeleton[["deaths"]][["age_30_49"]] = get_information("NJ, Deaths age 30-49: ")
+  skeleton[["deaths"]][["age_50_64"]] = get_information("NJ, Deaths age 50-64: ")
+  skeleton[["deaths"]][["age_65_79"]] = get_information("NJ, Deaths age 65-79: ")
+  skeleton[["deaths"]][["age_80+"]] = get_information("NJ, Deaths age 80+: ")
+  skeleton[["deaths"]][["sex_male"]] = get_information("NJ, Deaths sex male: ")
+  skeleton[["deaths"]][["sex_female"]] = get_information("NJ, Deaths sex female: ")
+  skeleton[["deaths"]][["sex_unk"]] = get_information("NJ, Deaths sex unknown: ")
   
   browseURL("https://covid19.nj.gov/#live-updates")
   skeleton[["tested"]][["total"]] = get_information("NJ: Total tested?: ")

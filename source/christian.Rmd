@@ -32,50 +32,48 @@ source("states_constants.R")
 ## Troubleshoot States Before Compiling
 
 ```{r}
+browseURL("https://coronavirus.health.ok.gov/") # OK
+browseURL("https://www.nj.gov/health/cd/documents/topics/NCOV/COVID_Confirmed_Case_Summary.pdf") # NJ
+browseURL("https://msdh.ms.gov/msdhsite/_static/14,0,420.html") #MS
+browseURL("https://scdhec.gov/infectious-diseases/viruses/coronavirus-disease-2019-covid-19/sc-testing-data-projections-covid-19") # SC
+browseURL("https://public.tableau.com/profile/idaho.division.of.public.health#!/vizhome/DPHIdahoCOVID-19Dashboard_V2/Story1") # ID
+```
+
+
+```{r}
 # Check with these first to make sure all states have good data
 # https://www.floridadisaster.org/covid19/covid-19-data-reports/
-florida = get_florida("../pdfs/florida_20200615.pdf")
+florida = get_florida("../pdfs/florida_20200622.pdf")
 oklahoma = get_oklahoma()
 new_jersey = get_new_jersey()
 mississippi = get_mississippi()
-tennessee = get_tennessee()
+tennessee = get_tennessee("2020-06-22")
 south_carolina = get_south_carolina()
 idaho = get_idaho()
-
 minnesota = get_minnesota()
 
-north_carolina = get_north_carolina() # Given away
-new_hampshire = get_new_hampshire() # Given away
-kansas = get_kansas() # Given away
-iowa = get_iowa() # Given away
-arizona = get_arizona() # Given away
-hawaii = get_hawaii() # Given away
+# north_carolina = get_north_carolina() # Given away
+# new_hampshire = get_new_hampshire() # Given away
+# kansas = get_kansas() # Given away
+# iowa = get_iowa() # Given away
+# arizona = get_arizona() # Given away
+# hawaii = get_hawaii() # Given away
 ```
 
 ```{r}
-full_data_20200615 = bind_rows(
-  full_data_20200615, idaho
-)
-```
-
-```{r}
-full_data_20200615 = bind_rows(
+full_data_20200622 = bind_rows(
   florida,
   oklahoma,
   mississippi,
   new_jersey,
   tennessee,
-  kansas,
-  iowa,
-  new_hampshire,
-  north_carolina,
   south_carolina,
   idaho,
-  arizona,
-  hawaii,
   minnesota)
+```
 
-save(full_data_20200615, file ="../data/raw_states/meta_2020-06-15-cbp.rda")
+```{r}
+save(full_data_20200622, file ="../data/raw_states/meta_2020-06-22-cbp.rda")
 ```
 
 
