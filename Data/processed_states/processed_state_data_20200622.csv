@@ -1327,6 +1327,45 @@
 "Nebraska","HISPANIC",238,"06/21/20","eth","hosp","Count",215872,238,110.250518825971
 "Nebraska","NON HISPANIC",234,"06/21/20","eth","hosp","Count",1713396,234,13.6570880286869
 "Nebraska","UNKNOWN",112,"06/21/20","eth","hosp","Count",NA,112,NA
+"Nevada","NH AI/AN",56,"06/22/20","race","case","Count",26067,56,214.831012391146
+"Nevada","NH ASIAN",786,"06/22/20","race","case","Count",250856,786,313.32716777753
+"Nevada","NH BLACK",830,"06/22/20","race","case","Count",276929,830,299.715811634029
+"Nevada","HISPANIC",3669,"06/22/20","race","case","Count",881148,3669,416.388620299881
+"Nevada","OTHER",404,"06/22/20","race","case","Count",NA,404,NA
+"Nevada","NH WHITE",2583,"06/22/20","race","case","Count",1476377,2583,174.955312904495
+"Nevada","0-9",305,"06/22/20","age","case","Count",377602,305,80.7728772623026
+"Nevada","10-19",754,"06/22/20","age","case","Count",378120,754,199.407595472337
+"Nevada","20-29",2304,"06/22/20","age","case","Count",409528,2304,562.598894336895
+"Nevada","30-39",2243,"06/22/20","age","case","Count",428746,2243,523.15356877965
+"Nevada","40-49",2076,"06/22/20","age","case","Count",393940,2076,526.9838046403
+"Nevada","50-59",2040,"06/22/20","age","case","Count",387995,2040,525.779971391384
+"Nevada","60-69",1393,"06/22/20","age","case","Count",342707,1393,406.469666508125
+"Nevada","70+",1338,"06/22/20","age","case","Count",315754,1338,423.74760098051
+"Nevada","UNKNOWN",1082,"06/22/20","age","case","Count",NA,1082,NA
+"Nevada","FEMALE",6657,"06/22/20","gender","case","Count",1512837,6657,440.034187424025
+"Nevada","MALE",6213,"06/22/20","gender","case","Count",1521555,6213,408.332265346964
+"Nevada","UNKNOWN",665,"06/22/20","gender","case","Count",NA,665,NA
+"Nevada","NH AI/AN",3,"06/22/20","race","death","Count",26067,3,11.50880423524
+"Nevada","NH ASIAN",67,"06/22/20","race","death","Count",250856,67,26.7085499250566
+"Nevada","NH BLACK",58,"06/22/20","race","death","Count",276929,58,20.9439964756309
+"Nevada","HISPANIC",76,"06/22/20","race","death","Count",881148,76,8.62511178598828
+"Nevada","OTHER",12,"06/22/20","race","death","Count",NA,12,NA
+"Nevada","NH WHITE",223,"06/22/20","race","death","Count",1476377,223,15.1045430807985
+"Nevada","0-9",0,"06/22/20","age","death",NA,377602,0,0
+"Nevada","10-19",2,"06/22/20","age","death","Count",378120,2,0.528932613984978
+"Nevada","20-29",3,"06/22/20","age","death","Count",409528,3,0.732550643667832
+"Nevada","30-39",6,"06/22/20","age","death","Count",428746,6,1.39942996552738
+"Nevada","40-49",25,"06/22/20","age","death","Count",393940,25,6.34614408285526
+"Nevada","50-59",42,"06/22/20","age","death","Count",387995,42,10.8248817639403
+"Nevada","60-69",101,"06/22/20","age","death","Count",342707,101,29.4712392802015
+"Nevada","70+",298,"06/22/20","age","death","Count",315754,298,94.3772683798147
+"Nevada","UNKNOWN",12,"06/22/20","age","death","Count",NA,12,NA
+"Nevada","FEMALE",195,"06/22/20","gender","death","Count",1512837,195,12.8896900327002
+"Nevada","MALE",273,"06/22/20","gender","death","Count",1521555,273,17.9421710026913
+"Nevada","UNKNOWN",21,"06/22/20","gender","death","Count",NA,21,NA
+"Nevada","",280618,"06/22/20","total","test","Count",3034392,280618,9247.91523310106
+"Nevada","",13535,"06/22/20","total","case","Count",3034392,13535,446.053113770403
+"Nevada","",489,"06/22/20","total","death","Count",3034392,489,16.1152547198912
 "New Hampshire","NH AI/AN",0,"06/22/20","race","case",NA,2903,0,0
 "New Hampshire","NH ASIAN",80,"06/22/20","race","case","Count",39954,80,200.230264804525
 "New Hampshire","NH BLACK",150,"06/22/20","race","case","Count",19146,150,783.453462864306
@@ -1455,6 +1494,31 @@
 "New Mexico","",10694,"06/22/20","total","case","Count",2095428,10694,510.349198349931
 "New Mexico","",469,"06/22/20","total","death","Count",2095428,469,22.3820622803551
 "New Mexico","",1754,"06/22/20","total","hosp","Count",2095428,1754,83.7060495516906
+"New York","FEMALE",0.485,"06/22/20","gender","case","Percent",10053779,188417,1874.09132426722
+"New York","MALE",0.508,"06/22/20","gender","case","Percent",9488430,197352,2079.92260047237
+"New York","UNKNOWN",0.006,"06/22/20","gender","case","Percent",NA,2331,NA
+"New York","ASIAN",0.04,"06/22/20","race","death","Percent",1750013,990,56.5710083296524
+"New York","BLACK",0.12,"06/22/20","race","death","Percent",3447729,2969,86.1146569234415
+"New York","HISPANIC",0.14,"06/22/20","race","death","Percent",3754130,3463,92.2450740917336
+"New York","OTHER",0.04,"06/22/20","race","death","Percent",NA,990,NA
+"New York","WHITE",0.61,"06/22/20","race","death","Percent",13619931,15091,110.800855011674
+"New York","0-9",4,"06/22/20","age","death","Count",2259768,4,0.17700932131086
+"New York","10-19",11,"06/22/20","age","death","Count",2306162,11,0.476982969973488
+"New York","20-29",91,"06/22/20","age","death","Count",2787915,91,3.26408803711734
+"New York","30-39",329,"06/22/20","age","death","Count",2666279,329,12.3392938248398
+"New York","40-49",852,"06/22/20","age","death","Count",2398815,852,35.517536783787
+"New York","50-59",2365,"06/22/20","age","death","Count",2673808,2365,88.4506292149623
+"New York","60-69",4820,"06/22/20","age","death","Count",2252991,4820,213.937827536817
+"New York","70-79",6430,"06/22/20","age","death","Count",1351628,6430,475.722610067267
+"New York","80-89",6364,"06/22/20","age","death","Count",NA,6364,NA
+"New York","90+",3464,"06/22/20","age","death","Count",NA,3464,NA
+"New York","UNKNOWN",9,"06/22/20","age","death","Count",NA,9,NA
+"New York","FEMALE",10500,"06/22/20","gender","death","Count",10053779,10500,104.43834104569
+"New York","MALE",14230,"06/22/20","gender","death","Count",9488430,14230,149.972123944636
+"New York","UNKNOWN",9,"06/22/20","gender","death","Count",NA,9,NA
+"New York","",3452099,"06/22/20","total","test","Count",19542209,3452099,17664.8351268784
+"New York","",388488,"06/22/20","total","case","Count",19542209,388488,1987.94312352304
+"New York","",24739,"06/22/20","total","death","Count",19542209,24739,126.592648763505
 "North Carolina","AI/AN",365,"06/23/20","race","case","Count",163078,365,223.819276665154
 "North Carolina","ASIAN",859,"06/23/20","race","case","Count",329284,859,260.869037062232
 "North Carolina","BLACK",9136,"06/23/20","race","case","Count",2306797,9136,396.046986362476
