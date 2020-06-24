@@ -1102,6 +1102,7 @@
 "Minnesota","80-89",1509,"06/22/2020","age","case","Count",NA,1509,NA
 "Minnesota","90-99",817,"06/22/2020","age","case","Count",NA,817,NA
 "Minnesota","100+",46,"06/22/2020","age","case","Count",NA,46,NA
+"Minnesota","UNKNOWN",7,"06/22/2020","age","case","Count",NA,7,NA
 "Minnesota","FEMALE",16652,"06/22/2020","gender","case","Count",2816378,16652,591.255861251579
 "Minnesota","MALE",15965,"06/22/2020","gender","case","Count",2794801,15965,571.23924028938
 "Minnesota","OTHER",11,"06/22/2020","gender","case","Count",NA,11,NA
@@ -1133,7 +1134,7 @@
 "Minnesota","AI/AN",85,"06/22/2020","race","hosp","Count",76616,85,110.9428839929
 "Minnesota","ASIAN",351,"06/22/2020","race","hosp","Count",288975,351,121.463794445886
 "Minnesota","BLACK",784,"06/22/2020","race","hosp","Count",380414,784,206.091258471034
-"Minnesota","HN/PI",3,"06/22/2020","race","hosp","Count",4145,3,72.3763570566948
+"Minnesota","HN/PI",6,"06/22/2020","race","hosp","Count",4145,6,144.75271411339
 "Minnesota","MULTI",67,"06/22/2020","race","hosp","Count",142853,67,46.901360139444
 "Minnesota","OTHER",269,"06/22/2020","race","hosp","Count",NA,269,NA
 "Minnesota","UNKNOWN",468,"06/22/2020","race","hosp","Count",NA,468,NA
@@ -1163,7 +1164,7 @@
 "Minnesota","HISPANIC",43,"06/22/2020","eth","death","Count",309283,43,13.903124323031
 "Minnesota","NON HISPANIC",1085,"06/22/2020","eth","death","Count",5301896,1085,20.4643772718288
 "Minnesota","UNKNOWN",256,"06/22/2020","eth","death","Count",NA,256,NA
-"Minnesota","",2650,"06/22/2020","total","hosp","Count",5611179,2650,47.2271513705052
+"Minnesota","",3860,"06/22/2020","total","hosp","Count",5611179,3860,68.7912469019434
 "Minnesota","HISPANIC",557,"06/22/2020","eth","hosp","Count",309283,557,180.093959254146
 "Minnesota","NON HISPANIC",2609,"06/22/2020","eth","hosp","Count",5301896,2609,49.2088113384344
 "Minnesota","UNKNOWN",552,"06/22/2020","eth","hosp","Count",NA,552,NA
@@ -1503,31 +1504,31 @@
 "New Mexico","",10694,"06/22/20","total","case","Count",2095428,10694,510.349198349931
 "New Mexico","",469,"06/22/20","total","death","Count",2095428,469,22.3820622803551
 "New Mexico","",1754,"06/22/20","total","hosp","Count",2095428,1754,83.7060495516906
-"New York","FEMALE",0.485,"06/22/20","gender","case","Percent",10053779,188417,1874.09132426722
-"New York","MALE",0.508,"06/22/20","gender","case","Percent",9488430,197352,2079.92260047237
-"New York","UNKNOWN",0.006,"06/22/20","gender","case","Percent",NA,2331,NA
-"New York","ASIAN",0.04,"06/22/20","race","death","Percent",1750013,990,56.5710083296524
-"New York","BLACK",0.12,"06/22/20","race","death","Percent",3447729,2969,86.1146569234415
-"New York","HISPANIC",0.14,"06/22/20","race","death","Percent",3754130,3463,92.2450740917336
-"New York","OTHER",0.04,"06/22/20","race","death","Percent",NA,990,NA
-"New York","WHITE",0.61,"06/22/20","race","death","Percent",13619931,15091,110.800855011674
-"New York","0-9",4,"06/22/20","age","death","Count",2259768,4,0.17700932131086
-"New York","10-19",11,"06/22/20","age","death","Count",2306162,11,0.476982969973488
-"New York","20-29",91,"06/22/20","age","death","Count",2787915,91,3.26408803711734
-"New York","30-39",329,"06/22/20","age","death","Count",2666279,329,12.3392938248398
-"New York","40-49",852,"06/22/20","age","death","Count",2398815,852,35.517536783787
-"New York","50-59",2365,"06/22/20","age","death","Count",2673808,2365,88.4506292149623
-"New York","60-69",4820,"06/22/20","age","death","Count",2252991,4820,213.937827536817
-"New York","70-79",6430,"06/22/20","age","death","Count",1351628,6430,475.722610067267
-"New York","80-89",6364,"06/22/20","age","death","Count",NA,6364,NA
-"New York","90+",3464,"06/22/20","age","death","Count",NA,3464,NA
-"New York","UNKNOWN",9,"06/22/20","age","death","Count",NA,9,NA
-"New York","FEMALE",10500,"06/22/20","gender","death","Count",10053779,10500,104.43834104569
-"New York","MALE",14230,"06/22/20","gender","death","Count",9488430,14230,149.972123944636
-"New York","UNKNOWN",9,"06/22/20","gender","death","Count",NA,9,NA
-"New York","",3452099,"06/22/20","total","test","Count",19542209,3452099,17664.8351268784
-"New York","",388488,"06/22/20","total","case","Count",19542209,388488,1987.94312352304
-"New York","",24739,"06/22/20","total","death","Count",19542209,24739,126.592648763505
+"New York","FEMALE",0.485,"06/24/20","gender","case","Percent",10053779,188988,1879.77078071837
+"New York","MALE",0.508,"06/24/20","gender","case","Percent",9488430,197950,2086.2250129895
+"New York","UNKNOWN",0.006,"06/24/20","gender","case","Percent",NA,2338,NA
+"New York","ASIAN",0.0595,"06/24/20","race","death","Percent",1750013,1475,84.2850881679165
+"New York","BLACK",0.2416,"06/24/20","race","death","Percent",3447729,5987,173.650539239018
+"New York","HISPANIC",0.27,"06/24/20","race","death","Percent",3754130,6691,178.230375612992
+"New York","OTHER",0.04,"06/24/20","race","death","Percent",NA,991,NA
+"New York","WHITE",0.3884,"06/24/20","race","death","Percent",13619931,9625,70.6684931076376
+"New York","0-9",4,"06/24/20","age","death","Count",2259768,4,0.17700932131086
+"New York","10-19",11,"06/24/20","age","death","Count",2306162,11,0.476982969973488
+"New York","20-29",91,"06/24/20","age","death","Count",2787915,91,3.26408803711734
+"New York","30-39",329,"06/24/20","age","death","Count",2666279,329,12.3392938248398
+"New York","40-49",852,"06/24/20","age","death","Count",2398815,852,35.517536783787
+"New York","50-59",2368,"06/24/20","age","death","Count",2673808,2368,88.5628287446219
+"New York","60-69",4828,"06/24/20","age","death","Count",2252991,4828,214.292911067998
+"New York","70-79",6445,"06/24/20","age","death","Count",1351628,6445,476.832382874578
+"New York","80-89",6373,"06/24/20","age","death","Count",NA,6373,NA
+"New York","90+",3472,"06/24/20","age","death","Count",NA,3472,NA
+"New York","UNKNOWN",9,"06/24/20","age","death","Count",NA,9,NA
+"New York","FEMALE",10517,"06/24/20","gender","death","Count",10053779,10517,104.607431693098
+"New York","MALE",14256,"06/24/20","gender","death","Count",9488430,14256,150.246141880164
+"New York","UNKNOWN",9,"06/24/20","gender","death","Count",NA,9,NA
+"New York","",3551952,"06/24/20","total","test","Count",19542209,3551952,18175.7957864436
+"New York","",389666,"06/24/20","total","case","Count",19542209,389666,1993.97110121993
+"New York","",24782,"06/24/20","total","death","Count",19542209,24782,126.812685300828
 "North Carolina","AI/AN",365,"06/23/20","race","case","Count",163078,365,223.819276665154
 "North Carolina","ASIAN",859,"06/23/20","race","case","Count",329284,859,260.869037062232
 "North Carolina","BLACK",9136,"06/23/20","race","case","Count",2306797,9136,396.046986362476
@@ -1918,23 +1919,23 @@
 "Rhode Island","",16459,"06/22/20","total","case","Count",1057315,16459,1556.67894619863
 "Rhode Island","",903,"06/22/20","total","death","Count",1057315,903,85.4050117514648
 "Rhode Island","",1950,"06/22/20","total","hosp","Count",1057315,1950,184.429427370273
-"South Carolina","ASIAN",0.02,"06/22/20","race","case","Percent",89962,453,503.545941619795
-"South Carolina","BLACK",0.36,"06/22/20","race","case","Percent",1380145,8148,590.372750689239
-"South Carolina","OTHER",0.1,"06/22/20","race","case","Percent",NA,2263,NA
-"South Carolina","UNKNOWN",0.09,"06/22/20","race","case","Percent",NA,2037,NA
-"South Carolina","WHITE",0.44,"06/22/20","race","case","Percent",3483455,9958,285.86561330633
-"South Carolina","0-10",0.03,"06/22/20","age","case","Percent",663289,679,102.368650769122
-"South Carolina","11-20",0.1,"06/22/20","age","case","Percent",645669,2263,350.489182537802
-"South Carolina","21-30",0.18,"06/22/20","age","case","Percent",685828,4074,594.026490606974
-"South Carolina","31-40",0.15,"06/22/20","age","case","Percent",629336,3395,539.457459926017
-"South Carolina","41-50",0.15,"06/22/20","age","case","Percent",617634,3395,549.678288436194
-"South Carolina","51-60",0.15,"06/22/20","age","case","Percent",676471,3395,501.869259731755
-"South Carolina","61-70",0.11,"06/22/20","age","case","Percent",626330,2490,397.554005077196
-"South Carolina","71-80",0.07,"06/22/20","age","case","Percent",376610,1584,420.594248692281
-"South Carolina","81+",0.05,"06/22/20","age","case","Percent",162960,1132,694.648993618066
-"South Carolina","FEMALE",0.526,"06/22/20","gender","case","Percent",2620801,11904,454.212280901907
-"South Carolina","MALE",0.432,"06/22/20","gender","case","Percent",2463326,9777,396.902399438808
-"South Carolina","UNKNOWN",0.042,"06/22/20","gender","case","Percent",NA,951,NA
+"South Carolina","ASIAN",0.02,"06/22/20","race","case","Percent",89962,532,591.360796780863
+"South Carolina","BLACK",0.36,"06/22/20","race","case","Percent",1380145,9581,694.202420760138
+"South Carolina","OTHER",0.1,"06/22/20","race","case","Percent",NA,2661,NA
+"South Carolina","UNKNOWN",0.09,"06/22/20","race","case","Percent",NA,2395,NA
+"South Carolina","WHITE",0.44,"06/22/20","race","case","Percent",3483455,11710,336.160507312424
+"South Carolina","0-10",0.03,"06/22/20","age","case","Percent",663289,798,120.309548326597
+"South Carolina","11-20",0.1,"06/22/20","age","case","Percent",645669,2661,412.13067376628
+"South Carolina","21-30",0.18,"06/22/20","age","case","Percent",685828,4790,698.425844380807
+"South Carolina","31-40",0.15,"06/22/20","age","case","Percent",629336,3992,634.319346104466
+"South Carolina","41-50",0.15,"06/22/20","age","case","Percent",617634,3992,646.337474944708
+"South Carolina","51-60",0.15,"06/22/20","age","case","Percent",676471,3992,590.121379926117
+"South Carolina","61-70",0.11,"06/22/20","age","case","Percent",626330,2927,467.325531269459
+"South Carolina","71-80",0.07,"06/22/20","age","case","Percent",376610,1863,494.676190223308
+"South Carolina","81+",0.05,"06/22/20","age","case","Percent",162960,1331,816.764850270005
+"South Carolina","FEMALE",0.526,"06/22/20","gender","case","Percent",2620801,13998,534.111517814592
+"South Carolina","MALE",0.432,"06/22/20","gender","case","Percent",2463326,11497,466.726693908967
+"South Carolina","UNKNOWN",0.042,"06/22/20","gender","case","Percent",NA,1118,NA
 "South Carolina","ASIAN",0.01,"06/22/20","race","death","Percent",89962,6,6.66948267046086
 "South Carolina","BLACK",0.46,"06/22/20","race","death","Percent",1380145,294,21.3021095609519
 "South Carolina","OTHER",0.02,"06/22/20","race","death","Percent",NA,13,NA
@@ -1953,10 +1954,10 @@
 "South Carolina","MALE",0.51,"06/22/20","gender","death","Percent",2463326,326,13.2341395332977
 "South Carolina","UNKNOWN",0.01,"06/22/20","gender","death","Percent",NA,6,NA
 "South Carolina","",347193,"06/22/20","total","test","Count",5084127,347193,6828.96001614436
-"South Carolina","",22632,"06/22/20","total","case","Count",5084127,22632,445.150170324227
-"South Carolina","HISPANIC",0.15,"06/22/20","eth","case","Percent",296046,3395,1146.78124345541
-"South Carolina","NON HISPANIC",0.63,"06/22/20","eth","case","Percent",4788081,14258,297.781094346566
-"South Carolina","UNKNOWN",0.22,"06/22/20","eth","case","Percent",NA,4979,NA
+"South Carolina","",26613,"06/22/20","total","case","Count",5084127,26613,523.452698958936
+"South Carolina","HISPANIC",0.15,"06/22/20","eth","case","Percent",296046,3992,1348.43909392459
+"South Carolina","NON HISPANIC",0.63,"06/22/20","eth","case","Percent",4788081,16766,350.161160598578
+"South Carolina","UNKNOWN",0.22,"06/22/20","eth","case","Percent",NA,5855,NA
 "South Carolina","",639,"06/22/20","total","death","Count",5084127,639,12.5685294643505
 "South Carolina","HISPANIC",0.03,"06/22/20","eth","death","Percent",296046,19,6.41792153922026
 "South Carolina","NON HISPANIC",0.85,"06/22/20","eth","death","Percent",4788081,543,11.3406602770505
