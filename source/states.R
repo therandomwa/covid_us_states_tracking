@@ -241,9 +241,9 @@ get_mississippi = function() {
       female_afra + female_white + female_nata + female_other
   )
   
-  mississippi[["cases"]][["sex_male"]] = get_information2("MS, gender male (whole %): ")
-  mississippi[["cases"]][["sex_female"]] = get_information2("MS, gender female (whole %): ")
-  mississippi[["cases"]][["sex_unk"]] = get_information2("MS, gender unk (whole %): ")
+  mississippi[["cases"]][["sex_male"]] = get_information2("MS, cases gender male (whole %): ")
+  mississippi[["cases"]][["sex_female"]] = get_information2("MS, cases gender female (whole %): ")
+  mississippi[["cases"]][["sex_unk"]] = get_information2("MS, cases gender unk (whole %): ")
   
   mississippi[["tested"]][["total"]] = get_information("MS, total tested: ")
   
@@ -264,38 +264,30 @@ get_mississippi = function() {
   
 }
 
-get_florida = function(path) {
+get_florida = function() {
   # Get pdf from: https://www.floridadisaster.org/covid19/covid-19-data-reports/
-  url = "https://www.floridadisaster.org/covid19/covid-19-data-reports/"
-  # 
-  # pdf_path = read_html(url) %>% 
-  #   html_nodes("body .l-surround #mainContent #text-page-wrap .row") %>% 
-  #   html_nodes("#mainContent .main-column p a") %>% html_attr("href") %>% .[1]
-  # Index 1 gets the first pdf in the list, presumed to be the most recent
+  url = "https://www.floridadisaster.org/covid19/"
   
-  # Just download the pdf and read it in
-  #pdf_url = paste0("https://www.floridadisaster.org/", pdf_path)
-  data = pdf_text(path)
+  pdf_path = read_html(url) %>% 
+    html_nodes("body .l-surround #mainContent #text-page-wrap .row") %>% 
+    html_nodes(".main-column .panel .panel-collapse  .panel-body p a") %>% 
+    .[[2]] %>% html_attr("href")
+
+  data = paste0("https://www.floridadisaster.org", pdf_path) %>% pdf_text
+  
+  # Initialize skeleton
+  skeleton = skeleton_table(fl_cols)
   
   # Demographic data is on
   demographic_data = data %>% .[3] %>% 
     str_split(., "\n") %>% .[[1]] %>% 
     str_squish()
   
-  # Initialize skeleton
-  skeleton = skeleton_table(fl_cols)
-  
   tested = data %>% .[1] %>% 
     str_split(., "\n") %>% .[[1]] %>% 
     str_squish() %>% .[[22]] %>% 
     str_split(., " ", simplify = TRUE) %>% .[1, 3] %>% 
-    str_replace(., ",", "") %>% as.numeric()
-  
-  negatives = data %>% .[1] %>% 
-    str_split(., "\n") %>% .[[1]] %>% 
-    str_squish() %>% .[[25]] %>% 
-    str_split(., " ", simplify = TRUE) %>% .[1, 2] %>% 
-    str_replace(., ",", "") %>% as.numeric()
+    str_replace_all(., ",", "") %>% as.numeric
   
   cases = demographic_data %>% .[16] %>% 
     str_split(., " ", simplify = TRUE) %>% .[1, 2] %>% 
@@ -653,27 +645,27 @@ get_tennessee = function(date = "today") {
   skeleton[["cases"]][["age_81+"]] = ar_cases[9]
   skeleton[["cases"]][["age_unk"]] = ar_cases[10]
   skeleton[["cases"]][["sex_male"]] = sex_cases %>% 
-    filter(Cat_Detail == "Male") %>% pull(Cat_CaseCount) 
+    filter(CAT_DETAIL == "Male") %>% pull(Cat_CaseCount) 
   skeleton[["cases"]][["sex_female"]] = sex_cases %>% 
-    filter(Cat_Detail == "Female") %>% pull(Cat_CaseCount) 
+    filter(CAT_DETAIL == "Female") %>% pull(Cat_CaseCount) 
   skeleton[["cases"]][["sex_unk"]] = sex_cases %>% 
-    filter(Cat_Detail == "Pending") %>% pull(Cat_CaseCount) 
+    filter(CAT_DETAIL == "Pending") %>% pull(Cat_CaseCount) 
   skeleton[["cases"]][["race_white"]] = race_cases %>% 
-    filter(Cat_Detail == "White") %>% pull(Cat_CaseCount) 
+    filter(CAT_DETAIL == "White") %>% pull(Cat_CaseCount) 
   skeleton[["cases"]][["race_AfrA"]] = race_cases %>% 
-    filter(Cat_Detail == "Black or African American") %>% pull(Cat_CaseCount) 
+    filter(CAT_DETAIL == "Black or African American") %>% pull(Cat_CaseCount) 
   skeleton[["cases"]][["race_other"]] = race_cases %>% 
-    filter(Cat_Detail == "Other/Multiracial") %>% pull(Cat_CaseCount)
+    filter(CAT_DETAIL == "Other/Multiracial") %>% pull(Cat_CaseCount)
   skeleton[["cases"]][["race_asian"]] = race_cases %>% 
-    filter(Cat_Detail == "Asian") %>% pull(Cat_CaseCount) 
+    filter(CAT_DETAIL == "Asian") %>% pull(Cat_CaseCount) 
   skeleton[["cases"]][["race_unk"]] = race_cases %>% 
-    filter(Cat_Detail == "Pending") %>% pull(Cat_CaseCount) 
+    filter(CAT_DETAIL == "Pending") %>% pull(Cat_CaseCount) 
   skeleton[["cases"]][["ethnicity_hispanic"]] = ethnicity_cases %>% 
-    filter(Cat_Detail == "Hispanic") %>% pull(Cat_CaseCount)
+    filter(CAT_DETAIL == "Hispanic") %>% pull(Cat_CaseCount)
   skeleton[["cases"]][["ethnicity_non_hispanic"]] = ethnicity_cases %>% 
-    filter(Cat_Detail == "Not Hispanic or Latino") %>% pull(Cat_CaseCount)
+    filter(CAT_DETAIL == "Not Hispanic or Latino") %>% pull(Cat_CaseCount)
   skeleton[["cases"]][["ethnicity_unk"]] = ethnicity_cases %>% 
-    filter(Cat_Detail == "Pending") %>% pull(Cat_CaseCount)
+    filter(CAT_DETAIL == "Pending") %>% pull(Cat_CaseCount)
   
   skeleton[["negatives"]][["total"]] = negatives
   
@@ -689,27 +681,27 @@ get_tennessee = function(date = "today") {
   skeleton[["deaths"]][["age_81+"]] = ar_deaths[9]
   skeleton[["deaths"]][["age_unk"]] = ar_deaths[10]
   skeleton[["deaths"]][["sex_male"]] = sex_deaths %>% 
-    filter(Cat_Detail == "Male") %>% pull(CAT_DEATHCOUNT) 
+    filter(CAT_DETAIL == "Male") %>% pull(CAT_DEATHCOUNT) 
   skeleton[["deaths"]][["sex_female"]] = sex_deaths %>% 
-    filter(Cat_Detail == "Female") %>% pull(CAT_DEATHCOUNT) 
+    filter(CAT_DETAIL == "Female") %>% pull(CAT_DEATHCOUNT) 
   skeleton[["deaths"]][["sex_unk"]] = sex_deaths %>% 
-    filter(Cat_Detail == "Pending") %>% pull(CAT_DEATHCOUNT) 
+    filter(CAT_DETAIL == "Pending") %>% pull(CAT_DEATHCOUNT) 
   skeleton[["deaths"]][["race_white"]] = race_deaths %>% 
-    filter(Cat_Detail == "White") %>% pull(CAT_DEATHCOUNT) 
+    filter(CAT_DETAIL == "White") %>% pull(CAT_DEATHCOUNT) 
   skeleton[["deaths"]][["race_AfrA"]] = race_deaths %>% 
-    filter(Cat_Detail == "Black or African American") %>% pull(CAT_DEATHCOUNT) 
+    filter(CAT_DETAIL == "Black or African American") %>% pull(CAT_DEATHCOUNT) 
   skeleton[["deaths"]][["race_other"]] = race_deaths %>% 
-    filter(Cat_Detail == "Other/Multiracial") %>% pull(CAT_DEATHCOUNT)
+    filter(CAT_DETAIL == "Other/Multiracial") %>% pull(CAT_DEATHCOUNT)
   skeleton[["deaths"]][["race_asian"]] = race_deaths %>% 
-    filter(Cat_Detail == "Asian") %>% pull(CAT_DEATHCOUNT) 
+    filter(CAT_DETAIL == "Asian") %>% pull(CAT_DEATHCOUNT) 
   skeleton[["deaths"]][["race_unk"]] = race_deaths %>% 
-    filter(Cat_Detail == "Pending") %>% pull(CAT_DEATHCOUNT) 
+    filter(CAT_DETAIL == "Pending") %>% pull(CAT_DEATHCOUNT) 
   skeleton[["deaths"]][["ethnicity_hispanic"]] = ethnicity_deaths %>% 
-    filter(Cat_Detail == "Hispanic") %>% pull(CAT_DEATHCOUNT)
+    filter(CAT_DETAIL == "Hispanic") %>% pull(CAT_DEATHCOUNT)
   skeleton[["deaths"]][["ethnicity_non_hispanic"]] = ethnicity_deaths %>% 
-    filter(Cat_Detail == "Not Hispanic or Latino") %>% pull(CAT_DEATHCOUNT)
+    filter(CAT_DETAIL == "Not Hispanic or Latino") %>% pull(CAT_DEATHCOUNT)
   skeleton[["deaths"]][["ethnicity_unk"]] = ethnicity_deaths %>% 
-    filter(Cat_Detail == "Pending") %>% pull(CAT_DEATHCOUNT)
+    filter(CAT_DETAIL == "Pending") %>% pull(CAT_DEATHCOUNT)
   
   browseURL("https://www.tn.gov/content/tn/health/cedep/ncov/data.html")
   skeleton[["tested"]][["total"]] = get_information("TN: Total tested: ")
