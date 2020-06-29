@@ -27,11 +27,12 @@ df_cbp = load_object("../Data/raw_states/meta_2020-06-22-cbp.rda")
 
 # load manual data
 df_lef = load_object("../manual_data/manual_data_20200623_lef.rda")
-df_lef2 = load_object("../manual_data/manual_data_20200622_lef.rda")
+df_lef2 = load_object("../manual_data/manual_data_20200622_lef.rda")[1,]
+df_lef3 = load_object("../manual_data/manual_data_20200624_lef.rda")
 df_as = load_object("../manual_data/manual_data_20200622_as.rda")
 #df_cej = load_object("../manual_data/manual_data_20200622_cej.rda")
 df_gl = load_object("../manual_data/manual_data_20200623_gl.rda")
-df_cbp = rbind(df_cbp, df_lef, df_as, df_gl, df_lef2)
+df_cbp = rbind(df_cbp, df_lef, df_as, df_gl, df_lef2, df_lef3)
 ### 1. compile files ----
 df_aw$last.update = df_aw$last.update %>% 
   as.character %>% as.Date("%m/%d/%y") %>% format("%m/%d/%y")
