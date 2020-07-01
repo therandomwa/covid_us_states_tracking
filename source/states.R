@@ -158,12 +158,12 @@ get_mississippi = function() {
   
   # cases by race and ethnicity
   rc = pdf_text("https://msdh.ms.gov/msdhsite/_static/resources/8573.pdf") %>% 
-    .[2] %>% str_split("\n") %>% .[[1]] %>% .[17] %>% str_squish %>% 
+    .[2] %>% str_split("\n") %>% .[[1]] %>% .[18] %>% str_squish %>% 
     str_split(" ", simplify = TRUE) %>% c() %>% .[2:20] %>% as.numeric
   
   # cases by race and ethnicity
   dc = pdf_text("https://msdh.ms.gov/msdhsite/_static/resources/8629.pdf") %>% 
-    .[2] %>% str_split("\n") %>% .[[1]] %>% .[17] %>% str_squish %>% 
+    .[2] %>% str_split("\n") %>% .[[1]] %>% .[18] %>% str_squish %>% 
     str_split(" ", simplify = TRUE) %>% c() %>% .[2:20] %>% as.numeric
   
   mississippi[["cases"]][["total"]] = rc[1]
@@ -1203,7 +1203,7 @@ get_minnesota = function() {
   age = df %>% 
     select(Age05, Age619, Age2029, Age3039,
            Age4049, Age5059, Age6069, Age70_79,
-           Age80_89, Age90_99, Age100_up)
+           Age80_89, Age90_99, Age100_up, AgeMissing)
   
   url = "https://www.health.state.mn.us/diseases/coronavirus/situation.html"
   
@@ -1294,6 +1294,7 @@ get_minnesota = function() {
   minnesota[["cases"]][["age_80_89"]] = age %>% pull(Age80_89)
   minnesota[["cases"]][["age_90_99"]] = age %>% pull(Age90_99)
   minnesota[["cases"]][["age_100+"]] = age %>% pull(Age100_up)
+  minnesota[["cases"]][["age_unk"]] = age %>% pull(AgeMissing)
   
   minnesota[["deaths"]][["race_white"]] = drace %>% pull(DeathWht)
   minnesota[["deaths"]][["race_AfrA"]] = drace %>% pull(DeathBlk)
