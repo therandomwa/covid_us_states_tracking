@@ -61,7 +61,7 @@ minnesota = get_minnesota()
 ```
 
 ```{r}
-full_data_20200622 = bind_rows(
+full_data_20200629 = bind_rows(
   florida,
   oklahoma,
   mississippi,
@@ -73,8 +73,13 @@ full_data_20200622 = bind_rows(
 ```
 
 ```{r}
-save(full_data_20200622, file ="../data/raw_states/meta_2020-06-22-cbp.rda")
+save(full_data_20200629, file ="../data/raw_states/meta_2020-06-29-cbp.rda")
 ```
 
+# Fixing In Post
+
+```{r}
+
+```
 
 
