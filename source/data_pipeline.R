@@ -20,21 +20,21 @@ file_date = Sys.Date()-3 # change accordingly if the editing date is not the scr
 file_date_name = file_date %>% format("%Y%m%d")
 
 # load Aijin's data
-df_aw = read.csv("../Data/raw_states/meta_2020-06-29_aw.csv")
+df_aw = read.csv("../Data/raw_states/meta_2020-07-06_aw.csv")
 
 # load Chistian's data
-df_cbp = load_object("../Data/raw_states/meta_2020-06-29-cbp.rda")
+df_cbp = load_object("../Data/raw_states/meta_2020-07-07-cbp.rda")
 
 # load manual data
-df_lef = load_object("../manual_data/manual_data_20200629_lef.rda")
+df_lef = load_object("../manual_data/manual_data_20200706_lef.rda")
 # df_lef2 = load_object("../manual_data/manual_data_20200622_lef.rda")[1,]
 # df_lef3 = load_object("../manual_data/manual_data_20200624_lef.rda")
-df_as = load_object("../manual_data/manual_data_20200629_as.rda")
-df_as = df_as %>% filter(state_name != "New Hampshire")
-df_as2 = load_object("../manual_data/manual_data_20200701_as.rda")
+df_as = load_object("../manual_data/manual_data_20200706_as.rda")
+# df_as = df_as %>% filter(state_name != "New Hampshire")
+# df_as2 = load_object("../manual_data/manual_data_20200701_as.rda")
 #df_cej = load_object("../manual_data/manual_data_20200622_cej.rda")
-df_gl = load_object("../manual_data/manual_data_20200629_gl.rda")
-df_cbp = rbind(df_cbp, df_lef, df_as, df_gl, df_as2)
+df_gl = load_object("../manual_data/manual_data_20200706_gl.rda")
+df_cbp = rbind(df_cbp, df_lef, df_as, df_gl)
 ### 1. compile files ----
 df_aw$last.update = df_aw$last.update %>% 
   as.character %>% as.Date("%m/%d/%y") %>% format("%m/%d/%y")
