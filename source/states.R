@@ -92,12 +92,12 @@ get_oklahoma = function() {
   # Push items into the skeleton  
   oklahoma[["cases"]][["total"]] = case_by_county %>% 
     pull(Cases) %>% sum
-  oklahoma[["recovered"]][["total"]] = case_by_county %>% 
-    pull(Recovered) %>% sum
   oklahoma[["deaths"]][["total"]] = case_by_county %>% 
     pull(Deaths) %>% sum
   
   browseURL("https://coronavirus.health.ok.gov/")
+  
+  oklahoma[["hospitalized"]][["total"]] = get_information("OK, hosp total: ") 
   
   oklahoma[["cases"]][["age_0_4"]] = get_information("OK, cases age_0_4: ") 
   oklahoma[["cases"]][["age_5_17"]] = get_information("OK, cases age_5_17: ") 
@@ -157,13 +157,13 @@ get_mississippi = function() {
   browseURL("https://msdh.ms.gov/msdhsite/_static/14,0,420.html")
   
   # cases by race and ethnicity
-  rc = pdf_text("https://msdh.ms.gov/msdhsite/_static/resources/8573.pdf") %>% 
+  rc = pdf_text("https://msdh.ms.gov/msdhsite/_static/resources/8710.pdf") %>% 
     .[2] %>% str_split("\n") %>% .[[1]] %>% .[18] %>% str_squish %>% 
     str_split(" ", simplify = TRUE) %>% c() %>% .[2:20] %>% as.numeric
   
   # cases by race and ethnicity
-  dc = pdf_text("https://msdh.ms.gov/msdhsite/_static/resources/8629.pdf") %>% 
-    .[2] %>% str_split("\n") %>% .[[1]] %>% .[18] %>% str_squish %>% 
+  dc = pdf_text("https://msdh.ms.gov/msdhsite/_static/resources/8710.pdf") %>% 
+    .[4] %>% str_split("\n") %>% .[[1]] %>% .[18] %>% str_squish %>% 
     str_split(" ", simplify = TRUE) %>% c() %>% .[2:20] %>% as.numeric
   
   mississippi[["cases"]][["total"]] = rc[1]
