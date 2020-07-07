@@ -1205,8 +1205,8 @@ get_minnesota = function() {
     select(RaceWht:RaceMultip)
   
   drace = df %>% 
-    select(DeathWht, DeathBlk, DeathAsian, 
-           DeathPacif, DeathNativ, DeathOther, DeathUnkno)
+    select(DeathWht, DeathBlk, DeathAsian, DeathPacif, 
+           DeathNativ, DeathOther, DeathUnkno, DeathRaceM)
   eth = df %>% select(EthnHisp, EthnNonHis, EthnUnk)
   deth = df %>% select(DeathHisp, DeathNonHi, DeathHispU)
   age = df %>% 
@@ -1272,7 +1272,7 @@ get_minnesota = function() {
   
   minnesota[["cases"]][["total"]] = df %>% pull(TotalCases)
   minnesota[["deaths"]][["total"]] = df %>% pull(OutcmDied)
-  minnesota[["hospitalized"]][["total"]] = df %>% pull(EvrHospYes)
+  minnesota[["hospitalized"]][["total"]] = df$EvrICUYes + df$EvrHospYes
   
   minnesota[["cases"]][["sex_male"]] = gender %>% pull(Male)
   minnesota[["cases"]][["sex_female"]] = gender %>% pull(Female)
@@ -1284,7 +1284,7 @@ get_minnesota = function() {
   minnesota[["cases"]][["race_NatA"]] = race %>% pull(RaceAmerIn)
   minnesota[["cases"]][["race_other"]] = race %>% pull(RaceOther)
   minnesota[["cases"]][["race_unk"]] = race %>% pull(RaceUnk)
-  minnesota[["cases"]][["race_asian"]] = race %>% pull(RaceAsnPac)
+  minnesota[["cases"]][["race_asian"]] = race %>% pull(RaceAsian)
   minnesota[["cases"]][["race_pac"]] = race %>% pull(RacePacifi)
   minnesota[["cases"]][["race_multi"]] = race %>% pull(RaceMultip)
   
@@ -1312,6 +1312,7 @@ get_minnesota = function() {
   minnesota[["deaths"]][["race_unk"]] = drace %>% pull(DeathUnkno)
   minnesota[["deaths"]][["race_asian"]] = drace %>% pull(DeathAsian)
   minnesota[["deaths"]][["race_pac"]] = drace %>% pull(DeathPacif)
+  minnesota[["deaths"]][["race_multi"]] = drace %>% pull(DeathRaceM)
   
   minnesota[["deaths"]][["ethnicity_hispanic"]] = deth %>% pull(DeathHisp)
   minnesota[["deaths"]][["ethnicity_non_hispanic"]] = deth %>% pull(DeathNonHi)
