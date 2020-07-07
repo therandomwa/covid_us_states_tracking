@@ -218,6 +218,15 @@ get_mississippi = function() {
   mississippi[["hospitalized"]][["age_70_79"]] = get_information(prompt = "MS, hosp age_70_79: ")
   mississippi[["hospitalized"]][["age_80_89"]] = get_information(prompt = "MS, hosp age_80_89: ")
   mississippi[["hospitalized"]][["age_90+"]] = get_information(prompt = "MS, hosp age_90+: ")
+  mississippi[["hospitalized"]][["total"]] = mississippi[["hospitalized"]][["age_0_17"]] +
+    mississippi[["hospitalized"]][["age_18_29"]] +
+    mississippi[["hospitalized"]][["age_30_39"]] +
+    mississippi[["hospitalized"]][["age_40_49"]] +
+    mississippi[["hospitalized"]][["age_50_59"]] +
+    mississippi[["hospitalized"]][["age_60_69"]] +
+    mississippi[["hospitalized"]][["age_70_79"]] +
+    mississippi[["hospitalized"]][["age_80_89"]] +
+    mississippi[["hospitalized"]][["age_90+"]]
   
   male_afra = get_information("MS, male deaths AfrA: ")
   male_white = get_information("MS, male deaths white: ")

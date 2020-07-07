@@ -55,7 +55,7 @@ save(full_data_20200707, file ="../data/raw_states/meta_2020-07-07-cbp.rda")
 # Fixing In Post
 
 ```{r}
-
+full_data_20200707 = bind_rows(full_data_20200707, mississippi)
 ```
 
 
