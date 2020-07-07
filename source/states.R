@@ -975,6 +975,7 @@ get_south_carolina = function() {
 get_new_jersey = function() {
   
   browseURL("https://www.nj.gov/health/cd/documents/topics/NCOV/COVID_Confirmed_Case_Summary.pdf")
+  browseURL("https://www.google.com/search?q=new+jersey+covid+deaths&oq=new+jersey+covid+deaths&aqs=chrome.0.69i59j0l7.347j0j9&sourceid=chrome&ie=UTF-8")
   
   skeleton = skeleton_table(nj_cols)
   
