@@ -1255,8 +1255,8 @@ get_minnesota = function() {
     str_replace(",", "") %>% as.numeric
   
   View(death_by_gender)
-  View(hosp_by_age)
   View(hosp_by_gender)
+  View(hosp_by_age)
   View(hosp_by_race)
   
   minnesota = skeleton_table(mn_cols)

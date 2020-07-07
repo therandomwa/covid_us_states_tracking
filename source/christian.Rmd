@@ -16,30 +16,6 @@ source("states.R")
 source("states_constants.R")
 ```
 
-# Automated States
-
-- Oklahoma: needs demographic and ages manually entered
-- Mississippi: needs age and sex manually entered
-- Florida: no manual entry needed, expect long compilation
-- Tennessee: no manual entry needed, but needs a date input to function
-- North Carolina: needs age manually entered
-- District of Columbia: no data on age available
-- South Carolina: needs age and sex manually entered
-- New Jersey
-- New Hampshire
-- Guam: no age, sex, race or ethnicity data available
-
-## Troubleshoot States Before Compiling
-
-```{r}
-browseURL("https://coronavirus.health.ok.gov/") # OK
-browseURL("https://www.nj.gov/health/cd/documents/topics/NCOV/COVID_Confirmed_Case_Summary.pdf") # NJ
-browseURL("https://msdh.ms.gov/msdhsite/_static/14,0,420.html") #MS
-browseURL("https://scdhec.gov/infectious-diseases/viruses/coronavirus-disease-2019-covid-19/sc-testing-data-projections-covid-19") # SC
-browseURL("https://public.tableau.com/profile/idaho.division.of.public.health#!/vizhome/DPHIdahoCOVID-19Dashboard_V2/Story1") # ID
-```
-
-
 ```{r}
 # Check with these first to make sure all states have good data
 # https://www.floridadisaster.org/covid19/covid-19-data-reports/
@@ -47,7 +23,7 @@ florida = get_florida()
 oklahoma = get_oklahoma()
 new_jersey = get_new_jersey()
 mississippi = get_mississippi()
-tennessee = get_tennessee("2020-06-29")
+tennessee = get_tennessee("2020-07-06")
 south_carolina = get_south_carolina()
 idaho = get_idaho()
 minnesota = get_minnesota()
