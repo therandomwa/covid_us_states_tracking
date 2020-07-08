@@ -974,10 +974,13 @@ get_south_carolina = function() {
 
 get_new_jersey = function() {
   
-  browseURL("https://www.nj.gov/health/cd/documents/topics/NCOV/COVID_Confirmed_Case_Summary.pdf")
-  browseURL("https://www.google.com/search?q=new+jersey+covid+deaths&oq=new+jersey+covid+deaths&aqs=chrome.0.69i59j0l7.347j0j9&sourceid=chrome&ie=UTF-8")
-  
   skeleton = skeleton_table(nj_cols)
+  
+  browseURL("https://covid19.nj.gov/#live-updates")
+  skeleton[["tested"]][["total"]] = get_information("NJ: Total tested?: ")
+  skeleton[["deaths"]][["total"]] = get_information("NJ, Deaths total (conf. + prob.): ")
+  
+  browseURL("https://www.nj.gov/health/cd/documents/topics/NCOV/COVID_Confirmed_Case_Summary.pdf")
   
   skeleton[["cases"]][["total"]] = get_information("NJ, Cases total: ")
   skeleton[["cases"]][["race_nh_asian"]] = get_information("NJ, Cases race_nh_asian: ")
@@ -1013,7 +1016,6 @@ get_new_jersey = function() {
   skeleton[["hospitalized"]][["sex_female"]] = get_information("NJ, Hosp. sex female: ")
   skeleton[["hospitalized"]][["sex_unk"]] = get_information("NJ, Hosp. sex unknown: ")
   
-  skeleton[["deaths"]][["total"]] = get_information("NJ, Deaths total: ")
   skeleton[["deaths"]][["race_nh_asian"]] = get_information("NJ, Deaths race_nh_asian: ")
   skeleton[["deaths"]][["race_nh_AfrA"]] = get_information("NJ, Deaths race_nh_AfrA: ")
   skeleton[["deaths"]][["race_hispanic"]] = get_information("NJ, Deaths race_hispanic: ")
@@ -1029,9 +1031,6 @@ get_new_jersey = function() {
   skeleton[["deaths"]][["sex_male"]] = get_information("NJ, Deaths sex male: ")
   skeleton[["deaths"]][["sex_female"]] = get_information("NJ, Deaths sex female: ")
   skeleton[["deaths"]][["sex_unk"]] = get_information("NJ, Deaths sex unknown: ")
-  
-  browseURL("https://covid19.nj.gov/#live-updates")
-  skeleton[["tested"]][["total"]] = get_information("NJ: Total tested?: ")
   
   as_tibble(skeleton) %>% 
     standardize %>% 
