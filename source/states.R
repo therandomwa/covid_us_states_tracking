@@ -298,32 +298,32 @@ get_florida = function() {
     str_split(., " ", simplify = TRUE) %>% .[1, 3] %>% 
     str_replace_all(., ",", "") %>% as.numeric
   
-  cases = demographic_data %>% .[16] %>% 
+  cases = demographic_data %>% .[20] %>% 
     str_split(., " ", simplify = TRUE) %>% .[1, 2] %>% 
     str_replace(., ",", "") %>% as.numeric()
   
-  hosp = demographic_data %>% .[16] %>% 
+  hosp = demographic_data %>% .[20] %>% 
     str_split(., " ", simplify = TRUE) %>% .[1, 3] %>% 
     str_replace(., ",", "") %>% as.numeric()
   
-  deaths = demographic_data %>% .[16] %>% 
+  deaths = demographic_data %>% .[20] %>% 
     str_split(., " ", simplify = TRUE) %>% .[1, 4] %>% 
     str_replace(., ",", "") %>% as.numeric()
-  
-  males = demographic_data %>% .[5] %>% 
+
+  females = demographic_data %>% .[9] %>% 
     str_split(., " ", simplify = TRUE) %>%  .[1, 10] %>% 
     str_replace(., ",", "") %>% as.numeric()
   
-  females = demographic_data %>% .[6] %>% 
+  males = demographic_data %>% .[10] %>% 
     str_split(., " ", simplify = TRUE) %>%  .[1, 10] %>% 
     str_replace(., ",", "") %>% as.numeric()
 
-  sex_unk = demographic_data %>% .[7] %>% 
+  sex_unk = demographic_data %>% .[11] %>% 
     str_split(., " ", simplify = TRUE) %>%  .[1, 10] %>% 
     str_replace(., ",", "") %>% as.numeric()
   
   # Each row contains data on cases, hosp and death
-  between_0_and_4 = demographic_data %>% .[5] %>% 
+  between_0_and_4 = demographic_data %>% .[9] %>% 
     str_split(., " ", simplify = TRUE)
   
   between_0_and_4_case = between_0_and_4 %>% .[1, 3] %>% 
@@ -333,7 +333,7 @@ get_florida = function() {
   between_0_and_4_death = between_0_and_4 %>% .[1, 7] %>% 
     str_replace(",","") %>% as.numeric
   
-  between_5_and_14 = demographic_data %>% .[6] %>% 
+  between_5_and_14 = demographic_data %>% .[10] %>% 
     str_split(., " ", simplify = TRUE)
   
   between_5_and_14_case = between_5_and_14 %>% .[1, 3] %>% 
@@ -343,7 +343,7 @@ get_florida = function() {
   between_5_and_14_death = between_5_and_14 %>% .[1, 7] %>% 
     str_replace(",","") %>% as.numeric
   
-  between_15_and_24 = demographic_data %>% .[7] %>% 
+  between_15_and_24 = demographic_data %>% .[11] %>% 
     str_split(., " ", simplify = TRUE)
   
   between_15_and_24_case = between_15_and_24 %>% .[1, 3] %>% 
@@ -353,7 +353,7 @@ get_florida = function() {
   between_15_and_24_death = between_15_and_24 %>% .[1, 7] %>% 
     str_replace(",","") %>% as.numeric
   
-  between_25_and_34 = demographic_data %>% .[8] %>% 
+  between_25_and_34 = demographic_data %>% .[12] %>% 
     str_split(., " ", simplify = TRUE)
   
   between_25_and_34_case = between_25_and_34 %>% .[1, 3] %>% 
@@ -363,7 +363,7 @@ get_florida = function() {
   between_25_and_34_death = between_25_and_34 %>% .[1, 7] %>% 
     str_replace(",","") %>% as.numeric
   
-  between_35_and_44 = demographic_data %>% .[9] %>% 
+  between_35_and_44 = demographic_data %>% .[13] %>% 
     str_split(., " ", simplify = TRUE)
   
   between_35_and_44_case = between_35_and_44 %>% .[1, 3] %>% 
@@ -373,7 +373,7 @@ get_florida = function() {
   between_35_and_44_death = between_35_and_44 %>% .[1, 7] %>% 
     str_replace(",","") %>% as.numeric
   
-  between_45_and_54 = demographic_data %>% .[10] %>% 
+  between_45_and_54 = demographic_data %>% .[14] %>% 
     str_split(., " ", simplify = TRUE)
   
   between_45_and_54_case = between_45_and_54 %>% .[1, 3] %>% 
@@ -383,7 +383,7 @@ get_florida = function() {
   between_45_and_54_death = between_45_and_54 %>% .[1, 7] %>% 
     str_replace(",","") %>% as.numeric
   
-  between_55_and_64 = demographic_data %>% .[11] %>% 
+  between_55_and_64 = demographic_data %>% .[15] %>% 
     str_split(., " ", simplify = TRUE)
   
   between_55_and_64_case = between_55_and_64 %>% .[1, 3] %>% 
@@ -393,7 +393,7 @@ get_florida = function() {
   between_55_and_64_death = between_55_and_64 %>% .[1, 7] %>% 
     str_replace(",","") %>% as.numeric
   
-  between_65_and_74 = demographic_data %>% .[12] %>% 
+  between_65_and_74 = demographic_data %>% .[16] %>% 
     str_split(., " ", simplify = TRUE)
   
   between_65_and_74_case = between_65_and_74 %>% .[1, 3] %>% 
@@ -403,7 +403,7 @@ get_florida = function() {
   between_65_and_74_death = between_65_and_74 %>% .[1, 7] %>% 
     str_replace(",","") %>% as.numeric
   
-  between_75_and_84 = demographic_data %>% .[13] %>% 
+  between_75_and_84 = demographic_data %>% .[17] %>% 
     str_split(., " ", simplify = TRUE)
   
   between_75_and_84_case = between_75_and_84 %>% .[1, 3] %>% 
@@ -413,7 +413,7 @@ get_florida = function() {
   between_75_and_84_death = between_75_and_84 %>% .[1, 7] %>% 
     str_replace(",","") %>% as.numeric
   
-  older_than_85 = demographic_data %>% .[14] %>% 
+  older_than_85 = demographic_data %>% .[18] %>% 
     str_split(., " ", simplify = TRUE)
   
   older_than_85_case = older_than_85 %>% .[1, 3] %>% 
@@ -423,7 +423,7 @@ get_florida = function() {
   older_than_85_death = older_than_85 %>% .[1, 7] %>% 
     str_replace(",","") %>% as.numeric
   
-  unknown_age = demographic_data %>% .[15] %>% 
+  unknown_age = demographic_data %>% .[19] %>% 
     str_split(., " ", simplify = TRUE)
   
   unknown_age_case = unknown_age %>% .[1, 2] %>% 
@@ -433,7 +433,7 @@ get_florida = function() {
   unknown_age_death = unknown_age %>% .[1, 6] %>% 
     str_replace(",","") %>% as.numeric
   
-  hispanic = demographic_data %>% .[18] %>% 
+  hispanic = demographic_data %>% .[25] %>% 
     str_split(., " ", simplify = TRUE)
   
   hispanic_case = hispanic %>% .[1, 2] %>% 
@@ -443,7 +443,7 @@ get_florida = function() {
   hispanic_death = hispanic %>% .[1, 6] %>% 
     str_replace(",","") %>% as.numeric
   
-  non_hispanic = demographic_data %>% .[19] %>% 
+  non_hispanic = demographic_data %>% .[26] %>% 
     str_split(., " ", simplify = TRUE)
   
   non_hispanic_case = non_hispanic %>% .[1, 2] %>% 
@@ -453,7 +453,7 @@ get_florida = function() {
   non_hispanic_death = non_hispanic %>% .[1, 6] %>% 
     str_replace(",","") %>% as.numeric
   
-  unknown_ethnicity = demographic_data %>% .[20] %>% 
+  unknown_ethnicity = demographic_data %>% .[27] %>% 
     str_split(., " ", simplify = TRUE)
   
   unknown_ethnicity_case = unknown_ethnicity %>% .[1, 2] %>% 
@@ -463,7 +463,7 @@ get_florida = function() {
   unknown_ethnicity_death = unknown_ethnicity %>% .[1, 6] %>% 
     str_replace(",","") %>% as.numeric
   
-  white = demographic_data %>% .[23] %>% 
+  white = demographic_data %>% .[33] %>% 
     str_split(., " ", simplify = TRUE)
   
   white_case = white %>% .[1, 2] %>% 
@@ -473,7 +473,7 @@ get_florida = function() {
   white_death = white %>% .[1, 6] %>% 
     str_replace(",","") %>% as.numeric
   
-  black = demographic_data %>% .[27] %>% 
+  black = demographic_data %>% .[37] %>% 
     str_split(., " ", simplify = TRUE) 
   
   black_case = black %>% .[1, 2] %>% 
@@ -483,24 +483,24 @@ get_florida = function() {
   black_death = black %>% .[1, 6] %>% 
     str_replace(",","") %>% as.numeric
   
-  other_race = demographic_data %>% .[31] %>% 
+  other_race = demographic_data %>% .[41] %>% 
     str_split(., " ", simplify = TRUE) 
   
-  other_race_case = other_race %>% .[1, 2] %>% 
+  other_race_case = other_race %>% .[1, 3] %>% 
     str_replace(",","") %>% as.numeric
-  other_race_hosp = other_race %>% .[1, 4] %>% 
+  other_race_hosp = other_race %>% .[1, 5] %>% 
     str_replace(",","") %>% as.numeric
-  other_race_death = other_race %>% .[1, 6] %>% 
+  other_race_death = other_race %>% .[1, 7] %>% 
     str_replace(",","") %>% as.numeric
   
-  unk_race = demographic_data %>% .[35] %>% 
+  unk_race = demographic_data %>% .[44] %>% 
     str_split(., " ", simplify = TRUE)
   
-  unk_race_case = unk_race %>% .[1, 3] %>% 
+  unk_race_case = unk_race %>% .[1, 2] %>% 
     str_replace(",","") %>% as.numeric
-  unk_race_hosp = unk_race %>% .[1, 5] %>% 
+  unk_race_hosp = unk_race %>% .[1, 4] %>% 
     str_replace(",","") %>% as.numeric
-  unk_race_death = unk_race %>% .[1, 7] %>% 
+  unk_race_death = unk_race %>% .[1, 6] %>% 
     str_replace(",","") %>% as.numeric
   
   # Log all of the information
