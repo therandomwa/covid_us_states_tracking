@@ -16,7 +16,7 @@ options(warn = -1)
 
 ### 0. load files 
 setwd("~/OneDrive - cumc.columbia.edu/Side/covid_us_states_tracking/source")
-file_date = Sys.Date()-1 # change accordingly if the editing date is not the scraping date
+file_date = Sys.Date()-3 # change accordingly if the editing date is not the scraping date
 file_date_name = file_date %>% format("%Y%m%d")
 
 # load Aijin's data
@@ -27,12 +27,14 @@ df_cbp = load_object("../Data/raw_states/meta_2020-07-07-cbp.rda")
 
 # load manual data
 df_lef = load_object("../manual_data/manual_data_20200706_lef.rda")
-# df_lef2 = load_object("../manual_data/manual_data_20200622_lef.rda")[1,]
+df_lef = df_lef %>% filter(state_name != "New York")
+df_lef2 = load_object("../manual_data/manual_data_20200707_lef.rda")
+df_lef = rbind.fill(df_lef, df_lef2)
 # df_lef3 = load_object("../manual_data/manual_data_20200624_lef.rda")
 df_as = load_object("../manual_data/manual_data_20200706_as.rda")
-# df_as = df_as %>% filter(state_name != "New Hampshire")
-# df_as2 = load_object("../manual_data/manual_data_20200701_as.rda")
-#df_cej = load_object("../manual_data/manual_data_20200622_cej.rda")
+df_as = df_as %>% filter(state_name != "Hawaii")
+df_as2 = load_object("../manual_data/manual_data_20200709_as.rda")
+df_as = rbind.fill(df_as, df_as2)
 df_gl = load_object("../manual_data/manual_data_20200706_gl.rda")
 df_cbp = rbind(df_cbp, df_lef, df_as, df_gl)
 ### 1. compile files ----
