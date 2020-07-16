@@ -245,10 +245,6 @@ get_mississippi = function() {
   mississippi[["deaths"]][["race_white"]] = male_white + female_white
   mississippi[["deaths"]][["race_NatA"]] = male_nata + female_nata
   mississippi[["deaths"]][["race_other"]] = male_other + female_other
-  mississippi[["deaths"]][["race_unk"]] = dc[1] - (
-    male_afra + male_white + male_nata + male_other +
-      female_afra + female_white + female_nata + female_other
-  )
   
   mississippi[["cases"]][["sex_male"]] = get_information2("MS, cases gender male (whole %): ")
   mississippi[["cases"]][["sex_female"]] = get_information2("MS, cases gender female (whole %): ")
