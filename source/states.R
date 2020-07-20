@@ -1213,12 +1213,12 @@ get_minnesota = function() {
   url = "https://www.health.state.mn.us/diseases/coronavirus/situation.html"
   
   total_tests = read_html(url) %>% 
-    html_nodes("body #container #content .site-wrap #body #accordion p") %>% 
-    html_text() %>% .[4] %>% 
-    str_split(" ", simplify = TRUE) %>% .[1, 6] %>% 
+    html_nodes("body #container #content .site-wrap #body #accordion p") %>%
+    html_text() %>% .[5] %>%
+    str_split(" ", simplify = TRUE) %>% .[1, 6] %>%
     str_split(":", simplify = TRUE) %>% .[1, 2] %>% 
     str_trim %>% str_replace(",", "") %>% as.numeric
-  
+
   death_age_table = read_html(url) %>% 
     html_nodes("body #container #content .site-wrap #body #accordion .panel") %>% 
     html_nodes("#ageg .panel-body #agetable") %>% 
