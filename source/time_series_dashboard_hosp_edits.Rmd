@@ -1,0 +1,187 @@
+---
+title: "Current COVID19 Hospitalizations by Day"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
+runtime: shiny
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+library(tidyverse)
+library(rvest)
+library(httr)
+library(plotly)
+library(vistime)
+library(jsonlite)
+library(shiny)
+library(shinyWidgets)
+```
+
+   
+```{r}
+# read in case data
+## update to read in the API - not exactly sure how to do this
+## from https://covidtracking.com/data/download
+## data use details: https://covidtracking.com/about-data/license
+
+hosp = read_csv("daily.csv", col_names = TRUE) %>% filter(state != "GU") %>%
+filter(state != "PR") %>%
+    janitor::clean_names()%>%
+  mutate(date = (as.character(date))) %>%
+  mutate(date = as.Date(date, format='%Y%m%d'))
+
+# read in pop data
+pop = read_csv("https://usafactsstatic.blob.core.windows.net/public/data/covid-19/covid_county_population_usafacts.csv", col_names = TRUE) %>%
+  janitor::clean_names() %>%
+  group_by(state) %>%
+  summarize(population = sum(population))
+
+# join population counts to cases and deaths datasets for normalized counts for current hosp
+hosp2 = left_join(hosp, pop, by = "state") %>%
+  filter(hospitalized_currently != "NA") %>%
+  mutate(new_hosp_norm = (hospitalized_currently/population)*100000) %>%
+  select(state, date, hospitalized_currently, new_hosp_norm) %>%
+  pivot_longer(c(-state, -date), names_to = "num_type", values_to = "val") %>%
+  mutate(num_type = ifelse(num_type == "hospitalized_currently", "Counts", "Per 100k"))%>%
+  arrange(state, num_type, date) %>%
+  mutate(roll_avg3 = (val + lag(val) + lead(val))/3,
+         roll_avg5 = (val + lag(val) + lead(val) + lag(lag(val)) + lead(lead(val)))/5,
+         roll_avg7 = (val + lag(val) + lead(val) + lag(lag(val)) + lead(lead(val)) + lag(lag(lag(val))) + lead(lead(lead(val))))/7) %>%
+  mutate(roll_avg3 = ifelse(num_type != lag(num_type) | num_type != lead(num_type), NA, roll_avg3),
+         roll_avg5 = ifelse(num_type != lag(num_type) | num_type != lead(num_type) | num_type != lag(lag(num_type)) | num_type != lead(lead(num_type)), NA, roll_avg5),
+         roll_avg7 = ifelse(num_type != lag(num_type) | num_type != lead(num_type) | num_type != lag(lag(num_type)) | num_type != lead(lead(num_type)) | num_type != lag(lag(lag(num_type))) | num_type != lead(lead(lead(num_type))), NA, roll_avg7)) %>%
+  pivot_longer(roll_avg3:roll_avg7, 
+               names_to = "roll_avg_num",
+               values_to = "roll_avg_val") %>%
+  mutate(roll_avg_num = substring(roll_avg_num, 9))
+
+##do the same for ICU use 
+icu2 = left_join(hosp, pop, by = "state") %>%
+  filter(in_icu_currently != "NA") %>%
+  mutate(icu_norm = (in_icu_currently/population)*100000) %>%
+  select(state, date, in_icu_currently, icu_norm) %>%
+  pivot_longer(c(-state, -date), names_to = "num_type", values_to = "val") %>%
+  mutate(num_type = ifelse(num_type == "in_ICU_currently", "Counts", "Per 100k"))%>%
+  arrange(state, num_type, date) %>%
+  mutate(roll_avg3 = (val + lag(val) + lead(val))/3,
+         roll_avg5 = (val + lag(val) + lead(val) + lag(lag(val)) + lead(lead(val)))/5,
+         roll_avg7 = (val + lag(val) + lead(val) + lag(lag(val)) + lead(lead(val)) + lag(lag(lag(val))) + lead(lead(lead(val))))/7) %>%
+  mutate(roll_avg3 = ifelse(num_type != lag(num_type) | num_type != lead(num_type), NA, roll_avg3),
+         roll_avg5 = ifelse(num_type != lag(num_type) | num_type != lead(num_type) | num_type != lag(lag(num_type)) | num_type != lead(lead(num_type)), NA, roll_avg5),
+         roll_avg7 = ifelse(num_type != lag(num_type) | num_type != lead(num_type) | num_type != lag(lag(num_type)) | num_type != lead(lead(num_type)) | num_type != lag(lag(lag(num_type))) | num_type != lead(lead(lead(num_type))), NA, roll_avg7)) %>%
+  pivot_longer(roll_avg3:roll_avg7, 
+               names_to = "roll_avg_num",
+               values_to = "roll_avg_val") %>%
+  mutate(roll_avg_num = substring(roll_avg_num, 9))
+
+
+
+state_string = hosp2 %>% distinct(state) %>% pull()
+icu = icu2 %>% distinct(state) %>% pull()
+
+
+```   
+   
+   
+   
+   
+   
+Column {.sidebar}
+-----------------------------------------------------------------------
+  
+   
+```{r}
+radioButtons(
+  "count_choice",
+  label = h3("Select Count Type"),
+  choices = c("Counts", "Per 100k"), selected = "Counts"
+)
+```
+
+```{r}
+radioButtons(
+  "roll_choice",
+  label = h3("Select Rolling Average"),
+  choices = c("3", "5", "7"), selected = "3"
+)
+```
+
+
+```{r}
+states = hosp2 %>% distinct(state) %>% pull()
+selectInput(
+  "state_choice1",
+  label = h3("Select First State"),
+  choices = states, selected = "AK"
+)
+```
+
+```{r}
+states = hosp2 %>% distinct(state) %>% pull()
+selectInput(
+  "state_choice2",
+  label = h3("Select Second State"),
+  choices = states, selected = "NC"
+)
+```
+
+```{r}
+states = hosp2 %>% distinct(state) %>% pull()
+selectInput(
+  "state_choice3",
+  label = h3("Select Third State"),
+  choices = states, selected = "ND"
+)
+```
+
+```{r}
+states = hosp2 %>% distinct(state) %>% pull()
+selectInput(
+  "state_choice4",
+  label = h3("Select Fourth State"),
+  choices = states, selected = "WY"
+)
+```
+
+```{r}
+states = hosp2 %>% distinct(state) %>% pull()
+selectInput(
+  "state_choice5",
+  label = h3("Select Fifth State"),
+  choices = states, selected = "NY"
+)
+```
+   
+*Note: There may be artificial spikes or negative values from changes in recording and classification of COVID-19 data. For example, some spikes are caused by the inclusion of probable death counts.*   
+
+Column {data-width=500}
+-----------------------------------------------------------------------
+
+### COVID Current Hospital Use
+
+```{r}
+renderPlotly({
+ hosp2 %>%
+    filter(state %in% c(input$state_choice1, input$state_choice2,
+                        input$state_choice3, input$state_choice4, input$state_choice5),
+           num_type == input$count_choice,
+           roll_avg_num == input$roll_choice)%>%
+    plot_ly(
+      x = ~date, y = ~roll_avg_val, color = ~state, 
+      type = "scatter", mode = "lines",
+      hoverinfo = "text",
+      text = ~paste0("State: ", state, "\nDate: ", date, '\nRolling Avg: ', prettyNum(round(roll_avg_val, 2), big.mark = ",")),
+      colors = c("#71B2C9", "#FF9800", "#AE2573", "#D14124", "#B7BF10")
+    ) %>%
+    layout(
+      xaxis = list(title = "Date"),
+      yaxis = list(title = "Current COVID-19 Hospitilizations")
+    )
+})
+```
+
+
+
+
