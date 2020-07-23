@@ -16,7 +16,7 @@ options(warn = -1)
 
 ### 0. load files 
 setwd("~/OneDrive - cumc.columbia.edu/Side/covid_us_states_tracking/source")
-file_date = Sys.Date()-1 # change accordingly if the editing date is not the scraping date
+file_date = Sys.Date()-8 # change accordingly if the editing date is not the scraping date
 file_date_name = file_date %>% format("%Y%m%d")
 
 # load Aijin's data
@@ -173,21 +173,25 @@ race_standard = function(race_var){
                    grep("NH|HISPANIC|CAUCASIAN|PACIFIC", race$original, invert = TRUE)), ]$new = "ASIAN"}, silent = TRUE)
   try({
     # NH ASIAN/
-    race[Reduce(intersect, list(grep("ASIAN", race$original),
+    race[Reduce(intersect, list(which(is.na(race$new)),
+                                grep("ASIAN", race$original),
                                 grep("NH|HISPANIC", race$original),
                                 grep("PACIFIC", race$original, invert = T))),]$new = "NH ASIAN"}, silent = TRUE)
   try({
     # AI/AN
-    race[intersect(grep("ALASKA|AI/AN|AIAN|NATA|NA", race$original),
-                   grep("NH|HISPANIC|PACIFIC", race$original, invert = TRUE)), ]$new = "AI/AN"}, silent = TRUE)
+    race[intersect(list(which(is.na(race$new)),
+                        grep("ALASKA|AI/AN|AIAN|NATA|NA", race$original),
+                        grep("NH|HISPANIC|PACIFIC", race$original, invert = TRUE))), ]$new = "AI/AN"}, silent = TRUE)
   try({
     # NH AI/AN
-    race[Reduce(intersect, list(grep("ALASKA|AI/AN|AIAN|NATA", race$original),
+    race[Reduce(intersect, list(which(is.na(race$new)),
+                                grep("ALASKA|AI/AN|AIAN|NATA", race$original),
                                 grep("NH|HISPANIC", race$original),
                                 grep("PACIFIC", race$original, invert = T))),]$new = "NH AI/AN"}, silent = TRUE)
   try({
     # UNKNOWN
-    race[Reduce(intersect, list(grep("MISS|BLANK|UNKNOWN|AVAIL|DISCLOSE|REPORT|UNK|REFUSE", race$original),
+    race[Reduce(intersect, list(which(is.na(race$new)),
+                                grep("MISS|BLANK|UNKNOWN|AVAIL|DISCLOSE|REPORT|UNK|REFUSE", race$original),
                                 which(is.na(race$new)),
                                 grep("OTHER", race$original, invert = T))),]$new = "UNKNOWN" }, silent = TRUE)
   try({
