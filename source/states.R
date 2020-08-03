@@ -1214,10 +1214,10 @@ get_minnesota = function() {
   
   total_tests = read_html(url) %>% 
     html_nodes("body #container #content .site-wrap #body #accordion p") %>%
-    html_text() %>% .[5] %>%
+    html_text() %>% .[4] %>%
     str_split(" ", simplify = TRUE) %>% .[1, 6] %>%
     str_split(":", simplify = TRUE) %>% .[1, 2] %>% 
-    str_trim %>% str_replace(",", "") %>% as.numeric
+    str_trim %>% str_replace_all(",", "") %>% as.numeric
 
   death_age_table = read_html(url) %>% 
     html_nodes("body #container #content .site-wrap #body #accordion .panel") %>% 
@@ -1504,7 +1504,10 @@ get_idaho = function() {
   skeleton[["cases"]][["age_50_59"]] = get_information("ID: Cases age 50 - 59?: ")
   skeleton[["cases"]][["age_60_69"]] = get_information("ID: Cases age 60 - 69?: ")
   skeleton[["cases"]][["age_70_79"]] = get_information("ID: Cases age 70 - 79?: ")
-  skeleton[["cases"]][["age_80+"]] = get_information("ID: Cases age 80+?: ")
+  age_80_89 = get_information("ID: Cases age 80 - 89?: ")
+  age_90_99 = get_information("ID: Cases age 90 - 99?: ")
+  age_100_plus = get_information("ID: Cases age 100+?: ")
+  skeleton[["cases"]][["age_80+"]] = age_80_89 + age_90_99 + age_100_plus
   
   skeleton[["cases"]][["sex_female"]] = get_information("ID: Cases sex female?: ")
   skeleton[["cases"]][["sex_male"]] = get_information("ID: Cases sex male?: ")
@@ -1555,9 +1558,13 @@ get_idaho = function() {
   skeleton[["deaths"]][["sex_female"]] = get_information("ID: Deaths sex female?: ")
   skeleton[["deaths"]][["ethnicity_hispanic"]] = get_information("ID: Deaths hispanic?: ")
   skeleton[["deaths"]][["ethnicity_non_hispanic"]] = get_information("ID: Deaths not hispanic?: ")
+  
   skeleton[["deaths"]][["race_white"]] = get_information("ID: Deaths race white?: ")
-  skeleton[["deaths"]][["race_asian"]] = get_information("ID: Deaths race asian?: ")
+  skeleton[["deaths"]][["race_NatA"]] = get_information("ID: Deaths race NatA?: ")
   skeleton[["deaths"]][["race_AfrA"]] = get_information("ID: Deaths race AfrA?: ")
+  skeleton[["deaths"]][["race_other"]] = get_information("ID: Deaths race other?: ")
+  skeleton[["deaths"]][["race_asian"]] = get_information("ID: Deaths race asian?: ")
+  
 
   skeleton[["tested"]][["total"]] = get_information("ID: Total tested?: ")
   
