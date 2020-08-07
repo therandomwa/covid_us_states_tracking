@@ -156,14 +156,19 @@ get_mississippi = function() {
   mississippi = skeleton_table(ms_cols)
   browseURL("https://msdh.ms.gov/msdhsite/_static/14,0,420.html")
   
+  demographics_pdf_path = read_html("https://msdh.ms.gov/msdhsite/_static/14,0,420,884.html") %>% 
+    html_nodes("#page_top #pageContainer #pageContent .assetNow_pageAndFileList") %>% 
+    html_nodes("li.assetNow_fileListing a") %>% 
+    html_attr("href") %>% unique %>% .[2] # most updated file is the second link
+  
   # cases by race and ethnicity
-  rc = pdf_text("https://msdh.ms.gov/msdhsite/_static/resources/8710.pdf") %>% 
-    .[2] %>% str_split("\n") %>% .[[1]] %>% .[18] %>% str_squish %>% 
+  rc = paste0("https://msdh.ms.gov/msdhsite/_static/", demographics_pdf_path) %>% 
+    pdf_text %>% .[2] %>% str_split("\n") %>% .[[1]] %>% .[18] %>% str_squish %>% 
     str_split(" ", simplify = TRUE) %>% c() %>% .[2:20] %>% as.numeric
   
   # cases by race and ethnicity
-  dc = pdf_text("https://msdh.ms.gov/msdhsite/_static/resources/8710.pdf") %>% 
-    .[4] %>% str_split("\n") %>% .[[1]] %>% .[18] %>% str_squish %>% 
+  dc = paste0("https://msdh.ms.gov/msdhsite/_static/", demographics_pdf_path) %>% 
+    pdf_text %>% .[4] %>% str_split("\n") %>% .[[1]] %>% .[18] %>% str_squish %>% 
     str_split(" ", simplify = TRUE) %>% c() %>% .[2:20] %>% as.numeric
   
   mississippi[["cases"]][["total"]] = rc[1]
@@ -1520,7 +1525,7 @@ get_idaho = function() {
   case_non_hisp = get_information2("ID: Cases not hispanic (whole %)?: ")
   skeleton[["cases"]][["ethnicity_non_hispanic"]] = ((skeleton[["cases"]][["total"]] - skeleton[["cases"]][["ethnicity_unk"]]) * case_non_hisp) %>% floor
   
-  skeleton[["cases"]][["race_unk"]] = get_information2("ID: Cases race unknown? (calc. #): ")
+  skeleton[["cases"]][["race_unk"]] = get_information("ID: Cases race unknown? (calc. #): ")
   
   case_white = get_information2("ID: Cases race white (whole %)?: ")
   skeleton[["cases"]][["race_white"]] = ((skeleton[["cases"]][["total"]] - skeleton[["cases"]][["race_unk"]]) * case_white) %>% floor
