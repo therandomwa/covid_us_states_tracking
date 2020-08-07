@@ -580,7 +580,7 @@
 "Idaho","HN/PI",95,"08/03/20","race","case","Count",3883,95,2446.56193664692
 "Idaho","MULTI",1116,"08/03/20","race","case","Count",44094,1116,2530.95659273371
 "Idaho","OTHER",3694,"08/03/20","race","case","Count",NA,3694,NA
-"Idaho","UNKNOWN",74.31,"08/03/20","race","case","Count",NA,74.31,NA
+"Idaho","UNKNOWN",8102,"08/03/20","race","case","Count",NA,8102,NA
 "Idaho","WHITE",15509,"08/03/20","race","case","Count",1632188,15509,950.196913590836
 "Idaho","0-17",1862,"08/03/20","age","case","Count",446972,1862,416.580904396696
 "Idaho","18-29",6584,"08/03/20","age","case","Count",281944,6584,2335.21550378799
@@ -1199,65 +1199,65 @@
 "Minnesota","HISPANIC",801,"08/03/2020","eth","hosp","Count",309283,801,258.986106575531
 "Minnesota","NON HISPANIC",3820,"08/03/2020","eth","hosp","Count",5301896,3820,72.0496969386046
 "Minnesota","UNKNOWN",491,"08/03/2020","eth","hosp","Count",NA,491,NA
-"Mississippi","AI/AN",1076,"08/03/20","race","case","Count",18423,1076,5840.52543016881
-"Mississippi","ASIAN",101,"08/03/20","race","case","Count",32152,101,314.132868872854
-"Mississippi","BLACK",15110,"08/03/20","race","case","Count",1128912,15110,1338.45685048968
-"Mississippi","HN/PI",0,"08/03/20","race","case",NA,1812,0,0
-"Mississippi","MULTI",0,"08/03/20","race","case",NA,38930,0,0
-"Mississippi","OTHER",2824,"08/03/20","race","case","Count",NA,2824,NA
-"Mississippi","UNKNOWN",3499,"08/03/20","race","case","Count",NA,3499,NA
-"Mississippi","WHITE",8647,"08/03/20","race","case","Count",1766301,8647,489.554158662652
-"Mississippi","0-17",6104,"08/03/20","age","case","Count",706141,6104,864.416596685364
-"Mississippi","18-29",13138,"08/03/20","age","case","Count",501335,13138,2620.60299001666
-"Mississippi","30-39",9399,"08/03/20","age","case","Count",374764,9399,2507.97835437769
-"Mississippi","40-49",9337,"08/03/20","age","case","Count",359462,9337,2597.49291997485
-"Mississippi","50-59",8762,"08/03/20","age","case","Count",383158,8762,2286.78508604805
-"Mississippi","60-69",6700,"08/03/20","age","case","Count",344606,6700,1944.24937464815
-"Mississippi","70-79",4045,"08/03/20","age","case","Count",208582,4045,1939.2852691028
-"Mississippi","80-89",2168,"08/03/20","age","case","Count",NA,2168,NA
-"Mississippi","90+",813,"08/03/20","age","case","Count",NA,813,NA
-"Mississippi","FEMALE",0.571,"08/03/20","gender","case","Percent",1538795,17848,1159.86859848128
-"Mississippi","MALE",0.424,"08/03/20","gender","case","Percent",1447735,13253,915.429964738022
-"Mississippi","UNKNOWN",0.005,"08/03/20","gender","case","Percent",NA,156,NA
-"Mississippi","AI/AN",78,"08/03/20","race","death","Count",18423,78,423.383813711122
-"Mississippi","ASIAN",1,"08/03/20","race","death","Count",32152,1,3.1102264244837
-"Mississippi","BLACK",854,"08/03/20","race","death","Count",1128912,854,75.6480575988208
-"Mississippi","HN/PI",0,"08/03/20","race","death",NA,1812,0,0
-"Mississippi","MULTI",0,"08/03/20","race","death",NA,38930,0,0
-"Mississippi","OTHER",31,"08/03/20","race","death","Count",NA,31,NA
-"Mississippi","UNKNOWN",5,"08/03/20","race","death","Count",NA,5,NA
-"Mississippi","WHITE",725,"08/03/20","race","death","Count",1766301,725,41.0462316445498
-"Mississippi","0-17",0,"08/03/20","age","death",NA,706141,0,0
-"Mississippi","18-29",11,"08/03/20","age","death","Count",501335,11,2.19414164181635
-"Mississippi","30-39",27,"08/03/20","age","death","Count",374764,27,7.20453405343096
-"Mississippi","40-49",75,"08/03/20","age","death","Count",359462,75,20.8645141906516
-"Mississippi","50-59",173,"08/03/20","age","death","Count",383158,173,45.1510864969543
-"Mississippi","60-69",362,"08/03/20","age","death","Count",344606,362,105.047503525766
-"Mississippi","70-79",452,"08/03/20","age","death","Count",208582,452,216.701345274281
-"Mississippi","80-89",384,"08/03/20","age","death","Count",NA,384,NA
-"Mississippi","90+",227,"08/03/20","age","death","Count",NA,227,NA
-"Mississippi","FEMALE",871,"08/03/20","gender","death","Count",1538795,871,56.6027313579782
-"Mississippi","MALE",817,"08/03/20","gender","death","Count",1447735,817,56.4329797925725
-"Mississippi","UNKNOWN",0,"08/03/20","gender","death",NA,NA,0,NA
-"Mississippi","0-17",58,"08/03/20","age","hosp","Count",706141,58,8.21365704583079
-"Mississippi","18-29",188,"08/03/20","age","hosp","Count",501335,188,37.4998753328613
-"Mississippi","30-39",251,"08/03/20","age","hosp","Count",374764,251,66.9754832374508
-"Mississippi","40-49",489,"08/03/20","age","hosp","Count",359462,489,136.036632523048
-"Mississippi","50-59",731,"08/03/20","age","hosp","Count",383158,731,190.782914620078
-"Mississippi","60-69",984,"08/03/20","age","hosp","Count",344606,984,285.543490246833
-"Mississippi","70-79",906,"08/03/20","age","hosp","Count",208582,906,434.361546058624
-"Mississippi","80-89",549,"08/03/20","age","hosp","Count",NA,549,NA
-"Mississippi","90+",224,"08/03/20","age","hosp","Count",NA,224,NA
-"Mississippi","",477160,"08/03/20","total","test","Count",2986530,477160,15977.0703793366
-"Mississippi","",31257,"08/03/20","total","case","Count",2986530,31257,1046.59923054515
-"Mississippi","HISPANIC",1544,"08/03/20","eth","case","Count",100168,1544,1541.4104304768
-"Mississippi","NON HISPANIC",21674,"08/03/20","eth","case","Count",2886362,21674,750.910661933604
-"Mississippi","UNKNOWN",8039,"08/03/20","eth","case","Count",NA,8039,NA
-"Mississippi","",1114,"08/03/20","total","death","Count",2986530,1114,37.3008139881401
-"Mississippi","HISPANIC",18,"08/03/20","eth","death","Count",100168,18,17.9698107179938
-"Mississippi","NON HISPANIC",1023,"08/03/20","eth","death","Count",2886362,1023,35.4425397784477
-"Mississippi","UNKNOWN",73,"08/03/20","eth","death","Count",NA,73,NA
-"Mississippi","",4380,"08/03/20","total","hosp","Count",2986530,4380,146.658496649958
+"Mississippi","AI/AN",1226,"08/07/20","race","case","Count",18423,1226,6654.72507192097
+"Mississippi","ASIAN",223,"08/07/20","race","case","Count",32152,223,693.580492659866
+"Mississippi","BLACK",27599,"08/07/20","race","case","Count",1128912,27599,2444.74325722466
+"Mississippi","HN/PI",0,"08/07/20","race","case",NA,1812,0,0
+"Mississippi","MULTI",0,"08/07/20","race","case",NA,38930,0,0
+"Mississippi","OTHER",6509,"08/07/20","race","case","Count",NA,6509,NA
+"Mississippi","UNKNOWN",9093,"08/07/20","race","case","Count",NA,9093,NA
+"Mississippi","WHITE",20786,"08/07/20","race","case","Count",1766301,20786,1176.80961512222
+"Mississippi","0-17",6590,"08/07/20","age","case","Count",706141,6590,933.24137813836
+"Mississippi","18-29",13973,"08/07/20","age","case","Count",501335,13973,2787.15828737271
+"Mississippi","30-39",9967,"08/07/20","age","case","Count",374764,9967,2659.54040409431
+"Mississippi","40-49",9952,"08/07/20","age","case","Count",359462,9952,2768.58193633819
+"Mississippi","50-59",9345,"08/07/20","age","case","Count",383158,9345,2438.9416376534
+"Mississippi","60-69",7173,"08/07/20","age","case","Count",344606,7173,2081.50757676883
+"Mississippi","70-79",4338,"08/07/20","age","case","Count",208582,4338,2079.75760132706
+"Mississippi","80-89",2308,"08/07/20","age","case","Count",NA,2308,NA
+"Mississippi","90+",858,"08/07/20","age","case","Count",NA,858,NA
+"Mississippi","FEMALE",0.571,"08/07/20","gender","case","Percent",1538795,37364,2428.13370202009
+"Mississippi","MALE",0.424,"08/07/20","gender","case","Percent",1447735,27745,1916.44189026307
+"Mississippi","UNKNOWN",0.005,"08/07/20","gender","case","Percent",NA,327,NA
+"Mississippi","AI/AN",80,"08/07/20","race","death","Count",18423,80,434.239808934484
+"Mississippi","ASIAN",1,"08/07/20","race","death","Count",32152,1,3.1102264244837
+"Mississippi","BLACK",907,"08/07/20","race","death","Count",1128912,907,80.34284337486
+"Mississippi","HN/PI",0,"08/07/20","race","death",NA,1812,0,0
+"Mississippi","MULTI",0,"08/07/20","race","death",NA,38930,0,0
+"Mississippi","OTHER",34,"08/07/20","race","death","Count",NA,34,NA
+"Mississippi","UNKNOWN",26,"08/07/20","race","death","Count",NA,26,NA
+"Mississippi","WHITE",799,"08/07/20","race","death","Count",1766301,799,45.2357780468901
+"Mississippi","0-17",0,"08/07/20","age","death",NA,706141,0,0
+"Mississippi","18-29",11,"08/07/20","age","death","Count",501335,11,2.19414164181635
+"Mississippi","30-39",31,"08/07/20","age","death","Count",374764,31,8.27187243171703
+"Mississippi","40-49",78,"08/07/20","age","death","Count",359462,78,21.6990947582776
+"Mississippi","50-59",190,"08/07/20","age","death","Count",383158,190,49.5878984648631
+"Mississippi","60-69",389,"08/07/20","age","death","Count",344606,389,112.882538319124
+"Mississippi","70-79",489,"08/07/20","age","death","Count",208582,489,234.44017221045
+"Mississippi","80-89",420,"08/07/20","age","death","Count",NA,420,NA
+"Mississippi","90+",240,"08/07/20","age","death","Count",NA,240,NA
+"Mississippi","FEMALE",925,"08/07/20","gender","death","Count",1538795,925,60.1119707303442
+"Mississippi","MALE",895,"08/07/20","gender","death","Count",1447735,895,61.8207061375183
+"Mississippi","UNKNOWN",0,"08/07/20","gender","death",NA,NA,0,NA
+"Mississippi","0-17",61,"08/07/20","age","hosp","Count",706141,61,8.63850137578756
+"Mississippi","18-29",192,"08/07/20","age","hosp","Count",501335,192,38.2977450207945
+"Mississippi","30-39",259,"08/07/20","age","hosp","Count",374764,259,69.1101599940229
+"Mississippi","40-49",504,"08/07/20","age","hosp","Count",359462,504,140.209535361179
+"Mississippi","50-59",773,"08/07/20","age","hosp","Count",383158,773,201.744450070206
+"Mississippi","60-69",1033,"08/07/20","age","hosp","Count",344606,1033,299.762627464409
+"Mississippi","70-79",946,"08/07/20","age","hosp","Count",208582,946,453.538656259888
+"Mississippi","80-89",576,"08/07/20","age","hosp","Count",NA,576,NA
+"Mississippi","90+",233,"08/07/20","age","hosp","Count",NA,233,NA
+"Mississippi","",503167,"08/07/20","total","test","Count",2986530,503167,16847.880315952
+"Mississippi","",65436,"08/07/20","total","case","Count",2986530,65436,2191.03775954034
+"Mississippi","HISPANIC",2146,"08/07/20","eth","case","Count",100168,2146,2142.40076671192
+"Mississippi","NON HISPANIC",39358,"08/07/20","eth","case","Count",2886362,39358,1363.58502502458
+"Mississippi","UNKNOWN",23932,"08/07/20","eth","case","Count",NA,23932,NA
+"Mississippi","",1848,"08/07/20","total","death","Count",2986530,1848,61.8778314632701
+"Mississippi","HISPANIC",27,"08/07/20","eth","death","Count",100168,27,26.9547160769907
+"Mississippi","NON HISPANIC",1620,"08/07/20","eth","death","Count",2886362,1620,56.1260160714422
+"Mississippi","UNKNOWN",201,"08/07/20","eth","death","Count",NA,201,NA
+"Mississippi","",4577,"08/07/20","total","hosp","Count",2986530,4577,153.254780631703
 "Missouri","BLACK",0.2089,"08/03/20","race","case","Percent",724529,11048,1524.85269740756
 "Missouri","MULTI",0.0376,"08/03/20","race","case","Percent",143702,1989,1384.11434774742
 "Missouri","OTHER",0.0484,"08/03/20","race","case","Percent",NA,2560,NA
@@ -2271,73 +2271,73 @@
 "Vermont","HISPANIC",0,"08/02/20","eth","death",NA,12534,0,0
 "Vermont","NON HISPANIC",57,"08/02/20","eth","death","Count",613765,57,9.28694207066222
 "Vermont","UNKNOWN",0,"08/02/20","eth","death",NA,NA,0,NA
-"Virginia","NH AI/AN",96,"07/21/20","race","case","Count",22696,96,422.982023264011
-"Virginia","NH ASIAN/PI",2435,"07/21/20","race","case","Count",584666,2435,416.477099745838
-"Virginia","NH BLACK",13005,"07/21/20","race","case","Count",1627434,13005,799.11074734828
-"Virginia","HISPANIC",24670,"07/21/20","race","case","Count",820874,24670,3005.33333983047
-"Virginia","NH MULTI",285,"07/21/20","race","case","Count",227501,285,125.274174619013
-"Virginia","OTHER",1836,"07/21/20","race","case","Count",NA,1836,NA
-"Virginia","UNKNOWN",19414,"07/21/20","race","case","Count",NA,19414,NA
-"Virginia","NH WHITE",17630,"07/21/20","race","case","Count",5234514,17630,336.802996419534
-"Virginia","0-9",2705,"07/21/20","age","case","Count",1025381,2705,263.804381005694
-"Virginia","10-19",6006,"07/21/20","age","case","Count",1070646,6006,560.969732292466
-"Virginia","20-29",14628,"07/21/20","age","case","Count",1182998,14628,1236.51941930587
-"Virginia","30-39",14631,"07/21/20","age","case","Count",1164754,14631,1256.14507441056
-"Virginia","40-49",13513,"07/21/20","age","case","Count",1084330,13513,1246.20733540527
-"Virginia","50-59",11618,"07/21/20","age","case","Count",1150345,11618,1009.95788220056
-"Virginia","60-69",7537,"07/21/20","age","case","Count",956632,7537,787.86827118474
-"Virginia","70-79",3948,"07/21/20","age","case","Count",581429,3948,679.01669851349
-"Virginia","80+",3918,"07/21/20","age","case","Count",301170,3918,1300.92638709035
-"Virginia","UNKNOWN",867,"07/21/20","age","case","Count",NA,867,NA
-"Virginia","FEMALE",40332,"07/21/20","gender","case","Count",4327037,40332,932.092792365769
-"Virginia","MALE",38546,"07/21/20","gender","case","Count",4190648,38546,919.81001506211
-"Virginia","UNKNOWN",493,"07/21/20","gender","case","Count",NA,493,NA
-"Virginia","NH AI/AN",2,"07/21/20","race","death","Count",22696,2,8.8121254846669
-"Virginia","NH ASIAN/PI",117,"07/21/20","race","death","Count",584666,117,20.0114253265967
-"Virginia","NH BLACK",483,"07/21/20","race","death","Count",1627434,483,29.6786229118969
-"Virginia","HISPANIC",225,"07/21/20","race","death","Count",820874,225,27.4098095444611
-"Virginia","NH MULTI",0,"07/21/20","race","death",NA,227501,0,0
-"Virginia","OTHER",27,"07/21/20","race","death","Count",NA,27,NA
-"Virginia","UNKNOWN",87,"07/21/20","race","death","Count",NA,87,NA
-"Virginia","NH WHITE",1107,"07/21/20","race","death","Count",5234514,1107,21.1480951240172
-"Virginia","0-9",0,"07/21/20","age","death",NA,1025381,0,0
-"Virginia","10-19",0,"07/21/20","age","death",NA,1070646,0,0
-"Virginia","20-29",4,"07/21/20","age","death","Count",1182998,4,0.338123986684677
-"Virginia","30-39",16,"07/21/20","age","death","Count",1164754,16,1.37368062268943
-"Virginia","40-49",56,"07/21/20","age","death","Count",1084330,56,5.16447944813848
-"Virginia","50-59",127,"07/21/20","age","death","Count",1150345,127,11.0401662110063
-"Virginia","60-69",306,"07/21/20","age","death","Count",956632,306,31.9872218366101
-"Virginia","70-79",515,"07/21/20","age","death","Count",581429,515,88.5748732863342
-"Virginia","80+",1022,"07/21/20","age","death","Count",301170,1022,339.343228077166
-"Virginia","UNKNOWN",2,"07/21/20","age","death","Count",NA,2,NA
-"Virginia","FEMALE",1020,"07/21/20","gender","death","Count",4327037,1020,23.5727126900001
-"Virginia","MALE",1021,"07/21/20","gender","death","Count",4190648,1021,24.3637738125464
-"Virginia","UNKNOWN",7,"07/21/20","gender","death","Count",NA,7,NA
-"Virginia","NH AI/AN",6,"07/21/20","race","hosp","Count",22696,6,26.4363764540007
-"Virginia","NH ASIAN/PI",385,"07/21/20","race","hosp","Count",584666,385,65.8495619721345
-"Virginia","NH BLACK",1868,"07/21/20","race","hosp","Count",1627434,1868,114.781920495701
-"Virginia","HISPANIC",2449,"07/21/20","race","hosp","Count",820874,2449,298.34054921949
-"Virginia","NH MULTI",23,"07/21/20","race","hosp","Count",227501,23,10.109845671008
-"Virginia","OTHER",161,"07/21/20","race","hosp","Count",NA,161,NA
-"Virginia","UNKNOWN",221,"07/21/20","race","hosp","Count",NA,221,NA
-"Virginia","NH WHITE",2154,"07/21/20","race","hosp","Count",5234514,2154,41.1499520299306
-"Virginia","0-9",65,"07/21/20","age","hosp","Count",1025381,65,6.33910712213314
-"Virginia","10-19",68,"07/21/20","age","hosp","Count",1070646,68,6.35130566032097
-"Virginia","20-29",330,"07/21/20","age","hosp","Count",1182998,330,27.8952289014859
-"Virginia","30-39",654,"07/21/20","age","hosp","Count",1164754,654,56.1491954524303
-"Virginia","40-49",994,"07/21/20","age","hosp","Count",1084330,994,91.669510204458
-"Virginia","50-59",1343,"07/21/20","age","hosp","Count",1150345,1343,116.747584420326
-"Virginia","60-69",1440,"07/21/20","age","hosp","Count",956632,1440,150.528102760518
-"Virginia","70-79",1181,"07/21/20","age","hosp","Count",581429,1181,203.120243400312
-"Virginia","80+",1180,"07/21/20","age","hosp","Count",301170,1180,391.805292691835
-"Virginia","UNKNOWN",12,"07/21/20","age","hosp","Count",NA,12,NA
-"Virginia","FEMALE",3339,"07/21/20","gender","hosp","Count",4327037,3339,77.1659683057945
-"Virginia","MALE",3920,"07/21/20","gender","hosp","Count",4190648,3920,93.5416193390616
-"Virginia","UNKNOWN",8,"07/21/20","gender","hosp","Count",NA,8,NA
-"Virginia","",937148,"07/21/20","total","test","Count",8517685,937148,11002.379167579
-"Virginia","",79371,"07/21/20","total","case","Count",8517685,79371,931.837700032345
-"Virginia","",2048,"07/21/20","total","death","Count",8517685,2048,24.0440917925469
-"Virginia","",7267,"07/21/20","total","hosp","Count",8517685,7267,85.3166089142766
+"Virginia","NH AI/AN",406,"08/07/20","race","case","Count",22696,406,1788.86147338738
+"Virginia","NH ASIAN/PI",10728,"08/07/20","race","case","Count",584666,10728,1834.89376840795
+"Virginia","NH BLACK",63721,"08/07/20","race","case","Count",1627434,63721,3915.4275995217
+"Virginia","HISPANIC",98529,"08/07/20","race","case","Count",820874,98529,12002.9383315832
+"Virginia","NH MULTI",1560,"08/07/20","race","case","Count",227501,1560,685.711271598806
+"Virginia","OTHER",8281,"08/07/20","race","case","Count",NA,8281,NA
+"Virginia","UNKNOWN",84163,"08/07/20","race","case","Count",NA,84163,NA
+"Virginia","NH WHITE",82783,"08/07/20","race","case","Count",5234514,82783,1581.48397348827
+"Virginia","0-9",9724,"08/07/20","age","case","Count",1025381,9724,948.330425471118
+"Virginia","10-19",21908,"08/07/20","age","case","Count",1070646,21908,2046.24124126929
+"Virginia","20-29",53431,"08/07/20","age","case","Count",1182998,53431,4516.57568313725
+"Virginia","30-39",51159,"08/07/20","age","case","Count",1164754,51159,4392.25793601052
+"Virginia","40-49",46468,"08/07/20","age","case","Count",1084330,46468,4285.41126778748
+"Virginia","50-59",40345,"08/07/20","age","case","Count",1150345,40345,3507.20870695313
+"Virginia","60-69",26197,"08/07/20","age","case","Count",956632,26197,2738.46160278979
+"Virginia","70-79",13571,"08/07/20","age","case","Count",581429,13571,2334.07690362882
+"Virginia","80+",12740,"08/07/20","age","case","Count",301170,12740,4230.16900753727
+"Virginia","UNKNOWN",2908,"08/07/20","age","case","Count",NA,2908,NA
+"Virginia","FEMALE",454229,"08/07/20","gender","case","Count",4327037,454229,10497.4605024177
+"Virginia","MALE",428174,"08/07/20","gender","case","Count",4190648,428174,10217.3697242049
+"Virginia","UNKNOWN",5209,"08/07/20","gender","case","Count",NA,5209,NA
+"Virginia","NH AI/AN",8,"08/07/20","race","death","Count",22696,8,35.2485019386676
+"Virginia","NH ASIAN/PI",483,"08/07/20","race","death","Count",584666,483,82.6112686559506
+"Virginia","NH BLACK",2072,"08/07/20","race","death","Count",1627434,2072,127.31699104234
+"Virginia","HISPANIC",895,"08/07/20","race","death","Count",820874,895,109.030131299079
+"Virginia","NH MULTI",5,"08/07/20","race","death","Count",227501,5,2.19779253717566
+"Virginia","OTHER",130,"08/07/20","race","death","Count",NA,130,NA
+"Virginia","UNKNOWN",294,"08/07/20","race","death","Count",NA,294,NA
+"Virginia","NH WHITE",4664,"08/07/20","race","death","Count",5234514,4664,89.1009174872777
+"Virginia","0-9",1,"08/07/20","age","death","Count",1025381,1,0.0975247249558945
+"Virginia","10-19",0,"08/07/20","age","death",NA,1070646,0,0
+"Virginia","20-29",14,"08/07/20","age","death","Count",1182998,14,1.18343395339637
+"Virginia","30-39",56,"08/07/20","age","death","Count",1164754,56,4.80788217941299
+"Virginia","40-49",177,"08/07/20","age","death","Count",1084330,177,16.3234439700091
+"Virginia","50-59",423,"08/07/20","age","death","Count",1150345,423,36.7715772224854
+"Virginia","60-69",1032,"08/07/20","age","death","Count",956632,1032,107.878473645038
+"Virginia","70-79",1681,"08/07/20","age","death","Count",581429,1681,289.115266008403
+"Virginia","80+",3302,"08/07/20","age","death","Count",301170,3302,1096.39074276986
+"Virginia","UNKNOWN",6,"08/07/20","age","death","Count",NA,6,NA
+"Virginia","FEMALE",10590,"08/07/20","gender","death","Count",4327037,10590,244.740222928531
+"Virginia","MALE",10946,"08/07/20","gender","death","Count",4190648,10946,261.200654409533
+"Virginia","UNKNOWN",45,"08/07/20","gender","death","Count",NA,45,NA
+"Virginia","NH AI/AN",22,"08/07/20","race","hosp","Count",22696,22,96.9333803313359
+"Virginia","NH ASIAN/PI",1619,"08/07/20","race","hosp","Count",584666,1619,276.910235929573
+"Virginia","NH BLACK",8038,"08/07/20","race","hosp","Count",1627434,8038,493.906358107303
+"Virginia","HISPANIC",9574,"08/07/20","race","hosp","Count",820874,9574,1166.31785146076
+"Virginia","NH MULTI",99,"08/07/20","race","hosp","Count",227501,99,43.5162922360781
+"Virginia","OTHER",665,"08/07/20","race","hosp","Count",NA,665,NA
+"Virginia","UNKNOWN",860,"08/07/20","race","hosp","Count",NA,860,NA
+"Virginia","NH WHITE",9250,"08/07/20","race","hosp","Count",5234514,9250,176.71172529102
+"Virginia","0-9",212,"08/07/20","age","hosp","Count",1025381,212,20.6752416906496
+"Virginia","10-19",240,"08/07/20","age","hosp","Count",1070646,240,22.4163729187799
+"Virginia","20-29",1104,"08/07/20","age","hosp","Count",1182998,1104,93.322220324971
+"Virginia","30-39",2148,"08/07/20","age","hosp","Count",1164754,2148,184.416623596055
+"Virginia","40-49",3247,"08/07/20","age","hosp","Count",1084330,3247,299.447585144744
+"Virginia","50-59",4425,"08/07/20","age","hosp","Count",1150345,4425,384.667208533092
+"Virginia","60-69",4773,"08/07/20","age","hosp","Count",956632,4773,498.937940608301
+"Virginia","70-79",3931,"08/07/20","age","hosp","Count",581429,3931,676.092867744815
+"Virginia","80+",3796,"08/07/20","age","hosp","Count",301170,3796,1260.41770428662
+"Virginia","UNKNOWN",39,"08/07/20","age","hosp","Count",NA,39,NA
+"Virginia","FEMALE",35306,"08/07/20","gender","hosp","Count",4327037,35306,815.939406110925
+"Virginia","MALE",41636,"08/07/20","gender","hosp","Count",4190648,41636,993.545628265605
+"Virginia","UNKNOWN",56,"08/07/20","gender","hosp","Count",NA,56,NA
+"Virginia","",373805,"08/07/20","total","test","Count",8517685,373805,4388.57506470361
+"Virginia","",97882,"08/07/20","total","case","Count",8517685,97882,1149.16200822172
+"Virginia","",2317,"08/07/20","total","death","Count",8517685,2317,27.2022268961578
+"Virginia","",8281,"08/07/20","total","hosp","Count",8517685,8281,97.2212520185943
 "Washington","HISPANIC",17698,"08/06/20","race","case","Count",970358,17698,1823.86294542839
 "Washington","NH AI/AN",700,"08/06/20","race","case","Count",95666,700,731.712416114398
 "Washington","NH ASIAN",2035,"08/06/20","race","case","Count",687325,2035,296.075364638272

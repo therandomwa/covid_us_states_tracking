@@ -16,7 +16,7 @@ options(warn = -1)
 
 ### 0. load files 
 setwd("~/OneDrive - cumc.columbia.edu/Side/covid_us_states_tracking/source")
-file_date = Sys.Date()-1 # change accordingly if the editing date is not the scraping date
+file_date = Sys.Date()-4 # change accordingly if the editing date is not the scraping date
 file_date_name = file_date %>% format("%Y%m%d")
 
 # load Aijin's data
@@ -179,9 +179,9 @@ race_standard = function(race_var){
                                 grep("PACIFIC", race$original, invert = T))),]$new = "NH ASIAN"}, silent = TRUE)
   try({
     # AI/AN
-    race[intersect(list(which(is.na(race$new)),
-                        grep("ALASKA|AI/AN|AIAN|NATA|NA", race$original),
-                        grep("NH|HISPANIC|PACIFIC", race$original, invert = TRUE))), ]$new = "AI/AN"}, silent = TRUE)
+    race[Reduce(intersect, list(which(is.na(race$new)),
+                                grep("ALASKA|AI/AN|AIAN|NATA|NA", race$original),
+                                grep("NH|HISPANIC|PACIFIC", race$original, invert = TRUE))), ]$new = "AI/AN"}, silent = TRUE)
   try({
     # NH AI/AN
     race[Reduce(intersect, list(which(is.na(race$new)),
@@ -584,7 +584,7 @@ for (i in 1:nrow(age_bound)){
   }
 }
 age_bound = age_bound %>% select(-lower, -upper)
-age_bound[age_bound$state_name == "Georgia" & age_bound$category == "85",]$pop_est = NA
+# age_bound[age_bound$state_name == "Georgia" & age_bound$category == "85",]$pop_est = NA
 
 ### gender
 
@@ -802,7 +802,7 @@ final = final[final$category != "PENDING",]
 final = final[final$data_type == "case" | 
                 final$data_type == "death"|
                 final$data_type == "hosp"|
-  (final$data_type =="test" & final$strata_type == "total"),]
+                (final$data_type =="test" & final$strata_type == "total"),]
 
 
 ### 5. save file ----
