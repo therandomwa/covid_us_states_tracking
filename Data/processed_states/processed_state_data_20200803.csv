@@ -2271,69 +2271,69 @@
 "Vermont","HISPANIC",0,"08/02/20","eth","death",NA,12534,0,0
 "Vermont","NON HISPANIC",57,"08/02/20","eth","death","Count",613765,57,9.28694207066222
 "Vermont","UNKNOWN",0,"08/02/20","eth","death",NA,NA,0,NA
-"Virginia","NH AI/AN",406,"08/07/20","race","case","Count",22696,406,1788.86147338738
-"Virginia","NH ASIAN/PI",10728,"08/07/20","race","case","Count",584666,10728,1834.89376840795
-"Virginia","NH BLACK",63721,"08/07/20","race","case","Count",1627434,63721,3915.4275995217
-"Virginia","HISPANIC",98529,"08/07/20","race","case","Count",820874,98529,12002.9383315832
-"Virginia","NH MULTI",1560,"08/07/20","race","case","Count",227501,1560,685.711271598806
-"Virginia","OTHER",8281,"08/07/20","race","case","Count",NA,8281,NA
-"Virginia","UNKNOWN",84163,"08/07/20","race","case","Count",NA,84163,NA
-"Virginia","NH WHITE",82783,"08/07/20","race","case","Count",5234514,82783,1581.48397348827
-"Virginia","0-9",9724,"08/07/20","age","case","Count",1025381,9724,948.330425471118
-"Virginia","10-19",21908,"08/07/20","age","case","Count",1070646,21908,2046.24124126929
-"Virginia","20-29",53431,"08/07/20","age","case","Count",1182998,53431,4516.57568313725
-"Virginia","30-39",51159,"08/07/20","age","case","Count",1164754,51159,4392.25793601052
-"Virginia","40-49",46468,"08/07/20","age","case","Count",1084330,46468,4285.41126778748
-"Virginia","50-59",40345,"08/07/20","age","case","Count",1150345,40345,3507.20870695313
-"Virginia","60-69",26197,"08/07/20","age","case","Count",956632,26197,2738.46160278979
-"Virginia","70-79",13571,"08/07/20","age","case","Count",581429,13571,2334.07690362882
-"Virginia","80+",12740,"08/07/20","age","case","Count",301170,12740,4230.16900753727
-"Virginia","UNKNOWN",2908,"08/07/20","age","case","Count",NA,2908,NA
-"Virginia","FEMALE",454229,"08/07/20","gender","case","Count",4327037,454229,10497.4605024177
-"Virginia","MALE",428174,"08/07/20","gender","case","Count",4190648,428174,10217.3697242049
-"Virginia","UNKNOWN",5209,"08/07/20","gender","case","Count",NA,5209,NA
-"Virginia","NH AI/AN",8,"08/07/20","race","death","Count",22696,8,35.2485019386676
-"Virginia","NH ASIAN/PI",483,"08/07/20","race","death","Count",584666,483,82.6112686559506
-"Virginia","NH BLACK",2072,"08/07/20","race","death","Count",1627434,2072,127.31699104234
-"Virginia","HISPANIC",895,"08/07/20","race","death","Count",820874,895,109.030131299079
-"Virginia","NH MULTI",5,"08/07/20","race","death","Count",227501,5,2.19779253717566
-"Virginia","OTHER",130,"08/07/20","race","death","Count",NA,130,NA
-"Virginia","UNKNOWN",294,"08/07/20","race","death","Count",NA,294,NA
-"Virginia","NH WHITE",4664,"08/07/20","race","death","Count",5234514,4664,89.1009174872777
+"Virginia","NH AI/AN",110,"08/07/20","race","case","Count",22696,110,484.66690165668
+"Virginia","NH ASIAN/PI",2886,"08/07/20","race","case","Count",584666,2886,493.615158056052
+"Virginia","NH BLACK",18050,"08/07/20","race","case","Count",1627434,18050,1109.10795768062
+"Virginia","HISPANIC",27181,"08/07/20","race","case","Count",820874,27181,3311.22681434666
+"Virginia","NH MULTI",457,"08/07/20","race","case","Count",227501,457,200.878237897855
+"Virginia","OTHER",2316,"08/07/20","race","case","Count",NA,2316,NA
+"Virginia","UNKNOWN",23954,"08/07/20","race","case","Count",NA,23954,NA
+"Virginia","NH WHITE",22928,"08/07/20","race","case","Count",5234514,22928,438.01583107811
+"Virginia","0-9",3407,"08/07/20","age","case","Count",1025381,3407,332.266737924732
+"Virginia","10-19",7693,"08/07/20","age","case","Count",1070646,7693,718.538153600723
+"Virginia","20-29",18869,"08/07/20","age","case","Count",1182998,18869,1595.01537618829
+"Virginia","30-39",17954,"08/07/20","age","case","Count",1164754,17954,1541.44136873537
+"Virginia","40-49",16222,"08/07/20","age","case","Count",1084330,16222,1496.03902870897
+"Virginia","50-59",14158,"08/07/20","age","case","Count",1150345,14158,1230.76120642068
+"Virginia","60-69",9237,"08/07/20","age","case","Count",956632,9237,965.575059165907
+"Virginia","70-79",4799,"08/07/20","age","case","Count",581429,4799,825.380226992462
+"Virginia","80+",4508,"08/07/20","age","case","Count",301170,4508,1496.82903343627
+"Virginia","UNKNOWN",1035,"08/07/20","age","case","Count",NA,1035,NA
+"Virginia","FEMALE",50130,"08/07/20","gender","case","Count",4327037,50130,1158.52949720559
+"Virginia","MALE",47172,"08/07/20","gender","case","Count",4190648,47172,1125.64930292403
+"Virginia","UNKNOWN",580,"08/07/20","gender","case","Count",NA,580,NA
+"Virginia","NH AI/AN",2,"08/07/20","race","death","Count",22696,2,8.8121254846669
+"Virginia","NH ASIAN/PI",126,"08/07/20","race","death","Count",584666,126,21.5507657363349
+"Virginia","NH BLACK",573,"08/07/20","race","death","Count",1627434,573,35.2088010942379
+"Virginia","HISPANIC",252,"08/07/20","race","death","Count",820874,252,30.6989866897965
+"Virginia","NH MULTI",2,"08/07/20","race","death","Count",227501,2,0.879117014870264
+"Virginia","OTHER",34,"08/07/20","race","death","Count",NA,34,NA
+"Virginia","UNKNOWN",77,"08/07/20","race","death","Count",NA,77,NA
+"Virginia","NH WHITE",1251,"08/07/20","race","death","Count",5234514,1251,23.8990668474666
 "Virginia","0-9",1,"08/07/20","age","death","Count",1025381,1,0.0975247249558945
 "Virginia","10-19",0,"08/07/20","age","death",NA,1070646,0,0
-"Virginia","20-29",14,"08/07/20","age","death","Count",1182998,14,1.18343395339637
-"Virginia","30-39",56,"08/07/20","age","death","Count",1164754,56,4.80788217941299
-"Virginia","40-49",177,"08/07/20","age","death","Count",1084330,177,16.3234439700091
-"Virginia","50-59",423,"08/07/20","age","death","Count",1150345,423,36.7715772224854
-"Virginia","60-69",1032,"08/07/20","age","death","Count",956632,1032,107.878473645038
-"Virginia","70-79",1681,"08/07/20","age","death","Count",581429,1681,289.115266008403
-"Virginia","80+",3302,"08/07/20","age","death","Count",301170,3302,1096.39074276986
-"Virginia","UNKNOWN",6,"08/07/20","age","death","Count",NA,6,NA
-"Virginia","FEMALE",10590,"08/07/20","gender","death","Count",4327037,10590,244.740222928531
-"Virginia","MALE",10946,"08/07/20","gender","death","Count",4190648,10946,261.200654409533
-"Virginia","UNKNOWN",45,"08/07/20","gender","death","Count",NA,45,NA
-"Virginia","NH AI/AN",22,"08/07/20","race","hosp","Count",22696,22,96.9333803313359
-"Virginia","NH ASIAN/PI",1619,"08/07/20","race","hosp","Count",584666,1619,276.910235929573
-"Virginia","NH BLACK",8038,"08/07/20","race","hosp","Count",1627434,8038,493.906358107303
-"Virginia","HISPANIC",9574,"08/07/20","race","hosp","Count",820874,9574,1166.31785146076
-"Virginia","NH MULTI",99,"08/07/20","race","hosp","Count",227501,99,43.5162922360781
-"Virginia","OTHER",665,"08/07/20","race","hosp","Count",NA,665,NA
-"Virginia","UNKNOWN",860,"08/07/20","race","hosp","Count",NA,860,NA
-"Virginia","NH WHITE",9250,"08/07/20","race","hosp","Count",5234514,9250,176.71172529102
-"Virginia","0-9",212,"08/07/20","age","hosp","Count",1025381,212,20.6752416906496
-"Virginia","10-19",240,"08/07/20","age","hosp","Count",1070646,240,22.4163729187799
-"Virginia","20-29",1104,"08/07/20","age","hosp","Count",1182998,1104,93.322220324971
-"Virginia","30-39",2148,"08/07/20","age","hosp","Count",1164754,2148,184.416623596055
-"Virginia","40-49",3247,"08/07/20","age","hosp","Count",1084330,3247,299.447585144744
-"Virginia","50-59",4425,"08/07/20","age","hosp","Count",1150345,4425,384.667208533092
-"Virginia","60-69",4773,"08/07/20","age","hosp","Count",956632,4773,498.937940608301
-"Virginia","70-79",3931,"08/07/20","age","hosp","Count",581429,3931,676.092867744815
-"Virginia","80+",3796,"08/07/20","age","hosp","Count",301170,3796,1260.41770428662
-"Virginia","UNKNOWN",39,"08/07/20","age","hosp","Count",NA,39,NA
-"Virginia","FEMALE",35306,"08/07/20","gender","hosp","Count",4327037,35306,815.939406110925
-"Virginia","MALE",41636,"08/07/20","gender","hosp","Count",4190648,41636,993.545628265605
-"Virginia","UNKNOWN",56,"08/07/20","gender","hosp","Count",NA,56,NA
+"Virginia","20-29",6,"08/07/20","age","death","Count",1182998,6,0.507185980027016
+"Virginia","30-39",20,"08/07/20","age","death","Count",1164754,20,1.71710077836178
+"Virginia","40-49",62,"08/07/20","age","death","Count",1084330,62,5.71781653186761
+"Virginia","50-59",145,"08/07/20","age","death","Count",1150345,145,12.6049141779205
+"Virginia","60-69",355,"08/07/20","age","death","Count",956632,355,37.1093586666555
+"Virginia","70-79",582,"08/07/20","age","death","Count",581429,582,100.098206315818
+"Virginia","80+",1144,"08/07/20","age","death","Count",301170,1144,379.851910880898
+"Virginia","UNKNOWN",2,"08/07/20","age","death","Count",NA,2,NA
+"Virginia","FEMALE",1131,"08/07/20","gender","death","Count",4327037,1131,26.1379784827354
+"Virginia","MALE",1181,"08/07/20","gender","death","Count",4190648,1181,28.1817990916918
+"Virginia","UNKNOWN",5,"08/07/20","gender","death","Count",NA,5,NA
+"Virginia","NH AI/AN",6,"08/07/20","race","hosp","Count",22696,6,26.4363764540007
+"Virginia","NH ASIAN/PI",429,"08/07/20","race","hosp","Count",584666,429,73.3752261975213
+"Virginia","NH BLACK",2250,"08/07/20","race","hosp","Count",1627434,2250,138.254454558526
+"Virginia","HISPANIC",2631,"08/07/20","race","hosp","Count",820874,2631,320.512039606566
+"Virginia","NH MULTI",28,"08/07/20","race","hosp","Count",227501,28,12.3076382081837
+"Virginia","OTHER",178,"08/07/20","race","hosp","Count",NA,178,NA
+"Virginia","UNKNOWN",250,"08/07/20","race","hosp","Count",NA,250,NA
+"Virginia","NH WHITE",2509,"08/07/20","race","hosp","Count",5234514,2509,47.9318614870454
+"Virginia","0-9",73,"08/07/20","age","hosp","Count",1025381,73,7.1193049217803
+"Virginia","10-19",82,"08/07/20","age","hosp","Count",1070646,82,7.65892741391646
+"Virginia","20-29",379,"08/07/20","age","hosp","Count",1182998,379,32.0372477383732
+"Virginia","30-39",741,"08/07/20","age","hosp","Count",1164754,741,63.6185838383041
+"Virginia","40-49",1115,"08/07/20","age","hosp","Count",1084330,1115,102.828474726329
+"Virginia","50-59",1529,"08/07/20","age","hosp","Count",1150345,1529,132.916646745107
+"Virginia","60-69",1650,"08/07/20","age","hosp","Count",956632,1650,172.480117746427
+"Virginia","70-79",1372,"08/07/20","age","hosp","Count",581429,1372,235.970342036603
+"Virginia","80+",1327,"08/07/20","age","hosp","Count",301170,1327,440.614935086496
+"Virginia","UNKNOWN",13,"08/07/20","age","hosp","Count",NA,13,NA
+"Virginia","FEMALE",3808,"08/07/20","gender","hosp","Count",4327037,3808,88.0047940426671
+"Virginia","MALE",4467,"08/07/20","gender","hosp","Count",4190648,4467,106.59449326214
+"Virginia","UNKNOWN",6,"08/07/20","gender","hosp","Count",NA,6,NA
 "Virginia","",373805,"08/07/20","total","test","Count",8517685,373805,4388.57506470361
 "Virginia","",97882,"08/07/20","total","case","Count",8517685,97882,1149.16200822172
 "Virginia","",2317,"08/07/20","total","death","Count",8517685,2317,27.2022268961578
