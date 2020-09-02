@@ -289,7 +289,7 @@ get_florida = function() {
   skeleton = skeleton_table(fl_cols)
   
   # Demographic data is on
-  demographic_data = data %>% .[3] %>% 
+  demographic_data = data %>% .[4] %>% 
     str_split(., "\n") %>% .[[1]] %>% 
     str_squish()
   
@@ -1572,6 +1572,18 @@ get_idaho = function() {
   
 
   skeleton[["tested"]][["total"]] = get_information("ID: Total tested?: ")
+  
+  skeleton[["hospitalized"]][["age_0_17"]] = get_information("ID: Hospitalized age <18: ")
+  skeleton[["hospitalized"]][["age_18_29"]] = get_information("ID: Hospitalized age 18 - 29: ")
+  skeleton[["hospitalized"]][["age_30_39"]] = get_information("ID: Hospitalized age 30 - 39?: ")
+  skeleton[["hospitalized"]][["age_40_49"]] = get_information("ID: Hospitalized age 40 - 49?: ")
+  skeleton[["hospitalized"]][["age_50_59"]] = get_information("ID: Hospitalized age 50 - 59?: ")
+  skeleton[["hospitalized"]][["age_60_69"]] = get_information("ID: Hospitalized age 60 - 69?: ")
+  skeleton[["hospitalized"]][["age_70_79"]] = get_information("ID: Hospitalized age 70 - 79?: ")
+  age_80_89 = get_information("ID: Hospitalized age 80 - 89?: ")
+  age_90_99 = get_information("ID: Hospitalized age 90 - 99?: ")
+  age_100_plus = get_information("ID: Hospitalized age 100+?: ")
+  skeleton[["hospitalized"]][["age_80+"]] = age_80_89 + age_90_99 + age_100_plus
   
   full_skeleton = as_tibble(skeleton) %>%
     standardize %>% 

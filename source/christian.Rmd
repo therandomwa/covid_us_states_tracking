@@ -23,12 +23,12 @@ florida = get_florida()
 oklahoma = get_oklahoma()
 new_jersey = get_new_jersey()
 mississippi = get_mississippi()
-tennessee = get_tennessee("2020-08-17")
+tennessee = get_tennessee("2020-08-31")
 south_carolina = get_south_carolina()
 idaho = get_idaho()
 minnesota = get_minnesota()
 
-# north_carolina = get_north_carolina() # Given away
+n# north_carolina = get_north_carolina() # Given away
 # new_hampshire = get_new_hampshire() # Given away
 # kansas = get_kansas() # Given away
 # iowa = get_iowa() # Given away
@@ -37,7 +37,7 @@ minnesota = get_minnesota()
 ```
 
 ```{r}
-full_data_20200817 = bind_rows(
+full_data_20200831 = bind_rows(
   florida,
   oklahoma,
   mississippi,
@@ -49,7 +49,7 @@ full_data_20200817 = bind_rows(
 ```
 
 ```{r}
-save(full_data_20200817, file ="../data/raw_states/meta_2020-08-17-cbp.rda")
+save(full_data_20200831, file ="../data/raw_states/meta_2020-08-31-cbp.rda")
 ```
 
 # Fixing In Post
