@@ -28,7 +28,7 @@ south_carolina = get_south_carolina()
 idaho = get_idaho()
 minnesota = get_minnesota()
 
-n# north_carolina = get_north_carolina() # Given away
+# north_carolina = get_north_carolina() # Given away
 # new_hampshire = get_new_hampshire() # Given away
 # kansas = get_kansas() # Given away
 # iowa = get_iowa() # Given away
@@ -49,13 +49,13 @@ full_data_20200831 = bind_rows(
 ```
 
 ```{r}
-save(full_data_20200831, file ="../data/raw_states/meta_2020-08-31-cbp.rda")
+save(full_data_20200901, file ="../data/raw_states/meta_2020-09-01-cbp.rda")
 ```
 
 # Fixing In Post
 
 ```{r}
-
+full_data_20200901 = full_data_20200831
 ```
 
 

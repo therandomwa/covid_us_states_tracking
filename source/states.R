@@ -981,8 +981,6 @@ get_new_jersey = function() {
   skeleton[["tested"]][["total"]] = get_information("NJ: Total tested?: ")
   skeleton[["deaths"]][["total"]] = get_information("NJ, Deaths total (conf. + prob.): ")
   
-  browseURL("https://www.nj.gov/health/cd/documents/topics/NCOV/COVID_Confirmed_Case_Summary.pdf")
-  
   skeleton[["cases"]][["total"]] = get_information("NJ, Cases total: ")
   skeleton[["cases"]][["race_nh_asian"]] = get_information("NJ, Cases race_nh_asian: ")
   skeleton[["cases"]][["race_nh_AfrA"]] = get_information("NJ, Cases race_nh_AfrA: ")
@@ -1200,20 +1198,19 @@ get_minnesota = function() {
   date = df$Date %>% strsplit(" ") %>% unlist
   date = date[2] %>% as.Date("%m/%d/%Y") %>% format("%m/%d/%Y")
   
-  gender = df %>% 
-    select("Male", "Female", "SexMsng", "GenderOther")
-  race = df[,grep("Race", colnames(df))] %>% 
-    select(RaceWht:RaceMultip)
+  gender = df %>% select("Male", "Female", "SexMsng", "GenderOther")
+  race = df[,grep("Race", colnames(df))] %>% select(RaceWht:RaceMultip, RaceHisp)
   
   drace = df %>% 
-    select(DeathWht, DeathBlk, DeathAsian, DeathPacif, 
-           DeathNativ, DeathOther, DeathUnkno, DeathRaceM)
-  eth = df %>% select(EthnHisp, EthnNonHis, EthnUnk)
-  deth = df %>% select(DeathHisp, DeathNonHi, DeathHispU)
+    select(DeadWht, DeadBlack, DeadAsian, DeadPacifi, 
+           DeadNative, DeadOther, DeadUnknow, DeadHisp)
   age = df %>% 
-    select(Age05, Age619, Age2029, Age3039,
-           Age4049, Age5059, Age6069, Age70_79,
-           Age80_89, Age90_99, Age100_up, AgeMissing)
+    select(
+      "Age04", "Age59", "Age1014", "Age1519", "Age2024", "Age2529", 
+      "Age3034", "Age3539", "Age4044", "Age4549", "Age5054", "Age5559", 
+      "Age6064", "Age6569", "Age7074", "Age7579", "Age8084", "Age8589", 
+      "Age9094", "Age9599", "Age100Up"
+    )
   
   url = "https://www.health.state.mn.us/diseases/coronavirus/situation.html"
   
@@ -1236,40 +1233,53 @@ get_minnesota = function() {
     html_nodes("li a") %>% .[[1]] %>% 
     html_attr("href")
   
+  minnesota = skeleton_table(mn_cols)
+  
   pdf_data = pdf_text(paste0("https://www.health.state.mn.us/", pdf_url))
   
   browseURL(paste0("https://www.health.state.mn.us/", pdf_url))
   
-  # CHECK THE INDICES AND MAKE SURE THEY WORK OUT
-  death_by_gender = pdf_data %>% .[9] %>% 
-    str_split("\n") %>% .[[1]] %>% 
-    str_squish %>% .[33:36] %>% 
-    str_split(" ", simplify = TRUE) %>% .[,1] %>% 
-    str_replace(",", "") %>% as.numeric
+  minnesota[["hospitalized"]][["age_0_4"]] = get_information("MN, hospitalized ages 0 - 4: ")
+  minnesota[["hospitalized"]][["age_5_9"]] = get_information("MN, hospitalized ages 5 - 9: ")
+  minnesota[["hospitalized"]][["age_10_14"]] = get_information("MN, hospitalized ages 10 - 14: ")
+  minnesota[["hospitalized"]][["age_15_19"]] = get_information("MN, hospitalized ages 15 - 19: ")
+  minnesota[["hospitalized"]][["age_20_24"]] = get_information("MN, hospitalized ages 20 - 24: ")
+  minnesota[["hospitalized"]][["age_25_29"]] = get_information("MN, hospitalized ages 25 - 29: ")
+  minnesota[["hospitalized"]][["age_30_34"]] = get_information("MN, hospitalized ages 30 - 34: ")
+  minnesota[["hospitalized"]][["age_35_39"]] = get_information("MN, hospitalized ages 35 - 39: ")
+  minnesota[["hospitalized"]][["age_40_44"]] = get_information("MN, hospitalized ages 40 - 44: ")
+  minnesota[["hospitalized"]][["age_45_49"]] = get_information("MN, hospitalized ages 45 - 49: ")
+  minnesota[["hospitalized"]][["age_50_54"]] = get_information("MN, hospitalized ages 50 - 54: ")
+  minnesota[["hospitalized"]][["age_55_59"]] = get_information("MN, hospitalized ages 55 - 59: ")
+  minnesota[["hospitalized"]][["age_60_64"]] = get_information("MN, hospitalized ages 60 - 64: ")
+  minnesota[["hospitalized"]][["age_65_69"]] = get_information("MN, hospitalized ages 65 - 69: ")
+  minnesota[["hospitalized"]][["age_70_74"]] = get_information("MN, hospitalized ages 70 - 74: ")
+  minnesota[["hospitalized"]][["age_75_79"]] = get_information("MN, hospitalized ages 75 - 79: ")
+  minnesota[["hospitalized"]][["age_80_84"]] = get_information("MN, hospitalized ages 80 - 84: ")
+  minnesota[["hospitalized"]][["age_85_89"]] = get_information("MN, hospitalized ages 85 - 89: ")
+  minnesota[["hospitalized"]][["age_90_94"]] = get_information("MN, hospitalized ages 90 - 94: ")
+  minnesota[["hospitalized"]][["age_95_99"]] = get_information("MN, hospitalized ages 95 - 99: ")
+  minnesota[["hospitalized"]][["age_100+"]] = get_information("MN, hospitalized ages 100+: ")
   
-  hosp_by_age = pdf_data %>% .[8] %>% 
-    str_split("\n") %>% .[[1]] %>% 
-    str_squish %>% .[80:91] %>% 
-    str_split(" ", simplify = TRUE) %>% .[,1] %>% as.numeric
+  minnesota[["deaths"]][["sex_male"]] = get_information("MN, deaths male: ")
+  minnesota[["deaths"]][["sex_female"]] = get_information("MN, deaths female: ")
+  minnesota[["deaths"]][["sex_other"]] = get_information("MN, deaths sex other: ")
+  minnesota[["deaths"]][["sex_unk"]] = get_information("MN, deaths sex unknown: ")
+
+  minnesota[["hospitalized"]][["sex_male"]] = get_information("MN, hospitalized male: ")
+  minnesota[["hospitalized"]][["sex_female"]] = get_information("MN, hospitalized female: ")
+  minnesota[["hospitalized"]][["sex_other"]] = get_information("MN, hospitalized sex other: ")
+  minnesota[["hospitalized"]][["sex_unk"]] = get_information("MN, hospitalized sex unknown: ")
   
-  hosp_by_gender = pdf_data %>% .[9] %>% 
-    str_split("\n") %>% .[[1]] %>% 
-    str_squish %>% .[29:31] %>%
-    str_split(" ", simplify = TRUE) %>% .[,1] %>%
-    str_replace(",", "") %>% as.numeric
-  
-  hosp_by_race = pdf_data %>% .[10] %>% 
-    str_split("\n") %>% .[[1]] %>% 
-    str_squish %>% .[70:80] %>%
-    str_split(" ", simplify = TRUE) %>% .[,1] %>%
-    str_replace(",", "") %>% as.numeric
-  
-  View(death_by_gender)
-  View(hosp_by_gender)
-  View(hosp_by_age)
-  View(hosp_by_race)
-  
-  minnesota = skeleton_table(mn_cols)
+  minnesota[["hospitalized"]][["race_white"]] = get_information("MN, hospitalized race NH white: ")
+  minnesota[["hospitalized"]][["race_AfrA"]] = get_information("MN, hospitalized race NH Afra: ")
+  minnesota[["hospitalized"]][["race_asian"]] = get_information("MN, hospitalized race NH asian: ")
+  minnesota[["hospitalized"]][["race_NatA"]] = get_information("MN, hospitalized race NH NatA: ")
+  minnesota[["hospitalized"]][["race_pac"]] = get_information("MN, hospitalized race NH pac: ")
+  minnesota[["hospitalized"]][["race_multi"]] = get_information("MN, hospitalized race NH multi: ")
+  minnesota[["hospitalized"]][["race_other"]] = get_information("MN, hospitalized race NH other: ")
+  minnesota[["hospitalized"]][["race_hispanic"]] = get_information("MN, hospitalized race hispanic: ")
+  minnesota[["hospitalized"]][["race_unk"]] = get_information("MN, hospitalized race unknown: ")
   
   minnesota[["cases"]][["total"]] = df %>% pull(TotalCases)
   minnesota[["deaths"]][["total"]] = df %>% pull(OutcmDied)
@@ -1288,83 +1298,61 @@ get_minnesota = function() {
   minnesota[["cases"]][["race_asian"]] = race %>% pull(RaceAsian)
   minnesota[["cases"]][["race_pac"]] = race %>% pull(RacePacifi)
   minnesota[["cases"]][["race_multi"]] = race %>% pull(RaceMultip)
+  minnesota[["cases"]][["race_hispanic"]] = race %>% pull(RaceHisp)
+
+  minnesota[["cases"]][["age_0_4"]] = age %>% pull(Age04)
+  minnesota[["cases"]][["age_5_9"]] = age %>% pull(Age59)
+  minnesota[["cases"]][["age_10_14"]] = age %>% pull(Age1014)
+  minnesota[["cases"]][["age_15_19"]] = age %>% pull(Age1519)
+  minnesota[["cases"]][["age_20_24"]] = age %>% pull(Age2024)
+  minnesota[["cases"]][["age_25_29"]] = age %>% pull(Age2529)
+  minnesota[["cases"]][["age_30_34"]] = age %>% pull(Age3034)
+  minnesota[["cases"]][["age_35_39"]] = age %>% pull(Age3539)
+  minnesota[["cases"]][["age_40_44"]] = age %>% pull(Age4044)
+  minnesota[["cases"]][["age_45_49"]] = age %>% pull(Age4549)
+  minnesota[["cases"]][["age_50_54"]] = age %>% pull(Age5054)
+  minnesota[["cases"]][["age_55_59"]] = age %>% pull(Age5559)
+  minnesota[["cases"]][["age_60_64"]] = age %>% pull(Age6064)
+  minnesota[["cases"]][["age_65_69"]] = age %>% pull(Age6569)
+  minnesota[["cases"]][["age_70_74"]] = age %>% pull(Age7074)
+  minnesota[["cases"]][["age_75_79"]] = age %>% pull(Age7579)
+  minnesota[["cases"]][["age_80_84"]] = age %>% pull(Age8084)
+  minnesota[["cases"]][["age_85_89"]] = age %>% pull(Age8589)
+  minnesota[["cases"]][["age_90_94"]] = age %>% pull(Age9094)
+  minnesota[["cases"]][["age_95_99"]] = age %>% pull(Age9599)
+  minnesota[["cases"]][["age_100+"]] = age %>% pull(Age100Up)
   
-  minnesota[["cases"]][["ethnicity_hispanic"]] = eth %>% pull(EthnHisp)
-  minnesota[["cases"]][["ethnicity_non_hispanic"]] = eth %>% pull(EthnNonHis)
-  minnesota[["cases"]][["ethnicity_unk"]] = eth %>% pull(EthnUnk)
-  
-  minnesota[["cases"]][["age_0_5"]] = age %>% pull(Age05)
-  minnesota[["cases"]][["age_6_19"]] = age %>% pull(Age619)
-  minnesota[["cases"]][["age_20_29"]] = age %>% pull(Age2029)
-  minnesota[["cases"]][["age_30_39"]] = age %>% pull(Age3039)
-  minnesota[["cases"]][["age_40_49"]] = age %>% pull(Age4049)
-  minnesota[["cases"]][["age_50_59"]] = age %>% pull(Age5059)
-  minnesota[["cases"]][["age_60_69"]] = age %>% pull(Age6069)
-  minnesota[["cases"]][["age_70_79"]] = age %>% pull(Age70_79)
-  minnesota[["cases"]][["age_80_89"]] = age %>% pull(Age80_89)
-  minnesota[["cases"]][["age_90_99"]] = age %>% pull(Age90_99)
-  minnesota[["cases"]][["age_100+"]] = age %>% pull(Age100_up)
-  minnesota[["cases"]][["age_unk"]] = age %>% pull(AgeMissing)
-  
-  minnesota[["deaths"]][["race_white"]] = drace %>% pull(DeathWht)
-  minnesota[["deaths"]][["race_AfrA"]] = drace %>% pull(DeathBlk)
-  minnesota[["deaths"]][["race_NatA"]] = drace %>% pull(DeathNativ)
-  minnesota[["deaths"]][["race_other"]] = drace %>% pull(DeathOther)
-  minnesota[["deaths"]][["race_unk"]] = drace %>% pull(DeathUnkno)
-  minnesota[["deaths"]][["race_asian"]] = drace %>% pull(DeathAsian)
-  minnesota[["deaths"]][["race_pac"]] = drace %>% pull(DeathPacif)
-  minnesota[["deaths"]][["race_multi"]] = drace %>% pull(DeathRaceM)
-  
-  minnesota[["deaths"]][["ethnicity_hispanic"]] = deth %>% pull(DeathHisp)
-  minnesota[["deaths"]][["ethnicity_non_hispanic"]] = deth %>% pull(DeathNonHi)
-  minnesota[["deaths"]][["ethnicity_unk"]] = deth %>% pull(DeathHispU)
-  
-  minnesota[["deaths"]][["age_0_5"]] = death_age_table$death_age[1]
-  minnesota[["deaths"]][["age_6_19"]] = death_age_table$death_age[2]
-  minnesota[["deaths"]][["age_20_29"]] = death_age_table$death_age[3]
-  minnesota[["deaths"]][["age_30_39"]] = death_age_table$death_age[4]
-  minnesota[["deaths"]][["age_40_49"]] = death_age_table$death_age[5]
-  minnesota[["deaths"]][["age_50_59"]] = death_age_table$death_age[6]
-  minnesota[["deaths"]][["age_60_69"]] = death_age_table$death_age[7]
-  minnesota[["deaths"]][["age_70_79"]] = death_age_table$death_age[8]
-  minnesota[["deaths"]][["age_80_89"]] = death_age_table$death_age[9]
-  minnesota[["deaths"]][["age_90_99"]] = death_age_table$death_age[10]
-  minnesota[["deaths"]][["age_100+"]] = death_age_table$death_age[11]
-  minnesota[["deaths"]][["age_unk"]] = death_age_table$death_age[12]
-  
-  minnesota[["deaths"]][["sex_male"]] = death_by_gender[1]
-  minnesota[["deaths"]][["sex_female"]] = death_by_gender[2]
-  minnesota[["deaths"]][["sex_unk"]] = death_by_gender[4]
-  
-  minnesota[["hospitalized"]][["age_0_5"]] = hosp_by_age[1]
-  minnesota[["hospitalized"]][["age_6_19"]] = hosp_by_age[2]
-  minnesota[["hospitalized"]][["age_20_29"]] = hosp_by_age[3]
-  minnesota[["hospitalized"]][["age_30_39"]] = hosp_by_age[4]
-  minnesota[["hospitalized"]][["age_40_49"]] = hosp_by_age[5]
-  minnesota[["hospitalized"]][["age_50_59"]] = hosp_by_age[6]
-  minnesota[["hospitalized"]][["age_60_69"]] = hosp_by_age[7]
-  minnesota[["hospitalized"]][["age_70_79"]] = hosp_by_age[8]
-  minnesota[["hospitalized"]][["age_80_89"]] = hosp_by_age[9]
-  minnesota[["hospitalized"]][["age_90_99"]] = hosp_by_age[10]
-  minnesota[["hospitalized"]][["age_100+"]] = hosp_by_age[11]
-  minnesota[["hospitalized"]][["age_unk"]] = hosp_by_age[12]
-  
-  minnesota[["hospitalized"]][["sex_male"]] = hosp_by_gender[1]
-  minnesota[["hospitalized"]][["sex_female"]] = hosp_by_gender[2]
-  minnesota[["hospitalized"]][["sex_unk"]] = hosp_by_gender[4]
-  
-  minnesota[["hospitalized"]][["race_white"]] = hosp_by_race[1]
-  minnesota[["hospitalized"]][["race_AfrA"]] = hosp_by_race[2]
-  minnesota[["hospitalized"]][["race_asian"]] = hosp_by_race[3]
-  minnesota[["hospitalized"]][["race_NatA"]] = hosp_by_race[4]
-  minnesota[["hospitalized"]][["race_pac"]] = hosp_by_race[5]
-  minnesota[["hospitalized"]][["race_multi"]] = hosp_by_race[6]
-  minnesota[["hospitalized"]][["race_other"]] = hosp_by_race[7]
-  minnesota[["hospitalized"]][["race_unk"]] = hosp_by_race[8]
-  
-  minnesota[["hospitalized"]][["ethnicity_hispanic"]] = hosp_by_race[9]
-  minnesota[["hospitalized"]][["ethnicity_non_hispanic"]] = hosp_by_race[10]
-  minnesota[["hospitalized"]][["ethnicity_unk"]] = hosp_by_race[11]
+  minnesota[["deaths"]][["race_white"]] = drace %>% pull(DeadWht)
+  minnesota[["deaths"]][["race_AfrA"]] = drace %>% pull(DeadBlack)
+  minnesota[["deaths"]][["race_NatA"]] = drace %>% pull(DeadNative)
+  minnesota[["deaths"]][["race_other"]] = drace %>% pull(DeadOther)
+  minnesota[["deaths"]][["race_unk"]] = drace %>% pull(DeadUnknow)
+  minnesota[["deaths"]][["race_asian"]] = drace %>% pull(DeadAsian)
+  minnesota[["deaths"]][["race_pac"]] = drace %>% pull(DeadPacifi)
+  minnesota[["deaths"]][["race_hispanic"]] = drace %>% pull(DeadHisp)
+
+  minnesota[["deaths"]][["age_0_4"]] = death_age_table$death_age[1]
+  minnesota[["deaths"]][["age_5_9"]] = death_age_table$death_age[2]
+  minnesota[["deaths"]][["age_10_14"]] = death_age_table$death_age[3]
+  minnesota[["deaths"]][["age_15_19"]] = death_age_table$death_age[4]
+  minnesota[["deaths"]][["age_20_24"]] = death_age_table$death_age[5]
+  minnesota[["deaths"]][["age_25_29"]] = death_age_table$death_age[6]
+  minnesota[["deaths"]][["age_30_34"]] = death_age_table$death_age[7]
+  minnesota[["deaths"]][["age_35_39"]] = death_age_table$death_age[8]
+  minnesota[["deaths"]][["age_40_44"]] = death_age_table$death_age[9]
+  minnesota[["deaths"]][["age_45_49"]] = death_age_table$death_age[10]
+  minnesota[["deaths"]][["age_50_54"]] = death_age_table$death_age[11]
+  minnesota[["deaths"]][["age_55_59"]] = death_age_table$death_age[12]
+  minnesota[["deaths"]][["age_60_64"]] = death_age_table$death_age[13]
+  minnesota[["deaths"]][["age_65_69"]] = death_age_table$death_age[14]
+  minnesota[["deaths"]][["age_70_74"]] = death_age_table$death_age[15]
+  minnesota[["deaths"]][["age_75_79"]] = death_age_table$death_age[16]
+  minnesota[["deaths"]][["age_80_84"]] = death_age_table$death_age[17]
+  minnesota[["deaths"]][["age_85_89"]] = death_age_table$death_age[18]
+  minnesota[["deaths"]][["age_90_94"]] = death_age_table$death_age[19]
+  minnesota[["deaths"]][["age_95_99"]] = death_age_table$death_age[20]
+  minnesota[["deaths"]][["age_100+"]] = death_age_table$death_age[21]
+  minnesota[["deaths"]][["age_unk"]] = death_age_table$death_age[22]
   
   minnesota[["tested"]][["total"]] = unlist(total_tests)
   
@@ -1375,7 +1363,7 @@ get_minnesota = function() {
       Link = "https://www.health.state.mn.us/diseases/coronavirus/situation.html",
       platform = "manual",
       comments = "",
-      last.update = as_date(date)) %>% 
+      last.update = date) %>% 
     select(
       state_name, Link,
       total.tested:hosp_gender,
