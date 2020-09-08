@@ -16,14 +16,14 @@ options(warn = -1)
 
 ### 0. load files 
 setwd("~/OneDrive - cumc.columbia.edu/Side/covid_us_states_tracking/source")
-file_date = Sys.Date()-1 # change accordingly if the editing date is not the scraping date
+file_date = Sys.Date()-7 # change accordingly if the editing date is not the scraping date
 file_date_name = file_date %>% format("%Y%m%d")
 
 # load Aijin's data
 df_aw = read.csv("../Data/raw_states/meta_2020-09-01_aw.csv")
 
 # load Chistian's data
-df_cbp = load_object("../Data/raw_states/meta_2020-08-31-cbp.rda")
+df_cbp = load_object("../Data/raw_states/meta_2020-09-01-cbp.rda")
 
 # load manual data
 df_lef = load_object("../manual_data/manual_data_20200901_lef.rda")
