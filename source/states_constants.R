@@ -53,12 +53,12 @@ mn_cols = c(
   "sex_other",
   "sex_unk",
   "race_hispanic",
-  "race_white", 
-  "race_AfrA",
-  "race_NatA",
-  "race_asian",
-  "race_pac",
-  "race_multi",
+  "race_nh_white", 
+  "race_nh_AfrA",
+  "race_nh_NatA",
+  "race_nh_asian",
+  "race_nh_pac",
+  "race_nh_multi",
   "race_other",
   "race_unk")
 
