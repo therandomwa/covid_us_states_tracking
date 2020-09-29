@@ -20,18 +20,18 @@ file_date = Sys.Date()-7 # change accordingly if the editing date is not the scr
 file_date_name = file_date %>% format("%Y%m%d")
 
 # load Aijin's data
-df_aw = read.csv("../Data/raw_states/meta_2020-09-01_aw.csv")
+df_aw = read.csv("../Data/raw_states/meta_2020-09-29_aw.csv")
 
 # load Chistian's data
-df_cbp = load_object("../Data/raw_states/meta_2020-09-01-cbp.rda")
+df_cbp = load_object("../Data/raw_states/meta_2020-09-29-cbp.rda")
 
 # load manual data
-df_lef = load_object("../manual_data/manual_data_20200901_lef.rda")
+df_lef = load_object("../manual_data/manual_data_20200929_lef.rda")
 # df_lef = df_lef %>% filter(state_name != "New York")
 # df_lef2 = load_object("../manual_data/manual_data_20200707_lef.rda")
 # df_lef = rbind.fill(df_lef, df_lef2)
 # df_lef3 = load_object("../manual_data/manual_data_20200624_lef.rda")
-df_as = load_object("../manual_data/manual_data_20200901_as.rda")
+df_as = load_object("../manual_data/manual_data_20200929_as.rda")
 # df_as = df_as %>% filter(state_name != "Hawaii")
 # df_as2 = load_object("../manual_data/manual_data_20200709_as.rda")
 # df_as = rbind.fill(df_as, df_as2)
