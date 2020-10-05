@@ -16,14 +16,14 @@ options(warn = -1)
 
 ### 0. load files 
 setwd("~/OneDrive - cumc.columbia.edu/Side/covid_us_states_tracking/source")
-file_date = Sys.Date()-7 # change accordingly if the editing date is not the scraping date
+file_date = Sys.Date() - 6 # change accordingly if the editing date is not the scraping date
 file_date_name = file_date %>% format("%Y%m%d")
 
 # load Aijin's data
 df_aw = read.csv("../Data/raw_states/meta_2020-09-29_aw.csv")
 
 # load Chistian's data
-df_cbp = load_object("../Data/raw_states/meta_2020-09-29-cbp.rda")
+# df_cbp = load_object("../Data/raw_states/meta_2020-09-29-cbp.rda")
 
 # load manual data
 df_lef = load_object("../manual_data/manual_data_20200929_lef.rda")
@@ -35,8 +35,8 @@ df_as = load_object("../manual_data/manual_data_20200929_as.rda")
 # df_as = df_as %>% filter(state_name != "Hawaii")
 # df_as2 = load_object("../manual_data/manual_data_20200709_as.rda")
 # df_as = rbind.fill(df_as, df_as2)
-df_gl = load_object("../manual_data/manual_data_20200901_gl.rda")
-df_cbp = rbind(df_cbp, df_lef, df_as, df_gl)
+df_gl = load_object("../manual_data/manual_data_20200929_gl.rda")
+df_cbp = rbind(df_lef, df_as, df_gl)
 ### 1. compile files ----
 df_aw$last.update = df_aw$last.update %>% 
   as.character %>% as.Date("%m/%d/%y") %>% format("%m/%d/%y")
@@ -281,6 +281,7 @@ race_standard = function(race_var){
   df[df$state_name %in% race_name, race_var] = 
     lapply(race_df, 
            function(x) {
+             x = x %>% mutate(V1 = trimws(V1))
              new_df = left_join(x, race, by = c("V1" = "original")) %>% 
                select(new, V2) %>% group_by(new) %>% 
                summarise(V2 = sum(V2, na.rm = T)) %>% 
