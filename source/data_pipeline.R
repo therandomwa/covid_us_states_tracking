@@ -16,7 +16,7 @@ options(warn = -1)
 
 ### 0. load files 
 setwd("~/OneDrive - cumc.columbia.edu/Side/covid_us_states_tracking/source")
-file_date = Sys.Date()# change accordingly if the editing date is not the scraping date
+file_date = Sys.Date() - 6# change accordingly if the editing date is not the scraping date
 file_date_name = file_date %>% format("%Y%m%d")
 
 # load Aijin's data
@@ -191,7 +191,7 @@ race_standard = function(race_var){
   try({
     # UNKNOWN
     race[Reduce(intersect, list(which(is.na(race$new)),
-                                grep("MISS|BLANK|UNKNOWN|AVAIL|DISCLOSE|REPORT|UNK|REFUSE", race$original),
+                                grep("MISS|BLANK|UNKNOWN|AVAIL|DISCLOSE|REPORT|UNK|REFUSE|REPORT", race$original),
                                 which(is.na(race$new)),
                                 grep("OTHER", race$original, invert = T))),]$new = "UNKNOWN" }, silent = TRUE)
   try({
@@ -283,8 +283,9 @@ race_standard = function(race_var){
            function(x) {
              x = x %>% mutate(V1 = trimws(V1))
              new_df = left_join(x, race, by = c("V1" = "original")) %>% 
-               select(new, V2) %>% group_by(new) %>% 
-               summarise(V2 = sum(V2, na.rm = T)) %>% 
+               select(new, V2) %>% 
+               group_by(new) %>%
+               summarise(V2 = ifelse(n() == sum(is.na(V2)), V2, sum(V2, na.rm = T))) %>%
                mutate(V2 = format(V2, scientific = F)) %>% 
                as.data.frame
              return (paste(paste0(new_df$new, ":" ,new_df$V2), collapse = "; "))
