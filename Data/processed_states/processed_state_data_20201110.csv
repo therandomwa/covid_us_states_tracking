@@ -594,7 +594,8 @@
 "Hawaii","",1160,"11/10/20","total","hosp","Count",1420491,1160,81.6619042288899
 "Idaho","AI/AN",0.01417274,"11/10/20","race","case","Percent",30449,1052,3454.95746986765
 "Idaho","ASIAN",0.006857343,"11/10/20","race","case","Percent",27819,509,1829.68474783421
-"Idaho","BLACK",0.002815687,"11/10/20","race","case","Percent",15775,209,1324.88114104596
+"Idaho","BLACK",0.0071727,"11/10/20","race","case","Percent",15775,532,3372.42472266244
+"Idaho","HN/PI",0.00245733,"11/10/20","race","case","Percent",3883,182,4687.09760494463
 "Idaho","MULTI",0.088754766,"11/10/20","race","case","Percent",44094,6588,14940.8082732345
 "Idaho","UNKNOWN",24839,"11/10/20","race","case","Count",NA,24839,NA
 "Idaho","WHITE",0.54593342,"11/10/20","race","case","Percent",1632188,40523,2482.7409587621
@@ -610,8 +611,8 @@
 "Idaho","80-89",1951,"11/10/20","age","case","Count",NA,1951,NA
 "Idaho","90-99",629,"11/10/20","age","case","Count",NA,629,NA
 "Idaho","100+",33,"11/10/20","age","case","Count",NA,33,NA
-"Idaho","FEMALE",377,"11/10/20","gender","case","Count",875131,377,43.07926470437
-"Idaho","MALE",35305,"11/10/20","gender","case","Count",879077,35305,4016.14420579767
+"Idaho","FEMALE",38753,"11/10/20","gender","case","Count",875131,38753,4428.25131323196
+"Idaho","MALE",35853,"11/10/20","gender","case","Count",879077,35853,4078.48231724866
 "Idaho","AI/AN",13,"11/10/20","race","death","Count",30449,13,42.6943413576801
 "Idaho","ASIAN",6,"11/10/20","race","death","Count",27819,6,21.5679930982422
 "Idaho","BLACK",5,"11/10/20","race","death","Count",15775,5,31.6957210776545
@@ -1077,112 +1078,112 @@
 "Michigan","",238308,"11/09/20","total","case","Count",9995915,238308,2384.05388601244
 "Michigan","",8008,"11/09/20","total","death","Count",9995915,8008,80.1127260485908
 "Michigan","",2800,"11/09/20","total","hosp","Count",9995915,2800,28.0114426743325
-"Minnesota","HISPANIC",20972,"11/04/2020","race","case","Count",309283,20972,6780.84472796759
-"Minnesota","HN/PI",205,"11/04/2020","race","case","Count",4145,205,4945.71773220748
-"Minnesota","NH AI/AN",1617,"11/04/2020","race","case","Count",59933,1617,2698.01278093871
-"Minnesota","NH ASIAN",8391,"11/04/2020","race","case","Count",284976,8391,2944.45848071417
-"Minnesota","NH BLACK",21297,"11/04/2020","race","case","Count",367582,21297,5793.80927248886
-"Minnesota","NH MULTI",2016,"11/04/2020","race","case","Count",127279,2016,1583.92193527605
-"Minnesota","NH WHITE",107556,"11/04/2020","race","case","Count",4459268,107556,2411.96537189512
-"Minnesota","OTHER",2621,"11/04/2020","race","case","Count",NA,2621,NA
-"Minnesota","UNKNOWN",20113,"11/04/2020","race","case","Count",NA,20113,NA
-"Minnesota","0-4",3445,"11/04/2020","age","case","Count",355291,3445,969.627713620666
-"Minnesota","5-9",3918,"11/04/2020","age","case","Count",360434,3918,1087.02286687715
-"Minnesota","10-14",5995,"11/04/2020","age","case","Count",370652,5995,1617.42011374551
-"Minnesota","15-19",15612,"11/04/2020","age","case","Count",357809,15612,4363.22171885
-"Minnesota","20-24",21961,"11/04/2020","age","case","Count",360065,21961,6099.1765375696
-"Minnesota","25-29",17776,"11/04/2020","age","case","Count",376534,17776,4720.95481417349
-"Minnesota","30-34",16157,"11/04/2020","age","case","Count",384391,16157,4203.27218899506
-"Minnesota","35-39",15048,"11/04/2020","age","case","Count",383690,15048,3921.91613020928
-"Minnesota","40-44",13611,"11/04/2020","age","case","Count",326575,13611,4167.80218938988
-"Minnesota","45-49",12951,"11/04/2020","age","case","Count",336922,12951,3843.91639607981
-"Minnesota","50-54",12933,"11/04/2020","age","case","Count",354569,12933,3647.52699756606
-"Minnesota","55-59",12409,"11/04/2020","age","case","Count",394922,12409,3142.13946045042
-"Minnesota","60-64",9841,"11/04/2020","age","case","Count",359523,9841,2737.23795139671
-"Minnesota","65-69",6639,"11/04/2020","age","case","Count",294482,6639,2254.46716607467
-"Minnesota","70-74",5008,"11/04/2020","age","case","Count",215698,5008,2321.76468951961
-"Minnesota","75-79",3696,"11/04/2020","age","case","Count",153154,3696,2413.2572443423
-"Minnesota","80-84",2926,"11/04/2020","age","case","Count",104784,2926,2792.41105512292
-"Minnesota","85-89",2424,"11/04/2020","age","case","Count",NA,2424,NA
-"Minnesota","90-94",1638,"11/04/2020","age","case","Count",NA,1638,NA
-"Minnesota","95-99",673,"11/04/2020","age","case","Count",NA,673,NA
-"Minnesota","100+",122,"11/04/2020","age","case","Count",NA,122,NA
-"Minnesota","FEMALE",95000,"11/04/2020","gender","case","Count",2816378,95000,3373.1267606834
-"Minnesota","MALE",88957,"11/04/2020","gender","case","Count",2794801,88957,3182.94576250688
-"Minnesota","OTHER",16,"11/04/2020","gender","case","Count",NA,16,NA
-"Minnesota","UNKNOWN",815,"11/04/2020","gender","case","Count",NA,815,NA
-"Minnesota","HISPANIC",111,"11/04/2020","race","death","Count",309283,111,35.8894604617777
-"Minnesota","HN/PI",2,"11/04/2020","race","death","Count",4145,2,48.2509047044632
-"Minnesota","NH AI/AN",44,"11/04/2020","race","death","Count",59933,44,73.4153137670399
-"Minnesota","NH ASIAN",117,"11/04/2020","race","death","Count",284976,117,41.056088933805
-"Minnesota","NH BLACK",213,"11/04/2020","race","death","Count",367582,213,57.9462541691378
-"Minnesota","NH WHITE",2127,"11/04/2020","race","death","Count",4459268,2127,47.6984114881635
-"Minnesota","OTHER",6,"11/04/2020","race","death","Count",NA,6,NA
-"Minnesota","UNKNOWN",41,"11/04/2020","race","death","Count",NA,41,NA
-"Minnesota","0-4",1,"11/04/2020","age","death","Count",355291,1,0.281459423402225
-"Minnesota","5-9",0,"11/04/2020","age","death",NA,360434,0,0
-"Minnesota","10-14",0,"11/04/2020","age","death",NA,370652,0,0
-"Minnesota","15-19",0,"11/04/2020","age","death",NA,357809,0,0
-"Minnesota","20-24",1,"11/04/2020","age","death","Count",360065,1,0.277727632510797
-"Minnesota","25-29",3,"11/04/2020","age","death","Count",376534,3,0.796740798971673
-"Minnesota","30-34",9,"11/04/2020","age","death","Count",384391,9,2.34136595289692
-"Minnesota","35-39",11,"11/04/2020","age","death","Count",383690,11,2.86689775600094
-"Minnesota","40-44",13,"11/04/2020","age","death","Count",326575,13,3.98070887238766
-"Minnesota","45-49",27,"11/04/2020","age","death","Count",336922,27,8.01372424478069
-"Minnesota","50-54",53,"11/04/2020","age","death","Count",354569,53,14.9477252664503
-"Minnesota","55-59",85,"11/04/2020","age","death","Count",394922,85,21.5232375000633
-"Minnesota","60-64",140,"11/04/2020","age","death","Count",359523,140,38.9404850315557
-"Minnesota","65-69",172,"11/04/2020","age","death","Count",294482,172,58.4076446098573
-"Minnesota","70-74",244,"11/04/2020","age","death","Count",215698,244,113.121123051674
-"Minnesota","75-79",291,"11/04/2020","age","death","Count",153154,291,190.004831737989
-"Minnesota","80-84",422,"11/04/2020","age","death","Count",104784,422,402.733241716293
-"Minnesota","85-89",490,"11/04/2020","age","death","Count",NA,490,NA
-"Minnesota","90-94",445,"11/04/2020","age","death","Count",NA,445,NA
-"Minnesota","95-99",222,"11/04/2020","age","death","Count",NA,222,NA
-"Minnesota","100+",46,"11/04/2020","age","death","Count",NA,46,NA
-"Minnesota","UNKNOWN",0,"11/04/2020","age","death",NA,NA,0,NA
-"Minnesota","FEMALE",1261,"11/04/2020","gender","death","Count",2816378,1261,44.7738194233871
-"Minnesota","MALE",1292,"11/04/2020","gender","death","Count",2794801,1292,46.2286939213203
-"Minnesota","OTHER",0,"11/04/2020","gender","death",NA,NA,0,NA
-"Minnesota","UNKNOWN",2,"11/04/2020","gender","death","Count",NA,2,NA
-"Minnesota","HISPANIC",1337,"11/04/2020","race","hosp","Count",309283,1337,432.290167904476
-"Minnesota","HN/PI",10,"11/04/2020","race","hosp","Count",4145,10,241.254523522316
-"Minnesota","NH AI/AN",202,"11/04/2020","race","hosp","Count",59933,202,337.043031385047
-"Minnesota","NH ASIAN",793,"11/04/2020","race","hosp","Count",284976,793,278.269047218011
-"Minnesota","NH BLACK",1887,"11/04/2020","race","hosp","Count",367582,1887,513.354843273066
-"Minnesota","NH MULTI",154,"11/04/2020","race","hosp","Count",127279,154,120.994036722476
-"Minnesota","NH WHITE",5948,"11/04/2020","race","hosp","Count",4459268,5948,133.385120607239
-"Minnesota","OTHER",109,"11/04/2020","race","hosp","Count",NA,109,NA
-"Minnesota","UNKNOWN",576,"11/04/2020","race","hosp","Count",NA,576,NA
-"Minnesota","0-4",94,"11/04/2020","age","hosp","Count",355291,94,26.4571857998092
-"Minnesota","5-9",38,"11/04/2020","age","hosp","Count",360434,38,10.5428455695079
-"Minnesota","10-14",54,"11/04/2020","age","hosp","Count",370652,54,14.5689217918695
-"Minnesota","15-19",187,"11/04/2020","age","hosp","Count",357809,187,52.2625199477934
-"Minnesota","20-24",324,"11/04/2020","age","hosp","Count",360065,324,89.9837529334981
-"Minnesota","25-29",399,"11/04/2020","age","hosp","Count",376534,399,105.966526263233
-"Minnesota","30-34",479,"11/04/2020","age","hosp","Count",384391,479,124.612699048625
-"Minnesota","35-39",503,"11/04/2020","age","hosp","Count",383690,503,131.095415569861
-"Minnesota","40-44",523,"11/04/2020","age","hosp","Count",326575,523,160.146980019904
-"Minnesota","45-49",615,"11/04/2020","age","hosp","Count",336922,615,182.534830020005
-"Minnesota","50-54",809,"11/04/2020","age","hosp","Count",354569,809,228.164334727514
-"Minnesota","55-59",983,"11/04/2020","age","hosp","Count",394922,983,248.909911324262
-"Minnesota","60-64",1043,"11/04/2020","age","hosp","Count",359523,1043,290.10661348509
-"Minnesota","65-69",1003,"11/04/2020","age","hosp","Count",294482,1003,340.598067114459
-"Minnesota","70-74",1013,"11/04/2020","age","hosp","Count",215698,1013,469.638105128467
-"Minnesota","75-79",936,"11/04/2020","age","hosp","Count",153154,936,611.149561878893
-"Minnesota","80-84",846,"11/04/2020","age","hosp","Count",104784,846,807.375171781951
-"Minnesota","85-89",672,"11/04/2020","age","hosp","Count",NA,672,NA
-"Minnesota","90-94",364,"11/04/2020","age","hosp","Count",NA,364,NA
-"Minnesota","95-99",116,"11/04/2020","age","hosp","Count",NA,116,NA
-"Minnesota","100+",15,"11/04/2020","age","hosp","Count",NA,15,NA
-"Minnesota","FEMALE",5385,"11/04/2020","gender","hosp","Count",2816378,5385,191.203027434528
-"Minnesota","MALE",5616,"11/04/2020","gender","hosp","Count",2794801,5616,200.944539521776
-"Minnesota","OTHER",1,"11/04/2020","gender","hosp","Count",NA,1,NA
-"Minnesota","UNKNOWN",14,"11/04/2020","gender","hosp","Count",NA,14,NA
-"Minnesota","",3103434,"11/04/2020","total","test","Count",5611179,3103434,55308.0555797632
-"Minnesota","",184788,"11/04/2020","total","case","Count",5611179,184788,3293.21164054827
-"Minnesota","",2675,"11/04/2020","total","death","Count",5611179,2675,47.6726905343779
-"Minnesota","",14619,"11/04/2020","total","hosp","Count",5611179,14619,260.533481466195
+"Minnesota","HISPANIC",20972,"11/10/2020","race","case","Count",309283,20972,6780.84472796759
+"Minnesota","HN/PI",205,"11/10/2020","race","case","Count",4145,205,4945.71773220748
+"Minnesota","NH AI/AN",1617,"11/10/2020","race","case","Count",59933,1617,2698.01278093871
+"Minnesota","NH ASIAN",8391,"11/10/2020","race","case","Count",284976,8391,2944.45848071417
+"Minnesota","NH BLACK",21297,"11/10/2020","race","case","Count",367582,21297,5793.80927248886
+"Minnesota","NH MULTI",2016,"11/10/2020","race","case","Count",127279,2016,1583.92193527605
+"Minnesota","NH WHITE",107556,"11/10/2020","race","case","Count",4459268,107556,2411.96537189512
+"Minnesota","OTHER",2621,"11/10/2020","race","case","Count",NA,2621,NA
+"Minnesota","UNKNOWN",20113,"11/10/2020","race","case","Count",NA,20113,NA
+"Minnesota","0-4",3445,"11/10/2020","age","case","Count",355291,3445,969.627713620666
+"Minnesota","5-9",3918,"11/10/2020","age","case","Count",360434,3918,1087.02286687715
+"Minnesota","10-14",5995,"11/10/2020","age","case","Count",370652,5995,1617.42011374551
+"Minnesota","15-19",15612,"11/10/2020","age","case","Count",357809,15612,4363.22171885
+"Minnesota","20-24",21961,"11/10/2020","age","case","Count",360065,21961,6099.1765375696
+"Minnesota","25-29",17776,"11/10/2020","age","case","Count",376534,17776,4720.95481417349
+"Minnesota","30-34",16157,"11/10/2020","age","case","Count",384391,16157,4203.27218899506
+"Minnesota","35-39",15048,"11/10/2020","age","case","Count",383690,15048,3921.91613020928
+"Minnesota","40-44",13611,"11/10/2020","age","case","Count",326575,13611,4167.80218938988
+"Minnesota","45-49",12951,"11/10/2020","age","case","Count",336922,12951,3843.91639607981
+"Minnesota","50-54",12933,"11/10/2020","age","case","Count",354569,12933,3647.52699756606
+"Minnesota","55-59",12409,"11/10/2020","age","case","Count",394922,12409,3142.13946045042
+"Minnesota","60-64",9841,"11/10/2020","age","case","Count",359523,9841,2737.23795139671
+"Minnesota","65-69",6639,"11/10/2020","age","case","Count",294482,6639,2254.46716607467
+"Minnesota","70-74",5008,"11/10/2020","age","case","Count",215698,5008,2321.76468951961
+"Minnesota","75-79",3696,"11/10/2020","age","case","Count",153154,3696,2413.2572443423
+"Minnesota","80-84",2926,"11/10/2020","age","case","Count",104784,2926,2792.41105512292
+"Minnesota","85-89",2424,"11/10/2020","age","case","Count",NA,2424,NA
+"Minnesota","90-94",1638,"11/10/2020","age","case","Count",NA,1638,NA
+"Minnesota","95-99",673,"11/10/2020","age","case","Count",NA,673,NA
+"Minnesota","100+",122,"11/10/2020","age","case","Count",NA,122,NA
+"Minnesota","FEMALE",95000,"11/10/2020","gender","case","Count",2816378,95000,3373.1267606834
+"Minnesota","MALE",88957,"11/10/2020","gender","case","Count",2794801,88957,3182.94576250688
+"Minnesota","OTHER",16,"11/10/2020","gender","case","Count",NA,16,NA
+"Minnesota","UNKNOWN",815,"11/10/2020","gender","case","Count",NA,815,NA
+"Minnesota","HISPANIC",111,"11/10/2020","race","death","Count",309283,111,35.8894604617777
+"Minnesota","HN/PI",2,"11/10/2020","race","death","Count",4145,2,48.2509047044632
+"Minnesota","NH AI/AN",44,"11/10/2020","race","death","Count",59933,44,73.4153137670399
+"Minnesota","NH ASIAN",117,"11/10/2020","race","death","Count",284976,117,41.056088933805
+"Minnesota","NH BLACK",213,"11/10/2020","race","death","Count",367582,213,57.9462541691378
+"Minnesota","NH WHITE",2127,"11/10/2020","race","death","Count",4459268,2127,47.6984114881635
+"Minnesota","OTHER",6,"11/10/2020","race","death","Count",NA,6,NA
+"Minnesota","UNKNOWN",41,"11/10/2020","race","death","Count",NA,41,NA
+"Minnesota","0-4",1,"11/10/2020","age","death","Count",355291,1,0.281459423402225
+"Minnesota","5-9",0,"11/10/2020","age","death",NA,360434,0,0
+"Minnesota","10-14",0,"11/10/2020","age","death",NA,370652,0,0
+"Minnesota","15-19",0,"11/10/2020","age","death",NA,357809,0,0
+"Minnesota","20-24",1,"11/10/2020","age","death","Count",360065,1,0.277727632510797
+"Minnesota","25-29",3,"11/10/2020","age","death","Count",376534,3,0.796740798971673
+"Minnesota","30-34",9,"11/10/2020","age","death","Count",384391,9,2.34136595289692
+"Minnesota","35-39",11,"11/10/2020","age","death","Count",383690,11,2.86689775600094
+"Minnesota","40-44",13,"11/10/2020","age","death","Count",326575,13,3.98070887238766
+"Minnesota","45-49",27,"11/10/2020","age","death","Count",336922,27,8.01372424478069
+"Minnesota","50-54",53,"11/10/2020","age","death","Count",354569,53,14.9477252664503
+"Minnesota","55-59",85,"11/10/2020","age","death","Count",394922,85,21.5232375000633
+"Minnesota","60-64",140,"11/10/2020","age","death","Count",359523,140,38.9404850315557
+"Minnesota","65-69",172,"11/10/2020","age","death","Count",294482,172,58.4076446098573
+"Minnesota","70-74",244,"11/10/2020","age","death","Count",215698,244,113.121123051674
+"Minnesota","75-79",291,"11/10/2020","age","death","Count",153154,291,190.004831737989
+"Minnesota","80-84",422,"11/10/2020","age","death","Count",104784,422,402.733241716293
+"Minnesota","85-89",490,"11/10/2020","age","death","Count",NA,490,NA
+"Minnesota","90-94",445,"11/10/2020","age","death","Count",NA,445,NA
+"Minnesota","95-99",222,"11/10/2020","age","death","Count",NA,222,NA
+"Minnesota","100+",46,"11/10/2020","age","death","Count",NA,46,NA
+"Minnesota","UNKNOWN",0,"11/10/2020","age","death",NA,NA,0,NA
+"Minnesota","FEMALE",1261,"11/10/2020","gender","death","Count",2816378,1261,44.7738194233871
+"Minnesota","MALE",1292,"11/10/2020","gender","death","Count",2794801,1292,46.2286939213203
+"Minnesota","OTHER",0,"11/10/2020","gender","death",NA,NA,0,NA
+"Minnesota","UNKNOWN",2,"11/10/2020","gender","death","Count",NA,2,NA
+"Minnesota","HISPANIC",1337,"11/10/2020","race","hosp","Count",309283,1337,432.290167904476
+"Minnesota","HN/PI",10,"11/10/2020","race","hosp","Count",4145,10,241.254523522316
+"Minnesota","NH AI/AN",202,"11/10/2020","race","hosp","Count",59933,202,337.043031385047
+"Minnesota","NH ASIAN",793,"11/10/2020","race","hosp","Count",284976,793,278.269047218011
+"Minnesota","NH BLACK",1887,"11/10/2020","race","hosp","Count",367582,1887,513.354843273066
+"Minnesota","NH MULTI",154,"11/10/2020","race","hosp","Count",127279,154,120.994036722476
+"Minnesota","NH WHITE",5948,"11/10/2020","race","hosp","Count",4459268,5948,133.385120607239
+"Minnesota","OTHER",109,"11/10/2020","race","hosp","Count",NA,109,NA
+"Minnesota","UNKNOWN",576,"11/10/2020","race","hosp","Count",NA,576,NA
+"Minnesota","0-4",94,"11/10/2020","age","hosp","Count",355291,94,26.4571857998092
+"Minnesota","5-9",38,"11/10/2020","age","hosp","Count",360434,38,10.5428455695079
+"Minnesota","10-14",54,"11/10/2020","age","hosp","Count",370652,54,14.5689217918695
+"Minnesota","15-19",187,"11/10/2020","age","hosp","Count",357809,187,52.2625199477934
+"Minnesota","20-24",324,"11/10/2020","age","hosp","Count",360065,324,89.9837529334981
+"Minnesota","25-29",399,"11/10/2020","age","hosp","Count",376534,399,105.966526263233
+"Minnesota","30-34",479,"11/10/2020","age","hosp","Count",384391,479,124.612699048625
+"Minnesota","35-39",503,"11/10/2020","age","hosp","Count",383690,503,131.095415569861
+"Minnesota","40-44",523,"11/10/2020","age","hosp","Count",326575,523,160.146980019904
+"Minnesota","45-49",615,"11/10/2020","age","hosp","Count",336922,615,182.534830020005
+"Minnesota","50-54",809,"11/10/2020","age","hosp","Count",354569,809,228.164334727514
+"Minnesota","55-59",983,"11/10/2020","age","hosp","Count",394922,983,248.909911324262
+"Minnesota","60-64",1043,"11/10/2020","age","hosp","Count",359523,1043,290.10661348509
+"Minnesota","65-69",1003,"11/10/2020","age","hosp","Count",294482,1003,340.598067114459
+"Minnesota","70-74",1013,"11/10/2020","age","hosp","Count",215698,1013,469.638105128467
+"Minnesota","75-79",936,"11/10/2020","age","hosp","Count",153154,936,611.149561878893
+"Minnesota","80-84",846,"11/10/2020","age","hosp","Count",104784,846,807.375171781951
+"Minnesota","85-89",672,"11/10/2020","age","hosp","Count",NA,672,NA
+"Minnesota","90-94",364,"11/10/2020","age","hosp","Count",NA,364,NA
+"Minnesota","95-99",116,"11/10/2020","age","hosp","Count",NA,116,NA
+"Minnesota","100+",15,"11/10/2020","age","hosp","Count",NA,15,NA
+"Minnesota","FEMALE",5385,"11/10/2020","gender","hosp","Count",2816378,5385,191.203027434528
+"Minnesota","MALE",5616,"11/10/2020","gender","hosp","Count",2794801,5616,200.944539521776
+"Minnesota","OTHER",1,"11/10/2020","gender","hosp","Count",NA,1,NA
+"Minnesota","UNKNOWN",14,"11/10/2020","gender","hosp","Count",NA,14,NA
+"Minnesota","",3103434,"11/10/2020","total","test","Count",5611179,3103434,55308.0555797632
+"Minnesota","",184788,"11/10/2020","total","case","Count",5611179,184788,3293.21164054827
+"Minnesota","",2675,"11/10/2020","total","death","Count",5611179,2675,47.6726905343779
+"Minnesota","",14619,"11/10/2020","total","hosp","Count",5611179,14619,260.533481466195
 "Mississippi","AI/AN",1417,"11/10/20","race","case","Count",18423,1417,7691.47261575205
 "Mississippi","ASIAN",486,"11/10/20","race","case","Count",32152,486,1511.57004229908
 "Mississippi","BLACK",47056,"11/10/20","race","case","Count",1128912,47056,4168.26112221325
@@ -1523,8 +1524,8 @@
 "New Jersey","FEMALE",17514,"11/10/20","gender","hosp","Count",4556326,17514,384.388649978074
 "New Jersey","MALE",20716,"11/10/20","gender","hosp","Count",4352194,20716,475.989811115957
 "New Jersey","UNKNOWN",0,"11/10/20","gender","hosp",NA,NA,0,NA
-"New Jersey","",271293,"11/10/20","total","case","Count",8908520,271293,3045.32065932388
-"New Jersey","",14640,"11/10/20","total","death","Count",8908520,14640,164.337061599458
+"New Jersey","",260430,"11/10/20","total","case","Count",8908520,260430,2923.38121259199
+"New Jersey","",16461,"11/10/20","total","death","Count",8908520,16461,184.778167417259
 "New Jersey","",38336,"11/10/20","total","hosp","Count",8908520,38336,430.329617040765
 "New Mexico","NH AI/AN",0.2019,"11/09/20","race","case","Percent",184643,11365,6155.12096315593
 "New Mexico","NH ASIAN",0.0078,"11/09/20","race","case","Percent",32311,439,1358.67042183776
