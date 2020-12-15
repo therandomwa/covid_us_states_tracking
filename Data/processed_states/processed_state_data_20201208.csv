@@ -1,38 +1,38 @@
 "state_name","category","count","last_update","strata_type","data_type","metric","pop_est","count2","normalized"
-"Alabama","ASIAN",968,"12/09/20","race","case","Count",73167,968,1323.00080637446
-"Alabama","BLACK",49094,"12/09/20","race","case","Count",1310802,49094,3745.3406387845
-"Alabama","OTHER",26685,"12/09/20","race","case","Count",NA,26685,NA
-"Alabama","UNKNOWN",68915,"12/09/20","race","case","Count",NA,68915,NA
-"Alabama","WHITE",85877,"12/09/20","race","case","Count",3379955,85877,2540.77347183616
-"Alabama","65+",38831,"12/09/20","age","case","Count",826894,38831,4696.00698517585
-"Alabama","0-4",4461,"12/09/20","age","case","Count",293203,4461,1521.47147198357
-"Alabama","18-24",30983,"12/09/20","age","case","Count",452658,30983,6844.68185694277
-"Alabama","25-49",87934,"12/09/20","age","case","Count",1548808,87934,5677.52749211006
-"Alabama","5-17",20954,"12/09/20","age","case","Count",796637,20954,2630.30715369736
-"Alabama","50-64",48376,"12/09/20","age","case","Count",969671,48376,4988.90860920869
-"Alabama","FEMALE",126046,"12/09/20","gender","case","Count",2523756,126046,4994.38139027703
-"Alabama","MALE",102125,"12/09/20","gender","case","Count",2364115,102125,4319.79831776373
-"Alabama","UNKNOWN",3368,"12/09/20","gender","case","Count",NA,3368,NA
-"Alabama","ASIAN",12,"12/09/20","race","death","Count",73167,12,16.4008364426586
-"Alabama","BLACK",1193,"12/09/20","race","death","Count",1310802,1193,91.0129828913902
-"Alabama","OTHER",106,"12/09/20","race","death","Count",NA,106,NA
-"Alabama","UNKNOWN",177,"12/09/20","race","death","Count",NA,177,NA
-"Alabama","WHITE",2008,"12/09/20","race","death","Count",3379955,2008,59.4090749728917
-"Alabama","65+",2701,"12/09/20","age","death","Count",826894,2701,326.644043855682
-"Alabama","0-4",4,"12/09/20","age","death","Count",293203,4,1.36424252139303
-"Alabama","18-24",8,"12/09/20","age","death","Count",452658,8,1.76733869720628
-"Alabama","25-49",167,"12/09/20","age","death","Count",1548808,167,10.7824856276569
-"Alabama","50-64",616,"12/09/20","age","death","Count",969671,616,63.5267013244698
-"Alabama","FEMALE",1641,"12/09/20","gender","death","Count",2523756,1641,65.0221336769482
-"Alabama","MALE",1841,"12/09/20","gender","death","Count",2364115,1841,77.8726923182671
-"Alabama","UNKNOWN",6,"12/09/20","gender","death","Count",NA,6,NA
-"Alabama","",1664090,"12/09/20","total","test","Count",4887871,1664090,34045.2929301939
-"Alabama","",280187,"12/09/20","total","case","Count",4887871,280187,5732.29121635984
-"Alabama","HISPANIC",9514,"12/09/20","eth","case","Count",217181,9514,4380.67786776928
-"Alabama","NON HISPANIC",101009,"12/09/20","eth","case","Count",4670690,101009,2162.61408913886
-"Alabama","UNKNOWN",121016,"12/09/20","eth","case","Count",NA,121016,NA
-"Alabama","",3985,"12/09/20","total","death","Count",4887871,3985,81.5283382069617
-"Alabama","",27323,"12/09/20","total","hosp","Count",4887871,27323,558.99593094826
+"Alabama","ASIAN",1090,"12/15/20","race","case","Count",73167,1090,1489.74264354149
+"Alabama","BLACK",52093,"12/15/20","race","case","Count",1310802,52093,3974.13186736059
+"Alabama","OTHER",27750,"12/15/20","race","case","Count",NA,27750,NA
+"Alabama","UNKNOWN",73243,"12/15/20","race","case","Count",NA,73243,NA
+"Alabama","WHITE",92827,"12/15/20","race","case","Count",3379955,92827,2746.39751120947
+"Alabama","65+",41411,"12/15/20","age","case","Count",826894,41411,5008.01795635233
+"Alabama","0-4",4794,"12/15/20","age","case","Count",293203,4794,1635.04466188954
+"Alabama","18-24",32575,"12/15/20","age","case","Count",452658,32575,7196.38225768682
+"Alabama","25-49",93671,"12/15/20","age","case","Count",1548808,93671,6047.94138460029
+"Alabama","5-17",22665,"12/15/20","age","case","Count",796637,22665,2845.0850261788
+"Alabama","50-64",51887,"12/15/20","age","case","Count",969671,51887,5350.99018120579
+"Alabama","FEMALE",134354,"12/15/20","gender","case","Count",2523756,134354,5323.57327728988
+"Alabama","MALE",109029,"12/15/20","gender","case","Count",2364115,109029,4611.83148873892
+"Alabama","UNKNOWN",3620,"12/15/20","gender","case","Count",NA,3620,NA
+"Alabama","HISPANIC",3068,"12/15/20","race","death","Count",217181,3068,1412.64659431534
+"Alabama","UNKNOWN",574,"12/15/20","race","death","Count",NA,574,NA
+"Alabama","F",1701,"12/15/20","age","death","Count",NA,1701,NA
+"Alabama","M",1927,"12/15/20","age","death","Count",NA,1927,NA
+"Alabama","U",6,"12/15/20","age","death","Count",NA,6,NA
+"Alabama","ASIAN",14,"12/15/20","gender","death","Count",NA,14,NA
+"Alabama","BLACK",1229,"12/15/20","gender","death","Count",NA,1229,NA
+"Alabama","OTHER",112,"12/15/20","gender","death","Count",NA,112,NA
+"Alabama","UNKNOWN",188,"12/15/20","gender","death","Count",NA,188,NA
+"Alabama","WHITE",2099,"12/15/20","gender","death","Count",NA,2099,NA
+"Alabama","",1732185,"12/15/20","total","test","Count",4887871,1732185,35438.4352614871
+"Alabama","",301533,"12/15/20","total","case","Count",4887871,301533,6169.0048694002
+"Alabama","HISPANIC",9749,"12/15/20","eth","case","Count",217181,9749,4488.88254497401
+"Alabama","NON HISPANIC",106218,"12/15/20","eth","case","Count",4670690,106218,2274.1393669886
+"Alabama","UNKNOWN",131036,"12/15/20","eth","case","Count",NA,131036,NA
+"Alabama","",4124,"12/15/20","total","death","Count",4887871,4124,84.3721121117967
+"Alabama","HISPANIC",91,"12/15/20","eth","death","Count",217181,91,41.9005345771499
+"Alabama","NON HISPANIC",2977,"12/15/20","eth","death","Count",4670690,2977,63.7379059625023
+"Alabama","UNKNOWN",574,"12/15/20","eth","death","Count",NA,574,NA
+"Alabama","",28913,"12/15/20","total","hosp","Count",4887871,28913,591.525431010761
 "Alaska","AI/AN",7508,"12/07/20","race","case","Count",113516,7508,6614.04559709644
 "Alaska","ASIAN",1367,"12/07/20","race","case","Count",49025,1367,2788.37327893932
 "Alaska","BLACK",962,"12/07/20","race","case","Count",27942,962,3442.84589506836
@@ -536,11 +536,11 @@
 "Georgia","MALE",17711,"12/09/20","gender","hosp","Count",5115416,17711,346.227950962346
 "Georgia","UNKNOWN",164,"12/09/20","gender","hosp","Count",NA,164,NA
 "Georgia","",4555443,"12/09/20","total","test","Count",10519475,4555443,43304.8512401997
-"Georgia","",452369,"12/09/20","total","case","Count",10519475,452369,4300.3001575649
+"Georgia","",512267,"12/09/20","total","case","Count",10519475,512267,4869.70119706544
 "Georgia","HISPANIC",55161,"12/09/20","eth","case","Count",1026737,55161,5372.45662715963
 "Georgia","NON HISPANIC",271179,"12/09/20","eth","case","Count",9492738,271179,2856.69951072072
 "Georgia","UNKNOWN",126029,"12/09/20","eth","case","Count",NA,126029,NA
-"Georgia","",9027,"12/09/20","total","death","Count",10519475,9027,85.8122672471773
+"Georgia","",9873,"12/09/20","total","death","Count",10519475,9873,93.8544936890862
 "Georgia","HISPANIC",547,"12/09/20","eth","death","Count",1026737,547,53.2755710566581
 "Georgia","NON HISPANIC",8406,"12/09/20","eth","death","Count",9492738,8406,88.5519014640455
 "Georgia","UNKNOWN",74,"12/09/20","eth","death","Count",NA,74,NA
@@ -553,16 +553,16 @@
 "Hawaii","HN/PI",5556,"12/08/20","race","case","Count",144806,5556,3836.85758877395
 "Hawaii","OTHER",522,"12/08/20","race","case","Count",NA,522,NA
 "Hawaii","WHITE",1903,"12/08/20","race","case","Count",363549,1903,523.450759044861
-"Hawaii","0-17",1718,"12/08/20","age","case","Count",303414,1718,566.223048376146
-"Hawaii","18-29",2719,"12/08/20","age","case","Count",225220,2719,1207.264008525
-"Hawaii","30-39",2164,"12/08/20","age","case","Count",195825,2164,1105.06830077876
-"Hawaii","40-49",1764,"12/08/20","age","case","Count",169219,1764,1042.43613305834
-"Hawaii","50-59",1478,"12/08/20","age","case","Count",175926,1478,840.125962052226
-"Hawaii","60-69",963,"12/08/20","age","case","Count",172412,963,558.545808876412
-"Hawaii","70-79",393,"12/08/20","age","case","Count",108836,393,361.093755742585
-"Hawaii","80+",186,"12/08/20","age","case","Count",69639,186,267.091715848878
-"Hawaii","FEMALE",5554,"12/08/20","gender","case","Count",709489,5554,782.816928803688
-"Hawaii","MALE",5831,"12/08/20","gender","case","Count",711002,5831,820.110210660448
+"Hawaii","0-17",2243,"12/08/20","age","case","Count",303414,2243,739.253956640102
+"Hawaii","18-29",4080,"12/08/20","age","case","Count",225220,4080,1811.56202823906
+"Hawaii","30-39",3358,"12/08/20","age","case","Count",195825,3358,1714.7963743138
+"Hawaii","40-49",2805,"12/08/20","age","case","Count",169219,2805,1657.61527960808
+"Hawaii","50-59",2558,"12/08/20","age","case","Count",175926,2558,1454.02044041245
+"Hawaii","60-69",1798,"12/08/20","age","case","Count",172412,1798,1042.85084564879
+"Hawaii","70-79",916,"12/08/20","age","case","Count",108836,916,841.633283104855
+"Hawaii","80+",579,"12/08/20","age","case","Count",69639,579,831.430663852152
+"Hawaii","FEMALE",8746,"12/08/20","gender","case","Count",709489,8746,1232.71819577189
+"Hawaii","MALE",9591,"12/08/20","gender","case","Count",711002,9591,1348.94135318888
 "Hawaii","ASIAN",146,"12/08/20","race","death","Count",534651,146,27.3075333254777
 "Hawaii","BLACK",5,"12/08/20","race","death","Count",31138,5,16.0575502601323
 "Hawaii","HN/PI",76,"12/08/20","race","death","Count",144806,76,52.4840130933801
@@ -594,7 +594,7 @@
 "Idaho","AI/AN",0.012628136,"12/08/20","race","case","Percent",30449,1413,4640.54648756938
 "Idaho","ASIAN",0.006318536,"12/08/20","race","case","Percent",27819,707,2541.42852007621
 "Idaho","BLACK",0.00612192,"12/08/20","race","case","Percent",15775,685,4342.31378763867
-"Idaho","HN/PI",0.012628136,"12/08/20","race","case","Percent",3883,1413,36389.38964718
+"Idaho","HN/PI",0.0022,"12/08/20","race","case","Percent",3883,246,6335.30775173835
 "Idaho","MULTI",0.080621665,"12/08/20","race","case","Percent",44094,9021,20458.5657912641
 "Idaho","UNKNOWN",40525,"12/08/20","race","case","Count",NA,40525,NA
 "Idaho","WHITE",0.529908037,"12/08/20","race","case","Percent",1632188,59293,3632.73103343487
@@ -642,6 +642,7 @@
 "Idaho","HISPANIC",0.113796216027812,"12/08/20","eth","case","Percent",222908,12733,5712.22208265293
 "Idaho","NON HISPANIC",0.388156542411053,"12/08/20","eth","case","Percent",1531300,43432,2836.282896885
 "Idaho","UNKNOWN",55728,"12/08/20","eth","case","Count",NA,55728,NA
+"Idaho","",1074,"12/08/20","total","death","Count",1754208,1074,61.2242105839216
 "Idaho","HISPANIC",113,"12/08/20","eth","death","Count",222908,113,50.6935596748434
 "Idaho","NON HISPANIC",931,"12/08/20","eth","death","Count",1531300,931,60.7980147587018
 "Idaho","",4448,"12/08/20","total","hosp","Count",1754208,4448,253.561721301009
@@ -1501,7 +1502,7 @@
 "New Hampshire","",25816,"12/08/20","total","case","Count",1356458,25816,1903.19198972618
 "New Hampshire","",566,"12/08/20","total","death","Count",1356458,566,41.7263195764262
 "New Hampshire","",849,"12/08/20","total","hosp","Count",1356458,849,62.5894793646394
-"New Jersey","HISPANIC",5849,"12/08/20","race","case","Count",1839359,5849,317.991213243309
+"New Jersey","HISPANIC",76715,"12/08/20","race","case","Count",1839359,76715,4170.74643938459
 "New Jersey","NH ASIAN",12055,"12/08/20","race","case","Count",873183,12055,1380.58116110827
 "New Jersey","NH BLACK",34032,"12/08/20","race","case","Count",1150141,34032,2958.94155586141
 "New Jersey","NH OTHER",39063,"12/08/20","race","case","Count",NA,39063,NA
@@ -1912,70 +1913,87 @@
 "Pennsylvania","",11542,"12/09/20","total","death","Count",12807060,11542,90.1221669922683
 "Pennsylvania","HISPANIC",336,"12/09/20","eth","death","Count",976143,336,34.4211862401308
 "Pennsylvania","NON HISPANIC",5550,"12/09/20","eth","death","Count",11830917,5550,46.9109875422167
-"Rhode Island","NH BLACK",4152,"12/08/20","race","case","Count",63323,4152,6556.85927703994
-"Rhode Island","NH HN/PI",0,"12/08/20","race","case",NA,676,0,0
-"Rhode Island","NH MULTI",391,"12/08/20","race","case","Count",22143,391,1765.79505938671
-"Rhode Island","OTHER",744,"12/08/20","race","case","Count",NA,744,NA
-"Rhode Island","NH WHITE",20585,"12/08/20","race","case","Count",761439,20585,2703.43389293167
-"Rhode Island","NA",647,"12/08/20","race","case","Count",73167,647,884.278431533342
-"Rhode Island","25-29",5021,"12/08/20","age","case","Count",76369,5021,6574.65725621653
-"Rhode Island","5-9",8769,"12/08/20","age","case","Count",54840,8769,15990.1531728665
-"Rhode Island","40-49",7618,"12/08/20","age","case","Count",124924,7618,6098.10764945087
-"Rhode Island","50-59",8143,"12/08/20","age","case","Count",150201,8143,5421.40198800274
-"Rhode Island","60-69",5579,"12/08/20","age","case","Count",129909,5579,4294.54464278841
-"Rhode Island","70-79",3087,"12/08/20","age","case","Count",75611,3087,4082.73928396662
-"Rhode Island","80-89",2174,"12/08/20","age","case","Count",NA,2174,NA
-"Rhode Island","90+",1353,"12/08/20","age","case","Count",NA,1353,NA
-"Rhode Island","HISPANICORLATINO†",16951,"12/08/20","age","case","Count",NA,16951,NA
-"Rhode Island","AMERICANINDIANORALASKANATIVE",129,"12/08/20","age","case","Count",NA,129,NA
-"Rhode Island","0-4",992,"12/08/20","gender","case","Count",NA,992,NA
-"Rhode Island","10-14",1604,"12/08/20","gender","case","Count",NA,1604,NA
-"Rhode Island","15-18",2370,"12/08/20","gender","case","Count",NA,2370,NA
-"Rhode Island","43960",1189,"12/08/20","gender","case","Count",NA,1189,NA
-"Rhode Island","NH BLACK",73,"12/08/20","race","death","Count",63323,73,115.281967057783
-"Rhode Island","NH HN/PI",0,"12/08/20","race","death",NA,676,0,0
-"Rhode Island","NH MULTI",0,"12/08/20","race","death",NA,22143,0,0
-"Rhode Island","OTHER",0,"12/08/20","race","death",NA,NA,0,NA
-"Rhode Island","NH WHITE",925,"12/08/20","race","death","Count",761439,925,121.480512555832
-"Rhode Island","NA",0,"12/08/20","race","death",NA,73167,0,0
-"Rhode Island","25-29",0,"12/08/20","age","death",NA,76369,0,0
-"Rhode Island","5-9",7,"12/08/20","age","death","Count",54840,7,12.764405543399
-"Rhode Island","40-49",19,"12/08/20","age","death","Count",124924,19,15.2092472223112
-"Rhode Island","50-59",58,"12/08/20","age","death","Count",150201,58,38.6149226702885
-"Rhode Island","60-69",153,"12/08/20","age","death","Count",129909,153,117.77475001732
-"Rhode Island","70-79",300,"12/08/20","age","death","Count",75611,300,396.767666080332
-"Rhode Island","80-89",448,"12/08/20","age","death","Count",NA,448,NA
-"Rhode Island","90+",368,"12/08/20","age","death","Count",NA,368,NA
-"Rhode Island","HISPANICORLATINO†",128,"12/08/20","age","death","Count",NA,128,NA
-"Rhode Island","AMERICANINDIANORALASKANATIVE",0,"12/08/20","age","death",NA,NA,0,NA
-"Rhode Island","0-4",0,"12/08/20","gender","death",NA,NA,0,NA
-"Rhode Island","10-14",0,"12/08/20","gender","death",NA,NA,0,NA
-"Rhode Island","15-18",0,"12/08/20","gender","death",NA,NA,0,NA
-"Rhode Island","43960",0,"12/08/20","gender","death",NA,NA,0,NA
-"Rhode Island","NH BLACK",395,"12/08/20","race","hosp","Count",63323,395,623.78598613458
-"Rhode Island","NH HN/PI",0,"12/08/20","race","hosp",NA,676,0,0
-"Rhode Island","NH MULTI",15,"12/08/20","race","hosp","Count",22143,15,67.7414984419455
-"Rhode Island","OTHER",70,"12/08/20","race","hosp","Count",NA,70,NA
-"Rhode Island","NH WHITE",1752,"12/08/20","race","hosp","Count",761439,1752,230.090657294938
-"Rhode Island","NA",18,"12/08/20","race","hosp","Count",73167,18,24.6012546639879
-"Rhode Island","25-29",148,"12/08/20","age","hosp","Count",76369,148,193.795911953803
-"Rhode Island","5-9",304,"12/08/20","age","hosp","Count",54840,304,554.339897884756
-"Rhode Island","40-49",453,"12/08/20","age","hosp","Count",124924,453,362.620473247735
-"Rhode Island","50-59",681,"12/08/20","age","hosp","Count",150201,681,453.392454111491
-"Rhode Island","60-69",883,"12/08/20","age","hosp","Count",129909,883,679.706563825447
-"Rhode Island","70-79",876,"12/08/20","age","hosp","Count",75611,876,1158.56158495457
-"Rhode Island","80-89",666,"12/08/20","age","hosp","Count",NA,666,NA
-"Rhode Island","90+",279,"12/08/20","age","hosp","Count",NA,279,NA
-"Rhode Island","HISPANICORLATINO†",1159,"12/08/20","age","hosp","Count",NA,1159,NA
-"Rhode Island","AMERICANINDIANORALASKANATIVE",6,"12/08/20","age","hosp","Count",NA,6,NA
-"Rhode Island","0-4",36,"12/08/20","gender","hosp","Count",NA,36,NA
-"Rhode Island","10-14",18,"12/08/20","gender","hosp","Count",NA,18,NA
-"Rhode Island","15-18",27,"12/08/20","gender","hosp","Count",NA,27,NA
-"Rhode Island","43960",12,"12/08/20","gender","hosp","Count",NA,12,NA
-"Rhode Island","",1663288,"12/08/20","total","test","Count",1057315,1663288,157312.437636844
-"Rhode Island","",67067,"12/08/20","total","case","Count",1057315,67067,6343.14277202158
-"Rhode Island","",1470,"12/08/20","total","death","Count",1057315,1470,139.031414479129
-"Rhode Island","",5133,"12/08/20","total","hosp","Count",1057315,5133,485.475000354672
+"Rhode Island","NH AI/AN",144,"12/14/20","race","case","Count",4570,144,3150.98468271335
+"Rhode Island","NH ASIAN",987,"12/14/20","race","case","Count",36822,987,2680.46276682418
+"Rhode Island","NH BLACK",4562,"12/14/20","race","case","Count",63323,4562,7204.33333859735
+"Rhode Island","HISPANIC",18983,"12/14/20","race","case","Count",168342,18983,11276.4491333119
+"Rhode Island","NH HN/PI",0,"12/14/20","race","case",NA,676,0,0
+"Rhode Island","NH MULTI",475,"12/14/20","race","case","Count",22143,475,2145.14745066161
+"Rhode Island","OTHER",881,"12/14/20","race","case","Count",NA,881,NA
+"Rhode Island","UNKNOWN",11563,"12/14/20","race","case","Count",NA,11563,NA
+"Rhode Island","NH WHITE",24484,"12/14/20","race","case","Count",761439,24484,3215.49066963998
+"Rhode Island","NA",791,"12/14/20","race","case","Count",73167,791,1081.08846884524
+"Rhode Island","0-4",1175,"12/14/20","age","case","Count",54413,1175,2159.41043500634
+"Rhode Island","5-9",1436,"12/14/20","age","case","Count",54840,1436,2618.52662290299
+"Rhode Island","10-14",1965,"12/14/20","age","case","Count",58821,1965,3340.64364767685
+"Rhode Island","15-18",2775,"12/14/20","age","case","Count",53386,2775,5197.99198291687
+"Rhode Island","19-24",7132,"12/14/20","age","case","Count",94656,7132,7534.65179175118
+"Rhode Island","25-29",5780,"12/14/20","age","case","Count",76369,5780,7568.51602089853
+"Rhode Island","30-39",10141,"12/14/20","age","case","Count",135267,10141,7497.02440358698
+"Rhode Island","40-49",8840,"12/14/20","age","case","Count",124924,8840,7076.30239185425
+"Rhode Island","50-59",9487,"12/14/20","age","case","Count",150201,9487,6316.20295470736
+"Rhode Island","60-69",6589,"12/14/20","age","case","Count",129909,6589,5072.01194682432
+"Rhode Island","70-79",3574,"12/14/20","age","case","Count",75611,3574,4726.82546190369
+"Rhode Island","80-89",2450,"12/14/20","age","case","Count",NA,2450,NA
+"Rhode Island","90+",1521,"12/14/20","age","case","Count",NA,1521,NA
+"Rhode Island","FEMALE",33232,"12/14/20","gender","case","Count",542983,33232,6120.26527534011
+"Rhode Island","MALE",28734,"12/14/20","gender","case","Count",514332,28734,5586.66386691864
+"Rhode Island","OTHER",98,"12/14/20","gender","case","Count",NA,98,NA
+"Rhode Island","NH ASIAN",16,"12/14/20","race","death","Count",36822,16,43.4522839606757
+"Rhode Island","NH BLACK",74,"12/14/20","race","death","Count",63323,74,116.861172085972
+"Rhode Island","HISPANIC",134,"12/14/20","race","death","Count",168342,134,79.5998621853132
+"Rhode Island","NH HN/PI",0,"12/14/20","race","death",NA,676,0,0
+"Rhode Island","NH MULTI",0,"12/14/20","race","death",NA,22143,0,0
+"Rhode Island","OTHER",0,"12/14/20","race","death",NA,NA,0,NA
+"Rhode Island","UNKNOWN",223,"12/14/20","race","death","Count",NA,223,NA
+"Rhode Island","NH WHITE",983,"12/14/20","race","death","Count",761439,983,129.097669018792
+"Rhode Island","NA",0,"12/14/20","race","death",NA,73167,0,0
+"Rhode Island","0-4",0,"12/14/20","age","death",NA,54413,0,0
+"Rhode Island","5-9",0,"12/14/20","age","death",NA,54840,0,0
+"Rhode Island","10-14",0,"12/14/20","age","death",NA,58821,0,0
+"Rhode Island","15-18",0,"12/14/20","age","death",NA,53386,0,0
+"Rhode Island","19-24",0,"12/14/20","age","death",NA,94656,0,0
+"Rhode Island","25-29",0,"12/14/20","age","death",NA,76369,0,0
+"Rhode Island","30-39",8,"12/14/20","age","death","Count",135267,8,5.91422889544383
+"Rhode Island","40-49",20,"12/14/20","age","death","Count",124924,20,16.0097339182223
+"Rhode Island","50-59",59,"12/14/20","age","death","Count",150201,59,39.2806971990866
+"Rhode Island","60-69",160,"12/14/20","age","death","Count",129909,160,123.163137273014
+"Rhode Island","70-79",319,"12/14/20","age","death","Count",75611,319,421.896284932087
+"Rhode Island","80-89",470,"12/14/20","age","death","Count",NA,470,NA
+"Rhode Island","90+",388,"12/14/20","age","death","Count",NA,388,NA
+"Rhode Island","FEMALE",739,"12/14/20","gender","death","Count",542983,739,136.100025230992
+"Rhode Island","MALE",691,"12/14/20","gender","death","Count",514332,691,134.349019699338
+"Rhode Island","OTHER",0,"12/14/20","gender","death",NA,NA,0,NA
+"Rhode Island","NH AI/AN",8,"12/14/20","race","hosp","Count",4570,8,175.054704595186
+"Rhode Island","NH ASIAN",80,"12/14/20","race","hosp","Count",36822,80,217.261419803378
+"Rhode Island","NH BLACK",422,"12/14/20","race","hosp","Count",63323,422,666.424521895678
+"Rhode Island","HISPANIC",1253,"12/14/20","race","hosp","Count",168342,1253,744.318114314907
+"Rhode Island","NH HN/PI",0,"12/14/20","race","hosp",NA,676,0,0
+"Rhode Island","NH MULTI",16,"12/14/20","race","hosp","Count",22143,16,72.2575983380752
+"Rhode Island","OTHER",79,"12/14/20","race","hosp","Count",NA,79,NA
+"Rhode Island","UNKNOWN",1212,"12/14/20","race","hosp","Count",NA,1212,NA
+"Rhode Island","NH WHITE",1979,"12/14/20","race","hosp","Count",761439,1979,259.902631727558
+"Rhode Island","NA",24,"12/14/20","race","hosp","Count",73167,24,32.8016728853171
+"Rhode Island","0-4",41,"12/14/20","age","hosp","Count",54413,41,75.3496407108595
+"Rhode Island","5-9",13,"12/14/20","age","hosp","Count",54840,13,23.7053245805981
+"Rhode Island","10-14",20,"12/14/20","age","hosp","Count",58821,20,34.0014620628687
+"Rhode Island","15-18",34,"12/14/20","age","hosp","Count",53386,34,63.6871089798824
+"Rhode Island","19-24",131,"12/14/20","age","hosp","Count",94656,131,138.395875591616
+"Rhode Island","25-29",158,"12/14/20","age","hosp","Count",76369,158,206.89023032906
+"Rhode Island","30-39",337,"12/14/20","age","hosp","Count",135267,337,249.136892220571
+"Rhode Island","40-49",496,"12/14/20","age","hosp","Count",124924,496,397.041401171913
+"Rhode Island","50-59",761,"12/14/20","age","hosp","Count",150201,761,506.654416415337
+"Rhode Island","60-69",994,"12/14/20","age","hosp","Count",129909,994,765.150990308601
+"Rhode Island","70-79",1001,"12/14/20","age","hosp","Count",75611,1001,1323.88144582138
+"Rhode Island","80-89",761,"12/14/20","age","hosp","Count",NA,761,NA
+"Rhode Island","90+",325,"12/14/20","age","hosp","Count",NA,325,NA
+"Rhode Island","FEMALE",2438,"12/14/20","gender","hosp","Count",542983,2438,449.001165782354
+"Rhode Island","MALE",2604,"12/14/20","gender","hosp","Count",514332,2604,506.287767434264
+"Rhode Island","OTHER",9,"12/14/20","gender","hosp","Count",NA,9,NA
+"Rhode Island","",1758958,"12/14/20","total","test","Count",1057315,1758958,166360.82908121
+"Rhode Island","",74071,"12/14/20","total","case","Count",1057315,74071,7005.57544345819
+"Rhode Island","",1555,"12/14/20","total","death","Count",1057315,1555,147.070645928602
+"Rhode Island","",5534,"12/14/20","total","hosp","Count",1057315,5534,523.401256957482
 "South Carolina","ASIAN",0.009,"12/08/20","race","case","Percent",89962,2112,2347.65790000222
 "South Carolina","BLACK",0.229,"12/08/20","race","case","Percent",1380145,53735,3893.43148727126
 "South Carolina","OTHER",0.084,"12/08/20","race","case","Percent",NA,19711,NA
