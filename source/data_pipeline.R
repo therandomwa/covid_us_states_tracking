@@ -16,7 +16,7 @@ options(warn = -1)
 
 ### 0. load files 
 setwd("~/OneDrive - cumc.columbia.edu/Side/covid_us_states_tracking/source")
-file_date = Sys.Date() - 8# change accordingly if the editing date is not the scraping date
+file_date = Sys.Date() - 1# change accordingly if the editing date is not the scraping date
 file_date_name = file_date %>% format("%Y%m%d")
 
 # load Aijin's data
@@ -26,7 +26,7 @@ df_aw = read.csv("../Data/raw_states/meta_2021-01-05_aw.csv")
 # df_cbp = load_object("../Data/raw_states/meta_2020-09-29-cbp.rda")
 
 # load manual data
-df_lef = load_object("../manual_data/manual_data_20210105_lef.rda")
+df_lef = load_object("../manual_data/manual_data_20210106_lef.rda")
 # df_lef = df_lef %>% filter(state_name != "New York")
 # df_lef2 = load_object("../manual_data/manual_data_20200707_lef.rda")
 # df_lef = rbind.fill(df_lef, df_lef2)
